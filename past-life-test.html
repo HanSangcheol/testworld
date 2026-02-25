@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나의 전생은? 🔮 전생 테스트 | Past Life Test</title>
+<meta name="description" content="당신의 전생은 무엇이었을까요? 10가지 질문으로 알아보는 나의 전생 테스트! What was your past life? Find out with 10 fun questions!">
+<meta property="og:title" content="나의 전생은? 🔮 전생 테스트">
+<meta property="og:description" content="10가지 질문으로 알아보는 나의 전생! 결과가 너무 신기해서 공유 안 할 수가 없어요 😱">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/FFE066/333333?text=나의+전생은%3F+🔮">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- Google AdSense (실제 사용시 ca-pub-XXXXXXXXXXXXXXXX 로 교체) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --yellow: #FFE066;
+    --orange: #FF9F43;
+    --pink: #FF6B9D;
+    --purple: #A855F7;
+    --mint: #48CAE4;
+    --dark: #2D2D2D;
+    --bg: #FFFBF0;
+    --card: #FFFFFF;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 배경 도트 패턴 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #FFE066 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 상단 광고 */
+  .ad-top {
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  /* 헤더 */
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+    animation: fadeDown 0.6s ease;
+  }
+
+  .header .emoji-big {
+    font-size: 72px;
+    display: block;
+    margin-bottom: 8px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .header h1 {
+    font-family: 'Gaegu', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .header h1 span {
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* 진행바 */
+  .progress-wrap {
+    background: #eee;
+    border-radius: 99px;
+    height: 10px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--pink));
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  /* 질문 카드 */
+  .question-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    border: 2px solid #FFE066;
+    margin-bottom: 16px;
+    animation: fadeUp 0.4s ease;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-num {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+  }
+
+  .question-text {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .question-sub {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 20px;
+  }
+
+  /* 선택지 버튼 */
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .choice-btn {
+    background: #FFFBF0;
+    border: 2px solid #E8E0D0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .choice-btn:hover {
+    background: var(--yellow);
+    border-color: var(--orange);
+    transform: translateX(4px);
+  }
+
+  .choice-btn.selected {
+    background: linear-gradient(135deg, #FFE066, #FFB347);
+    border-color: var(--orange);
+    color: var(--dark);
+    transform: scale(1.02);
+  }
+
+  .choice-emoji {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  /* 중간 광고 */
+  .ad-mid {
+    background: #f5f5f5;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  /* 결과 화면 */
+  .result-screen {
+    display: none;
+    animation: fadeUp 0.6s ease;
+  }
+
+  .result-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    box-shadow: var(--shadow);
+    border: 3px solid var(--yellow);
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .result-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    background: var(--yellow);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .result-emoji {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 12px;
+    animation: bounce 0.8s ease;
+  }
+
+  @keyframes bounce {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  .result-label {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .result-title {
+    font-family: 'Gaegu', cursive;
+    font-size: 34px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+
+  .result-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .result-desc {
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 18px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .tag {
+    background: var(--yellow);
+    color: var(--dark);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* 공유 버튼 */
+  .share-section {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .share-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+  .btn-kakao { background: #FEE500; color: #3C1E1E; }
+  .btn-twitter { background: #1DA1F2; color: white; }
+  .btn-copy { background: #667eea; color: white; }
+  .btn-facebook { background: #1877F2; color: white; }
+
+  /* 다시하기 버튼 */
+  .restart-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(255,107,157,0.4);
+  }
+
+  .restart-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,157,0.5); }
+
+  /* 다른 테스트 추천 */
+  .more-tests {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+  }
+
+  .more-tests h3 {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    color: #444;
+  }
+
+  .test-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--dark);
+  }
+
+  .test-item:hover { background: var(--yellow); }
+  .test-item-emoji { font-size: 28px; }
+  .test-item-info { flex: 1; }
+  .test-item-title { font-size: 14px; font-weight: 700; }
+  .test-item-desc { font-size: 12px; color: #888; }
+
+  /* 하단 광고 */
+  .ad-bottom {
+    background: #f5f5f5;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 13px;
+    margin: 16px 0;
+  }
+
+  /* 푸터 */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+    padding: 20px 0;
+  }
+
+  /* 토스트 메시지 */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 99px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    z-index: 9999;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* 언어 전환 */
+  .lang-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: white;
+    border: 2px solid var(--yellow);
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+  }
+  .lang-toggle:hover { background: var(--yellow); }
+
+  /* 반응형 */
+  @media (max-width: 480px) {
+    .header h1 { font-size: 28px; }
+    .header .emoji-big { font-size: 56px; }
+    .question-text { font-size: 17px; }
+    .share-buttons { gap: 8px; }
+    .share-btn { padding: 10px 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 언어 전환 버튼 -->
+<button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌏 EN</button>
+
+<div class="toast" id="toast"></div>
+
+<div class="container">
+
+  <!-- 상단 광고 슬롯 -->
+  <div class="ad-top">
+    <!-- 실제 애드센스 코드로 교체 -->
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+    📢 광고 영역 (상단 배너 728x90)
+  </div>
+
+  <!-- 헤더 -->
+  <div class="header" id="headerSection">
+    <span class="emoji-big">🔮</span>
+    <h1 id="mainTitle">나의 <span>전생</span>은?</h1>
+    <p id="mainDesc">10가지 질문으로 알아보는 나의 전생 테스트<br>당신은 전생에 어떤 삶을 살았을까요? ✨</p>
+  </div>
+
+  <!-- 시작 버튼 영역 -->
+  <div id="startSection">
+    <div class="question-card" style="text-align:center">
+      <span style="font-size:48px">✨</span>
+      <p style="font-size:16px; margin:16px 0; line-height:1.7; color:#555;" id="startText">
+        전생은 과거의 삶에서 당신이 누구였는지 알려줍니다.<br>
+        10개의 질문에 솔직하게 답해보세요!<br>
+        <strong>소요시간: 약 2분</strong>
+      </p>
+      <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">
+        🔮 테스트 시작하기
+      </button>
+    </div>
+  </div>
+
+  <!-- 퀴즈 섹션 -->
+  <div id="quizSection" style="display:none">
+    <div class="progress-text" id="progressText">1 / 10</div>
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar" style="width:10%"></div>
+    </div>
+
+    <div class="question-card" id="questionCard">
+      <span class="question-num" id="questionNum">Q1</span>
+      <div class="question-text" id="questionText"></div>
+      <div class="question-sub" id="questionSub"></div>
+      <div class="choices" id="choicesContainer"></div>
+    </div>
+
+    <!-- 중간 광고 (5번째 질문 후 표시) -->
+    <div class="ad-mid" id="adMid" style="display:none">
+      <!-- <ins class="adsbygoogle" ...></ins> -->
+      📢 광고 영역 (중간 직사각형 300x250)
+    </div>
+  </div>
+
+  <!-- 결과 섹션 -->
+  <div class="result-screen" id="resultSection">
+
+    <div class="result-card">
+      <span class="result-emoji" id="resultEmoji">🧙</span>
+      <div class="result-label" id="resultLabel">당신의 전생은</div>
+      <div class="result-title" id="resultTitle">중세 마법사</div>
+      <div class="result-subtitle" id="resultSubtitle">지혜와 신비의 수호자</div>
+      <div class="result-desc" id="resultDesc"></div>
+      <div class="result-tags" id="resultTags"></div>
+    </div>
+
+    <!-- 결과 후 광고 -->
+    <div class="ad-mid">
+      <!-- <ins class="adsbygoogle" ...></ins> -->
+      📢 광고 영역 (결과 후 300x250 - 가장 높은 CTR 구간)
+    </div>
+
+    <!-- 공유 섹션 -->
+    <div class="share-section">
+      <div class="share-title" id="shareTitle">🎉 친구들에게 결과 공유하기!</div>
+      <div class="share-buttons">
+        <button class="share-btn btn-kakao" onclick="shareKakao()">
+          <span>💬</span> 카카오톡
+        </button>
+        <button class="share-btn btn-twitter" onclick="shareTwitter()">
+          <span>🐦</span> Twitter
+        </button>
+        <button class="share-btn btn-facebook" onclick="shareFacebook()">
+          <span>📘</span> Facebook
+        </button>
+        <button class="share-btn btn-copy" onclick="copyLink()">
+          <span>🔗</span> 링크복사
+        </button>
+      </div>
+    </div>
+
+    <!-- 다시하기 -->
+    <button class="restart-btn" onclick="restartTest()" id="restartBtn">🔄 다시 테스트하기</button>
+
+    <!-- 다른 테스트 추천 -->
+    <div class="more-tests">
+      <h3 id="moreTestsTitle">🎯 다른 테스트도 해보세요!</h3>
+      <a class="test-item" href="#">
+        <span class="test-item-emoji">💕</span>
+        <div class="test-item-info">
+          <div class="test-item-title">나의 연애 스타일은?</div>
+          <div class="test-item-desc">당신은 어떤 연인인가요?</div>
+        </div>
+        <span>›</span>
+      </a>
+      <a class="test-item" href="#">
+        <span class="test-item-emoji">🐾</span>
+        <div class="test-item-info">
+          <div class="test-item-title">나를 동물로 표현한다면?</div>
+          <div class="test-item-desc">나와 닮은 동물을 찾아보세요</div>
+        </div>
+        <span>›</span>
+      </a>
+      <a class="test-item" href="#">
+        <span class="test-item-emoji">🌟</span>
+        <div class="test-item-info">
+          <div class="test-item-title">숨겨진 재능 테스트</div>
+          <div class="test-item-desc">당신만 모르는 나의 특기는?</div>
+        </div>
+        <span>›</span>
+      </a>
+    </div>
+
+    <!-- 하단 광고 -->
+    <div class="ad-bottom">
+      <!-- <ins class="adsbygoogle" ...></ins> -->
+      📢 광고 영역 (하단 배너)
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>© 2024 나의 전생 테스트 · <a href="#" style="color:#bbb">개인정보처리방침</a></p>
+  </div>
+
+</div>
+
+<script>
+// ========================================
+// 언어 데이터
+// ========================================
+const lang = {
+  ko: {
+    mainTitle: '나의 <span>전생</span>은?',
+    mainDesc: '10가지 질문으로 알아보는 나의 전생 테스트<br>당신은 전생에 어떤 삶을 살았을까요? ✨',
+    startText: '전생은 과거의 삶에서 당신이 누구였는지 알려줍니다.<br>10개의 질문에 솔직하게 답해보세요!<br><strong>소요시간: 약 2분</strong>',
+    startBtn: '🔮 테스트 시작하기',
+    resultLabel: '당신의 전생은',
+    shareTitle: '🎉 친구들에게 결과 공유하기!',
+    restartBtn: '🔄 다시 테스트하기',
+    moreTestsTitle: '🎯 다른 테스트도 해보세요!',
+    copySuccess: '🔗 링크가 복사되었어요!',
+    langToggle: '🌏 EN',
+  },
+  en: {
+    mainTitle: 'What was your <span>Past Life</span>?',
+    mainDesc: 'Discover your past life with 10 fun questions!<br>Who were you in a previous life? ✨',
+    startText: 'Your past life reveals who you were in a previous existence.<br>Answer 10 questions honestly!<br><strong>Takes about 2 minutes</strong>',
+    startBtn: '🔮 Start Test',
+    resultLabel: 'Your Past Life Was',
+    shareTitle: '🎉 Share Your Result!',
+    restartBtn: '🔄 Try Again',
+    moreTestsTitle: '🎯 Try More Tests!',
+    copySuccess: '🔗 Link copied!',
+    langToggle: '🇰🇷 KR',
+  }
+};
+
+// ========================================
+// 질문 데이터 (한국어/영어)
+// ========================================
+const questions = {
+  ko: [
+    {
+      q: "주말 오후, 당신이 가장 끌리는 활동은?",
+      sub: "직관적으로 선택해보세요",
+      choices: [
+        { emoji: "📚", text: "혼자 책을 읽거나 공부한다", type: "A" },
+        { emoji: "⚔️", text: "운동이나 격렬한 활동을 즐긴다", type: "B" },
+        { emoji: "🎨", text: "그림을 그리거나 창작 활동을 한다", type: "C" },
+        { emoji: "👥", text: "친구들과 어울려 즐거운 시간을 보낸다", type: "D" },
+      ]
+    },
+    {
+      q: "당신이 이유 모르게 끌리는 장소는?",
+      sub: "가장 매력적으로 느껴지는 곳",
+      choices: [
+        { emoji: "🏰", text: "웅장한 성이나 궁궐", type: "A" },
+        { emoji: "🌊", text: "드넓은 바다나 항구", type: "B" },
+        { emoji: "🌲", text: "고요한 숲이나 산속", type: "C" },
+        { emoji: "🏙️", text: "활기찬 시장이나 도시", type: "D" },
+      ]
+    },
+    {
+      q: "위기 상황에서 당신은 어떻게 행동하나요?",
+      sub: "가장 자연스러운 반응",
+      choices: [
+        { emoji: "🧠", text: "침착하게 분석하고 해결책을 찾는다", type: "A" },
+        { emoji: "💪", text: "앞장서서 직접 해결하려 한다", type: "B" },
+        { emoji: "🙏", text: "직관과 감을 믿고 행동한다", type: "C" },
+        { emoji: "🤝", text: "주변 사람들과 협력하여 함께 해결한다", type: "D" },
+      ]
+    },
+    {
+      q: "당신의 꿈에 자주 등장하는 것은?",
+      sub: "선명하게 기억나는 꿈",
+      choices: [
+        { emoji: "🌌", text: "광활한 하늘과 별", type: "A" },
+        { emoji: "🗡️", text: "전쟁터나 싸움 장면", type: "B" },
+        { emoji: "🌺", text: "아름다운 정원이나 자연", type: "C" },
+        { emoji: "🎭", text: "사람들 앞에서 무언가를 하는 장면", type: "D" },
+      ]
+    },
+    {
+      q: "당신이 갑자기 특기가 있다면?",
+      sub: "별로 배운 적 없는데 이상하게 잘 하는 것",
+      choices: [
+        { emoji: "🔮", text: "사람의 마음을 꿰뚫어보는 통찰력", type: "A" },
+        { emoji: "🏇", text: "말을 타거나 무기를 다루는 것", type: "B" },
+        { emoji: "🎵", text: "음악이나 예술 관련 재능", type: "C" },
+        { emoji: "📣", text: "사람들을 설득하고 이끄는 능력", type: "D" },
+      ]
+    },
+    {
+      q: "어떤 시대의 옷이 가장 자연스럽게 느껴지나요?",
+      sub: "입어보고 싶은 스타일",
+      choices: [
+        { emoji: "🧙", text: "중세 시대의 긴 로브", type: "A" },
+        { emoji: "⚔️", text: "갑옷이나 전사의 복장", type: "B" },
+        { emoji: "👘", text: "동양 전통 의상 (한복, 기모노 등)", type: "C" },
+        { emoji: "👑", text: "화려한 왕실 의상", type: "D" },
+      ]
+    },
+    {
+      q: "당신이 가장 소중히 여기는 가치는?",
+      sub: "삶에서 가장 중요한 것",
+      choices: [
+        { emoji: "💡", text: "지식과 진실 탐구", type: "A" },
+        { emoji: "🛡️", text: "명예와 용기", type: "B" },
+        { emoji: "💞", text: "자유와 사랑", type: "C" },
+        { emoji: "🌍", text: "공동체와 화합", type: "D" },
+      ]
+    },
+    {
+      q: "당신이 가장 후회할 것 같은 일은?",
+      sub: "깊은 내면의 두려움",
+      choices: [
+        { emoji: "📖", text: "배움의 기회를 놓치는 것", type: "A" },
+        { emoji: "🤺", text: "불의 앞에서 물러서는 것", type: "B" },
+        { emoji: "🌿", text: "진정한 자아를 숨기며 사는 것", type: "C" },
+        { emoji: "💔", text: "사랑하는 사람들을 잃는 것", type: "D" },
+      ]
+    },
+    {
+      q: "낯선 곳에 처음 갔을 때 드는 감정은?",
+      sub: "새로운 환경에서의 첫 반응",
+      choices: [
+        { emoji: "🔍", text: "모든 것이 궁금해서 탐험하고 싶다", type: "A" },
+        { emoji: "⚡", text: "에너지가 넘치고 흥분된다", type: "B" },
+        { emoji: "✨", text: "신비롭고 영적인 기운을 느낀다", type: "C" },
+        { emoji: "🌟", text: "어떤 사람들이 있는지 궁금하다", type: "D" },
+      ]
+    },
+    {
+      q: "마지막으로, 전생에 대한 당신의 느낌은?",
+      sub: "직관적으로 답해보세요",
+      choices: [
+        { emoji: "🔮", text: "강력한 힘을 가진 존재였을 것 같다", type: "A" },
+        { emoji: "⚔️", text: "전쟁과 모험으로 가득찬 삶이었을 것 같다", type: "B" },
+        { emoji: "🌸", text: "자연 속에서 조용히 살았을 것 같다", type: "C" },
+        { emoji: "👑", text: "많은 사람들과 함께했던 삶이었을 것 같다", type: "D" },
+      ]
+    },
+  ],
+  en: [
+    {
+      q: "On a free weekend afternoon, what activity calls to you?",
+      sub: "Go with your gut feeling",
+      choices: [
+        { emoji: "📚", text: "Reading or studying alone", type: "A" },
+        { emoji: "⚔️", text: "Sports or intense physical activity", type: "B" },
+        { emoji: "🎨", text: "Drawing, painting, or creating", type: "C" },
+        { emoji: "👥", text: "Hanging out with friends", type: "D" },
+      ]
+    },
+    {
+      q: "Which place draws you in for no clear reason?",
+      sub: "The place you find most magnetic",
+      choices: [
+        { emoji: "🏰", text: "Grand castles or palaces", type: "A" },
+        { emoji: "🌊", text: "Open seas or harbors", type: "B" },
+        { emoji: "🌲", text: "Quiet forests or mountains", type: "C" },
+        { emoji: "🏙️", text: "Lively markets or cities", type: "D" },
+      ]
+    },
+    {
+      q: "How do you react in a crisis?",
+      sub: "Your most natural response",
+      choices: [
+        { emoji: "🧠", text: "Analyze calmly and find a solution", type: "A" },
+        { emoji: "💪", text: "Take the lead and tackle it head-on", type: "B" },
+        { emoji: "🙏", text: "Trust your intuition and act on instinct", type: "C" },
+        { emoji: "🤝", text: "Rally people together to solve it", type: "D" },
+      ]
+    },
+    {
+      q: "What appears most often in your dreams?",
+      sub: "Vivid dream imagery you recall",
+      choices: [
+        { emoji: "🌌", text: "Vast skies and stars", type: "A" },
+        { emoji: "🗡️", text: "Battlefields or fights", type: "B" },
+        { emoji: "🌺", text: "Beautiful gardens or nature", type: "C" },
+        { emoji: "🎭", text: "Performing in front of people", type: "D" },
+      ]
+    },
+    {
+      q: "What skill seems oddly natural to you?",
+      sub: "Something you're good at without much practice",
+      choices: [
+        { emoji: "🔮", text: "Reading people and deep insight", type: "A" },
+        { emoji: "🏇", text: "Riding horses or handling weapons", type: "B" },
+        { emoji: "🎵", text: "Music or artistic expression", type: "C" },
+        { emoji: "📣", text: "Persuading and leading people", type: "D" },
+      ]
+    },
+    {
+      q: "Which style of clothing feels most natural to you?",
+      sub: "What you'd love to wear",
+      choices: [
+        { emoji: "🧙", text: "Medieval flowing robes", type: "A" },
+        { emoji: "⚔️", text: "Armor or warrior's outfit", type: "B" },
+        { emoji: "👘", text: "Eastern traditional garments", type: "C" },
+        { emoji: "👑", text: "Lavish royal court attire", type: "D" },
+      ]
+    },
+    {
+      q: "What do you value most in life?",
+      sub: "Your core guiding principle",
+      choices: [
+        { emoji: "💡", text: "Knowledge and truth", type: "A" },
+        { emoji: "🛡️", text: "Honor and courage", type: "B" },
+        { emoji: "💞", text: "Freedom and love", type: "C" },
+        { emoji: "🌍", text: "Community and harmony", type: "D" },
+      ]
+    },
+    {
+      q: "What would you regret most?",
+      sub: "Your deepest inner fear",
+      choices: [
+        { emoji: "📖", text: "Missing out on learning", type: "A" },
+        { emoji: "🤺", text: "Backing down from injustice", type: "B" },
+        { emoji: "🌿", text: "Hiding your true self", type: "C" },
+        { emoji: "💔", text: "Losing the people you love", type: "D" },
+      ]
+    },
+    {
+      q: "How do you feel arriving in an unfamiliar place?",
+      sub: "Your immediate reaction to new environments",
+      choices: [
+        { emoji: "🔍", text: "Curious and eager to explore everything", type: "A" },
+        { emoji: "⚡", text: "Energized and excited", type: "B" },
+        { emoji: "✨", text: "A mysterious or spiritual feeling", type: "C" },
+        { emoji: "🌟", text: "Curious about the people here", type: "D" },
+      ]
+    },
+    {
+      q: "Finally, what's your gut feeling about your past life?",
+      sub: "Trust your intuition",
+      choices: [
+        { emoji: "🔮", text: "I was a powerful, mystical being", type: "A" },
+        { emoji: "⚔️", text: "My life was full of war and adventure", type: "B" },
+        { emoji: "🌸", text: "I lived quietly close to nature", type: "C" },
+        { emoji: "👑", text: "I was surrounded by many people", type: "D" },
+      ]
+    },
+  ]
+};
+
+// ========================================
+// 결과 데이터
+// ========================================
+const results = {
+  ko: {
+    A: {
+      emoji: "🧙‍♂️",
+      title: "중세 마법사",
+      subtitle: "지혜와 신비의 수호자",
+      desc: "당신의 전생은 마법과 지식을 다루던 마법사였습니다! 수백 권의 책이 가득한 탑 꼭대기에서 별의 움직임을 관찰하며 우주의 비밀을 탐구했죠. 사람들은 당신의 깊은 통찰력과 예지력을 두려워하면서도 존경했어요. 당신이 가진 타고난 호기심과 분석력, 그리고 남다른 직관은 바로 그 시절의 흔적입니다. ✨",
+      tags: ["#지혜로운", "#신비로운", "#탐구하는", "#통찰력있는"]
+    },
+    B: {
+      emoji: "⚔️",
+      title: "용맹한 전사",
+      subtitle: "명예와 용기의 화신",
+      desc: "당신의 전생은 전쟁터를 누비던 용맹스러운 전사였습니다! 형형색색의 깃발이 나부끼는 전장에서 동료들을 이끌고 끝까지 싸웠죠. 불의를 보면 참지 못하고, 약자를 보면 반드시 돕는 성격은 바로 전생의 기억입니다. 당신의 강인한 의지와 리더십은 그 시절부터 이어져 온 것이에요. 🛡️",
+      tags: ["#용감한", "#정의로운", "#리더십", "#불굴의의지"]
+    },
+    C: {
+      emoji: "🌸",
+      title: "동양의 신선",
+      subtitle: "자연과 하나된 영혼",
+      desc: "당신의 전생은 자연 속에서 도를 닦던 신선이었습니다! 안개 자욱한 산속에서 꽃과 새들과 이야기하며 세상의 이치를 깨달았죠. 세속적인 것에 얽매이지 않고 자유롭게 살았던 그 시절, 당신의 영혼은 가장 빛났습니다. 지금도 자연 속에서 평화를 찾고, 예술에서 감동받는 것은 그 기억 때문이에요. 🍃",
+      tags: ["#자유로운", "#예술적인", "#자연친화", "#영적인"]
+    },
+    D: {
+      emoji: "👑",
+      title: "왕국의 군주",
+      subtitle: "사람들을 이끄는 리더",
+      desc: "당신의 전생은 드넓은 왕국을 다스리던 군주였습니다! 화려한 왕좌에 앉아 백성들의 이야기를 듣고 현명한 판단을 내렸죠. 사람들과 함께할 때 에너지가 넘치고, 자연스럽게 주목받는 것은 바로 전생의 군주 기질 때문입니다. 당신의 카리스마와 사교성은 수백 년 전부터 이어진 것이에요. 👑",
+      tags: ["#카리스마", "#사교적인", "#리더십", "#영향력있는"]
+    }
+  },
+  en: {
+    A: {
+      emoji: "🧙‍♂️",
+      title: "Medieval Wizard",
+      subtitle: "Guardian of Wisdom & Mystery",
+      desc: "Your past life was as a wizard who wielded magic and knowledge! From the top of a tower filled with hundreds of books, you observed the stars and sought the secrets of the universe. People both feared and revered your deep insight and foresight. Your natural curiosity, analytical mind, and unique intuition are remnants of that era. ✨",
+      tags: ["#Wise", "#Mysterious", "#Curious", "#Insightful"]
+    },
+    B: {
+      emoji: "⚔️",
+      title: "Brave Warrior",
+      subtitle: "The Embodiment of Honor & Courage",
+      desc: "Your past life was as a brave warrior who roamed battlefields! You led your comrades under colorful banners and fought to the very end. Your inability to ignore injustice and your instinct to protect the weak are memories from your past life. Your iron will and leadership have carried over from that era. 🛡️",
+      tags: ["#Brave", "#Righteous", "#Leader", "#Determined"]
+    },
+    C: {
+      emoji: "🌸",
+      title: "Eastern Sage",
+      subtitle: "A Soul One with Nature",
+      desc: "Your past life was as a sage cultivating wisdom in nature! In misty mountains, you conversed with flowers and birds and awakened to the principles of the world. In that life, free from worldly attachments, your soul shone brightest. Your love for finding peace in nature and being moved by art today is because of those memories. 🍃",
+      tags: ["#Free-spirited", "#Artistic", "#Nature-loving", "#Spiritual"]
+    },
+    D: {
+      emoji: "👑",
+      title: "Royal Monarch",
+      subtitle: "A Leader Who Guides the People",
+      desc: "Your past life was as a monarch ruling over a vast kingdom! Seated on a glorious throne, you listened to your people and made wise decisions. Feeling energized when with others and naturally commanding attention is due to your royal nature from a past life. Your charisma and sociability have been passed down from hundreds of years ago. 👑",
+      tags: ["#Charismatic", "#Social", "#Leader", "#Influential"]
+    }
+  }
+};
+
+// ========================================
+// 게임 상태
+// ========================================
+let currentLang = 'ko';
+let currentQuestion = 0;
+let scores = { A: 0, B: 0, C: 0, D: 0 };
+
+// ========================================
+// 언어 전환
+// ========================================
+function toggleLang() {
+  currentLang = currentLang === 'ko' ? 'en' : 'ko';
+  document.getElementById('langBtn').textContent = lang[currentLang].langToggle;
+  document.getElementById('mainTitle').innerHTML = lang[currentLang].mainTitle;
+  document.getElementById('mainDesc').innerHTML = lang[currentLang].mainDesc;
+  document.getElementById('startText').innerHTML = lang[currentLang].startText;
+  document.getElementById('startBtn').textContent = lang[currentLang].startBtn;
+  document.getElementById('shareTitle').textContent = lang[currentLang].shareTitle;
+  document.getElementById('restartBtn').textContent = lang[currentLang].restartBtn;
+  document.getElementById('moreTestsTitle').textContent = lang[currentLang].moreTestsTitle;
+  document.documentElement.lang = currentLang;
+
+  // 퀴즈 진행 중이면 현재 질문 다시 렌더링
+  if (document.getElementById('quizSection').style.display !== 'none') {
+    renderQuestion();
+  }
+}
+
+// ========================================
+// 테스트 시작
+// ========================================
+function startTest() {
+  currentQuestion = 0;
+  scores = { A: 0, B: 0, C: 0, D: 0 };
+  document.getElementById('startSection').style.display = 'none';
+  document.getElementById('quizSection').style.display = 'block';
+  renderQuestion();
+}
+
+// ========================================
+// 질문 렌더링
+// ========================================
+function renderQuestion() {
+  const q = questions[currentLang][currentQuestion];
+  const total = questions[currentLang].length;
+
+  document.getElementById('progressText').textContent = `${currentQuestion + 1} / ${total}`;
+  document.getElementById('progressBar').style.width = `${((currentQuestion + 1) / total) * 100}%`;
+  document.getElementById('questionNum').textContent = `Q${currentQuestion + 1}`;
+  document.getElementById('questionText').textContent = q.q;
+  document.getElementById('questionSub').textContent = q.sub;
+
+  const container = document.getElementById('choicesContainer');
+  container.innerHTML = '';
+  q.choices.forEach((choice) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = `<span class="choice-emoji">${choice.emoji}</span><span>${choice.text}</span>`;
+    btn.onclick = () => selectChoice(choice.type, btn);
+    container.appendChild(btn);
+  });
+
+  // 5번째 질문 후 광고 표시
+  document.getElementById('adMid').style.display = currentQuestion === 5 ? 'flex' : 'none';
+}
+
+// ========================================
+// 선택지 클릭
+// ========================================
+function selectChoice(type, btn) {
+  // 이미 선택된 경우 무시
+  if (document.querySelector('.choice-btn.selected')) return;
+
+  btn.classList.add('selected');
+  scores[type]++;
+
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion < questions[currentLang].length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }, 400);
+}
+
+// ========================================
+// 결과 표시
+// ========================================
+function showResult() {
+  document.getElementById('quizSection').style.display = 'none';
+  document.getElementById('resultSection').style.display = 'block';
+  document.getElementById('headerSection').style.display = 'none';
+
+  const topType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+  const result = results[currentLang][topType];
+
+  document.getElementById('resultEmoji').textContent = result.emoji;
+  document.getElementById('resultLabel').textContent = currentLang === 'ko' ? '당신의 전생은' : 'Your Past Life Was';
+  document.getElementById('resultTitle').textContent = result.title;
+  document.getElementById('resultSubtitle').textContent = result.subtitle;
+  document.getElementById('resultDesc').textContent = result.desc;
+
+  const tagsContainer = document.getElementById('resultTags');
+  tagsContainer.innerHTML = '';
+  result.tags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'tag';
+    span.textContent = tag;
+    tagsContainer.appendChild(span);
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 애드센스 새로고침 (실제 사용시)
+  // if (typeof adsbygoogle !== 'undefined') { (adsbygoogle = window.adsbygoogle || []).push({}); }
+}
+
+// ========================================
+// 공유 기능
+// ========================================
+function getShareText() {
+  const topType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+  const result = results[currentLang][topType];
+  if (currentLang === 'ko') {
+    return `나의 전생은 "${result.title}"이래! 😱 너는 뭐야? 🔮`;
+  } else {
+    return `My past life was "${result.title}"! 😱 What's yours? 🔮`;
+  }
+}
+
+function shareKakao() {
+  // 카카오 SDK 사용시 아래 코드 활성화
+  // Kakao.Share.sendDefault({ ... });
+  // 임시: 링크 복사로 대체
+  const text = getShareText();
+  const url = window.location.href;
+  showToast(currentLang === 'ko' ? '카카오톡 공유는 SDK 연동 후 사용 가능해요!' : 'Kakao share requires SDK integration!');
+}
+
+function shareTwitter() {
+  const text = encodeURIComponent(getShareText());
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+}
+
+function shareFacebook() {
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+}
+
+function copyLink() {
+  const topType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+  const result = results[currentLang][topType];
+  const text = `${getShareText()}\n${window.location.href}`;
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(lang[currentLang].copySuccess);
+    });
+  } else {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast(lang[currentLang].copySuccess);
+  }
+}
+
+// ========================================
+// 다시하기
+// ========================================
+function restartTest() {
+  document.getElementById('resultSection').style.display = 'none';
+  document.getElementById('headerSection').style.display = 'block';
+  document.getElementById('startSection').style.display = 'block';
+  scores = { A: 0, B: 0, C: 0, D: 0 };
+  currentQuestion = 0;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ========================================
+// 토스트 메시지
+// ========================================
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+</script>
+
+</body>
+</html>

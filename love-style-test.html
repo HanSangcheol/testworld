@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나의 연애 스타일은? 💕 연애 심리테스트 | Love Style Test</title>
+<meta name="description" content="당신의 연애 스타일은 무엇인가요? 10가지 질문으로 알아보는 나의 연애 유형! What's your love style? Find out with 10 fun questions!">
+<meta property="og:title" content="나의 연애 스타일은? 💕">
+<meta property="og:description" content="10가지 질문으로 알아보는 나의 연애 스타일! 결과가 너무 공감돼서 공유 안 할 수가 없어요 💘">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/FFB6C1/333333?text=나의+연애+스타일은%3F+💕">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- Google AdSense (실제 사용시 교체) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --pink:    #FF6B9D;
+    --rose:    #FF8FAB;
+    --peach:   #FFCBA4;
+    --yellow:  #FFE066;
+    --purple:  #C77DFF;
+    --mint:    #72EFDD;
+    --dark:    #2D2233;
+    --bg:      #FFF5F8;
+    --card:    #FFFFFF;
+    --shadow:  0 6px 28px rgba(255,107,157,0.12);
+    --radius:  22px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 배경 하트 패턴 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,107,157,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(199,125,255,0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 광고 슬롯 */
+  .ad-slot {
+    background: #f8f0f4;
+    border: 2px dashed #e8c0d0;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c9a0b0;
+    font-size: 13px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .ad-top    { height: 90px; }
+  .ad-mid    { height: 250px; margin: 20px 0; display: none; }
+  .ad-result { height: 250px; margin: 16px 0; }
+  .ad-bottom { height: 90px; margin: 16px 0; }
+
+  /* 언어 버튼 */
+  .lang-toggle {
+    position: fixed;
+    top: 16px; right: 16px;
+    background: white;
+    border: 2px solid var(--pink);
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 13px; font-weight: 700;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    transition: all .2s;
+  }
+  .lang-toggle:hover { background: var(--pink); color: white; }
+
+  /* 헤더 */
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+    animation: fadeDown .6s ease;
+  }
+  .header .emoji-big {
+    font-size: 76px;
+    display: block;
+    margin-bottom: 8px;
+    animation: heartbeat 1.6s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    14%     { transform: scale(1.15); }
+    28%     { transform: scale(1); }
+    42%     { transform: scale(1.1); }
+    70%     { transform: scale(1); }
+  }
+  .header h1 {
+    font-family: 'Gaegu', cursive;
+    font-size: 36px; font-weight: 700;
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .header h1 span {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header p { font-size: 15px; color: #888; line-height: 1.7; }
+
+  /* 시작 카드 */
+  .start-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    box-shadow: var(--shadow);
+    border: 2px solid #FFD6E7;
+    text-align: center;
+    animation: fadeUp .5s ease;
+  }
+  .start-card p {
+    font-size: 15px; color: #666;
+    line-height: 1.8; margin: 16px 0 24px;
+  }
+
+  /* 진행바 */
+  .progress-label {
+    text-align: center;
+    font-size: 13px; color: #aaa;
+    margin-bottom: 6px;
+  }
+  .progress-wrap {
+    background: #f0e0ea;
+    border-radius: 99px;
+    height: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+    border-radius: 99px;
+    transition: width .4s ease;
+  }
+
+  /* 질문 카드 */
+  .question-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 28px 22px;
+    box-shadow: var(--shadow);
+    border: 2px solid #FFD6E7;
+    margin-bottom: 16px;
+    animation: fadeUp .4s ease;
+  }
+  .question-num {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white;
+    font-size: 12px; font-weight: 800;
+    padding: 4px 13px;
+    border-radius: 99px;
+    margin-bottom: 14px;
+  }
+  .question-text {
+    font-size: 19px; font-weight: 700;
+    line-height: 1.5; margin-bottom: 4px;
+  }
+  .question-sub { font-size: 13px; color: #bbb; margin-bottom: 22px; }
+
+  /* 선택지 */
+  .choices { display: flex; flex-direction: column; gap: 10px; }
+  .choice-btn {
+    background: #FFF5F8;
+    border: 2px solid #FFD6E7;
+    border-radius: 15px;
+    padding: 14px 18px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--dark);
+    cursor: pointer;
+    text-align: left;
+    transition: all .2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .choice-btn:hover {
+    background: #FFE4EF;
+    border-color: var(--pink);
+    transform: translateX(5px);
+  }
+  .choice-btn.selected {
+    background: linear-gradient(135deg, #FF6B9D22, #C77DFF22);
+    border-color: var(--pink);
+    transform: scale(1.02);
+  }
+  .choice-emoji { font-size: 22px; flex-shrink: 0; }
+
+  /* ===== 결과 화면 ===== */
+  .result-screen { display: none; }
+
+  /* 결과 타입 카드 */
+  .result-hero {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 36px 24px 28px;
+    box-shadow: var(--shadow);
+    border: 3px solid;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp .6s ease;
+  }
+  .result-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: -50px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    opacity: .15;
+  }
+  .result-big-emoji {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 10px;
+    animation: bounceIn .7s ease;
+  }
+  @keyframes bounceIn {
+    0%   { transform: scale(0) rotate(-15deg); }
+    60%  { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+  .result-badge {
+    display: inline-block;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border-radius: 99px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .result-name {
+    font-family: 'Gaegu', cursive;
+    font-size: 36px; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .result-tagline {
+    font-size: 15px; color: #888;
+    margin-bottom: 22px;
+  }
+
+  /* 특성 바 */
+  .traits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .trait-item {
+    background: #FFF5F8;
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .trait-label {
+    font-size: 11px; font-weight: 800;
+    color: #aaa; margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .trait-bar-wrap {
+    background: #f0e0ea;
+    border-radius: 99px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .trait-bar {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+    transition: width 1s ease .3s;
+  }
+  .trait-val {
+    font-size: 12px; font-weight: 800;
+    color: var(--pink);
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  /* 설명 카드 */
+  .result-desc-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 2px solid #FFD6E7;
+    margin-bottom: 16px;
+    animation: fadeUp .6s ease .1s both;
+  }
+  .result-desc-card h3 {
+    font-size: 15px; font-weight: 800;
+    color: var(--pink);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .result-desc-card p {
+    font-size: 15px; line-height: 1.85;
+    color: #555;
+  }
+
+  /* 궁합 카드 */
+  .compat-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 2px solid #FFD6E7;
+    margin-bottom: 16px;
+    animation: fadeUp .6s ease .2s both;
+  }
+  .compat-card h3 {
+    font-size: 15px; font-weight: 800;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .compat-row {
+    display: flex; gap: 10px;
+  }
+  .compat-item {
+    flex: 1;
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .compat-good { background: #FFF0F5; border: 2px solid #FFB6C1; }
+  .compat-bad  { background: #F5F5FF; border: 2px solid #C9C9FF; }
+  .compat-item .ci-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
+  .compat-item .ci-label { font-size: 11px; color: #aaa; font-weight: 800; margin-bottom: 4px; }
+  .compat-item .ci-name  { font-size: 14px; font-weight: 800; }
+
+  /* 태그 */
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+  .tag {
+    background: linear-gradient(135deg, #FFE4EF, #EDE4FF);
+    color: var(--dark);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px; font-weight: 700;
+  }
+
+  /* 공유 */
+  .share-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 16px;
+    animation: fadeUp .6s ease .3s both;
+  }
+  .share-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+  .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .share-btn {
+    display: flex; align-items: center; gap: 7px;
+    padding: 12px 18px;
+    border-radius: 13px;
+    border: none;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,.15); }
+  .btn-kakao    { background: #FEE500; color: #3C1E1E; }
+  .btn-twitter  { background: #1DA1F2; color: white; }
+  .btn-facebook { background: #1877F2; color: white; }
+  .btn-copy     { background: linear-gradient(135deg,var(--pink),var(--purple)); color: white; }
+
+  /* 다시하기 */
+  .restart-btn {
+    width: 100%;
+    padding: 17px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; border: none;
+    border-radius: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 17px; font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 16px;
+    box-shadow: 0 5px 18px rgba(255,107,157,.4);
+    transition: all .2s;
+    animation: fadeUp .6s ease .4s both;
+  }
+  .restart-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,157,.5); }
+
+  /* 더 보기 */
+  .more-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    animation: fadeUp .6s ease .5s both;
+  }
+  .more-card h3 { font-size: 15px; font-weight: 800; color: #555; margin-bottom: 14px; }
+  .more-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px;
+    background: var(--bg);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none; color: var(--dark);
+  }
+  .more-item:hover { background: #FFE4EF; }
+  .more-item-emoji { font-size: 28px; }
+  .more-item-info  { flex: 1; }
+  .more-item-title { font-size: 14px; font-weight: 700; }
+  .more-item-sub   { font-size: 12px; color: #aaa; }
+
+  /* 푸터 */
+  .footer { text-align: center; font-size: 12px; color: #ccc; padding: 20px 0; }
+
+  /* 토스트 */
+  .toast {
+    position: fixed;
+    bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #333; color: white;
+    padding: 12px 26px;
+    border-radius: 99px;
+    font-size: 14px; font-weight: 700;
+    transition: transform .3s; z-index: 9999;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* 애니메이션 */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 반응형 */
+  @media (max-width: 480px) {
+    .header h1       { font-size: 28px; }
+    .header .emoji-big { font-size: 60px; }
+    .question-text   { font-size: 17px; }
+    .result-name     { font-size: 28px; }
+    .traits          { grid-template-columns: 1fr; }
+    .share-btn       { padding: 10px 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌏 EN</button>
+<div class="toast" id="toast"></div>
+
+<div class="container">
+
+  <!-- 상단 광고 -->
+  <div class="ad-slot ad-top">
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+    📢 광고 영역 (상단 배너 728×90)
+  </div>
+
+  <!-- 헤더 -->
+  <div class="header" id="headerSection">
+    <span class="emoji-big">💕</span>
+    <h1 id="mainTitle">나의 <span>연애 스타일</span>은?</h1>
+    <p id="mainDesc">10가지 질문으로 알아보는 나의 연애 유형<br>당신은 어떤 방식으로 사랑하나요? 💘</p>
+  </div>
+
+  <!-- 시작 섹션 -->
+  <div id="startSection">
+    <div class="start-card">
+      <span style="font-size:52px">💌</span>
+      <p id="startText">
+        연애에도 각자의 스타일이 있어요.<br>
+        10개의 솔직한 질문으로 당신만의 연애 유형을 발견해보세요!<br>
+        <strong>소요시간: 약 2분</strong>
+      </p>
+      <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">
+        💕 테스트 시작하기
+      </button>
+    </div>
+  </div>
+
+  <!-- 퀴즈 섹션 -->
+  <div id="quizSection" style="display:none">
+    <div class="progress-label" id="progressLabel">1 / 10</div>
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar" style="width:10%"></div>
+    </div>
+    <div class="question-card" id="questionCard">
+      <span class="question-num" id="questionNum">Q1</span>
+      <div class="question-text" id="questionText"></div>
+      <div class="question-sub"  id="questionSub"></div>
+      <div class="choices"       id="choicesContainer"></div>
+    </div>
+    <div class="ad-slot ad-mid" id="adMid">
+      📢 광고 영역 (중간 300×250)
+    </div>
+  </div>
+
+  <!-- 결과 섹션 -->
+  <div class="result-screen" id="resultSection">
+
+    <!-- 결과 히어로 -->
+    <div class="result-hero" id="resultHero">
+      <span class="result-big-emoji" id="resultEmoji">💕</span>
+      <div class="result-badge"  id="resultBadge">연애 유형</div>
+      <div class="result-name"   id="resultName">로맨틱 드리머</div>
+      <div class="result-tagline" id="resultTagline">꿈꾸는 연인</div>
+      <div class="traits" id="traitsContainer"></div>
+      <div class="tags-wrap" id="tagsContainer"></div>
+    </div>
+
+    <!-- 설명 -->
+    <div class="result-desc-card">
+      <h3 id="descTitle">💬 연애 스타일 분석</h3>
+      <p id="resultDesc"></p>
+    </div>
+
+    <!-- 궁합 -->
+    <div class="compat-card">
+      <h3 id="compatTitle">💞 궁합 유형</h3>
+      <div class="compat-row">
+        <div class="compat-item compat-good">
+          <span class="ci-emoji" id="compatGoodEmoji">✨</span>
+          <div class="ci-label" id="compatGoodLabel">잘 맞아요</div>
+          <div class="ci-name"  id="compatGoodName">감성 표현형</div>
+        </div>
+        <div class="compat-item compat-bad">
+          <span class="ci-emoji" id="compatBadEmoji">⚡</span>
+          <div class="ci-label" id="compatBadLabel">조심하세요</div>
+          <div class="ci-name"  id="compatBadName">현실 분석형</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결과 후 광고 (가장 CTR 높은 구간) -->
+    <div class="ad-slot ad-result">
+      <!-- <ins class="adsbygoogle" ...></ins> -->
+      📢 광고 영역 (결과 직후 300×250 — 최고 CTR)
+    </div>
+
+    <!-- 공유 -->
+    <div class="share-card">
+      <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
+      <div class="share-buttons">
+        <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
+        <button class="share-btn btn-twitter"  onclick="shareTwitter()">🐦 Twitter</button>
+        <button class="share-btn btn-facebook" onclick="shareFacebook()">📘 Facebook</button>
+        <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
+      </div>
+    </div>
+
+    <!-- 다시하기 -->
+    <button class="restart-btn" onclick="restartTest()" id="restartBtn">🔄 다시 테스트하기</button>
+
+    <!-- 더 보기 -->
+    <div class="more-card">
+      <h3 id="moreTitle">🎯 다른 테스트도 해보세요!</h3>
+      <a class="more-item" href="past-life-test.html">
+        <span class="more-item-emoji">🔮</span>
+        <div class="more-item-info">
+          <div class="more-item-title">나의 전생은?</div>
+          <div class="more-item-sub">당신은 전생에 어떤 삶을 살았을까요?</div>
+        </div><span>›</span>
+      </a>
+      <a class="more-item" href="#">
+        <span class="more-item-emoji">🐾</span>
+        <div class="more-item-info">
+          <div class="more-item-title">나를 동물로 표현한다면?</div>
+          <div class="more-item-sub">나와 닮은 동물을 찾아보세요</div>
+        </div><span>›</span>
+      </a>
+      <a class="more-item" href="#">
+        <span class="more-item-emoji">🌟</span>
+        <div class="more-item-info">
+          <div class="more-item-title">숨겨진 재능 테스트</div>
+          <div class="more-item-sub">당신만 모르는 나의 특기는?</div>
+        </div><span>›</span>
+      </a>
+    </div>
+
+    <!-- 하단 광고 -->
+    <div class="ad-slot ad-bottom">
+      📢 광고 영역 (하단 배너)
+    </div>
+
+  </div>
+
+  <div class="footer">© 2024 연애 스타일 테스트 · <a href="#" style="color:#ddd">개인정보처리방침</a></div>
+</div>
+
+<script>
+// ──────────────────────────────────────────
+// 결과 유형 정의 (A~D)
+// A = 로맨틱 드리머  B = 열정 표현형
+// C = 안정 배려형    D = 자유 독립형
+// ──────────────────────────────────────────
+const TYPES = {
+  A: { color: '#FF6B9D', bg: '#FFF0F7', borderColor: '#FFB6D9' },
+  B: { color: '#FF8C42', bg: '#FFF5EE', borderColor: '#FFD0B0' },
+  C: { color: '#4CAF8A', bg: '#F0FBF5', borderColor: '#A8DFC8' },
+  D: { color: '#7C67EE', bg: '#F5F2FF', borderColor: '#C9BFFF' },
+};
+
+const data = {
+  ko: {
+    ui: {
+      mainTitle:   '나의 <span>연애 스타일</span>은?',
+      mainDesc:    '10가지 질문으로 알아보는 나의 연애 유형<br>당신은 어떤 방식으로 사랑하나요? 💘',
+      startText:   '연애에도 각자의 스타일이 있어요.<br>10개의 솔직한 질문으로 당신만의 연애 유형을 발견해보세요!<br><strong>소요시간: 약 2분</strong>',
+      startBtn:    '💕 테스트 시작하기',
+      descTitle:   '💬 연애 스타일 분석',
+      compatTitle: '💞 궁합 유형',
+      shareTitle:  '🎉 친구들에게 결과 공유하기!',
+      restartBtn:  '🔄 다시 테스트하기',
+      moreTitle:   '🎯 다른 테스트도 해보세요!',
+      badgeTxt:    '연애 유형',
+      goodLabel:   '잘 맞아요 ✨',
+      badLabel:    '조심하세요 ⚡',
+      copyOk:      '🔗 링크가 복사되었어요!',
+      langBtn:     '🌏 EN',
+    },
+    questions: [
+      {
+        q: "좋아하는 사람이 생겼을 때, 당신은?",
+        sub: "가장 자연스러운 반응을 선택해요",
+        choices: [
+          { emoji: "💌", text: "설레는 마음을 편지나 메시지로 표현한다", type: "A" },
+          { emoji: "🔥", text: "바로 고백! 마음을 숨기지 못한다", type: "B" },
+          { emoji: "🌱", text: "먼저 친해지면서 천천히 다가간다", type: "C" },
+          { emoji: "😎", text: "자연스럽게 내 페이스를 유지한다", type: "D" },
+        ]
+      },
+      {
+        q: "연인과의 데이트, 당신이 선호하는 스타일은?",
+        sub: "이상적인 데이트를 상상해보세요",
+        choices: [
+          { emoji: "🌹", text: "분위기 있는 레스토랑에서 로맨틱한 저녁", type: "A" },
+          { emoji: "🎢", text: "놀이공원이나 스포츠 등 신나는 액티비티", type: "B" },
+          { emoji: "🏠", text: "집에서 함께 요리하며 편안하게 보내기", type: "C" },
+          { emoji: "🗺️", text: "즉흥적으로 여행이나 드라이브 떠나기", type: "D" },
+        ]
+      },
+      {
+        q: "연인과 다퉜을 때, 당신의 행동은?",
+        sub: "가장 솔직한 반응을 골라요",
+        choices: [
+          { emoji: "😢", text: "감정이 북받쳐서 눈물이 나고 먼저 화해하고 싶다", type: "A" },
+          { emoji: "💥", text: "그 자리에서 할 말은 다 한다, 시원하게 해결!", type: "B" },
+          { emoji: "🤝", text: "시간을 두고 차분하게 대화로 풀어낸다", type: "C" },
+          { emoji: "🚶", text: "각자 혼자만의 시간이 필요하다", type: "D" },
+        ]
+      },
+      {
+        q: "연인이 바라는 나는 어떤 사람이길 원하나요?",
+        sub: "당신이 가장 되고 싶은 연인의 모습",
+        choices: [
+          { emoji: "🌟", text: "항상 설레고 낭만적인 연인", type: "A" },
+          { emoji: "💪", text: "열정적이고 에너지 넘치는 연인", type: "B" },
+          { emoji: "🛡️", text: "언제나 믿을 수 있는 든든한 연인", type: "C" },
+          { emoji: "🦋", text: "서로의 자유를 존중하는 연인", type: "D" },
+        ]
+      },
+      {
+        q: "연인에게 사랑을 표현하는 나만의 방식은?",
+        sub: "가장 자주 하는 표현 방식",
+        choices: [
+          { emoji: "💐", text: "깜짝 선물이나 편지로 감동을 준다", type: "A" },
+          { emoji: "🤗", text: "스킨십과 직접적인 애정 표현을 자주 한다", type: "B" },
+          { emoji: "🍳", text: "밥 챙겨주기, 필요한 걸 먼저 해준다", type: "C" },
+          { emoji: "💬", text: "깊은 대화와 공감으로 연결된다", type: "D" },
+        ]
+      },
+      {
+        q: "연인이 연락이 안 될 때 당신은?",
+        sub: "솔직한 내 반응은",
+        choices: [
+          { emoji: "😰", text: "걱정이 되어 계속 연락을 시도한다", type: "A" },
+          { emoji: "😤", text: "서운하고 직접 물어본다", type: "B" },
+          { emoji: "🙂", text: "바쁜가보다 하고 기다린다", type: "C" },
+          { emoji: "😌", text: "나도 내 일을 하며 신경 쓰지 않는다", type: "D" },
+        ]
+      },
+      {
+        q: "이상적인 커플 관계는 어떤 모습인가요?",
+        sub: "당신이 꿈꾸는 연애",
+        choices: [
+          { emoji: "🌙", text: "드라마 속 한 장면처럼 감동적이고 설레는 관계", type: "A" },
+          { emoji: "🎆", text: "항상 열정적이고 서로에게 불꽃 튀는 관계", type: "B" },
+          { emoji: "☀️", text: "가족처럼 편안하고 신뢰할 수 있는 관계", type: "C" },
+          { emoji: "🌊", text: "각자의 삶을 존중하며 함께 성장하는 관계", type: "D" },
+        ]
+      },
+      {
+        q: "연인이 힘들어할 때 당신은?",
+        sub: "나의 자연스러운 반응",
+        choices: [
+          { emoji: "🌺", text: "꽃이나 선물로 기분을 풀어준다", type: "A" },
+          { emoji: "🤜", text: "문제를 직접 해결해주려 적극적으로 나선다", type: "B" },
+          { emoji: "👂", text: "옆에서 묵묵히 들어주고 위로한다", type: "C" },
+          { emoji: "🗣️", text: "솔직한 조언과 현실적인 해결책을 제시한다", type: "D" },
+        ]
+      },
+      {
+        q: "연애에서 가장 중요하게 생각하는 것은?",
+        sub: "가장 핵심적인 가치",
+        choices: [
+          { emoji: "💫", text: "설렘과 로맨스", type: "A" },
+          { emoji: "❤️‍🔥", text: "열정과 감정 표현", type: "B" },
+          { emoji: "🔒", text: "신뢰와 안정감", type: "C" },
+          { emoji: "🗽", text: "개인 존중과 자유", type: "D" },
+        ]
+      },
+      {
+        q: "마지막으로, 나에게 연애란?",
+        sub: "직관적으로 답해보세요",
+        choices: [
+          { emoji: "🎬", text: "영화처럼 아름답고 감동적인 것", type: "A" },
+          { emoji: "🎢", text: "온 감정을 쏟아붓는 짜릿한 경험", type: "B" },
+          { emoji: "🏡", text: "편안하고 안전한 나의 안식처", type: "C" },
+          { emoji: "🌍", text: "나를 더 성장시키는 특별한 여정", type: "D" },
+        ]
+      },
+    ],
+    results: {
+      A: {
+        emoji: "🌹",
+        name: "로맨틱 드리머",
+        tagline: "꿈꾸는 낭만주의 연인",
+        badge: "낭만 가득",
+        traits: [
+          { label: "로맨스", val: 95 },
+          { label: "감수성", val: 88 },
+          { label: "표현력", val: 80 },
+          { label: "안정감", val: 60 },
+        ],
+        desc: "당신은 연애에서 설렘과 낭만을 가장 중요하게 여기는 로맨틱 드리머예요! 사랑하는 사람에게 깜짝 선물을 준비하고, 기념일을 소중히 챙기며, 드라마 같은 순간을 직접 만들어내죠. 감수성이 풍부해서 연인의 작은 행동 하나에도 크게 감동받고, 또 크게 상처받기도 해요. 당신 곁에 있으면 매일매일이 특별한 날처럼 느껴진답니다. 💕",
+        compat: { goodEmoji: "✨", goodName: "안정 배려형", badEmoji: "⚡", badName: "자유 독립형" },
+        tags: ["#낭만주의자", "#기념일챙기기", "#감수성폭발", "#설렘중독"],
+      },
+      B: {
+        emoji: "🔥",
+        name: "열정 표현형",
+        tagline: "온 마음을 다해 사랑하는 연인",
+        badge: "열정 가득",
+        traits: [
+          { label: "열정도",  val: 98 },
+          { label: "표현력",  val: 95 },
+          { label: "에너지",  val: 90 },
+          { label: "인내심",  val: 55 },
+        ],
+        desc: "당신은 연애에서 열정과 에너지가 넘치는 타입이에요! 좋아하는 감정을 숨기지 않고 솔직하게 표현하며, 연인과 함께라면 어디든 달려갈 수 있죠. 감정 기복이 있을 수 있지만, 그만큼 사랑할 때는 세상 전부를 줄 것 같은 뜨거움이 있어요. 당신과 함께하면 절대 지루할 틈이 없답니다! 🔥",
+        compat: { goodEmoji: "🌸", goodName: "로맨틱 드리머", badEmoji: "🕊️", badName: "안정 배려형" },
+        tags: ["#솔직담백", "#열정만수르", "#감정풍부", "#즉흥적"],
+      },
+      C: {
+        emoji: "🌿",
+        name: "안정 배려형",
+        tagline: "묵묵히 곁을 지키는 연인",
+        badge: "신뢰 가득",
+        traits: [
+          { label: "신뢰감", val: 97 },
+          { label: "배려심", val: 94 },
+          { label: "안정감", val: 92 },
+          { label: "설렘도", val: 60 },
+        ],
+        desc: "당신은 연애에서 신뢰와 안정을 최우선으로 생각하는 배려형 연인이에요! 연인이 힘들 때 묵묵히 옆에 있어주고, 작은 것 하나도 챙겨주는 따뜻한 사람이죠. 화려한 이벤트보다는 매일의 일상에서 소소한 행복을 찾아요. 당신과 함께하면 세상 어떤 폭풍이 와도 버틸 수 있을 것 같은 든든함이 있어요. 🌿",
+        compat: { goodEmoji: "🌙", goodName: "로맨틱 드리머", badEmoji: "🔥", badName: "열정 표현형" },
+        tags: ["#든든한버팀목", "#믿음직해", "#일상의행복", "#세심한배려"],
+      },
+      D: {
+        emoji: "🦋",
+        name: "자유 독립형",
+        tagline: "함께지만 나답게 사랑하는 연인",
+        badge: "자유 가득",
+        traits: [
+          { label: "독립성", val: 95 },
+          { label: "자존감", val: 92 },
+          { label: "성장욕", val: 88 },
+          { label: "집착도", val: 10 },
+        ],
+        desc: "당신은 연애에서도 자신만의 공간과 자유를 중요시하는 독립형 연인이에요! 서로를 구속하지 않고 각자의 삶을 존중하면서도, 함께할 때는 깊고 의미 있는 시간을 만들어요. 연인을 친구이자 성장 파트너로 여기며, 의존하거나 집착하지 않죠. 당신과 연애하면 나도 더 나은 사람이 될 것 같은 느낌이 들어요. 🦋",
+        compat: { goodEmoji: "🌿", goodName: "안정 배려형", badEmoji: "😰", badName: "로맨틱 드리머" },
+        tags: ["#자유로운영혼", "#서로존중", "#성장하는연애", "#건강한거리"],
+      },
+    },
+  },
+  en: {
+    ui: {
+      mainTitle:   'What\'s My <span>Love Style</span>?',
+      mainDesc:    'Discover your love type with 10 questions!<br>How do you love? 💘',
+      startText:   'Everyone has their own love style.<br>Answer 10 honest questions to discover yours!<br><strong>Takes about 2 minutes</strong>',
+      startBtn:    '💕 Start Test',
+      descTitle:   '💬 Love Style Analysis',
+      compatTitle: '💞 Compatibility',
+      shareTitle:  '🎉 Share Your Result!',
+      restartBtn:  '🔄 Try Again',
+      moreTitle:   '🎯 Try More Tests!',
+      badgeTxt:    'Love Type',
+      goodLabel:   'Great Match ✨',
+      badLabel:    'Watch Out ⚡',
+      copyOk:      '🔗 Link copied!',
+      langBtn:     '🇰🇷 KR',
+    },
+    questions: [
+      {
+        q: "When you like someone, you tend to...",
+        sub: "Pick your most natural reaction",
+        choices: [
+          { emoji: "💌", text: "Express your feelings through heartfelt messages", type: "A" },
+          { emoji: "🔥", text: "Confess right away — you can't hide it!", type: "B" },
+          { emoji: "🌱", text: "Slowly get close as friends first", type: "C" },
+          { emoji: "😎", text: "Stay cool and let things develop naturally", type: "D" },
+        ]
+      },
+      {
+        q: "Your ideal date looks like...",
+        sub: "Imagine your perfect date",
+        choices: [
+          { emoji: "🌹", text: "A romantic candlelit dinner for two", type: "A" },
+          { emoji: "🎢", text: "Thrilling activities like theme parks or sports", type: "B" },
+          { emoji: "🏠", text: "Cooking together at home, cozy and relaxed", type: "C" },
+          { emoji: "🗺️", text: "A spontaneous road trip or adventure", type: "D" },
+        ]
+      },
+      {
+        q: "After an argument with your partner, you...",
+        sub: "Be honest!",
+        choices: [
+          { emoji: "😢", text: "Get emotional and want to make up right away", type: "A" },
+          { emoji: "💥", text: "Say everything on your mind and clear the air", type: "B" },
+          { emoji: "🤝", text: "Take time to cool down, then talk it out calmly", type: "C" },
+          { emoji: "🚶", text: "Need alone time to process your feelings", type: "D" },
+        ]
+      },
+      {
+        q: "You most want to be seen as...",
+        sub: "The lover you aspire to be",
+        choices: [
+          { emoji: "🌟", text: "Exciting and deeply romantic", type: "A" },
+          { emoji: "💪", text: "Passionate and full of energy", type: "B" },
+          { emoji: "🛡️", text: "Reliable and always there for them", type: "C" },
+          { emoji: "🦋", text: "Respectful of each other's freedom", type: "D" },
+        ]
+      },
+      {
+        q: "How do you usually show love?",
+        sub: "Your go-to love language",
+        choices: [
+          { emoji: "💐", text: "Surprise gifts and handwritten notes", type: "A" },
+          { emoji: "🤗", text: "Physical affection and direct words of love", type: "B" },
+          { emoji: "🍳", text: "Acts of service — cooking, helping out", type: "C" },
+          { emoji: "💬", text: "Deep conversations and emotional connection", type: "D" },
+        ]
+      },
+      {
+        q: "When your partner doesn't respond for a while...",
+        sub: "What's your honest reaction?",
+        choices: [
+          { emoji: "😰", text: "You worry and keep trying to reach them", type: "A" },
+          { emoji: "😤", text: "You feel hurt and ask them about it directly", type: "B" },
+          { emoji: "🙂", text: "You assume they're busy and wait patiently", type: "C" },
+          { emoji: "😌", text: "You focus on your own things without worry", type: "D" },
+        ]
+      },
+      {
+        q: "Your ideal relationship looks like...",
+        sub: "The relationship you dream of",
+        choices: [
+          { emoji: "🌙", text: "Movie-like, full of butterflies and sweet moments", type: "A" },
+          { emoji: "🎆", text: "Passionate and electric — always on fire", type: "B" },
+          { emoji: "☀️", text: "Comfortable and trustworthy, like family", type: "C" },
+          { emoji: "🌊", text: "Respecting each other's growth and independence", type: "D" },
+        ]
+      },
+      {
+        q: "When your partner is going through a hard time...",
+        sub: "Your natural response",
+        choices: [
+          { emoji: "🌺", text: "Cheer them up with flowers or a thoughtful gift", type: "A" },
+          { emoji: "🤜", text: "Jump in and actively try to fix the problem", type: "B" },
+          { emoji: "👂", text: "Quietly sit beside them and listen", type: "C" },
+          { emoji: "🗣️", text: "Offer honest advice and practical solutions", type: "D" },
+        ]
+      },
+      {
+        q: "The most important thing in a relationship is...",
+        sub: "Your core value",
+        choices: [
+          { emoji: "💫", text: "Excitement and romance", type: "A" },
+          { emoji: "❤️‍🔥", text: "Passion and emotional expression", type: "B" },
+          { emoji: "🔒", text: "Trust and stability", type: "C" },
+          { emoji: "🗽", text: "Mutual respect and freedom", type: "D" },
+        ]
+      },
+      {
+        q: "To me, love is...",
+        sub: "Trust your gut",
+        choices: [
+          { emoji: "🎬", text: "A beautiful, moving story like a movie", type: "A" },
+          { emoji: "🎢", text: "An exhilarating ride with every emotion", type: "B" },
+          { emoji: "🏡", text: "A safe, comforting place to come home to", type: "C" },
+          { emoji: "🌍", text: "A journey that makes me grow as a person", type: "D" },
+        ]
+      },
+    ],
+    results: {
+      A: {
+        emoji: "🌹",
+        name: "Romantic Dreamer",
+        tagline: "The Hopeless Romantic",
+        badge: "Full of Romance",
+        traits: [
+          { label: "Romance",    val: 95 },
+          { label: "Sensitivity",val: 88 },
+          { label: "Expression", val: 80 },
+          { label: "Stability",  val: 60 },
+        ],
+        desc: "You're a true Romantic Dreamer who values butterflies and magic above all! You plan surprise gifts, remember every anniversary, and create cinematic moments from everyday life. Your high sensitivity means a small gesture can touch you deeply — but harsh words can too. Being with you feels like living in a love story. 💕",
+        compat: { goodEmoji: "✨", goodName: "Steady Caregiver", badEmoji: "⚡", badName: "Free Spirit" },
+        tags: ["#Hopeless Romantic", "#Anniversary Keeper", "#Deeply Sensitive", "#Loves Butterflies"],
+      },
+      B: {
+        emoji: "🔥",
+        name: "Passionate Expresser",
+        tagline: "All-in, All-heart Lover",
+        badge: "Full of Passion",
+        traits: [
+          { label: "Passion",    val: 98 },
+          { label: "Expression", val: 95 },
+          { label: "Energy",     val: 90 },
+          { label: "Patience",   val: 55 },
+        ],
+        desc: "You love with everything you've got! You wear your heart on your sleeve, say what you feel, and would run to the ends of the earth for your partner. Yes, your emotions can run high — but that same intensity means when you love, you love like wildfire. Life with you is never boring! 🔥",
+        compat: { goodEmoji: "🌸", goodName: "Romantic Dreamer", badEmoji: "🕊️", badName: "Steady Caregiver" },
+        tags: ["#WearYourHeart", "#IntenseFeels", "#NoHoldsBarred", "#Spontaneous"],
+      },
+      C: {
+        emoji: "🌿",
+        name: "Steady Caregiver",
+        tagline: "The Rock-Solid Partner",
+        badge: "Full of Trust",
+        traits: [
+          { label: "Reliability", val: 97 },
+          { label: "Empathy",     val: 94 },
+          { label: "Stability",   val: 92 },
+          { label: "Excitement",  val: 60 },
+        ],
+        desc: "You're the partner who shows up — every single time. You notice the small things, take care of your partner without being asked, and find happiness in simple daily moments together. No grand gestures needed; your consistency is your superpower. With you, your partner always feels safe and held. 🌿",
+        compat: { goodEmoji: "🌙", goodName: "Romantic Dreamer", badEmoji: "🔥", badName: "Passionate Expresser" },
+        tags: ["#AlwaysThereForYou", "#DependableAF", "#EverydayJoy", "#QuietStrength"],
+      },
+      D: {
+        emoji: "🦋",
+        name: "Free Spirit",
+        tagline: "Independent & Growing Together",
+        badge: "Full of Freedom",
+        traits: [
+          { label: "Independence", val: 95 },
+          { label: "Self-Esteem",  val: 92 },
+          { label: "Growth",       val: 88 },
+          { label: "Clinginess",   val: 10 },
+        ],
+        desc: "You believe love should liberate, not confine. You value personal space and respect your partner's individuality while creating meaningful moments together. You see your partner as a companion and growth partner — never possessive, never clingy. Being with you makes people feel inspired to become their best selves. 🦋",
+        compat: { goodEmoji: "🌿", goodName: "Steady Caregiver", badEmoji: "😰", badName: "Romantic Dreamer" },
+        tags: ["#FreeSpirit", "#MutualRespect", "#GrowTogether", "#HealthyBoundaries"],
+      },
+    },
+  },
+};
+
+// ─────────────────────────────────
+// State
+// ─────────────────────────────────
+let curLang = 'ko';
+let curQ    = 0;
+let scores  = { A:0, B:0, C:0, D:0 };
+
+// ─────────────────────────────────
+// Lang toggle
+// ─────────────────────────────────
+function toggleLang() {
+  curLang = curLang === 'ko' ? 'en' : 'ko';
+  applyLang();
+  if (document.getElementById('quizSection').style.display !== 'none') renderQuestion();
+}
+
+function applyLang() {
+  const ui = data[curLang].ui;
+  document.documentElement.lang = curLang;
+  document.getElementById('langBtn').textContent      = ui.langBtn;
+  document.getElementById('mainTitle').innerHTML      = ui.mainTitle;
+  document.getElementById('mainDesc').innerHTML       = ui.mainDesc;
+  document.getElementById('startText').innerHTML      = ui.startText;
+  document.getElementById('startBtn').textContent     = ui.startBtn;
+  document.getElementById('descTitle').textContent    = ui.descTitle;
+  document.getElementById('compatTitle').textContent  = ui.compatTitle;
+  document.getElementById('shareTitle').textContent   = ui.shareTitle;
+  document.getElementById('restartBtn').textContent   = ui.restartBtn;
+  document.getElementById('moreTitle').textContent    = ui.moreTitle;
+}
+
+// ─────────────────────────────────
+// Start
+// ─────────────────────────────────
+function startTest() {
+  curQ = 0; scores = { A:0,B:0,C:0,D:0 };
+  document.getElementById('startSection').style.display = 'none';
+  document.getElementById('quizSection').style.display  = 'block';
+  renderQuestion();
+}
+
+// ─────────────────────────────────
+// Render question
+// ─────────────────────────────────
+function renderQuestion() {
+  const qs    = data[curLang].questions;
+  const total = qs.length;
+  const q     = qs[curQ];
+
+  document.getElementById('progressLabel').textContent  = `${curQ+1} / ${total}`;
+  document.getElementById('progressBar').style.width    = `${((curQ+1)/total)*100}%`;
+  document.getElementById('questionNum').textContent    = `Q${curQ+1}`;
+  document.getElementById('questionText').textContent   = q.q;
+  document.getElementById('questionSub').textContent    = q.sub;
+
+  const box = document.getElementById('choicesContainer');
+  box.innerHTML = '';
+  q.choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = `<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span>`;
+    btn.onclick   = () => pick(c.type, btn);
+    box.appendChild(btn);
+  });
+
+  document.getElementById('adMid').style.display = (curQ === 5) ? 'flex' : 'none';
+
+  // 카드 애니메이션 리셋
+  const card = document.getElementById('questionCard');
+  card.style.animation = 'none';
+  requestAnimationFrame(() => { card.style.animation = 'fadeUp .4s ease'; });
+}
+
+// ─────────────────────────────────
+// Pick answer
+// ─────────────────────────────────
+function pick(type, btn) {
+  if (document.querySelector('.choice-btn.selected')) return;
+  btn.classList.add('selected');
+  scores[type]++;
+  setTimeout(() => {
+    curQ++;
+    curQ < data[curLang].questions.length ? renderQuestion() : showResult();
+  }, 380);
+}
+
+// ─────────────────────────────────
+// Show result
+// ─────────────────────────────────
+function showResult() {
+  document.getElementById('quizSection').style.display   = 'none';
+  document.getElementById('headerSection').style.display = 'none';
+  const rs = document.getElementById('resultSection');
+  rs.style.display = 'block';
+
+  const topType = Object.keys(scores).reduce((a,b) => scores[a]>scores[b]?a:b);
+  const r       = data[curLang].results[topType];
+  const t       = TYPES[topType];
+
+  // 히어로 카드 색상
+  const hero = document.getElementById('resultHero');
+  hero.style.borderColor  = t.borderColor;
+  hero.style.background   = t.bg;
+  hero.style.setProperty('--hero-color', t.color);
+
+  document.getElementById('resultEmoji').textContent   = r.emoji;
+  document.getElementById('resultBadge').textContent   = r.badge;
+  document.getElementById('resultBadge').style.background = t.color;
+  document.getElementById('resultName').textContent    = r.name;
+  document.getElementById('resultName').style.color    = t.color;
+  document.getElementById('resultTagline').textContent = r.tagline;
+
+  // 특성 바
+  const traitsBox = document.getElementById('traitsContainer');
+  traitsBox.innerHTML = '';
+  r.traits.forEach(tr => {
+    traitsBox.innerHTML += `
+      <div class="trait-item">
+        <div class="trait-label">${tr.label}</div>
+        <div class="trait-bar-wrap">
+          <div class="trait-bar" id="tb_${tr.label.replace(/\s/g,'')}" style="width:0%;background:linear-gradient(90deg,${t.color},${t.color}88)"></div>
+        </div>
+        <div class="trait-val" style="color:${t.color}">${tr.val}%</div>
+      </div>`;
+  });
+  setTimeout(() => {
+    r.traits.forEach(tr => {
+      const el = document.getElementById('tb_'+tr.label.replace(/\s/g,''));
+      if (el) el.style.width = tr.val + '%';
+    });
+  }, 200);
+
+  // 태그
+  const tagsBox = document.getElementById('tagsContainer');
+  tagsBox.innerHTML = '';
+  r.tags.forEach(tag => {
+    const sp = document.createElement('span');
+    sp.className = 'tag'; sp.textContent = tag;
+    sp.style.background = t.bg; sp.style.border = `1px solid ${t.borderColor}`;
+    tagsBox.appendChild(sp);
+  });
+
+  // 설명
+  document.getElementById('resultDesc').textContent = r.desc;
+
+  // 궁합
+  const ui = data[curLang].ui;
+  document.getElementById('compatGoodEmoji').textContent = r.compat.goodEmoji;
+  document.getElementById('compatGoodLabel').textContent = ui.goodLabel;
+  document.getElementById('compatGoodName').textContent  = r.compat.goodName;
+  document.getElementById('compatBadEmoji').textContent  = r.compat.badEmoji;
+  document.getElementById('compatBadLabel').textContent  = ui.badLabel;
+  document.getElementById('compatBadName').textContent   = r.compat.badName;
+
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+// ─────────────────────────────────
+// Share
+// ─────────────────────────────────
+function getShareMsg() {
+  const topType = Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
+  const name    = data[curLang].results[topType].name;
+  return curLang === 'ko'
+    ? `나의 연애 스타일은 "${name}"이래! 💕 너는 어떤 스타일이야?`
+    : `My love style is "${name}"! 💕 What's yours?`;
+}
+
+function shareKakao()   { showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK integration!'); }
+function shareTwitter() { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareMsg()+'\n'+location.href)}`,'_blank'); }
+function shareFacebook(){ window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}`,'_blank'); }
+function copyLink() {
+  const txt = getShareMsg()+'\n'+location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(()=>showToast(data[curLang].ui.copyOk));
+  } else {
+    const el=document.createElement('textarea'); el.value=txt;
+    document.body.appendChild(el); el.select(); document.execCommand('copy');
+    document.body.removeChild(el); showToast(data[curLang].ui.copyOk);
+  }
+}
+
+// ─────────────────────────────────
+// Restart
+// ─────────────────────────────────
+function restartTest() {
+  document.getElementById('resultSection').style.display  = 'none';
+  document.getElementById('headerSection').style.display  = 'block';
+  document.getElementById('startSection').style.display   = 'block';
+  scores={A:0,B:0,C:0,D:0}; curQ=0;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─────────────────────────────────
+// Toast
+// ─────────────────────────────────
+function showToast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>테스트월드 🌟 심리테스트 & 퀴즈 모음</title>
+<meta name="description" content="재미있는 심리테스트와 성격 퀴즈 모음! 나의 연애 스타일, 전생, 숨겨진 재능까지 모두 무료로 즐기세요.">
+<meta property="og:title" content="테스트월드 🌟 심리테스트 모음">
+<meta property="og:description" content="재미있는 심리테스트 모음! 지금 바로 시작해보세요 ✨">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --pink:   #FF6B9D;
+    --yellow: #FFE066;
+    --purple: #C77DFF;
+    --mint:   #48CAE4;
+    --orange: #FF9F43;
+    --green:  #4CAF8A;
+    --dark:   #2D2233;
+    --bg:     #FFFBF5;
+    --shadow: 0 6px 28px rgba(0,0,0,0.08);
+    --radius: 22px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 배경 */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(255,107,157,.07) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(199,125,255,.07) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255,224,102,.05) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+    position: relative; z-index: 1;
+  }
+
+  /* 광고 */
+  .ad-slot {
+    background: #f5f0fa;
+    border: 2px dashed #ddd;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ccc; font-size: 13px;
+  }
+  .ad-top    { height: 90px; margin: 16px 0 24px; }
+  .ad-mid    { height: 250px; margin: 28px 0; }
+  .ad-bottom { height: 90px; margin: 24px 0 0; }
+
+  /* 언어 토글 */
+  .lang-btn {
+    position: fixed; top: 16px; right: 16px;
+    background: white; border: 2px solid var(--pink);
+    border-radius: 99px; padding: 6px 14px;
+    font-size: 13px; font-weight: 700;
+    cursor: pointer; z-index: 100;
+    box-shadow: var(--shadow); transition: all .2s;
+  }
+  .lang-btn:hover { background: var(--pink); color: white; }
+
+  /* ── 히어로 헤더 ── */
+  .hero {
+    text-align: center;
+    padding: 48px 20px 36px;
+    animation: fadeDown .6s ease;
+  }
+  .hero-logo {
+    font-size: 64px;
+    display: block; margin-bottom: 12px;
+    animation: spin 6s linear infinite;
+  }
+  @keyframes spin {
+    0%,90%,100% { transform: rotate(0deg); }
+    45%         { transform: rotate(15deg); }
+    55%         { transform: rotate(-15deg); }
+  }
+  .hero h1 {
+    font-family: 'Gaegu', cursive;
+    font-size: 42px; font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .hero h1 .brand {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 16px; color: #888;
+    line-height: 1.7; margin-bottom: 20px;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Gaegu', cursive;
+    font-size: 28px; font-weight: 700;
+    color: var(--pink);
+  }
+  .stat-label { font-size: 12px; color: #aaa; }
+
+  /* ── 섹션 타이틀 ── */
+  .section-title {
+    font-size: 18px; font-weight: 800;
+    margin: 32px 0 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* ── 인기 테스트 (큰 카드) ── */
+  .featured-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all .25s;
+    text-decoration: none; color: var(--dark);
+    display: block;
+    border: 2px solid transparent;
+    animation: fadeUp .5s ease both;
+  }
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  }
+  .featured-card.done:hover { border-color: var(--pink); }
+
+  .fc-banner {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+    position: relative; overflow: hidden;
+  }
+  .fc-banner::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: inherit; opacity: .15;
+  }
+
+  .fc-body { padding: 20px; }
+  .fc-top {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 8px;
+  }
+  .fc-badge {
+    font-size: 11px; font-weight: 800;
+    padding: 4px 12px; border-radius: 99px;
+    color: white; letter-spacing: 1px;
+  }
+  .badge-hot    { background: linear-gradient(135deg,#FF6B9D,#FF8C42); }
+  .badge-new    { background: linear-gradient(135deg,#48CAE4,#4CAF8A); }
+  .badge-soon   { background: #ccc; color: #888; }
+
+  .fc-title {
+    font-family: 'Gaegu', cursive;
+    font-size: 24px; font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .fc-desc { font-size: 14px; color: #888; line-height: 1.6; margin-bottom: 14px; }
+  .fc-meta {
+    display: flex; gap: 16px;
+    font-size: 12px; color: #bbb;
+  }
+  .fc-meta span { display: flex; align-items: center; gap: 4px; }
+
+  .fc-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; border: none;
+    padding: 10px 20px; border-radius: 99px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px; font-weight: 800;
+    cursor: pointer; transition: all .2s;
+    pointer-events: none;
+  }
+  .fc-cta.soon-cta {
+    background: #eee; color: #bbb;
+  }
+
+  /* ── 작은 테스트 그리드 ── */
+  .test-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .test-card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px 16px;
+    box-shadow: var(--shadow);
+    text-decoration: none; color: var(--dark);
+    display: block;
+    transition: all .25s;
+    border: 2px solid transparent;
+    animation: fadeUp .5s ease both;
+  }
+  .test-card:hover { transform: translateY(-3px); border-color: #FFD6E7; }
+  .tc-emoji { font-size: 36px; display: block; margin-bottom: 10px; }
+  .tc-title { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .tc-desc  { font-size: 12px; color: #aaa; line-height: 1.5; margin-bottom: 12px; }
+  .tc-btn {
+    font-size: 12px; font-weight: 800;
+    padding: 6px 14px; border-radius: 99px;
+    border: none; cursor: pointer;
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+  .tc-btn.active { background: var(--yellow); color: var(--dark); }
+  .tc-btn.soon   { background: #f0f0f0; color: #bbb; }
+
+  /* ── 오늘의 추천 배너 ── */
+  .recommend-banner {
+    background: linear-gradient(135deg, #FF6B9D, #C77DFF);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    color: white;
+    display: flex; align-items: center; gap: 20px;
+    margin: 28px 0;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(255,107,157,.35);
+  }
+  .recommend-banner:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255,107,157,.45); }
+  .rb-emoji { font-size: 52px; flex-shrink: 0; }
+  .rb-text h3 { font-family: 'Gaegu', cursive; font-size: 22px; margin-bottom: 4px; }
+  .rb-text p  { font-size: 13px; opacity: .85; line-height: 1.6; }
+  .rb-arrow   { margin-left: auto; font-size: 24px; opacity: .7; }
+
+  /* ── 공유 유도 섹션 ── */
+  .share-section {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin: 28px 0;
+  }
+  .share-section h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .share-section p  { font-size: 14px; color: #888; margin-bottom: 20px; }
+  .share-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .share-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 11px 18px; border-radius: 12px; border: none;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all .2s; text-decoration: none;
+  }
+  .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.15); }
+  .s-kakao    { background: #FEE500; color: #3C1E1E; }
+  .s-twitter  { background: #1DA1F2; color: white; }
+  .s-copy     { background: linear-gradient(135deg,var(--pink),var(--purple)); color: white; }
+
+  /* 푸터 */
+  .footer {
+    text-align: center; font-size: 12px; color: #ccc;
+    padding: 24px 0 0; border-top: 1px solid #f0e8f0;
+    margin-top: 40px;
+  }
+  .footer a { color: #ddd; margin: 0 8px; }
+
+  /* 토스트 */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #333; color: white;
+    padding: 12px 26px; border-radius: 99px;
+    font-size: 14px; font-weight: 700;
+    transition: transform .3s; z-index: 9999;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* 애니메이션 */
+  @keyframes fadeUp   { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-22px); } to { opacity:1; transform:translateY(0); } }
+
+  /* 반응형 */
+  @media (max-width: 480px) {
+    .hero h1      { font-size: 32px; }
+    .hero-logo    { font-size: 52px; }
+    .test-grid    { grid-template-columns: 1fr; }
+    .fc-banner    { height: 110px; font-size: 52px; }
+    .recommend-banner { flex-direction: column; text-align: center; gap: 12px; }
+    .rb-arrow     { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">🌏 EN</button>
+<div class="toast" id="toast"></div>
+
+<div class="container">
+
+  <!-- 상단 광고 -->
+  <div class="ad-slot ad-top">
+    <!-- <ins class="adsbygoogle" ...></ins> -->
+    📢 광고 영역 (상단 728×90)
+  </div>
+
+  <!-- 히어로 -->
+  <div class="hero">
+    <span class="hero-logo">🌟</span>
+    <h1><span class="brand" id="brandName">테스트월드</span></h1>
+    <p id="heroDesc">재미있는 심리테스트 & 성격 퀴즈 모음<br>나를 더 잘 알아가는 즐거운 시간 ✨</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label" id="statTests">테스트</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8</div>
+        <div class="stat-label" id="statTypes">결과 유형</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2분</div>
+        <div class="stat-label" id="statTime">소요시간</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오늘의 추천 배너 -->
+  <a class="recommend-banner" href="love-style-test.html" id="recommendBanner">
+    <span class="rb-emoji">💕</span>
+    <div class="rb-text">
+      <h3 id="rbTitle">🔥 지금 인기 1위!</h3>
+      <p id="rbDesc">나의 연애 스타일 테스트 — 공유가 폭발하고 있어요!</p>
+    </div>
+    <span class="rb-arrow">›</span>
+  </a>
+
+  <!-- 인기 테스트 섹션 -->
+  <div class="section-title" id="popularTitle">🔥 인기 테스트</div>
+
+  <!-- 연애 스타일 - 큰 카드 -->
+  <a class="featured-card done" href="love-style-test.html"
+     style="animation-delay:.1s">
+    <div class="fc-banner" style="background: linear-gradient(135deg,#FF6B9D,#C77DFF)">💕</div>
+    <div class="fc-body">
+      <div class="fc-top">
+        <span class="fc-badge badge-hot" id="badge1">🔥 인기 1위</span>
+        <span class="fc-cta done">바로 시작 →</span>
+      </div>
+      <div class="fc-title" id="fc1Title">나의 연애 스타일은?</div>
+      <div class="fc-desc"  id="fc1Desc">로맨틱 드리머부터 자유 독립형까지 — 당신은 어떤 연인인가요?</div>
+      <div class="fc-meta">
+        <span>⏱️ <span id="fc1Time">약 2분</span></span>
+        <span>💬 <span id="fc1Share">공유 급상승</span></span>
+        <span>🎯 4가지 유형</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- 전생 테스트 - 큰 카드 -->
+  <a class="featured-card done" href="past-life-test.html"
+     style="animation-delay:.2s">
+    <div class="fc-banner" style="background: linear-gradient(135deg,#2D2233,#6A0DAD)">🔮</div>
+    <div class="fc-body">
+      <div class="fc-top">
+        <span class="fc-badge badge-new" id="badge2">✨ 신규</span>
+        <span class="fc-cta done">바로 시작 →</span>
+      </div>
+      <div class="fc-title" id="fc2Title">나의 전생은?</div>
+      <div class="fc-desc"  id="fc2Desc">마법사, 전사, 신선, 군주 — 당신은 전생에 어떤 삶을 살았을까요?</div>
+      <div class="fc-meta">
+        <span>⏱️ <span id="fc2Time">약 2분</span></span>
+        <span>🔮 <span id="fc2Mystery">신비로운 결과</span></span>
+        <span>🎯 4가지 유형</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- 중간 광고 -->
+  <div class="ad-slot ad-mid">
+    📢 광고 영역 (중간 300×250)
+  </div>
+
+  <!-- 출시 예정 섹션 -->
+  <div class="section-title" id="comingTitle">🚀 곧 출시될 테스트</div>
+
+  <div class="test-grid">
+    <div class="test-card" style="animation-delay:.3s">
+      <span class="tc-emoji">🐾</span>
+      <div class="tc-title" id="tc1Title">나를 동물로 표현하면?</div>
+      <div class="tc-desc"  id="tc1Desc">나와 닮은 동물을 찾아보세요</div>
+      <button class="tc-btn soon" id="tc1Btn">준비 중 🔧</button>
+    </div>
+    <div class="test-card" style="animation-delay:.35s">
+      <span class="tc-emoji">🌟</span>
+      <div class="tc-title" id="tc2Title">숨겨진 재능 테스트</div>
+      <div class="tc-desc"  id="tc2Desc">당신만 모르는 나의 특기는?</div>
+      <button class="tc-btn soon" id="tc2Btn">준비 중 🔧</button>
+    </div>
+    <div class="test-card" style="animation-delay:.4s">
+      <span class="tc-emoji">🧠</span>
+      <div class="tc-title" id="tc3Title">나의 스트레스 유형</div>
+      <div class="tc-desc"  id="tc3Desc">번아웃 전에 나를 파악하기</div>
+      <button class="tc-btn soon" id="tc3Btn">준비 중 🔧</button>
+    </div>
+    <div class="test-card" style="animation-delay:.45s">
+      <span class="tc-emoji">💼</span>
+      <div class="tc-title" id="tc4Title">나의 직업 유형은?</div>
+      <div class="tc-desc"  id="tc4Desc">천직을 찾아드립니다</div>
+      <button class="tc-btn soon" id="tc4Btn">준비 중 🔧</button>
+    </div>
+    <div class="test-card" style="animation-delay:.5s">
+      <span class="tc-emoji">🌙</span>
+      <div class="tc-title" id="tc5Title">나의 에너지 유형</div>
+      <div class="tc-desc"  id="tc5Desc">내향형? 외향형? 그 사이?</div>
+      <button class="tc-btn soon" id="tc5Btn">준비 중 🔧</button>
+    </div>
+    <div class="test-card" style="animation-delay:.55s">
+      <span class="tc-emoji">🍀</span>
+      <div class="tc-title" id="tc6Title">2025 나의 운세는?</div>
+      <div class="tc-desc"  id="tc6Desc">올해 나에게 찾아올 행운</div>
+      <button class="tc-btn soon" id="tc6Btn">준비 중 🔧</button>
+    </div>
+  </div>
+
+  <!-- 공유 섹션 -->
+  <div class="share-section">
+    <h3 id="shareH3">친구에게 공유하기 🎉</h3>
+    <p id="shareP">재미있는 테스트를 친구들과 함께해요!</p>
+    <div class="share-row">
+      <button class="share-btn s-kakao"   onclick="shareKakao()">💬 카카오톡</button>
+      <button class="share-btn s-twitter" onclick="shareTwitter()">🐦 Twitter</button>
+      <button class="share-btn s-copy"    onclick="copyLink()">🔗 링크 복사</button>
+    </div>
+  </div>
+
+  <!-- 하단 광고 -->
+  <div class="ad-slot ad-bottom">
+    📢 광고 영역 (하단 728×90)
+  </div>
+
+  <div class="footer">
+    <p>© 2024 테스트월드 · <a href="#">개인정보처리방침</a> · <a href="#">문의하기</a></p>
+  </div>
+
+</div>
+
+<script>
+// ──────────────────────────────────
+// 다국어 텍스트
+// ──────────────────────────────────
+const ui = {
+  ko: {
+    langBtn:    '🌏 EN',
+    brandName:  '테스트월드',
+    heroDesc:   '재미있는 심리테스트 & 성격 퀴즈 모음<br>나를 더 잘 알아가는 즐거운 시간 ✨',
+    statTests:  '테스트',
+    statTypes:  '결과 유형',
+    statTime:   '소요시간',
+    rbTitle:    '🔥 지금 인기 1위!',
+    rbDesc:     '나의 연애 스타일 테스트 — 공유가 폭발하고 있어요!',
+    popularTitle:'🔥 인기 테스트',
+    comingTitle: '🚀 곧 출시될 테스트',
+    badge1: '🔥 인기 1위', badge2: '✨ 신규',
+    fc1Title: '나의 연애 스타일은?',
+    fc1Desc:  '로맨틱 드리머부터 자유 독립형까지 — 당신은 어떤 연인인가요?',
+    fc1Time:  '약 2분', fc1Share: '공유 급상승',
+    fc2Title: '나의 전생은?',
+    fc2Desc:  '마법사, 전사, 신선, 군주 — 당신은 전생에 어떤 삶을 살았을까요?',
+    fc2Time:  '약 2분', fc2Mystery: '신비로운 결과',
+    tc1Title: '나를 동물로 표현하면?', tc1Desc: '나와 닮은 동물을 찾아보세요', tc1Btn: '준비 중 🔧',
+    tc2Title: '숨겨진 재능 테스트',   tc2Desc: '당신만 모르는 나의 특기는?',  tc2Btn: '준비 중 🔧',
+    tc3Title: '나의 스트레스 유형',   tc3Desc: '번아웃 전에 나를 파악하기',   tc3Btn: '준비 중 🔧',
+    tc4Title: '나의 직업 유형은?',    tc4Desc: '천직을 찾아드립니다',         tc4Btn: '준비 중 🔧',
+    tc5Title: '나의 에너지 유형',     tc5Desc: '내향형? 외향형? 그 사이?',    tc5Btn: '준비 중 🔧',
+    tc6Title: '2025 나의 운세는?',    tc6Desc: '올해 나에게 찾아올 행운',     tc6Btn: '준비 중 🔧',
+    shareH3: '친구에게 공유하기 🎉',
+    shareP:  '재미있는 테스트를 친구들과 함께해요!',
+    copyOk:  '🔗 링크가 복사되었어요!',
+    shareMsg:'심리테스트 모음 사이트! 연애스타일·전생 테스트 해봐 😆',
+  },
+  en: {
+    langBtn:    '🇰🇷 KR',
+    brandName:  'TestWorld',
+    heroDesc:   'Fun Psychology Tests & Personality Quizzes<br>Discover more about yourself ✨',
+    statTests:  'Tests',
+    statTypes:  'Result Types',
+    statTime:   'Minutes',
+    rbTitle:    '🔥 Trending #1!',
+    rbDesc:     'Love Style Test — everyone is sharing their results!',
+    popularTitle:'🔥 Popular Tests',
+    comingTitle: '🚀 Coming Soon',
+    badge1: '🔥 #1 Popular', badge2: '✨ New',
+    fc1Title: 'What\'s My Love Style?',
+    fc1Desc:  'From Romantic Dreamer to Free Spirit — what kind of lover are you?',
+    fc1Time:  '~2 min', fc1Share: 'Trending Now',
+    fc2Title: 'What Was My Past Life?',
+    fc2Desc:  'Wizard, Warrior, Sage, or Monarch — who were you in a past life?',
+    fc2Time:  '~2 min', fc2Mystery: 'Mystical Results',
+    tc1Title: 'Which Animal Are You?',   tc1Desc: 'Find your spirit animal',           tc1Btn: 'Coming Soon 🔧',
+    tc2Title: 'Hidden Talent Test',      tc2Desc: 'Discover your secret superpower',   tc2Btn: 'Coming Soon 🔧',
+    tc3Title: 'My Stress Type',          tc3Desc: 'Know yourself before burnout',       tc3Btn: 'Coming Soon 🔧',
+    tc4Title: 'My Career Type',          tc4Desc: 'Find your calling',                  tc4Btn: 'Coming Soon 🔧',
+    tc5Title: 'My Energy Type',          tc5Desc: 'Introvert? Extrovert? In-between?',  tc5Btn: 'Coming Soon 🔧',
+    tc6Title: '2025 Fortune Test',       tc6Desc: 'What luck awaits you this year?',    tc6Btn: 'Coming Soon 🔧',
+    shareH3: 'Share With Friends 🎉',
+    shareP:  'Enjoy these tests with your friends!',
+    copyOk:  '🔗 Link copied!',
+    shareMsg:'Fun personality tests! Try Love Style & Past Life tests 😆',
+  }
+};
+
+let curLang = 'ko';
+
+function toggleLang() {
+  curLang = curLang === 'ko' ? 'en' : 'ko';
+  applyLang();
+}
+
+function applyLang() {
+  const d = ui[curLang];
+  document.documentElement.lang = curLang;
+  const ids = [
+    'langBtn','brandName','heroDesc','statTests','statTypes','statTime',
+    'rbTitle','rbDesc','popularTitle','comingTitle',
+    'badge1','badge2',
+    'fc1Title','fc1Desc','fc1Time','fc1Share',
+    'fc2Title','fc2Desc','fc2Time','fc2Mystery',
+    'tc1Title','tc1Desc','tc1Btn',
+    'tc2Title','tc2Desc','tc2Btn',
+    'tc3Title','tc3Desc','tc3Btn',
+    'tc4Title','tc4Desc','tc4Btn',
+    'tc5Title','tc5Desc','tc5Btn',
+    'tc6Title','tc6Desc','tc6Btn',
+    'shareH3','shareP'
+  ];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id === 'heroDesc') el.innerHTML = d[id];
+    else el.textContent = d[id];
+  });
+}
+
+// ── 공유 ──
+function shareKakao() {
+  showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK!');
+}
+function shareTwitter() {
+  const msg = encodeURIComponent(ui[curLang].shareMsg + '\n' + location.href);
+  window.open('https://twitter.com/intent/tweet?text=' + msg, '_blank');
+}
+function copyLink() {
+  const txt = ui[curLang].shareMsg + '\n' + location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(() => showToast(ui[curLang].copyOk));
+  } else {
+    const el = document.createElement('textarea');
+    el.value = txt; document.body.appendChild(el);
+    el.select(); document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast(ui[curLang].copyOk);
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>
