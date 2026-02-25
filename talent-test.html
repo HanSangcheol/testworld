@@ -175,6 +175,15 @@
       <p id="resultDesc"></p>
     </div>
 
+    <div class="result-desc-card" style="animation-delay:.15s">
+      <h3>✨ 들으면 날아갈 것 같은 말</h3>
+      <p id="resultWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#7C67EE;"></p>
+    </div>
+    <div class="result-desc-card" style="animation-delay:.2s;border-color:#FFD6E7;">
+      <h3 style="color:#FF6B9D">🙅 진짜 하지 말아야 할 말</h3>
+      <p id="resultDontWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#FF6B9D;"></p>
+    </div>
+
     <div class="careers-card">
       <h3 id="careersTitle">💼 이런 분야에서 빛날 수 있어요!</h3>
       <div class="career-list" id="careerList"></div>
@@ -237,88 +246,96 @@ const data={
       copyOk:'🔗 링크가 복사되었어요!',langToggle:'🌏 EN',
     },
     questions:[
-      {q:"어릴 때 가장 즐거웠던 활동은?",sub:"어린 시절 기억을 떠올려보세요",choices:[
-        {emoji:"🎨",text:"그림 그리기, 만들기, 꾸미기",type:"A"},
-        {emoji:"🔢",text:"퍼즐 맞추기, 블록 쌓기, 규칙 찾기",type:"B"},
-        {emoji:"🎭",text:"역할놀이, 이야기 만들기, 춤추기",type:"C"},
-        {emoji:"🌿",text:"탐험하기, 동식물 관찰, 수집하기",type:"D"},
+      {q:"어릴 때 가장 빠져들었던 건?",sub:"\"시간이 어떻게 갔지?\" 싶었던 것",choices:[
+        {emoji:"🎨",text:"그림 그리기, 꾸미기, 색 맞추기 — 뭔가 만드는 게 좋았음",type:"A"},
+        {emoji:"🧩",text:"퍼즐, 블록, 규칙 찾기 — 맞춰지면 그게 최고로 뿌듯했음",type:"B"},
+        {emoji:"🎭",text:"역할놀이, 이야기 꾸미기, 춤 — 표현하는 게 자연스러웠음",type:"C"},
+        {emoji:"🔧",text:"분해하기, 만들기, 조립 — 어떻게 돌아가는지가 항상 궁금했음",type:"D"},
       ]},
-      {q:"친구들이 나에게 자주 부탁하는 것은?",sub:"내가 잘 한다고 인정받는 것",choices:[
-        {emoji:"✏️",text:"디자인, 사진, 영상 편집 등 창작물",type:"A"},
-        {emoji:"📊",text:"복잡한 문제 분석, 계획 세우기",type:"B"},
-        {emoji:"🎤",text:"발표, 설득, 분위기 띄우기",type:"C"},
-        {emoji:"🛠️",text:"뭔가 고치거나 직접 만들어 주기",type:"D"},
+      {q:"친구들이 나한테 자주 부탁하는 게 있다면?",sub:"\"너 잘하잖아\"하면서 오는 것",choices:[
+        {emoji:"✏️",text:"사진 찍기, 영상 편집, 디자인, 글 쓰기",type:"A"},
+        {emoji:"📊",text:"복잡한 거 정리해주기, 계획 세우기, 논리 점검",type:"B"},
+        {emoji:"🎤",text:"발표 도와주기, 분위기 띄우기, 설득 역할",type:"C"},
+        {emoji:"🛠️",text:"뭔가 고쳐주기, 직접 만들어주기, 실용적인 것",type:"D"},
       ]},
-      {q:"시간 가는 줄 모르고 빠져드는 것은?",sub:"나도 모르게 집중하는 것",choices:[
-        {emoji:"🎨",text:"그림, 음악, 글쓰기 등 창작 활동",type:"A"},
-        {emoji:"🧩",text:"수학 문제, 코딩, 전략 게임",type:"B"},
-        {emoji:"🎬",text:"연기, 노래, 춤, 퍼포먼스",type:"C"},
-        {emoji:"🔧",text:"만들기, 수리, 조립, 실험",type:"D"},
+      {q:"나도 모르게 집중해서 하게 되는 것은?",sub:"\"어 벌써 이 시간이야?\" 싶은 것",choices:[
+        {emoji:"🖼️",text:"그림, 사진, 글쓰기, 음악 — 뭔가 표현하는 것",type:"A"},
+        {emoji:"🧠",text:"수학, 코딩, 전략 게임 — 풀어야 할 것들",type:"B"},
+        {emoji:"🎬",text:"연기, 노래, 춤, 뭔가 퍼포먼스 하는 것",type:"C"},
+        {emoji:"⚙️",text:"조립, 수리, 실험, 뭔가 직접 만드는 것",type:"D"},
       ]},
-      {q:"새로운 것을 배울 때 나는?",sub:"나의 학습 스타일",choices:[
-        {emoji:"👁️",text:"보면서 이미지로 기억한다",type:"A"},
-        {emoji:"📝",text:"논리적으로 구조를 파악하며 배운다",type:"B"},
-        {emoji:"🗣️",text:"직접 해보거나 설명하면서 배운다",type:"C"},
-        {emoji:"🤲",text:"손으로 만지고 조작하면서 배운다",type:"D"},
+      {q:"새로운 정보를 배울 때 나는?",sub:"가장 잘 들어오는 방식",choices:[
+        {emoji:"👁️",text:"그림, 도표, 이미지로 봐야 이해됨",type:"A"},
+        {emoji:"📝",text:"구조 파악이 먼저. 논리가 맞아야 넘어갈 수 있음",type:"B"},
+        {emoji:"🗣️",text:"직접 해보거나 말로 설명하면서 배워야 됨",type:"C"},
+        {emoji:"🤲",text:"손으로 만지고 조작해봐야 확실히 됨",type:"D"},
       ]},
-      {q:"사람들 앞에서 가장 자신 있는 상황은?",sub:"내가 빛나는 순간",choices:[
-        {emoji:"🖼️",text:"내가 만든 것을 보여줄 때",type:"A"},
-        {emoji:"💡",text:"복잡한 것을 쉽게 설명할 때",type:"B"},
-        {emoji:"🌟",text:"많은 사람 앞에서 발표하거나 공연할 때",type:"C"},
-        {emoji:"🏆",text:"직접 만든 것이나 해결책을 보여줄 때",type:"D"},
+      {q:"사람들 앞에서 가장 자신감 있는 순간은?",sub:"\"이건 내 구간이다\" 싶을 때",choices:[
+        {emoji:"🖼️",text:"내가 만든 걸 보여줄 때 — 반응이 기대됨",type:"A"},
+        {emoji:"💡",text:"복잡한 걸 쉽게 설명했을 때 — 알아듣는 표정이 좋음",type:"B"},
+        {emoji:"🌟",text:"많은 사람 앞에 섰을 때 — 오히려 에너지가 올라감",type:"C"},
+        {emoji:"🏆",text:"내가 직접 만들거나 해결한 걸 보여줄 때",type:"D"},
       ]},
-      {q:"미래에 꿈꾸는 나의 모습은?",sub:"가장 설레는 미래 상상",choices:[
-        {emoji:"🎨",text:"세상을 아름답게 만드는 크리에이터",type:"A"},
-        {emoji:"🔬",text:"세상을 이해하고 발전시키는 연구자",type:"B"},
-        {emoji:"🎤",text:"많은 사람에게 영향을 주는 인플루언서",type:"C"},
-        {emoji:"🏗️",text:"무언가를 직접 만들어내는 메이커",type:"D"},
+      {q:"친구가 어려운 문제를 들고 왔을 때 나는?",sub:"제일 자연스럽게 나오는 반응",choices:[
+        {emoji:"🖊️",text:"\"잠깐 여기다 그려볼게\" — 시각화로 먼저 정리함",type:"A"},
+        {emoji:"🧠",text:"\"일단 원인부터 파악하자\" — 논리적 분해 시작",type:"B"},
+        {emoji:"💬",text:"\"일단 다 얘기해봐\" — 들어주고 같이 풀어감",type:"C"},
+        {emoji:"⚙️",text:"\"해보면서 생각하자\" — 일단 시도부터 해봄",type:"D"},
       ]},
-      {q:"친구가 어려운 문제를 들고 왔을 때 나는?",sub:"나의 자연스러운 반응",choices:[
-        {emoji:"🖊️",text:"그림이나 도표로 시각화해서 설명한다",type:"A"},
-        {emoji:"🧠",text:"논리적으로 분석하고 단계별 해결책을 제시한다",type:"B"},
-        {emoji:"💬",text:"공감하고 이야기를 나누며 함께 풀어간다",type:"C"},
-        {emoji:"⚙️",text:"직접 실험하거나 시도해보며 해결한다",type:"D"},
+      {q:"남들이 못 보는 걸 내가 먼저 발견할 때는?",sub:"\"어? 왜 아무도 이걸 모르지?\" 싶을 때",choices:[
+        {emoji:"🎭",text:"색감, 구도, 분위기의 어색함 — 미적 감각이 발동할 때",type:"A"},
+        {emoji:"📐",text:"숨겨진 패턴이나 규칙 — \"이거 다 같은 구조잖아\"",type:"B"},
+        {emoji:"😊",text:"사람 감정이나 분위기 변화 — 아무도 눈치 못 챌 때 내가 먼저 앎",type:"C"},
+        {emoji:"🔍",text:"작동 원리나 구조적 허점 — \"이 부분이 비효율적인데\"",type:"D"},
       ]},
-      {q:"나만의 특별한 관찰력이 발휘될 때는?",sub:"남들이 못 보는 걸 내가 볼 때",choices:[
-        {emoji:"🎭",text:"색감, 구도, 아름다움의 조화를 발견할 때",type:"A"},
-        {emoji:"📐",text:"패턴, 규칙, 숨겨진 구조를 발견할 때",type:"B"},
-        {emoji:"😊",text:"사람들의 감정과 분위기 변화를 느낄 때",type:"C"},
-        {emoji:"🔍",text:"사물의 작동 원리와 구조를 분석할 때",type:"D"},
+      {q:"들으면 가장 기분 좋은 칭찬은?",sub:"진짜 듣고 싶은 말",choices:[
+        {emoji:"✨",text:"\"야 이거 진짜 감각 있다. 어떻게 이런 생각을 했어?\"",type:"A"},
+        {emoji:"🧠",text:"\"이걸 어떻게 생각한 거야. 너 천재 아니야?\"",type:"B"},
+        {emoji:"🎤",text:"\"너 앞에 서면 진짜 달라보여. 존재감이 장난 아님\"",type:"C"},
+        {emoji:"🛠️",text:"\"이걸 직접 만든 거라고? 이게 왜 가능하지\"",type:"D"},
       ]},
-      {q:"칭찬받으면 가장 기쁜 말은?",sub:"가장 듣고 싶은 칭찬",choices:[
-        {emoji:"✨",text:"\"이거 정말 감각 있다! 예술적이야\"",type:"A"},
-        {emoji:"🧠",text:"\"이걸 어떻게 생각했어? 천재 아냐?\"",type:"B"},
-        {emoji:"🎤",text:"\"너 앞에 서면 정말 빛나더라!\"",type:"C"},
-        {emoji:"🛠️",text:"\"이걸 직접 만든 거야? 대박이다!\"",type:"D"},
+      {q:"내 재능이 세상에 쓰인다면 어떤 방식이 가장 맞을 것 같아?",sub:"직관으로 골라요",choices:[
+        {emoji:"🌈",text:"세상을 더 아름답게. 보는 것만으로 뭔가 느껴지게",type:"A"},
+        {emoji:"💡",text:"문제를 해결하거나 방향을 잡아주는 것으로",type:"B"},
+        {emoji:"❤️",text:"사람들이 뭔가를 느끼거나 행동하게 만드는 것으로",type:"C"},
+        {emoji:"🏗️",text:"세상에 없던 걸 직접 만들어내는 것으로",type:"D"},
       ]},
-      {q:"마지막으로, 나의 재능이 세상에 미치는 영향은?",sub:"직관적으로 답해보세요",choices:[
-        {emoji:"🌈",text:"세상을 더 아름답고 감동적으로 만들고 싶다",type:"A"},
-        {emoji:"💡",text:"세상의 문제를 해결하고 더 나은 방향을 제시하고 싶다",type:"B"},
-        {emoji:"❤️",text:"많은 사람들에게 힘과 용기를 주고 싶다",type:"C"},
-        {emoji:"🏗️",text:"세상에 없던 새로운 것을 직접 만들어내고 싶다",type:"D"},
+      {q:"마지막으로, 내가 한 번도 제대로 써본 적 없는 것 같은 능력이 있다면?",sub:"가장 찔리는 걸 골라요",choices:[
+        {emoji:"🎨",text:"뭔가를 보는 눈과 만드는 감각 — 아직 본격적으로 안 씀",type:"A"},
+        {emoji:"🧩",text:"복잡한 걸 구조화하는 능력 — 제대로 발휘된 적이 없음",type:"B"},
+        {emoji:"🎤",text:"사람을 움직이는 표현력 — 무대가 없었을 뿐임",type:"C"},
+        {emoji:"⚙️",text:"머릿속 아이디어를 실제로 만드는 능력 — 기회가 없었음",type:"D"},
       ]},
     ],
     results:{
-      A:{emoji:"🎨",name:"창의적 예술가",tagline:"세상을 아름답게 만드는 크리에이터",badge:"예술적 감각",
-        traits:[{label:"창의력",val:97},{label:"심미안",val:94},{label:"감수성",val:91},{label:"논리력",val:65}],
-        desc:"당신의 숨겨진 재능은 뛰어난 창의력과 예술적 감각이에요! 색감, 구도, 조화를 보는 눈이 남다르고, 아이디어를 시각적으로 표현하는 능력이 탁월해요. 아직 본격적으로 시작하지 않았더라도, 주변에서 \"감각 있다\"는 말을 자주 듣지 않나요? 이 재능을 개발하면 무궁무진한 가능성이 펼쳐질 거예요! 🎨",
-        careers:["🎨 디자이너","📸 사진작가","🎬 영상 크리에이터","✍️ 작가/작사가","🖥️ UX 디자이너","🎭 아트 디렉터"],
-        tags:["#타고난감각","#크리에이티브","#시각적표현","#예술혼"]},
-      B:{emoji:"🧠",name:"논리적 천재",tagline:"세상의 패턴을 꿰뚫는 분석가",badge:"분석적 두뇌",
-        traits:[{label:"분석력",val:98},{label:"논리력",val:96},{label:"문제해결",val:93},{label:"즉흥성",val:55}],
-        desc:"당신의 숨겨진 재능은 뛰어난 분석력과 논리적 사고력이에요! 복잡한 문제도 체계적으로 분해하고, 남들이 보지 못하는 패턴과 규칙을 발견하는 능력이 있어요. '이 사람은 어떻게 이걸 생각했지?'라는 말을 자주 듣는다면 바로 이 재능의 증거예요. 제대로 발휘하면 어떤 분야에서든 독보적인 전문가가 될 수 있어요! 🧠",
-        careers:["💻 개발자/프로그래머","📊 데이터 분석가","🔬 연구원","💰 금융 전문가","📋 전략 컨설턴트","🤖 AI 엔지니어"],
-        tags:["#천재적분석","#패턴발견","#논리왕","#문제해결사"]},
-      C:{emoji:"🎤",name:"타고난 퍼포머",tagline:"사람의 마음을 움직이는 표현자",badge:"표현의 천재",
-        traits:[{label:"표현력",val:97},{label:"공감능력",val:95},{label:"존재감",val:93},{label:"내향성",val:40}],
-        desc:"당신의 숨겨진 재능은 사람들의 마음을 움직이는 강력한 표현력이에요! 말, 몸짓, 표정 하나하나에 힘이 있어서 사람들이 자연스럽게 집중하게 돼요. 아직 큰 무대에 서지 않았더라도, 주변 사람들이 당신의 이야기에 빠져드는 경험이 있지 않나요? 이 재능을 제대로 발휘하면 수많은 사람에게 영향을 줄 수 있어요! 🎤",
-        careers:["🎤 연사/MC","🎭 배우/공연자","📱 인플루언서/크리에이터","📣 마케터","👨‍🏫 강사/교사","🎙️ 유튜버/팟캐스터"],
-        tags:["#존재감폭발","#사람을끌어당기는","#표현의달인","#무대체질"]},
-      D:{emoji:"⚙️",name:"창조적 메이커",tagline:"아이디어를 현실로 만드는 발명가",badge:"실용적 창조력",
-        traits:[{label:"실행력",val:97},{label:"창의적해결",val:94},{label:"손재주",val:92},{label:"이론성",val:60}],
-        desc:"당신의 숨겨진 재능은 아이디어를 실제로 만들어내는 실용적 창조력이에요! 머릿속 아이디어를 그냥 생각으로 두지 않고 직접 구현해내는 능력이 탁월해요. 어릴 때부터 뭔가를 만들고, 고치고, 개조하는 것을 즐기지 않았나요? 이 재능은 4차 산업혁명 시대에 가장 빛나는 능력이에요! ⚙️",
-        careers:["🏗️ 엔지니어/개발자","🔧 발명가/메이커","🎮 게임 개발자","🤖 로봇 공학자","🏠 인테리어 디자이너","🚀 스타트업 창업가"],
-        tags:["#메이커기질","#아이디어실현","#손재주갑","#발명가"]},
+      A:{emoji:"🎨",name:"창의적 예술가",tagline:"세상을 감각으로 번역하는 사람",badge:"예술적 감각",
+        stats:[{label:"창의력",val:5},{label:"심미안",val:5},{label:"논리력",val:3}],
+        desc:"색감, 구도, 분위기를 보는 눈이 남들이랑 달라요. 아직 본격적으로 시작 안 했어도 주변에서 \"감각 있다\"는 말은 자주 들었을 거예요. 아이디어를 시각적으로 표현하는 능력이 탁월하고, 뭔가를 만들 때 디테일에 자연스럽게 눈이 감. 이 감각 제대로 쓰면 — 사람들이 말 없이도 느끼게 만드는 거 할 수 있어요.",
+        wantToHear:"\"이거 진짜 감각 있다. 어떻게 이런 생각을?\"",
+        dontWantToHear:"\"그게 밥은 돼?\"",
+        careers:["🎨 디자이너","📸 크리에이터/사진가","✍️ 작가","🎬 영상 PD","🖥️ UX 디자이너","🎭 아트 디렉터"],
+        tags:["#타고난감각","#시각적표현","#크리에이티브","#아직시작도안함"]},
+      B:{emoji:"🧠",name:"논리적 천재",tagline:"복잡한 것들을 꿰뚫어보는 사람",badge:"분석적 두뇌",
+        stats:[{label:"분석력",val:5},{label:"논리력",val:5},{label:"즉흥성",val:2}],
+        desc:"복잡한 문제도 체계적으로 분해하고, 남들이 못 보는 패턴을 먼저 발견해요. '이 사람은 어떻게 이걸 생각했지?' 소리를 자주 들었다면 — 그게 증거예요. 느린 것처럼 보여도 결과물의 완성도가 높고, 논리 빠진 소리 들으면 자동으로 반박 준비 됨. 이 능력 제대로 쓰면 어떤 분야든 독보적인 전문가 가능.",
+        wantToHear:"\"이걸 어떻게 생각한 거야. 진짜 천재 아니야?\"",
+        dontWantToHear:"\"그냥 대충 해도 되잖아\"",
+        careers:["💻 개발자","📊 데이터 분석가","🔬 연구원","💰 금융 전문가","📋 전략 컨설턴트","🤖 AI 엔지니어"],
+        tags:["#패턴발견","#논리왕","#문제해결사","#완성도집착"]},
+      C:{emoji:"🎤",name:"타고난 퍼포머",tagline:"사람의 마음을 움직이는 사람",badge:"표현의 천재",
+        stats:[{label:"표현력",val:5},{label:"공감능력",val:5},{label:"내향성",val:1}],
+        desc:"말, 몸짓, 표정 하나하나에 힘이 있어요. 사람들이 자연스럽게 집중하게 되는 그 느낌 — 연습한 게 아니라 원래 있는 거예요. 아직 큰 무대에 서지 않았더라도, 당신 얘기엔 사람들이 빠져든 경험이 있을 거예요. 사람을 움직이는 게 이미 재능인 사람. 무대만 없었을 뿐임.",
+        wantToHear:"\"너 앞에 서면 진짜 달라보여. 존재감이 장난 아님\"",
+        dontWantToHear:"\"왜 이렇게 나대?\"",
+        careers:["🎤 연사/MC","🎭 배우","📱 인플루언서","📣 마케터","👨‍🏫 강사","🎙️ 유튜버/팟캐스터"],
+        tags:["#존재감폭발","#사람을끌어당기는","#무대체질","#표현의달인"]},
+      D:{emoji:"⚙️",name:"창조적 메이커",tagline:"아이디어를 현실로 꺼내는 사람",badge:"실용적 창조력",
+        stats:[{label:"실행력",val:5},{label:"손재주",val:5},{label:"이론성",val:3}],
+        desc:"머릿속 아이디어를 그냥 생각으로 두지 않아요. 직접 만들고, 고치고, 개조하는 게 자연스러운 사람이에요. 어릴 때부터 분해하거나 조립하는 게 좋았을 거예요. 완벽주의가 있어서 느릴 수 있지만, 결과물은 늘 실용적이고 퀄리티가 있음. 이 능력 — 지금 세상에서 가장 희귀하고 가치 있는 것 중 하나예요.",
+        wantToHear:"\"이걸 직접 만든 거라고? 이게 왜 가능하지\"",
+        dontWantToHear:"\"그냥 사면 되잖아\"",
+        careers:["🏗️ 엔지니어","🔧 발명가","🎮 게임 개발자","🤖 로봇 공학자","🏠 인테리어 디자이너","🚀 스타트업 창업가"],
+        tags:["#메이커기질","#아이디어실현","#직접만드는사람","#발명가"]},
     },
   },
   en:{
@@ -454,12 +471,26 @@ function showResult(){
   document.getElementById('resultBadge').textContent=r.badge;document.getElementById('resultBadge').style.background=ty.color;
   document.getElementById('resultName').textContent=r.name;document.getElementById('resultName').style.color=ty.color;
   document.getElementById('resultTagline').textContent=r.tagline;
+  // 달 아이콘 스탯
   const tb=document.getElementById('traitsContainer');tb.innerHTML='';
-  r.traits.forEach(tr=>{tb.innerHTML+=`<div class="trait-item"><div class="trait-label">${tr.label}</div><div class="trait-bar-wrap"><div class="trait-bar" id="tb_${tr.label.replace(/[\s/]/g,'')}" style="width:0%;background:${ty.color}"></div></div><div class="trait-val" style="color:${ty.color}">${tr.val}%</div></div>`;});
-  setTimeout(()=>{r.traits.forEach(tr=>{const el=document.getElementById('tb_'+tr.label.replace(/[\s/]/g,''));if(el)el.style.width=tr.val+'%';});},200);
+  const statsData=r.stats||r.traits;
+  if(statsData){
+    statsData.forEach(s=>{
+      const val=s.val>5?Math.round(s.val/20):s.val;
+      tb.innerHTML+=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:14px;">
+        <span style="font-weight:800;color:#888;min-width:60px;">${s.label}</span>
+        <span style="letter-spacing:3px;">${'🌟'.repeat(val)}${'<span style="opacity:.2">🌟</span>'.repeat(5-val)}</span>
+      </div>`;
+    });
+  }
   const tags=document.getElementById('tagsContainer');tags.innerHTML='';
   r.tags.forEach(tag=>{const sp=document.createElement('span');sp.className='tag';sp.textContent=tag;tags.appendChild(sp);});
   document.getElementById('resultDesc').textContent=r.desc;
+  // 듣고싶은말
+  const wantEl=document.getElementById('resultWantToHear');
+  const dontEl=document.getElementById('resultDontWantToHear');
+  if(wantEl&&r.wantToHear)wantEl.textContent=r.wantToHear;
+  if(dontEl&&r.dontWantToHear)dontEl.textContent=r.dontWantToHear;
   const cl=document.getElementById('careerList');cl.innerHTML='';
   r.careers.forEach(c=>{const div=document.createElement('div');div.className='career-item';div.textContent=c;cl.appendChild(div);});
   window.scrollTo({top:0,behavior:'smooth'});

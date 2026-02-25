@@ -192,6 +192,15 @@
       <p id="resultDesc"></p>
     </div>
 
+    <div class="result-desc-card" style="animation-delay:.15s">
+      <h3>🌟 들으면 기분 좋은 말</h3>
+      <p id="resultWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#4CAF8A;"></p>
+    </div>
+    <div class="result-desc-card" style="animation-delay:.2s;border-color:#FFD6E7;">
+      <h3 style="color:#FF6B9D">🙅 진짜 듣기 싫은 말</h3>
+      <p id="resultDontWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#FF6B9D;"></p>
+    </div>
+
     <div class="compat-card">
       <h3 id="compatTitle">💞 잘 맞는 동물</h3>
       <div class="compat-row">
@@ -265,88 +274,96 @@ const data = {
       copyOk:'🔗 링크가 복사되었어요!', langToggle:'🌏 EN',
     },
     questions:[
-      {q:"친구들 사이에서 나는 주로?",sub:"가장 자연스러운 나의 모습",choices:[
-        {emoji:"👑",text:"자연스럽게 리더가 되어 이끈다",type:"A"},
-        {emoji:"🎉",text:"분위기를 띄우고 모두를 즐겁게 한다",type:"B"},
-        {emoji:"🧩",text:"상황을 관찰하고 조용히 조언해준다",type:"C"},
-        {emoji:"📚",text:"깊이 있는 대화를 즐기며 지식을 나눈다",type:"D"},
+      {q:"단체 카톡방에서 당신의 포지션은?",sub:"가장 자연스러운 내 역할",choices:[
+        {emoji:"📣",text:"공지 올리고 일정 잡는 사람. 안 하면 아무도 안 함",type:"A"},
+        {emoji:"😂",text:"분위기 메이커. 대화 끊길 것 같으면 짤이라도 올림",type:"B"},
+        {emoji:"👀",text:"항상 읽고 있지만 답장은 선별적으로. 읽씹은 아님",type:"C"},
+        {emoji:"🤔",text:"길게 잘 쓰는 사람. 근데 보내기 전에 세 번은 고침",type:"D"},
       ]},
-      {q:"나에게 이상적인 주말은?",sub:"가장 행복한 휴일 상상하기",choices:[
-        {emoji:"🏋️",text:"운동이나 활동적인 취미로 에너지 발산",type:"A"},
-        {emoji:"🏖️",text:"친구들과 신나게 놀거나 여행가기",type:"B"},
-        {emoji:"🌲",text:"혼자 산책하거나 자연 속에서 힐링",type:"C"},
-        {emoji:"📖",text:"책 읽거나 좋아하는 것에 집중하기",type:"D"},
+      {q:"길을 걷다가 싸움 구경을 하게 됐을 때?",sub:"솔직한 내 반응",choices:[
+        {emoji:"🦁",text:"상황 파악하고 개입 여부 판단. 부당하면 나섬",type:"A"},
+        {emoji:"😟",text:"어떻게 하면 말릴 수 있을지 고민하면서 주변 살핌",type:"B"},
+        {emoji:"🦊",text:"거리 두고 지켜봄. 상황 정확히 파악한 뒤 움직임",type:"C"},
+        {emoji:"📞",text:"일단 경찰 전화 먼저. 감정보다 절차가 먼저 떠오름",type:"D"},
       ]},
-      {q:"화가 났을 때 나는?",sub:"솔직한 내 반응",choices:[
-        {emoji:"🔥",text:"바로 표현하고 시원하게 해결한다",type:"A"},
-        {emoji:"😢",text:"일단 자리를 피하고 감정을 삭인다",type:"B"},
-        {emoji:"🦊",text:"표면적으로 침착하게, 속으로 기억해둔다",type:"C"},
-        {emoji:"🤔",text:"원인을 분석하고 논리적으로 대응한다",type:"D"},
+      {q:"새로운 모임에서 처음 만난 사람들과 있을 때?",sub:"첫 만남의 진짜 내 모습",choices:[
+        {emoji:"😎",text:"어색함 없이 먼저 말 걺. 모르는 사람이 편함",type:"A"},
+        {emoji:"😊",text:"친근하게 먼저 다가감. 금방 친해지는 스타일",type:"B"},
+        {emoji:"🌙",text:"일단 구석 자리 확보. 파악하고 나서 조금씩 열림",type:"C"},
+        {emoji:"📋",text:"공통 관심사를 찾아가며 대화함. 빈말은 못 함",type:"D"},
       ]},
-      {q:"처음 만나는 사람에게 나는?",sub:"첫 만남의 나",choices:[
-        {emoji:"😎",text:"당당하고 자신감 있게 먼저 다가간다",type:"A"},
-        {emoji:"😊",text:"친근하게 말 걸고 금방 친해진다",type:"B"},
-        {emoji:"👀",text:"일단 지켜보다가 천천히 다가간다",type:"C"},
-        {emoji:"🤝",text:"정중하게 인사하고 공통점을 찾는다",type:"D"},
+      {q:"나를 가장 빡치게 만드는 상황은?",sub:"솔직하게 골라요",choices:[
+        {emoji:"🔥",text:"내 계획이나 진행에 뜬금없이 끼어들 때",type:"A"},
+        {emoji:"😤",text:"분위기 싸해지는데 아무도 뭔 말을 안 할 때",type:"B"},
+        {emoji:"😒",text:"나를 겉만 보고 판단할 때. 속도 모르면서",type:"C"},
+        {emoji:"🤯",text:"근거 없이 우기는 사람. 논리가 없으면 대화가 안 됨",type:"D"},
       ]},
-      {q:"내가 가장 자랑스러운 나의 능력은?",sub:"나의 진짜 강점",choices:[
-        {emoji:"💪",text:"어떤 상황도 돌파하는 강한 실행력",type:"A"},
-        {emoji:"💃",text:"누구와도 어울리는 친화력과 에너지",type:"B"},
-        {emoji:"🧠",text:"상황을 꿰뚫어보는 예리한 통찰력",type:"C"},
-        {emoji:"🔭",text:"깊고 넓은 지식과 분석 능력",type:"D"},
+      {q:"지치고 방전됐을 때 회복 방법은?",sub:"진짜 재충전 방식",choices:[
+        {emoji:"🏃",text:"땀 흘리면서 몸 씀. 운동하고 나면 머리가 맑아짐",type:"A"},
+        {emoji:"👥",text:"친한 사람 만나서 수다 떪. 털어놓으면 가벼워짐",type:"B"},
+        {emoji:"🌙",text:"혼자 조용히 있음. 아무도 연락 안 하는 게 최고",type:"C"},
+        {emoji:"🎧",text:"좋아하는 것에 완전히 집중. 몰입하면 에너지 회복",type:"D"},
       ]},
-      {q:"위기 상황에서 나는?",sub:"진짜 나의 모습이 드러날 때",choices:[
-        {emoji:"⚡",text:"앞장서서 직접 해결한다",type:"A"},
-        {emoji:"🤗",text:"주변 사람들을 안심시키고 함께 해결한다",type:"B"},
-        {emoji:"🦊",text:"침착하게 상황을 파악하고 전략을 짠다",type:"C"},
-        {emoji:"📋",text:"차분하게 정보를 모아 최선책을 찾는다",type:"D"},
+      {q:"내가 솔직히 인정하는 내 단점은?",sub:"좀 찔리는 거 골라요",choices:[
+        {emoji:"😤",text:"고집 셈. 틀려도 웬만하면 내가 먼저 인정 안 함",type:"A"},
+        {emoji:"🙈",text:"감정에 쉽게 휩쓸림. 기분에 따라 판단이 달라짐",type:"B"},
+        {emoji:"🤐",text:"속마음 잘 안 드러냄. 오해받아도 설명하기 귀찮음",type:"C"},
+        {emoji:"⏳",text:"완벽주의. 결정 느리고 뭐든 너무 오래 생각함",type:"D"},
       ]},
-      {q:"내가 지치고 힘들 때는?",sub:"재충전 방식",choices:[
-        {emoji:"🏃",text:"운동이나 활동으로 스트레스를 푼다",type:"A"},
-        {emoji:"👫",text:"친한 친구를 만나 수다를 떤다",type:"B"},
-        {emoji:"🌙",text:"혼자만의 시간을 갖고 조용히 쉰다",type:"C"},
-        {emoji:"🎵",text:"좋아하는 것에 집중하며 몰입한다",type:"D"},
+      {q:"내가 가장 자신 있는 나만의 능력은?",sub:"진짜 강점",choices:[
+        {emoji:"💪",text:"한 번 목표 잡으면 끝까지 밀어붙이는 추진력",type:"A"},
+        {emoji:"✨",text:"어디서든 사람들과 금방 어울리는 분위기 파악력",type:"B"},
+        {emoji:"🎯",text:"남들이 못 보는 걸 먼저 봄. 본질 파악이 빠름",type:"C"},
+        {emoji:"🔭",text:"관심 분야는 끝까지 파고드는 깊이와 전문성",type:"D"},
       ]},
-      {q:"나의 단점이라고 생각하는 것은?",sub:"솔직하게 인정하는 나의 약점",choices:[
-        {emoji:"😤",text:"고집이 세고 내 방식을 고수한다",type:"A"},
-        {emoji:"🙈",text:"감정에 휩쓸리고 깊게 생각 안 할 때가 있다",type:"B"},
-        {emoji:"🤐",text:"속마음을 잘 드러내지 않아 오해받는다",type:"C"},
-        {emoji:"⏰",text:"너무 완벽을 추구해서 결정이 느리다",type:"D"},
+      {q:"내가 가장 잘 어울리는 환경은?",sub:"진짜 내가 빛나는 곳",choices:[
+        {emoji:"🏆",text:"경쟁이 있고 목표가 명확한 곳. 동기부여가 됨",type:"A"},
+        {emoji:"🎨",text:"자유롭고 사람 많은 곳. 혼자 일하면 힘듦",type:"B"},
+        {emoji:"🌿",text:"조용하고 집중할 수 있는 곳. 소음과 눈치가 없는 곳",type:"C"},
+        {emoji:"🔬",text:"깊이 탐구하고 연구할 수 있는 곳. 디테일이 보장되는 환경",type:"D"},
       ]},
-      {q:"나는 어떤 환경에서 가장 빛나나요?",sub:"내가 최고로 활약할 수 있는 곳",choices:[
-        {emoji:"🎯",text:"목표가 명확하고 경쟁이 있는 환경",type:"A"},
-        {emoji:"🎨",text:"자유롭고 창의적이며 사람 많은 환경",type:"B"},
-        {emoji:"🌿",text:"혼자 집중할 수 있는 조용한 환경",type:"C"},
-        {emoji:"🔬",text:"깊이 탐구하고 연구할 수 있는 환경",type:"D"},
+      {q:"사람들이 처음에 나를 어떻게 봤다가, 알고 나서 달라지는 부분은?",sub:"나를 잘 아는 사람들만 아는 것",choices:[
+        {emoji:"🦁",text:"\"무서운 줄 알았는데 의외로 의리 있음\"",type:"A"},
+        {emoji:"🐬",text:"\"가볍게 봤는데 사실 되게 따뜻하고 세심함\"",type:"B"},
+        {emoji:"🦊",text:"\"차갑게 봤는데 한 번 친해지면 진짜 충성임\"",type:"C"},
+        {emoji:"🦉",text:"\"말 없는 줄 알았는데 아는 게 엄청 많음\"",type:"D"},
       ]},
-      {q:"나를 가장 잘 표현하는 단어는?",sub:"직관적으로 선택해요",choices:[
-        {emoji:"🔥",text:"열정적이고 강렬하다",type:"A"},
-        {emoji:"☀️",text:"밝고 에너지 넘친다",type:"B"},
-        {emoji:"🌙",text:"신비롭고 깊이 있다",type:"C"},
-        {emoji:"💎",text:"지혜롭고 통찰력 있다",type:"D"},
+      {q:"마지막으로, 나를 가장 잘 표현하는 문장은?",sub:"읽자마자 \"맞아\" 싶은 걸 골라요",choices:[
+        {emoji:"🔥",text:"\"나는 결국 내 방식으로 해냄\"",type:"A"},
+        {emoji:"☀️",text:"\"나는 분위기를 바꿀 수 있음\"",type:"B"},
+        {emoji:"🌙",text:"\"나는 겉보다 속이 훨씬 많음\"",type:"C"},
+        {emoji:"💎",text:"\"나는 알면 알수록 다름\"",type:"D"},
       ]},
     ],
     results:{
-      A:{emoji:"🦁",name:"사자",tagline:"정글의 왕, 타고난 리더",badge:"강력한 리더",
-        traits:[{label:"리더십",val:97},{label:"자신감",val:94},{label:"실행력",val:90},{label:"섬세함",val:55}],
-        desc:"당신은 사자입니다! 타고난 카리스마와 강한 리더십으로 어디서든 자연스럽게 중심이 돼요. 목표를 향해 거침없이 나아가며, 주변 사람들에게 신뢰와 용기를 줍니다. 한 번 마음먹으면 반드시 해내는 불굴의 의지는 진짜 사자의 기질이에요. 강한 만큼 가끔은 부드러움도 기억해주세요! 🦁",
-        compat:{goodEmoji:"🐬",goodName:"돌고래",badEmoji:"🦅",badName:"독수리형"},
-        tags:["#타고난리더","#카리스마폭발","#목표달성머신","#불굴의의지"]},
-      B:{emoji:"🐬",name:"돌고래",tagline:"바다의 사교왕, 에너지 넘치는 자유인",badge:"밝은 에너지",
-        traits:[{label:"사교성",val:98},{label:"긍정에너지",val:95},{label:"공감능력",val:90},{label:"집중력",val:60}],
-        desc:"당신은 돌고래입니다! 어딜 가나 밝은 에너지로 분위기를 만들고, 사람들을 자석처럼 끌어당기는 매력이 있어요. 감수성이 풍부하고 공감 능력이 뛰어나서 친구들의 고민을 누구보다 잘 들어줘요. 자유를 사랑하고 새로운 것에 거침없이 뛰어드는 당신, 정말 빛나요! 🐬",
+      A:{emoji:"🦁",name:"사자",tagline:"날카로운 사자",badge:"강력한 리더",
+        stats:[{label:"자기애",val:5},{label:"참을성",val:2},{label:"행동력",val:5}],
+        desc:"목표 정하면 직진. 감정 표현이 직설적이에요. 자신에 대한 기준이 높고, 과정보다 결과를 중요시해요. 품에 살고 품에 죽는 스타일. 사교적인데 공감능력은 다소 부족할 수 있어요. 행동력과 추진력이 엄청나게 좋아요.",
+        wantToHear:"\"역시 너한테 맡기길 잘했어\"",
+        dontWantToHear:"\"왜 그렇게 독단적으로 결정해?\"",
+        compat:{goodEmoji:"🐬",goodName:"돌고래",badEmoji:"🦉",badName:"부엉이형"},
+        tags:["#직진본능","#자기확신","#결과주의","#추진력끝판왕"]},
+      B:{emoji:"🐬",name:"돌고래",tagline:"밝고 유연한 돌고래",badge:"밝은 에너지",
+        stats:[{label:"잠생각",val:1},{label:"호불호",val:3},{label:"계획성",val:2}],
+        desc:"리액션에 영혼이 있어요. 어딜 가도 분위기 메이커. 감정 표현이 풍부하고 공감 능력이 탁월해요. 혼자 있는 것보다 사람들 속에 있을 때 에너지가 충전돼요. 가끔 즉흥적이라 주변을 당황하게 할 수 있지만, 그게 또 매력임.",
+        wantToHear:"\"네가 있으니까 자리가 살아\"",
+        dontWantToHear:"\"왜 이렇게 가볍게 생각해?\"",
         compat:{goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이형"},
-        tags:["#사교왕","#긍정에너지","#공감능력최고","#자유로운영혼"]},
-      C:{emoji:"🦊",name:"여우",tagline:"영리하고 신비로운 전략가",badge:"영리한 전략가",
-        traits:[{label:"통찰력",val:96},{label:"전략적사고",val:93},{label:"신중함",val:91},{label:"개방성",val:62}],
-        desc:"당신은 여우입니다! 뛰어난 관찰력과 예리한 통찰력으로 남들이 보지 못하는 것을 꿰뚫어봐요. 감정을 잘 드러내지 않아 신비롭게 보이지만, 한 번 마음을 연 사람에게는 깊은 충성심을 보여줘요. 영리하고 전략적인 당신은 어떤 상황에서도 최선의 결과를 만들어냅니다. 🦊",
+        tags:["#리액션장인","#분위기메이커","#공감능력","#긍정에너지"]},
+      C:{emoji:"🦊",name:"여우",tagline:"신비롭고 날카로운 여우",badge:"영리한 전략가",
+        stats:[{label:"잠생각",val:5},{label:"호불호",val:5},{label:"계획성",val:4}],
+        desc:"겉으로는 조용한데 속으로는 다 보고 있어요. 한 번 믿기로 한 사람한테는 끝까지 충성. 거짓된 관계나 빈말이 너무 피곤해요. 혼자 있는 시간이 충전에 꼭 필요해요. 손익 계산 빠르고, 논리적으로 납득되면 바로 인정함.",
+        wantToHear:"\"역시 네가 다 보고 있었구나\"",
+        dontWantToHear:"\"왜 그렇게 예민하게 굴어?\"",
         compat:{goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래형"},
-        tags:["#영리한전략가","#신비로운매력","#예리한통찰","#깊은충성심"]},
-      D:{emoji:"🦉",name:"부엉이",tagline:"지혜의 상징, 깊이 있는 탐구자",badge:"지혜로운 탐구자",
-        traits:[{label:"지혜",val:97},{label:"분석력",val:95},{label:"집중력",val:92},{label:"즉흥성",val:50}],
-        desc:"당신은 부엉이입니다! 깊은 사고력과 뛰어난 분석 능력으로 어떤 문제도 꿰뚫어보는 지혜를 가졌어요. 관심 있는 분야에서는 누구도 따라오기 힘든 전문성을 발휘하며, 조용하지만 존재감 있는 사람이에요. 당신의 말 한마디는 항상 깊은 울림이 있어요. 🦉",
+        tags:["#조용한관찰자","#충성하면끝","#본질파악","#호불호확실"]},
+      D:{emoji:"🦉",name:"부엉이",tagline:"지혜롭고 깊이 있는 부엉이",badge:"지혜로운 탐구자",
+        stats:[{label:"잠생각",val:5},{label:"호불호",val:4},{label:"계획성",val:5}],
+        desc:"아는 게 많은데 티를 안 냄. 관심 분야는 끝까지 파고드는 전문가 기질이에요. 빈말 잘 안 하고, 말 한마디에 무게감이 있어요. 즉흥보다는 계획, 속도보다는 완성도. 유튜브는 기본 1.5배속으로 봄.",
+        wantToHear:"\"네가 제일 잘 알 것 같아서\"",
+        dontWantToHear:"\"그냥 대충 해도 되잖아\"",
         compat:{goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자형"},
-        tags:["#지혜의상징","#깊은사고력","#전문성최고","#조용한강자"]},
+        tags:["#말에무게감","#전문가기질","#완성도우선","#알면알수록"]},
     },
   },
   en:{
@@ -488,12 +505,26 @@ function showResult(){
   document.getElementById('resultBadge').textContent=r.badge;document.getElementById('resultBadge').style.background=ty.color;
   document.getElementById('resultName').textContent=r.name;document.getElementById('resultName').style.color=ty.color;
   document.getElementById('resultTagline').textContent=r.tagline;
+  // 달 아이콘 스탯 렌더링 (traits 대신)
   const tb=document.getElementById('traitsContainer');tb.innerHTML='';
-  r.traits.forEach(tr=>{tb.innerHTML+=`<div class="trait-item"><div class="trait-label">${tr.label}</div><div class="trait-bar-wrap"><div class="trait-bar" id="tb_${tr.label.replace(/\s/g,'')}" style="width:0%;background:${ty.color}"></div></div><div class="trait-val" style="color:${ty.color}">${tr.val}%</div></div>`;});
-  setTimeout(()=>{r.traits.forEach(tr=>{const el=document.getElementById('tb_'+tr.label.replace(/\s/g,''));if(el)el.style.width=tr.val+'%';});},200);
+  const statsData = r.stats || r.traits;
+  if(statsData){
+    statsData.forEach(s=>{
+      const val = s.val > 5 ? Math.round(s.val/20) : s.val;
+      tb.innerHTML+=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:14px;">
+        <span style="font-weight:800;color:#888;min-width:68px;">${s.label}</span>
+        <span style="letter-spacing:3px;">${'🌙'.repeat(val)}${'<span style="opacity:.2">🌙</span>'.repeat(5-val)}</span>
+      </div>`;
+    });
+  }
   const tags=document.getElementById('tagsContainer');tags.innerHTML='';
   r.tags.forEach(tag=>{const sp=document.createElement('span');sp.className='tag';sp.textContent=tag;tags.appendChild(sp);});
   document.getElementById('resultDesc').textContent=r.desc;
+  // 듣고싶은말 / 듣기싫은말
+  const wantEl=document.getElementById('resultWantToHear');
+  const dontEl=document.getElementById('resultDontWantToHear');
+  if(wantEl && r.wantToHear) wantEl.textContent=r.wantToHear;
+  if(dontEl && r.dontWantToHear) dontEl.textContent=r.dontWantToHear;
   const u=data[curLang].ui;
   document.getElementById('compatGoodEmoji').textContent=r.compat.goodEmoji;
   document.getElementById('compatGoodLabel').textContent=u.goodLabel;
