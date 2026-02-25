@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>숨겨진 재능 테스트 🌟 | Hidden Talent Test</title>
+<meta name="description" content="당신만 모르는 나의 숨겨진 재능은? 10가지 질문으로 알아보세요!">
+<meta property="og:title" content="숨겨진 재능 테스트 🌟">
+<meta property="og:description" content="당신만 모르는 나의 숨겨진 재능 발견! 결과가 소름돋아요 😱">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --purple: #7C67EE;
+    --violet: #A855F7;
+    --gold:   #FFD700;
+    --pink:   #FF6B9D;
+    --blue:   #4A90E2;
+    --dark:   #1A1230;
+    --bg:     #F8F5FF;
+    --card:   #FFFFFF;
+    --shadow: 0 6px 28px rgba(124,103,238,0.12);
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nanum Gothic', sans-serif; background: var(--bg); color: var(--dark); min-height: 100vh; overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(124,103,238,.08) 0%, transparent 45%), radial-gradient(circle at 80% 70%, rgba(255,215,0,.06) 0%, transparent 45%);
+    pointer-events: none; z-index: 0;
+  }
+  .container { max-width: 600px; margin: 0 auto; padding: 20px 16px 60px; position: relative; z-index: 1; }
+
+  .ad-slot { background: #F0ECFF; border: 2px dashed #C8BEFF; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 13px; }
+  .ad-top    { height: 90px; margin-bottom: 24px; }
+  .ad-mid    { height: 250px; margin: 20px 0; display: none; }
+  .ad-result { height: 250px; margin: 16px 0; }
+  .ad-bottom { height: 90px; margin: 16px 0; }
+
+  .lang-btn { position: fixed; top: 16px; right: 16px; background: white; border: 2px solid var(--purple); border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s; }
+  .lang-btn:hover { background: var(--purple); color: white; }
+
+  .header { text-align: center; margin-bottom: 28px; animation: fadeDown .6s ease; }
+  .header .emoji-big { font-size: 76px; display: block; margin-bottom: 8px; animation: sparkle 2s ease-in-out infinite; }
+  @keyframes sparkle { 0%,100%{transform:scale(1) rotate(0deg);}25%{transform:scale(1.1) rotate(-5deg);}75%{transform:scale(1.1) rotate(5deg);} }
+  .header h1 { font-family: 'Gaegu', cursive; font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+  .header h1 span { background: linear-gradient(135deg, var(--purple), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .header p { font-size: 15px; color: #888; line-height: 1.7; }
+
+  .start-card { background: var(--card); border-radius: var(--radius); padding: 32px 24px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; text-align: center; }
+  .start-card p { font-size: 15px; color: #666; line-height: 1.8; margin: 16px 0 24px; }
+
+  .progress-label { text-align: center; font-size: 13px; color: #aaa; margin-bottom: 6px; }
+  .progress-wrap { background: #E8E0FF; border-radius: 99px; height: 10px; margin-bottom: 22px; overflow: hidden; }
+  .progress-bar { height: 100%; background: linear-gradient(90deg, var(--purple), var(--gold)); border-radius: 99px; transition: width .4s ease; }
+
+  .question-card { background: var(--card); border-radius: var(--radius); padding: 28px 22px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; margin-bottom: 16px; animation: fadeUp .4s ease; }
+  .question-num { display: inline-block; background: linear-gradient(135deg, var(--purple), var(--violet)); color: white; font-size: 12px; font-weight: 800; padding: 4px 13px; border-radius: 99px; margin-bottom: 14px; }
+  .question-text { font-size: 19px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+  .question-sub { font-size: 13px; color: #bbb; margin-bottom: 22px; }
+
+  .choices { display: flex; flex-direction: column; gap: 10px; }
+  .choice-btn { background: #F8F5FF; border: 2px solid #DDD6FF; border-radius: 15px; padding: 14px 18px; font-family: 'Nanum Gothic', sans-serif; font-size: 15px; font-weight: 700; color: var(--dark); cursor: pointer; text-align: left; transition: all .2s; display: flex; align-items: center; gap: 12px; }
+  .choice-btn:hover { background: #EDE8FF; border-color: var(--purple); transform: translateX(5px); }
+  .choice-btn.selected { background: linear-gradient(135deg, #7C67EE22, #FFD70022); border-color: var(--purple); transform: scale(1.02); }
+  .choice-emoji { font-size: 22px; flex-shrink: 0; }
+
+  .result-screen { display: none; }
+  .result-hero { background: var(--card); border-radius: var(--radius); padding: 36px 24px 28px; box-shadow: var(--shadow); border: 3px solid #DDD6FF; text-align: center; margin-bottom: 16px; animation: fadeUp .6s ease; }
+  .result-big-emoji { font-size: 90px; display: block; margin-bottom: 10px; animation: bounceIn .7s ease; }
+  @keyframes bounceIn { 0%{transform:scale(0) rotate(-15deg);}60%{transform:scale(1.2) rotate(5deg);}100%{transform:scale(1) rotate(0);} }
+  .result-badge { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 2px; padding: 5px 16px; border-radius: 99px; margin-bottom: 10px; color: white; }
+  .result-name { font-family: 'Gaegu', cursive; font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+  .result-tagline { font-size: 15px; color: #888; margin-bottom: 22px; }
+
+  .traits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .trait-item { background: #F8F5FF; border-radius: 12px; padding: 12px 14px; }
+  .trait-label { font-size: 11px; font-weight: 800; color: #aaa; margin-bottom: 6px; letter-spacing: 1px; }
+  .trait-bar-wrap { background: #E8E0FF; border-radius: 99px; height: 8px; overflow: hidden; }
+  .trait-bar { height: 100%; border-radius: 99px; transition: width 1s ease .3s; }
+  .trait-val { font-size: 12px; font-weight: 800; margin-top: 4px; text-align: right; }
+
+  .result-desc-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; margin-bottom: 16px; }
+  .result-desc-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
+  .result-desc-card p { font-size: 15px; line-height: 1.85; color: #555; }
+
+  .careers-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; margin-bottom: 16px; }
+  .careers-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+  .career-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .career-item { background: linear-gradient(135deg, #EDE8FF, #FFF8E0); border: 1px solid #DDD6FF; border-radius: 99px; padding: 8px 16px; font-size: 14px; font-weight: 700; }
+
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; justify-content: center; }
+  .tag { background: linear-gradient(135deg, #EDE8FF, #FFF8E0); color: var(--dark); padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; }
+
+  .share-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); text-align: center; margin-bottom: 16px; }
+  .share-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+  .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .share-btn { display: flex; align-items: center; gap: 7px; padding: 12px 18px; border-radius: 13px; border: none; font-family: 'Nanum Gothic', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s; }
+  .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,.15); }
+  .btn-kakao { background: #FEE500; color: #3C1E1E; }
+  .btn-twitter { background: #1DA1F2; color: white; }
+  .btn-facebook { background: #1877F2; color: white; }
+  .btn-copy { background: linear-gradient(135deg,var(--purple),var(--violet)); color: white; }
+
+  .restart-btn { width: 100%; padding: 17px; background: linear-gradient(135deg, var(--purple), var(--violet)); color: white; border: none; border-radius: 15px; font-family: 'Nanum Gothic', sans-serif; font-size: 17px; font-weight: 800; cursor: pointer; margin-bottom: 16px; box-shadow: 0 5px 18px rgba(124,103,238,.4); transition: all .2s; }
+  .restart-btn:hover { transform: translateY(-2px); }
+
+  .more-card { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); margin-bottom: 16px; }
+  .more-card h3 { font-size: 15px; font-weight: 800; color: #555; margin-bottom: 14px; }
+  .more-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg); border-radius: 12px; margin-bottom: 8px; cursor: pointer; transition: all .2s; text-decoration: none; color: var(--dark); }
+  .more-item:hover { background: #EDE8FF; }
+  .more-item-emoji { font-size: 28px; }
+  .more-item-info { flex: 1; }
+  .more-item-title { font-size: 14px; font-weight: 700; }
+  .more-item-sub   { font-size: 12px; color: #aaa; }
+
+  .footer { text-align: center; font-size: 12px; color: #ccc; padding: 20px 0; }
+  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 12px 26px; border-radius: 99px; font-size: 14px; font-weight: 700; transition: transform .3s; z-index: 9999; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-22px);}to{opacity:1;transform:translateY(0);} }
+  @media(max-width:480px){ .header h1{font-size:28px;} .traits{grid-template-columns:1fr;} .share-btn{padding:10px 14px;font-size:13px;} }
+</style>
+</head>
+<body>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">🌏 EN</button>
+<div class="toast" id="toast"></div>
+
+<div class="container">
+  <div class="ad-slot ad-top">📢 광고 영역 (상단 728×90)</div>
+
+  <div class="header" id="headerSection">
+    <span class="emoji-big">🌟</span>
+    <h1 id="mainTitle">나의 <span>숨겨진 재능</span>은?</h1>
+    <p id="mainDesc">10가지 질문으로 발견하는 나만의 특별한 재능<br>당신도 몰랐던 재능이 있을 수 있어요! ✨</p>
+  </div>
+
+  <div id="startSection">
+    <div class="start-card">
+      <span style="font-size:52px">💎</span>
+      <p id="startText">누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>10개의 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong></p>
+      <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">🌟 재능 발견하기</button>
+    </div>
+  </div>
+
+  <div id="quizSection" style="display:none">
+    <div class="progress-label" id="progressLabel">1 / 10</div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:10%"></div></div>
+    <div class="question-card">
+      <span class="question-num" id="questionNum">Q1</span>
+      <div class="question-text" id="questionText"></div>
+      <div class="question-sub"  id="questionSub"></div>
+      <div class="choices"       id="choicesContainer"></div>
+    </div>
+    <div class="ad-slot ad-mid" id="adMid">📢 광고 영역 (중간 300×250)</div>
+  </div>
+
+  <div class="result-screen" id="resultSection">
+    <div class="result-hero" id="resultHero">
+      <span class="result-big-emoji" id="resultEmoji">🎨</span>
+      <div class="result-badge" id="resultBadge">숨겨진 재능</div>
+      <div class="result-name"  id="resultName">창의적 예술가</div>
+      <div class="result-tagline" id="resultTagline">세상을 아름답게 만드는 힘</div>
+      <div class="traits" id="traitsContainer"></div>
+      <div class="tags-wrap" id="tagsContainer"></div>
+    </div>
+
+    <div class="result-desc-card">
+      <h3 id="descTitle">🌟 재능 분석</h3>
+      <p id="resultDesc"></p>
+    </div>
+
+    <div class="careers-card">
+      <h3 id="careersTitle">💼 이런 분야에서 빛날 수 있어요!</h3>
+      <div class="career-list" id="careerList"></div>
+    </div>
+
+    <div class="ad-slot ad-result">📢 광고 영역 (결과 직후 300×250 — 최고 CTR)</div>
+
+    <div class="share-card">
+      <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
+      <div class="share-buttons">
+        <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
+        <button class="share-btn btn-twitter"  onclick="shareTwitter()">🐦 Twitter</button>
+        <button class="share-btn btn-facebook" onclick="shareFacebook()">📘 Facebook</button>
+        <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
+      </div>
+    </div>
+
+    <button class="restart-btn" onclick="restartTest()" id="restartBtn">🔄 다시 테스트하기</button>
+
+    <div class="more-card">
+      <h3 id="moreTitle">🎯 다른 테스트도 해보세요!</h3>
+      <a class="more-item" href="love-style-test.html">
+        <span class="more-item-emoji">💕</span>
+        <div class="more-item-info"><div class="more-item-title">나의 연애 스타일은?</div><div class="more-item-sub">당신은 어떤 연인인가요?</div></div><span>›</span>
+      </a>
+      <a class="more-item" href="animal-test.html">
+        <span class="more-item-emoji">🐾</span>
+        <div class="more-item-info"><div class="more-item-title">나를 동물로 표현하면?</div><div class="more-item-sub">나와 닮은 동물을 찾아보세요</div></div><span>›</span>
+      </a>
+      <a class="more-item" href="past-life-test.html">
+        <span class="more-item-emoji">🔮</span>
+        <div class="more-item-info"><div class="more-item-title">나의 전생은?</div><div class="more-item-sub">전생에 어떤 삶을 살았을까요?</div></div><span>›</span>
+      </a>
+    </div>
+
+    <div class="ad-slot ad-bottom">📢 광고 영역 (하단)</div>
+  </div>
+
+  <div class="footer">© 2024 테스트월드 · <a href="index.html" style="color:#ddd">홈으로</a></div>
+</div>
+
+<script>
+const TYPES={
+  A:{color:'#FF6B9D',bg:'#FFF5F8',border:'#FFD6E7'},
+  B:{color:'#7C67EE',bg:'#F8F5FF',border:'#DDD6FF'},
+  C:{color:'#4A90E2',bg:'#F0F7FF',border:'#B8D8FF'},
+  D:{color:'#FF9F43',bg:'#FFF8EE',border:'#FFD0A0'},
+};
+
+const data={
+  ko:{
+    ui:{
+      langBtn:'🌏 EN',mainTitle:'나의 <span>숨겨진 재능</span>은?',
+      mainDesc:'10가지 질문으로 발견하는 나만의 특별한 재능<br>당신도 몰랐던 재능이 있을 수 있어요! ✨',
+      startText:'누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>10개의 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong>',
+      startBtn:'🌟 재능 발견하기',descTitle:'🌟 재능 분석',
+      careersTitle:'💼 이런 분야에서 빛날 수 있어요!',
+      shareTitle:'🎉 친구들에게 결과 공유하기!',
+      restartBtn:'🔄 다시 테스트하기',moreTitle:'🎯 다른 테스트도 해보세요!',
+      copyOk:'🔗 링크가 복사되었어요!',langToggle:'🌏 EN',
+    },
+    questions:[
+      {q:"어릴 때 가장 즐거웠던 활동은?",sub:"어린 시절 기억을 떠올려보세요",choices:[
+        {emoji:"🎨",text:"그림 그리기, 만들기, 꾸미기",type:"A"},
+        {emoji:"🔢",text:"퍼즐 맞추기, 블록 쌓기, 규칙 찾기",type:"B"},
+        {emoji:"🎭",text:"역할놀이, 이야기 만들기, 춤추기",type:"C"},
+        {emoji:"🌿",text:"탐험하기, 동식물 관찰, 수집하기",type:"D"},
+      ]},
+      {q:"친구들이 나에게 자주 부탁하는 것은?",sub:"내가 잘 한다고 인정받는 것",choices:[
+        {emoji:"✏️",text:"디자인, 사진, 영상 편집 등 창작물",type:"A"},
+        {emoji:"📊",text:"복잡한 문제 분석, 계획 세우기",type:"B"},
+        {emoji:"🎤",text:"발표, 설득, 분위기 띄우기",type:"C"},
+        {emoji:"🛠️",text:"뭔가 고치거나 직접 만들어 주기",type:"D"},
+      ]},
+      {q:"시간 가는 줄 모르고 빠져드는 것은?",sub:"나도 모르게 집중하는 것",choices:[
+        {emoji:"🎨",text:"그림, 음악, 글쓰기 등 창작 활동",type:"A"},
+        {emoji:"🧩",text:"수학 문제, 코딩, 전략 게임",type:"B"},
+        {emoji:"🎬",text:"연기, 노래, 춤, 퍼포먼스",type:"C"},
+        {emoji:"🔧",text:"만들기, 수리, 조립, 실험",type:"D"},
+      ]},
+      {q:"새로운 것을 배울 때 나는?",sub:"나의 학습 스타일",choices:[
+        {emoji:"👁️",text:"보면서 이미지로 기억한다",type:"A"},
+        {emoji:"📝",text:"논리적으로 구조를 파악하며 배운다",type:"B"},
+        {emoji:"🗣️",text:"직접 해보거나 설명하면서 배운다",type:"C"},
+        {emoji:"🤲",text:"손으로 만지고 조작하면서 배운다",type:"D"},
+      ]},
+      {q:"사람들 앞에서 가장 자신 있는 상황은?",sub:"내가 빛나는 순간",choices:[
+        {emoji:"🖼️",text:"내가 만든 것을 보여줄 때",type:"A"},
+        {emoji:"💡",text:"복잡한 것을 쉽게 설명할 때",type:"B"},
+        {emoji:"🌟",text:"많은 사람 앞에서 발표하거나 공연할 때",type:"C"},
+        {emoji:"🏆",text:"직접 만든 것이나 해결책을 보여줄 때",type:"D"},
+      ]},
+      {q:"미래에 꿈꾸는 나의 모습은?",sub:"가장 설레는 미래 상상",choices:[
+        {emoji:"🎨",text:"세상을 아름답게 만드는 크리에이터",type:"A"},
+        {emoji:"🔬",text:"세상을 이해하고 발전시키는 연구자",type:"B"},
+        {emoji:"🎤",text:"많은 사람에게 영향을 주는 인플루언서",type:"C"},
+        {emoji:"🏗️",text:"무언가를 직접 만들어내는 메이커",type:"D"},
+      ]},
+      {q:"친구가 어려운 문제를 들고 왔을 때 나는?",sub:"나의 자연스러운 반응",choices:[
+        {emoji:"🖊️",text:"그림이나 도표로 시각화해서 설명한다",type:"A"},
+        {emoji:"🧠",text:"논리적으로 분석하고 단계별 해결책을 제시한다",type:"B"},
+        {emoji:"💬",text:"공감하고 이야기를 나누며 함께 풀어간다",type:"C"},
+        {emoji:"⚙️",text:"직접 실험하거나 시도해보며 해결한다",type:"D"},
+      ]},
+      {q:"나만의 특별한 관찰력이 발휘될 때는?",sub:"남들이 못 보는 걸 내가 볼 때",choices:[
+        {emoji:"🎭",text:"색감, 구도, 아름다움의 조화를 발견할 때",type:"A"},
+        {emoji:"📐",text:"패턴, 규칙, 숨겨진 구조를 발견할 때",type:"B"},
+        {emoji:"😊",text:"사람들의 감정과 분위기 변화를 느낄 때",type:"C"},
+        {emoji:"🔍",text:"사물의 작동 원리와 구조를 분석할 때",type:"D"},
+      ]},
+      {q:"칭찬받으면 가장 기쁜 말은?",sub:"가장 듣고 싶은 칭찬",choices:[
+        {emoji:"✨",text:"\"이거 정말 감각 있다! 예술적이야\"",type:"A"},
+        {emoji:"🧠",text:"\"이걸 어떻게 생각했어? 천재 아냐?\"",type:"B"},
+        {emoji:"🎤",text:"\"너 앞에 서면 정말 빛나더라!\"",type:"C"},
+        {emoji:"🛠️",text:"\"이걸 직접 만든 거야? 대박이다!\"",type:"D"},
+      ]},
+      {q:"마지막으로, 나의 재능이 세상에 미치는 영향은?",sub:"직관적으로 답해보세요",choices:[
+        {emoji:"🌈",text:"세상을 더 아름답고 감동적으로 만들고 싶다",type:"A"},
+        {emoji:"💡",text:"세상의 문제를 해결하고 더 나은 방향을 제시하고 싶다",type:"B"},
+        {emoji:"❤️",text:"많은 사람들에게 힘과 용기를 주고 싶다",type:"C"},
+        {emoji:"🏗️",text:"세상에 없던 새로운 것을 직접 만들어내고 싶다",type:"D"},
+      ]},
+    ],
+    results:{
+      A:{emoji:"🎨",name:"창의적 예술가",tagline:"세상을 아름답게 만드는 크리에이터",badge:"예술적 감각",
+        traits:[{label:"창의력",val:97},{label:"심미안",val:94},{label:"감수성",val:91},{label:"논리력",val:65}],
+        desc:"당신의 숨겨진 재능은 뛰어난 창의력과 예술적 감각이에요! 색감, 구도, 조화를 보는 눈이 남다르고, 아이디어를 시각적으로 표현하는 능력이 탁월해요. 아직 본격적으로 시작하지 않았더라도, 주변에서 \"감각 있다\"는 말을 자주 듣지 않나요? 이 재능을 개발하면 무궁무진한 가능성이 펼쳐질 거예요! 🎨",
+        careers:["🎨 디자이너","📸 사진작가","🎬 영상 크리에이터","✍️ 작가/작사가","🖥️ UX 디자이너","🎭 아트 디렉터"],
+        tags:["#타고난감각","#크리에이티브","#시각적표현","#예술혼"]},
+      B:{emoji:"🧠",name:"논리적 천재",tagline:"세상의 패턴을 꿰뚫는 분석가",badge:"분석적 두뇌",
+        traits:[{label:"분석력",val:98},{label:"논리력",val:96},{label:"문제해결",val:93},{label:"즉흥성",val:55}],
+        desc:"당신의 숨겨진 재능은 뛰어난 분석력과 논리적 사고력이에요! 복잡한 문제도 체계적으로 분해하고, 남들이 보지 못하는 패턴과 규칙을 발견하는 능력이 있어요. '이 사람은 어떻게 이걸 생각했지?'라는 말을 자주 듣는다면 바로 이 재능의 증거예요. 제대로 발휘하면 어떤 분야에서든 독보적인 전문가가 될 수 있어요! 🧠",
+        careers:["💻 개발자/프로그래머","📊 데이터 분석가","🔬 연구원","💰 금융 전문가","📋 전략 컨설턴트","🤖 AI 엔지니어"],
+        tags:["#천재적분석","#패턴발견","#논리왕","#문제해결사"]},
+      C:{emoji:"🎤",name:"타고난 퍼포머",tagline:"사람의 마음을 움직이는 표현자",badge:"표현의 천재",
+        traits:[{label:"표현력",val:97},{label:"공감능력",val:95},{label:"존재감",val:93},{label:"내향성",val:40}],
+        desc:"당신의 숨겨진 재능은 사람들의 마음을 움직이는 강력한 표현력이에요! 말, 몸짓, 표정 하나하나에 힘이 있어서 사람들이 자연스럽게 집중하게 돼요. 아직 큰 무대에 서지 않았더라도, 주변 사람들이 당신의 이야기에 빠져드는 경험이 있지 않나요? 이 재능을 제대로 발휘하면 수많은 사람에게 영향을 줄 수 있어요! 🎤",
+        careers:["🎤 연사/MC","🎭 배우/공연자","📱 인플루언서/크리에이터","📣 마케터","👨‍🏫 강사/교사","🎙️ 유튜버/팟캐스터"],
+        tags:["#존재감폭발","#사람을끌어당기는","#표현의달인","#무대체질"]},
+      D:{emoji:"⚙️",name:"창조적 메이커",tagline:"아이디어를 현실로 만드는 발명가",badge:"실용적 창조력",
+        traits:[{label:"실행력",val:97},{label:"창의적해결",val:94},{label:"손재주",val:92},{label:"이론성",val:60}],
+        desc:"당신의 숨겨진 재능은 아이디어를 실제로 만들어내는 실용적 창조력이에요! 머릿속 아이디어를 그냥 생각으로 두지 않고 직접 구현해내는 능력이 탁월해요. 어릴 때부터 뭔가를 만들고, 고치고, 개조하는 것을 즐기지 않았나요? 이 재능은 4차 산업혁명 시대에 가장 빛나는 능력이에요! ⚙️",
+        careers:["🏗️ 엔지니어/개발자","🔧 발명가/메이커","🎮 게임 개발자","🤖 로봇 공학자","🏠 인테리어 디자이너","🚀 스타트업 창업가"],
+        tags:["#메이커기질","#아이디어실현","#손재주갑","#발명가"]},
+    },
+  },
+  en:{
+    ui:{
+      langBtn:'🇰🇷 KR',mainTitle:'What\'s My <span>Hidden Talent</span>?',
+      mainDesc:'Discover your unique talent with 10 questions!<br>You might have a gift you don\'t even know about! ✨',
+      startText:'Everyone has a hidden talent others envy.<br>Answer 10 questions to discover yours!<br><strong>Takes about 2 minutes</strong>',
+      startBtn:'🌟 Discover My Talent',descTitle:'🌟 Talent Analysis',
+      careersTitle:'💼 Fields Where You\'ll Shine!',
+      shareTitle:'🎉 Share Your Result!',
+      restartBtn:'🔄 Try Again',moreTitle:'🎯 Try More Tests!',
+      copyOk:'🔗 Link copied!',langToggle:'🇰🇷 KR',
+    },
+    questions:[
+      {q:"What did you enjoy most as a child?",sub:"Think back to your childhood",choices:[
+        {emoji:"🎨",text:"Drawing, crafting, decorating",type:"A"},
+        {emoji:"🔢",text:"Puzzles, building blocks, finding patterns",type:"B"},
+        {emoji:"🎭",text:"Role-playing, storytelling, dancing",type:"C"},
+        {emoji:"🌿",text:"Exploring, observing nature, collecting things",type:"D"},
+      ]},
+      {q:"What do friends often ask you to help with?",sub:"What you're recognized for",choices:[
+        {emoji:"✏️",text:"Design, photos, video editing — creative work",type:"A"},
+        {emoji:"📊",text:"Analyzing complex problems, making plans",type:"B"},
+        {emoji:"🎤",text:"Presentations, persuasion, boosting morale",type:"C"},
+        {emoji:"🛠️",text:"Fixing things or building something by hand",type:"D"},
+      ]},
+      {q:"What makes you lose track of time?",sub:"What you focus on without realizing",choices:[
+        {emoji:"🎨",text:"Creative work like art, music, or writing",type:"A"},
+        {emoji:"🧩",text:"Math problems, coding, strategy games",type:"B"},
+        {emoji:"🎬",text:"Acting, singing, dancing, performing",type:"C"},
+        {emoji:"🔧",text:"Building, repairing, assembling, experimenting",type:"D"},
+      ]},
+      {q:"How do you best learn something new?",sub:"Your learning style",choices:[
+        {emoji:"👁️",text:"By watching and remembering visually",type:"A"},
+        {emoji:"📝",text:"By understanding the logic and structure",type:"B"},
+        {emoji:"🗣️",text:"By doing it or explaining it to someone",type:"C"},
+        {emoji:"🤲",text:"By touching and physically manipulating it",type:"D"},
+      ]},
+      {q:"When do you feel most confident in front of others?",sub:"Your shining moment",choices:[
+        {emoji:"🖼️",text:"When showing something I created",type:"A"},
+        {emoji:"💡",text:"When explaining something complex simply",type:"B"},
+        {emoji:"🌟",text:"When presenting or performing for a crowd",type:"C"},
+        {emoji:"🏆",text:"When showing a solution I built myself",type:"D"},
+      ]},
+      {q:"What future version of yourself excites you most?",sub:"Your most thrilling vision",choices:[
+        {emoji:"🎨",text:"A creator who makes the world more beautiful",type:"A"},
+        {emoji:"🔬",text:"A researcher who understands and advances the world",type:"B"},
+        {emoji:"🎤",text:"An influencer who impacts many people",type:"C"},
+        {emoji:"🏗️",text:"A maker who builds things that didn't exist before",type:"D"},
+      ]},
+      {q:"When a friend brings you a tough problem, you...",sub:"Your natural response",choices:[
+        {emoji:"🖊️",text:"Visualize it with diagrams or drawings",type:"A"},
+        {emoji:"🧠",text:"Analyze it logically and give step-by-step solutions",type:"B"},
+        {emoji:"💬",text:"Empathize and work through it together by talking",type:"C"},
+        {emoji:"⚙️",text:"Try things out directly through experimentation",type:"D"},
+      ]},
+      {q:"When does your unique perception kick in?",sub:"When you see what others miss",choices:[
+        {emoji:"🎭",text:"Noticing harmony in color, composition, and beauty",type:"A"},
+        {emoji:"📐",text:"Spotting patterns, rules, and hidden structures",type:"B"},
+        {emoji:"😊",text:"Sensing shifts in people's emotions and atmosphere",type:"C"},
+        {emoji:"🔍",text:"Analyzing how things work and their inner structure",type:"D"},
+      ]},
+      {q:"Which compliment makes you happiest?",sub:"What you most want to hear",choices:[
+        {emoji:"✨",text:"\"This is so stylish! You have a real artistic eye!\"",type:"A"},
+        {emoji:"🧠",text:"\"How did you think of that? Are you a genius?\"",type:"B"},
+        {emoji:"🎤",text:"\"You really light up when you're in front of people!\"",type:"C"},
+        {emoji:"🛠️",text:"\"You made this yourself?! That's incredible!\"",type:"D"},
+      ]},
+      {q:"Finally, how do you want your talent to impact the world?",sub:"Trust your gut",choices:[
+        {emoji:"🌈",text:"Make the world more beautiful and moving",type:"A"},
+        {emoji:"💡",text:"Solve problems and point the world in a better direction",type:"B"},
+        {emoji:"❤️",text:"Give strength and courage to many people",type:"C"},
+        {emoji:"🏗️",text:"Build something entirely new that's never existed before",type:"D"},
+      ]},
+    ],
+    results:{
+      A:{emoji:"🎨",name:"Creative Artist",tagline:"A Creator Who Makes the World Beautiful",badge:"Artistic Sense",
+        traits:[{label:"Creativity",val:97},{label:"Aesthetic Eye",val:94},{label:"Sensitivity",val:91},{label:"Logic",val:65}],
+        desc:"Your hidden talent is outstanding creativity and artistic sense! You have a unique eye for color, composition, and harmony, and an exceptional ability to express ideas visually. Even if you haven't started formally — don't people often tell you that you have great taste? Develop this talent and limitless possibilities await! 🎨",
+        careers:["🎨 Designer","📸 Photographer","🎬 Video Creator","✍️ Writer/Lyricist","🖥️ UX Designer","🎭 Art Director"],
+        tags:["#BornWithIt","#Creative","#VisualExpression","#ArtisticSoul"]},
+      B:{emoji:"🧠",name:"Logical Genius",tagline:"An Analyst Who Sees Through the World's Patterns",badge:"Analytical Mind",
+        traits:[{label:"Analysis",val:98},{label:"Logic",val:96},{label:"Problem Solving",val:93},{label:"Spontaneity",val:55}],
+        desc:"Your hidden talent is outstanding analytical ability and logical thinking! You can systematically break down complex problems and spot patterns and rules others miss. If people often say 'How did you even think of that?' — that's the proof of this talent. Harness it fully and you can become a peerless expert in any field! 🧠",
+        careers:["💻 Developer/Programmer","📊 Data Analyst","🔬 Researcher","💰 Finance Expert","📋 Strategy Consultant","🤖 AI Engineer"],
+        tags:["#GeniusAnalyst","#PatternFinder","#LogicKing","#ProblemSolver"]},
+      C:{emoji:"🎤",name:"Natural Performer",tagline:"An Expresser Who Moves People's Hearts",badge:"Expression Genius",
+        traits:[{label:"Expression",val:97},{label:"Empathy",val:95},{label:"Stage Presence",val:93},{label:"Introversion",val:40}],
+        desc:"Your hidden talent is a powerful expressiveness that moves people's hearts! Every word, gesture, and expression carries weight, making people naturally pay attention. Even without a big stage yet — haven't you noticed people getting drawn into your stories? Unleash this talent fully and you can influence countless people! 🎤",
+        careers:["🎤 Speaker/MC","🎭 Actor/Performer","📱 Influencer/Creator","📣 Marketer","👨‍🏫 Instructor/Teacher","🎙️ YouTuber/Podcaster"],
+        tags:["#MagneticPresence","#NaturalCharmer","#ExpressionMaster","#BornForStage"]},
+      D:{emoji:"⚙️",name:"Creative Maker",tagline:"An Inventor Who Turns Ideas Into Reality",badge:"Practical Creativity",
+        traits:[{label:"Execution",val:97},{label:"Creative Problem Solving",val:94},{label:"Hands-on Skill",val:92},{label:"Theory",val:60}],
+        desc:"Your hidden talent is a practical creativity that actually brings ideas to life! You don't just keep ideas in your head — you have an exceptional ability to build them into reality. Haven't you always enjoyed making, fixing, and modifying things since childhood? This talent is one of the most valuable in the age of the 4th Industrial Revolution! ⚙️",
+        careers:["🏗️ Engineer/Developer","🔧 Inventor/Maker","🎮 Game Developer","🤖 Robotics Engineer","🏠 Interior Designer","🚀 Startup Founder"],
+        tags:["#MakerMindset","#IdeaToReality","#HandsOnGenius","#BornInventor"]},
+    },
+  },
+};
+
+let curLang='ko',curQ=0,scores={A:0,B:0,C:0,D:0};
+
+function toggleLang(){curLang=curLang==='ko'?'en':'ko';applyLang();if(document.getElementById('quizSection').style.display!=='none')renderQuestion();}
+function applyLang(){
+  const u=data[curLang].ui;document.documentElement.lang=curLang;
+  ['langBtn','mainTitle','mainDesc','startText','startBtn','descTitle','careersTitle','shareTitle','restartBtn','moreTitle'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    if(['mainTitle','mainDesc','startText'].includes(id))el.innerHTML=u[id];else el.textContent=u[id];
+  });
+}
+function startTest(){curQ=0;scores={A:0,B:0,C:0,D:0};document.getElementById('startSection').style.display='none';document.getElementById('quizSection').style.display='block';renderQuestion();}
+function renderQuestion(){
+  const qs=data[curLang].questions,total=qs.length,q=qs[curQ];
+  document.getElementById('progressLabel').textContent=`${curQ+1} / ${total}`;
+  document.getElementById('progressBar').style.width=`${((curQ+1)/total)*100}%`;
+  document.getElementById('questionNum').textContent=`Q${curQ+1}`;
+  document.getElementById('questionText').textContent=q.q;
+  document.getElementById('questionSub').textContent=q.sub;
+  const box=document.getElementById('choicesContainer');box.innerHTML='';
+  q.choices.forEach(c=>{const btn=document.createElement('button');btn.className='choice-btn';btn.innerHTML=`<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span>`;btn.onclick=()=>pick(c.type,btn);box.appendChild(btn);});
+  document.getElementById('adMid').style.display=curQ===5?'flex':'none';
+}
+function pick(type,btn){if(document.querySelector('.choice-btn.selected'))return;btn.classList.add('selected');scores[type]++;setTimeout(()=>{curQ++;curQ<data[curLang].questions.length?renderQuestion():showResult();},380);}
+function showResult(){
+  document.getElementById('quizSection').style.display='none';
+  document.getElementById('headerSection').style.display='none';
+  document.getElementById('resultSection').style.display='block';
+  const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
+  const r=data[curLang].results[t],ty=TYPES[t];
+  const hero=document.getElementById('resultHero');
+  hero.style.borderColor=ty.border;hero.style.background=ty.bg;
+  document.getElementById('resultEmoji').textContent=r.emoji;
+  document.getElementById('resultBadge').textContent=r.badge;document.getElementById('resultBadge').style.background=ty.color;
+  document.getElementById('resultName').textContent=r.name;document.getElementById('resultName').style.color=ty.color;
+  document.getElementById('resultTagline').textContent=r.tagline;
+  const tb=document.getElementById('traitsContainer');tb.innerHTML='';
+  r.traits.forEach(tr=>{tb.innerHTML+=`<div class="trait-item"><div class="trait-label">${tr.label}</div><div class="trait-bar-wrap"><div class="trait-bar" id="tb_${tr.label.replace(/[\s/]/g,'')}" style="width:0%;background:${ty.color}"></div></div><div class="trait-val" style="color:${ty.color}">${tr.val}%</div></div>`;});
+  setTimeout(()=>{r.traits.forEach(tr=>{const el=document.getElementById('tb_'+tr.label.replace(/[\s/]/g,''));if(el)el.style.width=tr.val+'%';});},200);
+  const tags=document.getElementById('tagsContainer');tags.innerHTML='';
+  r.tags.forEach(tag=>{const sp=document.createElement('span');sp.className='tag';sp.textContent=tag;tags.appendChild(sp);});
+  document.getElementById('resultDesc').textContent=r.desc;
+  const cl=document.getElementById('careerList');cl.innerHTML='';
+  r.careers.forEach(c=>{const div=document.createElement('div');div.className='career-item';div.textContent=c;cl.appendChild(div);});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={A:0,B:0,C:0,D:0};curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
+function getMsg(){const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);const n=data[curLang].results[t].name;return curLang==='ko'?`나의 숨겨진 재능은 "${n}"이래! 🌟 너는 뭐야?`:`My hidden talent is "${n}"! 🌟 What's yours?`;}
+function shareKakao(){showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK!');}
+function shareTwitter(){window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getMsg()+'\n'+location.href)}`,'_blank');}
+function shareFacebook(){window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}`,'_blank');}
+function copyLink(){const txt=getMsg()+'\n'+location.href;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>showToast(data[curLang].ui.copyOk));}else{const el=document.createElement('textarea');el.value=txt;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(data[curLang].ui.copyOk);}}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+</script>
+</body>
+</html>
