@@ -94,7 +94,7 @@
 
   .result-desc-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #C8EAD4; margin-bottom: 16px; }
   .result-desc-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-  .result-desc-card p { font-size: 15px; line-height: 1.85; color: #555; }
+  .result-desc-card p { font-size: 15px; line-height: 2; color: #555; }
 
   .compat-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #C8EAD4; margin-bottom: 16px; }
   .compat-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
@@ -338,28 +338,72 @@ const data = {
     results:{
       A:{emoji:"🦁",name:"사자",tagline:"날카로운 사자",badge:"강력한 리더",
         stats:[{label:"자기애",val:5},{label:"참을성",val:2},{label:"행동력",val:5}],
-        desc:"목표 정하면 직진. 감정 표현이 직설적이에요. 자신에 대한 기준이 높고, 과정보다 결과를 중요시해요. 품에 살고 품에 죽는 스타일. 사교적인데 공감능력은 다소 부족할 수 있어요. 행동력과 추진력이 엄청나게 좋아요.",
+        desc:`<b>🦁 "나를 따르든지, 아니면 떠나든지"</b><br><i>자기애가 강하고, 효율을 추구하며, 행동력이 엄청남</i><br><br>
+• 목표 정하면 직진 — 과정의 감성보다 결과의 퀄리티가 중요함<br>
+• 감정 표현이 직설적이에요. 돌려 말하는 것을 잘 못하고 잘 안 함<br>
+• 자신에 대한 기준이 높아서 스스로한테도 엄격한 편<br>
+• 품에 살고 품에 죽는 스타일 — 한 번 마음 준 사람은 끝까지 챙김<br>
+• 사교적인데 공감보다는 해결책을 먼저 제시하는 편이라 오해받기도 함<br>
+• 행동력과 추진력이 엄청나게 좋음 — 생각하는 시간보다 실행하는 시간이 더 많음<br>
+• 누군가 내 계획에 이유 없이 끼어들면 본능적으로 저항감이 생김<br>
+• 리더 자리를 원하지 않아도 자꾸 그 자리에 서게 되는 경우가 많음<br>
+• 칭찬에는 어색하게 반응하고, 비판에는 날카롭게 반응할 수 있음 — 의식하면 나아짐<br>
+• 가장 무서운 사람인 줄 알았는데 알고 보니 의리가 제일 강한 사람<br><br>
+<i>💬 "역시 너한테 맡기길 잘했어" 이 말, 들어본 적 있지 않나요?</i>`,
         wantToHear:"\"역시 너한테 맡기길 잘했어\"",
         dontWantToHear:"\"왜 그렇게 독단적으로 결정해?\"",
         compat:{goodEmoji:"🐬",goodName:"돌고래",badEmoji:"🦉",badName:"부엉이형"},
         tags:["#직진본능","#자기확신","#결과주의","#추진력끝판왕"]},
       B:{emoji:"🐬",name:"돌고래",tagline:"밝고 유연한 돌고래",badge:"밝은 에너지",
         stats:[{label:"잠생각",val:1},{label:"호불호",val:3},{label:"계획성",val:2}],
-        desc:"리액션에 영혼이 있어요. 어딜 가도 분위기 메이커. 감정 표현이 풍부하고 공감 능력이 탁월해요. 혼자 있는 것보다 사람들 속에 있을 때 에너지가 충전돼요. 가끔 즉흥적이라 주변을 당황하게 할 수 있지만, 그게 또 매력임.",
+        desc:`<b>🐬 어딜 가든 그 공간이 살아나는 사람</b><br><i>리액션에 영혼이 있고, 분위기 메이커 그 자체</i><br><br>
+• 리액션이 진짜임 — 재미없으면 재미없다는 게 표정에 바로 나옴<br>
+• 극강의 효율보다 극강의 분위기를 추구하는 스타일<br>
+• 워커홀릭 기질이 있는데, 일할 때는 진짜 열심히 하는 편<br>
+• 잠생각이 없음 — 자려고 누우면 그냥 잠듦. 복잡하게 생각 안 함<br>
+• 사회성을 학습한 게 아니라 원래 사람이 좋은 것 — 에너지가 사람에서 나옴<br>
+• 내 사람이다 싶으면 잔소리도 하고 챙기고 뭐든 다 해줌<br>
+• 손익계산을 빠르게 하는 편이라 손해 보는 관계는 자연스럽게 정리됨<br>
+• 너무 직설적이지 않으려고 노력하는데, 가끔 눈치 없이 솔직해지는 순간이 있음<br>
+• 빈말 잘 안 함 — 칭찬하면 진심이고, 좋다고 하면 진짜 좋은 거임<br>
+• 시간 낭비를 극도로 싫어하고, 유튜브는 기본 1.5배속으로 봄<br><br>
+<i>💬 "네가 있으니까 자리가 살아" 이 말, 들어본 적 있지 않나요?</i>`,
         wantToHear:"\"네가 있으니까 자리가 살아\"",
         dontWantToHear:"\"왜 이렇게 가볍게 생각해?\"",
         compat:{goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이형"},
         tags:["#리액션장인","#분위기메이커","#공감능력","#긍정에너지"]},
       C:{emoji:"🦊",name:"여우",tagline:"신비롭고 날카로운 여우",badge:"영리한 전략가",
         stats:[{label:"잠생각",val:5},{label:"호불호",val:5},{label:"계획성",val:4}],
-        desc:"겉으로는 조용한데 속으로는 다 보고 있어요. 한 번 믿기로 한 사람한테는 끝까지 충성. 거짓된 관계나 빈말이 너무 피곤해요. 혼자 있는 시간이 충전에 꼭 필요해요. 손익 계산 빠르고, 논리적으로 납득되면 바로 인정함.",
+        desc:`<b>🦊 겉으로는 조용한데, 속으로는 다 보고 있음</b><br><i>한 번 믿기로 한 사람한테는 끝까지 충성</i><br><br>
+• 처음 만난 사람에게 쉽게 열리지 않음 — 파악이 끝나면 그때부터 조금씩 열림<br>
+• 거짓된 관계나 빈말이 정말 피곤함 — 속 없는 친절보다 솔직한 불편함이 나음<br>
+• 혼자 있는 시간이 충전에 꼭 필요함 — 이게 외로운 게 아니라 그냥 내 방식<br>
+• 손익계산이 빠르고, 논리적으로 납득되면 바로 인정하고 방향을 바꿈<br>
+• 너무 직설적이지 않으려고 노력하지만, 가끔 그냥 솔직하게 나와버림<br>
+• 계획 틀어지는 걸 극도로 싫어함 — 변수가 생기면 스트레스를 꽤 받음<br>
+• 뭐든 확실한 걸 좋아함 — 애매한 관계, 애매한 약속, 애매한 대답이 제일 힘듦<br>
+• 혼자 자기계발하는 게 취미임 — 성장하는 느낌이 없으면 불안함<br>
+• 사람들이 "쟤 차갑다"고 했다가 "쟤 진짜 충성이다"로 반응이 바뀌는 경우가 많음<br>
+• 알면 알수록 의외의 따뜻함이 있음 — 근데 쉽게 보여주지 않는 것뿐<br><br>
+<i>💬 "역시 네가 다 보고 있었구나" 이 말, 들어본 적 있지 않나요?</i>`,
         wantToHear:"\"역시 네가 다 보고 있었구나\"",
         dontWantToHear:"\"왜 그렇게 예민하게 굴어?\"",
         compat:{goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래형"},
         tags:["#조용한관찰자","#충성하면끝","#본질파악","#호불호확실"]},
       D:{emoji:"🦉",name:"부엉이",tagline:"지혜롭고 깊이 있는 부엉이",badge:"지혜로운 탐구자",
         stats:[{label:"잠생각",val:5},{label:"호불호",val:4},{label:"계획성",val:5}],
-        desc:"아는 게 많은데 티를 안 냄. 관심 분야는 끝까지 파고드는 전문가 기질이에요. 빈말 잘 안 하고, 말 한마디에 무게감이 있어요. 즉흥보다는 계획, 속도보다는 완성도. 유튜브는 기본 1.5배속으로 봄.",
+        desc:`<b>🦉 아는 게 많은데 티를 잘 안 냄</b><br><i>말 한 마디에 무게감이 있는 사람</i><br><br>
+• 관심 분야는 끝까지 파고드는 전문가 기질 — 취미가 자격증이 되거나 부업이 되는 경우<br>
+• 빈말 잘 안 함 — 말수가 적은 게 아니라 의미 없는 말을 굳이 하지 않는 것<br>
+• 즉흥보다는 계획, 속도보다는 완성도를 중요시함 — 대충 하는 게 오히려 더 힘듦<br>
+• 잠들기 전 잡생각이 많고, 생각의 꼬리가 길게 이어지는 편<br>
+• 유튜브는 기본 1.5배속으로 봄 — 같은 시간에 더 많이 얻어야 함<br>
+• 논리적으로 납득되면 바로 인정함 — 자존심보다 정확함이 우선<br>
+• 처음엔 어렵게 느껴지지만, 알고 나면 가장 신뢰할 수 있는 사람이라는 걸 앎<br>
+• 한 번에 여러 가지를 처리하는 것보다 하나에 집중하는 게 훨씬 효율적임<br>
+• 시간 낭비나 비효율적인 반복에 본능적으로 저항감이 생김<br>
+• "아는 척 안 하는데 알고 보니 제일 많이 아는 사람"으로 인식되는 경우 많음<br><br>
+<i>💬 "네가 제일 잘 알 것 같아서" 이 말, 들어본 적 있지 않나요?</i>`,
         wantToHear:"\"네가 제일 잘 알 것 같아서\"",
         dontWantToHear:"\"그냥 대충 해도 되잖아\"",
         compat:{goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자형"},
@@ -519,7 +563,7 @@ function showResult(){
   }
   const tags=document.getElementById('tagsContainer');tags.innerHTML='';
   r.tags.forEach(tag=>{const sp=document.createElement('span');sp.className='tag';sp.textContent=tag;tags.appendChild(sp);});
-  document.getElementById('resultDesc').textContent=r.desc;
+  document.getElementById('resultDesc').innerHTML=r.desc;
   // 듣고싶은말 / 듣기싫은말
   const wantEl=document.getElementById('resultWantToHear');
   const dontEl=document.getElementById('resultDontWantToHear');
