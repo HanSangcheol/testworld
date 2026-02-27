@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700;800&display=swap" rel="stylesheet">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
 <style>
@@ -43,106 +43,137 @@
   }
   .container { max-width: 600px; margin: 0 auto; padding: 20px 16px 60px; position: relative; z-index: 1; }
 
-  .ad-slot { background: #eef8f0; border: 2px dashed #c0e0c8; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 13px; }
+  .ad-slot { background: #eef8f0; border: 2px dashed #c0e0c8; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 17px; }
   .ad-top    { height: 90px; margin-bottom: 24px; }
   .ad-mid    { height: 250px; margin: 20px 0; display: none; }
   .ad-result { height: 250px; margin: 16px 0; }
   .ad-bottom { height: 90px; margin: 16px 0; }
 
-  .lang-btn { position: fixed; top: 16px; right: 16px; background: white; border: 2px solid var(--green); border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s; }
+  .lang-btn { position: fixed; top: 16px; right: 16px; background: white; border: 2px solid var(--green); border-radius: 99px; padding: 6px 14px; font-size: 17px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s; }
   .lang-btn:hover { background: var(--green); color: white; }
 
   .header { text-align: center; margin-bottom: 28px; animation: fadeDown .6s ease; }
-  .header .emoji-big { font-size: 76px; display: block; margin-bottom: 8px; animation: wiggle 2s ease-in-out infinite; }
+  .header .emoji-big { font-size: 78px; display: block; margin-bottom: 8px; animation: wiggle 2s ease-in-out infinite; }
   @keyframes wiggle { 0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);} }
-  .header h1 { font-family: 'Gaegu', cursive; font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+  .header h1 { font-family: 'Gaegu', cursive; font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
   .header h1 span { background: linear-gradient(135deg, var(--green), var(--lime)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .header p { font-size: 15px; color: #888; line-height: 1.7; }
+  .header p { font-size: 19px; color: #888; line-height: 1.7; }
 
   .start-card { background: var(--card); border-radius: var(--radius); padding: 32px 24px; box-shadow: var(--shadow); border: 2px solid #C8EAD4; text-align: center; }
-  .start-card p { font-size: 15px; color: #666; line-height: 1.8; margin: 16px 0 24px; }
+  .start-card p { font-size: 19px; color: #666; line-height: 1.8; margin: 16px 0 24px; }
 
-  .progress-label { text-align: center; font-size: 13px; color: #aaa; margin-bottom: 6px; }
+  .progress-label { text-align: center; font-size: 17px; color: #aaa; margin-bottom: 6px; }
   .progress-wrap { background: #d8f0de; border-radius: 99px; height: 10px; margin-bottom: 22px; overflow: hidden; }
   .progress-bar { height: 100%; background: linear-gradient(90deg, var(--green), var(--lime)); border-radius: 99px; transition: width .4s ease; }
 
   .question-card { background: var(--card); border-radius: var(--radius); padding: 28px 22px; box-shadow: var(--shadow); border: 2px solid #C8EAD4; margin-bottom: 16px; animation: fadeUp .4s ease; }
-  .question-num { display: inline-block; background: linear-gradient(135deg, var(--green), var(--lime)); color: white; font-size: 12px; font-weight: 800; padding: 4px 13px; border-radius: 99px; margin-bottom: 14px; }
-  .question-text { font-size: 19px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
-  .question-sub { font-size: 13px; color: #bbb; margin-bottom: 22px; }
+  .question-num { display: inline-block; background: linear-gradient(135deg, var(--green), var(--lime)); color: white; font-size: 13px; font-weight: 800; padding: 4px 13px; border-radius: 99px; margin-bottom: 14px; }
+  .question-text { font-size: 21px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+  .question-sub { font-size: 15px; color: #bbb; margin-bottom: 22px; }
 
   .choices { display: flex; flex-direction: column; gap: 10px; }
-  .choice-btn { background: #F5FBF0; border: 2px solid #C8EAD4; border-radius: 15px; padding: 14px 18px; font-family: 'Nanum Gothic', sans-serif; font-size: 15px; font-weight: 700; color: var(--dark); cursor: pointer; text-align: left; transition: all .2s; display: flex; align-items: center; gap: 12px; }
+  .choice-btn { background: #F5FBF0; border: 2px solid #C8EAD4; border-radius: 15px; padding: 14px 18px; font-family: 'Nanum Gothic', sans-serif; font-size: 19px; font-weight: 700; color: var(--dark); cursor: pointer; text-align: left; transition: all .2s; display: flex; align-items: flex-start; gap: 12px; }
   .choice-btn:hover { background: #DDFAE8; border-color: var(--green); transform: translateX(5px); }
   .choice-btn.selected { background: linear-gradient(135deg, #4CAF8A22, #A8E06322); border-color: var(--green); transform: scale(1.02); }
-  .choice-emoji { font-size: 22px; flex-shrink: 0; }
+  .choice-emoji { font-size: 26px; flex-shrink: 0; padding-top: 2px; }
 
   .result-screen { display: none; }
   .result-hero { background: var(--card); border-radius: var(--radius); padding: 36px 24px 28px; box-shadow: var(--shadow); border: 3px solid #C8EAD4; text-align: center; margin-bottom: 16px; position: relative; overflow: hidden; animation: fadeUp .6s ease; }
-  .result-big-emoji { font-size: 90px; display: block; margin-bottom: 10px; animation: bounceIn .7s ease; }
+  .result-big-emoji { font-size: 92px; display: block; margin-bottom: 10px; animation: bounceIn .7s ease; }
   @keyframes bounceIn { 0%{transform:scale(0) rotate(-15deg);}60%{transform:scale(1.2) rotate(5deg);}100%{transform:scale(1) rotate(0);} }
-  .result-badge { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 2px; padding: 5px 16px; border-radius: 99px; margin-bottom: 10px; color: white; }
-  .result-name { font-family: 'Gaegu', cursive; font-size: 36px; font-weight: 700; margin-bottom: 4px; }
-  .result-tagline { font-size: 15px; color: #888; margin-bottom: 22px; }
+  .result-badge { display: inline-block; font-size: 15px; font-weight: 800; letter-spacing: 2px; padding: 5px 16px; border-radius: 99px; margin-bottom: 10px; color: white; }
+  .result-name { font-family: 'Gaegu', cursive; font-size: 40px; font-weight: 700; margin-bottom: 4px; }
+  .result-tagline { font-size: 19px; color: #888; margin-bottom: 22px; }
 
   .traits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
   .trait-item { background: #F5FBF0; border-radius: 12px; padding: 12px 14px; }
-  .trait-label { font-size: 11px; font-weight: 800; color: #aaa; margin-bottom: 6px; letter-spacing: 1px; }
+  .trait-label { font-size: 14px; font-weight: 800; color: #aaa; margin-bottom: 6px; letter-spacing: 1px; }
   .trait-bar-wrap { background: #d8f0de; border-radius: 99px; height: 8px; overflow: hidden; }
   .trait-bar { height: 100%; border-radius: 99px; transition: width 1s ease .3s; }
-  .trait-val { font-size: 12px; font-weight: 800; margin-top: 4px; text-align: right; }
+  .trait-val { font-size: 15px; font-weight: 800; margin-top: 4px; text-align: right; }
 
   .result-desc-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #C8EAD4; margin-bottom: 16px; }
-  .result-desc-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-  .result-desc-card p { font-size: 15px; line-height: 2; color: #555; }
+  .result-desc-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+  .result-desc-card p { font-size: 19px; line-height: 1.85; color: #444; word-break: keep-all; }
 
   .compat-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #C8EAD4; margin-bottom: 16px; }
-  .compat-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+  .compat-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 14px; }
   .compat-row { display: flex; gap: 10px; }
   .compat-item { flex: 1; border-radius: 14px; padding: 14px 10px; text-align: center; }
   .compat-good { background: #F0FBF5; border: 2px solid #A8DFC8; }
   .compat-bad  { background: #FFF5F0; border: 2px solid #FFD0B0; }
-  .ci-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
-  .ci-label { font-size: 11px; color: #aaa; font-weight: 800; margin-bottom: 4px; }
-  .ci-name  { font-size: 14px; font-weight: 800; }
+  .ci-emoji { font-size: 32px; display: block; margin-bottom: 6px; }
+  .ci-label { font-size: 14px; color: #aaa; font-weight: 800; margin-bottom: 4px; }
+  .ci-name  { font-size: 18px; font-weight: 800; }
 
   .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; justify-content: center; }
-  .tag { background: linear-gradient(135deg, #DDFAE8, #FFFDE0); color: var(--dark); padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; }
+  .tag { background: linear-gradient(135deg, #DDFAE8, #FFFDE0); color: var(--dark); padding: 6px 14px; border-radius: 99px; font-size: 17px; font-weight: 700; }
 
   .share-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); text-align: center; margin-bottom: 16px; }
-  .share-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+  .share-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
   .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .share-btn { display: flex; align-items: center; gap: 7px; padding: 12px 18px; border-radius: 13px; border: none; font-family: 'Nanum Gothic', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s; text-decoration: none; }
+  .share-btn { display: flex; align-items: center; gap: 7px; padding: 12px 18px; border-radius: 13px; border: none; font-family: 'Nanum Gothic', sans-serif; font-size: 18px; font-weight: 700; cursor: pointer; transition: all .2s; text-decoration: none; }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,.15); }
   .btn-kakao { background: #FEE500; color: #3C1E1E; }
-  .btn-twitter { background: #1DA1F2; color: white; }
-  .btn-facebook { background: #1877F2; color: white; }
   .btn-copy { background: linear-gradient(135deg,var(--green),var(--lime)); color: white; }
+  .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
 
-  .restart-btn { width: 100%; padding: 17px; background: linear-gradient(135deg, var(--green), var(--lime)); color: white; border: none; border-radius: 15px; font-family: 'Nanum Gothic', sans-serif; font-size: 17px; font-weight: 800; cursor: pointer; margin-bottom: 16px; box-shadow: 0 5px 18px rgba(76,175,138,.4); transition: all .2s; }
+  .restart-btn { width: 100%; padding: 17px; background: linear-gradient(135deg, var(--green), var(--lime)); color: white; border: none; border-radius: 15px; font-family: 'Nanum Gothic', sans-serif; font-size: 21px; font-weight: 800; cursor: pointer; margin-bottom: 16px; box-shadow: 0 5px 18px rgba(76,175,138,.4); transition: all .2s; }
   .restart-btn:hover { transform: translateY(-2px); }
 
   .more-card { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); margin-bottom: 16px; }
-  .more-card h3 { font-size: 15px; font-weight: 800; color: #555; margin-bottom: 14px; }
+  .more-card h3 { font-size: 19px; font-weight: 800; color: #555; margin-bottom: 14px; }
   .more-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg); border-radius: 12px; margin-bottom: 8px; cursor: pointer; transition: all .2s; text-decoration: none; color: var(--dark); }
   .more-item:hover { background: #DDFAE8; }
-  .more-item-emoji { font-size: 28px; }
+  .more-item-emoji { font-size: 32px; }
   .more-item-info { flex: 1; }
-  .more-item-title { font-size: 14px; font-weight: 700; }
-  .more-item-sub   { font-size: 12px; color: #aaa; }
+  .more-item-title { font-size: 18px; font-weight: 700; }
+  .more-item-sub   { font-size: 15px; color: #aaa; }
 
-  .footer { text-align: center; font-size: 12px; color: #ccc; padding: 20px 0; }
-  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 12px 26px; border-radius: 99px; font-size: 14px; font-weight: 700; transition: transform .3s; z-index: 9999; }
+  .footer { text-align: center; font-size: 15px; color: #ccc; padding: 20px 0; }
+  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 12px 26px; border-radius: 99px; font-size: 18px; font-weight: 700; transition: transform .3s; z-index: 9999; }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
   @keyframes fadeUp   { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
   @keyframes fadeDown { from{opacity:0;transform:translateY(-22px);}to{opacity:1;transform:translateY(0);} }
 
   @media(max-width:480px){
-    .header h1{font-size:28px;} .traits{grid-template-columns:1fr;}
-    .share-btn{padding:10px 14px;font-size:13px;}
+    .header h1{font-size: 32px;} .traits{grid-template-columns:1fr;}
+    .share-btn{padding:10px 14px;font-size: 17px;}
   }
+
+  /* ── Gaegu 폰트 통일 ── */
+  .q-text, .q-num, .q-sub { font-family: 'Gaegu', cursive; }
+  .choice-btn { font-family: 'Gaegu', cursive !important; font-size: 20px !important; letter-spacing: -0.3px; line-height: 1.5; }
+  .result-badge { font-family: 'Gaegu', cursive !important; }
+  .tag, .result-tagline { font-family: 'Gaegu', cursive !important; }
+  .trait-val { font-family: 'Gaegu', cursive !important; font-size: 18px !important; }
+  .share-btn, .restart-btn { font-family: 'Gaegu', cursive !important; font-size: 19px !important; }
+  .more-item-title { font-family: 'Gaegu', cursive !important; }
+  .result-desc-card h3, .result-desc h3 { font-family: 'Gaegu', cursive !important; }
+  .compat-item .ci-name { font-family: 'Gaegu', cursive !important; }
+  .wantToHear-text, .dontWantToHear-text { font-family: 'Gaegu', cursive !important; }
+
+  /* ── desc wantToHear Gaegu ── */
+  #resultDesc, #resultWantToHear, #resultDontWantToHear,
+  .result-desc, .result-desc-card p { font-family: 'Gaegu', cursive !important; font-size: 19px !important; }
+  .result-desc-card h3, .compat-card h3, .share-card h3 { font-family: 'Gaegu', cursive !important; }
+  #resultWantToHear, #resultDontWantToHear { letter-spacing: -0.3px; line-height: 1.7; }
+
+  /* ── 질문 Gaegu 강제 ── */
+  .question-text, .question-sub, .question-num,
+  #questionText, #questionSub, #questionNum {
+    font-family: 'Gaegu', cursive !important;
+  }
+  /* 선택지 텍스트 span */
+  .choice-btn span:last-child {
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+  /* desc 단락 구분 */
+  .result-desc-card p br + br { margin-bottom: 6px; }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <button class="lang-btn" onclick="toggleLang()" id="langBtn">🌏 EN</button>
@@ -159,7 +190,7 @@
 
   <div id="startSection">
     <div class="start-card">
-      <span style="font-size:52px">🦁</span>
+      <span style="font-size:56px">🦁</span>
       <p id="startText">사람마다 닮은 동물이 있다고 해요.<br>10개의 질문에 솔직하게 답해서 당신의 동물을 찾아보세요!<br><strong>소요시간: 약 2분</strong></p>
       <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">🐾 테스트 시작하기</button>
     </div>
@@ -194,11 +225,11 @@
 
     <div class="result-desc-card" style="animation-delay:.15s">
       <h3>🌟 들으면 기분 좋은 말</h3>
-      <p id="resultWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#4CAF8A;"></p>
+      <p id="resultWantToHear" style="font-size:21px;font-weight:800;text-align:center;padding:10px 0;color:#4CAF8A;"></p>
     </div>
     <div class="result-desc-card" style="animation-delay:.2s;border-color:#FFD6E7;">
       <h3 style="color:#FF6B9D">🙅 진짜 듣기 싫은 말</h3>
-      <p id="resultDontWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#FF6B9D;"></p>
+      <p id="resultDontWantToHear" style="font-size:21px;font-weight:800;text-align:center;padding:10px 0;color:#FF6B9D;"></p>
     </div>
 
     <div class="compat-card">
@@ -223,9 +254,8 @@
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
         <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
-        <button class="share-btn btn-twitter"  onclick="shareTwitter()">🐦 Twitter</button>
-        <button class="share-btn btn-facebook" onclick="shareFacebook()">📘 Facebook</button>
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
+        <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
     </div>
 
@@ -274,136 +304,121 @@ const data = {
       copyOk:'🔗 링크가 복사되었어요!', langToggle:'🌏 EN',
     },
     questions:[
-      {q:"단체 카톡방에서 당신의 포지션은?",sub:"가장 자연스러운 내 역할",choices:[
-        {emoji:"📣",text:"공지 올리고 일정 잡는 사람. 안 하면 아무도 안 함",type:"A"},
-        {emoji:"😂",text:"분위기 메이커. 대화 끊길 것 같으면 짤이라도 올림",type:"B"},
-        {emoji:"👀",text:"항상 읽고 있지만 답장은 선별적으로. 읽씹은 아님",type:"C"},
-        {emoji:"🤔",text:"길게 잘 쓰는 사람. 근데 보내기 전에 세 번은 고침",type:"D"},
+      {q:"회사 회식 자리가 잡혔다. 가고 싶진 않은데 안 가기도 애매한 상황. 나는?",sub:"솔직한 내 반응",choices:[
+        {emoji:"😤",text:"어차피 가야 하면 내가 분위기 만들어버림 — 기왕 간 거 즐기자",type:"A"},
+        {emoji:"🎉",text:"사실 이런 거 나쁘지 않음 — 새로운 사람 알게 되는 기회",type:"B"},
+        {emoji:"🎭",text:"어느 정도 역할은 하되, 에너지 소모 최소화 — 빨리 끝나길 기다림",type:"C"},
+        {emoji:"📋",text:"갈 거면 목적 있게 — 꼭 필요한 사람이랑만 대화하고 일찍 빠짐",type:"D"},
       ]},
-      {q:"길을 걷다가 싸움 구경을 하게 됐을 때?",sub:"솔직한 내 반응",choices:[
-        {emoji:"🦁",text:"상황 파악하고 개입 여부 판단. 부당하면 나섬",type:"A"},
-        {emoji:"😟",text:"어떻게 하면 말릴 수 있을지 고민하면서 주변 살핌",type:"B"},
-        {emoji:"🦊",text:"거리 두고 지켜봄. 상황 정확히 파악한 뒤 움직임",type:"C"},
-        {emoji:"📞",text:"일단 경찰 전화 먼저. 감정보다 절차가 먼저 떠오름",type:"D"},
+      {q:"친구 그룹 카톡에서 갑자기 의견 충돌이 생겼다. 분위기가 싸해지고 있어. 나는?",sub:"제일 자연스럽게 나오는 반응",choices:[
+        {emoji:"🌊",text:"모르는 척 못 함 — 분위기 풀려고 뭔가 써버림",type:"A"},
+        {emoji:"🗣️",text:"내 의견이 있으면 말함 — 눈치 보다 조용히 있는 게 더 불편",type:"B"},
+        {emoji:"👁️",text:"일단 읽고 지켜봄 — 상황 파악하고 나서 개입 여부 결정",type:"C"},
+        {emoji:"📵",text:"잠깐 폰 내려놓음 — 나 없어도 알아서 해결될 거라 생각",type:"D"},
       ]},
-      {q:"새로운 모임에서 처음 만난 사람들과 있을 때?",sub:"첫 만남의 진짜 내 모습",choices:[
-        {emoji:"😎",text:"어색함 없이 먼저 말 걺. 모르는 사람이 편함",type:"A"},
-        {emoji:"😊",text:"친근하게 먼저 다가감. 금방 친해지는 스타일",type:"B"},
-        {emoji:"🌙",text:"일단 구석 자리 확보. 파악하고 나서 조금씩 열림",type:"C"},
-        {emoji:"📋",text:"공통 관심사를 찾아가며 대화함. 빈말은 못 함",type:"D"},
+      {q:"처음 가는 카페에 혼자 앉아있다. 두 시간이 생겼어. 뭘 하고 있을 것 같아?",sub:"현실적으로",choices:[
+        {emoji:"🎧",text:"음악 틀고 사람들 구경하거나 SNS 봄 — 주변 분위기 흡수 중",type:"A"},
+        {emoji:"📲",text:"연락 안 한 사람들한테 먼저 연락 — 이런 여유 시간에 챙기게 됨",type:"B"},
+        {emoji:"📖",text:"책이나 좋아하는 콘텐츠에 완전히 집중 — 방해 없는 시간이 소중",type:"C"},
+        {emoji:"🧠",text:"머릿속 생각 정리하거나 메모 — 혼자 있을 때 아이디어가 잘 나옴",type:"D"},
       ]},
-      {q:"나를 가장 빡치게 만드는 상황은?",sub:"솔직하게 골라요",choices:[
-        {emoji:"🔥",text:"내 계획이나 진행에 뜬금없이 끼어들 때",type:"A"},
-        {emoji:"😤",text:"분위기 싸해지는데 아무도 뭔 말을 안 할 때",type:"B"},
-        {emoji:"😒",text:"나를 겉만 보고 판단할 때. 속도 모르면서",type:"C"},
-        {emoji:"🤯",text:"근거 없이 우기는 사람. 논리가 없으면 대화가 안 됨",type:"D"},
+      {q:"팀 프로젝트 마감이 내일인데 팀원 한 명이 갑자기 연락이 안 된다. 나는?",sub:"솔직한 내 반응",choices:[
+        {emoji:"🔥",text:"일단 내가 처리함 — 기다리다 망하는 것보다 내가 하는 게 나음",type:"A"},
+        {emoji:"📢",text:"나머지 팀원들 다 소집 — 같이 해결 방법 찾아보자",type:"B"},
+        {emoji:"🔍",text:"왜 연락이 안 되는지 파악부터 — 상황 모르고 움직이면 안 됨",type:"C"},
+        {emoji:"📝",text:"할 수 있는 범위 내에서 내 파트 완성도 높이는 데 집중",type:"D"},
       ]},
-      {q:"지치고 방전됐을 때 회복 방법은?",sub:"진짜 재충전 방식",choices:[
-        {emoji:"🏃",text:"땀 흘리면서 몸 씀. 운동하고 나면 머리가 맑아짐",type:"A"},
-        {emoji:"👥",text:"친한 사람 만나서 수다 떪. 털어놓으면 가벼워짐",type:"B"},
-        {emoji:"🌙",text:"혼자 조용히 있음. 아무도 연락 안 하는 게 최고",type:"C"},
-        {emoji:"🎧",text:"좋아하는 것에 완전히 집중. 몰입하면 에너지 회복",type:"D"},
+      {q:"모르는 사람한테 갑자기 길을 물어봤을 때 내가 대답하는 방식은?",sub:"실제로 그렇게 할 것 같은 걸로",choices:[
+        {emoji:"😊",text:"친절하게 설명 + 잘 모르면 같이 찾아줌 — 대화가 이어지기도 함",type:"A"},
+        {emoji:"👋",text:"아는 만큼 시원하게 말해줌 — 모르면 모른다고 바로 말함",type:"B"},
+        {emoji:"🗺️",text:"최대한 정확하게 설명하려고 함 — 틀린 정보 주는 게 싫음",type:"C"},
+        {emoji:"📱",text:"지도 앱 켜서 같이 확인함 — 구두 설명보다 보여주는 게 정확",type:"D"},
       ]},
-      {q:"내가 솔직히 인정하는 내 단점은?",sub:"좀 찔리는 거 골라요",choices:[
-        {emoji:"😤",text:"고집 셈. 틀려도 웬만하면 내가 먼저 인정 안 함",type:"A"},
-        {emoji:"🙈",text:"감정에 쉽게 휩쓸림. 기분에 따라 판단이 달라짐",type:"B"},
-        {emoji:"🤐",text:"속마음 잘 안 드러냄. 오해받아도 설명하기 귀찮음",type:"C"},
-        {emoji:"⏳",text:"완벽주의. 결정 느리고 뭐든 너무 오래 생각함",type:"D"},
+      {q:"오늘 기분이 별로인데 친구가 약속을 잡자고 한다. 나는?",sub:"진짜 내 반응",choices:[
+        {emoji:"💬",text:"말해버림 — '오늘 좀 별로야' 하고 이유 설명하면서 공감받고 싶음",type:"A"},
+        {emoji:"✅",text:"그냥 나감 — 만나다 보면 기분 나아지는 경우가 더 많음",type:"B"},
+        {emoji:"🔇",text:"솔직히 말하기 애매해서 적당한 핑계를 댐",type:"C"},
+        {emoji:"🏠",text:"'오늘은 좀 힘들 것 같아' 솔직하게 말하고 다음에 봄",type:"D"},
       ]},
-      {q:"내가 가장 자신 있는 나만의 능력은?",sub:"진짜 강점",choices:[
-        {emoji:"💪",text:"한 번 목표 잡으면 끝까지 밀어붙이는 추진력",type:"A"},
-        {emoji:"✨",text:"어디서든 사람들과 금방 어울리는 분위기 파악력",type:"B"},
-        {emoji:"🎯",text:"남들이 못 보는 걸 먼저 봄. 본질 파악이 빠름",type:"C"},
-        {emoji:"🔭",text:"관심 분야는 끝까지 파고드는 깊이와 전문성",type:"D"},
+      {q:"내가 오랫동안 준비한 발표를 끝냈는데 반응이 미지근하다. 드는 생각은?",sub:"솔직한 첫 반응",choices:[
+        {emoji:"😤",text:"'내가 뭘 잘못한 거지?' — 더 잘할 수 있었는데 하는 아쉬움",type:"A"},
+        {emoji:"🤷",text:"'다음엔 더 잘하면 되지' — 빠르게 털고 다음 준비",type:"B"},
+        {emoji:"🔍",text:"'왜 반응이 이럴까?' — 원인 분석이 먼저 시작됨",type:"C"},
+        {emoji:"📊",text:"'준비한 것에 비해 전달이 아쉬웠나' — 구조적으로 돌아봄",type:"D"},
       ]},
-      {q:"내가 가장 잘 어울리는 환경은?",sub:"진짜 내가 빛나는 곳",choices:[
-        {emoji:"🏆",text:"경쟁이 있고 목표가 명확한 곳. 동기부여가 됨",type:"A"},
-        {emoji:"🎨",text:"자유롭고 사람 많은 곳. 혼자 일하면 힘듦",type:"B"},
-        {emoji:"🌿",text:"조용하고 집중할 수 있는 곳. 소음과 눈치가 없는 곳",type:"C"},
-        {emoji:"🔬",text:"깊이 탐구하고 연구할 수 있는 곳. 디테일이 보장되는 환경",type:"D"},
+      {q:"갑자기 일주일 동안 완전한 자유가 생겼다. 돈 걱정 없이. 어떻게 보낼 것 같아?",sub:"가장 현실적으로 그렇게 될 것 같은 걸로",choices:[
+        {emoji:"🌍",text:"여러 도시를 빠르게 돌아다님 — 다양한 사람과 경험이 목표",type:"A"},
+        {emoji:"🏄",text:"뭔가 새로운 걸 배우거나 도전함 — 가만히 있으면 시간이 아까움",type:"B"},
+        {emoji:"🌲",text:"자연 속 어딘가에서 아무것도 안 함 — 진짜 충전이 필요함",type:"C"},
+        {emoji:"🔬",text:"관심 있던 분야를 끝까지 파고듦 — 이런 기회가 없었는데",type:"D"},
       ]},
-      {q:"사람들이 처음에 나를 어떻게 봤다가, 알고 나서 달라지는 부분은?",sub:"나를 잘 아는 사람들만 아는 것",choices:[
-        {emoji:"🦁",text:"\"무서운 줄 알았는데 의외로 의리 있음\"",type:"A"},
-        {emoji:"🐬",text:"\"가볍게 봤는데 사실 되게 따뜻하고 세심함\"",type:"B"},
-        {emoji:"🦊",text:"\"차갑게 봤는데 한 번 친해지면 진짜 충성임\"",type:"C"},
-        {emoji:"🦉",text:"\"말 없는 줄 알았는데 아는 게 엄청 많음\"",type:"D"},
+      {q:"처음 만난 자리에서 누군가가 나를 가볍게 봤다는 느낌이 든다. 나는?",sub:"솔직한 내 반응",choices:[
+        {emoji:"😤",text:"내심 승부욕이 생김 — 두고 보자는 마음이 생김",type:"A"},
+        {emoji:"🤣",text:"크게 신경 안 씀 — 알면 알게 되는 거고, 모르면 그만",type:"B"},
+        {emoji:"🌙",text:"속으로만 기억해둠 — 겉으로는 티 안 냄",type:"C"},
+        {emoji:"🧐",text:"'내가 뭔가 어색하게 보였나?' — 내 모습을 점검하게 됨",type:"D"},
       ]},
-      {q:"마지막으로, 나를 가장 잘 표현하는 문장은?",sub:"읽자마자 \"맞아\" 싶은 걸 골라요",choices:[
-        {emoji:"🔥",text:"\"나는 결국 내 방식으로 해냄\"",type:"A"},
-        {emoji:"☀️",text:"\"나는 분위기를 바꿀 수 있음\"",type:"B"},
-        {emoji:"🌙",text:"\"나는 겉보다 속이 훨씬 많음\"",type:"C"},
-        {emoji:"💎",text:"\"나는 알면 알수록 다름\"",type:"D"},
+      {q:"마지막으로, 지금 이 순간 가장 찌르는 문장을 골라요.",sub:"읽자마자 공감되는 것",choices:[
+        {emoji:"🔥",text:"나는 결국 내 방식대로 해낸다",type:"A"},
+        {emoji:"☀️",text:"나는 어딜 가든 어떻게든 잘 어울린다",type:"B"},
+        {emoji:"🌙",text:"나는 겉보다 속이 훨씬 복잡하다",type:"C"},
+        {emoji:"💡",text:"나는 알면 알수록 의외의 사람이다",type:"D"},
       ]},
     ],
     results:{
       A:{emoji:"🦁",name:"사자",tagline:"날카로운 사자",badge:"강력한 리더",
-        stats:[{label:"자기애",val:5},{label:"참을성",val:2},{label:"행동력",val:5}],
-        desc:`<b>🦁 "나를 따르든지, 아니면 떠나든지"</b><br><i>자기애가 강하고, 효율을 추구하며, 행동력이 엄청남</i><br><br>
-• 목표 정하면 직진 — 과정의 감성보다 결과의 퀄리티가 중요함<br>
-• 감정 표현이 직설적이에요. 돌려 말하는 것을 잘 못하고 잘 안 함<br>
-• 자신에 대한 기준이 높아서 스스로한테도 엄격한 편<br>
-• 품에 살고 품에 죽는 스타일 — 한 번 마음 준 사람은 끝까지 챙김<br>
-• 사교적인데 공감보다는 해결책을 먼저 제시하는 편이라 오해받기도 함<br>
-• 행동력과 추진력이 엄청나게 좋음 — 생각하는 시간보다 실행하는 시간이 더 많음<br>
-• 누군가 내 계획에 이유 없이 끼어들면 본능적으로 저항감이 생김<br>
-• 리더 자리를 원하지 않아도 자꾸 그 자리에 서게 되는 경우가 많음<br>
-• 칭찬에는 어색하게 반응하고, 비판에는 날카롭게 반응할 수 있음 — 의식하면 나아짐<br>
-• 가장 무서운 사람인 줄 알았는데 알고 보니 의리가 제일 강한 사람<br><br>
-<i>💬 "역시 너한테 맡기길 잘했어" 이 말, 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"자기애",val:82},{label:"참을성",val:21},{label:"행동력",val:86}],
+        desc:`<b>🦁 나를 따르든지, 아니면 떠나든지</b><br><span style="color:#e17055;font-size:17px">자기애가 강하고, 효율을 추구하며, 행동력이 엄청남</span><br><br>
+
+• 목표 정하면 <b>직진</b> — 과정의 감성보다 <b>결과의 퀄리티</b>가 중요함<br>
+• 감정 표현이 <b>직설적</b> — 돌려 말하는 것을 잘 못하고, 잘 안 함<br>
+• 자신에 대한 기준이 높아서 <b>스스로한테도 엄격한 편</b><br><br>
+
+• <span style="color:#e17055">공감보다 해결책을 먼저 제시</span>하는 편이라 오해받기도 함<br>
+• 내 계획에 이유 없이 끼어들면 <b>본능적으로 저항감</b>이 생김<br>
+• 칭찬에는 어색하게 반응하고, 비판에는 <span style="color:#e17055"><b>날카롭게 반응</b></span>할 수 있음<br><br>
+
+• 리더 자리를 <b>원하지 않아도 자꾸 그 자리에 서게</b> 되는 경우가 많음<br>
+• 가장 무서운 사람인 줄 알았는데 알고 보니 <b>의리가 제일 강한 사람</b>이라는 것<br><br>
+
+<span style="background:#fff5f2;border-left:3px solid #e17055;padding:10px 14px;display:block;border-radius:8px;font-size:17px;margin-top:4px;line-height:1.8">💬 <b>'역시 너한테 맡기길 잘했어'</b> 이 말, 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"역시 너한테 맡기길 잘했어\"",
         dontWantToHear:"\"왜 그렇게 독단적으로 결정해?\"",
         compat:{goodEmoji:"🐬",goodName:"돌고래",badEmoji:"🦉",badName:"부엉이형"},
         tags:["#직진본능","#자기확신","#결과주의","#추진력끝판왕"]},
       B:{emoji:"🐬",name:"돌고래",tagline:"밝고 유연한 돌고래",badge:"밝은 에너지",
-        stats:[{label:"잠생각",val:1},{label:"호불호",val:3},{label:"계획성",val:2}],
-        desc:`<b>🐬 어딜 가든 그 공간이 살아나는 사람</b><br><i>리액션에 영혼이 있고, 분위기 메이커 그 자체</i><br><br>
-• 리액션이 진짜임 — 재미없으면 재미없다는 게 표정에 바로 나옴<br>
-• 극강의 효율보다 극강의 분위기를 추구하는 스타일<br>
-• 워커홀릭 기질이 있는데, 일할 때는 진짜 열심히 하는 편<br>
-• 잠생각이 없음 — 자려고 누우면 그냥 잠듦. 복잡하게 생각 안 함<br>
-• 사회성을 학습한 게 아니라 원래 사람이 좋은 것 — 에너지가 사람에서 나옴<br>
-• 내 사람이다 싶으면 잔소리도 하고 챙기고 뭐든 다 해줌<br>
-• 손익계산을 빠르게 하는 편이라 손해 보는 관계는 자연스럽게 정리됨<br>
-• 너무 직설적이지 않으려고 노력하는데, 가끔 눈치 없이 솔직해지는 순간이 있음<br>
-• 빈말 잘 안 함 — 칭찬하면 진심이고, 좋다고 하면 진짜 좋은 거임<br>
-• 시간 낭비를 극도로 싫어하고, 유튜브는 기본 1.5배속으로 봄<br><br>
-<i>💬 "네가 있으니까 자리가 살아" 이 말, 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"잠생각",val:14},{label:"호불호",val:43},{label:"계획성",val:25}],
+        desc:`<b>🐬 어딜 가든 그 공간이 살아나는 사람</b><br><span style="color:#48CAE4;font-size:17px">리액션에 영혼이 있고, 분위기 메이커 그 자체</span><br><br>• 리액션이 <b>진짜임</b> — 재미없으면 재미없다는 게 <b>표정에 바로 나옴</b><br>
+• 극강의 효율보다 <b>극강의 분위기</b>를 추구하는 스타일<br>
+• 사회성을 학습한 게 아니라 <b>원래 사람이 좋은 것</b> — 에너지가 사람에서 나옴<br><br>• <span style="color:#48CAE4">잠생각이 없음</span> — 자려고 누우면 그냥 잠듦. 복잡하게 생각 안 함<br>
+• 가끔 <span style="color:#e67e22">눈치 없이 솔직해지는 순간</span>이 있음<br>
+• 손해 보는 관계는 <b>자연스럽게 정리</b>됨<br><br>• 빈말 잘 안 함 — 칭찬하면 <b>진심</b>이고, 좋다고 하면 <b>진짜 좋은 거임</b><br>
+• 내 사람이다 싶으면 잔소리도 하고 <b>챙기고 뭐든 다 해줌</b><br><br>
+<span style="background:#eefcff;border-left:3px solid #48CAE4;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'네가 있으니까 자리가 살아' 이 말, 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"네가 있으니까 자리가 살아\"",
         dontWantToHear:"\"왜 이렇게 가볍게 생각해?\"",
         compat:{goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이형"},
         tags:["#리액션장인","#분위기메이커","#공감능력","#긍정에너지"]},
       C:{emoji:"🦊",name:"여우",tagline:"신비롭고 날카로운 여우",badge:"영리한 전략가",
-        stats:[{label:"잠생각",val:5},{label:"호불호",val:5},{label:"계획성",val:4}],
-        desc:`<b>🦊 겉으로는 조용한데, 속으로는 다 보고 있음</b><br><i>한 번 믿기로 한 사람한테는 끝까지 충성</i><br><br>
-• 처음 만난 사람에게 쉽게 열리지 않음 — 파악이 끝나면 그때부터 조금씩 열림<br>
-• 거짓된 관계나 빈말이 정말 피곤함 — 속 없는 친절보다 솔직한 불편함이 나음<br>
-• 혼자 있는 시간이 충전에 꼭 필요함 — 이게 외로운 게 아니라 그냥 내 방식<br>
-• 손익계산이 빠르고, 논리적으로 납득되면 바로 인정하고 방향을 바꿈<br>
-• 너무 직설적이지 않으려고 노력하지만, 가끔 그냥 솔직하게 나와버림<br>
-• 계획 틀어지는 걸 극도로 싫어함 — 변수가 생기면 스트레스를 꽤 받음<br>
-• 뭐든 확실한 걸 좋아함 — 애매한 관계, 애매한 약속, 애매한 대답이 제일 힘듦<br>
-• 혼자 자기계발하는 게 취미임 — 성장하는 느낌이 없으면 불안함<br>
-• 사람들이 "쟤 차갑다"고 했다가 "쟤 진짜 충성이다"로 반응이 바뀌는 경우가 많음<br>
-• 알면 알수록 의외의 따뜻함이 있음 — 근데 쉽게 보여주지 않는 것뿐<br><br>
-<i>💬 "역시 네가 다 보고 있었구나" 이 말, 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"잠생각",val:80},{label:"호불호",val:83},{label:"계획성",val:69}],
+        desc:`<b>🦊 겉으로는 조용한데, 속으로는 다 보고 있음</b><br><span style="color:#8B6F47;font-size:17px">한 번 믿기로 한 사람한테는 끝까지 충성</span><br><br>• 처음 만난 사람에게 <b>쉽게 열리지 않음</b> — 파악이 끝나면 그때부터 조금씩 열림<br>
+• 거짓된 관계나 빈말이 정말 피곤함 — <b>속 없는 친절보다 솔직한 불편함</b>이 나음<br>
+• 혼자 있는 시간이 충전에 꼭 필요함 — <b>이게 외로운 게 아니라 그냥 내 방식</b><br><br>• <span style="color:#c0392b">계획 틀어지는 걸 극도로 싫어함</span> — 변수가 생기면 스트레스를 꽤 받음<br>
+• <span style="color:#c0392b">애매한 관계, 애매한 약속, 애매한 대답</span>이 제일 힘듦<br><br>• 사람들이 '쟤 차갑다'고 했다가 <b>'쟤 진짜 충성이다'</b>로 반응이 바뀌는 경우가 많음<br>
+• 알면 알수록 <b>의외의 따뜻함</b>이 있음 — 근데 쉽게 보여주지 않는 것뿐<br><br>
+<span style="background:#fdf6ee;border-left:3px solid #8B6F47;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'역시 네가 다 보고 있었구나' 이 말, 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"역시 네가 다 보고 있었구나\"",
         dontWantToHear:"\"왜 그렇게 예민하게 굴어?\"",
         compat:{goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래형"},
         tags:["#조용한관찰자","#충성하면끝","#본질파악","#호불호확실"]},
       D:{emoji:"🦉",name:"부엉이",tagline:"지혜롭고 깊이 있는 부엉이",badge:"지혜로운 탐구자",
-        stats:[{label:"잠생각",val:5},{label:"호불호",val:4},{label:"계획성",val:5}],
-        desc:`<b>🦉 아는 게 많은데 티를 잘 안 냄</b><br><i>말 한 마디에 무게감이 있는 사람</i><br><br>
-• 관심 분야는 끝까지 파고드는 전문가 기질 — 취미가 자격증이 되거나 부업이 되는 경우<br>
-• 빈말 잘 안 함 — 말수가 적은 게 아니라 의미 없는 말을 굳이 하지 않는 것<br>
-• 즉흥보다는 계획, 속도보다는 완성도를 중요시함 — 대충 하는 게 오히려 더 힘듦<br>
-• 잠들기 전 잡생각이 많고, 생각의 꼬리가 길게 이어지는 편<br>
-• 유튜브는 기본 1.5배속으로 봄 — 같은 시간에 더 많이 얻어야 함<br>
-• 논리적으로 납득되면 바로 인정함 — 자존심보다 정확함이 우선<br>
-• 처음엔 어렵게 느껴지지만, 알고 나면 가장 신뢰할 수 있는 사람이라는 걸 앎<br>
-• 한 번에 여러 가지를 처리하는 것보다 하나에 집중하는 게 훨씬 효율적임<br>
-• 시간 낭비나 비효율적인 반복에 본능적으로 저항감이 생김<br>
-• "아는 척 안 하는데 알고 보니 제일 많이 아는 사람"으로 인식되는 경우 많음<br><br>
-<i>💬 "네가 제일 잘 알 것 같아서" 이 말, 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"잠생각",val:84},{label:"호불호",val:67},{label:"계획성",val:79}],
+        desc:`<b>🦉 아는 게 많은데 티를 잘 안 냄</b><br><span style="color:#576574;font-size:17px">말 한 마디에 무게감이 있는 사람</span><br><br>• 관심 분야는 <b>끝까지 파고드는 전문가 기질</b> — 취미가 자격증이 되거나 부업이 되는 경우<br>
+• 빈말 잘 안 함 — 말수가 적은 게 아니라 <b>의미 없는 말을 굳이 하지 않는 것</b><br>
+• 즉흥보다는 <b>계획</b>, 속도보다는 <b>완성도</b> — 대충 하는 게 오히려 더 힘듦<br><br>• <span style="color:#576574">잠들기 전 잡생각이 많고</span>, 생각의 꼬리가 길게 이어지는 편<br>
+• 시간 낭비나 비효율적인 반복에 <b>본능적으로 저항감</b>이 생김<br><br>• 처음엔 어렵게 느껴지지만, 알고 나면 <b>가장 신뢰할 수 있는 사람</b>이라는 걸 앎<br>
+• '아는 척 안 하는데 알고 보니 <b>제일 많이 아는 사람</b>'으로 인식되는 경우 많음<br><br>
+<span style="background:#f5f6fa;border-left:3px solid #576574;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'네가 제일 잘 알 것 같아서' 이 말, 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"네가 제일 잘 알 것 같아서\"",
         dontWantToHear:"\"그냥 대충 해도 되잖아\"",
         compat:{goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자형"},
@@ -485,22 +500,22 @@ const data = {
     ],
     results:{
       A:{emoji:"🦁",name:"Lion",tagline:"King of the Jungle, Born Leader",badge:"Powerful Leader",
-        traits:[{label:"Leadership",val:97},{label:"Confidence",val:94},{label:"Drive",val:90},{label:"Gentleness",val:55}],
+        traits:[{label:"Leadership",val:87},{label:"Confidence",val:83},{label:"Drive",val:79},{label:"Gentleness",val:48}],
         desc:"You're a Lion! With natural charisma and strong leadership, you effortlessly become the center wherever you go. You charge toward your goals without hesitation and give those around you confidence and courage. Your unbreakable will to achieve once you set your mind is pure lion energy. Just remember — even lions have a gentle side! 🦁",
         compat:{goodEmoji:"🐬",goodName:"Dolphin",badEmoji:"🦅",badName:"Eagle Type"},
         tags:["#BornLeader","#NaturalCharisma","#GoalCrusher","#IronWill"]},
       B:{emoji:"🐬",name:"Dolphin",tagline:"Social King of the Sea, Free Spirit",badge:"Bright Energy",
-        traits:[{label:"Sociability",val:98},{label:"Positive Energy",val:95},{label:"Empathy",val:90},{label:"Focus",val:60}],
+        traits:[{label:"Sociability",val:88},{label:"Positive Energy",val:82},{label:"Empathy",val:76},{label:"Focus",val:51}],
         desc:"You're a Dolphin! You light up every room with bright energy and have a magnetic charm that draws people in. Your rich emotional sensitivity and empathy make you the best listener among your friends. You love freedom and fearlessly dive into new experiences — you truly shine! 🐬",
         compat:{goodEmoji:"🦁",goodName:"Lion",badEmoji:"🦉",badName:"Owl Type"},
         tags:["#SocialButterfly","#PositiveVibes","#TopEmpath","#FreeSpirit"]},
       C:{emoji:"🦊",name:"Fox",tagline:"Clever and Mysterious Strategist",badge:"Clever Strategist",
-        traits:[{label:"Insight",val:96},{label:"Strategic Thinking",val:93},{label:"Caution",val:91},{label:"Openness",val:62}],
+        traits:[{label:"Insight",val:84},{label:"Strategic Thinking",val:78},{label:"Caution",val:75},{label:"Openness",val:62}],
         desc:"You're a Fox! Your sharp observation and piercing insight let you see what others can't. You may seem mysterious because you don't show emotions easily — but once you open up to someone, you show deep loyalty. Clever and strategic, you always find the best outcome in any situation. 🦊",
         compat:{goodEmoji:"🦉",goodName:"Owl",badEmoji:"🐬",badName:"Dolphin Type"},
         tags:["#CleverStrategist","#MysteriousCharm","#SharpInsight","#DeepLoyalty"]},
       D:{emoji:"🦉",name:"Owl",tagline:"Symbol of Wisdom, Deep Thinker",badge:"Wise Explorer",
-        traits:[{label:"Wisdom",val:97},{label:"Analysis",val:95},{label:"Focus",val:92},{label:"Spontaneity",val:50}],
+        traits:[{label:"Wisdom",val:85},{label:"Analysis",val:81},{label:"Focus",val:77},{label:"Spontaneity",val:25}],
         desc:"You're an Owl! With deep thinking and outstanding analytical skills, you have the wisdom to see through any problem. In your areas of interest, you develop expertise that's hard for anyone to match, and you carry a quiet but impactful presence. Every word you say carries deep meaning. 🦉",
         compat:{goodEmoji:"🦊",goodName:"Fox",badEmoji:"🦁",badName:"Lion Type"},
         tags:["#WisdomSymbol","#DeepThinker","#TopExpertise","#QuietStrength"]},
@@ -555,7 +570,7 @@ function showResult(){
   if(statsData){
     statsData.forEach(s=>{
       const val = s.val > 5 ? Math.round(s.val/20) : s.val;
-      tb.innerHTML+=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:14px;">
+      tb.innerHTML+=`<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:18px;">
         <span style="font-weight:800;color:#888;min-width:68px;">${s.label}</span>
         <span style="letter-spacing:3px;">${'🌙'.repeat(val)}${'<span style="opacity:.2">🌙</span>'.repeat(5-val)}</span>
       </div>`;
@@ -567,8 +582,8 @@ function showResult(){
   // 듣고싶은말 / 듣기싫은말
   const wantEl=document.getElementById('resultWantToHear');
   const dontEl=document.getElementById('resultDontWantToHear');
-  if(wantEl && r.wantToHear) wantEl.textContent=r.wantToHear;
-  if(dontEl && r.dontWantToHear) dontEl.textContent=r.dontWantToHear;
+  if(wantEl && r.wantToHear) { const we=['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random()*9)]; wantEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+we+'</span>'+r.wantToHear; }
+  if(dontEl && r.dontWantToHear) { const de=['😤','🙅','💢','😬','🫠','😑','🚫','😶','🫤'][Math.floor(Math.random()*9)]; dontEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+de+'</span>'+r.dontWantToHear; }
   const u=data[curLang].ui;
   document.getElementById('compatGoodEmoji').textContent=r.compat.goodEmoji;
   document.getElementById('compatGoodLabel').textContent=u.goodLabel;
@@ -580,9 +595,89 @@ function showResult(){
 }
 function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={A:0,B:0,C:0,D:0};curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
 function getMsg(){const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);const n=data[curLang].results[t].name;return curLang==='ko'?`나를 동물로 표현하면 "${n}"이래! 🐾 너는 뭐야?`:`I'm a "${n}"! 🐾 Which animal are you?`;}
+
+function downloadResult() {
+  const topType = Object.keys(scores).reduce((a,b) => scores[a] > scores[b] ? a : b);
+  const r  = data[curLang].results[topType];
+  const ty = TYPES[topType];
+
+  if (!r) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+
+  const card = document.createElement('div');
+  card.id = '__share_card__';
+  card.style.cssText = [
+    'position:fixed','top:-9999px','left:-9999px',
+    'width:420px','padding:0','background:'+ty.bg,
+    'border-radius:24px','overflow:hidden',
+    "font-family:'Gaegu',cursive",
+    'box-shadow:0 8px 40px rgba(0,0,0,.18)',
+  ].join(';');
+
+  const tagsHtml = (r.tags||[]).map(t =>
+    `<span style="display:inline-block;background:white;border:1.5px solid ${ty.borderColor};color:${ty.color};border-radius:99px;padding:4px 14px;font-size:16px;font-weight:700;margin:3px">${t}</span>`
+  ).join('');
+
+  const traitsHtml = (r.traits||r.stats||[]).map(tr =>
+    `<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;margin-bottom:4px">
+        <span>${tr.label}</span><span style="color:${ty.color}">${tr.val}%</span>
+      </div>
+      <div style="background:rgba(0,0,0,.08);border-radius:99px;height:9px;overflow:hidden">
+        <div style="width:${tr.val}%;height:100%;background:linear-gradient(90deg,${ty.color},${ty.color}88);border-radius:99px"></div>
+      </div>
+    </div>`
+  ).join('');
+
+  const rawDesc = (r.desc||'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').trim();
+  const shortDesc = rawDesc.length > 220 ? rawDesc.slice(0,220)+'...' : rawDesc;
+
+  card.innerHTML = `
+    <div style="background:${ty.color};padding:8px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">
+      ✨ TestWorld
+    </div>
+    <div style="padding:28px 24px 20px;text-align:center">
+      <div style="font-size:76px;line-height:1;margin-bottom:12px">${r.emoji}</div>
+      <div style="display:inline-block;background:${ty.color};color:white;border-radius:99px;padding:5px 20px;font-size:16px;font-weight:800;margin-bottom:12px">${r.badge}</div>
+      <div style="font-size:38px;font-weight:700;color:${ty.color};margin-bottom:4px">${r.name||r.title||''}</div>
+      <div style="font-size:18px;color:#777;margin-bottom:20px">${r.tagline||r.subtitle||''}</div>
+      <div style="background:white;border-radius:16px;padding:18px;margin-bottom:16px">${traitsHtml}</div>
+      <div style="margin-bottom:18px">${tagsHtml}</div>
+      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:left;margin-bottom:14px">
+        <div style="font-size:17px;font-weight:800;margin-bottom:10px;color:${ty.color}">💬 분석</div>
+        <div style="font-size:17px;line-height:2;color:#444">${shortDesc}</div>
+      </div>
+      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:center">
+        <div style="font-size:16px;color:#aaa;font-weight:700;margin-bottom:8px">💕 들으면 좋은 말</div>
+        <div style="font-size:20px;font-weight:800;color:${ty.color}">${r.wantToHear||''}</div>
+      </div>
+    </div>
+    <div style="background:${ty.color}33;padding:12px;text-align:center;font-size:15px;color:${ty.color};font-weight:700">
+      나도 해보기 → testworld.kr
+    </div>
+  `;
+
+  document.body.appendChild(card);
+
+  html2canvas(card, {
+    scale: 2.5,
+    useCORS: true,
+    backgroundColor: ty.bg,
+    logging: false,
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'testworld-result.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+  }).catch(e => {
+    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');
+  }).finally(() => {
+    if (document.body.contains(card)) document.body.removeChild(card);
+  });
+}
+
 function shareKakao(){showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK!');}
-function shareTwitter(){window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getMsg()+'\n'+location.href)}`,'_blank');}
-function shareFacebook(){window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}`,'_blank');}
 function copyLink(){const txt=getMsg()+'\n'+location.href;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>showToast(data[curLang].ui.copyOk));}else{const el=document.createElement('textarea');el.value=txt;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(data[curLang].ui.copyOk);}}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 </script>

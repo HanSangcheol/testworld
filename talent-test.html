@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700;800&display=swap" rel="stylesheet">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
 <style>
@@ -35,97 +35,128 @@
   }
   .container { max-width: 600px; margin: 0 auto; padding: 20px 16px 60px; position: relative; z-index: 1; }
 
-  .ad-slot { background: #F0ECFF; border: 2px dashed #C8BEFF; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 13px; }
+  .ad-slot { background: #F0ECFF; border: 2px dashed #C8BEFF; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 17px; }
   .ad-top    { height: 90px; margin-bottom: 24px; }
   .ad-mid    { height: 250px; margin: 20px 0; display: none; }
   .ad-result { height: 250px; margin: 16px 0; }
   .ad-bottom { height: 90px; margin: 16px 0; }
 
-  .lang-btn { position: fixed; top: 16px; right: 16px; background: white; border: 2px solid var(--purple); border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s; }
+  .lang-btn { position: fixed; top: 16px; right: 16px; background: white; border: 2px solid var(--purple); border-radius: 99px; padding: 6px 14px; font-size: 17px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s; }
   .lang-btn:hover { background: var(--purple); color: white; }
 
   .header { text-align: center; margin-bottom: 28px; animation: fadeDown .6s ease; }
-  .header .emoji-big { font-size: 76px; display: block; margin-bottom: 8px; animation: sparkle 2s ease-in-out infinite; }
+  .header .emoji-big { font-size: 78px; display: block; margin-bottom: 8px; animation: sparkle 2s ease-in-out infinite; }
   @keyframes sparkle { 0%,100%{transform:scale(1) rotate(0deg);}25%{transform:scale(1.1) rotate(-5deg);}75%{transform:scale(1.1) rotate(5deg);} }
-  .header h1 { font-family: 'Gaegu', cursive; font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+  .header h1 { font-family: 'Gaegu', cursive; font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
   .header h1 span { background: linear-gradient(135deg, var(--purple), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .header p { font-size: 15px; color: #888; line-height: 1.7; }
+  .header p { font-size: 19px; color: #888; line-height: 1.7; }
 
   .start-card { background: var(--card); border-radius: var(--radius); padding: 32px 24px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; text-align: center; }
-  .start-card p { font-size: 15px; color: #666; line-height: 1.8; margin: 16px 0 24px; }
+  .start-card p { font-size: 19px; color: #666; line-height: 1.8; margin: 16px 0 24px; }
 
-  .progress-label { text-align: center; font-size: 13px; color: #aaa; margin-bottom: 6px; }
+  .progress-label { text-align: center; font-size: 17px; color: #aaa; margin-bottom: 6px; }
   .progress-wrap { background: #E8E0FF; border-radius: 99px; height: 10px; margin-bottom: 22px; overflow: hidden; }
   .progress-bar { height: 100%; background: linear-gradient(90deg, var(--purple), var(--gold)); border-radius: 99px; transition: width .4s ease; }
 
   .question-card { background: var(--card); border-radius: var(--radius); padding: 28px 22px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; margin-bottom: 16px; animation: fadeUp .4s ease; }
-  .question-num { display: inline-block; background: linear-gradient(135deg, var(--purple), var(--violet)); color: white; font-size: 12px; font-weight: 800; padding: 4px 13px; border-radius: 99px; margin-bottom: 14px; }
-  .question-text { font-size: 19px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
-  .question-sub { font-size: 13px; color: #bbb; margin-bottom: 22px; }
+  .question-num { display: inline-block; background: linear-gradient(135deg, var(--purple), var(--violet)); color: white; font-size: 13px; font-weight: 800; padding: 4px 13px; border-radius: 99px; margin-bottom: 14px; }
+  .question-text { font-size: 21px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+  .question-sub { font-size: 15px; color: #bbb; margin-bottom: 22px; }
 
   .choices { display: flex; flex-direction: column; gap: 10px; }
-  .choice-btn { background: #F8F5FF; border: 2px solid #DDD6FF; border-radius: 15px; padding: 14px 18px; font-family: 'Nanum Gothic', sans-serif; font-size: 15px; font-weight: 700; color: var(--dark); cursor: pointer; text-align: left; transition: all .2s; display: flex; align-items: center; gap: 12px; }
+  .choice-btn { background: #F8F5FF; border: 2px solid #DDD6FF; border-radius: 15px; padding: 14px 18px; font-family: 'Nanum Gothic', sans-serif; font-size: 19px; font-weight: 700; color: var(--dark); cursor: pointer; text-align: left; transition: all .2s; display: flex; align-items: flex-start; gap: 12px; }
   .choice-btn:hover { background: #EDE8FF; border-color: var(--purple); transform: translateX(5px); }
   .choice-btn.selected { background: linear-gradient(135deg, #7C67EE22, #FFD70022); border-color: var(--purple); transform: scale(1.02); }
-  .choice-emoji { font-size: 22px; flex-shrink: 0; }
+  .choice-emoji { font-size: 26px; flex-shrink: 0; padding-top: 2px; }
 
   .result-screen { display: none; }
   .result-hero { background: var(--card); border-radius: var(--radius); padding: 36px 24px 28px; box-shadow: var(--shadow); border: 3px solid #DDD6FF; text-align: center; margin-bottom: 16px; animation: fadeUp .6s ease; }
-  .result-big-emoji { font-size: 90px; display: block; margin-bottom: 10px; animation: bounceIn .7s ease; }
+  .result-big-emoji { font-size: 92px; display: block; margin-bottom: 10px; animation: bounceIn .7s ease; }
   @keyframes bounceIn { 0%{transform:scale(0) rotate(-15deg);}60%{transform:scale(1.2) rotate(5deg);}100%{transform:scale(1) rotate(0);} }
-  .result-badge { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 2px; padding: 5px 16px; border-radius: 99px; margin-bottom: 10px; color: white; }
-  .result-name { font-family: 'Gaegu', cursive; font-size: 36px; font-weight: 700; margin-bottom: 4px; }
-  .result-tagline { font-size: 15px; color: #888; margin-bottom: 22px; }
+  .result-badge { display: inline-block; font-size: 15px; font-weight: 800; letter-spacing: 2px; padding: 5px 16px; border-radius: 99px; margin-bottom: 10px; color: white; }
+  .result-name { font-family: 'Gaegu', cursive; font-size: 40px; font-weight: 700; margin-bottom: 4px; }
+  .result-tagline { font-size: 19px; color: #888; margin-bottom: 22px; }
 
   .traits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
   .trait-item { background: #F8F5FF; border-radius: 12px; padding: 12px 14px; }
-  .trait-label { font-size: 11px; font-weight: 800; color: #aaa; margin-bottom: 6px; letter-spacing: 1px; }
+  .trait-label { font-size: 14px; font-weight: 800; color: #aaa; margin-bottom: 6px; letter-spacing: 1px; }
   .trait-bar-wrap { background: #E8E0FF; border-radius: 99px; height: 8px; overflow: hidden; }
   .trait-bar { height: 100%; border-radius: 99px; transition: width 1s ease .3s; }
-  .trait-val { font-size: 12px; font-weight: 800; margin-top: 4px; text-align: right; }
+  .trait-val { font-size: 15px; font-weight: 800; margin-top: 4px; text-align: right; }
 
   .result-desc-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; margin-bottom: 16px; }
-  .result-desc-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
-  .result-desc-card p { font-size: 15px; line-height: 2; color: #555; }
+  .result-desc-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 12px; }
+  .result-desc-card p { font-size: 19px; line-height: 1.85; color: #444; word-break: keep-all; }
 
   .careers-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid #DDD6FF; margin-bottom: 16px; }
-  .careers-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+  .careers-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 14px; }
   .career-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .career-item { background: linear-gradient(135deg, #EDE8FF, #FFF8E0); border: 1px solid #DDD6FF; border-radius: 99px; padding: 8px 16px; font-size: 14px; font-weight: 700; }
+  .career-item { background: linear-gradient(135deg, #EDE8FF, #FFF8E0); border: 1px solid #DDD6FF; border-radius: 99px; padding: 8px 16px; font-size: 18px; font-weight: 700; }
 
   .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; justify-content: center; }
-  .tag { background: linear-gradient(135deg, #EDE8FF, #FFF8E0); color: var(--dark); padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; }
+  .tag { background: linear-gradient(135deg, #EDE8FF, #FFF8E0); color: var(--dark); padding: 6px 14px; border-radius: 99px; font-size: 17px; font-weight: 700; }
 
   .share-card { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); text-align: center; margin-bottom: 16px; }
-  .share-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+  .share-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
   .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .share-btn { display: flex; align-items: center; gap: 7px; padding: 12px 18px; border-radius: 13px; border: none; font-family: 'Nanum Gothic', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s; }
+  .share-btn { display: flex; align-items: center; gap: 7px; padding: 12px 18px; border-radius: 13px; border: none; font-family: 'Nanum Gothic', sans-serif; font-size: 18px; font-weight: 700; cursor: pointer; transition: all .2s; }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,.15); }
   .btn-kakao { background: #FEE500; color: #3C1E1E; }
-  .btn-twitter { background: #1DA1F2; color: white; }
-  .btn-facebook { background: #1877F2; color: white; }
   .btn-copy { background: linear-gradient(135deg,var(--purple),var(--violet)); color: white; }
+  .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
 
-  .restart-btn { width: 100%; padding: 17px; background: linear-gradient(135deg, var(--purple), var(--violet)); color: white; border: none; border-radius: 15px; font-family: 'Nanum Gothic', sans-serif; font-size: 17px; font-weight: 800; cursor: pointer; margin-bottom: 16px; box-shadow: 0 5px 18px rgba(124,103,238,.4); transition: all .2s; }
+  .restart-btn { width: 100%; padding: 17px; background: linear-gradient(135deg, var(--purple), var(--violet)); color: white; border: none; border-radius: 15px; font-family: 'Nanum Gothic', sans-serif; font-size: 21px; font-weight: 800; cursor: pointer; margin-bottom: 16px; box-shadow: 0 5px 18px rgba(124,103,238,.4); transition: all .2s; }
   .restart-btn:hover { transform: translateY(-2px); }
 
   .more-card { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); margin-bottom: 16px; }
-  .more-card h3 { font-size: 15px; font-weight: 800; color: #555; margin-bottom: 14px; }
+  .more-card h3 { font-size: 19px; font-weight: 800; color: #555; margin-bottom: 14px; }
   .more-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg); border-radius: 12px; margin-bottom: 8px; cursor: pointer; transition: all .2s; text-decoration: none; color: var(--dark); }
   .more-item:hover { background: #EDE8FF; }
-  .more-item-emoji { font-size: 28px; }
+  .more-item-emoji { font-size: 32px; }
   .more-item-info { flex: 1; }
-  .more-item-title { font-size: 14px; font-weight: 700; }
-  .more-item-sub   { font-size: 12px; color: #aaa; }
+  .more-item-title { font-size: 18px; font-weight: 700; }
+  .more-item-sub   { font-size: 15px; color: #aaa; }
 
-  .footer { text-align: center; font-size: 12px; color: #ccc; padding: 20px 0; }
-  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 12px 26px; border-radius: 99px; font-size: 14px; font-weight: 700; transition: transform .3s; z-index: 9999; }
+  .footer { text-align: center; font-size: 15px; color: #ccc; padding: 20px 0; }
+  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 12px 26px; border-radius: 99px; font-size: 18px; font-weight: 700; transition: transform .3s; z-index: 9999; }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
   @keyframes fadeUp   { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
   @keyframes fadeDown { from{opacity:0;transform:translateY(-22px);}to{opacity:1;transform:translateY(0);} }
-  @media(max-width:480px){ .header h1{font-size:28px;} .traits{grid-template-columns:1fr;} .share-btn{padding:10px 14px;font-size:13px;} }
+  @media(max-width:480px){ .header h1{font-size: 32px;} .traits{grid-template-columns:1fr;} .share-btn{padding:10px 14px;font-size: 17px;} }
+
+  /* ── Gaegu 폰트 통일 ── */
+  .q-text, .q-num, .q-sub { font-family: 'Gaegu', cursive; }
+  .choice-btn { font-family: 'Gaegu', cursive !important; font-size: 20px !important; letter-spacing: -0.3px; line-height: 1.5; }
+  .result-badge { font-family: 'Gaegu', cursive !important; }
+  .tag, .result-tagline { font-family: 'Gaegu', cursive !important; }
+  .trait-val { font-family: 'Gaegu', cursive !important; font-size: 18px !important; }
+  .share-btn, .restart-btn { font-family: 'Gaegu', cursive !important; font-size: 19px !important; }
+  .more-item-title { font-family: 'Gaegu', cursive !important; }
+  .result-desc-card h3, .result-desc h3 { font-family: 'Gaegu', cursive !important; }
+  .compat-item .ci-name { font-family: 'Gaegu', cursive !important; }
+  .wantToHear-text, .dontWantToHear-text { font-family: 'Gaegu', cursive !important; }
+
+  /* ── desc wantToHear Gaegu ── */
+  #resultDesc, #resultWantToHear, #resultDontWantToHear,
+  .result-desc, .result-desc-card p { font-family: 'Gaegu', cursive !important; font-size: 19px !important; }
+  .result-desc-card h3, .compat-card h3, .share-card h3 { font-family: 'Gaegu', cursive !important; }
+  #resultWantToHear, #resultDontWantToHear { letter-spacing: -0.3px; line-height: 1.7; }
+
+  /* ── 질문 Gaegu 강제 ── */
+  .question-text, .question-sub, .question-num,
+  #questionText, #questionSub, #questionNum {
+    font-family: 'Gaegu', cursive !important;
+  }
+  /* 선택지 텍스트 span */
+  .choice-btn span:last-child {
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+  /* desc 단락 구분 */
+  .result-desc-card p br + br { margin-bottom: 6px; }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <button class="lang-btn" onclick="toggleLang()" id="langBtn">🌏 EN</button>
@@ -142,7 +173,7 @@
 
   <div id="startSection">
     <div class="start-card">
-      <span style="font-size:52px">💎</span>
+      <span style="font-size:56px">💎</span>
       <p id="startText">누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>10개의 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong></p>
       <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">🌟 재능 발견하기</button>
     </div>
@@ -177,11 +208,11 @@
 
     <div class="result-desc-card" style="animation-delay:.15s">
       <h3>✨ 들으면 날아갈 것 같은 말</h3>
-      <p id="resultWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#7C67EE;"></p>
+      <p id="resultWantToHear" style="font-size:21px;font-weight:800;text-align:center;padding:10px 0;color:#7C67EE;"></p>
     </div>
     <div class="result-desc-card" style="animation-delay:.2s;border-color:#FFD6E7;">
       <h3 style="color:#FF6B9D">🙅 진짜 하지 말아야 할 말</h3>
-      <p id="resultDontWantToHear" style="font-size:17px;font-weight:800;text-align:center;padding:10px 0;color:#FF6B9D;"></p>
+      <p id="resultDontWantToHear" style="font-size:21px;font-weight:800;text-align:center;padding:10px 0;color:#FF6B9D;"></p>
     </div>
 
     <div class="careers-card">
@@ -195,9 +226,8 @@
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
         <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
-        <button class="share-btn btn-twitter"  onclick="shareTwitter()">🐦 Twitter</button>
-        <button class="share-btn btn-facebook" onclick="shareFacebook()">📘 Facebook</button>
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
+        <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
     </div>
 
@@ -246,136 +276,116 @@ const data={
       copyOk:'🔗 링크가 복사되었어요!',langToggle:'🌏 EN',
     },
     questions:[
-      {q:"어릴 때 가장 빠져들었던 건?",sub:"\"시간이 어떻게 갔지?\" 싶었던 것",choices:[
-        {emoji:"🎨",text:"그림 그리기, 꾸미기, 색 맞추기 — 뭔가 만드는 게 좋았음",type:"A"},
-        {emoji:"🧩",text:"퍼즐, 블록, 규칙 찾기 — 맞춰지면 그게 최고로 뿌듯했음",type:"B"},
-        {emoji:"🎭",text:"역할놀이, 이야기 꾸미기, 춤 — 표현하는 게 자연스러웠음",type:"C"},
-        {emoji:"🔧",text:"분해하기, 만들기, 조립 — 어떻게 돌아가는지가 항상 궁금했음",type:"D"},
+      {q:"회사에서 새로운 프로젝트를 맡았다. 팀원들이 각자 어떤 역할 할지 정해야 한다. 나는?",sub:"자연스럽게 그렇게 되는 것",choices:[
+        {emoji:"🎨",text:"콘텐츠나 디자인 방향 — 어떻게 보여줄지가 제일 먼저 떠오름",type:"A"},
+        {emoji:"📐",text:"전체 구조 설계와 데이터 분석 — 뼈대가 없으면 시작이 안 됨",type:"B"},
+        {emoji:"🎤",text:"발표와 고객 커뮤니케이션 — 사람 상대하는 게 제일 자신 있음",type:"C"},
+        {emoji:"⚙️",text:"실제 구현과 실행 — 만들어지는 걸 직접 보고 싶음",type:"D"},
       ]},
-      {q:"친구들이 나한테 자주 부탁하는 게 있다면?",sub:"\"너 잘하잖아\"하면서 오는 것",choices:[
-        {emoji:"✏️",text:"사진 찍기, 영상 편집, 디자인, 글 쓰기",type:"A"},
-        {emoji:"📊",text:"복잡한 거 정리해주기, 계획 세우기, 논리 점검",type:"B"},
-        {emoji:"🎤",text:"발표 도와주기, 분위기 띄우기, 설득 역할",type:"C"},
-        {emoji:"🛠️",text:"뭔가 고쳐주기, 직접 만들어주기, 실용적인 것",type:"D"},
+      {q:"카페에서 옆 테이블 커플이 다투고 있다. 목소리가 꽤 크다. 나는 어디에 신경이 쓰여?",sub:"솔직한 내 반응",choices:[
+        {emoji:"🖼️",text:"두 사람의 표정과 분위기 — 감정 흐름이 읽힘",type:"A"},
+        {emoji:"💬",text:"대화 내용의 논리 — 누구 말이 맞는지 자동으로 분석됨",type:"B"},
+        {emoji:"😟",text:"주변 사람들 반응 — 분위기가 불편해질까봐 신경 쓰임",type:"C"},
+        {emoji:"🔧",text:"저 상황을 어떻게 해결할 수 있을지 — 해법이 먼저 떠오름",type:"D"},
       ]},
-      {q:"나도 모르게 집중해서 하게 되는 것은?",sub:"\"어 벌써 이 시간이야?\" 싶은 것",choices:[
-        {emoji:"🖼️",text:"그림, 사진, 글쓰기, 음악 — 뭔가 표현하는 것",type:"A"},
-        {emoji:"🧠",text:"수학, 코딩, 전략 게임 — 풀어야 할 것들",type:"B"},
-        {emoji:"🎬",text:"연기, 노래, 춤, 뭔가 퍼포먼스 하는 것",type:"C"},
-        {emoji:"⚙️",text:"조립, 수리, 실험, 뭔가 직접 만드는 것",type:"D"},
+      {q:"친구가 직접 만든 영상을 보여줬다. 퀄리티가 좀 아쉽다. 친구는 어떻게 생각하냐고 묻는다. 나는?",sub:"진짜 내 반응",choices:[
+        {emoji:"🌟",text:"좋은 점을 먼저 말하고 개선점을 부드럽게 곁들임 — 기분도 중요하니까",type:"A"},
+        {emoji:"📊",text:"구체적으로 뭐가 아쉬운지 말해줌 — 솔직하게 말해야 도움이 되니까",type:"B"},
+        {emoji:"❤️",text:"용기 내서 만든 게 대단하다고 먼저 진심으로 말함",type:"C"},
+        {emoji:"🛠️",text:"'이 부분은 이렇게 하면 어때?' 바로 수정 방법 제안",type:"D"},
       ]},
-      {q:"새로운 정보를 배울 때 나는?",sub:"가장 잘 들어오는 방식",choices:[
-        {emoji:"👁️",text:"그림, 도표, 이미지로 봐야 이해됨",type:"A"},
-        {emoji:"📝",text:"구조 파악이 먼저. 논리가 맞아야 넘어갈 수 있음",type:"B"},
-        {emoji:"🗣️",text:"직접 해보거나 말로 설명하면서 배워야 됨",type:"C"},
-        {emoji:"🤲",text:"손으로 만지고 조작해봐야 확실히 됨",type:"D"},
+      {q:"아무도 시키지 않았는데 자연스럽게 하게 되는 것이 있다면?",sub:"나도 모르게 반복하게 되는 것",choices:[
+        {emoji:"📸",text:"공간, 빛, 사람 — 예쁜 장면이 보이면 무조건 찍게 됨",type:"A"},
+        {emoji:"📝",text:"정보 정리, 메모, 분류 — 복잡한 것들을 체계화하는 게 자연스러움",type:"B"},
+        {emoji:"🎭",text:"이야기하거나 설명할 때 자연스럽게 표정과 몸짓이 들어감",type:"C"},
+        {emoji:"🔩",text:"주변에 고장났거나 비효율적인 것을 보면 그냥 못 지나침",type:"D"},
       ]},
-      {q:"사람들 앞에서 가장 자신감 있는 순간은?",sub:"\"이건 내 구간이다\" 싶을 때",choices:[
-        {emoji:"🖼️",text:"내가 만든 걸 보여줄 때 — 반응이 기대됨",type:"A"},
-        {emoji:"💡",text:"복잡한 걸 쉽게 설명했을 때 — 알아듣는 표정이 좋음",type:"B"},
-        {emoji:"🌟",text:"많은 사람 앞에 섰을 때 — 오히려 에너지가 올라감",type:"C"},
-        {emoji:"🏆",text:"내가 직접 만들거나 해결한 걸 보여줄 때",type:"D"},
+      {q:"새로운 걸 배우기 시작했다. 처음 2주 동안의 내 패턴은?",sub:"솔직하게",choices:[
+        {emoji:"👁️",text:"레퍼런스를 엄청 많이 찾아봄 — 잘 만든 것들을 보면서 감 잡음",type:"A"},
+        {emoji:"📖",text:"개념과 원리부터 이해함 — 왜 이렇게 되는지 알아야 다음으로 넘어감",type:"B"},
+        {emoji:"🤸",text:"일단 해보면서 배움 — 설명보다 직접 경험이 더 빨리 들어옴",type:"C"},
+        {emoji:"🔨",text:"작은 것부터 직접 만들어봄 — 손으로 만들어야 실감이 남",type:"D"},
       ]},
-      {q:"친구가 어려운 문제를 들고 왔을 때 나는?",sub:"제일 자연스럽게 나오는 반응",choices:[
-        {emoji:"🖊️",text:"\"잠깐 여기다 그려볼게\" — 시각화로 먼저 정리함",type:"A"},
-        {emoji:"🧠",text:"\"일단 원인부터 파악하자\" — 논리적 분해 시작",type:"B"},
-        {emoji:"💬",text:"\"일단 다 얘기해봐\" — 들어주고 같이 풀어감",type:"C"},
-        {emoji:"⚙️",text:"\"해보면서 생각하자\" — 일단 시도부터 해봄",type:"D"},
+      {q:"팀 전체 발표가 끝났다. 생각보다 반응이 좋았다. 팀원들이 기뻐하는데 나는?",sub:"솔직한 내 속마음",choices:[
+        {emoji:"✨",text:"내가 작업한 시각 자료나 디자인 파트에 반응이 좋았던 게 가장 뿌듯함",type:"A"},
+        {emoji:"📈",text:"전략과 구조가 맞아떨어진 것 같아서 만족스러움",type:"B"},
+        {emoji:"🎤",text:"발표하면서 청중 반응이 좋았던 그 순간이 제일 짜릿했음",type:"C"},
+        {emoji:"⚙️",text:"기술적으로 구현한 것들이 실제로 작동한 게 제일 좋음",type:"D"},
       ]},
-      {q:"남들이 못 보는 걸 내가 먼저 발견할 때는?",sub:"\"어? 왜 아무도 이걸 모르지?\" 싶을 때",choices:[
-        {emoji:"🎭",text:"색감, 구도, 분위기의 어색함 — 미적 감각이 발동할 때",type:"A"},
-        {emoji:"📐",text:"숨겨진 패턴이나 규칙 — \"이거 다 같은 구조잖아\"",type:"B"},
-        {emoji:"😊",text:"사람 감정이나 분위기 변화 — 아무도 눈치 못 챌 때 내가 먼저 앎",type:"C"},
-        {emoji:"🔍",text:"작동 원리나 구조적 허점 — \"이 부분이 비효율적인데\"",type:"D"},
+      {q:"유튜브를 보다가 어떤 영상에서 멈추게 되는지 생각해봐. 평균적으로 어떤 유형이야?",sub:"진짜로 자주 보게 되는 것",choices:[
+        {emoji:"🎬",text:"잘 만든 영상 — 편집, 색감, 구성이 예쁜 것들에 눈이 감",type:"A"},
+        {emoji:"💡",text:"지식, 원리, 분석 — 뭔가를 이해하게 해주는 콘텐츠",type:"B"},
+        {emoji:"😂",text:"사람 자체가 재밌는 것 — 말하는 방식, 리액션, 캐릭터",type:"C"},
+        {emoji:"🔧",text:"만들기, 수리, DIY — 뭔가 만들어지는 과정을 보는 게 좋음",type:"D"},
       ]},
-      {q:"들으면 가장 기분 좋은 칭찬은?",sub:"진짜 듣고 싶은 말",choices:[
-        {emoji:"✨",text:"\"야 이거 진짜 감각 있다. 어떻게 이런 생각을 했어?\"",type:"A"},
-        {emoji:"🧠",text:"\"이걸 어떻게 생각한 거야. 너 천재 아니야?\"",type:"B"},
-        {emoji:"🎤",text:"\"너 앞에 서면 진짜 달라보여. 존재감이 장난 아님\"",type:"C"},
-        {emoji:"🛠️",text:"\"이걸 직접 만든 거라고? 이게 왜 가능하지\"",type:"D"},
+      {q:"친구들 모임에서 갑자기 수수께끼 같은 걸 던졌다. 나는?",sub:"자연스러운 내 반응",choices:[
+        {emoji:"🌈",text:"비유나 직관적인 힌트로 접근 — 이미지로 먼저 생각함",type:"A"},
+        {emoji:"🧩",text:"논리적으로 단계 나눠서 풀기 시작 — 체계적으로 접근",type:"B"},
+        {emoji:"🗣️",text:"다 같이 의견 나누며 풀자고 함 — 혼자보다 같이 하는 게 재미있음",type:"C"},
+        {emoji:"✋",text:"직접 뭔가 써보거나 그려보며 시도 — 몸으로 해봐야 감이 옴",type:"D"},
       ]},
-      {q:"내 재능이 세상에 쓰인다면 어떤 방식이 가장 맞을 것 같아?",sub:"직관으로 골라요",choices:[
-        {emoji:"🌈",text:"세상을 더 아름답게. 보는 것만으로 뭔가 느껴지게",type:"A"},
-        {emoji:"💡",text:"문제를 해결하거나 방향을 잡아주는 것으로",type:"B"},
-        {emoji:"❤️",text:"사람들이 뭔가를 느끼거나 행동하게 만드는 것으로",type:"C"},
-        {emoji:"🏗️",text:"세상에 없던 걸 직접 만들어내는 것으로",type:"D"},
+      {q:"살면서 이런 말을 들어본 적 있어? 가장 자주 들은 것을 골라봐.",sub:"진짜로 들어본 것",choices:[
+        {emoji:"🎨",text:"'너 감각 있다', '이거 왜 이렇게 예쁘게 만들었어?'",type:"A"},
+        {emoji:"🧠",text:"'이걸 어떻게 생각한 거야?', '설명 진짜 잘 한다'",type:"B"},
+        {emoji:"🎤",text:"'너 앞에 서면 달라보여', '말을 왜 이렇게 잘 해?'",type:"C"},
+        {emoji:"⚙️",text:"'이걸 직접 만든 거야?', '어떻게 고쳤어?'",type:"D"},
       ]},
-      {q:"마지막으로, 내가 한 번도 제대로 써본 적 없는 것 같은 능력이 있다면?",sub:"가장 찔리는 걸 골라요",choices:[
-        {emoji:"🎨",text:"뭔가를 보는 눈과 만드는 감각 — 아직 본격적으로 안 씀",type:"A"},
-        {emoji:"🧩",text:"복잡한 걸 구조화하는 능력 — 제대로 발휘된 적이 없음",type:"B"},
-        {emoji:"🎤",text:"사람을 움직이는 표현력 — 무대가 없었을 뿐임",type:"C"},
-        {emoji:"⚙️",text:"머릿속 아이디어를 실제로 만드는 능력 — 기회가 없었음",type:"D"},
+      {q:"마지막으로, 10년 후 어떤 모습이 가장 상상하기 쉬워?",sub:"직관적으로 골라봐요",choices:[
+        {emoji:"🖼️",text:"내가 만든 뭔가가 세상 어딘가에 남아 있는 것 — 작품, 브랜드, 콘텐츠",type:"A"},
+        {emoji:"🔭",text:"어떤 분야의 전문가로 불리는 것 — 이 사람한테 물어보면 된다는 사람",type:"B"},
+        {emoji:"🌍",text:"많은 사람들에게 기억되거나 영향을 준 사람이 된 것",type:"C"},
+        {emoji:"🏗️",text:"내 손으로 만든 무언가가 실제로 사람들 삶에 쓰이고 있는 것",type:"D"},
       ]},
     ],
     results:{
       A:{emoji:"🎨",name:"창의적 예술가",tagline:"세상을 감각으로 번역하는 사람",badge:"예술적 감각",
-        stats:[{label:"창의력",val:5},{label:"심미안",val:5},{label:"논리력",val:3}],
-        desc:`<b>🎨 세상을 다른 사람들과 다른 눈으로 보는 사람</b><br><i>아직 본격적으로 시작도 안 했는데 "감각 있다"는 말을 듣는 사람</i><br><br>
-• 색감, 구도, 분위기의 어색함이 남들보다 먼저 눈에 들어옴<br>
-• 뭔가를 만들 때 디테일에 자연스럽게 집착하게 됨 — 완성도 낮은 결과물이 불편함<br>
-• 아이디어가 머릿속에서 이미지나 장면으로 먼저 떠오름 — 말보다 그림이 편할 때가 있음<br>
-• 일상의 사소한 것에서 감동받는 경우가 있음 — 빛의 각도, 색의 조합, 소리의 질감 같은 것들<br>
-• 본인 기준에서 "별거 아닌 것"을 만들었는데 주변에서 "이거 어떻게 한 거야?"가 나오는 경우<br>
-• 창작할 때 시간 가는 줄 모름 — 이 상태가 되면 집중력이 극대화됨<br>
-• 미적 감각이 있는데 정작 본인은 "나 딱히 잘하는 게 없는데"라고 생각할 수 있음<br>
-• 남들이 당연하게 지나치는 것에서 아름다움이나 흥미를 발견하는 특이한 눈이 있음<br>
-• 피드백에 민감할 수 있음 — 창작물은 자신의 일부이기 때문에 비판이 더 깊게 들어옴<br>
-• 이 감각 제대로 쓰면 말 없이도 사람들이 느끼게 만드는 것을 할 수 있음<br><br>
-<i>💬 "이거 진짜 감각 있다, 어떻게 이런 생각을 했어?" 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"창의력",val:86},{label:"심미안",val:82},{label:"논리력",val:54}],
+        desc:`<b>🎨 세상을 다른 사람들과 다른 눈으로 보는 사람</b><br><span style="color:#FF6B9D;font-size:17px">아직 본격적으로 시작도 안 했는데 '감각 있다'는 말을 듣는 사람</span><br><br>• <b>색감, 구도, 분위기의 어색함</b>이 남들보다 먼저 눈에 들어옴<br>
+• 뭔가를 만들 때 디테일에 자연스럽게 집착하게 됨 — <b>완성도 낮은 결과물이 불편함</b><br>
+• 아이디어가 머릿속에서 <b>이미지나 장면으로 먼저 떠오름</b> — 말보다 그림이 편할 때가 있음<br><br>• <span style="color:#FF6B9D">일상의 사소한 것에서 감동받는 경우</span>가 있음 — 빛의 각도, 색의 조합, 소리의 질감<br>
+• 본인 기준에서 '별거 아닌 것'을 만들었는데 주변에서 <b>'이거 어떻게 한 거야?'</b>가 나오는 경우<br>
+• <span style="color:#c0392b">피드백에 민감할 수 있음</span> — 창작물은 자신의 일부이기 때문에 비판이 더 깊게 들어옴<br><br>• 미적 감각이 있는데 정작 본인은 <b>'나 딱히 잘하는 게 없는데'</b>라고 생각할 수 있음<br>
+• 이 감각 제대로 쓰면 <b>말 없이도 사람들이 느끼게 만드는 것</b>을 할 수 있음<br><br>
+<span style="background:#fff0f5;border-left:3px solid #FF6B9D;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'이거 진짜 감각 있다, 어떻게 이런 생각을 했어?' 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"이거 진짜 감각 있다. 어떻게 이런 생각을?\"",
         dontWantToHear:"\"그게 밥은 돼?\"",
         careers:["🎨 디자이너","📸 크리에이터/사진가","✍️ 작가","🎬 영상 PD","🖥️ UX 디자이너","🎭 아트 디렉터"],
         tags:["#타고난감각","#시각적표현","#크리에이티브","#아직시작도안함"]},
       B:{emoji:"🧠",name:"논리적 천재",tagline:"복잡한 것들을 꿰뚫어보는 사람",badge:"분석적 두뇌",
-        stats:[{label:"분석력",val:5},{label:"논리력",val:5},{label:"즉흥성",val:2}],
-        desc:`<b>🧠 세상에서 제일 조용한 천재</b><br><i>말은 없는데, 사실 다 보고 있었음</i><br><br>
-• 회의실에서 제일 말 없는 사람인데 끝나고 나서 제일 정확한 피드백 냄<br>
-• "이걸 어떻게 생각한 거야?" 소리를 주기적으로 들음 — 본인은 당연한 거라 어리둥절<br>
-• 논리 빠진 소리 들으면 입보다 머리가 먼저 반박 준비 시작<br>
-• 대충 하는 게 오히려 더 힘든 사람 — 완성도 낮은 결과물 제출하면 본인이 제일 불편함<br>
-• 혼자 조용히 집중할 때 퍼포먼스 최대치 — 오픈형 사무실은 고역일 수 있음<br>
-• 처음엔 차갑게 보이는데 알고 보면 누구보다 깊이 생각하는 사람<br>
-• 관심 생기면 그 분야 끝까지 파고드는 스타일 — 취미가 전문가 수준이 되는 경우 많음<br>
-• 빠른 결정보다 정확한 결정이 더 중요하다고 생각함 — 느린 게 아니라 신중한 거임<br>
-• 칭찬을 잘 못 받아들이는 편 — "별거 아닌데요"가 입에서 자동으로 나옴<br>
-• 근데 진짜 별거 맞음 — 본인만 모르는 거임<br><br>
-<i>💬 "너 사실 다 알고 있었던 거 아니야?" 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"분석력",val:88},{label:"논리력",val:84},{label:"즉흥성",val:21}],
+        desc:`<b>🧠 세상에서 제일 조용한 천재</b><br><span style="color:#7C67EE;font-size:17px">말은 없는데, 사실 다 보고 있었음</span><br><br>• 회의실에서 제일 말 없는 사람인데 끝나고 나서 <b>제일 정확한 피드백</b> 냄<br>
+• '이걸 어떻게 생각한 거야?' 소리를 주기적으로 들음 — <b>본인은 당연한 거라 어리둥절</b><br>
+• 논리 빠진 소리 들으면 <b>입보다 머리가 먼저 반박 준비</b> 시작<br><br>• <span style="color:#c0392b">대충 하는 게 오히려 더 힘든 사람</span> — 완성도 낮은 결과물 제출하면 본인이 제일 불편함<br>
+• <span style="color:#7C67EE">혼자 조용히 집중할 때 퍼포먼스 최대치</span> — 오픈형 사무실은 고역일 수 있음<br>
+• 빠른 결정보다 <b>정확한 결정</b>이 더 중요하다고 생각함 — 느린 게 아니라 신중한 거임<br><br>• 칭찬을 잘 못 받아들이는 편 — <b>'별거 아닌데요'</b>가 입에서 자동으로 나옴<br>
+• 근데 <b>진짜 별거 맞음</b> — 본인만 모르는 거임<br><br>
+<span style="background:#f5f2ff;border-left:3px solid #7C67EE;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'너 사실 다 알고 있었던 거 아니야?' 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"이걸 어떻게 생각한 거야. 진짜 천재 아니야?\"",
         dontWantToHear:"\"그냥 대충 해도 되잖아\"",
         careers:["💻 개발자","📊 데이터 분석가","🔬 연구원","💰 금융 전문가","📋 전략 컨설턴트","🤖 AI 엔지니어"],
         tags:["#패턴발견","#논리왕","#문제해결사","#완성도집착"]},
       C:{emoji:"🎤",name:"타고난 퍼포머",tagline:"사람의 마음을 움직이는 사람",badge:"표현의 천재",
-        stats:[{label:"표현력",val:5},{label:"공감능력",val:5},{label:"내향성",val:1}],
-        desc:`<b>🎤 무대만 없었을 뿐, 퍼포머는 원래부터였음</b><br><i>사람을 움직이는 게 이미 재능인 사람</i><br><br>
-• 말, 몸짓, 표정 하나하나에 힘이 있어서 사람들이 자연스럽게 집중하게 됨<br>
-• 같은 내용이라도 당신이 말하면 더 재미있거나 더 설득력 있게 들리는 경우가 많음<br>
-• 사람들의 감정 변화를 빠르게 캐치함 — 분위기가 달라지면 먼저 알아챔<br>
-• 자리가 어색하거나 조용해지면 자연스럽게 뭔가를 하게 됨 — 그게 특기임<br>
-• 이야기를 풀어나가는 능력이 뛰어남 — 같은 경험도 당신 입에서 나오면 다르게 들림<br>
-• 사람들 앞에 서면 에너지가 올라가는 타입 — 긴장보다 흥분이 먼저 옴<br>
-• 공감 능력이 탁월해서 상대방이 뭘 원하는지 빠르게 파악함<br>
-• 혼자 있을 때보다 사람들과 있을 때 아이디어가 더 잘 나옴<br>
-• 분위기를 읽고 그 자리에 맞는 에너지를 만들어내는 게 자연스러움<br>
-• 무대가 없었을 뿐 — 제대로 된 자리가 생기면 진짜 빛날 사람임<br><br>
-<i>💬 "너 앞에 서면 진짜 달라보여, 존재감이 장난 아님" 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"표현력",val:87},{label:"공감능력",val:82},{label:"내향성",val:16}],
+        desc:`<b>🎤 무대만 없었을 뿐, 퍼포머는 원래부터였음</b><br><span style="color:#4A90E2;font-size:17px">사람을 움직이는 게 이미 재능인 사람</span><br><br>• 말, 몸짓, 표정 하나하나에 힘이 있어서 <b>사람들이 자연스럽게 집중</b>하게 됨<br>
+• 같은 내용이라도 당신이 말하면 <b>더 재미있거나 더 설득력</b> 있게 들리는 경우가 많음<br>
+• 사람들의 감정 변화를 빠르게 캐치함 — <b>분위기가 달라지면 먼저 알아챔</b><br><br>• <span style="color:#4A90E2">자리가 어색하거나 조용해지면</span> 자연스럽게 뭔가를 하게 됨 — 그게 특기임<br>
+• 사람들 앞에 서면 <b>에너지가 올라가는 타입</b> — 긴장보다 흥분이 먼저 옴<br>
+• 혼자 있을 때보다 <b>사람들과 있을 때 아이디어가 더 잘 나옴</b><br><br>• 분위기를 읽고 그 자리에 맞는 에너지를 만들어내는 게 <b>자연스러움</b><br>
+• 무대가 없었을 뿐 — <b>제대로 된 자리가 생기면 진짜 빛날 사람</b>임<br><br>
+<span style="background:#f0f7ff;border-left:3px solid #4A90E2;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'너 앞에 서면 진짜 달라보여, 존재감이 장난 아님' 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"너 앞에 서면 진짜 달라보여. 존재감이 장난 아님\"",
         dontWantToHear:"\"왜 이렇게 나대?\"",
         careers:["🎤 연사/MC","🎭 배우","📱 인플루언서","📣 마케터","👨‍🏫 강사","🎙️ 유튜버/팟캐스터"],
         tags:["#존재감폭발","#사람을끌어당기는","#무대체질","#표현의달인"]},
       D:{emoji:"⚙️",name:"창조적 메이커",tagline:"아이디어를 현실로 꺼내는 사람",badge:"실용적 창조력",
-        stats:[{label:"실행력",val:5},{label:"손재주",val:5},{label:"이론성",val:3}],
-        desc:`<b>⚙️ 머릿속에 있는 걸 실제로 꺼낼 수 있는 사람</b><br><i>기회가 없었을 뿐 — 아이디어는 항상 넘쳤음</i><br><br>
-• 머릿속 아이디어를 그냥 생각으로 두지 않음 — 어떻게든 실제로 만들어보려는 충동이 있음<br>
-• 어릴 때부터 분해하거나 조립하거나 개조하는 것이 자연스러웠음<br>
-• "이게 왜 이렇게 만들어졌지? 내가 하면 더 잘 만들 것 같은데"라는 생각이 종종 듦<br>
-• 완벽주의가 있어서 결정이 느릴 수 있지만, 결과물은 항상 퀄리티가 있음<br>
-• 손으로 직접 뭔가를 만들거나 고칠 때 집중력이 극대화됨<br>
-• 이론보다 실전 — 공부보다 직접 해보는 방식이 더 잘 맞음<br>
-• "어떻게 만든 거야?"라는 말을 들을 때 가장 뿌듯함<br>
-• 비효율적인 것을 보면 자동으로 개선 방법이 떠오름 — 그냥 지나치지 못함<br>
-• 현존하지 않는 것을 상상하고, 그걸 실제로 구현하는 데서 가장 큰 만족감을 얻음<br>
-• 지금 세상에서 가장 희귀하고 가치 있는 능력 중 하나 — 이 재능, 진짜로 써야 함<br><br>
-<i>💬 "이걸 직접 만든 거라고? 이게 왜 가능하지" 들어본 적 있지 않나요?</i>`,
+        stats:[{label:"실행력",val:84},{label:"손재주",val:79},{label:"이론성",val:38}],
+        desc:`<b>⚙️ 머릿속에 있는 걸 실제로 꺼낼 수 있는 사람</b><br><span style="color:#e67e22;font-size:17px">기회가 없었을 뿐 — 아이디어는 항상 넘쳤음</span><br><br>• 머릿속 아이디어를 그냥 생각으로 두지 않음 — <b>어떻게든 실제로 만들어보려는 충동</b>이 있음<br>
+• 어릴 때부터 분해하거나 조립하거나 개조하는 것이 <b>자연스러웠음</b><br>
+• '이게 왜 이렇게 만들어졌지? <b>내가 하면 더 잘 만들 것 같은데</b>'라는 생각이 종종 듦<br><br>• <span style="color:#c0392b">완벽주의가 있어서 결정이 느릴 수 있지만</span>, 결과물은 항상 퀄리티가 있음<br>
+• 비효율적인 것을 보면 <b>자동으로 개선 방법이 떠오름</b> — 그냥 지나치지 못함<br><br>• 손으로 직접 뭔가를 만들거나 고칠 때 <b>집중력이 극대화됨</b><br>
+• 현존하지 않는 것을 상상하고, 그걸 실제로 구현하는 데서 <b>가장 큰 만족감</b>을 얻음<br>
+• 지금 세상에서 <b>가장 희귀하고 가치 있는 능력 중 하나</b> — 이 재능, 진짜로 써야 함<br><br>
+<span style="background:#fff8f0;border-left:3px solid #e67e22;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">'이걸 직접 만든 거라고? 이게 왜 가능하지' 들어본 적 있지 않나요?</span>`,
         wantToHear:"\"이걸 직접 만든 거라고? 이게 왜 가능하지\"",
         dontWantToHear:"\"그냥 사면 되잖아\"",
         careers:["🏗️ 엔지니어","🔧 발명가","🎮 게임 개발자","🤖 로봇 공학자","🏠 인테리어 디자이너","🚀 스타트업 창업가"],
@@ -457,22 +467,22 @@ const data={
     ],
     results:{
       A:{emoji:"🎨",name:"Creative Artist",tagline:"A Creator Who Makes the World Beautiful",badge:"Artistic Sense",
-        traits:[{label:"Creativity",val:97},{label:"Aesthetic Eye",val:94},{label:"Sensitivity",val:91},{label:"Logic",val:65}],
+        traits:[{label:"Creativity",val:87},{label:"Aesthetic Eye",val:82},{label:"Sensitivity",val:79},{label:"Logic",val:53}],
         desc:"Your hidden talent is outstanding creativity and artistic sense! You have a unique eye for color, composition, and harmony, and an exceptional ability to express ideas visually. Even if you haven't started formally — don't people often tell you that you have great taste? Develop this talent and limitless possibilities await! 🎨",
         careers:["🎨 Designer","📸 Photographer","🎬 Video Creator","✍️ Writer/Lyricist","🖥️ UX Designer","🎭 Art Director"],
         tags:["#BornWithIt","#Creative","#VisualExpression","#ArtisticSoul"]},
       B:{emoji:"🧠",name:"Logical Genius",tagline:"An Analyst Who Sees Through the World's Patterns",badge:"Analytical Mind",
-        traits:[{label:"Analysis",val:98},{label:"Logic",val:96},{label:"Problem Solving",val:93},{label:"Spontaneity",val:55}],
+        traits:[{label:"Analysis",val:87},{label:"Logic",val:83},{label:"Problem Solving",val:78},{label:"Spontaneity",val:55}],
         desc:"Your hidden talent is outstanding analytical ability and logical thinking! You can systematically break down complex problems and spot patterns and rules others miss. If people often say 'How did you even think of that?' — that's the proof of this talent. Harness it fully and you can become a peerless expert in any field! 🧠",
         careers:["💻 Developer/Programmer","📊 Data Analyst","🔬 Researcher","💰 Finance Expert","📋 Strategy Consultant","🤖 AI Engineer"],
         tags:["#GeniusAnalyst","#PatternFinder","#LogicKing","#ProblemSolver"]},
       C:{emoji:"🎤",name:"Natural Performer",tagline:"An Expresser Who Moves People's Hearts",badge:"Expression Genius",
-        traits:[{label:"Expression",val:97},{label:"Empathy",val:95},{label:"Stage Presence",val:93},{label:"Introversion",val:40}],
+        traits:[{label:"Expression",val:86},{label:"Empathy",val:81},{label:"Stage Presence",val:78},{label:"Introversion",val:40}],
         desc:"Your hidden talent is a powerful expressiveness that moves people's hearts! Every word, gesture, and expression carries weight, making people naturally pay attention. Even without a big stage yet — haven't you noticed people getting drawn into your stories? Unleash this talent fully and you can influence countless people! 🎤",
         careers:["🎤 Speaker/MC","🎭 Actor/Performer","📱 Influencer/Creator","📣 Marketer","👨‍🏫 Instructor/Teacher","🎙️ YouTuber/Podcaster"],
         tags:["#MagneticPresence","#NaturalCharmer","#ExpressionMaster","#BornForStage"]},
       D:{emoji:"⚙️",name:"Creative Maker",tagline:"An Inventor Who Turns Ideas Into Reality",badge:"Practical Creativity",
-        traits:[{label:"Execution",val:97},{label:"Creative Problem Solving",val:94},{label:"Hands-on Skill",val:92},{label:"Theory",val:60}],
+        traits:[{label:"Execution",val:84},{label:"Creative Problem Solving",val:79},{label:"Hands-on Skill",val:75},{label:"Theory",val:60}],
         desc:"Your hidden talent is a practical creativity that actually brings ideas to life! You don't just keep ideas in your head — you have an exceptional ability to build them into reality. Haven't you always enjoyed making, fixing, and modifying things since childhood? This talent is one of the most valuable in the age of the 4th Industrial Revolution! ⚙️",
         careers:["🏗️ Engineer/Developer","🔧 Inventor/Maker","🎮 Game Developer","🤖 Robotics Engineer","🏠 Interior Designer","🚀 Startup Founder"],
         tags:["#MakerMindset","#IdeaToReality","#HandsOnGenius","#BornInventor"]},
@@ -521,7 +531,7 @@ function showResult(){
   if(statsData){
     statsData.forEach(s=>{
       const val=s.val>5?Math.round(s.val/20):s.val;
-      tb.innerHTML+=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:14px;">
+      tb.innerHTML+=`<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:18px;">
         <span style="font-weight:800;color:#888;min-width:60px;">${s.label}</span>
         <span style="letter-spacing:3px;">${'🌟'.repeat(val)}${'<span style="opacity:.2">🌟</span>'.repeat(5-val)}</span>
       </div>`;
@@ -533,17 +543,97 @@ function showResult(){
   // 듣고싶은말
   const wantEl=document.getElementById('resultWantToHear');
   const dontEl=document.getElementById('resultDontWantToHear');
-  if(wantEl&&r.wantToHear)wantEl.textContent=r.wantToHear;
-  if(dontEl&&r.dontWantToHear)dontEl.textContent=r.dontWantToHear;
+  if(wantEl&&r.wantToHear){const we=['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random()*9)];wantEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+we+'</span>'+r.wantToHear;}
+  if(dontEl&&r.dontWantToHear){const de=['😤','🙅','💢','😬','🫠','😑','🚫','😶','🫤'][Math.floor(Math.random()*9)];dontEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+de+'</span>'+r.dontWantToHear;}
   const cl=document.getElementById('careerList');cl.innerHTML='';
   r.careers.forEach(c=>{const div=document.createElement('div');div.className='career-item';div.textContent=c;cl.appendChild(div);});
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={A:0,B:0,C:0,D:0};curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
 function getMsg(){const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);const n=data[curLang].results[t].name;return curLang==='ko'?`나의 숨겨진 재능은 "${n}"이래! 🌟 너는 뭐야?`:`My hidden talent is "${n}"! 🌟 What's yours?`;}
+
+function downloadResult() {
+  const topType = Object.keys(scores).reduce((a,b) => scores[a] > scores[b] ? a : b);
+  const r  = data[curLang].results[topType];
+  const ty = TYPES[topType];
+
+  if (!r) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+
+  const card = document.createElement('div');
+  card.id = '__share_card__';
+  card.style.cssText = [
+    'position:fixed','top:-9999px','left:-9999px',
+    'width:420px','padding:0','background:'+ty.bg,
+    'border-radius:24px','overflow:hidden',
+    "font-family:'Gaegu',cursive",
+    'box-shadow:0 8px 40px rgba(0,0,0,.18)',
+  ].join(';');
+
+  const tagsHtml = (r.tags||[]).map(t =>
+    `<span style="display:inline-block;background:white;border:1.5px solid ${ty.borderColor};color:${ty.color};border-radius:99px;padding:4px 14px;font-size:16px;font-weight:700;margin:3px">${t}</span>`
+  ).join('');
+
+  const traitsHtml = (r.traits||r.stats||[]).map(tr =>
+    `<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;margin-bottom:4px">
+        <span>${tr.label}</span><span style="color:${ty.color}">${tr.val}%</span>
+      </div>
+      <div style="background:rgba(0,0,0,.08);border-radius:99px;height:9px;overflow:hidden">
+        <div style="width:${tr.val}%;height:100%;background:linear-gradient(90deg,${ty.color},${ty.color}88);border-radius:99px"></div>
+      </div>
+    </div>`
+  ).join('');
+
+  const rawDesc = (r.desc||'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').trim();
+  const shortDesc = rawDesc.length > 220 ? rawDesc.slice(0,220)+'...' : rawDesc;
+
+  card.innerHTML = `
+    <div style="background:${ty.color};padding:8px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">
+      ✨ TestWorld
+    </div>
+    <div style="padding:28px 24px 20px;text-align:center">
+      <div style="font-size:76px;line-height:1;margin-bottom:12px">${r.emoji}</div>
+      <div style="display:inline-block;background:${ty.color};color:white;border-radius:99px;padding:5px 20px;font-size:16px;font-weight:800;margin-bottom:12px">${r.badge}</div>
+      <div style="font-size:38px;font-weight:700;color:${ty.color};margin-bottom:4px">${r.name||r.title||''}</div>
+      <div style="font-size:18px;color:#777;margin-bottom:20px">${r.tagline||r.subtitle||''}</div>
+      <div style="background:white;border-radius:16px;padding:18px;margin-bottom:16px">${traitsHtml}</div>
+      <div style="margin-bottom:18px">${tagsHtml}</div>
+      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:left;margin-bottom:14px">
+        <div style="font-size:17px;font-weight:800;margin-bottom:10px;color:${ty.color}">💬 분석</div>
+        <div style="font-size:17px;line-height:2;color:#444">${shortDesc}</div>
+      </div>
+      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:center">
+        <div style="font-size:16px;color:#aaa;font-weight:700;margin-bottom:8px">💕 들으면 좋은 말</div>
+        <div style="font-size:20px;font-weight:800;color:${ty.color}">${r.wantToHear||''}</div>
+      </div>
+    </div>
+    <div style="background:${ty.color}33;padding:12px;text-align:center;font-size:15px;color:${ty.color};font-weight:700">
+      나도 해보기 → testworld.kr
+    </div>
+  `;
+
+  document.body.appendChild(card);
+
+  html2canvas(card, {
+    scale: 2.5,
+    useCORS: true,
+    backgroundColor: ty.bg,
+    logging: false,
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'testworld-result.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+  }).catch(e => {
+    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');
+  }).finally(() => {
+    if (document.body.contains(card)) document.body.removeChild(card);
+  });
+}
+
 function shareKakao(){showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK!');}
-function shareTwitter(){window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getMsg()+'\n'+location.href)}`,'_blank');}
-function shareFacebook(){window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}`,'_blank');}
 function copyLink(){const txt=getMsg()+'\n'+location.href;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>showToast(data[curLang].ui.copyOk));}else{const el=document.createElement('textarea');el.value=txt;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(data[curLang].ui.copyOk);}}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 </script>

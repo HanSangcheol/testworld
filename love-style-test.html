@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700;800&display=swap" rel="stylesheet">
 
 <!-- Google AdSense (실제 사용시 교체) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
@@ -70,7 +70,7 @@
     align-items: center;
     justify-content: center;
     color: #c9a0b0;
-    font-size: 13px;
+    font-size: 17px;
     margin-bottom: 24px;
     overflow: hidden;
   }
@@ -87,7 +87,7 @@
     border: 2px solid var(--pink);
     border-radius: 99px;
     padding: 6px 14px;
-    font-size: 13px; font-weight: 700;
+    font-size: 17px; font-weight: 700;
     cursor: pointer;
     z-index: 100;
     box-shadow: var(--shadow);
@@ -102,7 +102,7 @@
     animation: fadeDown .6s ease;
   }
   .header .emoji-big {
-    font-size: 76px;
+    font-size: 78px;
     display: block;
     margin-bottom: 8px;
     animation: heartbeat 1.6s ease-in-out infinite;
@@ -116,7 +116,7 @@
   }
   .header h1 {
     font-family: 'Gaegu', cursive;
-    font-size: 36px; font-weight: 700;
+    font-size: 40px; font-weight: 700;
     line-height: 1.2; margin-bottom: 10px;
   }
   .header h1 span {
@@ -125,7 +125,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .header p { font-size: 15px; color: #888; line-height: 1.7; }
+  .header p { font-size: 19px; color: #888; line-height: 1.7; }
 
   /* 시작 카드 */
   .start-card {
@@ -138,14 +138,14 @@
     animation: fadeUp .5s ease;
   }
   .start-card p {
-    font-size: 15px; color: #666;
+    font-size: 19px; color: #666;
     line-height: 1.8; margin: 16px 0 24px;
   }
 
   /* 진행바 */
   .progress-label {
     text-align: center;
-    font-size: 13px; color: #aaa;
+    font-size: 17px; color: #aaa;
     margin-bottom: 6px;
   }
   .progress-wrap {
@@ -176,16 +176,16 @@
     display: inline-block;
     background: linear-gradient(135deg, var(--pink), var(--purple));
     color: white;
-    font-size: 12px; font-weight: 800;
+    font-size: 13px; font-weight: 800;
     padding: 4px 13px;
     border-radius: 99px;
     margin-bottom: 14px;
   }
   .question-text {
-    font-size: 19px; font-weight: 700;
+    font-size: 21px; font-weight: 700;
     line-height: 1.5; margin-bottom: 4px;
   }
-  .question-sub { font-size: 13px; color: #bbb; margin-bottom: 22px; }
+  .question-sub { font-size: 15px; color: #bbb; margin-bottom: 22px; }
 
   /* 선택지 */
   .choices { display: flex; flex-direction: column; gap: 10px; }
@@ -194,14 +194,14 @@
     border: 2px solid #FFD6E7;
     border-radius: 15px;
     padding: 14px 18px;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 15px; font-weight: 700;
+    font-family: 'Gaegu', cursive;
+    font-size: 20px; font-weight: 700;
     color: var(--dark);
     cursor: pointer;
     text-align: left;
     transition: all .2s ease;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
   }
   .choice-btn:hover {
@@ -214,7 +214,7 @@
     border-color: var(--pink);
     transform: scale(1.02);
   }
-  .choice-emoji { font-size: 22px; flex-shrink: 0; }
+  .choice-emoji { font-size: 26px; flex-shrink: 0; padding-top: 2px; }
 
   /* ===== 결과 화면 ===== */
   .result-screen { display: none; }
@@ -241,7 +241,7 @@
     opacity: .15;
   }
   .result-big-emoji {
-    font-size: 80px;
+    font-size: 82px;
     display: block;
     margin-bottom: 10px;
     animation: bounceIn .7s ease;
@@ -253,7 +253,7 @@
   }
   .result-badge {
     display: inline-block;
-    font-size: 12px; font-weight: 800;
+    font-size: 15px; font-weight: 800;
     letter-spacing: 2px;
     padding: 5px 16px;
     border-radius: 99px;
@@ -262,11 +262,11 @@
   }
   .result-name {
     font-family: 'Gaegu', cursive;
-    font-size: 36px; font-weight: 700;
+    font-size: 40px; font-weight: 700;
     margin-bottom: 4px;
   }
   .result-tagline {
-    font-size: 15px; color: #888;
+    font-size: 19px; color: #888;
     margin-bottom: 22px;
   }
 
@@ -283,7 +283,7 @@
     padding: 12px 14px;
   }
   .trait-label {
-    font-size: 11px; font-weight: 800;
+    font-size: 14px; font-weight: 800;
     color: #aaa; margin-bottom: 6px;
     letter-spacing: 1px;
   }
@@ -300,7 +300,7 @@
     transition: width 1s ease .3s;
   }
   .trait-val {
-    font-size: 12px; font-weight: 800;
+    font-size: 15px; font-weight: 800;
     color: var(--pink);
     margin-top: 4px;
     text-align: right;
@@ -317,14 +317,16 @@
     animation: fadeUp .6s ease .1s both;
   }
   .result-desc-card h3 {
-    font-size: 15px; font-weight: 800;
+    font-size: 19px; font-weight: 800;
     color: var(--pink);
     margin-bottom: 12px;
     display: flex; align-items: center; gap: 6px;
   }
   .result-desc-card p {
-    font-size: 15px; line-height: 2;
-    color: #555;
+    font-size: 19px; line-height: 1.85;
+    color: #444;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   /* 궁합 카드 */
@@ -338,7 +340,7 @@
     animation: fadeUp .6s ease .2s both;
   }
   .compat-card h3 {
-    font-size: 15px; font-weight: 800;
+    font-size: 19px; font-weight: 800;
     margin-bottom: 14px;
     display: flex; align-items: center; gap: 6px;
   }
@@ -353,9 +355,9 @@
   }
   .compat-good { background: #FFF0F5; border: 2px solid #FFB6C1; }
   .compat-bad  { background: #F5F5FF; border: 2px solid #C9C9FF; }
-  .compat-item .ci-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
-  .compat-item .ci-label { font-size: 11px; color: #aaa; font-weight: 800; margin-bottom: 4px; }
-  .compat-item .ci-name  { font-size: 14px; font-weight: 800; }
+  .compat-item .ci-emoji { font-size: 32px; display: block; margin-bottom: 6px; }
+  .compat-item .ci-label { font-size: 14px; color: #aaa; font-weight: 800; margin-bottom: 4px; }
+  .compat-item .ci-name  { font-size: 18px; font-weight: 800; }
 
   /* 태그 */
   .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
@@ -364,7 +366,7 @@
     color: var(--dark);
     padding: 6px 14px;
     border-radius: 99px;
-    font-size: 13px; font-weight: 700;
+    font-size: 17px; font-weight: 700;
   }
 
   /* 공유 */
@@ -377,7 +379,7 @@
     margin-bottom: 16px;
     animation: fadeUp .6s ease .3s both;
   }
-  .share-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+  .share-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
   .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .share-btn {
     display: flex; align-items: center; gap: 7px;
@@ -385,16 +387,15 @@
     border-radius: 13px;
     border: none;
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 14px; font-weight: 700;
+    font-size: 18px; font-weight: 700;
     cursor: pointer;
     transition: all .2s;
     text-decoration: none;
   }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,.15); }
   .btn-kakao    { background: #FEE500; color: #3C1E1E; }
-  .btn-twitter  { background: #1DA1F2; color: white; }
-  .btn-facebook { background: #1877F2; color: white; }
   .btn-copy     { background: linear-gradient(135deg,var(--pink),var(--purple)); color: white; }
+  .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
 
   /* 다시하기 */
   .restart-btn {
@@ -404,7 +405,7 @@
     color: white; border: none;
     border-radius: 15px;
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 17px; font-weight: 800;
+    font-size: 21px; font-weight: 800;
     cursor: pointer;
     margin-bottom: 16px;
     box-shadow: 0 5px 18px rgba(255,107,157,.4);
@@ -422,7 +423,7 @@
     margin-bottom: 16px;
     animation: fadeUp .6s ease .5s both;
   }
-  .more-card h3 { font-size: 15px; font-weight: 800; color: #555; margin-bottom: 14px; }
+  .more-card h3 { font-size: 19px; font-weight: 800; color: #555; margin-bottom: 14px; }
   .more-item {
     display: flex; align-items: center; gap: 12px;
     padding: 12px;
@@ -434,13 +435,13 @@
     text-decoration: none; color: var(--dark);
   }
   .more-item:hover { background: #FFE4EF; }
-  .more-item-emoji { font-size: 28px; }
+  .more-item-emoji { font-size: 32px; }
   .more-item-info  { flex: 1; }
-  .more-item-title { font-size: 14px; font-weight: 700; }
-  .more-item-sub   { font-size: 12px; color: #aaa; }
+  .more-item-title { font-size: 18px; font-weight: 700; }
+  .more-item-sub   { font-size: 15px; color: #aaa; }
 
   /* 푸터 */
-  .footer { text-align: center; font-size: 12px; color: #ccc; padding: 20px 0; }
+  .footer { text-align: center; font-size: 15px; color: #ccc; padding: 20px 0; }
 
   /* 토스트 */
   .toast {
@@ -450,7 +451,7 @@
     background: #333; color: white;
     padding: 12px 26px;
     border-radius: 99px;
-    font-size: 14px; font-weight: 700;
+    font-size: 18px; font-weight: 700;
     transition: transform .3s; z-index: 9999;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
@@ -467,14 +468,46 @@
 
   /* 반응형 */
   @media (max-width: 480px) {
-    .header h1       { font-size: 28px; }
-    .header .emoji-big { font-size: 60px; }
-    .question-text   { font-size: 17px; }
-    .result-name     { font-size: 28px; }
+    .header h1       { font-size: 32px; }
+    .header .emoji-big { font-size: 62px; }
+    .question-text   { font-size: 19px; }
+    .result-name     { font-size: 32px; }
     .traits          { grid-template-columns: 1fr; }
-    .share-btn       { padding: 10px 14px; font-size: 13px; }
+    .share-btn       { padding: 10px 14px; font-size: 17px; }
   }
+
+  /* ── Gaegu 폰트 통일 ── */
+  .q-text, .q-num, .q-sub { font-family: 'Gaegu', cursive; }
+  .choice-btn { font-family: 'Gaegu', cursive !important; font-size: 20px !important; letter-spacing: -0.3px; line-height: 1.5; }
+  .result-badge { font-family: 'Gaegu', cursive !important; }
+  .tag, .result-tagline { font-family: 'Gaegu', cursive !important; }
+  .trait-val { font-family: 'Gaegu', cursive !important; font-size: 18px !important; }
+  .share-btn, .restart-btn { font-family: 'Gaegu', cursive !important; font-size: 19px !important; }
+  .more-item-title { font-family: 'Gaegu', cursive !important; }
+  .result-desc-card h3, .result-desc h3 { font-family: 'Gaegu', cursive !important; }
+  .compat-item .ci-name { font-family: 'Gaegu', cursive !important; }
+  .wantToHear-text, .dontWantToHear-text { font-family: 'Gaegu', cursive !important; }
+
+  /* ── desc wantToHear Gaegu ── */
+  #resultDesc, #resultWantToHear, #resultDontWantToHear,
+  .result-desc, .result-desc-card p { font-family: 'Gaegu', cursive !important; font-size: 19px !important; }
+  .result-desc-card h3, .compat-card h3, .share-card h3 { font-family: 'Gaegu', cursive !important; }
+  #resultWantToHear, #resultDontWantToHear { letter-spacing: -0.3px; line-height: 1.7; }
+
+  /* ── 질문 Gaegu 강제 ── */
+  .question-text, .question-sub, .question-num,
+  #questionText, #questionSub, #questionNum {
+    font-family: 'Gaegu', cursive !important;
+  }
+  /* 선택지 텍스트 span */
+  .choice-btn span:last-child {
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+  /* desc 단락 구분 */
+  .result-desc-card p br + br { margin-bottom: 6px; }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -499,7 +532,7 @@
   <!-- 시작 섹션 -->
   <div id="startSection">
     <div class="start-card">
-      <span style="font-size:52px">💌</span>
+      <span style="font-size:56px">💌</span>
       <p id="startText">
         연애에도 각자의 스타일이 있어요.<br>
         10개의 솔직한 질문으로 당신만의 연애 유형을 발견해보세요!<br>
@@ -550,11 +583,11 @@
     <!-- 듣고싶은/듣기싫은 말 -->
     <div class="result-desc-card" style="animation-delay:.15s">
       <h3>💌 연애할 때 듣고 싶은 말</h3>
-      <p id="resultWantToHear" style="font-size:17px;font-weight:800;color:#FF6B9D;text-align:center;padding:10px 0;"></p>
+      <p id="resultWantToHear" style="font-size:21px;font-weight:800;color:#FF6B9D;text-align:center;padding:10px 0;"></p>
     </div>
     <div class="result-desc-card" style="animation-delay:.2s;border-color:#DDD6FF;">
       <h3 style="color:#7C67EE">🙅 절대 듣기 싫은 말</h3>
-      <p id="resultDontWantToHear" style="font-size:17px;font-weight:800;color:#7C67EE;text-align:center;padding:10px 0;"></p>
+      <p id="resultDontWantToHear" style="font-size:21px;font-weight:800;color:#7C67EE;text-align:center;padding:10px 0;"></p>
     </div>
 
     <!-- 궁합 -->
@@ -585,9 +618,8 @@
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
         <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
-        <button class="share-btn btn-twitter"  onclick="shareTwitter()">🐦 Twitter</button>
-        <button class="share-btn btn-facebook" onclick="shareFacebook()">📘 Facebook</button>
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
+        <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
     </div>
 
@@ -663,103 +695,103 @@ const data = {
     },
     questions: [
       {
-        q: "썸 탈 때 당신의 연락 스타일은?",
-        sub: "가장 솔직한 내 모습을 골라요",
+        q: "오늘 유독 지치는 하루였어. 집 도착하자마자 연인한테 연락이 왔다. 어떻게 반응해?",
+        sub: "가장 자연스럽게 나올 것 같은 걸 골라요",
         choices: [
-          { emoji: "💌", text: "보내고 싶은 말이 100개인데 고르고 골라서 50개 보냄", type: "A" },
-          { emoji: "📲", text: "생각나면 바로 연락. 필터링 같은 거 없음", type: "B" },
-          { emoji: "⏳", text: "먼저 연락하기엔 좀... 상대방 반응 보면서 맞춰감", type: "C" },
-          { emoji: "😌", text: "연락 자체를 별로 안 좋아함. 만나면 되지", type: "D" },
+          { emoji: "📱", text: "\"나 오늘 좀 힘들었어\" — 하루 이야기 다 꺼냄. 들어줬으면 해서", type: "A" },
+          { emoji: "🚪", text: "\"어디야? 보고 싶다\" — 말보다 만나고 싶음", type: "B" },
+          { emoji: "💬", text: "\"응, 왔어. 밥은?\" — 일상 대화로 자연스럽게 이어감", type: "C" },
+          { emoji: "🔇", text: "\"나중에 연락할게\" — 지금은 혼자 있고 싶음", type: "D" },
         ]
       },
       {
-        q: "연인이 \"오늘 기분 별로야\"라고 했을 때 당신은?",
-        sub: "진짜 내 반응을 선택해요",
-        choices: [
-          { emoji: "🫂", text: "\"무슨 일이야? 나한테 다 얘기해\" — 감정 풀어주기 모드 즉시 ON", type: "A" },
-          { emoji: "🚗", text: "\"어디야? 지금 바로 갈게\" — 말보다 행동이 먼저", type: "B" },
-          { emoji: "🍜", text: "\"뭐 먹고 싶어?\" — 일단 밥부터. 말은 밥 먹고", type: "C" },
-          { emoji: "🤔", text: "\"왜?\" — 원인 파악이 먼저. 공감보다 해결", type: "D" },
-        ]
-      },
-      {
-        q: "연인과 싸웠을 때 당신의 유형은?",
-        sub: "진짜 내 싸움 스타일",
-        choices: [
-          { emoji: "😭", text: "눈물 먼저 나옴. 근데 먼저 화해하고 싶어서 먼저 연락함", type: "A" },
-          { emoji: "💥", text: "할 말은 그 자리에서 다 함. 쌓아두는 거 못 함", type: "B" },
-          { emoji: "🧊", text: "일단 좀 식히고. 감정 빠지면 차분히 대화 가능", type: "C" },
-          { emoji: "🚶", text: "혼자 있는 시간이 필요함. 연락하지 마세요 (진심)", type: "D" },
-        ]
-      },
-      {
-        q: "기념일에 가장 받고 싶은 건?",
+        q: "친구가 연인 자랑을 잔뜩 했는데, 들어보니 내 연애랑 꽤 다르다. 드는 생각은?",
         sub: "솔직하게 골라봐요",
         choices: [
-          { emoji: "🌹", text: "깜짝 이벤트 + 편지. 준비한 흔적이 느껴지는 것", type: "A" },
-          { emoji: "🎢", text: "같이 뭔가 신나는 거 하기. 추억이 최고의 선물", type: "B" },
-          { emoji: "🏠", text: "집에서 같이 요리하고 편하게. 그냥 함께 있으면 됨", type: "C" },
-          { emoji: "🎁", text: "내가 원하는 거 사주면 됨. 효율적으로 가자", type: "D" },
+          { emoji: "💭", text: "\"우리도 저런 거 해봐야겠다\" — 뭔가 더 해주고 싶어짐", type: "A" },
+          { emoji: "😏", text: "\"우리도 충분히 좋은데\" — 비교 자체가 의미없다고 느낌", type: "B" },
+          { emoji: "🙂", text: "\"연애 스타일이 각자 다른 거지\" — 크게 동요 없음", type: "C" },
+          { emoji: "🤔", text: "\"저 정도면 오히려 숨막히지 않나\" — 나는 그게 싫음", type: "D" },
         ]
       },
       {
-        q: "연인이 2시간째 연락이 없을 때 당신은?",
-        sub: "속 얘기를 해봐요",
+        q: "연인이 갑자기 생일도 아닌데 선물을 줬다. 받고 나서 드는 첫 생각은?",
+        sub: "제일 먼저 떠오르는 걸로",
         choices: [
-          { emoji: "😰", text: "혹시 무슨 일 생긴 거 아니야...? 걱정 시나리오 30개 제조 중", type: "A" },
-          { emoji: "😤", text: "서운함 5초 참다가 \"뭐 해?\" 전송", type: "B" },
-          { emoji: "🙂", text: "바쁜가보다. 나도 내 할 거 함", type: "C" },
-          { emoji: "😶", text: "딱히 신경 안 씀. 연락 안 해도 불안하지 않음", type: "D" },
+          { emoji: "🎁", text: "\"왜 이런 걸 기억했지...\" — 감동해서 눈물 날 것 같음", type: "A" },
+          { emoji: "😄", text: "\"나도 뭔가 해줘야겠다\" — 바로 보답하고 싶어짐", type: "B" },
+          { emoji: "😊", text: "\"고마워\" — 진심으로 좋은데 크게 표현은 못 함", type: "C" },
+          { emoji: "😅", text: "\"이런 거 안 해도 되는데\" — 오히려 부담스럽기도 함", type: "D" },
         ]
       },
       {
-        q: "연인이 내 친구들이랑 놀고 싶다고 할 때?",
-        sub: "솔직한 반응 골라요",
+        q: "연인이 요즘 바빠서 만남이 줄었다. 3주째 제대로 못 봤을 때 나는?",
+        sub: "솔직한 내 상태",
         choices: [
-          { emoji: "✨", text: "너무 좋지! 내 친구들한테 자랑하고 싶었는데", type: "A" },
-          { emoji: "🎉", text: "오케이! 다 같이 신나게 놀면 되지", type: "B" },
-          { emoji: "😅", text: "좋긴 한데... 분위기 어떨지 좀 걱정되긴 함", type: "C" },
-          { emoji: "😐", text: "굳이? 친구는 친구, 연인은 연인으로 분리하고 싶음", type: "D" },
+          { emoji: "😔", text: "많이 보고 싶고 서운함 — 말은 안 했지만 티 났을 것 같음", type: "A" },
+          { emoji: "📅", text: "\"다음 주에 시간 되면 만나자\" — 먼저 날짜 잡음", type: "B" },
+          { emoji: "😌", text: "\"바쁜 시기니까\" — 나도 내 일에 집중함", type: "C" },
+          { emoji: "🧘", text: "솔직히 나도 혼자 시간이 필요해서 딱 좋았음", type: "D" },
         ]
       },
       {
-        q: "연인이 SNS에 우리 사진 올렸으면 할 때?",
-        sub: "내 진심은",
+        q: "둘이 여행 계획을 짜는데 의견이 계속 안 맞는다. 어떻게 풀어나가?",
+        sub: "내 스타일대로",
         choices: [
-          { emoji: "📸", text: "올려줘! 우리 사이 인증하고 싶음. 커플 계정도 좋아", type: "A" },
-          { emoji: "😍", text: "당연하지. 자랑 안 하면 손해", type: "B" },
-          { emoji: "🤷", text: "올려도 되고 안 올려도 됨. 딱히 상관없음", type: "C" },
-          { emoji: "🙅", text: "SNS에 연애 안 올림. 우리 사이는 우리만 알면 됨", type: "D" },
+          { emoji: "🗺️", text: "\"그럼 네가 하고 싶은 거 위주로 하자\" — 맞춰주는 게 더 편함", type: "A" },
+          { emoji: "✌️", text: "\"한 명씩 번갈아 정하자\" — 빠르게 결론 내는 게 중요", type: "B" },
+          { emoji: "📋", text: "\"같이 리스트 만들어서 겹치는 데 가자\" — 합의점을 찾음", type: "C" },
+          { emoji: "🎲", text: "\"그냥 가서 즉흥으로 하자\" — 계획 맞추는 것 자체가 스트레스", type: "D" },
         ]
       },
       {
-        q: "연인이 갑자기 \"우리 좀 거리 두자\"고 하면?",
-        sub: "진짜 속마음은",
+        q: "연인이 내가 싫어하는 행동을 또 했다. 이미 한 번 말한 적 있는 상황이야. 나는?",
+        sub: "솔직한 내 반응",
         choices: [
-          { emoji: "😨", text: "심장이 쿵. 무슨 의미야? 나한테 왜? 해석 모드 돌입", type: "A" },
-          { emoji: "😡", text: "이유 바로 물어봄. 얘기 안 하면 더 답답함", type: "B" },
-          { emoji: "😔", text: "서운하지만... 필요하다면 맞춰줄 수 있음", type: "C" },
-          { emoji: "😌", text: "솔직히 나도 그런 시간 필요했음. 반가움", type: "D" },
+          { emoji: "😢", text: "또 상처받음 — 말하기 싫어서 혼자 삭임, 근데 표정에 다 나옴", type: "A" },
+          { emoji: "💬", text: "바로 말함 — \"저번에도 얘기했잖아\" 직구로 꺼냄", type: "B" },
+          { emoji: "⏸️", text: "타이밍 봐서 말함 — 감정 가라앉히고 나서 차분하게", type: "C" },
+          { emoji: "📝", text: "한 번 더 넘어감 — 근데 이번이 마지막이라고 속으로 선 그음", type: "D" },
         ]
       },
       {
-        q: "연애에서 절대 못 참는 게 있다면?",
-        sub: "가장 공감되는 걸 골라요",
+        q: "연인이 친구들한테 나 얘기를 많이 했다고 한다. 기분이 어때?",
+        sub: "진짜 첫 반응",
         choices: [
-          { emoji: "💔", text: "노력 안 하는 것. 기념일 챙기기는 기본 아닌가요", type: "A" },
-          { emoji: "🧱", text: "감정 표현 안 하는 것. 속으로만 있으면 나도 모르잖아", type: "B" },
-          { emoji: "🤯", text: "갑자기 태도 바뀌는 것. 예측 불가능한 사람은 힘듦", type: "C" },
-          { emoji: "⛓️", text: "통제하려는 것. 내 시간, 내 친구, 내 삶은 내 거임", type: "D" },
+          { emoji: "🥰", text: "너무 좋음 — 나도 친구들한테 자랑하고 다니는데", type: "A" },
+          { emoji: "😄", text: "기분 좋음 — \"좋은 말 했겠지\" 하고 넘어감", type: "B" },
+          { emoji: "🙂", text: "무난하게 좋음 — 크게 신경 쓰이진 않음", type: "C" },
+          { emoji: "😬", text: "살짝 부담 — 내 얘기가 돌아다니는 게 좀 불편함", type: "D" },
         ]
       },
       {
-        q: "마지막으로, 나에게 연애란?",
+        q: "연인이 오늘따라 유독 다정하다. 이유는 모르겠는데. 나는?",
+        sub: "솔직한 내 반응",
+        choices: [
+          { emoji: "🌸", text: "그냥 행복함 — 이유 같은 거 굳이 안 궁금함, 그냥 좋음", type: "A" },
+          { emoji: "😄", text: "나도 평소보다 더 다정해짐 — 에너지가 전염됨", type: "B" },
+          { emoji: "😊", text: "기분 좋긴 한데 겉으로는 평소랑 비슷하게 반응함", type: "C" },
+          { emoji: "🤨", text: "\"왜 이러지?\" — 오히려 이유가 궁금해짐", type: "D" },
+        ]
+      },
+      {
+        q: "연인이 \"요즘 나한테 좀 소홀한 것 같아\"라고 말했다. 나는?",
+        sub: "가장 가까운 반응을 골라요",
+        choices: [
+          { emoji: "😰", text: "엄청 미안함 — 바로 뭔가 해주려고 계획 세우기 시작", type: "A" },
+          { emoji: "😤", text: "억울한 면도 있음 — \"내가 언제?\" 하고 바로 반박", type: "B" },
+          { emoji: "🧐", text: "돌아봄 — \"그랬나?\" 하고 진지하게 생각해봄", type: "C" },
+          { emoji: "😶", text: "\"내가 원래 이런 스타일이야\"라고 설명함 — 억지로 바꾸긴 싫음", type: "D" },
+        ]
+      },
+      {
+        q: "5년 후, 연인과 이상적인 관계를 상상해봤을 때 가장 가까운 장면은?",
         sub: "직관적으로 골라봐요",
         choices: [
-          { emoji: "🎬", text: "내 인생 최고의 드라마. 감동 없으면 의미 없음", type: "A" },
-          { emoji: "🔥", text: "온 에너지를 쏟는 것. 할 거면 제대로 해야지", type: "B" },
-          { emoji: "🏡", text: "가장 편한 사람이 생기는 것. 그게 전부임", type: "C" },
-          { emoji: "🌱", text: "둘 다 성장하는 관계. 구속은 사절", type: "D" },
+          { emoji: "🕯️", text: "특별한 날마다 뭔가 준비하고, 서로에게 여전히 설레는 사이", type: "A" },
+          { emoji: "🏕️", text: "같이 도전하고 경험하면서, 서로가 서로의 에너지원인 사이", type: "B" },
+          { emoji: "☕", text: "말 없이도 편하고, 그냥 옆에 있는 것만으로 충분한 사이", type: "C" },
+          { emoji: "🌿", text: "각자의 삶이 있고, 함께할 때 더 나은 사람이 되는 사이", type: "D" },
         ]
       },
     ],
@@ -770,23 +802,18 @@ const data = {
         tagline: "감성으로 연애를 예술로 만드는 타입",
         badge: "낭만 가득",
         traits: [
-          { label: "로맨스", val: 95 },
-          { label: "감수성", val: 91 },
-          { label: "표현력", val: 83 },
-          { label: "멘탈 안정", val: 52 },
+          { label: "로맨스", val: 88 },
+          { label: "감수성", val: 79 },
+          { label: "표현력", val: 63 },
+          { label: "멘탈 안정", val: 31 },
         ],
-        desc: `<b>💕 사랑받고 싶은 마음이 남들보다 1.5배 큼</b><br><i>근데 그만큼 줄 줄도 아는 사람</i><br><br>
-• 기념일 D-30부터 뭐 할지 머릿속에서 계획 시작됨<br>
-• 연인이 지나가듯 했던 말도 한 달 뒤에 정확히 기억하고 있음<br>
-• 감동을 주는 것도, 받는 것도 연애의 핵심이라고 진심으로 믿는 사람<br>
-• 노력 안 하는 상대 옆에 있으면 에너지가 빠르게 고갈됨 — 상대의 무관심이 제일 힘듦<br>
-• 연인의 작은 행동 하나에 크게 감동받고, 작은 말 한 마디에 크게 상처받기도 함<br>
-• 연애 관련 플레이리스트가 이미 만들어져 있을 가능성 높음<br>
-• 싸우고 나서도 먼저 화해하고 싶어서 결국 먼저 연락하는 사람<br>
-• "우리 어때?" 같은 관계 점검 대화를 중요하게 생각함<br>
-• 설레는 감정이 없어지면 연애가 끝난 것 같은 느낌이 들기도 함<br>
-• 드라마 같은 순간을 직접 만들어냄 — 당신 곁에 있으면 매일이 특별한 날처럼 느껴짐<br><br>
-<i>💬 "왜 이렇게까지 해줘?" 소리를 들어봤다면, 그게 당신이에요.</i>`,
+        desc: `<b>💕 사랑받고 싶은 마음이 남들보다 1.5배 큼</b><br><span style="color:#FF6B9D;font-size:17px">근데 그만큼 줄 줄도 아는 사람</span><br><br>• 기념일 <b>D-30부터</b> 뭐 할지 머릿속에서 계획 시작됨<br>
+• 연인이 지나가듯 했던 말도 <b>한 달 뒤에 정확히 기억</b>하고 있음<br>
+• 감동을 주고받는 게 연애의 핵심이라고 <b>진심으로</b> 믿는 사람<br><br>• <span style="color:#e05c8a">노력 안 하는 상대</span> 옆에 있으면 에너지가 빠르게 고갈됨<br>
+• 작은 말 한 마디에 <b>크게 상처</b>받기도 하고, 작은 행동 하나에 크게 감동받기도 함<br>
+• 싸우고 나서도 먼저 화해하고 싶어서 <b>결국 먼저 연락</b>하는 사람<br><br>• <span style="color:#FF6B9D">설레는 감정이 없어지면</span> 연애가 끝난 것 같은 느낌이 들기도 함<br>
+• 드라마 같은 순간을 직접 만들어냄 — 당신 곁에 있으면 <b>매일이 특별한 날</b>처럼 느껴짐<br><br>
+<span style="background:#FFF0F7;border-left:3px solid #FF6B9D;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">"왜 이렇게까지 해줘?" 소리를 들어봤다면, 그게 당신이에요.</span>`,
         wantToHear: "\"너랑 있으면 매일 설레\"",
         dontWantToHear: "\"기념일이 그게 그렇게 중요해?\"",
         compat: { goodEmoji: "🌿", goodName: "안정 배려형", badEmoji: "🦋", badName: "자유 독립형" },
@@ -798,23 +825,19 @@ const data = {
         tagline: "온 마음을 다 꺼내놓는 타입",
         badge: "열정 가득",
         traits: [
-          { label: "열정도",  val: 98 },
-          { label: "직진력",  val: 95 },
-          { label: "에너지",  val: 92 },
-          { label: "인내심",  val: 48 },
+          { label: "열정도",  val: 91 },
+          { label: "직진력",  val: 85 },
+          { label: "에너지",  val: 78 },
+          { label: "인내심",  val: 22 },
         ],
-        desc: `<b>🔥 마음에 담아두는 거 체질적으로 못 함</b><br><i>좋으면 좋다고, 싫으면 싫다고 — 필터 없음</i><br><br>
-• 좋아하는 감정이 생기면 숨기려 해도 표정이나 행동으로 이미 다 드러남<br>
-• 싸울 때 할 말은 그 자리에서 다 함 — 쌓아두고 나중에 터지는 게 더 힘듦<br>
-• 감정 기복이 있을 수 있지만, 그만큼 기쁠 때도 100% 표현하는 사람<br>
-• 연인이 힘들다고 하면 "어디야? 지금 가도 돼?" 가 자동으로 나옴<br>
-• 사랑할 때는 세상 전부를 줄 것 같은 뜨거움이 있음<br>
-• 어중간한 관계가 제일 힘듦 — 좋으면 확실히, 아니면 정리<br>
-• 연인의 반응이 없거나 무덤덤하면 불안함이 빠르게 올라옴<br>
-• 즉흥적으로 "지금 뭐 해? 드라이브 가자" 할 수 있는 사람<br>
-• 화해하고 나면 언제 싸웠냐는 듯이 다시 따뜻해짐<br>
-• 당신과 연애하면 지루할 틈이 없음 — 그게 장점이자, 가끔은 소용돌이<br><br>
-<i>💬 "왜 이렇게 솔직해?" 소리를 들어봤다면, 그게 당신이에요.</i>`,
+        desc: `<b>🔥 마음에 담아두는 거 체질적으로 못 함</b><br><span style="color:#FF8C42;font-size:17px">좋으면 좋다고, 싫으면 싫다고 — 필터 없음</span><br><br>• 좋아하는 감정이 생기면 숨기려 해도 <b>표정이나 행동으로 이미 다 드러남</b><br>
+• 싸울 때 할 말은 <b>그 자리에서 다 함</b> — 쌓아두고 나중에 터지는 게 더 힘듦<br>
+• 사랑할 때는 세상 전부를 줄 것 같은 <b>뜨거움</b>이 있음<br><br>• <span style="color:#e07030">어중간한 관계가 제일 힘듦</span> — 좋으면 확실히, 아니면 정리<br>
+• 연인의 반응이 없거나 무덤덤하면 <b>불안함이 빠르게 올라옴</b><br>
+• 연인이 힘들다고 하면 <span style="color:#FF8C42">"어디야? 지금 가도 돼?"</span> 가 자동으로 나옴<br><br>• 즉흥적으로 <b>"지금 뭐 해? 드라이브 가자"</b> 할 수 있는 사람<br>
+• 화해하고 나면 언제 싸웠냐는 듯이 <b>다시 따뜻해짐</b><br>
+• 당신과 연애하면 <b>지루할 틈이 없음</b> — 그게 장점이자, 가끔은 소용돌이<br><br>
+<span style="background:#FFF5EE;border-left:3px solid #FF8C42;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">"왜 이렇게 솔직해?" 소리를 들어봤다면, 그게 당신이에요.</span>`,
         wantToHear: "\"네가 먼저 표현해줘서 나도 편했어\"",
         dontWantToHear: "\"왜 이렇게 감정적으로 굴어\"",
         compat: { goodEmoji: "🌹", goodName: "로맨틱 드리머", badEmoji: "🌿", badName: "안정 배려형" },
@@ -826,23 +849,18 @@ const data = {
         tagline: "말 없이 다 챙기는 타입",
         badge: "신뢰 가득",
         traits: [
-          { label: "신뢰감", val: 97 },
-          { label: "배려심", val: 94 },
-          { label: "안정감", val: 90 },
-          { label: "설렘 표현", val: 58 },
+          { label: "신뢰감", val: 86 },
+          { label: "배려심", val: 82 },
+          { label: "안정감", val: 74 },
+          { label: "설렘 표현", val: 27 },
         ],
-        desc: `<b>🌿 "밥은 먹었어?" 한 마디가 사랑 표현의 전부인 사람</b><br><i>화려하진 않지만, 곁에 있으면 왠지 안심이 됨</i><br><br>
-• 연인이 좋아하는 음식, 싫어하는 냄새, 잠버릇까지 자연스럽게 기억하고 있음<br>
-• 힘들어 보이면 말 안 해도 먼저 옆에 와 있는 사람<br>
-• 드라마틱한 이벤트보다 매일의 일상을 함께하는 게 더 중요하다고 생각함<br>
-• 표현이 서툴러서 오해받는 경우가 있음 — 관심 없는 게 아니라 방식이 다른 것<br>
-• 연인이 힘들 때 해결책보다 먼저 옆에 있어주는 스타일<br>
-• 갑자기 감정이 폭발하거나 관계가 흔들리는 상황을 제일 힘들어함<br>
-• 신뢰가 깨지면 회복이 느림 — 한 번 상처받으면 쉽게 잊지 못함<br>
-• 연인의 작은 불편함도 미리 알아채고 조용히 해결해 놓음<br>
-• "왜 이렇게 잘 챙겨줘?" 소리를 들으면 어색하게 웃고 넘김<br>
-• 당신 옆에 있으면 세상 어떤 폭풍이 와도 버틸 것 같은 느낌이 드는 게 사실임<br><br>
-<i>💬 "너 없으면 어떻게 살았을까" 소리를 들어봤다면, 그게 당신이에요.</i>`,
+        desc: `<b>🌿 "밥은 먹었어?" 한 마디가 사랑 표현의 전부인 사람</b><br><span style="color:#4CAF8A;font-size:17px">화려하진 않지만, 곁에 있으면 왠지 안심이 됨</span><br><br>• 연인이 좋아하는 음식, 싫어하는 냄새, 잠버릇까지 <b>자연스럽게 기억</b>하고 있음<br>
+• 힘들어 보이면 <b>말 안 해도 먼저 옆에</b> 와 있는 사람<br>
+• 드라마틱한 이벤트보다 <b>매일의 일상을 함께</b>하는 게 더 중요하다고 생각함<br><br>• <span style="color:#c0392b">표현이 서툴러서 오해받는 경우</span>가 있음 — 관심 없는 게 아니라 방식이 다른 것<br>
+• <span style="color:#c0392b">신뢰가 깨지면 회복이 느림</span> — 한 번 상처받으면 쉽게 잊지 못함<br><br>• 연인의 작은 불편함도 미리 알아채고 <b>조용히 해결</b>해 놓음<br>
+• "왜 이렇게 잘 챙겨줘?" 소리를 들으면 <b>어색하게 웃고 넘김</b><br>
+• 당신 옆에 있으면 세상 어떤 폭풍이 와도 <b>버틸 것 같은 느낌</b>이 드는 게 사실임<br><br>
+<span style="background:#F0FBF5;border-left:3px solid #4CAF8A;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">"너 없으면 어떻게 살았을까" 소리를 들어봤다면, 그게 당신이에요.</span>`,
         wantToHear: "\"네가 있으니까 든든해\"",
         dontWantToHear: "\"요즘 나한테 관심 없는 거 아니야?\"",
         compat: { goodEmoji: "🌹", goodName: "로맨틱 드리머", badEmoji: "🔥", badName: "열정 표현형" },
@@ -854,23 +872,18 @@ const data = {
         tagline: "나를 잃지 않고 사랑하는 타입",
         badge: "자유 가득",
         traits: [
-          { label: "독립성", val: 96 },
-          { label: "자존감", val: 93 },
-          { label: "성장욕", val: 88 },
+          { label: "독립성", val: 87 },
+          { label: "자존감", val: 79 },
+          { label: "성장욕", val: 71 },
           { label: "집착도", val: 8 },
         ],
-        desc: `<b>🦋 연애해도 내 삶은 내 삶 — 그게 건강한 거라고 생각함</b><br><i>구속하거나 구속받는 건 진짜 못 참음</i><br><br>
-• 연인이 "지금 어디야? 뭐 해? 누구랑?" 세 가지를 연속으로 물으면 숨이 막힘<br>
-• 혼자만의 시간이 충전에 꼭 필요함 — 이게 애정 없는 게 아님<br>
-• 서로의 친구 관계, 취미, 시간을 존중하는 게 기본이라고 생각함<br>
-• 표현이 적어서 차갑게 보일 수 있지만, 마음속에는 분명히 있음<br>
-• 연인을 친구이자 성장 파트너로 봄 — 의존하거나 집착하지 않음<br>
-• 관계에서 나를 잃는 느낌이 들기 시작하면 본능적으로 거리를 둠<br>
-• 상대가 지나치게 붙어있으려 하면 오히려 멀어지는 아이러니가 있음<br>
-• 연애보다 자기 성장을 더 중요하게 생각하는 편 — 그게 연애에도 도움이 된다고 믿음<br>
-• 같이 있어도 각자 할 거 하면서 편한 시간을 보낼 수 있는 관계를 이상적으로 봄<br>
-• 당신과 함께하면 나도 더 나은 사람이 될 것 같다는 느낌 — 그게 당신의 가장 큰 매력<br><br>
-<i>💬 "너랑 있으면 자유로운데 외롭지 않아" 소리를 들어봤다면, 그게 당신이에요.</i>`,
+        desc: `<b>🦋 연애해도 내 삶은 내 삶 — 그게 건강한 거라고 생각함</b><br><span style="color:#7C67EE;font-size:17px">구속하거나 구속받는 건 진짜 못 참음</span><br><br>• 연인이 "지금 어디야? 뭐 해? 누구랑?" <b>세 가지를 연속으로 물으면 숨이 막힘</b><br>
+• <b>혼자만의 시간</b>이 충전에 꼭 필요함 — 이게 애정 없는 게 아님<br>
+• 서로의 친구 관계, 취미, 시간을 <b>존중하는 게 기본</b>이라고 생각함<br><br>• <span style="color:#7C67EE">관계에서 나를 잃는 느낌</span>이 들기 시작하면 본능적으로 거리를 둠<br>
+• <span style="color:#7C67EE">상대가 지나치게 붙어있으려 하면</span> 오히려 멀어지는 아이러니가 있음<br><br>• 연애보다 <b>자기 성장</b>을 더 중요하게 생각하는 편 — 그게 연애에도 도움이 된다고 믿음<br>
+• 같이 있어도 각자 할 거 하면서 <b>편한 시간</b>을 보낼 수 있는 관계를 이상적으로 봄<br>
+• 당신과 함께하면 나도 더 나은 사람이 될 것 같다는 느낌 — 그게 <b>당신의 가장 큰 매력</b><br><br>
+<span style="background:#F5F2FF;border-left:3px solid #7C67EE;padding:12px 16px;display:block;border-radius:8px;font-size:13.5px;margin-top:12px;line-height:1.8">"너랑 있으면 자유로운데 외롭지 않아" 소리를 들어봤다면, 그게 당신이에요.</span>`,
         wantToHear: "\"너 옆에 있으면 나도 성장하는 것 같아\"",
         dontWantToHear: "\"나 지금 어디야? 뭐 해? 누구랑?\"",
         compat: { goodEmoji: "🌿", goodName: "안정 배려형", badEmoji: "🌹", badName: "로맨틱 드리머" },
@@ -1006,7 +1019,7 @@ const data = {
         traits: [
           { label: "Romance",    val: 95 },
           { label: "Sensitivity",val: 88 },
-          { label: "Expression", val: 80 },
+          { label: "Expression", val: 64 },
           { label: "Stability",  val: 60 },
         ],
         desc: "You're a true Romantic Dreamer who values butterflies and magic above all! You plan surprise gifts, remember every anniversary, and create cinematic moments from everyday life. Your high sensitivity means a small gesture can touch you deeply — but harsh words can too. Being with you feels like living in a love story. 💕",
@@ -1208,8 +1221,16 @@ function showResult() {
   document.getElementById('resultDesc').innerHTML = r.desc;
 
   // 듣고싶은/듣기싫은 말
-  if (r.wantToHear) document.getElementById('resultWantToHear').textContent = r.wantToHear;
-  if (r.dontWantToHear) document.getElementById('resultDontWantToHear').textContent = r.dontWantToHear;
+  if (r.wantToHear) {
+    const we = ['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random()*9)];
+    document.getElementById('resultWantToHear').innerHTML =
+      '<span style="font-size:30px;display:block;margin-bottom:8px">'+we+'</span>'+r.wantToHear;
+  }
+  if (r.dontWantToHear) {
+    const de = ['😤','🙅','💢','😬','🫠','😑','🚫','😶','🫤'][Math.floor(Math.random()*9)];
+    document.getElementById('resultDontWantToHear').innerHTML =
+      '<span style="font-size:30px;display:block;margin-bottom:8px">'+de+'</span>'+r.dontWantToHear;
+  }
 
   // 궁합
   const ui = data[curLang].ui;
@@ -1234,9 +1255,89 @@ function getShareMsg() {
     : `My love style is "${name}"! 💕 What's yours?`;
 }
 
+
+function downloadResult() {
+  const topType = Object.keys(scores).reduce((a,b) => scores[a] > scores[b] ? a : b);
+  const r  = data[curLang].results[topType];
+  const ty = TYPES[topType];
+
+  if (!r) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+
+  const card = document.createElement('div');
+  card.id = '__share_card__';
+  card.style.cssText = [
+    'position:fixed','top:-9999px','left:-9999px',
+    'width:420px','padding:0','background:'+ty.bg,
+    'border-radius:24px','overflow:hidden',
+    "font-family:'Gaegu',cursive",
+    'box-shadow:0 8px 40px rgba(0,0,0,.18)',
+  ].join(';');
+
+  const tagsHtml = (r.tags||[]).map(t =>
+    `<span style="display:inline-block;background:white;border:1.5px solid ${ty.borderColor};color:${ty.color};border-radius:99px;padding:4px 14px;font-size:16px;font-weight:700;margin:3px">${t}</span>`
+  ).join('');
+
+  const traitsHtml = (r.traits||r.stats||[]).map(tr =>
+    `<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;margin-bottom:4px">
+        <span>${tr.label}</span><span style="color:${ty.color}">${tr.val}%</span>
+      </div>
+      <div style="background:rgba(0,0,0,.08);border-radius:99px;height:9px;overflow:hidden">
+        <div style="width:${tr.val}%;height:100%;background:linear-gradient(90deg,${ty.color},${ty.color}88);border-radius:99px"></div>
+      </div>
+    </div>`
+  ).join('');
+
+  const rawDesc = (r.desc||'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').trim();
+  const shortDesc = rawDesc.length > 220 ? rawDesc.slice(0,220)+'...' : rawDesc;
+
+  card.innerHTML = `
+    <div style="background:${ty.color};padding:8px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">
+      ✨ TestWorld
+    </div>
+    <div style="padding:28px 24px 20px;text-align:center">
+      <div style="font-size:76px;line-height:1;margin-bottom:12px">${r.emoji}</div>
+      <div style="display:inline-block;background:${ty.color};color:white;border-radius:99px;padding:5px 20px;font-size:16px;font-weight:800;margin-bottom:12px">${r.badge}</div>
+      <div style="font-size:38px;font-weight:700;color:${ty.color};margin-bottom:4px">${r.name||r.title||''}</div>
+      <div style="font-size:18px;color:#777;margin-bottom:20px">${r.tagline||r.subtitle||''}</div>
+      <div style="background:white;border-radius:16px;padding:18px;margin-bottom:16px">${traitsHtml}</div>
+      <div style="margin-bottom:18px">${tagsHtml}</div>
+      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:left;margin-bottom:14px">
+        <div style="font-size:17px;font-weight:800;margin-bottom:10px;color:${ty.color}">💬 분석</div>
+        <div style="font-size:17px;line-height:2;color:#444">${shortDesc}</div>
+      </div>
+      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:center">
+        <div style="font-size:16px;color:#aaa;font-weight:700;margin-bottom:8px">💕 들으면 좋은 말</div>
+        <div style="font-size:20px;font-weight:800;color:${ty.color}">${r.wantToHear||''}</div>
+      </div>
+    </div>
+    <div style="background:${ty.color}33;padding:12px;text-align:center;font-size:15px;color:${ty.color};font-weight:700">
+      나도 해보기 → testworld.kr
+    </div>
+  `;
+
+  document.body.appendChild(card);
+
+  html2canvas(card, {
+    scale: 2.5,
+    useCORS: true,
+    backgroundColor: ty.bg,
+    logging: false,
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'testworld-result.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+  }).catch(e => {
+    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');
+  }).finally(() => {
+    if (document.body.contains(card)) document.body.removeChild(card);
+  });
+}
+
 function shareKakao()   { showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK integration!'); }
-function shareTwitter() { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareMsg()+'\n'+location.href)}`,'_blank'); }
-function shareFacebook(){ window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}`,'_blank'); }
 function copyLink() {
   const txt = getShareMsg()+'\n'+location.href;
   if (navigator.clipboard) {
