@@ -321,6 +321,28 @@
     .container { padding-top: 32px; padding-bottom: 80px; }
     .choices { gap: 10px; }
   }
+
+  /* ── 직업 분야 카드 ── */
+  .careers-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(18px,4.5vw,24px); box-shadow: var(--shadow);
+    border: 2px solid var(--border); margin-bottom: var(--space-md);
+    animation: fadeUp .5s ease .35s both;
+  }
+  .careers-card h3 {
+    font-family: 'Gaegu', cursive;
+    font-size: var(--fs-lg); font-weight: 800; color: var(--primary);
+    margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+  }
+  .career-list {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .career-item {
+    background: var(--bg); border: 1.5px solid var(--border);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: var(--fs-sm); font-weight: 700; color: #555;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -340,7 +362,7 @@
   <div id="startSection">
     <div class="start-card">
       <span style="font-size:56px">💎</span>
-      <p id="startText">누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>10개의 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong></p>
+      <p id="startText">누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>몇 가지 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong></p>
       <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">🌟 재능 발견하기</button>
     </div>
   </div>
@@ -442,7 +464,7 @@ const data={
     ui:{
       langBtn:'🌏 EN',mainTitle:'나의 <span>숨겨진 재능</span>은?',
       mainDesc:'다양한 질문으로 발견하는 나만의 특별한 재능<br>당신도 몰랐던 재능이 있을 수 있어요! ✨',
-      startText:'누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>10개의 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong>',
+      startText:'누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>몇 가지 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong>',
       startBtn:'🌟 재능 발견하기',descTitle:'🌟 재능 분석',
       careersTitle:'💼 이런 분야에서 빛날 수 있어요!',
       shareTitle:'🎉 친구들에게 결과 공유하기!',
