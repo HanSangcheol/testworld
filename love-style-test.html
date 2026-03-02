@@ -39,7 +39,7 @@
     --dark:      #2a2a3a;
     --space-xs:  clamp(6px, 1.5vw, 8px);
     --space-sm:  clamp(8px, 2vw, 12px);
-    --space-md:  clamp(12px, 3vw, 18px);
+    --space-md:  clamp(8px, 2.5vw, 16px);
     --space-lg:  clamp(16px, 4vw, 24px);
     --space-xl:  clamp(20px, 5vw, 32px);
   }
@@ -59,7 +59,7 @@
     pointer-events: none; z-index: 0;
   }
   .container {
-    max-width: 560px; margin: 0 auto;
+    max-width: 680px; margin: 0 auto;
     padding: var(--space-lg) var(--space-md) clamp(40px,10vw,70px);
     position: relative; z-index: 1;
   }
@@ -919,6 +919,37 @@ const data = {
           { emoji: "🎢", text: "An exhilarating ride with every emotion", type: "B" },
           { emoji: "🏡", text: "A safe, comforting place to come home to", type: "C" },
           { emoji: "🌍", text: "A journey that makes me grow as a person", type: "D" },
+        ]
+      },
+    
+      {
+        q: "What do you want most in love?",
+        sub: "Be honest about what you actually need",
+        choices: [
+          { emoji: "💘", text: "Intense, overwhelming feelings — the kind that swallows you whole", type: "E" },
+          { emoji: "🧠", text: "A partner who gets you intellectually — someone to grow with", type: "B" },
+          { emoji: "🌿", text: "Quiet, stable comfort — someone to come home to", type: "C" },
+          { emoji: "🗺️", text: "Freedom within the relationship — love without losing yourself", type: "D" },
+        ]
+      },
+      {
+        q: "What hurts most in a relationship?",
+        sub: "The wound that goes deepest",
+        choices: [
+          { emoji: "💔", text: "Not being chosen — feeling like second priority", type: "E" },
+          { emoji: "🥶", text: "Emotional distance — when they stop sharing themselves", type: "F" },
+          { emoji: "🌊", text: "Losing yourself — giving too much and forgetting who you are", type: "G" },
+          { emoji: "🔒", text: "Being controlled — when love starts to feel like a cage", type: "H" },
+        ]
+      },
+      {
+        q: "Your partner asks what you want to do today. You say...",
+        sub: "Your honest first instinct",
+        choices: [
+          { emoji: "🌅", text: "Something meaningful, just us — a moment we'll actually remember", type: "E" },
+          { emoji: "🏃", text: "Something spontaneous — let's just go and see what happens", type: "F" },
+          { emoji: "🍳", text: "Stay in, cook together, nothing special — but together", type: "G" },
+          { emoji: "🌙", text: "Honestly? I'm a little drained — can we just rest quietly?", type: "H" },
         ]
       },
     ],

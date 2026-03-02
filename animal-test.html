@@ -36,7 +36,7 @@
     --dark:      #2a2a3a;
     --space-xs:  clamp(6px, 1.5vw, 8px);
     --space-sm:  clamp(8px, 2vw, 12px);
-    --space-md:  clamp(12px, 3vw, 18px);
+    --space-md:  clamp(8px, 2.5vw, 16px);
     --space-lg:  clamp(16px, 4vw, 24px);
     --space-xl:  clamp(20px, 5vw, 32px);
   }
@@ -56,7 +56,7 @@
     pointer-events: none; z-index: 0;
   }
   .container {
-    max-width: 560px; margin: 0 auto;
+    max-width: 680px; margin: 0 auto;
     padding: var(--space-lg) var(--space-md) clamp(40px,10vw,70px);
     position: relative; z-index: 1;
   }
@@ -769,6 +769,62 @@ const data = {
         {emoji:"🌙",text:"Mysterious and deep",type:"C"},
         {emoji:"💎",text:"Wise and insightful",type:"D"},
       ]},
+    
+      {q:"Who do you get along with best?",sub:"Think honestly about compatibility",choices:[
+        {emoji:"🔥",text:"Someone energetic and charismatic — their drive is contagious",type:"E"},
+        {emoji:"🐆",text:"Someone quiet but reliable — actions speak louder",type:"F"},
+        {emoji:"🐧",text:"Someone warm and socially aware — feels comfortable",type:"G"},
+        {emoji:"🐱",text:"Someone independent who respects your space too",type:"H"},
+      ]},
+      {q:"When you're stressed, you...",sub:"Your natural response",choices:[
+        {emoji:"🔥",text:"Take action — sitting still makes it worse",type:"E"},
+        {emoji:"🐆",text:"Quietly organize your thoughts alone",type:"F"},
+        {emoji:"🐧",text:"Talk to someone close — just being heard helps",type:"G"},
+        {emoji:"🐱",text:"Disconnect and recharge alone — go silent for a while",type:"H"},
+      ]},
+      {q:"Which nickname fits you best?",sub:"The one that really resonates",choices:[
+        {emoji:"🔥",text:"The flame — spreading energy wherever you go",type:"E"},
+        {emoji:"🐆",text:"The sniper — quietly and precisely moving toward goals",type:"F"},
+        {emoji:"🐧",text:"The warm one — people feel at ease around you",type:"G"},
+        {emoji:"🐱",text:"The moon — felt even from a distance",type:"H"},
+      ]},
+      {q:"You feel proudest when...",sub:"The moment that really sticks with you",choices:[
+        {emoji:"🔥",text:"You took charge of a tough situation and turned it around",type:"E"},
+        {emoji:"🐆",text:"Things unfolded exactly as you predicted",type:"F"},
+        {emoji:"🐧",text:"Someone felt better because of you",type:"G"},
+        {emoji:"🐱",text:"You completed something quietly that no one else noticed",type:"H"},
+      ]},
+      {q:"Who do you get along with best?",sub:"Think honestly about compatibility",choices:[
+        {emoji:"🔥",text:"Someone energetic and charismatic — their drive is contagious",type:"E"},
+        {emoji:"🐆",text:"Someone quiet but reliable — actions speak louder",type:"F"},
+        {emoji:"🐧",text:"Someone warm and socially aware — feels comfortable",type:"G"},
+        {emoji:"🐱",text:"Someone independent who respects your space too",type:"H"},
+      ]},
+      {q:"When you're stressed, you...",sub:"Your natural response",choices:[
+        {emoji:"🔥",text:"Take action — sitting still makes it worse",type:"E"},
+        {emoji:"🐆",text:"Quietly organize your thoughts alone",type:"F"},
+        {emoji:"🐧",text:"Talk to someone close — just being heard helps",type:"G"},
+        {emoji:"🐱",text:"Disconnect and recharge alone — go silent for a while",type:"H"},
+      ]},
+      {q:"Which nickname fits you best?",sub:"The one that really resonates",choices:[
+        {emoji:"🔥",text:"The flame — spreading energy wherever you go",type:"E"},
+        {emoji:"🐆",text:"The sniper — quietly and precisely moving toward goals",type:"F"},
+        {emoji:"🐧",text:"The warm one — people feel at ease around you",type:"G"},
+        {emoji:"🐱",text:"The moon — felt even from a distance",type:"H"},
+      ]},
+      {q:"You feel proudest when...",sub:"The moment that really sticks with you",choices:[
+        {emoji:"🔥",text:"You took charge of a tough situation and turned it around",type:"E"},
+        {emoji:"🐆",text:"Things unfolded exactly as you predicted",type:"F"},
+        {emoji:"🐧",text:"Someone felt better because of you",type:"G"},
+        {emoji:"🐱",text:"You completed something quietly that no one else noticed",type:"H"},
+      ]},
+    
+      {q:"You feel proudest when...",sub:"The moment that really sticks with you",choices:[
+        {emoji:"🔥",text:"You took charge of a tough situation and turned it around",type:"E"},
+        {emoji:"🐆",text:"Things unfolded exactly as you predicted",type:"F"},
+        {emoji:"🐧",text:"Someone felt better because of you",type:"G"},
+        {emoji:"🐱",text:"You completed something quietly that no one else noticed",type:"H"},
+      ]},
     ],
     results:{
       A:{emoji:"🦁",name:"Lion",tagline:"King of the Jungle, Born Leader",badge:"Powerful Leader",
@@ -891,7 +947,7 @@ const data = {
   },
 };
 
-let curLang='ko', curQ=0, scores={A:0,B:0,C:0,D:0};
+let curLang='ko', curQ=0, scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
 
 function toggleLang() {
   curLang = curLang === 'ko' ? 'en' : 'ko';
@@ -917,7 +973,7 @@ function applyLang(){
   document.getElementById('restartBtn').textContent=u.restartBtn;
   document.getElementById('moreTitle').textContent=u.moreTitle;
 }
-function startTest(){curQ=0;scores={A:0,B:0,C:0,D:0};document.getElementById('startSection').style.display='none';document.getElementById('quizSection').style.display='block';renderQuestion();}
+function startTest(){curQ=0;scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };document.getElementById('startSection').style.display='none';document.getElementById('quizSection').style.display='block';renderQuestion();}
 function renderQuestion(){
   const qs=data[curLang].questions,total=qs.length,q=qs[curQ];
   document.getElementById('progressLabel').textContent=`${curQ+1} / ${total}`;
@@ -987,7 +1043,7 @@ function showResult(){
   document.getElementById('compatBadName').textContent=r.compat.badName;
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={A:0,B:0,C:0,D:0};curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
+function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
 function getMsg(){const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);const n=data[curLang].results[t].name;return curLang==='ko'?`나를 동물로 표현하면 "${n}"이래! 🐾 너는 뭐야?`:`I'm a "${n}"! 🐾 Which animal are you?`;}
 
 function downloadResult() {

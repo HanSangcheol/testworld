@@ -36,7 +36,7 @@
     --dark:      #2a2a3a;
     --space-xs:  clamp(6px, 1.5vw, 8px);
     --space-sm:  clamp(8px, 2vw, 12px);
-    --space-md:  clamp(12px, 3vw, 18px);
+    --space-md:  clamp(8px, 2.5vw, 16px);
     --space-lg:  clamp(16px, 4vw, 24px);
     --space-xl:  clamp(20px, 5vw, 32px);
   }
@@ -56,7 +56,7 @@
     pointer-events: none; z-index: 0;
   }
   .container {
-    max-width: 560px; margin: 0 auto;
+    max-width: 680px; margin: 0 auto;
     padding: var(--space-lg) var(--space-md) clamp(40px,10vw,70px);
     position: relative; z-index: 1;
   }
@@ -758,6 +758,62 @@ const data={
         {emoji:"❤️",text:"Give strength and courage to many people",type:"C"},
         {emoji:"🏗️",text:"Build something entirely new that's never existed before",type:"D"},
       ]},
+    
+      {q:"How do you start learning something new?",sub:"Your most natural approach",choices:[
+        {emoji:"🎨",text:"See it visually first — theory comes after observation",type:"A"},
+        {emoji:"🔢",text:"Understand the concept and structure first — foundations matter",type:"B"},
+        {emoji:"🎭",text:"Just dive in — mistakes are part of the learning",type:"C"},
+        {emoji:"⚙️",text:"Build something with it — you learn by making",type:"D"},
+      ]},
+      {q:"Where do you focus best?",sub:"Your ideal environment",choices:[
+        {emoji:"🎨",text:"Quiet, organized personal space — structure sparks creativity",type:"E"},
+        {emoji:"🔢",text:"Space with background music or ambient sound — sensory input helps",type:"F"},
+        {emoji:"🎭",text:"Equipped workspace — everything ready to go right now",type:"G"},
+        {emoji:"⚙️",text:"Collaborative space — cross-pollinating ideas with others",type:"H"},
+      ]},
+      {q:"What reaction to your work sticks with you most?",sub:"The one you still think about",choices:[
+        {emoji:"🎨",text:"'How did you structure this so well?' — praised for craftsmanship",type:"E"},
+        {emoji:"🔢",text:"'That changed something in me' — your expression moved them",type:"F"},
+        {emoji:"🎭",text:"'How did you actually make this work?' — amazed it functions",type:"G"},
+        {emoji:"⚙️",text:"'How did you even think of that direction?' — vision recognized",type:"H"},
+      ]},
+      {q:"When is your talent most needed?",sub:"The moment you feel most useful",choices:[
+        {emoji:"🎨",text:"When chaos needs to become beautiful structure",type:"E"},
+        {emoji:"🔢",text:"When people need a story that moves them",type:"F"},
+        {emoji:"🎭",text:"When theory needs to actually work in the real world",type:"G"},
+        {emoji:"⚙️",text:"When an idea needs to be brought to life",type:"H"},
+      ]},
+      {q:"How do you start learning something new?",sub:"Your most natural approach",choices:[
+        {emoji:"🎨",text:"See it visually first — theory comes after observation",type:"A"},
+        {emoji:"🔢",text:"Understand the concept and structure first — foundations matter",type:"B"},
+        {emoji:"🎭",text:"Just dive in — mistakes are part of the learning",type:"C"},
+        {emoji:"⚙️",text:"Build something with it — you learn by making",type:"D"},
+      ]},
+      {q:"Where do you focus best?",sub:"Your ideal environment",choices:[
+        {emoji:"🎨",text:"Quiet, organized personal space — structure sparks creativity",type:"E"},
+        {emoji:"🔢",text:"Space with background music or ambient sound — sensory input helps",type:"F"},
+        {emoji:"🎭",text:"Equipped workspace — everything ready to go right now",type:"G"},
+        {emoji:"⚙️",text:"Collaborative space — cross-pollinating ideas with others",type:"H"},
+      ]},
+      {q:"What reaction to your work sticks with you most?",sub:"The one you still think about",choices:[
+        {emoji:"🎨",text:"'How did you structure this so well?' — praised for craftsmanship",type:"E"},
+        {emoji:"🔢",text:"'That changed something in me' — your expression moved them",type:"F"},
+        {emoji:"🎭",text:"'How did you actually make this work?' — amazed it functions",type:"G"},
+        {emoji:"⚙️",text:"'How did you even think of that direction?' — vision recognized",type:"H"},
+      ]},
+      {q:"When is your talent most needed?",sub:"The moment you feel most useful",choices:[
+        {emoji:"🎨",text:"When chaos needs to become beautiful structure",type:"E"},
+        {emoji:"🔢",text:"When people need a story that moves them",type:"F"},
+        {emoji:"🎭",text:"When theory needs to actually work in the real world",type:"G"},
+        {emoji:"⚙️",text:"When an idea needs to be brought to life",type:"H"},
+      ]},
+    
+      {q:"When is your talent most needed?",sub:"The moment you feel most useful",choices:[
+        {emoji:"🎨",text:"When chaos needs to become beautiful structure",type:"E"},
+        {emoji:"🔢",text:"When people need a story that moves them",type:"F"},
+        {emoji:"🎭",text:"When theory needs to actually work in the real world",type:"G"},
+        {emoji:"⚙️",text:"When an idea needs to be brought to life",type:"H"},
+      ]},
     ],
     results:{
       A:{emoji:"🎨",name:"Creative Artist",tagline:"A Creator Who Makes the World Beautiful",badge:"Artistic Sense",
@@ -880,7 +936,7 @@ const data={
   },
 };
 
-let curLang='ko',curQ=0,scores={A:0,B:0,C:0,D:0};
+let curLang='ko',curQ=0,scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
 
 function toggleLang() {
   curLang = curLang === 'ko' ? 'en' : 'ko';
@@ -900,7 +956,7 @@ function applyLang(){
     if(['mainTitle','mainDesc','startText'].includes(id))el.innerHTML=u[id];else el.textContent=u[id];
   });
 }
-function startTest(){curQ=0;scores={A:0,B:0,C:0,D:0};document.getElementById('startSection').style.display='none';document.getElementById('quizSection').style.display='block';renderQuestion();}
+function startTest(){curQ=0;scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };document.getElementById('startSection').style.display='none';document.getElementById('quizSection').style.display='block';renderQuestion();}
 function renderQuestion(){
   const qs=data[curLang].questions,total=qs.length,q=qs[curQ];
   document.getElementById('progressLabel').textContent=`${curQ+1} / ${total}`;
@@ -965,7 +1021,7 @@ function showResult(){
   r.careers.forEach(c=>{const div=document.createElement('div');div.className='career-item';div.textContent=c;cl.appendChild(div);});
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={A:0,B:0,C:0,D:0};curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
+function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
 function getMsg(){const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);const n=data[curLang].results[t].name;return curLang==='ko'?`나의 숨겨진 재능은 "${n}"이래! 🌟 너는 뭐야?`:`My hidden talent is "${n}"! 🌟 What's yours?`;}
 
 function downloadResult() {

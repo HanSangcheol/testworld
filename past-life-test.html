@@ -40,7 +40,7 @@
     --dark:      #2a2a3a;
     --space-xs:  clamp(6px, 1.5vw, 8px);
     --space-sm:  clamp(8px, 2vw, 12px);
-    --space-md:  clamp(12px, 3vw, 18px);
+    --space-md:  clamp(8px, 2.5vw, 16px);
     --space-lg:  clamp(16px, 4vw, 24px);
     --space-xl:  clamp(20px, 5vw, 32px);
   }
@@ -60,7 +60,7 @@
     pointer-events: none; z-index: 0;
   }
   .container {
-    max-width: 560px; margin: 0 auto;
+    max-width: 680px; margin: 0 auto;
     padding: var(--space-lg) var(--space-md) clamp(40px,10vw,70px);
     position: relative; z-index: 1;
   }
@@ -771,7 +771,79 @@ const questions = {
         { emoji: "👑", text: "I was surrounded by many people", type: "D" },
       ]
     },
-  ]
+  
+    {
+      q: "When do you shine brightest?",
+      sub: "The moment that feels most like you",
+      choices: [
+        { emoji: "📜", text: "When I spot what everyone else missed", type: "E" },
+        { emoji: "⚔️", text: "When I step up and change an unjust situation", type: "F" },
+        { emoji: "🏺", text: "When I help everyone find calm in the chaos", type: "G" },
+        { emoji: "👑", text: "When I set the direction and the team moves", type: "H" },
+      ]
+    },
+    {
+      q: "What pattern keeps repeating in your life?",
+      sub: "Be honest — you've noticed this",
+      choices: [
+        { emoji: "📜", text: "Gathering info and analyzing before I decide", type: "E" },
+        { emoji: "⚔️", text: "My gut speaks before my head — blurting it out", type: "F" },
+        { emoji: "🏺", text: "Reading the room first, then adjusting to it", type: "G" },
+        { emoji: "👑", text: "Setting direction quietly and executing alone", type: "H" },
+      ]
+    },
+    {
+      q: "If your past life had a signature style...",
+      sub: "The approach that feels most like you",
+      choices: [
+        { emoji: "📜", text: "Quietly strategizing and building the plan", type: "A" },
+        { emoji: "⚔️", text: "Standing at the front and charging in directly", type: "B" },
+        { emoji: "🏺", text: "Reading the current and finding balance", type: "C" },
+        { emoji: "👑", text: "Deciding, owning it, and leading forward", type: "D" },
+      ]
+    },
+    {
+      q: "When do you shine brightest?",
+      sub: "The moment that feels most like you",
+      choices: [
+        { emoji: "📜", text: "When I spot what everyone else missed", type: "E" },
+        { emoji: "⚔️", text: "When I step up and change an unjust situation", type: "F" },
+        { emoji: "🏺", text: "When I help everyone find calm in the chaos", type: "G" },
+        { emoji: "👑", text: "When I set the direction and the team moves", type: "H" },
+      ]
+    },
+    {
+      q: "What pattern keeps repeating in your life?",
+      sub: "Be honest — you've noticed this",
+      choices: [
+        { emoji: "📜", text: "Gathering info and analyzing before I decide", type: "E" },
+        { emoji: "⚔️", text: "My gut speaks before my head — blurting it out", type: "F" },
+        { emoji: "🏺", text: "Reading the room first, then adjusting to it", type: "G" },
+        { emoji: "👑", text: "Setting direction quietly and executing alone", type: "H" },
+      ]
+    },
+    {
+      q: "If your past life had a signature style...",
+      sub: "The approach that feels most like you",
+      choices: [
+        { emoji: "📜", text: "Quietly strategizing and building the plan", type: "A" },
+        { emoji: "⚔️", text: "Standing at the front and charging in directly", type: "B" },
+        { emoji: "🏺", text: "Reading the current and finding balance", type: "C" },
+        { emoji: "👑", text: "Deciding, owning it, and leading forward", type: "D" },
+      ]
+    },
+  
+    {
+      q: "If your past life had a signature style...",
+      sub: "The approach that feels most like you",
+      choices: [
+        { emoji: "📜", text: "Quietly strategizing and building the plan", type: "A" },
+        { emoji: "⚔️", text: "Standing at the front and charging in directly", type: "B" },
+        { emoji: "🏺", text: "Reading the current and finding balance", type: "C" },
+        { emoji: "👑", text: "Deciding, owning it, and leading forward", type: "D" },
+      ]
+    },
+    ]
 };
 
 // ========================================
@@ -966,7 +1038,7 @@ function toggleLang() {
 // ========================================
 function startTest() {
   currentQuestion = 0;
-  scores = { A: 0, B: 0, C: 0, D: 0 };
+  scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
   document.getElementById('startSection').style.display = 'none';
   document.getElementById('quizSection').style.display = 'block';
   renderQuestion();
@@ -1206,7 +1278,7 @@ function restartTest() {
   document.getElementById('resultSection').style.display = 'none';
   document.getElementById('headerSection').style.display = 'block';
   document.getElementById('startSection').style.display = 'block';
-  scores = { A: 0, B: 0, C: 0, D: 0 };
+  scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
   currentQuestion = 0;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
