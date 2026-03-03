@@ -464,7 +464,7 @@ const data={
     ui:{
       langBtn:'🌏 EN',mainTitle:'나의 <span>숨겨진 재능</span>은?',
       mainDesc:'다양한 질문으로 발견하는 나만의 특별한 재능<br>당신도 몰랐던 재능이 있을 수 있어요! ✨',
-      startText:'누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br>몇 가지 질문으로 당신만의 특별한 재능을 발견해보세요!<br><strong>소요시간: 약 2분</strong>',
+      startText: '누구에게나 남들이 부러워하는 숨겨진 재능이 있어요.<br><strong>총 18가지 질문</strong>으로 당신만의 특별한 재능을 발견해보세요!<br><span style="opacity:.7">소요시간: 약 3분</span>',
       startBtn:'🌟 재능 발견하기',descTitle:'🌟 재능 분석',
       careersTitle:'💼 이런 분야에서 빛날 수 있어요!',
       shareTitle:'🎉 친구들에게 결과 공유하기!',
@@ -472,114 +472,475 @@ const data={
       copyOk:'🔗 링크가 복사되었어요!',langToggle:'🌏 EN',
     },
     questions:[
-      {q:"회사에서 새로운 프로젝트를 맡았다. 팀원들이 각자 어떤 역할 할지 정해야 한다. 나는?",sub:"자연스럽게 그렇게 되는 것",choices:[
-        {emoji:"🎨",text:"콘텐츠나 디자인 방향 — 어떻게 보여줄지가 제일 먼저 떠오름",type:"A"},
-        {emoji:"📐",text:"전체 구조 설계와 데이터 분석 — 뼈대가 없으면 시작이 안 됨",type:"B"},
-        {emoji:"🎤",text:"발표와 고객 커뮤니케이션 — 사람 상대하는 게 제일 자신 있음",type:"C"},
-        {emoji:"⚙️",text:"실제 구현과 실행 — 만들어지는 걸 직접 보고 싶음",type:"D"},
-      ]},
-      {q:"카페에서 옆 테이블 커플이 다투고 있다. 목소리가 꽤 크다. 나는 어디에 신경이 쓰여?",sub:"솔직한 내 반응",choices:[
-        {emoji:"🖼️",text:"두 사람의 표정과 분위기 — 감정 흐름이 읽힘",type:"A"},
-        {emoji:"💬",text:"대화 내용의 논리 — 누구 말이 맞는지 자동으로 분석됨",type:"B"},
-        {emoji:"😟",text:"주변 사람들 반응 — 분위기가 불편해질까봐 신경 쓰임",type:"C"},
-        {emoji:"🔧",text:"저 상황을 어떻게 해결할 수 있을지 — 해법이 먼저 떠오름",type:"D"},
-      ]},
-      {q:"친구가 직접 만든 영상을 보여줬다. 퀄리티가 좀 아쉽다. 친구는 어떻게 생각하냐고 묻는다. 나는?",sub:"진짜 내 반응",choices:[
-        {emoji:"🌟",text:"좋은 점을 먼저 말하고 개선점을 부드럽게 곁들임 — 기분도 중요하니까",type:"A"},
-        {emoji:"📊",text:"구체적으로 뭐가 아쉬운지 말해줌 — 솔직하게 말해야 도움이 되니까",type:"B"},
-        {emoji:"❤️",text:"용기 내서 만든 게 대단하다고 먼저 진심으로 말함",type:"C"},
-        {emoji:"🛠️",text:"'이 부분은 이렇게 하면 어때?' 바로 수정 방법 제안",type:"D"},
-      ]},
-      {q:"아무도 시키지 않았는데 자연스럽게 하게 되는 것이 있다면?",sub:"나도 모르게 반복하게 되는 것",choices:[
-        {emoji:"📸",text:"공간, 빛, 사람 — 예쁜 장면이 보이면 무조건 찍게 됨",type:"A"},
-        {emoji:"📝",text:"정보 정리, 메모, 분류 — 복잡한 것들을 체계화하는 게 자연스러움",type:"B"},
-        {emoji:"🎭",text:"이야기하거나 설명할 때 자연스럽게 표정과 몸짓이 들어감",type:"C"},
-        {emoji:"🔩",text:"주변에 고장났거나 비효율적인 것을 보면 그냥 못 지나침",type:"D"},
-      ]},
-      {q:"새로운 걸 배우기 시작했다. 처음 2주 동안의 내 패턴은?",sub:"솔직하게",choices:[
-        {emoji:"👁️",text:"레퍼런스를 엄청 많이 찾아봄 — 잘 만든 것들을 보면서 감 잡음",type:"A"},
-        {emoji:"📖",text:"개념과 원리부터 이해함 — 왜 이렇게 되는지 알아야 다음으로 넘어감",type:"B"},
-        {emoji:"🤸",text:"일단 해보면서 배움 — 설명보다 직접 경험이 더 빨리 들어옴",type:"C"},
-        {emoji:"🔨",text:"작은 것부터 직접 만들어봄 — 손으로 만들어야 실감이 남",type:"D"},
-      ]},
-      {q:"팀 전체 발표가 끝났다. 생각보다 반응이 좋았다. 팀원들이 기뻐하는데 나는?",sub:"솔직한 내 속마음",choices:[
-        {emoji:"✨",text:"내가 작업한 시각 자료나 디자인 파트에 반응이 좋았던 게 가장 뿌듯함",type:"A"},
-        {emoji:"📈",text:"전략과 구조가 맞아떨어진 것 같아서 만족스러움",type:"B"},
-        {emoji:"🎤",text:"발표하면서 청중 반응이 좋았던 그 순간이 제일 짜릿했음",type:"C"},
-        {emoji:"⚙️",text:"기술적으로 구현한 것들이 실제로 작동한 게 제일 좋음",type:"D"},
-      ]},
-      {q:"유튜브를 보다가 어떤 영상에서 멈추게 되는지 생각해봐. 평균적으로 어떤 유형이야?",sub:"진짜로 자주 보게 되는 것",choices:[
-        {emoji:"🎬",text:"잘 만든 영상 — 편집, 색감, 구성이 예쁜 것들에 눈이 감",type:"A"},
-        {emoji:"💡",text:"지식, 원리, 분석 — 뭔가를 이해하게 해주는 콘텐츠",type:"B"},
-        {emoji:"😂",text:"사람 자체가 재밌는 것 — 말하는 방식, 리액션, 캐릭터",type:"C"},
-        {emoji:"🔧",text:"만들기, 수리, DIY — 뭔가 만들어지는 과정을 보는 게 좋음",type:"D"},
-      ]},
-      {q:"친구들 모임에서 갑자기 수수께끼 같은 걸 던졌다. 나는?",sub:"자연스러운 내 반응",choices:[
-        {emoji:"🌈",text:"비유나 직관적인 힌트로 접근 — 이미지로 먼저 생각함",type:"A"},
-        {emoji:"🧩",text:"논리적으로 단계 나눠서 풀기 시작 — 체계적으로 접근",type:"B"},
-        {emoji:"🗣️",text:"다 같이 의견 나누며 풀자고 함 — 혼자보다 같이 하는 게 재미있음",type:"C"},
-        {emoji:"✋",text:"직접 뭔가 써보거나 그려보며 시도 — 몸으로 해봐야 감이 옴",type:"D"},
-      ]},
-      {q:"살면서 이런 말을 들어본 적 있어? 가장 자주 들은 것을 골라봐.",sub:"진짜로 들어본 것",choices:[
-        {emoji:"🎨",text:"'너 감각 있다', '이거 왜 이렇게 예쁘게 만들었어?'",type:"A"},
-        {emoji:"🧠",text:"'이걸 어떻게 생각한 거야?', '설명 진짜 잘 한다'",type:"B"},
-        {emoji:"🎤",text:"'너 앞에 서면 달라보여', '말을 왜 이렇게 잘 해?'",type:"C"},
-        {emoji:"⚙️",text:"'이걸 직접 만든 거야?', '어떻게 고쳤어?'",type:"D"},
-      ]},
-      {q:"마지막으로, 10년 후 어떤 모습이 가장 상상하기 쉬워?",sub:"직관적으로 골라봐요",choices:[
-        {emoji:"🖼️",text:"내가 만든 뭔가가 세상 어딘가에 남아 있는 것 — 작품, 브랜드, 콘텐츠",type:"A"},
-        {emoji:"🔭",text:"어떤 분야의 전문가로 불리는 것 — 이 사람한테 물어보면 된다는 사람",type:"B"},
-        {emoji:"🌍",text:"많은 사람들에게 기억되거나 영향을 준 사람이 된 것",type:"C"},
-        {emoji:"🏗️",text:"내 손으로 만든 무언가가 실제로 사람들 삶에 쓰이고 있는 것",type:"D"},
-      ]},
-      {q:"나는 새로운 것을 배울 때 어떻게 시작해?",sub:"자연스럽게 나오는 방식",choices:[
-    {emoji:"🎨",text:"눈으로 보고 느껴야 함 — 이론보다 직접 보는 게 먼저",type:"A"},
-    {emoji:"🧠",text:"개념과 원리를 먼저 이해해야 함 — 체계가 잡혀야 시작",type:"B"},
-    {emoji:"🎤",text:"일단 해보면서 익힘 — 실수해도 빠르게 흡수",type:"C"},
-    {emoji:"⚙️",text:"뭔가를 직접 만들면서 배움 — 이론보다 만들어보는 게 학습",type:"D"},
-  ]},
-      {q:"내가 가장 집중이 잘 되는 환경은?",sub:"솔직하게",choices:[
-    {emoji:"🏛️",text:"조용하고 정돈된 혼자만의 공간 — 구조가 있어야 창의력이 나옴",type:"E"},
-    {emoji:"📖",text:"음악이나 배경 소리가 있는 공간 — 감각이 자극될 때 몰입이 됨",type:"F"},
-    {emoji:"⚡",text:"도구나 기기가 갖춰진 환경 — 바로 실행할 수 있는 세팅",type:"G"},
-    {emoji:"🎬",text:"팀이나 협업 공간 — 서로 자극을 주고받을 때 더 잘 됨",type:"H"},
-  ]},
-      {q:"내가 만든 것에 대한 반응 중 가장 기억에 남는 것은?",sub:"솔직하게 하나만 골라봐",choices:[
-    {emoji:"✨",text:"이거 어떻게 이렇게 짰어? 진짜 감각 있다 — 구조적 완성도에 대한 칭찬",type:"E"},
-    {emoji:"💬",text:"이야기 듣고 나서 뭔가 달라진 것 같아 — 내 표현이 감정을 건드린 반응",type:"F"},
-    {emoji:"🛠️",text:"이걸 어떻게 만든 거야? 진짜 된다 — 작동하는 것에 대한 놀라움",type:"G"},
-    {emoji:"🎬",text:"이 방향 진짜 맞다, 어떻게 이런 생각을 — 전체 방향성에 대한 인정",type:"H"},
-  ]},
-      {q:"나의 재능이 가장 필요한 순간은?",sub:"공감 가는 걸 골라봐",choices:[
-    {emoji:"🏛️",text:"혼돈을 정리하고 아름다운 구조를 만들 때",type:"E"},
-    {emoji:"📖",text:"사람들의 마음을 움직이는 이야기가 필요할 때",type:"F"},
-    {emoji:"⚡",text:"이론을 실제로 작동하게 만들 때",type:"G"},
-    {emoji:"🎬",text:"아이디어를 현실로 연출해야 할 때",type:"H"},
-  ]},
-      {q:"나는 새로운 것을 배울 때 어떻게 시작해?",sub:"자연스럽게 나오는 방식",choices:[
-    {emoji:"🎨",text:"눈으로 보고 느껴야 함 — 이론보다 직접 보는 게 먼저",type:"A"},
-    {emoji:"🧠",text:"개념과 원리를 먼저 이해해야 함 — 체계가 잡혀야 시작",type:"B"},
-    {emoji:"🎤",text:"일단 해보면서 익힘 — 실수해도 빠르게 흡수",type:"C"},
-    {emoji:"⚙️",text:"뭔가를 직접 만들면서 배움 — 이론보다 만들어보는 게 학습",type:"D"},
-  ]},
-      {q:"내가 가장 집중이 잘 되는 환경은?",sub:"솔직하게",choices:[
-    {emoji:"🏛️",text:"조용하고 정돈된 혼자만의 공간 — 구조가 있어야 창의력이 나옴",type:"E"},
-    {emoji:"📖",text:"음악이나 배경 소리가 있는 공간 — 감각이 자극될 때 몰입이 됨",type:"F"},
-    {emoji:"⚡",text:"도구나 기기가 갖춰진 환경 — 바로 실행할 수 있는 세팅",type:"G"},
-    {emoji:"🎬",text:"팀이나 협업 공간 — 서로 자극을 주고받을 때 더 잘 됨",type:"H"},
-  ]},
-      {q:"내가 만든 것에 대한 반응 중 가장 기억에 남는 것은?",sub:"솔직하게 하나만 골라봐",choices:[
-    {emoji:"✨",text:"이거 어떻게 이렇게 짰어? 진짜 감각 있다 — 구조적 완성도에 대한 칭찬",type:"E"},
-    {emoji:"💬",text:"이야기 듣고 나서 뭔가 달라진 것 같아 — 내 표현이 감정을 건드린 반응",type:"F"},
-    {emoji:"🛠️",text:"이걸 어떻게 만든 거야? 진짜 된다 — 작동하는 것에 대한 놀라움",type:"G"},
-    {emoji:"🎬",text:"이 방향 진짜 맞다, 어떻게 이런 생각을 — 전체 방향성에 대한 인정",type:"H"},
-  ]},
-      {q:"나의 재능이 가장 필요한 순간은?",sub:"공감 가는 걸 골라봐",choices:[
-    {emoji:"🏛️",text:"혼돈을 정리하고 아름다운 구조를 만들 때",type:"E"},
-    {emoji:"📖",text:"사람들의 마음을 움직이는 이야기가 필요할 때",type:"F"},
-    {emoji:"⚡",text:"이론을 실제로 작동하게 만들 때",type:"G"},
-    {emoji:"🎬",text:"아이디어를 현실로 연출해야 할 때",type:"H"},
-  ]}],
+      {
+            "q": "회사에서 새로운 프로젝트를 맡았다. 팀원들이 각자 어떤 역할 할지 정해야 한다. 나는?",
+            "sub": "자연스럽게 그렇게 되는 것",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "콘텐츠나 디자인 방향 — 어떻게 보여줄지가 제일 먼저 떠오름",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📐",
+                        "text": "전체 구조 설계와 데이터 분석 — 뼈대가 없으면 시작이 안 됨",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "발표와 고객 커뮤니케이션 — 사람 상대하는 게 제일 자신 있음",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "실제 구현과 실행 — 만들어지는 걸 직접 보고 싶음",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "카페에서 옆 테이블 커플이 다투고 있다. 목소리가 꽤 크다. 나는 어디에 신경이 쓰여?",
+            "sub": "솔직한 내 반응",
+            "choices": [
+                  {
+                        "emoji": "🖼️",
+                        "text": "두 사람의 표정과 분위기 — 감정 흐름이 읽힘",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "💬",
+                        "text": "대화 내용의 논리 — 누구 말이 맞는지 자동으로 분석됨",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "😟",
+                        "text": "주변 사람들 반응 — 분위기가 불편해질까봐 신경 쓰임",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔧",
+                        "text": "저 상황을 어떻게 해결할 수 있을지 — 해법이 먼저 떠오름",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "친구가 직접 만든 영상을 보여줬다. 퀄리티가 좀 아쉽다. 친구는 어떻게 생각하냐고 묻는다. 나는?",
+            "sub": "진짜 내 반응",
+            "choices": [
+                  {
+                        "emoji": "🌟",
+                        "text": "좋은 점을 먼저 말하고 개선점을 부드럽게 곁들임 — 기분도 중요하니까",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📊",
+                        "text": "구체적으로 뭐가 아쉬운지 말해줌 — 솔직하게 말해야 도움이 되니까",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "❤️",
+                        "text": "용기 내서 만든 게 대단하다고 먼저 진심으로 말함",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🛠️",
+                        "text": "'이 부분은 이렇게 하면 어때?' 바로 수정 방법 제안",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "아무도 시키지 않았는데 자연스럽게 하게 되는 것이 있다면?",
+            "sub": "나도 모르게 반복하게 되는 것",
+            "choices": [
+                  {
+                        "emoji": "📸",
+                        "text": "공간, 빛, 사람 — 예쁜 장면이 보이면 무조건 찍게 됨",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📝",
+                        "text": "정보 정리, 메모, 분류 — 복잡한 것들을 체계화하는 게 자연스러움",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "이야기하거나 설명할 때 자연스럽게 표정과 몸짓이 들어감",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔩",
+                        "text": "주변에 고장났거나 비효율적인 것을 보면 그냥 못 지나침",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "새로운 걸 배우기 시작했다. 처음 2주 동안의 내 패턴은?",
+            "sub": "솔직하게",
+            "choices": [
+                  {
+                        "emoji": "👁️",
+                        "text": "레퍼런스를 엄청 많이 찾아봄 — 잘 만든 것들을 보면서 감 잡음",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "개념과 원리부터 이해함 — 왜 이렇게 되는지 알아야 다음으로 넘어감",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🤸",
+                        "text": "일단 해보면서 배움 — 설명보다 직접 경험이 더 빨리 들어옴",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔨",
+                        "text": "작은 것부터 직접 만들어봄 — 손으로 만들어야 실감이 남",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "팀 전체 발표가 끝났다. 생각보다 반응이 좋았다. 팀원들이 기뻐하는데 나는?",
+            "sub": "솔직한 내 속마음",
+            "choices": [
+                  {
+                        "emoji": "✨",
+                        "text": "내가 작업한 시각 자료나 디자인 파트에 반응이 좋았던 게 가장 뿌듯함",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📈",
+                        "text": "전략과 구조가 맞아떨어진 것 같아서 만족스러움",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "발표하면서 청중 반응이 좋았던 그 순간이 제일 짜릿했음",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "기술적으로 구현한 것들이 실제로 작동한 게 제일 좋음",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "유튜브를 보다가 어떤 영상에서 멈추게 되는지 생각해봐. 평균적으로 어떤 유형이야?",
+            "sub": "진짜로 자주 보게 되는 것",
+            "choices": [
+                  {
+                        "emoji": "🎬",
+                        "text": "잘 만든 영상 — 편집, 색감, 구성이 예쁜 것들에 눈이 감",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "💡",
+                        "text": "지식, 원리, 분석 — 뭔가를 이해하게 해주는 콘텐츠",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "😂",
+                        "text": "사람 자체가 재밌는 것 — 말하는 방식, 리액션, 캐릭터",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔧",
+                        "text": "만들기, 수리, DIY — 뭔가 만들어지는 과정을 보는 게 좋음",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "친구들 모임에서 갑자기 수수께끼 같은 걸 던졌다. 나는?",
+            "sub": "자연스러운 내 반응",
+            "choices": [
+                  {
+                        "emoji": "🌈",
+                        "text": "비유나 직관적인 힌트로 접근 — 이미지로 먼저 생각함",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧩",
+                        "text": "논리적으로 단계 나눠서 풀기 시작 — 체계적으로 접근",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🗣️",
+                        "text": "다 같이 의견 나누며 풀자고 함 — 혼자보다 같이 하는 게 재미있음",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "✋",
+                        "text": "직접 뭔가 써보거나 그려보며 시도 — 몸으로 해봐야 감이 옴",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "살면서 이런 말을 들어본 적 있어? 가장 자주 들은 것을 골라봐.",
+            "sub": "진짜로 들어본 것",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "'너 감각 있다', '이거 왜 이렇게 예쁘게 만들었어?'",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧠",
+                        "text": "'이걸 어떻게 생각한 거야?', '설명 진짜 잘 한다'",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "'너 앞에 서면 달라보여', '말을 왜 이렇게 잘 해?'",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "'이걸 직접 만든 거야?', '어떻게 고쳤어?'",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "마지막으로, 10년 후 어떤 모습이 가장 상상하기 쉬워?",
+            "sub": "직관적으로 골라봐요",
+            "choices": [
+                  {
+                        "emoji": "🖼️",
+                        "text": "내가 만든 뭔가가 세상 어딘가에 남아 있는 것 — 작품, 브랜드, 콘텐츠",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🔭",
+                        "text": "어떤 분야의 전문가로 불리는 것 — 이 사람한테 물어보면 된다는 사람",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌍",
+                        "text": "많은 사람들에게 기억되거나 영향을 준 사람이 된 것",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🏗️",
+                        "text": "내 손으로 만든 무언가가 실제로 사람들 삶에 쓰이고 있는 것",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "나는 새로운 것을 배울 때 어떻게 시작해?",
+            "sub": "자연스럽게 나오는 방식",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "눈으로 보고 느껴야 함 — 이론보다 직접 보는 게 먼저",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧠",
+                        "text": "개념과 원리를 먼저 이해해야 함 — 체계가 잡혀야 시작",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "일단 해보면서 익힘 — 실수해도 빠르게 흡수",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "뭔가를 직접 만들면서 배움 — 이론보다 만들어보는 게 학습",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "내가 가장 집중이 잘 되는 환경은?",
+            "sub": "솔직하게",
+            "choices": [
+                  {
+                        "emoji": "🏛️",
+                        "text": "조용하고 정돈된 혼자만의 공간 — 구조가 있어야 창의력이 나옴",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "음악이나 배경 소리가 있는 공간 — 감각이 자극될 때 몰입이 됨",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "⚡",
+                        "text": "도구나 기기가 갖춰진 환경 — 바로 실행할 수 있는 세팅",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🎬",
+                        "text": "팀이나 협업 공간 — 서로 자극을 주고받을 때 더 잘 됨",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "내가 만든 것에 대한 반응 중 가장 기억에 남는 것은?",
+            "sub": "솔직하게 하나만 골라봐",
+            "choices": [
+                  {
+                        "emoji": "✨",
+                        "text": "이거 어떻게 이렇게 짰어? 진짜 감각 있다 — 구조적 완성도에 대한 칭찬",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "💬",
+                        "text": "이야기 듣고 나서 뭔가 달라진 것 같아 — 내 표현이 감정을 건드린 반응",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🛠️",
+                        "text": "이걸 어떻게 만든 거야? 진짜 된다 — 작동하는 것에 대한 놀라움",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🎬",
+                        "text": "이 방향 진짜 맞다, 어떻게 이런 생각을 — 전체 방향성에 대한 인정",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "나의 재능이 가장 필요한 순간은?",
+            "sub": "공감 가는 걸 골라봐",
+            "choices": [
+                  {
+                        "emoji": "🏛️",
+                        "text": "혼돈을 정리하고 아름다운 구조를 만들 때",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "사람들의 마음을 움직이는 이야기가 필요할 때",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "⚡",
+                        "text": "이론을 실제로 작동하게 만들 때",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🎬",
+                        "text": "아이디어를 현실로 연출해야 할 때",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "친구가 '너 진짜 이거 잘한다'고 칭찬한다면 어떤 걸 말할 것 같아?",
+            "sub": "가장 자주 들어온 칭찬 유형",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "\"너 감각 있어\" — 디자인이나 표현 관련",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "\"너 설명을 진짜 잘 해\" — 전달이나 이야기 관련",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🔧",
+                        "text": "\"너 손재주 있어\" 또는 \"이거 어떻게 만들어?\"",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "💡",
+                        "text": "\"너 아이디어 진짜 좋다\" — 기획이나 방향성 관련",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "내 결과물을 가장 잘 표현하는 단어는?",
+            "sub": "만들고 나서 느끼는 감각",
+            "choices": [
+                  {
+                        "emoji": "🎯",
+                        "text": "정교함 — 빠진 것 없이 치밀하게 완성됨",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "감성 — 뭔가 느껴지고 울림이 있음",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "실용성 — 실제로 작동하고 쓸 수 있음",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🌀",
+                        "text": "독창성 — 이런 방식은 처음이다 싶은 것",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "재능을 발휘할 때 내가 빠지는 '몰입 패턴'은?",
+            "sub": "작업할 때 어떤 상태가 돼?",
+            "choices": [
+                  {
+                        "emoji": "📐",
+                        "text": "구조부터 잡고 세밀하게 채워감 — 빠진 것 없는지 계속 확인",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎵",
+                        "text": "분위기에 흘러들어감 — 감각이 열리면 저절로 나옴",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🛠️",
+                        "text": "일단 만들어보면서 수정함 — 완성보다 작동이 먼저",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🔭",
+                        "text": "전체 그림을 머릿속에 그리고 역방향으로 채워감",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "마지막으로, 지금 이 문장 중 가장 찌르는 게 뭐야?",
+            "sub": "직관으로 바로 골라",
+            "choices": [
+                  {
+                        "emoji": "✨",
+                        "text": "나는 아름답고 정확한 것을 만들 수 있다",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "나는 사람들의 마음을 움직이는 힘이 있다",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🔩",
+                        "text": "나는 아이디어를 실제로 작동하게 만든다",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🧭",
+                        "text": "나는 아무도 못 보는 방향을 먼저 본다",
+                        "type": "H"
+                  }
+            ]
+      }
+],
     results:{
       A:{emoji:"🎨",name:"창의적 예술가",tagline:"세상을 감각으로 번역하는 사람",badge:"예술적 감각",
         stats:[{label:"창의력",val:86},{label:"심미안",val:82},{label:"논리력",val:54}],
@@ -711,7 +1072,7 @@ const data={
     ui:{
       langBtn:'🇰🇷 KR',mainTitle:'What\'s My <span>Hidden Talent</span>?',
       mainDesc:'Discover your unique talent with a few questions!<br>You might have a gift you don\'t even know about! ✨',
-      startText:'Everyone has a hidden talent others envy.<br>Answer a few questions to discover yours!<br><strong>Takes about 2 minutes</strong>',
+      startText: 'Everyone has a hidden talent others envy.<br><strong>18 questions</strong> to discover yours!<br><span style="opacity:.7">Takes about 3 minutes</span>',
       startBtn:'🌟 Discover My Talent',descTitle:'🌟 Talent Analysis',
       careersTitle:'💼 Fields Where You\'ll Shine!',
       shareTitle:'🎉 Share Your Result!',
@@ -719,117 +1080,475 @@ const data={
       copyOk:'🔗 Link copied!',langToggle:'🇰🇷 KR',
     },
     questions:[
-      {q:"What did you enjoy most as a child?",sub:"Think back to your childhood",choices:[
-        {emoji:"🎨",text:"Drawing, crafting, decorating",type:"A"},
-        {emoji:"🔢",text:"Puzzles, building blocks, finding patterns",type:"B"},
-        {emoji:"🎭",text:"Role-playing, storytelling, dancing",type:"C"},
-        {emoji:"🌿",text:"Exploring, observing nature, collecting things",type:"D"},
-      ]},
-      {q:"What do friends often ask you to help with?",sub:"What you're recognized for",choices:[
-        {emoji:"✏️",text:"Design, photos, video editing — creative work",type:"A"},
-        {emoji:"📊",text:"Analyzing complex problems, making plans",type:"B"},
-        {emoji:"🎤",text:"Presentations, persuasion, boosting morale",type:"C"},
-        {emoji:"🛠️",text:"Fixing things or building something by hand",type:"D"},
-      ]},
-      {q:"What makes you lose track of time?",sub:"What you focus on without realizing",choices:[
-        {emoji:"🎨",text:"Creative work like art, music, or writing",type:"A"},
-        {emoji:"🧩",text:"Math problems, coding, strategy games",type:"B"},
-        {emoji:"🎬",text:"Acting, singing, dancing, performing",type:"C"},
-        {emoji:"🔧",text:"Building, repairing, assembling, experimenting",type:"D"},
-      ]},
-      {q:"How do you best learn something new?",sub:"Your learning style",choices:[
-        {emoji:"👁️",text:"By watching and remembering visually",type:"A"},
-        {emoji:"📝",text:"By understanding the logic and structure",type:"B"},
-        {emoji:"🗣️",text:"By doing it or explaining it to someone",type:"C"},
-        {emoji:"🤲",text:"By touching and physically manipulating it",type:"D"},
-      ]},
-      {q:"When do you feel most confident in front of others?",sub:"Your shining moment",choices:[
-        {emoji:"🖼️",text:"When showing something I created",type:"A"},
-        {emoji:"💡",text:"When explaining something complex simply",type:"B"},
-        {emoji:"🌟",text:"When presenting or performing for a crowd",type:"C"},
-        {emoji:"🏆",text:"When showing a solution I built myself",type:"D"},
-      ]},
-      {q:"What future version of yourself excites you most?",sub:"Your most thrilling vision",choices:[
-        {emoji:"🎨",text:"A creator who makes the world more beautiful",type:"A"},
-        {emoji:"🔬",text:"A researcher who understands and advances the world",type:"B"},
-        {emoji:"🎤",text:"An influencer who impacts many people",type:"C"},
-        {emoji:"🏗️",text:"A maker who builds things that didn't exist before",type:"D"},
-      ]},
-      {q:"When a friend brings you a tough problem, you...",sub:"Your natural response",choices:[
-        {emoji:"🖊️",text:"Visualize it with diagrams or drawings",type:"A"},
-        {emoji:"🧠",text:"Analyze it logically and give step-by-step solutions",type:"B"},
-        {emoji:"💬",text:"Empathize and work through it together by talking",type:"C"},
-        {emoji:"⚙️",text:"Try things out directly through experimentation",type:"D"},
-      ]},
-      {q:"When does your unique perception kick in?",sub:"When you see what others miss",choices:[
-        {emoji:"🎭",text:"Noticing harmony in color, composition, and beauty",type:"A"},
-        {emoji:"📐",text:"Spotting patterns, rules, and hidden structures",type:"B"},
-        {emoji:"😊",text:"Sensing shifts in people's emotions and atmosphere",type:"C"},
-        {emoji:"🔍",text:"Analyzing how things work and their inner structure",type:"D"},
-      ]},
-      {q:"Which compliment makes you happiest?",sub:"What you most want to hear",choices:[
-        {emoji:"✨",text:"\"This is so stylish! You have a real artistic eye!\"",type:"A"},
-        {emoji:"🧠",text:"\"How did you think of that? Are you a genius?\"",type:"B"},
-        {emoji:"🎤",text:"\"You really light up when you're in front of people!\"",type:"C"},
-        {emoji:"🛠️",text:"\"You made this yourself?! That's incredible!\"",type:"D"},
-      ]},
-      {q:"Finally, how do you want your talent to impact the world?",sub:"Trust your gut",choices:[
-        {emoji:"🌈",text:"Make the world more beautiful and moving",type:"A"},
-        {emoji:"💡",text:"Solve problems and point the world in a better direction",type:"B"},
-        {emoji:"❤️",text:"Give strength and courage to many people",type:"C"},
-        {emoji:"🏗️",text:"Build something entirely new that's never existed before",type:"D"},
-      ]},
-    
-      {q:"How do you start learning something new?",sub:"Your most natural approach",choices:[
-        {emoji:"🎨",text:"See it visually first — theory comes after observation",type:"A"},
-        {emoji:"🔢",text:"Understand the concept and structure first — foundations matter",type:"B"},
-        {emoji:"🎭",text:"Just dive in — mistakes are part of the learning",type:"C"},
-        {emoji:"⚙️",text:"Build something with it — you learn by making",type:"D"},
-      ]},
-      {q:"Where do you focus best?",sub:"Your ideal environment",choices:[
-        {emoji:"🎨",text:"Quiet, organized personal space — structure sparks creativity",type:"E"},
-        {emoji:"🔢",text:"Space with background music or ambient sound — sensory input helps",type:"F"},
-        {emoji:"🎭",text:"Equipped workspace — everything ready to go right now",type:"G"},
-        {emoji:"⚙️",text:"Collaborative space — cross-pollinating ideas with others",type:"H"},
-      ]},
-      {q:"What reaction to your work sticks with you most?",sub:"The one you still think about",choices:[
-        {emoji:"🎨",text:"'How did you structure this so well?' — praised for craftsmanship",type:"E"},
-        {emoji:"🔢",text:"'That changed something in me' — your expression moved them",type:"F"},
-        {emoji:"🎭",text:"'How did you actually make this work?' — amazed it functions",type:"G"},
-        {emoji:"⚙️",text:"'How did you even think of that direction?' — vision recognized",type:"H"},
-      ]},
-      {q:"How do you start learning something new?",sub:"Your most natural approach",choices:[
-        {emoji:"🎨",text:"See it visually first — theory comes after observation",type:"A"},
-        {emoji:"🔢",text:"Understand the concept and structure first — foundations matter",type:"B"},
-        {emoji:"🎭",text:"Just dive in — mistakes are part of the learning",type:"C"},
-        {emoji:"⚙️",text:"Build something with it — you learn by making",type:"D"},
-      ]},
-      {q:"Where do you focus best?",sub:"Your ideal environment",choices:[
-        {emoji:"🎨",text:"Quiet, organized personal space — structure sparks creativity",type:"E"},
-        {emoji:"🔢",text:"Space with background music or ambient sound — sensory input helps",type:"F"},
-        {emoji:"🎭",text:"Equipped workspace — everything ready to go right now",type:"G"},
-        {emoji:"⚙️",text:"Collaborative space — cross-pollinating ideas with others",type:"H"},
-      ]},
-      {q:"What reaction to your work sticks with you most?",sub:"The one you still think about",choices:[
-        {emoji:"🎨",text:"'How did you structure this so well?' — praised for craftsmanship",type:"E"},
-        {emoji:"🔢",text:"'That changed something in me' — your expression moved them",type:"F"},
-        {emoji:"🎭",text:"'How did you actually make this work?' — amazed it functions",type:"G"},
-        {emoji:"⚙️",text:"'How did you even think of that direction?' — vision recognized",type:"H"},
-      ]},
-      {q:"When is your talent most needed?",sub:"The moment you feel most useful",choices:[
-        {emoji:"🎨",text:"When chaos needs to become beautiful structure",type:"E"},
-        {emoji:"🔢",text:"When people need a story that moves them",type:"F"},
-        {emoji:"🎭",text:"When theory needs to actually work in the real world",type:"G"},
-        {emoji:"⚙️",text:"When an idea needs to be brought to life",type:"H"},
-      ]},
-    
-      {q:"When is your talent most needed?",sub:"The moment you feel most useful",choices:[
-        {emoji:"🎨",text:"When chaos needs to become beautiful structure",type:"E"},
-        {emoji:"🔢",text:"When people need a story that moves them",type:"F"},
-        {emoji:"🎭",text:"When theory needs to actually work in the real world",type:"G"},
-        {emoji:"⚙️",text:"When an idea needs to be brought to life",type:"H"},
-      ]},
-    ],
+      {
+            "q": "What did you enjoy most as a child?",
+            "sub": "Think back to your childhood",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "Drawing, crafting, decorating",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🔢",
+                        "text": "Puzzles, building blocks, finding patterns",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "Role-playing, storytelling, dancing",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "Exploring, observing nature, collecting things",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What do friends often ask you to help with?",
+            "sub": "What you're recognized for",
+            "choices": [
+                  {
+                        "emoji": "✏️",
+                        "text": "Design, photos, video editing — creative work",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📊",
+                        "text": "Analyzing complex problems, making plans",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "Presentations, persuasion, boosting morale",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🛠️",
+                        "text": "Fixing things or building something by hand",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What makes you lose track of time?",
+            "sub": "What you focus on without realizing",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "Creative work like art, music, or writing",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧩",
+                        "text": "Math problems, coding, strategy games",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎬",
+                        "text": "Acting, singing, dancing, performing",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔧",
+                        "text": "Building, repairing, assembling, experimenting",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "How do you best learn something new?",
+            "sub": "Your learning style",
+            "choices": [
+                  {
+                        "emoji": "👁️",
+                        "text": "By watching and remembering visually",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📝",
+                        "text": "By understanding the logic and structure",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🗣️",
+                        "text": "By doing it or explaining it to someone",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🤲",
+                        "text": "By touching and physically manipulating it",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When do you feel most confident in front of others?",
+            "sub": "Your shining moment",
+            "choices": [
+                  {
+                        "emoji": "🖼️",
+                        "text": "When showing something I created",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "💡",
+                        "text": "When explaining something complex simply",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌟",
+                        "text": "When presenting or performing for a crowd",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🏆",
+                        "text": "When showing a solution I built myself",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What future version of yourself excites you most?",
+            "sub": "Your most thrilling vision",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "A creator who makes the world more beautiful",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🔬",
+                        "text": "A researcher who understands and advances the world",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "An influencer who impacts many people",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🏗️",
+                        "text": "A maker who builds things that didn't exist before",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When a friend brings you a tough problem, you...",
+            "sub": "Your natural response",
+            "choices": [
+                  {
+                        "emoji": "🖊️",
+                        "text": "Visualize it with diagrams or drawings",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧠",
+                        "text": "Analyze it logically and give step-by-step solutions",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "💬",
+                        "text": "Empathize and work through it together by talking",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "Try things out directly through experimentation",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When does your unique perception kick in?",
+            "sub": "When you see what others miss",
+            "choices": [
+                  {
+                        "emoji": "🎭",
+                        "text": "Noticing harmony in color, composition, and beauty",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📐",
+                        "text": "Spotting patterns, rules, and hidden structures",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "😊",
+                        "text": "Sensing shifts in people's emotions and atmosphere",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔍",
+                        "text": "Analyzing how things work and their inner structure",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Which compliment makes you happiest?",
+            "sub": "What you most want to hear",
+            "choices": [
+                  {
+                        "emoji": "✨",
+                        "text": "\"This is so stylish! You have a real artistic eye!\"",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧠",
+                        "text": "\"How did you think of that? Are you a genius?\"",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "\"You really light up when you're in front of people!\"",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🛠️",
+                        "text": "\"You made this yourself?! That's incredible!\"",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Finally, how do you want your talent to impact the world?",
+            "sub": "Trust your gut",
+            "choices": [
+                  {
+                        "emoji": "🌈",
+                        "text": "Make the world more beautiful and moving",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "💡",
+                        "text": "Solve problems and point the world in a better direction",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "❤️",
+                        "text": "Give strength and courage to many people",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🏗️",
+                        "text": "Build something entirely new that's never existed before",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "How do you start learning something new?",
+            "sub": "Your most natural approach",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "See it visually first — theory comes after observation",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🔢",
+                        "text": "Understand the concept and structure first — foundations matter",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "Just dive in — mistakes are part of the learning",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "Build something with it — you learn by making",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Where do you focus best?",
+            "sub": "Your ideal environment",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "Quiet, organized personal space — structure sparks creativity",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🔢",
+                        "text": "Space with background music or ambient sound — sensory input helps",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "Equipped workspace — everything ready to go right now",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "Collaborative space — cross-pollinating ideas with others",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "What reaction to your work sticks with you most?",
+            "sub": "The one you still think about",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "'How did you structure this so well?' — praised for craftsmanship",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🔢",
+                        "text": "'That changed something in me' — your expression moved them",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "'How did you actually make this work?' — amazed it functions",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "'How did you even think of that direction?' — vision recognized",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "How do you start learning something new?",
+            "sub": "Your most natural approach",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "See it visually first — theory comes after observation",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🔢",
+                        "text": "Understand the concept and structure first — foundations matter",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "Just dive in — mistakes are part of the learning",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "Build something with it — you learn by making",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "If a friend were to compliment you, what would they most likely say?",
+            "sub": "The type of praise you've heard most",
+            "choices": [
+                  {
+                        "emoji": "🎨",
+                        "text": "\"You have such a good eye\" — about design or aesthetics",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "\"You explain things so well\" — about communication",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🔧",
+                        "text": "\"How did you make this?\" — about building or craft",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "💡",
+                        "text": "\"Your ideas are always great\" — about concepts and direction",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What word best describes your finished work?",
+            "sub": "The feeling you have after completing something",
+            "choices": [
+                  {
+                        "emoji": "🎯",
+                        "text": "Precise — nothing missing, thoroughly complete",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "Evocative — something that resonates and moves people",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "⚙️",
+                        "text": "Functional — it actually works and can be used",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🌀",
+                        "text": "Original — a way of doing it no one else thought of",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "When you're in your flow, what does it look like?",
+            "sub": "The state you get into when working",
+            "choices": [
+                  {
+                        "emoji": "📐",
+                        "text": "Build the structure first, then fill every detail in — keep checking nothing is missing",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎵",
+                        "text": "Sink into the mood — when the feeling is right, it just comes",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🛠️",
+                        "text": "Make something, then fix it — working beats planning",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🔭",
+                        "text": "Picture the whole thing first, then work backwards to fill it in",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "Finally — which of these hits closest?",
+            "sub": "Trust your gut, pick fast",
+            "choices": [
+                  {
+                        "emoji": "✨",
+                        "text": "I can create things that are both beautiful and precise",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎤",
+                        "text": "I have the ability to move people emotionally",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🔩",
+                        "text": "I turn ideas into things that actually work",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🧭",
+                        "text": "I see the direction before anyone else does",
+                        "type": "H"
+                  }
+            ]
+      }
+],
     results:{
       A:{emoji:"🎨",name:"Creative Artist",tagline:"A Creator Who Makes the World Beautiful",badge:"Artistic Sense",
         traits:[{label:"Creativity",val:87},{label:"Aesthetic Eye",val:82},{label:"Sensitivity",val:79},{label:"Logic",val:53}],
@@ -990,13 +1709,7 @@ function resolveType(scores) {
   const gap = scores[top1] - scores[top2];
   if (gap >= 2) return top1;
   const combo = [top1, top2].sort().join('');
-  const comboMap = {
-    'AB':'E','AC':'A','AD':'D','BC':'B','BD':'F','CD':'G',
-    'AE':'E','BE':'E','CE':'G','DE':'H','AF':'F','BF':'F',
-    'CF':'G','DF':'H','AG':'G','BG':'F','DG':'H','AH':'H',
-    'BH':'F','CH':'G','EF':'E','EG':'G','EH':'H',
-    'FG':'G','FH':'H','GH':'H',
-  };
+  const comboMap = {'AB':'E', 'AC':'A', 'AD':'D', 'AE':'E', 'AF':'F', 'AG':'G', 'AH':'H', 'BC':'B', 'BD':'F', 'BE':'E', 'BF':'F', 'BG':'F', 'BH':'F', 'CD':'G', 'CE':'G', 'CF':'G', 'CG':'G', 'CH':'G', 'DE':'H', 'DF':'H', 'DG':'H', 'DH':'H', 'EF':'E', 'EG':'G', 'EH':'H', 'FG':'G', 'FH':'H', 'GH':'H'};
   return comboMap[combo] || top1;
 }
 

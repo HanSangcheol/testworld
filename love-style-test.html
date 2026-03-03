@@ -502,16 +502,9 @@ function resolveType(scores) {
   const sorted = Object.keys(scores).sort((a,b) => scores[b]-scores[a]);
   const top1 = sorted[0], top2 = sorted[1];
   const gap = scores[top1] - scores[top2];
-  // 차이가 2점 이상이면 단독 승자 (기존 4타입)
   if (gap >= 2) return top1;
-  // 혼합 타입 결정
   const combo = [top1, top2].sort().join('');
-  const comboMap = {
-    'AB': 'E', 'AC': 'A', 'AD': 'D', 'BC': 'C', 'BD': 'F', 'CD': 'G',
-    'AE': 'E', 'BE': 'E', 'CE': 'G', 'DE': 'H', 'AF': 'F', 'BF': 'F',
-    'CF': 'G', 'DF': 'H', 'AG': 'G', 'BG': 'F', 'DG': 'H', 'AH': 'H',
-    'BH': 'F', 'CH': 'G',
-  };
+  const comboMap = {'AB':'E', 'AC':'A', 'AD':'D', 'AE':'E', 'AF':'F', 'AG':'G', 'AH':'H', 'BC':'C', 'BD':'F', 'BE':'E', 'BF':'F', 'BG':'F', 'BH':'F', 'CD':'G', 'CE':'G', 'CF':'G', 'CG':'G', 'CH':'G', 'DE':'H', 'DF':'H', 'DG':'H', 'DH':'H', 'EF':'E', 'EG':'G', 'EH':'H', 'FG':'G', 'FH':'F', 'GH':'H'};
   return comboMap[combo] || top1;
 }
 
@@ -520,7 +513,7 @@ const data = {
     ui: {
       mainTitle:   '나의 <span>연애 스타일</span>은?',
       mainDesc:    '다양한 질문으로 알아보는 나의 연애 유형<br>당신은 어떤 방식으로 사랑하나요? 💘',
-      startText:   '연애에도 각자의 스타일이 있어요.<br>몇 가지 솔직한 질문으로 당신만의 연애 유형을 발견해보세요!<br><strong>소요시간: 약 2분</strong>',
+      startText: '연애에도 각자의 스타일이 있어요.<br><strong>총 13가지 질문</strong>으로 당신만의 연애 유형을 발견해보세요!<br><span style="opacity:.7">소요시간: 약 2분</span>',
       startBtn:    '💕 테스트 시작하기',
       descTitle:   '💬 연애 스타일 분석',
       compatTitle: '💞 궁합 유형',
@@ -807,7 +800,7 @@ const data = {
     ui: {
       mainTitle:   'What\'s My <span>Love Style</span>?',
       mainDesc:    'Discover your love type with a few questions!<br>How do you love? 💘',
-      startText:   'Everyone has their own love style.<br>Answer a few honest questions to discover yours!<br><strong>Takes about 2 minutes</strong>',
+      startText: 'Everyone has their own love style.<br><strong>13 questions</strong> to discover yours!<br><span style="opacity:.7">Takes about 2 minutes</span>',
       startBtn:    '💕 Start Test',
       descTitle:   '💬 Love Style Analysis',
       compatTitle: '💞 Compatibility',

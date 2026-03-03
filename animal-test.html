@@ -453,7 +453,7 @@ const data = {
     ui:{
       langBtn:'🌏 EN', mainTitle:'나를 <span>동물로</span> 표현하면?',
       mainDesc:'다양한 질문으로 알아보는 나의 동물 유형<br>당신과 닮은 동물은 무엇일까요? 🌿',
-      startText:'사람마다 닮은 동물이 있다고 해요.<br>몇 가지 질문에 솔직하게 답해서 당신의 동물을 찾아보세요!<br><strong>소요시간: 약 2분</strong>',
+      startText: '사람마다 닮은 동물이 있다고 해요.<br><strong>총 18가지 질문</strong>으로 당신의 동물을 찾아보세요!<br><span style="opacity:.7">소요시간: 약 3분</span>',
       startBtn:'🐾 테스트 시작하기', descTitle:'🐾 동물 유형 분석',
       compatTitle:'💞 잘 맞는 동물', shareTitle:'🎉 친구들에게 결과 공유하기!',
       restartBtn:'🔄 다시 테스트하기', moreTitle:'🎯 다른 테스트도 해보세요!',
@@ -461,114 +461,475 @@ const data = {
       copyOk:'🔗 링크가 복사되었어요!', langToggle:'🌏 EN',
     },
     questions:[
-      {q:"회사 회식 자리가 잡혔다. 가고 싶진 않은데 안 가기도 애매한 상황. 나는?",sub:"솔직한 내 반응",choices:[
-        {emoji:"😤",text:"어차피 가야 하면 내가 분위기 만들어버림 — 기왕 간 거 즐기자",type:"A"},
-        {emoji:"🎉",text:"사실 이런 거 나쁘지 않음 — 새로운 사람 알게 되는 기회",type:"B"},
-        {emoji:"🎭",text:"어느 정도 역할은 하되, 에너지 소모 최소화 — 빨리 끝나길 기다림",type:"C"},
-        {emoji:"📋",text:"갈 거면 목적 있게 — 꼭 필요한 사람이랑만 대화하고 일찍 빠짐",type:"D"},
-      ]},
-      {q:"친구 그룹 카톡에서 갑자기 의견 충돌이 생겼다. 분위기가 싸해지고 있어. 나는?",sub:"제일 자연스럽게 나오는 반응",choices:[
-        {emoji:"🌊",text:"모르는 척 못 함 — 분위기 풀려고 뭔가 써버림",type:"A"},
-        {emoji:"🗣️",text:"내 의견이 있으면 말함 — 눈치 보다 조용히 있는 게 더 불편",type:"B"},
-        {emoji:"👁️",text:"일단 읽고 지켜봄 — 상황 파악하고 나서 개입 여부 결정",type:"C"},
-        {emoji:"📵",text:"잠깐 폰 내려놓음 — 나 없어도 알아서 해결될 거라 생각",type:"D"},
-      ]},
-      {q:"처음 가는 카페에 혼자 앉아있다. 두 시간이 생겼어. 뭘 하고 있을 것 같아?",sub:"현실적으로",choices:[
-        {emoji:"🎧",text:"음악 틀고 사람들 구경하거나 SNS 봄 — 주변 분위기 흡수 중",type:"A"},
-        {emoji:"📲",text:"연락 안 한 사람들한테 먼저 연락 — 이런 여유 시간에 챙기게 됨",type:"B"},
-        {emoji:"📖",text:"책이나 좋아하는 콘텐츠에 완전히 집중 — 방해 없는 시간이 소중",type:"C"},
-        {emoji:"🧠",text:"머릿속 생각 정리하거나 메모 — 혼자 있을 때 아이디어가 잘 나옴",type:"D"},
-      ]},
-      {q:"팀 프로젝트 마감이 내일인데 팀원 한 명이 갑자기 연락이 안 된다. 나는?",sub:"솔직한 내 반응",choices:[
-        {emoji:"🔥",text:"일단 내가 처리함 — 기다리다 망하는 것보다 내가 하는 게 나음",type:"A"},
-        {emoji:"📢",text:"나머지 팀원들 다 소집 — 같이 해결 방법 찾아보자",type:"B"},
-        {emoji:"🔍",text:"왜 연락이 안 되는지 파악부터 — 상황 모르고 움직이면 안 됨",type:"C"},
-        {emoji:"📝",text:"할 수 있는 범위 내에서 내 파트 완성도 높이는 데 집중",type:"D"},
-      ]},
-      {q:"모르는 사람한테 갑자기 길을 물어봤을 때 내가 대답하는 방식은?",sub:"실제로 그렇게 할 것 같은 걸로",choices:[
-        {emoji:"😊",text:"친절하게 설명 + 잘 모르면 같이 찾아줌 — 대화가 이어지기도 함",type:"A"},
-        {emoji:"👋",text:"아는 만큼 시원하게 말해줌 — 모르면 모른다고 바로 말함",type:"B"},
-        {emoji:"🗺️",text:"최대한 정확하게 설명하려고 함 — 틀린 정보 주는 게 싫음",type:"C"},
-        {emoji:"📱",text:"지도 앱 켜서 같이 확인함 — 구두 설명보다 보여주는 게 정확",type:"D"},
-      ]},
-      {q:"오늘 기분이 별로인데 친구가 약속을 잡자고 한다. 나는?",sub:"진짜 내 반응",choices:[
-        {emoji:"💬",text:"말해버림 — '오늘 좀 별로야' 하고 이유 설명하면서 공감받고 싶음",type:"A"},
-        {emoji:"✅",text:"그냥 나감 — 만나다 보면 기분 나아지는 경우가 더 많음",type:"B"},
-        {emoji:"🔇",text:"솔직히 말하기 애매해서 적당한 핑계를 댐",type:"C"},
-        {emoji:"🏠",text:"'오늘은 좀 힘들 것 같아' 솔직하게 말하고 다음에 봄",type:"D"},
-      ]},
-      {q:"내가 오랫동안 준비한 발표를 끝냈는데 반응이 미지근하다. 드는 생각은?",sub:"솔직한 첫 반응",choices:[
-        {emoji:"😤",text:"'내가 뭘 잘못한 거지?' — 더 잘할 수 있었는데 하는 아쉬움",type:"A"},
-        {emoji:"🤷",text:"'다음엔 더 잘하면 되지' — 빠르게 털고 다음 준비",type:"B"},
-        {emoji:"🔍",text:"'왜 반응이 이럴까?' — 원인 분석이 먼저 시작됨",type:"C"},
-        {emoji:"📊",text:"'준비한 것에 비해 전달이 아쉬웠나' — 구조적으로 돌아봄",type:"D"},
-      ]},
-      {q:"갑자기 일주일 동안 완전한 자유가 생겼다. 돈 걱정 없이. 어떻게 보낼 것 같아?",sub:"가장 현실적으로 그렇게 될 것 같은 걸로",choices:[
-        {emoji:"🌍",text:"여러 도시를 빠르게 돌아다님 — 다양한 사람과 경험이 목표",type:"A"},
-        {emoji:"🏄",text:"뭔가 새로운 걸 배우거나 도전함 — 가만히 있으면 시간이 아까움",type:"B"},
-        {emoji:"🌲",text:"자연 속 어딘가에서 아무것도 안 함 — 진짜 충전이 필요함",type:"C"},
-        {emoji:"🔬",text:"관심 있던 분야를 끝까지 파고듦 — 이런 기회가 없었는데",type:"D"},
-      ]},
-      {q:"처음 만난 자리에서 누군가가 나를 가볍게 봤다는 느낌이 든다. 나는?",sub:"솔직한 내 반응",choices:[
-        {emoji:"😤",text:"내심 승부욕이 생김 — 두고 보자는 마음이 생김",type:"A"},
-        {emoji:"🤣",text:"크게 신경 안 씀 — 알면 알게 되는 거고, 모르면 그만",type:"B"},
-        {emoji:"🌙",text:"속으로만 기억해둠 — 겉으로는 티 안 냄",type:"C"},
-        {emoji:"🧐",text:"'내가 뭔가 어색하게 보였나?' — 내 모습을 점검하게 됨",type:"D"},
-      ]},
-      {q:"마지막으로, 지금 이 순간 가장 찌르는 문장을 골라요.",sub:"읽자마자 공감되는 것",choices:[
-        {emoji:"🔥",text:"나는 결국 내 방식대로 해낸다",type:"A"},
-        {emoji:"☀️",text:"나는 어딜 가든 어떻게든 잘 어울린다",type:"B"},
-        {emoji:"🌙",text:"나는 겉보다 속이 훨씬 복잡하다",type:"C"},
-        {emoji:"💡",text:"나는 알면 알수록 의외의 사람이다",type:"D"},
-      ]},
-      {q:"나와 가장 잘 맞는 사람 유형은?",sub:"솔직하게 느끼는 대로",choices:[
-    {emoji:"🦁",text:"목표가 뚜렷하고 추진력 있는 사람 — 같이 있으면 나도 움직이게 됨",type:"A"},
-    {emoji:"🐬",text:"에너지가 넘치고 긍정적인 사람 — 같이 있으면 기분이 좋아짐",type:"B"},
-    {emoji:"🦊",text:"말 없어도 통하는 사람 — 깊이 있는 대화가 가능한 사람",type:"C"},
-    {emoji:"🦉",text:"혼자만의 세계가 있는 사람 — 서로 간섭 없이 존중하는 사이",type:"D"},
-  ]},
-      {q:"스트레스를 받을 때 나는?",sub:"자연스럽게 나오는 행동",choices:[
-    {emoji:"🔥",text:"뭔가를 직접 해결하거나 움직임 — 가만히 있으면 더 답답함",type:"E"},
-    {emoji:"🐆",text:"혼자 조용히 생각을 정리함 — 남한테 보이고 싶지 않음",type:"F"},
-    {emoji:"🐧",text:"가까운 사람한테 털어놓음 — 들어주는 것만으로도 풀림",type:"G"},
-    {emoji:"🐱",text:"혼자 충전하는 시간을 가짐 — 모든 연락을 잠깐 끊고 싶어짐",type:"H"},
-  ]},
-      {q:"나한테 가장 어울리는 별명은?",sub:"솔직하게 생각해봐",choices:[
-    {emoji:"⚡",text:"불꽃 같은 사람 — 어딜 가든 에너지를 퍼뜨림",type:"E"},
-    {emoji:"🎯",text:"저격수 같은 사람 — 말 없이 목표를 향해 정확하게 움직임",type:"F"},
-    {emoji:"☕",text:"따뜻한 사람 — 같이 있으면 왠지 편안해짐",type:"G"},
-    {emoji:"🌙",text:"달 같은 사람 — 멀리서 봐도 느껴지는 게 있음",type:"H"},
-  ]},
-      {q:"내가 가장 뿌듯할 때는?",sub:"진심으로 생각해봐",choices:[
-    {emoji:"🏆",text:"힘든 상황을 내가 주도해서 바꿨을 때",type:"E"},
-    {emoji:"♟️",text:"내가 예측한 대로 상황이 흘러갔을 때",type:"F"},
-    {emoji:"🤝",text:"내 덕분에 누군가가 편해졌다고 느낄 때",type:"G"},
-    {emoji:"🎨",text:"아무도 알아채지 못한 걸 내가 혼자 완성했을 때",type:"H"},
-  ]},
-      {q:"나와 가장 잘 맞는 사람 유형은?",sub:"솔직하게 느끼는 대로",choices:[
-    {emoji:"🦁",text:"목표가 뚜렷하고 추진력 있는 사람 — 같이 있으면 나도 움직이게 됨",type:"A"},
-    {emoji:"🐬",text:"에너지가 넘치고 긍정적인 사람 — 같이 있으면 기분이 좋아짐",type:"B"},
-    {emoji:"🦊",text:"말 없어도 통하는 사람 — 깊이 있는 대화가 가능한 사람",type:"C"},
-    {emoji:"🦉",text:"혼자만의 세계가 있는 사람 — 서로 간섭 없이 존중하는 사이",type:"D"},
-  ]},
-      {q:"스트레스를 받을 때 나는?",sub:"자연스럽게 나오는 행동",choices:[
-    {emoji:"🔥",text:"뭔가를 직접 해결하거나 움직임 — 가만히 있으면 더 답답함",type:"E"},
-    {emoji:"🐆",text:"혼자 조용히 생각을 정리함 — 남한테 보이고 싶지 않음",type:"F"},
-    {emoji:"🐧",text:"가까운 사람한테 털어놓음 — 들어주는 것만으로도 풀림",type:"G"},
-    {emoji:"🐱",text:"혼자 충전하는 시간을 가짐 — 모든 연락을 잠깐 끊고 싶어짐",type:"H"},
-  ]},
-      {q:"나한테 가장 어울리는 별명은?",sub:"솔직하게 생각해봐",choices:[
-    {emoji:"⚡",text:"불꽃 같은 사람 — 어딜 가든 에너지를 퍼뜨림",type:"E"},
-    {emoji:"🎯",text:"저격수 같은 사람 — 말 없이 목표를 향해 정확하게 움직임",type:"F"},
-    {emoji:"☕",text:"따뜻한 사람 — 같이 있으면 왠지 편안해짐",type:"G"},
-    {emoji:"🌙",text:"달 같은 사람 — 멀리서 봐도 느껴지는 게 있음",type:"H"},
-  ]},
-      {q:"내가 가장 뿌듯할 때는?",sub:"진심으로 생각해봐",choices:[
-    {emoji:"🏆",text:"힘든 상황을 내가 주도해서 바꿨을 때",type:"E"},
-    {emoji:"♟️",text:"내가 예측한 대로 상황이 흘러갔을 때",type:"F"},
-    {emoji:"🤝",text:"내 덕분에 누군가가 편해졌다고 느낄 때",type:"G"},
-    {emoji:"🎨",text:"아무도 알아채지 못한 걸 내가 혼자 완성했을 때",type:"H"},
-  ]}],
+      {
+            "q": "회사 회식 자리가 잡혔다. 가고 싶진 않은데 안 가기도 애매한 상황. 나는?",
+            "sub": "솔직한 내 반응",
+            "choices": [
+                  {
+                        "emoji": "😤",
+                        "text": "어차피 가야 하면 내가 분위기 만들어버림 — 기왕 간 거 즐기자",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🎉",
+                        "text": "사실 이런 거 나쁘지 않음 — 새로운 사람 알게 되는 기회",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "어느 정도 역할은 하되, 에너지 소모 최소화 — 빨리 끝나길 기다림",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📋",
+                        "text": "갈 거면 목적 있게 — 꼭 필요한 사람이랑만 대화하고 일찍 빠짐",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "친구 그룹 카톡에서 갑자기 의견 충돌이 생겼다. 분위기가 싸해지고 있어. 나는?",
+            "sub": "제일 자연스럽게 나오는 반응",
+            "choices": [
+                  {
+                        "emoji": "🌊",
+                        "text": "모르는 척 못 함 — 분위기 풀려고 뭔가 써버림",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🗣️",
+                        "text": "내 의견이 있으면 말함 — 눈치 보다 조용히 있는 게 더 불편",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "👁️",
+                        "text": "일단 읽고 지켜봄 — 상황 파악하고 나서 개입 여부 결정",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📵",
+                        "text": "잠깐 폰 내려놓음 — 나 없어도 알아서 해결될 거라 생각",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "처음 가는 카페에 혼자 앉아있다. 두 시간이 생겼어. 뭘 하고 있을 것 같아?",
+            "sub": "현실적으로",
+            "choices": [
+                  {
+                        "emoji": "🎧",
+                        "text": "음악 틀고 사람들 구경하거나 SNS 봄 — 주변 분위기 흡수 중",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📲",
+                        "text": "연락 안 한 사람들한테 먼저 연락 — 이런 여유 시간에 챙기게 됨",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "책이나 좋아하는 콘텐츠에 완전히 집중 — 방해 없는 시간이 소중",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🧠",
+                        "text": "머릿속 생각 정리하거나 메모 — 혼자 있을 때 아이디어가 잘 나옴",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "팀 프로젝트 마감이 내일인데 팀원 한 명이 갑자기 연락이 안 된다. 나는?",
+            "sub": "솔직한 내 반응",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "일단 내가 처리함 — 기다리다 망하는 것보다 내가 하는 게 나음",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "📢",
+                        "text": "나머지 팀원들 다 소집 — 같이 해결 방법 찾아보자",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🔍",
+                        "text": "왜 연락이 안 되는지 파악부터 — 상황 모르고 움직이면 안 됨",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📝",
+                        "text": "할 수 있는 범위 내에서 내 파트 완성도 높이는 데 집중",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "모르는 사람한테 갑자기 길을 물어봤을 때 내가 대답하는 방식은?",
+            "sub": "실제로 그렇게 할 것 같은 걸로",
+            "choices": [
+                  {
+                        "emoji": "😊",
+                        "text": "친절하게 설명 + 잘 모르면 같이 찾아줌 — 대화가 이어지기도 함",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "👋",
+                        "text": "아는 만큼 시원하게 말해줌 — 모르면 모른다고 바로 말함",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🗺️",
+                        "text": "최대한 정확하게 설명하려고 함 — 틀린 정보 주는 게 싫음",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📱",
+                        "text": "지도 앱 켜서 같이 확인함 — 구두 설명보다 보여주는 게 정확",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "오늘 기분이 별로인데 친구가 약속을 잡자고 한다. 나는?",
+            "sub": "진짜 내 반응",
+            "choices": [
+                  {
+                        "emoji": "💬",
+                        "text": "말해버림 — '오늘 좀 별로야' 하고 이유 설명하면서 공감받고 싶음",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "✅",
+                        "text": "그냥 나감 — 만나다 보면 기분 나아지는 경우가 더 많음",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🔇",
+                        "text": "솔직히 말하기 애매해서 적당한 핑계를 댐",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🏠",
+                        "text": "'오늘은 좀 힘들 것 같아' 솔직하게 말하고 다음에 봄",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "내가 오랫동안 준비한 발표를 끝냈는데 반응이 미지근하다. 드는 생각은?",
+            "sub": "솔직한 첫 반응",
+            "choices": [
+                  {
+                        "emoji": "😤",
+                        "text": "'내가 뭘 잘못한 거지?' — 더 잘할 수 있었는데 하는 아쉬움",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🤷",
+                        "text": "'다음엔 더 잘하면 되지' — 빠르게 털고 다음 준비",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🔍",
+                        "text": "'왜 반응이 이럴까?' — 원인 분석이 먼저 시작됨",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📊",
+                        "text": "'준비한 것에 비해 전달이 아쉬웠나' — 구조적으로 돌아봄",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "갑자기 일주일 동안 완전한 자유가 생겼다. 돈 걱정 없이. 어떻게 보낼 것 같아?",
+            "sub": "가장 현실적으로 그렇게 될 것 같은 걸로",
+            "choices": [
+                  {
+                        "emoji": "🌍",
+                        "text": "여러 도시를 빠르게 돌아다님 — 다양한 사람과 경험이 목표",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🏄",
+                        "text": "뭔가 새로운 걸 배우거나 도전함 — 가만히 있으면 시간이 아까움",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌲",
+                        "text": "자연 속 어딘가에서 아무것도 안 함 — 진짜 충전이 필요함",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔬",
+                        "text": "관심 있던 분야를 끝까지 파고듦 — 이런 기회가 없었는데",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "처음 만난 자리에서 누군가가 나를 가볍게 봤다는 느낌이 든다. 나는?",
+            "sub": "솔직한 내 반응",
+            "choices": [
+                  {
+                        "emoji": "😤",
+                        "text": "내심 승부욕이 생김 — 두고 보자는 마음이 생김",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🤣",
+                        "text": "크게 신경 안 씀 — 알면 알게 되는 거고, 모르면 그만",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "속으로만 기억해둠 — 겉으로는 티 안 냄",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🧐",
+                        "text": "'내가 뭔가 어색하게 보였나?' — 내 모습을 점검하게 됨",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "마지막으로, 지금 이 순간 가장 찌르는 문장을 골라요.",
+            "sub": "읽자마자 공감되는 것",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "나는 결국 내 방식대로 해낸다",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "☀️",
+                        "text": "나는 어딜 가든 어떻게든 잘 어울린다",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "나는 겉보다 속이 훨씬 복잡하다",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "💡",
+                        "text": "나는 알면 알수록 의외의 사람이다",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "나와 가장 잘 맞는 사람 유형은?",
+            "sub": "솔직하게 느끼는 대로",
+            "choices": [
+                  {
+                        "emoji": "🦁",
+                        "text": "목표가 뚜렷하고 추진력 있는 사람 — 같이 있으면 나도 움직이게 됨",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🐬",
+                        "text": "에너지가 넘치고 긍정적인 사람 — 같이 있으면 기분이 좋아짐",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🦊",
+                        "text": "말 없어도 통하는 사람 — 깊이 있는 대화가 가능한 사람",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🦉",
+                        "text": "혼자만의 세계가 있는 사람 — 서로 간섭 없이 존중하는 사이",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "스트레스를 받을 때 나는?",
+            "sub": "자연스럽게 나오는 행동",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "뭔가를 직접 해결하거나 움직임 — 가만히 있으면 더 답답함",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "혼자 조용히 생각을 정리함 — 남한테 보이고 싶지 않음",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "가까운 사람한테 털어놓음 — 들어주는 것만으로도 풀림",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "혼자 충전하는 시간을 가짐 — 모든 연락을 잠깐 끊고 싶어짐",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "나한테 가장 어울리는 별명은?",
+            "sub": "솔직하게 생각해봐",
+            "choices": [
+                  {
+                        "emoji": "⚡",
+                        "text": "불꽃 같은 사람 — 어딜 가든 에너지를 퍼뜨림",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🎯",
+                        "text": "저격수 같은 사람 — 말 없이 목표를 향해 정확하게 움직임",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "☕",
+                        "text": "따뜻한 사람 — 같이 있으면 왠지 편안해짐",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "달 같은 사람 — 멀리서 봐도 느껴지는 게 있음",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "내가 가장 뿌듯할 때는?",
+            "sub": "진심으로 생각해봐",
+            "choices": [
+                  {
+                        "emoji": "🏆",
+                        "text": "힘든 상황을 내가 주도해서 바꿨을 때",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "♟️",
+                        "text": "내가 예측한 대로 상황이 흘러갔을 때",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🤝",
+                        "text": "내 덕분에 누군가가 편해졌다고 느낄 때",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🎨",
+                        "text": "아무도 알아채지 못한 걸 내가 혼자 완성했을 때",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "여러 사람 앞에서 발표를 해야 한다. 솔직히 어떤 마음이야?",
+            "sub": "가장 가까운 반응",
+            "choices": [
+                  {
+                        "emoji": "🦁",
+                        "text": "나쁘지 않아 — 내가 이끄는 게 오히려 편함",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🐬",
+                        "text": "설레는 편 — 사람들과 에너지 나누는 게 재밌음",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🦊",
+                        "text": "긴장되지만 준비 잘 하면 괜찮음",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🐺",
+                        "text": "별로야 — 관심받는 게 에너지 소모임",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "싫어하는 사람과 팀이 됐다. 나는?",
+            "sub": "현실적으로 떠오르는 반응",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "감정 빼고 일로만 대함 — 어차피 끝나면 그만",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "전략적으로 내 역할만 딱 채우고 엮이지 않음",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "최대한 부드럽게 맞춰감 — 갈등이 더 불편함",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "조용히 거리 유지 — 내 에너지 지키는 게 우선",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "내가 여행을 간다면 어떤 스타일이야?",
+            "sub": "실제 내 여행 패턴",
+            "choices": [
+                  {
+                        "emoji": "🗺️",
+                        "text": "계획 빡빡하게 짜고 다 가봄 — 이동도 시간 낭비 없이",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "📸",
+                        "text": "목적지 정해두고 느긋하게 — 좋은 것만 골라서 제대로",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "☀️",
+                        "text": "같이 가는 사람이 더 중요 — 어디든 함께면 됨",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "대충 방향만 잡고 흘러가는 대로 — 즉흥이 더 재밌음",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "지금 이 질문 중 가장 '나다'는 문장을 골라줘.",
+            "sub": "직관적으로 바로 골라",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "나는 불편해도 해야 하면 한다",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "나는 남들 모르게 치밀하게 준비한다",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "나는 주변이 편해야 나도 편하다",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "나는 혼자일 때 가장 나답다",
+                        "type": "H"
+                  }
+            ]
+      }
+],
     results:{
       A:{emoji:"🦁",name:"사자",tagline:"날카로운 사자",badge:"강력한 리더",
         stats:[{label:"자기애",val:82},{label:"참을성",val:21},{label:"행동력",val:86}],
@@ -700,7 +1061,7 @@ const data = {
     ui:{
       langBtn:'🇰🇷 KR', mainTitle:'Which Animal Am <span>I</span>?',
       mainDesc:'Discover your spirit animal with a few questions!<br>Which animal are you most like? 🌿',
-      startText:'They say everyone has an animal that matches their personality.<br>Answer a few honest questions to find yours!<br><strong>Takes about 2 minutes</strong>',
+      startText: 'They say everyone has an animal that matches their personality.<br><strong>18 questions</strong> to find yours!<br><span style="opacity:.7">Takes about 3 minutes</span>',
       startBtn:'🐾 Start Test', descTitle:'🐾 Animal Type Analysis',
       compatTitle:'💞 Compatible Animals', shareTitle:'🎉 Share Your Result!',
       restartBtn:'🔄 Try Again', moreTitle:'🎯 Try More Tests!',
@@ -708,117 +1069,475 @@ const data = {
       copyOk:'🔗 Link copied!', langToggle:'🇰🇷 KR',
     },
     questions:[
-      {q:"Among friends, you tend to be...",sub:"Your most natural role",choices:[
-        {emoji:"👑",text:"The natural leader everyone looks to",type:"A"},
-        {emoji:"🎉",text:"The one who keeps the energy up",type:"B"},
-        {emoji:"🧩",text:"The quiet observer who gives great advice",type:"C"},
-        {emoji:"📚",text:"The one who loves deep, meaningful conversations",type:"D"},
-      ]},
-      {q:"Your ideal weekend looks like...",sub:"Your happiest day off",choices:[
-        {emoji:"🏋️",text:"Sports or active hobbies to release energy",type:"A"},
-        {emoji:"🏖️",text:"Hanging out with friends or going on a trip",type:"B"},
-        {emoji:"🌲",text:"A solo walk or relaxing in nature",type:"C"},
-        {emoji:"📖",text:"Reading or focusing on a personal passion",type:"D"},
-      ]},
-      {q:"When you're angry, you...",sub:"Your honest reaction",choices:[
-        {emoji:"🔥",text:"Express it immediately and deal with it head-on",type:"A"},
-        {emoji:"😢",text:"Walk away and let the feeling pass",type:"B"},
-        {emoji:"🦊",text:"Stay calm on the outside, but remember it",type:"C"},
-        {emoji:"🤔",text:"Analyze the cause and respond logically",type:"D"},
-      ]},
-      {q:"Meeting someone new, you...",sub:"Your first impression style",choices:[
-        {emoji:"😎",text:"Approach them confidently and boldly",type:"A"},
-        {emoji:"😊",text:"Warm up to them quickly and easily",type:"B"},
-        {emoji:"👀",text:"Observe first, then approach slowly",type:"C"},
-        {emoji:"🤝",text:"Greet politely and look for common ground",type:"D"},
-      ]},
-      {q:"Your greatest personal strength is...",sub:"Your real superpower",choices:[
-        {emoji:"💪",text:"Unstoppable drive to push through anything",type:"A"},
-        {emoji:"💃",text:"Natural charm and social energy",type:"B"},
-        {emoji:"🧠",text:"Sharp insight that sees through situations",type:"C"},
-        {emoji:"🔭",text:"Deep knowledge and analytical thinking",type:"D"},
-      ]},
-      {q:"In a crisis, you...",sub:"When your true self shows up",choices:[
-        {emoji:"⚡",text:"Take the lead and tackle it directly",type:"A"},
-        {emoji:"🤗",text:"Calm everyone down and work together",type:"B"},
-        {emoji:"🦊",text:"Stay composed and devise a strategy",type:"C"},
-        {emoji:"📋",text:"Gather information calmly and find the best solution",type:"D"},
-      ]},
-      {q:"When you're tired and drained, you...",sub:"How you recharge",choices:[
-        {emoji:"🏃",text:"Work out or do something active",type:"A"},
-        {emoji:"👫",text:"Meet a close friend and chat",type:"B"},
-        {emoji:"🌙",text:"Have alone time and rest quietly",type:"C"},
-        {emoji:"🎵",text:"Immerse yourself in something you love",type:"D"},
-      ]},
-      {q:"A weakness you honestly admit is...",sub:"Your vulnerable side",choices:[
-        {emoji:"😤",text:"Stubbornness — you stick to your own way",type:"A"},
-        {emoji:"🙈",text:"Getting carried away by emotions sometimes",type:"B"},
-        {emoji:"🤐",text:"Hiding feelings, which leads to misunderstandings",type:"C"},
-        {emoji:"⏰",text:"Perfectionism that slows down decisions",type:"D"},
-      ]},
-      {q:"You shine brightest in environments that are...",sub:"Where you perform best",choices:[
-        {emoji:"🎯",text:"Goal-driven and competitive",type:"A"},
-        {emoji:"🎨",text:"Free, creative, and full of people",type:"B"},
-        {emoji:"🌿",text:"Quiet and focused, working alone",type:"C"},
-        {emoji:"🔬",text:"Research-oriented with room to explore deeply",type:"D"},
-      ]},
-      {q:"The word that best describes you is...",sub:"Trust your instinct",choices:[
-        {emoji:"🔥",text:"Passionate and intense",type:"A"},
-        {emoji:"☀️",text:"Bright and full of energy",type:"B"},
-        {emoji:"🌙",text:"Mysterious and deep",type:"C"},
-        {emoji:"💎",text:"Wise and insightful",type:"D"},
-      ]},
-    
-      {q:"Who do you get along with best?",sub:"Think honestly about compatibility",choices:[
-        {emoji:"🔥",text:"Someone energetic and charismatic — their drive is contagious",type:"E"},
-        {emoji:"🐆",text:"Someone quiet but reliable — actions speak louder",type:"F"},
-        {emoji:"🐧",text:"Someone warm and socially aware — feels comfortable",type:"G"},
-        {emoji:"🐱",text:"Someone independent who respects your space too",type:"H"},
-      ]},
-      {q:"When you're stressed, you...",sub:"Your natural response",choices:[
-        {emoji:"🔥",text:"Take action — sitting still makes it worse",type:"E"},
-        {emoji:"🐆",text:"Quietly organize your thoughts alone",type:"F"},
-        {emoji:"🐧",text:"Talk to someone close — just being heard helps",type:"G"},
-        {emoji:"🐱",text:"Disconnect and recharge alone — go silent for a while",type:"H"},
-      ]},
-      {q:"Which nickname fits you best?",sub:"The one that really resonates",choices:[
-        {emoji:"🔥",text:"The flame — spreading energy wherever you go",type:"E"},
-        {emoji:"🐆",text:"The sniper — quietly and precisely moving toward goals",type:"F"},
-        {emoji:"🐧",text:"The warm one — people feel at ease around you",type:"G"},
-        {emoji:"🐱",text:"The moon — felt even from a distance",type:"H"},
-      ]},
-      {q:"Who do you get along with best?",sub:"Think honestly about compatibility",choices:[
-        {emoji:"🔥",text:"Someone energetic and charismatic — their drive is contagious",type:"E"},
-        {emoji:"🐆",text:"Someone quiet but reliable — actions speak louder",type:"F"},
-        {emoji:"🐧",text:"Someone warm and socially aware — feels comfortable",type:"G"},
-        {emoji:"🐱",text:"Someone independent who respects your space too",type:"H"},
-      ]},
-      {q:"When you're stressed, you...",sub:"Your natural response",choices:[
-        {emoji:"🔥",text:"Take action — sitting still makes it worse",type:"E"},
-        {emoji:"🐆",text:"Quietly organize your thoughts alone",type:"F"},
-        {emoji:"🐧",text:"Talk to someone close — just being heard helps",type:"G"},
-        {emoji:"🐱",text:"Disconnect and recharge alone — go silent for a while",type:"H"},
-      ]},
-      {q:"Which nickname fits you best?",sub:"The one that really resonates",choices:[
-        {emoji:"🔥",text:"The flame — spreading energy wherever you go",type:"E"},
-        {emoji:"🐆",text:"The sniper — quietly and precisely moving toward goals",type:"F"},
-        {emoji:"🐧",text:"The warm one — people feel at ease around you",type:"G"},
-        {emoji:"🐱",text:"The moon — felt even from a distance",type:"H"},
-      ]},
-      {q:"You feel proudest when...",sub:"The moment that really sticks with you",choices:[
-        {emoji:"🔥",text:"You took charge of a tough situation and turned it around",type:"E"},
-        {emoji:"🐆",text:"Things unfolded exactly as you predicted",type:"F"},
-        {emoji:"🐧",text:"Someone felt better because of you",type:"G"},
-        {emoji:"🐱",text:"You completed something quietly that no one else noticed",type:"H"},
-      ]},
-    
-      {q:"You feel proudest when...",sub:"The moment that really sticks with you",choices:[
-        {emoji:"🔥",text:"You took charge of a tough situation and turned it around",type:"E"},
-        {emoji:"🐆",text:"Things unfolded exactly as you predicted",type:"F"},
-        {emoji:"🐧",text:"Someone felt better because of you",type:"G"},
-        {emoji:"🐱",text:"You completed something quietly that no one else noticed",type:"H"},
-      ]},
-    ],
+      {
+            "q": "Among friends, you tend to be...",
+            "sub": "Your most natural role",
+            "choices": [
+                  {
+                        "emoji": "👑",
+                        "text": "The natural leader everyone looks to",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🎉",
+                        "text": "The one who keeps the energy up",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🧩",
+                        "text": "The quiet observer who gives great advice",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📚",
+                        "text": "The one who loves deep, meaningful conversations",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Your ideal weekend looks like...",
+            "sub": "Your happiest day off",
+            "choices": [
+                  {
+                        "emoji": "🏋️",
+                        "text": "Sports or active hobbies to release energy",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🏖️",
+                        "text": "Hanging out with friends or going on a trip",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌲",
+                        "text": "A solo walk or relaxing in nature",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📖",
+                        "text": "Reading or focusing on a personal passion",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When you're angry, you...",
+            "sub": "Your honest reaction",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "Express it immediately and deal with it head-on",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "😢",
+                        "text": "Walk away and let the feeling pass",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🦊",
+                        "text": "Stay calm on the outside, but remember it",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🤔",
+                        "text": "Analyze the cause and respond logically",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Meeting someone new, you...",
+            "sub": "Your first impression style",
+            "choices": [
+                  {
+                        "emoji": "😎",
+                        "text": "Approach them confidently and boldly",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "😊",
+                        "text": "Warm up to them quickly and easily",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "👀",
+                        "text": "Observe first, then approach slowly",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🤝",
+                        "text": "Greet politely and look for common ground",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Your greatest personal strength is...",
+            "sub": "Your real superpower",
+            "choices": [
+                  {
+                        "emoji": "💪",
+                        "text": "Unstoppable drive to push through anything",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "💃",
+                        "text": "Natural charm and social energy",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🧠",
+                        "text": "Sharp insight that sees through situations",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔭",
+                        "text": "Deep knowledge and analytical thinking",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "In a crisis, you...",
+            "sub": "When your true self shows up",
+            "choices": [
+                  {
+                        "emoji": "⚡",
+                        "text": "Take the lead and tackle it directly",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🤗",
+                        "text": "Calm everyone down and work together",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🦊",
+                        "text": "Stay composed and devise a strategy",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📋",
+                        "text": "Gather information calmly and find the best solution",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When you're tired and drained, you...",
+            "sub": "How you recharge",
+            "choices": [
+                  {
+                        "emoji": "🏃",
+                        "text": "Work out or do something active",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "👫",
+                        "text": "Meet a close friend and chat",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "Have alone time and rest quietly",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🎵",
+                        "text": "Immerse yourself in something you love",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "A weakness you honestly admit is...",
+            "sub": "Your vulnerable side",
+            "choices": [
+                  {
+                        "emoji": "😤",
+                        "text": "Stubbornness — you stick to your own way",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🙈",
+                        "text": "Getting carried away by emotions sometimes",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🤐",
+                        "text": "Hiding feelings, which leads to misunderstandings",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "⏰",
+                        "text": "Perfectionism that slows down decisions",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "You shine brightest in environments that are...",
+            "sub": "Where you perform best",
+            "choices": [
+                  {
+                        "emoji": "🎯",
+                        "text": "Goal-driven and competitive",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🎨",
+                        "text": "Free, creative, and full of people",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "Quiet and focused, working alone",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🔬",
+                        "text": "Research-oriented with room to explore deeply",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "The word that best describes you is...",
+            "sub": "Trust your instinct",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "Passionate and intense",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "☀️",
+                        "text": "Bright and full of energy",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "Mysterious and deep",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "💎",
+                        "text": "Wise and insightful",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Who do you get along with best?",
+            "sub": "Think honestly about compatibility",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "Someone energetic and charismatic — their drive is contagious",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "Someone quiet but reliable — actions speak louder",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "Someone warm and socially aware — feels comfortable",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "Someone independent who respects your space too",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "When you're stressed, you...",
+            "sub": "Your natural response",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "Take action — sitting still makes it worse",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "Quietly organize your thoughts alone",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "Talk to someone close — just being heard helps",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "Disconnect and recharge alone — go silent for a while",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "Which nickname fits you best?",
+            "sub": "The one that really resonates",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "The flame — spreading energy wherever you go",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "The sniper — quietly and precisely moving toward goals",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "The warm one — people feel at ease around you",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "The moon — felt even from a distance",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "Who do you get along with best?",
+            "sub": "Think honestly about compatibility",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "Someone energetic and charismatic — their drive is contagious",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "Someone quiet but reliable — actions speak louder",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "Someone warm and socially aware — feels comfortable",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "Someone independent who respects your space too",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "You have to present in front of a group. How do you honestly feel?",
+            "sub": "Pick the closest reaction",
+            "choices": [
+                  {
+                        "emoji": "🦁",
+                        "text": "Not bad — I actually prefer being in the lead",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🐬",
+                        "text": "Kind of exciting — sharing energy with people is fun",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🦊",
+                        "text": "Nervous, but fine if I prepare well",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🐺",
+                        "text": "Not my thing — being watched drains me",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "You've been put on a team with someone you really dislike. What do you do?",
+            "sub": "Your most realistic reaction",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "Keep it strictly professional — it's temporary anyway",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "Play my role strategically and avoid unnecessary contact",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "Try to smooth things over — conflict is more draining",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "Keep my distance quietly — protecting my energy first",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "What's your travel style?",
+            "sub": "How you actually travel",
+            "choices": [
+                  {
+                        "emoji": "🗺️",
+                        "text": "Packed itinerary, no wasted time — see everything",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "📸",
+                        "text": "Pick a few highlights and do them properly",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "☀️",
+                        "text": "Who I'm with matters more than where — anywhere works",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "Rough direction only — improvising is more fun anyway",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "Pick the sentence that feels most like you right now.",
+            "sub": "Go with your gut, don't overthink",
+            "choices": [
+                  {
+                        "emoji": "🔥",
+                        "text": "I do what needs to be done, even when it's uncomfortable",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🐆",
+                        "text": "I prepare thoroughly in ways others don't notice",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🐧",
+                        "text": "When others are comfortable, I'm comfortable",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🐱",
+                        "text": "I'm most myself when I'm alone",
+                        "type": "H"
+                  }
+            ]
+      }
+],
     results:{
       A:{emoji:"🦁",name:"Lion",tagline:"King of the Jungle, Born Leader",badge:"Powerful Leader",
         traits:[{label:"Leadership",val:87},{label:"Confidence",val:83},{label:"Drive",val:79},{label:"Gentleness",val:48}],
@@ -985,13 +1704,7 @@ function resolveType(scores) {
   const gap = scores[top1] - scores[top2];
   if (gap >= 2) return top1;
   const combo = [top1, top2].sort().join('');
-  const comboMap = {
-    'AB':'E','AC':'A','AD':'D','BC':'B','BD':'F','CD':'G',
-    'AE':'E','BE':'E','CE':'G','DE':'H','AF':'F','BF':'F',
-    'CF':'G','DF':'H','AG':'G','BG':'F','DG':'H','AH':'H',
-    'BH':'F','CH':'G','EF':'E','EG':'G','EH':'H',
-    'FG':'G','FH':'H','GH':'H',
-  };
+  const comboMap = {'AB':'E', 'AC':'A', 'AD':'D', 'AE':'E', 'AF':'F', 'AG':'G', 'AH':'H', 'BC':'B', 'BD':'F', 'BE':'E', 'BF':'F', 'BG':'F', 'BH':'F', 'CD':'G', 'CE':'G', 'CF':'G', 'CG':'G', 'CH':'G', 'DE':'H', 'DF':'H', 'DG':'H', 'DH':'H', 'EF':'E', 'EG':'G', 'EH':'H', 'FG':'G', 'FH':'H', 'GH':'H'};
   return comboMap[combo] || top1;
 }
 

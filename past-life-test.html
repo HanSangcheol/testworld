@@ -181,7 +181,7 @@
   .result-hero {
     background: var(--card); border-radius: var(--radius);
     padding: clamp(24px,6vw,36px) clamp(18px,5vw,28px) clamp(20px,5vw,28px);
-    box-shadow: var(--shadow-lg); border: 3px solid;
+    box-shadow: var(--shadow-lg); border: 3px solid var(--primary);
     text-align: center; margin-bottom: var(--space-md);
     position: relative; overflow: hidden; animation: fadeUp .5s ease;
   }
@@ -218,7 +218,7 @@
   .trait-bar { height: 100%; border-radius: 99px; transition: width 1s ease .2s; }
   .trait-val { font-family: 'Gaegu', cursive; font-size: var(--fs-sm); font-weight: 800; margin-top: 3px; text-align: right; }
   .tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-sm); }
-  .tag { padding: 4px 12px; border-radius: 99px; font-size: var(--fs-sm); font-weight: 700; border: 1.5px solid; }
+  .tag { padding: 4px 12px; border-radius: 99px; font-size: var(--fs-sm); font-weight: 700; border: 1.5px solid var(--primary); color: var(--primary); background: rgba(108,92,231,.08); }
   .result-desc-card {
     background: var(--card); border-radius: var(--radius);
     padding: clamp(18px,4.5vw,24px); box-shadow: var(--shadow);
@@ -325,6 +325,45 @@
     .container { padding-top: 32px; padding-bottom: 80px; }
     .choices { gap: 10px; }
   }
+
+  /* ── result-label (전생 레이블) ── */
+  .result-label {
+    font-size: var(--fs-sm); font-weight: 700; color: #aaa;
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;
+  }
+  /* ── result-tags ── */
+  .result-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin: var(--space-md) 0 var(--space-sm);
+  }
+
+  /* ── 다른 테스트 섹션 ── */
+  .more-tests {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(16px,4vw,22px); box-shadow: var(--shadow);
+    margin-bottom: var(--space-md); animation: fadeUp .5s ease .5s both;
+  }
+  .more-tests h3 {
+    font-family: 'Gaegu', cursive;
+    font-size: var(--fs-lg); font-weight: 800; color: var(--primary);
+    margin-bottom: 12px;
+  }
+  .test-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: clamp(10px,2.5vw,12px); background: var(--bg);
+    border-radius: var(--radius-sm); margin-bottom: 7px;
+    cursor: pointer; transition: all .18s; text-decoration: none; color: var(--dark);
+  }
+  .test-item:hover { background: #ede7f6; transform: translateX(3px); }
+  .test-item-emoji { font-size: clamp(26px,7vw,30px); flex-shrink: 0; }
+  .test-item-info { flex: 1; }
+  .test-item-title {
+    font-size: var(--fs-base); font-weight: 800;
+    color: var(--dark); margin-bottom: 2px;
+  }
+  .test-item-desc {
+    font-size: var(--fs-sm); color: #888; font-weight: 500;
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -390,13 +429,13 @@
   <!-- 결과 섹션 -->
   <div class="result-screen" id="resultSection">
 
-    <div class="result-card">
-      <span class="result-emoji" id="resultEmoji">🧙</span>
+    <div class="result-hero">
+      <span class="result-big-emoji" id="resultEmoji">🧙</span>
       <div class="result-label" id="resultLabel">당신의 전생은</div>
-      <div class="result-title" id="resultTitle">중세 마법사</div>
-      <div class="result-subtitle" id="resultSubtitle">지혜와 신비의 수호자</div>
+      <div class="result-name" id="resultTitle">중세 마법사</div>
+      <div class="result-tagline" id="resultSubtitle">지혜와 신비의 수호자</div>
       <div id="resultStats" style="margin:16px 0 8px;text-align:left;"></div>
-      <div class="result-desc" id="resultDesc"></div>
+      <div class="result-desc-card" id="resultDesc"></div>
       <div id="resultWantBox" style="background:#FFFBF0;border:1px solid #FFE066;border-radius:12px;padding:14px 16px;margin:12px 0 4px;text-align:center;">
         <div style="font-size:15px;font-weight:800;color:#aaa;margin-bottom:6px;">🌟 현생에서 듣고 싶은 말</div>
         <div id="resultWantToHear" style="font-size:20px;font-weight:800;color:#FF9F43;"></div>
@@ -481,7 +520,7 @@ const lang = {
   ko: {
     mainTitle: '나의 <span>전생</span>은?',
     mainDesc: '다양한 질문으로 알아보는 나의 전생 테스트<br>당신은 전생에 어떤 삶을 살았을까요? ✨',
-    startText: '전생은 과거의 삶에서 당신이 누구였는지 알려줍니다.<br>몇 가지 질문에 솔직하게 답해보세요!<br><strong>소요시간: 약 2분</strong>',
+    startText: '전생은 과거의 삶에서 당신이 누구였는지 알려줍니다.<br><strong>총 16가지 질문</strong>에 솔직하게 답해보세요!<br><span style="opacity:.7">소요시간: 약 2~3분</span>',
     startBtn: '🔮 테스트 시작하기',
     resultLabel: '당신의 전생은',
     shareTitle: '🎉 친구들에게 결과 공유하기!',
@@ -493,7 +532,7 @@ const lang = {
   en: {
     mainTitle: 'What was your <span>Past Life</span>?',
     mainDesc: 'Discover your past life with a few questions!<br>Who were you in a previous life? ✨',
-    startText: 'Your past life reveals who you were in a previous existence.<br>Answer a few questions honestly!<br><strong>Takes about 2 minutes</strong>',
+    startText: 'Your past life reveals who you were in a previous existence.<br><strong>16 questions</strong> — answer honestly!<br><span style="opacity:.7">Takes about 2–3 minutes</span>',
     startBtn: '🔮 Start Test',
     resultLabel: 'Your Past Life Was',
     shareTitle: '🎉 Share Your Result!',
@@ -509,330 +548,841 @@ const lang = {
 // ========================================
 const questions = {
   ko: [
-    {
-      q: "길을 걷다가 우연히 오래된 골동품 가게에 들어갔다. 눈이 가장 먼저 가는 것은?",
-      sub: "직관적으로 골라봐요",
-      choices: [
-        { emoji: "📜", text: "손때 묻은 낡은 책이나 문서 — 뭐가 쓰여 있을지 궁금함", type: "A" },
-        { emoji: "🗡️", text: "오래된 무기나 갑옷 조각 — 왠지 손이 먼저 가게 됨", type: "B" },
-        { emoji: "🏺", text: "이름 모를 풀이나 돌로 만든 오브제 — 자연에서 온 것들", type: "C" },
-        { emoji: "👑", text: "화려한 장식품이나 왕관 — 누가 썼을지 상상이 감", type: "D" },
-      ]
-    },
-    {
-      q: "처음 가는 해외여행지에 도착했다. 공항을 나서는 순간 드는 감각은?",
-      sub: "솔직한 첫 반응",
-      choices: [
-        { emoji: "🔍", text: "이 나라의 역사가 궁금해짐 — 박물관이나 유적지 먼저 검색", type: "A" },
-        { emoji: "⚡", text: "몸에 에너지가 차오름 — 빨리 돌아다니고 싶음", type: "B" },
-        { emoji: "🌫️", text: "묘하게 익숙한 느낌 — 처음인데 어딘가 온 것 같음", type: "C" },
-        { emoji: "👥", text: "사람들 구경부터 — 이 나라 사람들이 어떻게 사는지 궁금함", type: "D" },
-      ]
-    },
-    {
-      q: "자기 전에 생각이 많아져서 잠을 못 이루는 밤. 무슨 생각이 이어지고 있어?",
-      sub: "가장 자주 있는 패턴으로",
-      choices: [
-        { emoji: "🌌", text: "우주, 시간, 존재에 대한 철학적인 질문 — 왜 나는 지금 여기 있지?", type: "A" },
-        { emoji: "⚔️", text: "낮에 있었던 억울하거나 부당한 일 — 그때 왜 그랬지, 다음엔 어떻게 할까", type: "B" },
-        { emoji: "🌿", text: "아무것도 아닌 감각들 — 오늘 바람 냄새, 잠깐 본 노을 같은 것들", type: "C" },
-        { emoji: "📊", text: "앞으로의 계획이나 해야 할 일 — 머릿속에서 자동으로 정리가 됨", type: "D" },
-      ]
-    },
-    {
-      q: "회사나 학교에서 팀 프로젝트를 하게 됐다. 자연스럽게 맡게 되는 역할은?",
-      sub: "억지로 맡은 게 아니라 원래 그렇게 되는 것",
-      choices: [
-        { emoji: "📐", text: "자료 조사와 분석 — 근거 없이 진행되는 게 불안함", type: "A" },
-        { emoji: "🏃", text: "실행과 추진 — 말만 많고 안 움직이는 게 제일 답답함", type: "B" },
-        { emoji: "🤝", text: "분위기 조율과 갈등 중재 — 팀이 삐걱거리면 내가 먼저 나섬", type: "C" },
-        { emoji: "📣", text: "방향 설정과 발표 — 큰 그림 그리고 사람들 설득하는 것", type: "D" },
-      ]
-    },
-    {
-      q: "갑자기 1주일의 자유 시간이 생겼다. 계획 없이. 결국 어떻게 보내게 될까?",
-      sub: "실제로 그렇게 될 것 같은 걸로 골라요",
-      choices: [
-        { emoji: "📚", text: "읽고 싶었던 책, 공부하고 싶었던 것 — 지식 욕구를 채우게 됨", type: "A" },
-        { emoji: "🧳", text: "어딘가로 훌쩍 떠남 — 가만히 있는 게 오히려 힘듦", type: "B" },
-        { emoji: "🌲", text: "자연 속 어딘가 — 조용한 곳에서 아무것도 안 하는 게 최고", type: "C" },
-        { emoji: "👥", text: "사람들 만남 — 오래 못 봤던 사람들 연락하고 약속 잡음", type: "D" },
-      ]
-    },
-    {
-      q: "길을 가다가 두 사람이 싸우는 장면을 목격했다. 한 명이 명백히 불합리한 상황이야. 나는?",
-      sub: "솔직하게",
-      choices: [
-        { emoji: "🧠", text: "상황을 빠르게 분석함 — 개입해야 할지 말지 먼저 판단", type: "A" },
-        { emoji: "🦺", text: "일단 몸이 먼저 움직임 — 생각보다 행동이 빠름", type: "F" },
-        { emoji: "🌀", text: "직감적으로 느껴짐 — 누가 잘못인지 설명 못 해도 알 수 있음", type: "G" },
-        { emoji: "📢", text: "주변 사람들을 모음 — 혼자보단 같이 움직이는 게 낫다고 판단", type: "H" },
-      ]
-    },
-    {
-      q: "오래된 성이나 궁전을 배경으로 한 드라마를 보고 있다. 자꾸 눈이 가는 장면은?",
-      sub: "의식하지 않아도 자꾸 보게 되는 것",
-      choices: [
-        { emoji: "📖", text: "왕의 책사나 학자가 서고에서 무언가를 연구하는 장면", type: "A" },
-        { emoji: "⚔️", text: "전장 장면, 전사들이 훈련하거나 싸우는 장면", type: "B" },
-        { emoji: "🌿", text: "정원이나 숲속, 홀로 걷거나 명상하는 조용한 장면", type: "C" },
-        { emoji: "👑", text: "왕이 신하들 앞에서 연설하거나 중요한 결정을 내리는 장면", type: "D" },
-      ]
-    },
-    {
-      q: "지금 살면서 가장 이유 없이 이끌리는 것이 있다면?",
-      sub: "왜 좋은지 설명이 잘 안 되는 것",
-      choices: [
-        { emoji: "🔭", text: "별자리, 연금술, 철학 — 고대 지식 체계에 대한 묘한 끌림", type: "E" },
-        { emoji: "🏹", text: "활쏘기, 승마, 격투기 — 몸을 쓰는 전통적 기술들", type: "B" },
-        { emoji: "🍃", text: "한약, 식물, 명상 — 자연에서 온 치유 방법들", type: "G" },
-        { emoji: "🎭", text: "웅변, 협상, 정치 — 사람들을 이끄는 것과 관련된 모든 것", type: "H" },
-      ]
-    },
-    {
-      q: "친한 친구가 '너는 왜 이렇게 생각이 많아?'라고 했다. 속으로 드는 생각은?",
-      sub: "솔직한 내 반응",
-      choices: [
-        { emoji: "🤷", text: "'생각 안 하는 게 더 이상한 거 아냐?' — 이게 기본이라고 생각함", type: "E" },
-        { emoji: "💪", text: "'생각보다 행동이지' — 나는 오히려 빨리 움직이는 편인데", type: "F" },
-        { emoji: "🌙", text: "'이게 나인데 어쩌라고' — 크게 신경 안 씀", type: "C" },
-        { emoji: "📈", text: "'많이 생각해야 좋은 결과가 나오지' — 당연한 거라고 생각", type: "H" },
-      ]
-    },
-    {
-      q: "마지막으로, 이 질문에 가장 먼저 끌리는 답을 골라요.",
-      sub: "전생이 있다면 나는 어디서 뭘 하고 있었을까?",
-      choices: [
-        { emoji: "🏯", text: "어딘가의 서고나 탑 꼭대기에서 혼자 무언가를 연구하고 있었을 것", type: "E" },
-        { emoji: "🌄", text: "전장이나 광야를 달리며 무언가를 지키고 있었을 것", type: "F" },
-        { emoji: "🏔️", text: "산속 깊은 곳에서 자연과 함께 조용히 살고 있었을 것", type: "G" },
-        { emoji: "🏛️", text: "수많은 사람들 앞에 서서 무언가를 이끌고 있었을 것", type: "H" },
-      ]
-    },
       {
-      q: "내가 가장 빛나는 순간은?",
-      sub: "솔직하게",
-      choices: [
-        { emoji: "💡", text: "남들이 놓친 걸 정확히 짚어냈을 때", type: "E" },
-        { emoji: "🔥", text: "불의한 상황에서 직접 나서서 바꿨을 때", type: "F" },
-        { emoji: "🌿", text: "복잡한 상황에서 모두가 편안해질 수 있게 만들었을 때", type: "G" },
-        { emoji: "👑", text: "결정이 필요한 순간 방향을 제시하고 팀이 움직였을 때", type: "H" },
-      ],
-    },
-    {
-      q: "현생에서 내가 반복하는 패턴은?",
-      sub: "공감 가는 거 골라봐",
-      choices: [
-        { emoji: "📊", text: "일단 정보를 모으고 분석한 다음 판단함", type: "E" },
-        { emoji: "🗣️", text: "느끼는 걸 그냥 말해버림 — 생각보다 입이 먼저", type: "F" },
-        { emoji: "🌊", text: "주변 분위기를 먼저 읽고 거기에 맞게 움직임", type: "G" },
-        { emoji: "🏹", text: "혼자서 방향 정하고 조용히 실행함", type: "H" },
-      ],
-    },
-    {
-      q: "전생에 내 방식이 있다면?",
-      sub: "느낌 오는 걸로",
-      choices: [
-        { emoji: "🧙", text: "조용히 분석하고 전략을 세우는 것", type: "A" },
-        { emoji: "⚔️", text: "앞에 서서 직접 부딪히는 것", type: "B" },
-        { emoji: "🌸", text: "흐름을 읽고 균형을 맞추는 것", type: "C" },
-        { emoji: "👑", text: "결정하고 책임지며 이끄는 것", type: "D" },
-      ],
-    },
-    {
-      q: "내가 가장 빛나는 순간은?",
-      sub: "솔직하게",
-      choices: [
-        { emoji: "💡", text: "남들이 놓친 걸 정확히 짚어냈을 때", type: "E" },
-        { emoji: "🔥", text: "불의한 상황에서 직접 나서서 바꿨을 때", type: "F" },
-        { emoji: "🌿", text: "복잡한 상황에서 모두가 편안해질 수 있게 만들었을 때", type: "G" },
-        { emoji: "👑", text: "결정이 필요한 순간 방향을 제시하고 팀이 움직였을 때", type: "H" },
-      ],
-    },
-    {
-      q: "현생에서 내가 반복하는 패턴은?",
-      sub: "공감 가는 거 골라봐",
-      choices: [
-        { emoji: "📊", text: "일단 정보를 모으고 분석한 다음 판단함", type: "E" },
-        { emoji: "🗣️", text: "느끼는 걸 그냥 말해버림 — 생각보다 입이 먼저", type: "F" },
-        { emoji: "🌊", text: "주변 분위기를 먼저 읽고 거기에 맞게 움직임", type: "G" },
-        { emoji: "🏹", text: "혼자서 방향 정하고 조용히 실행함", type: "H" },
-      ],
-    },
-    {
-      q: "전생에 내 방식이 있다면?",
-      sub: "느낌 오는 걸로",
-      choices: [
-        { emoji: "🧙", text: "조용히 분석하고 전략을 세우는 것", type: "A" },
-        { emoji: "⚔️", text: "앞에 서서 직접 부딪히는 것", type: "B" },
-        { emoji: "🌸", text: "흐름을 읽고 균형을 맞추는 것", type: "C" },
-        { emoji: "👑", text: "결정하고 책임지며 이끄는 것", type: "D" },
-      ],
-    }],
+            "q": "길을 걷다가 우연히 오래된 골동품 가게에 들어갔다. 눈이 가장 먼저 가는 것은?",
+            "sub": "직관적으로 골라봐요",
+            "choices": [
+                  {
+                        "emoji": "📜",
+                        "text": "손때 묻은 낡은 책이나 문서 — 뭐가 쓰여 있을지 궁금함",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🗡️",
+                        "text": "오래된 무기나 갑옷 조각 — 왠지 손이 먼저 가게 됨",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🏺",
+                        "text": "이름 모를 풀이나 돌로 만든 오브제 — 자연에서 온 것들",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "화려한 장식품이나 왕관 — 누가 썼을지 상상이 감",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "처음 가는 해외여행지에 도착했다. 공항을 나서는 순간 드는 감각은?",
+            "sub": "솔직한 첫 반응",
+            "choices": [
+                  {
+                        "emoji": "🔍",
+                        "text": "이 나라의 역사가 궁금해짐 — 박물관이나 유적지 먼저 검색",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚡",
+                        "text": "몸에 에너지가 차오름 — 빨리 돌아다니고 싶음",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌫️",
+                        "text": "묘하게 익숙한 느낌 — 처음인데 어딘가 온 것 같음",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👥",
+                        "text": "사람들 구경부터 — 이 나라 사람들이 어떻게 사는지 궁금함",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "자기 전에 생각이 많아져서 잠을 못 이루는 밤. 무슨 생각이 이어지고 있어?",
+            "sub": "가장 자주 있는 패턴으로",
+            "choices": [
+                  {
+                        "emoji": "🌌",
+                        "text": "우주, 시간, 존재에 대한 철학적인 질문 — 왜 나는 지금 여기 있지?",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "낮에 있었던 억울하거나 부당한 일 — 그때 왜 그랬지, 다음엔 어떻게 할까",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "아무것도 아닌 감각들 — 오늘 바람 냄새, 잠깐 본 노을 같은 것들",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📊",
+                        "text": "앞으로의 계획이나 해야 할 일 — 머릿속에서 자동으로 정리가 됨",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "회사나 학교에서 팀 프로젝트를 하게 됐다. 자연스럽게 맡게 되는 역할은?",
+            "sub": "억지로 맡은 게 아니라 원래 그렇게 되는 것",
+            "choices": [
+                  {
+                        "emoji": "📐",
+                        "text": "자료 조사와 분석 — 근거 없이 진행되는 게 불안함",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🏃",
+                        "text": "실행과 추진 — 말만 많고 안 움직이는 게 제일 답답함",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🤝",
+                        "text": "분위기 조율과 갈등 중재 — 팀이 삐걱거리면 내가 먼저 나섬",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📣",
+                        "text": "방향 설정과 발표 — 큰 그림 그리고 사람들 설득하는 것",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "갑자기 1주일의 자유 시간이 생겼다. 계획 없이. 결국 어떻게 보내게 될까?",
+            "sub": "실제로 그렇게 될 것 같은 걸로 골라요",
+            "choices": [
+                  {
+                        "emoji": "📚",
+                        "text": "읽고 싶었던 책, 공부하고 싶었던 것 — 지식 욕구를 채우게 됨",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🧳",
+                        "text": "어딘가로 훌쩍 떠남 — 가만히 있는 게 오히려 힘듦",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌲",
+                        "text": "자연 속 어딘가 — 조용한 곳에서 아무것도 안 하는 게 최고",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👥",
+                        "text": "사람들 만남 — 오래 못 봤던 사람들 연락하고 약속 잡음",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "길을 가다가 두 사람이 싸우는 장면을 목격했다. 한 명이 명백히 불합리한 상황이야. 나는?",
+            "sub": "솔직하게",
+            "choices": [
+                  {
+                        "emoji": "🧠",
+                        "text": "상황을 빠르게 분석함 — 개입해야 할지 말지 먼저 판단",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🦺",
+                        "text": "일단 몸이 먼저 움직임 — 생각보다 행동이 빠름",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🌀",
+                        "text": "직감적으로 느껴짐 — 누가 잘못인지 설명 못 해도 알 수 있음",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "📢",
+                        "text": "주변 사람들을 모음 — 혼자보단 같이 움직이는 게 낫다고 판단",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "오래된 성이나 궁전을 배경으로 한 드라마를 보고 있다. 자꾸 눈이 가는 장면은?",
+            "sub": "의식하지 않아도 자꾸 보게 되는 것",
+            "choices": [
+                  {
+                        "emoji": "📖",
+                        "text": "왕의 책사나 학자가 서고에서 무언가를 연구하는 장면",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "전장 장면, 전사들이 훈련하거나 싸우는 장면",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "정원이나 숲속, 홀로 걷거나 명상하는 조용한 장면",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "왕이 신하들 앞에서 연설하거나 중요한 결정을 내리는 장면",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "지금 살면서 가장 이유 없이 이끌리는 것이 있다면?",
+            "sub": "왜 좋은지 설명이 잘 안 되는 것",
+            "choices": [
+                  {
+                        "emoji": "🔭",
+                        "text": "별자리, 연금술, 철학 — 고대 지식 체계에 대한 묘한 끌림",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🏹",
+                        "text": "활쏘기, 승마, 격투기 — 몸을 쓰는 전통적 기술들",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🍃",
+                        "text": "한약, 식물, 명상 — 자연에서 온 치유 방법들",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "웅변, 협상, 정치 — 사람들을 이끄는 것과 관련된 모든 것",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "친한 친구가 '너는 왜 이렇게 생각이 많아?'라고 했다. 속으로 드는 생각은?",
+            "sub": "솔직한 내 반응",
+            "choices": [
+                  {
+                        "emoji": "🤷",
+                        "text": "'생각 안 하는 게 더 이상한 거 아냐?' — 이게 기본이라고 생각함",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "💪",
+                        "text": "'생각보다 행동이지' — 나는 오히려 빨리 움직이는 편인데",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "'이게 나인데 어쩌라고' — 크게 신경 안 씀",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📈",
+                        "text": "'많이 생각해야 좋은 결과가 나오지' — 당연한 거라고 생각",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "마지막으로, 이 질문에 가장 먼저 끌리는 답을 골라요.",
+            "sub": "전생이 있다면 나는 어디서 뭘 하고 있었을까?",
+            "choices": [
+                  {
+                        "emoji": "🏯",
+                        "text": "어딘가의 서고나 탑 꼭대기에서 혼자 무언가를 연구하고 있었을 것",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🌄",
+                        "text": "전장이나 광야를 달리며 무언가를 지키고 있었을 것",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🏔️",
+                        "text": "산속 깊은 곳에서 자연과 함께 조용히 살고 있었을 것",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🏛️",
+                        "text": "수많은 사람들 앞에 서서 무언가를 이끌고 있었을 것",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "내가 가장 빛나는 순간은?",
+            "sub": "솔직하게",
+            "choices": [
+                  {
+                        "emoji": "💡",
+                        "text": "남들이 놓친 걸 정확히 짚어냈을 때",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🔥",
+                        "text": "불의한 상황에서 직접 나서서 바꿨을 때",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "복잡한 상황에서 모두가 편안해질 수 있게 만들었을 때",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "결정이 필요한 순간 방향을 제시하고 팀이 움직였을 때",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "현생에서 내가 반복하는 패턴은?",
+            "sub": "공감 가는 거 골라봐",
+            "choices": [
+                  {
+                        "emoji": "📊",
+                        "text": "일단 정보를 모으고 분석한 다음 판단함",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🗣️",
+                        "text": "느끼는 걸 그냥 말해버림 — 생각보다 입이 먼저",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🌊",
+                        "text": "주변 분위기를 먼저 읽고 거기에 맞게 움직임",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🏹",
+                        "text": "혼자서 방향 정하고 조용히 실행함",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "전생에 내 방식이 있다면?",
+            "sub": "느낌 오는 걸로",
+            "choices": [
+                  {
+                        "emoji": "🧙",
+                        "text": "조용히 분석하고 전략을 세우는 것",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "앞에 서서 직접 부딪히는 것",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌸",
+                        "text": "흐름을 읽고 균형을 맞추는 것",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "결정하고 책임지며 이끄는 것",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "나는 무언가를 결정할 때 어떻게 해?",
+            "sub": "솔직하게 떠오르는 대로",
+            "choices": [
+                  {
+                        "emoji": "💡",
+                        "text": "데이터와 근거를 모으고 분석한 다음에 결정함",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "⚡",
+                        "text": "느낌이 오면 그냥 바로 결정함 — 오래 생각하면 더 헷갈림",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "주변 사람들 의견도 들어보고 분위기 파악 후 결정함",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "혼자 생각 정리해서 결정함 — 남 의견보단 내 직관을 믿음",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "낯선 환경에 처음 놓였을 때 나는?",
+            "sub": "첫 반응이 어떤지 생각해봐",
+            "choices": [
+                  {
+                        "emoji": "🔍",
+                        "text": "먼저 조용히 관찰하고 파악함 — 파악이 되면 움직임",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🔥",
+                        "text": "일단 뛰어들어 부딪혀봄 — 몸으로 익히는 편",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🤝",
+                        "text": "주변 사람과 빠르게 연결함 — 사람이 있으면 적응이 됨",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🗺️",
+                        "text": "속으로 전체 구조를 파악하고 나만의 자리를 찾음",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "내가 가장 에너지를 얻는 순간은?",
+            "sub": "어떨 때 충전이 되는지",
+            "choices": [
+                  {
+                        "emoji": "📚",
+                        "text": "혼자 깊이 몰입해서 뭔가를 알아냈을 때",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🏆",
+                        "text": "목표를 향해 달려가서 직접 해냈을 때",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "☀️",
+                        "text": "주변 사람들과 함께 뭔가를 만들어냈을 때",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "조용히 혼자 있는 시간 — 아무것도 안 해도 됨",
+                        "type": "D"
+                  }
+            ]
+      }
+],
   en: [
-    {
-      q: "On a free weekend afternoon, what activity calls to you?",
-      sub: "Go with your gut feeling",
-      choices: [
-        { emoji: "📚", text: "Reading or studying alone", type: "A" },
-        { emoji: "⚔️", text: "Sports or intense physical activity", type: "B" },
-        { emoji: "🎨", text: "Drawing, painting, or creating", type: "C" },
-        { emoji: "👥", text: "Hanging out with friends", type: "D" },
-      ]
-    },
-    {
-      q: "Which place draws you in for no clear reason?",
-      sub: "The place you find most magnetic",
-      choices: [
-        { emoji: "🏰", text: "Grand castles or palaces", type: "A" },
-        { emoji: "🌊", text: "Open seas or harbors", type: "B" },
-        { emoji: "🌲", text: "Quiet forests or mountains", type: "C" },
-        { emoji: "🏙️", text: "Lively markets or cities", type: "D" },
-      ]
-    },
-    {
-      q: "How do you react in a crisis?",
-      sub: "Your most natural response",
-      choices: [
-        { emoji: "🧠", text: "Analyze calmly and find a solution", type: "A" },
-        { emoji: "💪", text: "Take the lead and tackle it head-on", type: "B" },
-        { emoji: "🙏", text: "Trust your intuition and act on instinct", type: "C" },
-        { emoji: "🤝", text: "Rally people together to solve it", type: "D" },
-      ]
-    },
-    {
-      q: "What appears most often in your dreams?",
-      sub: "Vivid dream imagery you recall",
-      choices: [
-        { emoji: "🌌", text: "Vast skies and stars", type: "A" },
-        { emoji: "🗡️", text: "Battlefields or fights", type: "B" },
-        { emoji: "🌺", text: "Beautiful gardens or nature", type: "C" },
-        { emoji: "🎭", text: "Performing in front of people", type: "D" },
-      ]
-    },
-    {
-      q: "What skill seems oddly natural to you?",
-      sub: "Something you're good at without much practice",
-      choices: [
-        { emoji: "🔮", text: "Reading people and deep insight", type: "A" },
-        { emoji: "🏇", text: "Riding horses or handling weapons", type: "B" },
-        { emoji: "🎵", text: "Music or artistic expression", type: "C" },
-        { emoji: "📣", text: "Persuading and leading people", type: "D" },
-      ]
-    },
-    {
-      q: "Which style of clothing feels most natural to you?",
-      sub: "What you'd love to wear",
-      choices: [
-        { emoji: "🧙", text: "Medieval flowing robes", type: "A" },
-        { emoji: "⚔️", text: "Armor or warrior's outfit", type: "B" },
-        { emoji: "👘", text: "Eastern traditional garments", type: "C" },
-        { emoji: "👑", text: "Lavish royal court attire", type: "D" },
-      ]
-    },
-    {
-      q: "What do you value most in life?",
-      sub: "Your core guiding principle",
-      choices: [
-        { emoji: "💡", text: "Knowledge and truth", type: "A" },
-        { emoji: "🛡️", text: "Honor and courage", type: "B" },
-        { emoji: "💞", text: "Freedom and love", type: "C" },
-        { emoji: "🌍", text: "Community and harmony", type: "D" },
-      ]
-    },
-    {
-      q: "What would you regret most?",
-      sub: "Your deepest inner fear",
-      choices: [
-        { emoji: "📖", text: "Missing out on learning", type: "A" },
-        { emoji: "🤺", text: "Backing down from injustice", type: "B" },
-        { emoji: "🌿", text: "Hiding your true self", type: "C" },
-        { emoji: "💔", text: "Losing the people you love", type: "D" },
-      ]
-    },
-    {
-      q: "How do you feel arriving in an unfamiliar place?",
-      sub: "Your immediate reaction to new environments",
-      choices: [
-        { emoji: "🔍", text: "Curious and eager to explore everything", type: "A" },
-        { emoji: "⚡", text: "Energized and excited", type: "B" },
-        { emoji: "✨", text: "A mysterious or spiritual feeling", type: "C" },
-        { emoji: "🌟", text: "Curious about the people here", type: "D" },
-      ]
-    },
-    {
-      q: "Finally, what's your gut feeling about your past life?",
-      sub: "Trust your intuition",
-      choices: [
-        { emoji: "🔮", text: "I was a powerful, mystical being", type: "A" },
-        { emoji: "⚔️", text: "My life was full of war and adventure", type: "B" },
-        { emoji: "🌸", text: "I lived quietly close to nature", type: "C" },
-        { emoji: "👑", text: "I was surrounded by many people", type: "D" },
-      ]
-    },
-  
-    {
-      q: "When do you shine brightest?",
-      sub: "The moment that feels most like you",
-      choices: [
-        { emoji: "📜", text: "When I spot what everyone else missed", type: "E" },
-        { emoji: "⚔️", text: "When I step up and change an unjust situation", type: "F" },
-        { emoji: "🏺", text: "When I help everyone find calm in the chaos", type: "G" },
-        { emoji: "👑", text: "When I set the direction and the team moves", type: "H" },
-      ]
-    },
-    {
-      q: "What pattern keeps repeating in your life?",
-      sub: "Be honest — you've noticed this",
-      choices: [
-        { emoji: "📜", text: "Gathering info and analyzing before I decide", type: "E" },
-        { emoji: "⚔️", text: "My gut speaks before my head — blurting it out", type: "F" },
-        { emoji: "🏺", text: "Reading the room first, then adjusting to it", type: "G" },
-        { emoji: "👑", text: "Setting direction quietly and executing alone", type: "H" },
-      ]
-    },
-    {
-      q: "If your past life had a signature style...",
-      sub: "The approach that feels most like you",
-      choices: [
-        { emoji: "📜", text: "Quietly strategizing and building the plan", type: "A" },
-        { emoji: "⚔️", text: "Standing at the front and charging in directly", type: "B" },
-        { emoji: "🏺", text: "Reading the current and finding balance", type: "C" },
-        { emoji: "👑", text: "Deciding, owning it, and leading forward", type: "D" },
-      ]
-    },
-    {
-      q: "When do you shine brightest?",
-      sub: "The moment that feels most like you",
-      choices: [
-        { emoji: "📜", text: "When I spot what everyone else missed", type: "E" },
-        { emoji: "⚔️", text: "When I step up and change an unjust situation", type: "F" },
-        { emoji: "🏺", text: "When I help everyone find calm in the chaos", type: "G" },
-        { emoji: "👑", text: "When I set the direction and the team moves", type: "H" },
-      ]
-    },
-    {
-      q: "What pattern keeps repeating in your life?",
-      sub: "Be honest — you've noticed this",
-      choices: [
-        { emoji: "📜", text: "Gathering info and analyzing before I decide", type: "E" },
-        { emoji: "⚔️", text: "My gut speaks before my head — blurting it out", type: "F" },
-        { emoji: "🏺", text: "Reading the room first, then adjusting to it", type: "G" },
-        { emoji: "👑", text: "Setting direction quietly and executing alone", type: "H" },
-      ]
-    },
-  
-    {
-      q: "If your past life had a signature style...",
-      sub: "The approach that feels most like you",
-      choices: [
-        { emoji: "📜", text: "Quietly strategizing and building the plan", type: "A" },
-        { emoji: "⚔️", text: "Standing at the front and charging in directly", type: "B" },
-        { emoji: "🏺", text: "Reading the current and finding balance", type: "C" },
-        { emoji: "👑", text: "Deciding, owning it, and leading forward", type: "D" },
-      ]
-    },
-    ]
+      {
+            "q": "On a free weekend afternoon, what activity calls to you?",
+            "sub": "Go with your gut feeling",
+            "choices": [
+                  {
+                        "emoji": "📚",
+                        "text": "Reading or studying alone",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "Sports or intense physical activity",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎨",
+                        "text": "Drawing, painting, or creating",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👥",
+                        "text": "Hanging out with friends",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Which place draws you in for no clear reason?",
+            "sub": "The place you find most magnetic",
+            "choices": [
+                  {
+                        "emoji": "🏰",
+                        "text": "Grand castles or palaces",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🌊",
+                        "text": "Open seas or harbors",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌲",
+                        "text": "Quiet forests or mountains",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🏙️",
+                        "text": "Lively markets or cities",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "How do you react in a crisis?",
+            "sub": "Your most natural response",
+            "choices": [
+                  {
+                        "emoji": "🧠",
+                        "text": "Analyze calmly and find a solution",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "💪",
+                        "text": "Take the lead and tackle it head-on",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🙏",
+                        "text": "Trust your intuition and act on instinct",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🤝",
+                        "text": "Rally people together to solve it",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What appears most often in your dreams?",
+            "sub": "Vivid dream imagery you recall",
+            "choices": [
+                  {
+                        "emoji": "🌌",
+                        "text": "Vast skies and stars",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🗡️",
+                        "text": "Battlefields or fights",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌺",
+                        "text": "Beautiful gardens or nature",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🎭",
+                        "text": "Performing in front of people",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What skill seems oddly natural to you?",
+            "sub": "Something you're good at without much practice",
+            "choices": [
+                  {
+                        "emoji": "🔮",
+                        "text": "Reading people and deep insight",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🏇",
+                        "text": "Riding horses or handling weapons",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🎵",
+                        "text": "Music or artistic expression",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "📣",
+                        "text": "Persuading and leading people",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Which style of clothing feels most natural to you?",
+            "sub": "What you'd love to wear",
+            "choices": [
+                  {
+                        "emoji": "🧙",
+                        "text": "Medieval flowing robes",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "Armor or warrior's outfit",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "👘",
+                        "text": "Eastern traditional garments",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "Lavish royal court attire",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What do you value most in life?",
+            "sub": "Your core guiding principle",
+            "choices": [
+                  {
+                        "emoji": "💡",
+                        "text": "Knowledge and truth",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🛡️",
+                        "text": "Honor and courage",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "💞",
+                        "text": "Freedom and love",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🌍",
+                        "text": "Community and harmony",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "What would you regret most?",
+            "sub": "Your deepest inner fear",
+            "choices": [
+                  {
+                        "emoji": "📖",
+                        "text": "Missing out on learning",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🤺",
+                        "text": "Backing down from injustice",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "Hiding your true self",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "💔",
+                        "text": "Losing the people you love",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "How do you feel arriving in an unfamiliar place?",
+            "sub": "Your immediate reaction to new environments",
+            "choices": [
+                  {
+                        "emoji": "🔍",
+                        "text": "Curious and eager to explore everything",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚡",
+                        "text": "Energized and excited",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "✨",
+                        "text": "A mysterious or spiritual feeling",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🌟",
+                        "text": "Curious about the people here",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "Finally, what's your gut feeling about your past life?",
+            "sub": "Trust your intuition",
+            "choices": [
+                  {
+                        "emoji": "🔮",
+                        "text": "I was a powerful, mystical being",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "My life was full of war and adventure",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🌸",
+                        "text": "I lived quietly close to nature",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "I was surrounded by many people",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When do you shine brightest?",
+            "sub": "The moment that feels most like you",
+            "choices": [
+                  {
+                        "emoji": "📜",
+                        "text": "When I spot what everyone else missed",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "When I step up and change an unjust situation",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🏺",
+                        "text": "When I help everyone find calm in the chaos",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "When I set the direction and the team moves",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "What pattern keeps repeating in your life?",
+            "sub": "Be honest — you've noticed this",
+            "choices": [
+                  {
+                        "emoji": "📜",
+                        "text": "Gathering info and analyzing before I decide",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "My gut speaks before my head — blurting it out",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🏺",
+                        "text": "Reading the room first, then adjusting to it",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "Setting direction quietly and executing alone",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "If your past life had a signature style...",
+            "sub": "The approach that feels most like you",
+            "choices": [
+                  {
+                        "emoji": "📜",
+                        "text": "Quietly strategizing and building the plan",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "⚔️",
+                        "text": "Standing at the front and charging in directly",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "🏺",
+                        "text": "Reading the current and finding balance",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "Deciding, owning it, and leading forward",
+                        "type": "D"
+                  }
+            ]
+      },
+      {
+            "q": "When you need to make a decision, how do you do it?",
+            "sub": "What naturally comes to mind",
+            "choices": [
+                  {
+                        "emoji": "💡",
+                        "text": "Gather data and analyze before deciding",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "⚡",
+                        "text": "Go with my gut — overthinking makes it worse",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🌿",
+                        "text": "Check in with people around me and read the room",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "👑",
+                        "text": "Think it through alone — I trust my own instincts most",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "When you're dropped into an unfamiliar environment, what do you do?",
+            "sub": "Think about your first instinct",
+            "choices": [
+                  {
+                        "emoji": "🔍",
+                        "text": "Quietly observe until I understand — then I move",
+                        "type": "E"
+                  },
+                  {
+                        "emoji": "🔥",
+                        "text": "Jump right in and figure it out by doing",
+                        "type": "F"
+                  },
+                  {
+                        "emoji": "🤝",
+                        "text": "Connect with people quickly — people help me adapt",
+                        "type": "G"
+                  },
+                  {
+                        "emoji": "🗺️",
+                        "text": "Map the whole structure internally and find my place",
+                        "type": "H"
+                  }
+            ]
+      },
+      {
+            "q": "When do you feel most energized?",
+            "sub": "What actually recharges you",
+            "choices": [
+                  {
+                        "emoji": "📚",
+                        "text": "When I've gone deep alone and figured something out",
+                        "type": "A"
+                  },
+                  {
+                        "emoji": "🏆",
+                        "text": "When I've pushed toward a goal and pulled it off",
+                        "type": "B"
+                  },
+                  {
+                        "emoji": "☀️",
+                        "text": "When I've built something together with others",
+                        "type": "C"
+                  },
+                  {
+                        "emoji": "🌙",
+                        "text": "Quiet time alone — no obligations, just stillness",
+                        "type": "D"
+                  }
+            ]
+      }
+]
 };
 
 // ========================================
@@ -896,70 +1446,70 @@ const results = {
       dontWantToHear: "\"왜 꼭 네가 나서야 해?\"",
       tags: ["#카리스마", "#사교력", "#리더십", "#현생최적화"]
     },
-      E: {
-        emoji: "⚡",
-        title: "지략 전사형",
-        subtitle: "머리도 좋고 행동력도 강한 — 생각하면서 싸우는 타입",
-        badge: "전략행동",
-        stats: [
-          { label: "전략력", val: 4 },
-          { label: "행동력", val: 4 },
-          { label: "공감력", val: 3 },
-          { label: "유연성", val: 3 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#8e44ad;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">⚡ 판단이 빠르고 실행도 빠른 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상황을 빠르게 분석하고 <b>행동으로 옮기는 속도</b>가 남다름</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">논리적이면서도 <b>실행에 주저함이 없는</b> 드문 조합</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표가 생기면 <b>전략과 실행을 동시에</b> 진행하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8e44ad0F"><span style="color:#8e44ad;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#8e44ad">속도와 정확성을 동시에 추구</span>해서 피로감이 쌓일 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주변이 자신의 속도를 못 따라오면 <b>답답함을 느끼는 편</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀이 위기일 때 <b>자연스럽게 지휘 역할</b>을 하게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과가 좋으면 과정의 힘듦은 금방 잊어버리는 <b>회복력</b>이 있음</span></div><div style="height:12px"></div><div style="background:#6c5ce70F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#6c5ce7;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">데이터와 직관을 동시에 쓰는 <b>균형 잡힌 분석가</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀의 방향이 흔들릴 때 <b>조용히 중심을 잡아주는</b> 역할</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">보고서 한 줄에도 <b>근거를 넣는</b> 꼼꼼함</span></div></div><div style="background:#6c5ce70F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#6c5ce7;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 고민을 들으면 <b>감정 공감 + 현실 조언</b>을 동시에 줌</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말수는 적지만 <b>필요한 말은 정확하게</b> 하는 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">신뢰가 쌓이면 <b>오래가는 깊은 관계</b>가 되는 타입</span></div></div>`,
-        wantToHear: "역시 네 판단이 맞았어",
-        dontWantToHear: "왜 이렇게 빨리 결정해?",
-        tags: ["#전략가", "#행동파", "#위기돌파", "#생각하면서실행"],
-      },
-      F: {
-        emoji: "👑",
-        title: "카리스마 전사형",
-        subtitle: "강인함과 리더십을 동시에 — 무게감이 있는 사람",
-        badge: "강인한 리더",
-        stats: [
-          { label: "리더십", val: 5 },
-          { label: "실행력", val: 4 },
-          { label: "섬세함", val: 2 },
-          { label: "공감력", val: 2 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#c0392b;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">👑 말보다 존재감으로 방을 장악하는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결정이 빠르고 <b>책임을 두려워하지 않는</b> 성격</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">불합리한 상황을 보면 참지 못하고 <b>행동으로 바로잡으려</b> 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">리더십이 타고난 것이라 <b>원하지 않아도 앞에 서게</b> 되는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#c0392b0F"><span style="color:#c0392b;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">강인해 보이는 만큼 섬세한 감정을 놓칠 수 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자신의 페이스로 끌고 가는 경향이 있어서 <b>마찰이 생기기도</b> 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 신뢰하면 <b>끝까지 지키는 의리</b>가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">함께하면 <b>든든한 방패</b>가 되어주는 존재</span></div><div style="height:12px"></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표 설정이 명확하고 <b>실행력이 강한</b> 실천파</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">위기 상황에서 <b>침착하게 대응</b>하는 능력 탁월</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">성과에 집착하는 편이라 <b>팀원과 갈등이 생길 수도</b> 있음</span></div></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 힘들 때 <b>말보다 행동으로</b> 나타나는 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 친구로 인정하면 <b>끝까지 지키는</b> 의리파</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">솔직한 편이라 <b>쓴 소리도 거침없이</b> 하지만 진심임</span></div></div>`,
-        wantToHear: "너 믿고 따라갈 수 있어",
-        dontWantToHear: "왜 이렇게 강하게 나와?",
-        tags: ["#카리스마", "#자연스러운리더", "#의리파", "#강인함"],
-      },
-      G: {
-        emoji: "🌿",
-        title: "통찰 도인형",
-        subtitle: "느리게 생각하고 깊게 보는 — 시대를 앞서가는 조용한 타입",
-        badge: "깊은 통찰",
-        stats: [
-          { label: "통찰력", val: 5 },
-          { label: "침착성", val: 4 },
-          { label: "행동력", val: 2 },
-          { label: "사교성", val: 2 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#16a085;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌿 말 한 마디에 깊이가 느껴지는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">표면적인 것보다 <b>본질과 맥락을 먼저 보는</b> 시각이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">침묵이 많지만 <b>말할 때는 핵심을 짚는</b> 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">유행보다 <b>자신만의 기준과 가치관</b>으로 판단하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16a0850F"><span style="color:#16a085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#16a085">행동보다 생각이 앞서서</span> 실행 타이밍을 놓치는 경우가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들이 처음엔 어렵게 느끼지만 <b>알고 나면 가장 신뢰하는</b> 유형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"왜 그런 거야?"라고 물으면 <b>남들이 생각 못 한 답</b>이 나오는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">오래 알수록 <b>더 특별해지는 타입</b></span></div><div style="height:12px"></div><div style="background:#00b8940F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#00b894;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">겉으로는 조용하지만 <b>혼자 다 파악하고 있는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정보다 <b>논리와 원칙</b>으로 움직이는 업무 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">장기 프로젝트에서 <b>끝까지 흔들리지 않는</b> 신뢰형</span></div></div><div style="background:#00b8940F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#00b894;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계를 가볍게 여기지 않아서 <b>깊게 사귀는 데 시간이 걸림</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 친해지면 <b>상대 페이스를 존중하는</b> 편안한 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용히 응원하는 타입 — <b>말 안 해도 챙기고 있음</b></span></div></div>`,
-        wantToHear: "네 말 들으면 항상 본질이 보여",
-        dontWantToHear: "왜 이렇게 느려?",
-        tags: ["#통찰력", "#조용한깊이", "#본질탐구", "#느리지만정확"],
-      },
-      H: {
-        emoji: "🌙",
-        title: "고요한 군주형",
-        subtitle: "말없이 존재감 — 함부로 범접하기 어려운 타입",
-        badge: "조용한 권위",
-        stats: [
-          { label: "카리스마", val: 4 },
-          { label: "독립심",  val: 5 },
-          { label: "공감력",  val: 2 },
-          { label: "사교성",  val: 2 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#d35400;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌙 말이 적은데 무게감이 느껴지는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 있는 것을 불편해하지 않음 — <b>자기 자신이 가장 편한 사람</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주변의 평가에 쉽게 흔들리지 않는 <b>단단한 내면</b>이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말은 적지만 한 마디 할 때 <b>방향을 바꾸는 무게</b>가 있음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#d354000F"><span style="color:#d35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#d35400">가까워지기 어렵다는 인상</span>을 주는 편 — 먼저 다가가는 연습이 필요</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자신의 기준이 높아서 <b>주변이 거기 맞춰야 하는 부담</b>을 줄 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 믿으면 <b>진심으로 대하는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">오래 알수록 <b>왜 이 사람과 함께하는지</b> 이해되는 타입</span></div><div style="height:12px"></div><div style="background:#fdcb6e0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#fdcb6e;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">카리스마와 친화력을 동시에 가진 <b>팀 분위기 메이커</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">설득력이 강해서 <b>협상이나 프레젠테이션</b>에서 빛남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정 기복이 업무에 영향을 줄 수 있어 <b>컨디션 관리</b>가 중요</span></div></div><div style="background:#fdcb6e0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#fdcb6e;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들이 많고 <b>모임에서 자연히 중심</b>이 되는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">분위기를 살리는 재능이 있어서 <b>같이 있으면 즐거운</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상처를 잘 드러내지 않아서 <b>혼자 삭이는</b> 경우가 많음</span></div></div>`,
-        wantToHear: "네가 있어서 우리가 든든해",
-        dontWantToHear: "왜 이렇게 혼자 있으려고 해?",
-        tags: ["#조용한카리스마", "#고요한존재감", "#독립적", "#무게감"],
-      },
+    E: {
+      emoji: "⚡",
+      title: "지략 전사형",
+      subtitle: "머리도 좋고 행동력도 강한 — 생각하면서 싸우는 타입",
+      badge: "전략행동",
+      stats: [
+        { label: "전략력", val: 4 },
+        { label: "행동력", val: 4 },
+        { label: "공감력", val: 3 },
+        { label: "유연성", val: 3 },
+      ],
+      desc: `<span style="font-size:19px;font-weight:900;color:#8e44ad;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">⚡ 판단이 빠르고 실행도 빠른 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상황을 빠르게 분석하고 <b>행동으로 옮기는 속도</b>가 남다름</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">논리적이면서도 <b>실행에 주저함이 없는</b> 드문 조합</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표가 생기면 <b>전략과 실행을 동시에</b> 진행하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8e44ad0F"><span style="color:#8e44ad;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#8e44ad">속도와 정확성을 동시에 추구</span>해서 피로감이 쌓일 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주변이 자신의 속도를 못 따라오면 <b>답답함을 느끼는 편</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀이 위기일 때 <b>자연스럽게 지휘 역할</b>을 하게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8e44ad;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과가 좋으면 과정의 힘듦은 금방 잊어버리는 <b>회복력</b>이 있음</span></div><div style="height:12px"></div><div style="background:#6c5ce70F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#6c5ce7;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">데이터와 직관을 동시에 쓰는 <b>균형 잡힌 분석가</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀의 방향이 흔들릴 때 <b>조용히 중심을 잡아주는</b> 역할</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">보고서 한 줄에도 <b>근거를 넣는</b> 꼼꼼함</span></div></div><div style="background:#6c5ce70F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#6c5ce7;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 고민을 들으면 <b>감정 공감 + 현실 조언</b>을 동시에 줌</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말수는 적지만 <b>필요한 말은 정확하게</b> 하는 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#6c5ce7;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">신뢰가 쌓이면 <b>오래가는 깊은 관계</b>가 되는 타입</span></div></div>`,
+      wantToHear: "역시 네 판단이 맞았어",
+      dontWantToHear: "왜 이렇게 빨리 결정해?",
+      tags: ["#전략가", "#행동파", "#위기돌파", "#생각하면서실행"],
+    },
+    F: {
+      emoji: "👑",
+      title: "카리스마 전사형",
+      subtitle: "강인함과 리더십을 동시에 — 무게감이 있는 사람",
+      badge: "강인한 리더",
+      stats: [
+        { label: "리더십", val: 5 },
+        { label: "실행력", val: 4 },
+        { label: "섬세함", val: 2 },
+        { label: "공감력", val: 2 },
+      ],
+      desc: `<span style="font-size:19px;font-weight:900;color:#c0392b;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">👑 말보다 존재감으로 방을 장악하는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결정이 빠르고 <b>책임을 두려워하지 않는</b> 성격</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">불합리한 상황을 보면 참지 못하고 <b>행동으로 바로잡으려</b> 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">리더십이 타고난 것이라 <b>원하지 않아도 앞에 서게</b> 되는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#c0392b0F"><span style="color:#c0392b;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">강인해 보이는 만큼 섬세한 감정을 놓칠 수 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자신의 페이스로 끌고 가는 경향이 있어서 <b>마찰이 생기기도</b> 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 신뢰하면 <b>끝까지 지키는 의리</b>가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#c0392b;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">함께하면 <b>든든한 방패</b>가 되어주는 존재</span></div><div style="height:12px"></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표 설정이 명확하고 <b>실행력이 강한</b> 실천파</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">위기 상황에서 <b>침착하게 대응</b>하는 능력 탁월</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">성과에 집착하는 편이라 <b>팀원과 갈등이 생길 수도</b> 있음</span></div></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 힘들 때 <b>말보다 행동으로</b> 나타나는 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 친구로 인정하면 <b>끝까지 지키는</b> 의리파</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">솔직한 편이라 <b>쓴 소리도 거침없이</b> 하지만 진심임</span></div></div>`,
+      wantToHear: "너 믿고 따라갈 수 있어",
+      dontWantToHear: "왜 이렇게 강하게 나와?",
+      tags: ["#카리스마", "#자연스러운리더", "#의리파", "#강인함"],
+    },
+    G: {
+      emoji: "🌿",
+      title: "통찰 도인형",
+      subtitle: "느리게 생각하고 깊게 보는 — 시대를 앞서가는 조용한 타입",
+      badge: "깊은 통찰",
+      stats: [
+        { label: "통찰력", val: 5 },
+        { label: "침착성", val: 4 },
+        { label: "행동력", val: 2 },
+        { label: "사교성", val: 2 },
+      ],
+      desc: `<span style="font-size:19px;font-weight:900;color:#16a085;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌿 말 한 마디에 깊이가 느껴지는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">표면적인 것보다 <b>본질과 맥락을 먼저 보는</b> 시각이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">침묵이 많지만 <b>말할 때는 핵심을 짚는</b> 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">유행보다 <b>자신만의 기준과 가치관</b>으로 판단하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16a0850F"><span style="color:#16a085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#16a085">행동보다 생각이 앞서서</span> 실행 타이밍을 놓치는 경우가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들이 처음엔 어렵게 느끼지만 <b>알고 나면 가장 신뢰하는</b> 유형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"왜 그런 거야?"라고 물으면 <b>남들이 생각 못 한 답</b>이 나오는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16a085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">오래 알수록 <b>더 특별해지는 타입</b></span></div><div style="height:12px"></div><div style="background:#00b8940F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#00b894;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">겉으로는 조용하지만 <b>혼자 다 파악하고 있는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정보다 <b>논리와 원칙</b>으로 움직이는 업무 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">장기 프로젝트에서 <b>끝까지 흔들리지 않는</b> 신뢰형</span></div></div><div style="background:#00b8940F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#00b894;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계를 가볍게 여기지 않아서 <b>깊게 사귀는 데 시간이 걸림</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 친해지면 <b>상대 페이스를 존중하는</b> 편안한 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#00b894;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용히 응원하는 타입 — <b>말 안 해도 챙기고 있음</b></span></div></div>`,
+      wantToHear: "네 말 들으면 항상 본질이 보여",
+      dontWantToHear: "왜 이렇게 느려?",
+      tags: ["#통찰력", "#조용한깊이", "#본질탐구", "#느리지만정확"],
+    },
+    H: {
+      emoji: "🌙",
+      title: "고요한 군주형",
+      subtitle: "말없이 존재감 — 함부로 범접하기 어려운 타입",
+      badge: "조용한 권위",
+      stats: [
+        { label: "카리스마", val: 4 },
+        { label: "독립심",  val: 5 },
+        { label: "공감력",  val: 2 },
+        { label: "사교성",  val: 2 },
+      ],
+      desc: `<span style="font-size:19px;font-weight:900;color:#d35400;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌙 말이 적은데 무게감이 느껴지는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 있는 것을 불편해하지 않음 — <b>자기 자신이 가장 편한 사람</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주변의 평가에 쉽게 흔들리지 않는 <b>단단한 내면</b>이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말은 적지만 한 마디 할 때 <b>방향을 바꾸는 무게</b>가 있음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#d354000F"><span style="color:#d35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#d35400">가까워지기 어렵다는 인상</span>을 주는 편 — 먼저 다가가는 연습이 필요</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자신의 기준이 높아서 <b>주변이 거기 맞춰야 하는 부담</b>을 줄 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 믿으면 <b>진심으로 대하는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#d35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">오래 알수록 <b>왜 이 사람과 함께하는지</b> 이해되는 타입</span></div><div style="height:12px"></div><div style="background:#fdcb6e0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#fdcb6e;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">카리스마와 친화력을 동시에 가진 <b>팀 분위기 메이커</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">설득력이 강해서 <b>협상이나 프레젠테이션</b>에서 빛남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정 기복이 업무에 영향을 줄 수 있어 <b>컨디션 관리</b>가 중요</span></div></div><div style="background:#fdcb6e0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#fdcb6e;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들이 많고 <b>모임에서 자연히 중심</b>이 되는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">분위기를 살리는 재능이 있어서 <b>같이 있으면 즐거운</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#fdcb6e;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상처를 잘 드러내지 않아서 <b>혼자 삭이는</b> 경우가 많음</span></div></div>`,
+      wantToHear: "네가 있어서 우리가 든든해",
+      dontWantToHear: "왜 이렇게 혼자 있으려고 해?",
+      tags: ["#조용한카리스마", "#고요한존재감", "#독립적", "#무게감"],
+    },
   },
   en: {
     A: {
@@ -1137,12 +1687,17 @@ function showResult() {
   // 스탯 렌더링 (달 아이콘)
   const statsBox = document.getElementById('resultStats');
   if (statsBox && result.stats) {
-    statsBox.innerHTML = result.stats.map(s =>
-      `<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-        <span style="font-size:17px;font-weight:800;color:#888;width:72px;">${s.label}</span>
-        <span style="letter-spacing:2px;font-size:20px;">${'🌙'.repeat(s.val)}${'<span style="opacity:.25">🌙</span>'.repeat(5-s.val)}</span>
-       </div>`
-    ).join('');
+    statsBox.innerHTML = result.stats.map(s => {
+      const v = s.val > 5 ? Math.round(s.val / 20) : s.val;
+      const pct = Math.round(v / 5 * 100);
+      return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <span style="font-size:13px;font-weight:800;color:#888;min-width:68px;">${s.label}</span>
+        <div style="flex:1;background:#ede7f6;border-radius:20px;height:10px;overflow:hidden;">
+          <div style="width:${pct}%;background:linear-gradient(90deg,#9c27b0,#e91e8c);height:100%;border-radius:20px;transition:width .6s ease;"></div>
+        </div>
+        <span style="font-size:12px;font-weight:700;color:#9c27b0;min-width:28px;text-align:right">${pct}%</span>
+      </div>`;
+    }).join('');
   }
 
   // 듣고싶은말
@@ -1259,13 +1814,13 @@ function downloadResult() {
 
 // 8타입: 상위 2점 조합으로 결정
 function resolveType(scores) {
-  const base = ['A','B','C','D'];
-  const sorted = base.sort((a,b) => scores[b]-scores[a]);
-  const t1 = sorted[0], t2 = sorted[1];
-  if ((scores[t1] - scores[t2]) >= 3) return t1;
-  const pair = [t1,t2].sort().join('');
-  const map = { 'AB':'E','AC':'A','AD':'H','BC':'F','BD':'B','CD':'G' };
-  return map[pair] || t1;
+  const sorted = Object.keys(scores).sort((a,b) => scores[b]-scores[a]);
+  const top1 = sorted[0], top2 = sorted[1];
+  const gap = scores[top1] - scores[top2];
+  if (gap >= 2) return top1;
+  const combo = [top1, top2].sort().join('');
+  const comboMap = {'AB':'E', 'AC':'A', 'AD':'H', 'AE':'E', 'AF':'A', 'AG':'G', 'AH':'H', 'BC':'F', 'BD':'B', 'BE':'E', 'BF':'F', 'BG':'B', 'BH':'H', 'CD':'G', 'CE':'G', 'CF':'F', 'CG':'G', 'CH':'G', 'DE':'H', 'DF':'H', 'DG':'G', 'DH':'H', 'EF':'E', 'EG':'G', 'EH':'H', 'FG':'F', 'FH':'F', 'GH':'H'};
+  return comboMap[combo] || top1;
 }
 
 function shareKakao() {
