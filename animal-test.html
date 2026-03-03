@@ -321,6 +321,16 @@
     .container { padding-top: 32px; padding-bottom: 80px; }
     .choices { gap: 10px; }
   }
+
+  .ci-desc {
+    font-size: clamp(10px, 2.6vw, 12px);
+    color: #999;
+    font-weight: 500;
+    margin-top: 3px;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+    word-break: keep-all;
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -382,6 +392,22 @@
     </div>
 
     <div class="compat-card">
+      <h3 id="compatTitle">💞 잘 맞는 동물</h3>
+      <div class="compat-row">
+        <div class="compat-item compat-good">
+          <span class="ci-emoji" id="compatGoodEmoji">✨</span>
+          <div class="ci-label" id="compatGoodLabel">찰떡 궁합</div>
+          <div class="ci-name"  id="compatGoodName">—</div>
+          <div class="ci-desc"  id="compatGoodDesc">—</div>
+        </div>
+        <div class="compat-item compat-bad">
+          <span class="ci-emoji" id="compatBadEmoji">⚡</span>
+          <div class="ci-label" id="compatBadLabel">조심하세요</div>
+          <div class="ci-name"  id="compatBadName">—</div>
+          <div class="ci-desc"  id="compatBadDesc">—</div>
+        </div>
+      </div>
+    </div><div class="compat-card">
       <h3 id="compatTitle">💞 잘 맞는 동물</h3>
       <div class="compat-row">
         <div class="compat-item compat-good">
@@ -931,131 +957,303 @@ const data = {
       }
 ],
     results:{
-      A:{emoji:"🦁",name:"사자",tagline:"날카로운 사자",badge:"강력한 리더",
-        stats:[{label:"자기애",val:82},{label:"참을성",val:21},{label:"행동력",val:86}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#e17055;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦁 나를 따르든지, 아니면 떠나든지</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">자기애가 강하고, 효율을 추구하며, 행동력이 엄청남</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표 정하면 <b>직진</b> — 과정의 감성보다 <b>결과의 퀄리티</b>가 중요함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정 표현이 <b>직설적</b> — 돌려 말하는 것을 잘 못하고, 잘 안 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자신에 대한 기준이 높아서 <b>스스로한테도 엄격한 편</b></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#e170550F"><span style="color:#e17055;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#e17055">공감보다 해결책을 먼저 제시</span>하는 편이라 오해받기도 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">내 계획에 이유 없이 끼어들면 <b>본능적으로 저항감</b>이 생김</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#e170550F"><span style="color:#e17055;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬에는 어색하게 반응하고, 비판에는 <span style="color:#e17055"><b>날카롭게 반응</b></span>할 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">리더 자리를 <b>원하지 않아도 자꾸 그 자리에 서게</b> 되는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">가장 무서운 사람인 줄 알았는데 알고 보니 <b>의리가 제일 강한 사람</b>이라는 것</span></div><div style="height:12px"></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">프로젝트를 맡으면 <b>끝을 책임지는 타입</b> — 마무리가 깔끔함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬보다 <b>구체적인 피드백</b>이 더 동기부여가 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">직급 상관없이 <b>논리적으로 맞으면 말하는</b> 스타일</span></div></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들이 어려운 일 생기면 <b>제일 먼저 떠올리는 이름</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">빈말 안 함 — 칭찬이면 <b>진심 칭찬</b>이고 충고이면 <b>진심 충고</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">겉으로는 강해 보이지만 <b>믿는 사람에게는 의외로 약한 면</b>을 보임</span></div></div>`,
-        wantToHear:"\"역시 너한테 맡기길 잘했어\"",
-        dontWantToHear:"\"왜 그렇게 독단적으로 결정해?\"",
-        compat:{goodEmoji:"🐬",goodName:"돌고래",badEmoji:"🦉",badName:"부엉이형"},
-        tags:["#직진본능","#자기확신","#결과주의","#추진력끝판왕"]},
-      B:{emoji:"🐬",name:"돌고래",tagline:"밝고 유연한 돌고래",badge:"밝은 에너지",
-        stats:[{label:"잠생각",val:14},{label:"호불호",val:43},{label:"계획성",val:25}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#48CAE4;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐬 어딜 가든 그 공간이 살아나는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">리액션에 영혼이 있고, 분위기 메이커 그 자체</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">리액션이 <b>진짜임</b> — 재미없으면 재미없다는 게 <b>표정에 바로 나옴</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">극강의 효율보다 <b>극강의 분위기</b>를 추구하는 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사회성을 학습한 게 아니라 <b>원래 사람이 좋은 것</b> — 에너지가 사람에서 나옴</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#48CAE40F"><span style="color:#48CAE4;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#48CAE4">잠생각이 없음</span> — 자려고 누우면 그냥 잠듦. 복잡하게 생각 안 함</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#48CAE40F"><span style="color:#48CAE4;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">가끔 <span style="color:#e67e22">눈치 없이 솔직해지는 순간</span>이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">손해 보는 관계는 <b>자연스럽게 정리</b>됨</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">빈말 잘 안 함 — 칭찬하면 <b>진심</b>이고, 좋다고 하면 <b>진짜 좋은 거임</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">내 사람이다 싶으면 잔소리도 하고 <b>챙기고 뭐든 다 해줌</b></span></div><div style="height:12px"></div><div style="background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사무실 분위기가 가라앉아 있으면 <b>자동으로 띄워주는 역할</b>을 하게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">협업 능력이 뛰어나서 <b>팀 전체 성과를 높여주는</b> 존재로 인식됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">재미없는 업무도 <b>본인만의 방식으로 즐기는 법</b>을 찾는 편</span></div></div><div style="background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 많은 것 같지만 <b>진짜 속 얘기 하는 친구</b>는 생각보다 적음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">모임에서 분위기를 살리다 보니 <b>정작 본인 힘든 얘기</b>는 못할 때가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 갑자기 연락 끊으면 <b>은근히 많이 신경 쓰이는</b> 타입</span></div></div>`,
-        wantToHear:"\"네가 있으니까 자리가 살아\"",
-        dontWantToHear:"\"왜 이렇게 가볍게 생각해?\"",
-        compat:{goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이형"},
-        tags:["#리액션장인","#분위기메이커","#공감능력","#긍정에너지"]},
-      C:{emoji:"🦊",name:"여우",tagline:"신비롭고 날카로운 여우",badge:"영리한 전략가",
-        stats:[{label:"잠생각",val:80},{label:"호불호",val:83},{label:"계획성",val:69}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#8B6F47;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦊 겉으로는 조용한데, 속으로는 다 보고 있음</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">한 번 믿기로 한 사람한테는 끝까지 충성</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">처음 만난 사람에게 <b>쉽게 열리지 않음</b> — 파악이 끝나면 그때부터 조금씩 열림</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">거짓된 관계나 빈말이 정말 피곤함 — <b>속 없는 친절보다 솔직한 불편함</b>이 나음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 있는 시간이 충전에 꼭 필요함 — <b>이게 외로운 게 아니라 그냥 내 방식</b></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8B6F470F"><span style="color:#8B6F47;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">계획 틀어지는 걸 극도로 싫어함</span> — 변수가 생기면 스트레스를 꽤 받음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8B6F470F"><span style="color:#8B6F47;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">애매한 관계, 애매한 약속, 애매한 대답</span>이 제일 힘듦</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들이 '쟤 차갑다'고 했다가 <b>'쟤 진짜 충성이다'</b>로 반응이 바뀌는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">알면 알수록 <b>의외의 따뜻함</b>이 있음 — 근데 쉽게 보여주지 않는 것뿐</span></div><div style="height:12px"></div><div style="background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상황 파악이 빠르고 <b>흐름을 먼저 읽는</b> 능력이 뛰어남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말은 적게 하지만 <b>핵심을 정확히 짚는</b> 발언으로 존재감을 드러냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">믿을 수 있는 사람에게만 <b>진짜 실력을 보여주는</b> 타입</span></div></div><div style="background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 관계를 <b>정성들여 관리하는</b> 스타일 — 얕은 관계보다 깊은 관계 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구의 감정 변화를 <b>말 안 해도 감지하는</b> 능력이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 나쁜 인상이 생기면 <b>좀처럼 바뀌지 않음</b> — 첫인상이 중요한 타입</span></div></div>`,
-        wantToHear:"\"역시 네가 다 보고 있었구나\"",
-        dontWantToHear:"\"왜 그렇게 예민하게 굴어?\"",
-        compat:{goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래형"},
-        tags:["#조용한관찰자","#충성하면끝","#본질파악","#호불호확실"]},
-      D:{emoji:"🦉",name:"부엉이",tagline:"지혜롭고 깊이 있는 부엉이",badge:"지혜로운 탐구자",
-        stats:[{label:"잠생각",val:84},{label:"호불호",val:67},{label:"계획성",val:79}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#576574;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦉 아는 게 많은데 티를 잘 안 냄</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">말 한 마디에 무게감이 있는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관심 분야는 <b>끝까지 파고드는 전문가 기질</b> — 취미가 자격증이 되거나 부업이 되는 경우</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">빈말 잘 안 함 — 말수가 적은 게 아니라 <b>의미 없는 말을 굳이 하지 않는 것</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">즉흥보다는 <b>계획</b>, 속도보다는 <b>완성도</b> — 대충 하는 게 오히려 더 힘듦</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#5765740F"><span style="color:#576574;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#576574">잠들기 전 잡생각이 많고</span>, 생각의 꼬리가 길게 이어지는 편</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">시간 낭비나 비효율적인 반복에 <b>본능적으로 저항감</b>이 생김</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">처음엔 어렵게 느껴지지만, 알고 나면 <b>가장 신뢰할 수 있는 사람</b>이라는 걸 앎</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">'아는 척 안 하는데 알고 보니 <b>제일 많이 아는 사람</b>'으로 인식되는 경우 많음</span></div><div style="height:12px"></div><div style="background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"전에도 이런 적 있었는데" 패턴을 기억해서 <b>같은 실수 반복 방지</b>에 탁월</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 조용히 공부해서 <b>어느새 팀에서 제일 많이 아는 사람</b>이 되어 있는 경우</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">회의에서 말은 없지만 <b>나중에 정리된 요약본</b>이 가장 정확한 사람</span></div></div><div style="background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 고민을 들으면 <b>즉각 공감보다 해결책을 먼저 제시</b>하는 편</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아는 게 많아서 <b>정보력이 필요할 때 제일 먼저 연락하는 친구</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말수는 적지만 <b>오래된 친구들에게 가장 믿음직한 존재</b>로 여겨짐</span></div></div>`,
-        wantToHear:"\"네가 제일 잘 알 것 같아서\"",
-        dontWantToHear:"\"그냥 대충 해도 되잖아\"",
-        compat:{goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자형"},
-        tags:["#말에무게감","#전문가기질","#완성도우선","#알면알수록"]},
-      E: {
-        emoji: "🦅",
-        name: "독수리",
-        tagline: "하늘을 지배하는 독수리",
-        badge: "강렬한 에너지",
-        stats: [{label:'추진력',val:90},{label:'사교성',val:75},{label:'분석력',val:60}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#E67E22;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦅 나타나면 공기가 바뀌는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">에너지가 넘치는데, 그걸 목표로 집중시킬 줄 아는 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">분위기를 바꾸고 싶으면 <b>직접 나서는 게 가장 빠름</b>을 알고 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">어떤 상황에서도 <b>에너지를 잃지 않는 것</b>이 가장 큰 무기</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표가 생기면 <b>열정과 전략을 동시에 동원</b>하는 스타일</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E67E220F"><span style="color:#E67E22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">너무 많은 것을 동시에 하려다가 <b>번아웃이 오기도 함</b></span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E67E220F"><span style="color:#E67E22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">자기 에너지를 상대도 당연히 따라올 거라 기대하는 순간 <b>관계에서 피로감이 생길 수 있음</b></span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">어딜 가든 <b>존재 자체가 기억에 남는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용한 상황도 자연스럽게 <b>활기차게 만드는 능력</b>이 있음</span></div><div style="height:12px"></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">압도적인 존재감으로 <b>자연스럽게 팀을 이끄는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">비전 제시가 명확해서 <b>팀원들이 방향을 잃지 않게 해줌</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과에 집착하는 편이라 <b>과정에서 마찰</b>이 생길 수 있음</span></div></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들의 <b>자연스러운 리더</b> — 어디 갈지 뭐 할지 결정해주는 존재</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 챙기기로 한 친구는 <b>끝까지 챙기는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">본인도 챙김을 받고 싶지만 <b>약한 모습 보이기 싫어서</b> 못 표현함</span></div></div>`,
-        wantToHear: "네가 나서니까 달라지더라",
-        dontWantToHear: "좀 진정하고 생각해봐",
-        compat: {goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이"},
-        tags: ['#행동파', '#에너지충전', '#카리스마', '#눈빛이달라'],
-      },
-      F: {
-        emoji: "🐆",
-        name: "표범",
-        tagline: "조용하지만 가장 날카로운 표범",
-        badge: "전략적 리더",
-        stats: [{label:'전략력',val:88},{label:'독립심',val:82},{label:'카리스마',val:70}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#8E44AD;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐆 말 없이 제일 많이 준비하는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">눈에 띄지 않지만, 결정적인 순간에 가장 정확함</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">겉으로는 조용한데 <b>속으로는 이미 다음 수를 계산 중</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">움직이기 전에 <b>충분히 파악하는 것</b>이 기본 방식 — 즉흥은 별로 안 좋아함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 결심하면 <b>흔들리지 않고 끝까지 가는</b> 집중력</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8E44AD0F"><span style="color:#8E44AD;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">너무 혼자 처리하려는 경향이 있어 <b>주변에서 답답함을 느낄 수</b> 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8E44AD0F"><span style="color:#8E44AD;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">속을 잘 안 보여줘서 <b>처음에 차갑다는 인상</b>을 주기도 함</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">알고 나면 <b>가장 믿음직한 사람</b>으로 남는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">전략적으로 생각하는 능력이 <b>실생활에서 진가</b>를 발휘함</span></div><div style="height:12px"></div><div style="background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">에너지가 넘쳐서 <b>여러 프로젝트를 동시에</b> 진행하는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀 분위기를 살리는 능력이 있어서 <b>협업 프로젝트에서 특히 빛남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">집중력이 단기적으로 폭발하는 편 — <b>장기 루틴보다 스프린트</b>에 강함</span></div></div><div style="background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 많고 <b>어디서든 새 친구</b>를 만들어오는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">즐거운 자리를 잘 만들어서 <b>모임 기획자</b> 역할을 자주 맡음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계의 깊이보다 <b>넓이가 먼저</b>인 편 — 진한 친구는 소수</span></div></div>`,
-        wantToHear: "역시 네 판단이 맞았어",
-        dontWantToHear: "왜 이렇게 비밀이 많아?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#전략가', '#독립적', '#한방주의', '#과소평가금지'],
-      },
-      G: {
-        emoji: "🐧",
-        name: "펭귄",
-        tagline: "따뜻하고 깊이 있는 펭귄",
-        badge: "공감 전문가",
-        stats: [{label:'공감력',val:88},{label:'사교성',val:78},{label:'지혜',val:80}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#27AE60;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐧 어디서든 자연스럽게 중심이 되는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">사람을 편하게 해주는 능력과 깊이 있는 통찰이 같이 있음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">처음 만난 사람도 <b>자연스럽게 편하게 만드는 재주</b>가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말이 많은 게 아니라 <b>말할 때마다 핵심이 있는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들을 관찰하고 파악하는 게 <b>자연스럽게 생활화</b>되어 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#27AE600F"><span style="color:#27AE60;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">모두를 챙기다 보니 <b>정작 본인 감정은 뒷전</b>이 될 수 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#27AE600F"><span style="color:#27AE60;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">너무 배려적이어서 <b>자기 주장을 못 할 때</b>가 있음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주변 사람들이 <b>자연스럽게 이야기를 꺼내게 되는</b> 분위기를 만들어냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">깊은 이야기가 가능한 친구 — <b>진짜 위로가 필요할 때 떠오르는 이름</b></span></div><div style="height:12px"></div><div style="background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용히 앉아서 <b>혼자 다 파악해놓는</b> 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">정보 수집과 분석에 강해서 <b>전략 기획에서 빛남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 의견을 말하는 데 <b>에너지가 많이 드는</b> 편 — 표현 연습 필요</span></div></div><div style="background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 수는 적지만 <b>한 명 한 명 진지하게</b> 대하는 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상대방의 이야기를 <b>오래 기억하는</b> 능력이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">속을 잘 안 보여서 <b>처음엔 가까워지기 어려운</b> 느낌을 줄 수 있음</span></div></div>`,
-        wantToHear: "너랑 얘기하면 왜 이렇게 편해?",
-        dontWantToHear: "왜 그렇게 깊게 생각해?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자"},
-        tags: ['#따뜻한카리스마', '#말이되는말만함', '#분위기메이커', '#사실은현인'],
-      },
-      H: {
-        emoji: "🐱",
-        name: "고양이",
-        tagline: "독립적이고 감각 있는 고양이",
-        badge: "고독한 관찰자",
-        stats: [{label:'독립심',val:90},{label:'관찰력',val:85},{label:'감각',val:78}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#2C3E50;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐱 혼자 있는 것도 충전이고, 함께 있는 것도 선택인 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">누구에게도 의존하지 않으면서, 필요할 때는 누구보다 날카롭게 봄</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기만의 기준과 공간이 있어야 <b>제대로 살아가는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계를 넓히기보다 <b>깊이 있는 소수와 오래 가는</b> 것을 선호함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">남들이 놓치는 디테일을 <b>조용히 파악하고 있는</b> 관찰자</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2C3E500F"><span style="color:#2C3E50;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">혼자 있고 싶은 욕구가 강해서 <b>가끔 사람들이 멀어졌다고 느낄 수</b> 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2C3E500F"><span style="color:#2C3E50;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">감정 표현이 적어서 <b>상대가 내 마음을 모를 때</b>가 많음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 페이스를 잃지 않는 것이 <b>오히려 주변을 안정시키는</b> 효과가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">깊이 있는 관찰력이 <b>의외의 상황에서 빛을 발하는</b> 경우가 많음</span></div><div style="height:12px"></div><div style="background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">꼼꼼하고 신중해서 <b>실수 없이 마무리하는</b> 안정형 동료</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 하는 작업에서 <b>최고의 집중력</b>을 발휘함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">변화나 갑작스러운 방향 전환에 <b>적응이 느린</b> 편</span></div></div><div style="background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 사귄 친구를 <b>오래오래 유지하는</b> 장기형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">약속을 절대 안 어기고 <b>늘 제때 나타나는</b> 신뢰형 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">변화를 싫어해서 <b>친구 관계도 안정적인 패턴</b>을 선호함</span></div></div>`,
-        wantToHear: "네가 있어도 없어도 그냥 네 페이스대로 해",
-        dontWantToHear: "왜 이렇게 혼자야?",
-        compat: {goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#내방식대로', '#혼자도괜찮아', '#사실다보고있음', '#감각쟁이'],
-      },
-      E: {
-        emoji: "🦅",
-        name: "독수리",
-        tagline: "하늘을 지배하는 독수리",
-        badge: "강렬한 에너지",
-        stats: [{label:'추진력',val:90},{label:'사교성',val:75},{label:'분석력',val:60}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#E67E22;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦅 나타나면 공기가 바뀌는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">에너지가 넘치는데, 그걸 목표로 집중시킬 줄 아는 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">분위기를 바꾸고 싶으면 <b>직접 나서는 게 가장 빠름</b>을 알고 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">어떤 상황에서도 <b>에너지를 잃지 않는 것</b>이 가장 큰 무기</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">목표가 생기면 <b>열정과 전략을 동시에 동원</b>하는 스타일</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E67E220F"><span style="color:#E67E22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">너무 많은 것을 동시에 하려다가 <b>번아웃이 오기도 함</b></span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E67E220F"><span style="color:#E67E22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">자기 에너지를 상대도 당연히 따라올 거라 기대하는 순간 <b>관계에서 피로감이 생길 수 있음</b></span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">어딜 가든 <b>존재 자체가 기억에 남는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용한 상황도 자연스럽게 <b>활기차게 만드는 능력</b>이 있음</span></div><div style="height:12px"></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">압도적인 존재감으로 <b>자연스럽게 팀을 이끄는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">비전 제시가 명확해서 <b>팀원들이 방향을 잃지 않게 해줌</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과에 집착하는 편이라 <b>과정에서 마찰</b>이 생길 수 있음</span></div></div><div style="background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들의 <b>자연스러운 리더</b> — 어디 갈지 뭐 할지 결정해주는 존재</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 챙기기로 한 친구는 <b>끝까지 챙기는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">본인도 챙김을 받고 싶지만 <b>약한 모습 보이기 싫어서</b> 못 표현함</span></div></div>`,
-        wantToHear: "네가 나서니까 달라지더라",
-        dontWantToHear: "좀 진정하고 생각해봐",
-        compat: {goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이"},
-        tags: ['#행동파', '#에너지충전', '#카리스마', '#눈빛이달라'],
-      },
-      F: {
-        emoji: "🐆",
-        name: "표범",
-        tagline: "조용하지만 가장 날카로운 표범",
-        badge: "전략적 리더",
-        stats: [{label:'전략력',val:88},{label:'독립심',val:82},{label:'카리스마',val:70}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#8E44AD;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐆 말 없이 제일 많이 준비하는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">눈에 띄지 않지만, 결정적인 순간에 가장 정확함</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">겉으로는 조용한데 <b>속으로는 이미 다음 수를 계산 중</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">움직이기 전에 <b>충분히 파악하는 것</b>이 기본 방식 — 즉흥은 별로 안 좋아함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한 번 결심하면 <b>흔들리지 않고 끝까지 가는</b> 집중력</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8E44AD0F"><span style="color:#8E44AD;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">너무 혼자 처리하려는 경향이 있어 <b>주변에서 답답함을 느낄 수</b> 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8E44AD0F"><span style="color:#8E44AD;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">속을 잘 안 보여줘서 <b>처음에 차갑다는 인상</b>을 주기도 함</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">알고 나면 <b>가장 믿음직한 사람</b>으로 남는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">전략적으로 생각하는 능력이 <b>실생활에서 진가</b>를 발휘함</span></div><div style="height:12px"></div><div style="background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">에너지가 넘쳐서 <b>여러 프로젝트를 동시에</b> 진행하는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀 분위기를 살리는 능력이 있어서 <b>협업 프로젝트에서 특히 빛남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">집중력이 단기적으로 폭발하는 편 — <b>장기 루틴보다 스프린트</b>에 강함</span></div></div><div style="background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 많고 <b>어디서든 새 친구</b>를 만들어오는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">즐거운 자리를 잘 만들어서 <b>모임 기획자</b> 역할을 자주 맡음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계의 깊이보다 <b>넓이가 먼저</b>인 편 — 진한 친구는 소수</span></div></div>`,
-        wantToHear: "역시 네 판단이 맞았어",
-        dontWantToHear: "왜 이렇게 비밀이 많아?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#전략가', '#독립적', '#한방주의', '#과소평가금지'],
-      },
-      G: {
-        emoji: "🐧",
-        name: "펭귄",
-        tagline: "따뜻하고 깊이 있는 펭귄",
-        badge: "공감 전문가",
-        stats: [{label:'공감력',val:88},{label:'사교성',val:78},{label:'지혜',val:80}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#27AE60;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐧 어디서든 자연스럽게 중심이 되는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">사람을 편하게 해주는 능력과 깊이 있는 통찰이 같이 있음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">처음 만난 사람도 <b>자연스럽게 편하게 만드는 재주</b>가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말이 많은 게 아니라 <b>말할 때마다 핵심이 있는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들을 관찰하고 파악하는 게 <b>자연스럽게 생활화</b>되어 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#27AE600F"><span style="color:#27AE60;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">모두를 챙기다 보니 <b>정작 본인 감정은 뒷전</b>이 될 수 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#27AE600F"><span style="color:#27AE60;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">너무 배려적이어서 <b>자기 주장을 못 할 때</b>가 있음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주변 사람들이 <b>자연스럽게 이야기를 꺼내게 되는</b> 분위기를 만들어냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">깊은 이야기가 가능한 친구 — <b>진짜 위로가 필요할 때 떠오르는 이름</b></span></div><div style="height:12px"></div><div style="background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용히 앉아서 <b>혼자 다 파악해놓는</b> 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">정보 수집과 분석에 강해서 <b>전략 기획에서 빛남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 의견을 말하는 데 <b>에너지가 많이 드는</b> 편 — 표현 연습 필요</span></div></div><div style="background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 수는 적지만 <b>한 명 한 명 진지하게</b> 대하는 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상대방의 이야기를 <b>오래 기억하는</b> 능력이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">속을 잘 안 보여서 <b>처음엔 가까워지기 어려운</b> 느낌을 줄 수 있음</span></div></div>`,
-        wantToHear: "너랑 얘기하면 왜 이렇게 편해?",
-        dontWantToHear: "왜 그렇게 깊게 생각해?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자"},
-        tags: ['#따뜻한카리스마', '#말이되는말만함', '#분위기메이커', '#사실은현인'],
-      },
-      H: {
-        emoji: "🐱",
-        name: "고양이",
-        tagline: "독립적이고 감각 있는 고양이",
-        badge: "고독한 관찰자",
-        stats: [{label:'독립심',val:90},{label:'관찰력',val:85},{label:'감각',val:78}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#2C3E50;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🐱 혼자 있는 것도 충전이고, 함께 있는 것도 선택인 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">누구에게도 의존하지 않으면서, 필요할 때는 누구보다 날카롭게 봄</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기만의 기준과 공간이 있어야 <b>제대로 살아가는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계를 넓히기보다 <b>깊이 있는 소수와 오래 가는</b> 것을 선호함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">남들이 놓치는 디테일을 <b>조용히 파악하고 있는</b> 관찰자</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2C3E500F"><span style="color:#2C3E50;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">혼자 있고 싶은 욕구가 강해서 <b>가끔 사람들이 멀어졌다고 느낄 수</b> 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2C3E500F"><span style="color:#2C3E50;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">감정 표현이 적어서 <b>상대가 내 마음을 모를 때</b>가 많음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 페이스를 잃지 않는 것이 <b>오히려 주변을 안정시키는</b> 효과가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">깊이 있는 관찰력이 <b>의외의 상황에서 빛을 발하는</b> 경우가 많음</span></div><div style="height:12px"></div><div style="background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">꼼꼼하고 신중해서 <b>실수 없이 마무리하는</b> 안정형 동료</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 하는 작업에서 <b>최고의 집중력</b>을 발휘함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">변화나 갑작스러운 방향 전환에 <b>적응이 느린</b> 편</span></div></div><div style="background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 사귄 친구를 <b>오래오래 유지하는</b> 장기형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">약속을 절대 안 어기고 <b>늘 제때 나타나는</b> 신뢰형 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">변화를 싫어해서 <b>친구 관계도 안정적인 패턴</b>을 선호함</span></div></div>`,
-        wantToHear: "네가 있어도 없어도 그냥 네 페이스대로 해",
-        dontWantToHear: "왜 이렇게 혼자야?",
-        compat: {goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#내방식대로', '#혼자도괜찮아', '#사실다보고있음', '#감각쟁이'],
-      },
-    },
+        "A": {
+                "emoji": "🦁",
+                "name": "사자",
+                "tagline": "날카로운 사자",
+                "badge": "강력한 리더",
+                "stats": [
+                        {
+                                "label": "자기애",
+                                "val": 82
+                        },
+                        {
+                                "label": "참을성",
+                                "val": 21
+                        },
+                        {
+                                "label": "행동력",
+                                "val": 86
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#e17055;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🦁 나를 따르든지, 아니면 떠나든지</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">자기애가 강하고, 효율을 추구하며, 행동력이 엄청남</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">목표 정하면 <b>직진</b> — 과정의 감성보다 <b>결과의 퀄리티</b>가 중요함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감정 표현이 <b>직설적</b> — 돌려 말하는 것을 잘 못하고, 잘 안 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자신에 대한 기준이 높아서 <b>스스로한테도 엄격한 편</b></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#e170550F\"><span style=\"color:#e17055;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#e17055\">공감보다 해결책을 먼저 제시</span>하는 편이라 오해받기도 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">내 계획에 이유 없이 끼어들면 <b>본능적으로 저항감</b>이 생김</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#e170550F\"><span style=\"color:#e17055;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬에는 어색하게 반응하고, 비판에는 <span style=\"color:#e17055\"><b>날카롭게 반응</b></span>할 수 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">리더 자리를 <b>원하지 않아도 자꾸 그 자리에 서게</b> 되는 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">가장 무서운 사람인 줄 알았는데 알고 보니 <b>의리가 제일 강한 사람</b>이라는 것</span></div><div style=\"height:12px\"></div><div style=\"background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">프로젝트를 맡으면 <b>끝을 책임지는 타입</b> — 마무리가 깔끔함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬보다 <b>구체적인 피드백</b>이 더 동기부여가 됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">직급 상관없이 <b>논리적으로 맞으면 말하는</b> 스타일</span></div></div><div style=\"background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구들이 어려운 일 생기면 <b>제일 먼저 떠올리는 이름</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">빈말 안 함 — 칭찬이면 <b>진심 칭찬</b>이고 충고이면 <b>진심 충고</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">겉으로는 강해 보이지만 <b>믿는 사람에게는 의외로 약한 면</b>을 보임</span></div></div>",
+                "wantToHear": "\"역시 너한테 맡기길 잘했어\"",
+                "dontWantToHear": "\"왜 그렇게 독단적으로 결정해?\"",
+                "compat": {
+                        "goodEmoji": "🐬",
+                        "goodName": "돌고래",
+                        "badEmoji": "🦉",
+                        "badName": "부엉이형",
+                        "goodDesc": "에너지 넘치고 분위기 살리는 활동형",
+                        "badDesc": "조용히 관찰하고 혼자 결론 내는 신중형"
+                },
+                "tags": [
+                        "#직진본능",
+                        "#자기확신",
+                        "#결과주의",
+                        "#추진력끝판왕"
+                ]
+        },
+        "B": {
+                "emoji": "🐬",
+                "name": "돌고래",
+                "tagline": "밝고 유연한 돌고래",
+                "badge": "밝은 에너지",
+                "stats": [
+                        {
+                                "label": "잠생각",
+                                "val": 14
+                        },
+                        {
+                                "label": "호불호",
+                                "val": 43
+                        },
+                        {
+                                "label": "계획성",
+                                "val": 25
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#48CAE4;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🐬 어딜 가든 그 공간이 살아나는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">리액션에 영혼이 있고, 분위기 메이커 그 자체</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">리액션이 <b>진짜임</b> — 재미없으면 재미없다는 게 <b>표정에 바로 나옴</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">극강의 효율보다 <b>극강의 분위기</b>를 추구하는 스타일</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사회성을 학습한 게 아니라 <b>원래 사람이 좋은 것</b> — 에너지가 사람에서 나옴</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#48CAE40F\"><span style=\"color:#48CAE4;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#48CAE4\">잠생각이 없음</span> — 자려고 누우면 그냥 잠듦. 복잡하게 생각 안 함</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#48CAE40F\"><span style=\"color:#48CAE4;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">가끔 <span style=\"color:#e67e22\">눈치 없이 솔직해지는 순간</span>이 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">손해 보는 관계는 <b>자연스럽게 정리</b>됨</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">빈말 잘 안 함 — 칭찬하면 <b>진심</b>이고, 좋다고 하면 <b>진짜 좋은 거임</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">내 사람이다 싶으면 잔소리도 하고 <b>챙기고 뭐든 다 해줌</b></span></div><div style=\"height:12px\"></div><div style=\"background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사무실 분위기가 가라앉아 있으면 <b>자동으로 띄워주는 역할</b>을 하게 됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">협업 능력이 뛰어나서 <b>팀 전체 성과를 높여주는</b> 존재로 인식됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">재미없는 업무도 <b>본인만의 방식으로 즐기는 법</b>을 찾는 편</span></div></div><div style=\"background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 많은 것 같지만 <b>진짜 속 얘기 하는 친구</b>는 생각보다 적음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">모임에서 분위기를 살리다 보니 <b>정작 본인 힘든 얘기</b>는 못할 때가 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구가 갑자기 연락 끊으면 <b>은근히 많이 신경 쓰이는</b> 타입</span></div></div>",
+                "wantToHear": "\"네가 있으니까 자리가 살아\"",
+                "dontWantToHear": "\"왜 이렇게 가볍게 생각해?\"",
+                "compat": {
+                        "goodEmoji": "🦁",
+                        "goodName": "사자",
+                        "badEmoji": "🦉",
+                        "badName": "부엉이형",
+                        "goodDesc": "목표 향해 강하게 직진하는 추진형",
+                        "badDesc": "말 없이 분석하고 혼자서 완성하는 독립형"
+                },
+                "tags": [
+                        "#리액션장인",
+                        "#분위기메이커",
+                        "#공감능력",
+                        "#긍정에너지"
+                ]
+        },
+        "C": {
+                "emoji": "🦊",
+                "name": "여우",
+                "tagline": "신비롭고 날카로운 여우",
+                "badge": "영리한 전략가",
+                "stats": [
+                        {
+                                "label": "잠생각",
+                                "val": 80
+                        },
+                        {
+                                "label": "호불호",
+                                "val": 83
+                        },
+                        {
+                                "label": "계획성",
+                                "val": 69
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#8B6F47;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🦊 겉으로는 조용한데, 속으로는 다 보고 있음</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">한 번 믿기로 한 사람한테는 끝까지 충성</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">처음 만난 사람에게 <b>쉽게 열리지 않음</b> — 파악이 끝나면 그때부터 조금씩 열림</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">거짓된 관계나 빈말이 정말 피곤함 — <b>속 없는 친절보다 솔직한 불편함</b>이 나음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 있는 시간이 충전에 꼭 필요함 — <b>이게 외로운 게 아니라 그냥 내 방식</b></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8B6F470F\"><span style=\"color:#8B6F47;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">계획 틀어지는 걸 극도로 싫어함</span> — 변수가 생기면 스트레스를 꽤 받음</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8B6F470F\"><span style=\"color:#8B6F47;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">애매한 관계, 애매한 약속, 애매한 대답</span>이 제일 힘듦</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사람들이 '쟤 차갑다'고 했다가 <b>'쟤 진짜 충성이다'</b>로 반응이 바뀌는 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">알면 알수록 <b>의외의 따뜻함</b>이 있음 — 근데 쉽게 보여주지 않는 것뿐</span></div><div style=\"height:12px\"></div><div style=\"background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">상황 파악이 빠르고 <b>흐름을 먼저 읽는</b> 능력이 뛰어남</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">말은 적게 하지만 <b>핵심을 정확히 짚는</b> 발언으로 존재감을 드러냄</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">믿을 수 있는 사람에게만 <b>진짜 실력을 보여주는</b> 타입</span></div></div><div style=\"background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 관계를 <b>정성들여 관리하는</b> 스타일 — 얕은 관계보다 깊은 관계 선호</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구의 감정 변화를 <b>말 안 해도 감지하는</b> 능력이 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">한번 나쁜 인상이 생기면 <b>좀처럼 바뀌지 않음</b> — 첫인상이 중요한 타입</span></div></div>",
+                "wantToHear": "\"역시 네가 다 보고 있었구나\"",
+                "dontWantToHear": "\"왜 그렇게 예민하게 굴어?\"",
+                "compat": {
+                        "goodEmoji": "🦉",
+                        "goodName": "부엉이",
+                        "badEmoji": "🐬",
+                        "badName": "돌고래형",
+                        "goodDesc": "말 없이도 깊이 통하는 신뢰형",
+                        "badDesc": "어딜 가든 에너지를 퍼뜨리는 활동형"
+                },
+                "tags": [
+                        "#조용한관찰자",
+                        "#충성하면끝",
+                        "#본질파악",
+                        "#호불호확실"
+                ]
+        },
+        "D": {
+                "emoji": "🦉",
+                "name": "부엉이",
+                "tagline": "지혜롭고 깊이 있는 부엉이",
+                "badge": "지혜로운 탐구자",
+                "stats": [
+                        {
+                                "label": "잠생각",
+                                "val": 84
+                        },
+                        {
+                                "label": "호불호",
+                                "val": 67
+                        },
+                        {
+                                "label": "계획성",
+                                "val": 79
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#576574;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🦉 아는 게 많은데 티를 잘 안 냄</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">말 한 마디에 무게감이 있는 사람</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">관심 분야는 <b>끝까지 파고드는 전문가 기질</b> — 취미가 자격증이 되거나 부업이 되는 경우</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">빈말 잘 안 함 — 말수가 적은 게 아니라 <b>의미 없는 말을 굳이 하지 않는 것</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">즉흥보다는 <b>계획</b>, 속도보다는 <b>완성도</b> — 대충 하는 게 오히려 더 힘듦</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#5765740F\"><span style=\"color:#576574;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#576574\">잠들기 전 잡생각이 많고</span>, 생각의 꼬리가 길게 이어지는 편</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">시간 낭비나 비효율적인 반복에 <b>본능적으로 저항감</b>이 생김</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">처음엔 어렵게 느껴지지만, 알고 나면 <b>가장 신뢰할 수 있는 사람</b>이라는 걸 앎</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">'아는 척 안 하는데 알고 보니 <b>제일 많이 아는 사람</b>'으로 인식되는 경우 많음</span></div><div style=\"height:12px\"></div><div style=\"background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"전에도 이런 적 있었는데\" 패턴을 기억해서 <b>같은 실수 반복 방지</b>에 탁월</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 조용히 공부해서 <b>어느새 팀에서 제일 많이 아는 사람</b>이 되어 있는 경우</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">회의에서 말은 없지만 <b>나중에 정리된 요약본</b>이 가장 정확한 사람</span></div></div><div style=\"background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 고민을 들으면 <b>즉각 공감보다 해결책을 먼저 제시</b>하는 편</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">아는 게 많아서 <b>정보력이 필요할 때 제일 먼저 연락하는 친구</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">말수는 적지만 <b>오래된 친구들에게 가장 믿음직한 존재</b>로 여겨짐</span></div></div>",
+                "wantToHear": "\"네가 제일 잘 알 것 같아서\"",
+                "dontWantToHear": "\"그냥 대충 해도 되잖아\"",
+                "compat": {
+                        "goodEmoji": "🦊",
+                        "goodName": "여우",
+                        "badEmoji": "🦁",
+                        "badName": "사자형",
+                        "goodDesc": "조용히 상황을 파악하고 전략적으로 움직이는 타입",
+                        "badDesc": "강한 추진력으로 앞장서는 리더형"
+                },
+                "tags": [
+                        "#말에무게감",
+                        "#전문가기질",
+                        "#완성도우선",
+                        "#알면알수록"
+                ]
+        },
+        "E": {
+                "emoji": "🦅",
+                "name": "독수리",
+                "tagline": "하늘을 지배하는 독수리",
+                "badge": "강렬한 에너지",
+                "stats": [
+                        {
+                                "label": "추진력",
+                                "val": 90
+                        },
+                        {
+                                "label": "사교성",
+                                "val": 75
+                        },
+                        {
+                                "label": "분석력",
+                                "val": 60
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#E67E22;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🦅 나타나면 공기가 바뀌는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">에너지가 넘치는데, 그걸 목표로 집중시킬 줄 아는 타입</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">분위기를 바꾸고 싶으면 <b>직접 나서는 게 가장 빠름</b>을 알고 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">어떤 상황에서도 <b>에너지를 잃지 않는 것</b>이 가장 큰 무기</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">목표가 생기면 <b>열정과 전략을 동시에 동원</b>하는 스타일</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E67E220F\"><span style=\"color:#E67E22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">너무 많은 것을 동시에 하려다가 <b>번아웃이 오기도 함</b></span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E67E220F\"><span style=\"color:#E67E22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">자기 에너지를 상대도 당연히 따라올 거라 기대하는 순간 <b>관계에서 피로감이 생길 수 있음</b></span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">어딜 가든 <b>존재 자체가 기억에 남는</b> 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E67E22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">조용한 상황도 자연스럽게 <b>활기차게 만드는 능력</b>이 있음</span></div><div style=\"height:12px\"></div><div style=\"background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">압도적인 존재감으로 <b>자연스럽게 팀을 이끄는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">비전 제시가 명확해서 <b>팀원들이 방향을 잃지 않게 해줌</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">결과에 집착하는 편이라 <b>과정에서 마찰</b>이 생길 수 있음</span></div></div><div style=\"background:#e170550F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e17055;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구들의 <b>자연스러운 리더</b> — 어디 갈지 뭐 할지 결정해주는 존재</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">한 번 챙기기로 한 친구는 <b>끝까지 챙기는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e17055;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">본인도 챙김을 받고 싶지만 <b>약한 모습 보이기 싫어서</b> 못 표현함</span></div></div>",
+                "wantToHear": "네가 나서니까 달라지더라",
+                "dontWantToHear": "좀 진정하고 생각해봐",
+                "compat": {
+                        "goodEmoji": "🦁",
+                        "goodName": "사자",
+                        "badEmoji": "🦉",
+                        "badName": "부엉이",
+                        "goodDesc": "강한 추진력으로 직접 이끄는 리더형",
+                        "badDesc": "조용히 분석하고 혼자서 완성하는 독립형"
+                },
+                "tags": [
+                        "#행동파",
+                        "#에너지충전",
+                        "#카리스마",
+                        "#눈빛이달라"
+                ]
+        },
+        "F": {
+                "emoji": "🐆",
+                "name": "표범",
+                "tagline": "조용하지만 가장 날카로운 표범",
+                "badge": "전략적 리더",
+                "stats": [
+                        {
+                                "label": "전략력",
+                                "val": 88
+                        },
+                        {
+                                "label": "독립심",
+                                "val": 82
+                        },
+                        {
+                                "label": "카리스마",
+                                "val": 70
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#8E44AD;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🐆 말 없이 제일 많이 준비하는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">눈에 띄지 않지만, 결정적인 순간에 가장 정확함</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">겉으로는 조용한데 <b>속으로는 이미 다음 수를 계산 중</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">움직이기 전에 <b>충분히 파악하는 것</b>이 기본 방식 — 즉흥은 별로 안 좋아함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">한 번 결심하면 <b>흔들리지 않고 끝까지 가는</b> 집중력</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8E44AD0F\"><span style=\"color:#8E44AD;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">너무 혼자 처리하려는 경향이 있어 <b>주변에서 답답함을 느낄 수</b> 있음</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#8E44AD0F\"><span style=\"color:#8E44AD;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">속을 잘 안 보여줘서 <b>처음에 차갑다는 인상</b>을 주기도 함</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">알고 나면 <b>가장 믿음직한 사람</b>으로 남는 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8E44AD;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">전략적으로 생각하는 능력이 <b>실생활에서 진가</b>를 발휘함</span></div><div style=\"height:12px\"></div><div style=\"background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">에너지가 넘쳐서 <b>여러 프로젝트를 동시에</b> 진행하는 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀 분위기를 살리는 능력이 있어서 <b>협업 프로젝트에서 특히 빛남</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">집중력이 단기적으로 폭발하는 편 — <b>장기 루틴보다 스프린트</b>에 강함</span></div></div><div style=\"background:#48CAE40F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#48CAE4;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구가 많고 <b>어디서든 새 친구</b>를 만들어오는 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">즐거운 자리를 잘 만들어서 <b>모임 기획자</b> 역할을 자주 맡음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#48CAE4;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">관계의 깊이보다 <b>넓이가 먼저</b>인 편 — 진한 친구는 소수</span></div></div>",
+                "wantToHear": "역시 네 판단이 맞았어",
+                "dontWantToHear": "왜 이렇게 비밀이 많아?",
+                "compat": {
+                        "goodEmoji": "🦊",
+                        "goodName": "여우",
+                        "badEmoji": "🐬",
+                        "badName": "돌고래",
+                        "goodDesc": "상황을 조용히 파악하고 정확하게 움직이는 타입",
+                        "badDesc": "어딜 가든 에너지를 퍼뜨리는 활동형"
+                },
+                "tags": [
+                        "#전략가",
+                        "#독립적",
+                        "#한방주의",
+                        "#과소평가금지"
+                ]
+        },
+        "G": {
+                "emoji": "🐧",
+                "name": "펭귄",
+                "tagline": "따뜻하고 깊이 있는 펭귄",
+                "badge": "공감 전문가",
+                "stats": [
+                        {
+                                "label": "공감력",
+                                "val": 88
+                        },
+                        {
+                                "label": "사교성",
+                                "val": 78
+                        },
+                        {
+                                "label": "지혜",
+                                "val": 80
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#27AE60;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🐧 어디서든 자연스럽게 중심이 되는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">사람을 편하게 해주는 능력과 깊이 있는 통찰이 같이 있음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">처음 만난 사람도 <b>자연스럽게 편하게 만드는 재주</b>가 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">말이 많은 게 아니라 <b>말할 때마다 핵심이 있는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사람들을 관찰하고 파악하는 게 <b>자연스럽게 생활화</b>되어 있음</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#27AE600F\"><span style=\"color:#27AE60;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">모두를 챙기다 보니 <b>정작 본인 감정은 뒷전</b>이 될 수 있음</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#27AE600F\"><span style=\"color:#27AE60;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">너무 배려적이어서 <b>자기 주장을 못 할 때</b>가 있음</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">주변 사람들이 <b>자연스럽게 이야기를 꺼내게 되는</b> 분위기를 만들어냄</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#27AE60;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">깊은 이야기가 가능한 친구 — <b>진짜 위로가 필요할 때 떠오르는 이름</b></span></div><div style=\"height:12px\"></div><div style=\"background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">조용히 앉아서 <b>혼자 다 파악해놓는</b> 스타일</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">정보 수집과 분석에 강해서 <b>전략 기획에서 빛남</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자기 의견을 말하는 데 <b>에너지가 많이 드는</b> 편 — 표현 연습 필요</span></div></div><div style=\"background:#8B6F470F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#8B6F47;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 수는 적지만 <b>한 명 한 명 진지하게</b> 대하는 스타일</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">상대방의 이야기를 <b>오래 기억하는</b> 능력이 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#8B6F47;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">속을 잘 안 보여서 <b>처음엔 가까워지기 어려운</b> 느낌을 줄 수 있음</span></div></div>",
+                "wantToHear": "너랑 얘기하면 왜 이렇게 편해?",
+                "dontWantToHear": "왜 그렇게 깊게 생각해?",
+                "compat": {
+                        "goodEmoji": "🦊",
+                        "goodName": "여우",
+                        "badEmoji": "🦁",
+                        "badName": "사자",
+                        "goodDesc": "상황을 조용히 파악하고 정확하게 움직이는 타입",
+                        "badDesc": "강한 추진력으로 앞장서는 리더형"
+                },
+                "tags": [
+                        "#따뜻한카리스마",
+                        "#말이되는말만함",
+                        "#분위기메이커",
+                        "#사실은현인"
+                ]
+        },
+        "H": {
+                "emoji": "🐱",
+                "name": "고양이",
+                "tagline": "독립적이고 감각 있는 고양이",
+                "badge": "고독한 관찰자",
+                "stats": [
+                        {
+                                "label": "독립심",
+                                "val": 90
+                        },
+                        {
+                                "label": "관찰력",
+                                "val": 85
+                        },
+                        {
+                                "label": "감각",
+                                "val": 78
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#2C3E50;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🐱 혼자 있는 것도 충전이고, 함께 있는 것도 선택인 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">누구에게도 의존하지 않으면서, 필요할 때는 누구보다 날카롭게 봄</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자기만의 기준과 공간이 있어야 <b>제대로 살아가는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">관계를 넓히기보다 <b>깊이 있는 소수와 오래 가는</b> 것을 선호함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">남들이 놓치는 디테일을 <b>조용히 파악하고 있는</b> 관찰자</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2C3E500F\"><span style=\"color:#2C3E50;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">혼자 있고 싶은 욕구가 강해서 <b>가끔 사람들이 멀어졌다고 느낄 수</b> 있음</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2C3E500F\"><span style=\"color:#2C3E50;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">감정 표현이 적어서 <b>상대가 내 마음을 모를 때</b>가 많음</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자기 페이스를 잃지 않는 것이 <b>오히려 주변을 안정시키는</b> 효과가 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2C3E50;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">깊이 있는 관찰력이 <b>의외의 상황에서 빛을 발하는</b> 경우가 많음</span></div><div style=\"height:12px\"></div><div style=\"background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">꼼꼼하고 신중해서 <b>실수 없이 마무리하는</b> 안정형 동료</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 하는 작업에서 <b>최고의 집중력</b>을 발휘함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">변화나 갑작스러운 방향 전환에 <b>적응이 느린</b> 편</span></div></div><div style=\"background:#5765740F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#576574;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">한번 사귄 친구를 <b>오래오래 유지하는</b> 장기형</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">약속을 절대 안 어기고 <b>늘 제때 나타나는</b> 신뢰형 친구</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#576574;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">변화를 싫어해서 <b>친구 관계도 안정적인 패턴</b>을 선호함</span></div></div>",
+                "wantToHear": "네가 있어도 없어도 그냥 네 페이스대로 해",
+                "dontWantToHear": "왜 이렇게 혼자야?",
+                "compat": {
+                        "goodEmoji": "🦉",
+                        "goodName": "부엉이",
+                        "badEmoji": "🐬",
+                        "badName": "돌고래",
+                        "goodDesc": "조용히 분석하고 혼자서 완성하는 독립형",
+                        "badDesc": "어딜 가든 에너지를 퍼뜨리는 활동형"
+                },
+                "tags": [
+                        "#내방식대로",
+                        "#혼자도괜찮아",
+                        "#사실다보고있음",
+                        "#감각쟁이"
+                ]
+        }
+},
   },
   en:{
     ui:{
@@ -1539,123 +1737,311 @@ const data = {
       }
 ],
     results:{
-      A:{emoji:"🦁",name:"Lion",tagline:"King of the Jungle, Born Leader",badge:"Powerful Leader",
-        traits:[{label:"Leadership",val:87},{label:"Confidence",val:83},{label:"Drive",val:79},{label:"Gentleness",val:48}],
-        desc:"You're a Lion! With natural charisma and strong leadership, you effortlessly become the center wherever you go. You charge toward your goals without hesitation and give those around you confidence and courage. Your unbreakable will to achieve once you set your mind is pure lion energy. Just remember — even lions have a gentle side! 🦁",
-        compat:{goodEmoji:"🐬",goodName:"Dolphin",badEmoji:"🦅",badName:"Eagle Type"},
-        tags:["#BornLeader","#NaturalCharisma","#GoalCrusher","#IronWill"]},
-      B:{emoji:"🐬",name:"Dolphin",tagline:"Social King of the Sea, Free Spirit",badge:"Bright Energy",
-        traits:[{label:"Sociability",val:88},{label:"Positive Energy",val:82},{label:"Empathy",val:76},{label:"Focus",val:51}],
-        desc:"You're a Dolphin! You light up every room with bright energy and have a magnetic charm that draws people in. Your rich emotional sensitivity and empathy make you the best listener among your friends. You love freedom and fearlessly dive into new experiences — you truly shine! 🐬",
-        compat:{goodEmoji:"🦁",goodName:"Lion",badEmoji:"🦉",badName:"Owl Type"},
-        tags:["#SocialButterfly","#PositiveVibes","#TopEmpath","#FreeSpirit"]},
-      C:{emoji:"🦊",name:"Fox",tagline:"Clever and Mysterious Strategist",badge:"Clever Strategist",
-        traits:[{label:"Insight",val:84},{label:"Strategic Thinking",val:78},{label:"Caution",val:75},{label:"Openness",val:62}],
-        desc:"You're a Fox! Your sharp observation and piercing insight let you see what others can't. You may seem mysterious because you don't show emotions easily — but once you open up to someone, you show deep loyalty. Clever and strategic, you always find the best outcome in any situation. 🦊",
-        compat:{goodEmoji:"🦉",goodName:"Owl",badEmoji:"🐬",badName:"Dolphin Type"},
-        tags:["#CleverStrategist","#MysteriousCharm","#SharpInsight","#DeepLoyalty"]},
-      D:{emoji:"🦉",name:"Owl",tagline:"Symbol of Wisdom, Deep Thinker",badge:"Wise Explorer",
-        traits:[{label:"Wisdom",val:85},{label:"Analysis",val:81},{label:"Focus",val:77},{label:"Spontaneity",val:25}],
-        desc:"You're an Owl! With deep thinking and outstanding analytical skills, you have the wisdom to see through any problem. In your areas of interest, you develop expertise that's hard for anyone to match, and you carry a quiet but impactful presence. Every word you say carries deep meaning. 🦉",
-        compat:{goodEmoji:"🦊",goodName:"Fox",badEmoji:"🦁",badName:"Lion Type"},
-        tags:["#WisdomSymbol","#DeepThinker","#TopExpertise","#QuietStrength"]},
-      E: {
-        emoji: "🦅",
-        name: "독수리",
-        tagline: "하늘을 지배하는 독수리",
-        badge: "강렬한 에너지",
-        stats: [{label:'추진력',val:90},{label:'사교성',val:75},{label:'분석력',val:60}],
-        desc: "You are a 독수리! 하늘을 지배하는 독수리 — a truly unique combination.",
-        wantToHear: "네가 나서니까 달라지더라",
-        dontWantToHear: "좀 진정하고 생각해봐",
-        compat: {goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이"},
-        tags: ['#행동파', '#에너지충전', '#카리스마', '#눈빛이달라'],
-      },
-      F: {
-        emoji: "🐆",
-        name: "표범",
-        tagline: "조용하지만 가장 날카로운 표범",
-        badge: "전략적 리더",
-        stats: [{label:'전략력',val:88},{label:'독립심',val:82},{label:'카리스마',val:70}],
-        desc: "You are a 표범! 조용하지만 가장 날카로운 표범 — a truly unique combination.",
-        wantToHear: "역시 네 판단이 맞았어",
-        dontWantToHear: "왜 이렇게 비밀이 많아?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#전략가', '#독립적', '#한방주의', '#과소평가금지'],
-      },
-      G: {
-        emoji: "🐧",
-        name: "펭귄",
-        tagline: "따뜻하고 깊이 있는 펭귄",
-        badge: "공감 전문가",
-        stats: [{label:'공감력',val:88},{label:'사교성',val:78},{label:'지혜',val:80}],
-        desc: "You are a 펭귄! 따뜻하고 깊이 있는 펭귄 — a truly unique combination.",
-        wantToHear: "너랑 얘기하면 왜 이렇게 편해?",
-        dontWantToHear: "왜 그렇게 깊게 생각해?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자"},
-        tags: ['#따뜻한카리스마', '#말이되는말만함', '#분위기메이커', '#사실은현인'],
-      },
-      H: {
-        emoji: "🐱",
-        name: "고양이",
-        tagline: "독립적이고 감각 있는 고양이",
-        badge: "고독한 관찰자",
-        stats: [{label:'독립심',val:90},{label:'관찰력',val:85},{label:'감각',val:78}],
-        desc: "You are a 고양이! 독립적이고 감각 있는 고양이 — a truly unique combination.",
-        wantToHear: "네가 있어도 없어도 그냥 네 페이스대로 해",
-        dontWantToHear: "왜 이렇게 혼자야?",
-        compat: {goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#내방식대로', '#혼자도괜찮아', '#사실다보고있음', '#감각쟁이'],
-      },
-      E: {
-        emoji: "🦅",
-        name: "독수리",
-        tagline: "하늘을 지배하는 독수리",
-        badge: "강렬한 에너지",
-        stats: [{label:'추진력',val:90},{label:'사교성',val:75},{label:'분석력',val:60}],
-        desc: "You are a 독수리! 하늘을 지배하는 독수리 — a truly unique combination.",
-        wantToHear: "네가 나서니까 달라지더라",
-        dontWantToHear: "좀 진정하고 생각해봐",
-        compat: {goodEmoji:"🦁",goodName:"사자",badEmoji:"🦉",badName:"부엉이"},
-        tags: ['#행동파', '#에너지충전', '#카리스마', '#눈빛이달라'],
-      },
-      F: {
-        emoji: "🐆",
-        name: "표범",
-        tagline: "조용하지만 가장 날카로운 표범",
-        badge: "전략적 리더",
-        stats: [{label:'전략력',val:88},{label:'독립심',val:82},{label:'카리스마',val:70}],
-        desc: "You are a 표범! 조용하지만 가장 날카로운 표범 — a truly unique combination.",
-        wantToHear: "역시 네 판단이 맞았어",
-        dontWantToHear: "왜 이렇게 비밀이 많아?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#전략가', '#독립적', '#한방주의', '#과소평가금지'],
-      },
-      G: {
-        emoji: "🐧",
-        name: "펭귄",
-        tagline: "따뜻하고 깊이 있는 펭귄",
-        badge: "공감 전문가",
-        stats: [{label:'공감력',val:88},{label:'사교성',val:78},{label:'지혜',val:80}],
-        desc: "You are a 펭귄! 따뜻하고 깊이 있는 펭귄 — a truly unique combination.",
-        wantToHear: "너랑 얘기하면 왜 이렇게 편해?",
-        dontWantToHear: "왜 그렇게 깊게 생각해?",
-        compat: {goodEmoji:"🦊",goodName:"여우",badEmoji:"🦁",badName:"사자"},
-        tags: ['#따뜻한카리스마', '#말이되는말만함', '#분위기메이커', '#사실은현인'],
-      },
-      H: {
-        emoji: "🐱",
-        name: "고양이",
-        tagline: "독립적이고 감각 있는 고양이",
-        badge: "고독한 관찰자",
-        stats: [{label:'독립심',val:90},{label:'관찰력',val:85},{label:'감각',val:78}],
-        desc: "You are a 고양이! 독립적이고 감각 있는 고양이 — a truly unique combination.",
-        wantToHear: "네가 있어도 없어도 그냥 네 페이스대로 해",
-        dontWantToHear: "왜 이렇게 혼자야?",
-        compat: {goodEmoji:"🦉",goodName:"부엉이",badEmoji:"🐬",badName:"돌고래"},
-        tags: ['#내방식대로', '#혼자도괜찮아', '#사실다보고있음', '#감각쟁이'],
-      },
-    },
+        "A": {
+                "emoji": "🦁",
+                "name": "Lion",
+                "tagline": "King of the Jungle, Born Leader",
+                "badge": "Powerful Leader",
+                "traits": [
+                        {
+                                "label": "Leadership",
+                                "val": 87
+                        },
+                        {
+                                "label": "Confidence",
+                                "val": 83
+                        },
+                        {
+                                "label": "Drive",
+                                "val": 79
+                        },
+                        {
+                                "label": "Gentleness",
+                                "val": 48
+                        }
+                ],
+                "desc": "You're a Lion! With natural charisma and strong leadership, you effortlessly become the center wherever you go. You charge toward your goals without hesitation and give those around you confidence and courage. Your unbreakable will to achieve once you set your mind is pure lion energy. Just remember — even lions have a gentle side! 🦁",
+                "compat": {
+                        "goodEmoji": "🐬",
+                        "goodName": "Dolphin",
+                        "badEmoji": "🦅",
+                        "badName": "Eagle Type",
+                        "goodDesc": "Energetic type who brings life to any room",
+                        "badDesc": "Quiet observer who draws conclusions alone"
+                },
+                "tags": [
+                        "#BornLeader",
+                        "#NaturalCharisma",
+                        "#GoalCrusher",
+                        "#IronWill"
+                ]
+        },
+        "B": {
+                "emoji": "🐬",
+                "name": "Dolphin",
+                "tagline": "Social King of the Sea, Free Spirit",
+                "badge": "Bright Energy",
+                "traits": [
+                        {
+                                "label": "Sociability",
+                                "val": 88
+                        },
+                        {
+                                "label": "Positive Energy",
+                                "val": 82
+                        },
+                        {
+                                "label": "Empathy",
+                                "val": 76
+                        },
+                        {
+                                "label": "Focus",
+                                "val": 51
+                        }
+                ],
+                "desc": "You're a Dolphin! You light up every room with bright energy and have a magnetic charm that draws people in. Your rich emotional sensitivity and empathy make you the best listener among your friends. You love freedom and fearlessly dive into new experiences — you truly shine! 🐬",
+                "compat": {
+                        "goodEmoji": "🦁",
+                        "goodName": "Lion",
+                        "badEmoji": "🦉",
+                        "badName": "Owl Type",
+                        "goodDesc": "Goal-driven type who charges straight forward",
+                        "badDesc": "Silent analyst who works and finishes alone"
+                },
+                "tags": [
+                        "#SocialButterfly",
+                        "#PositiveVibes",
+                        "#TopEmpath",
+                        "#FreeSpirit"
+                ]
+        },
+        "C": {
+                "emoji": "🦊",
+                "name": "Fox",
+                "tagline": "Clever and Mysterious Strategist",
+                "badge": "Clever Strategist",
+                "traits": [
+                        {
+                                "label": "Insight",
+                                "val": 84
+                        },
+                        {
+                                "label": "Strategic Thinking",
+                                "val": 78
+                        },
+                        {
+                                "label": "Caution",
+                                "val": 75
+                        },
+                        {
+                                "label": "Openness",
+                                "val": 62
+                        }
+                ],
+                "desc": "You're a Fox! Your sharp observation and piercing insight let you see what others can't. You may seem mysterious because you don't show emotions easily — but once you open up to someone, you show deep loyalty. Clever and strategic, you always find the best outcome in any situation. 🦊",
+                "compat": {
+                        "goodEmoji": "🦉",
+                        "goodName": "Owl",
+                        "badEmoji": "🐬",
+                        "badName": "Dolphin Type",
+                        "goodDesc": "Deep wordless bond — built on steady trust",
+                        "badDesc": "Energetic type who brings life to any room"
+                },
+                "tags": [
+                        "#CleverStrategist",
+                        "#MysteriousCharm",
+                        "#SharpInsight",
+                        "#DeepLoyalty"
+                ]
+        },
+        "D": {
+                "emoji": "🦉",
+                "name": "Owl",
+                "tagline": "Symbol of Wisdom, Deep Thinker",
+                "badge": "Wise Explorer",
+                "traits": [
+                        {
+                                "label": "Wisdom",
+                                "val": 85
+                        },
+                        {
+                                "label": "Analysis",
+                                "val": 81
+                        },
+                        {
+                                "label": "Focus",
+                                "val": 77
+                        },
+                        {
+                                "label": "Spontaneity",
+                                "val": 25
+                        }
+                ],
+                "desc": "You're an Owl! With deep thinking and outstanding analytical skills, you have the wisdom to see through any problem. In your areas of interest, you develop expertise that's hard for anyone to match, and you carry a quiet but impactful presence. Every word you say carries deep meaning. 🦉",
+                "compat": {
+                        "goodEmoji": "🦊",
+                        "goodName": "Fox",
+                        "badEmoji": "🦁",
+                        "badName": "Lion Type",
+                        "goodDesc": "Quietly reads situations and moves strategically",
+                        "badDesc": "Strong-willed leader who drives things forward"
+                },
+                "tags": [
+                        "#WisdomSymbol",
+                        "#DeepThinker",
+                        "#TopExpertise",
+                        "#QuietStrength"
+                ]
+        },
+        "E": {
+                "emoji": "🦅",
+                "name": "독수리",
+                "tagline": "하늘을 지배하는 독수리",
+                "badge": "강렬한 에너지",
+                "stats": [
+                        {
+                                "label": "추진력",
+                                "val": 90
+                        },
+                        {
+                                "label": "사교성",
+                                "val": 75
+                        },
+                        {
+                                "label": "분석력",
+                                "val": 60
+                        }
+                ],
+                "desc": "You are a 독수리! 하늘을 지배하는 독수리 — a truly unique combination.",
+                "wantToHear": "네가 나서니까 달라지더라",
+                "dontWantToHear": "좀 진정하고 생각해봐",
+                "compat": {
+                        "goodEmoji": "🦁",
+                        "goodName": "사자",
+                        "badEmoji": "🦉",
+                        "badName": "부엉이",
+                        "goodDesc": "Strong-willed leader who drives things forward",
+                        "badDesc": "Silent analyst who works and finishes alone"
+                },
+                "tags": [
+                        "#행동파",
+                        "#에너지충전",
+                        "#카리스마",
+                        "#눈빛이달라"
+                ]
+        },
+        "F": {
+                "emoji": "🐆",
+                "name": "표범",
+                "tagline": "조용하지만 가장 날카로운 표범",
+                "badge": "전략적 리더",
+                "stats": [
+                        {
+                                "label": "전략력",
+                                "val": 88
+                        },
+                        {
+                                "label": "독립심",
+                                "val": 82
+                        },
+                        {
+                                "label": "카리스마",
+                                "val": 70
+                        }
+                ],
+                "desc": "You are a 표범! 조용하지만 가장 날카로운 표범 — a truly unique combination.",
+                "wantToHear": "역시 네 판단이 맞았어",
+                "dontWantToHear": "왜 이렇게 비밀이 많아?",
+                "compat": {
+                        "goodEmoji": "🦊",
+                        "goodName": "여우",
+                        "badEmoji": "🐬",
+                        "badName": "돌고래",
+                        "goodDesc": "Quietly reads situations and moves strategically",
+                        "badDesc": "Energetic type who brings life to any room"
+                },
+                "tags": [
+                        "#전략가",
+                        "#독립적",
+                        "#한방주의",
+                        "#과소평가금지"
+                ]
+        },
+        "G": {
+                "emoji": "🐧",
+                "name": "펭귄",
+                "tagline": "따뜻하고 깊이 있는 펭귄",
+                "badge": "공감 전문가",
+                "stats": [
+                        {
+                                "label": "공감력",
+                                "val": 88
+                        },
+                        {
+                                "label": "사교성",
+                                "val": 78
+                        },
+                        {
+                                "label": "지혜",
+                                "val": 80
+                        }
+                ],
+                "desc": "You are a 펭귄! 따뜻하고 깊이 있는 펭귄 — a truly unique combination.",
+                "wantToHear": "너랑 얘기하면 왜 이렇게 편해?",
+                "dontWantToHear": "왜 그렇게 깊게 생각해?",
+                "compat": {
+                        "goodEmoji": "🦊",
+                        "goodName": "여우",
+                        "badEmoji": "🦁",
+                        "badName": "사자",
+                        "goodDesc": "Quietly reads situations and moves strategically",
+                        "badDesc": "Strong-willed leader who drives things forward"
+                },
+                "tags": [
+                        "#따뜻한카리스마",
+                        "#말이되는말만함",
+                        "#분위기메이커",
+                        "#사실은현인"
+                ]
+        },
+        "H": {
+                "emoji": "🐱",
+                "name": "고양이",
+                "tagline": "독립적이고 감각 있는 고양이",
+                "badge": "고독한 관찰자",
+                "stats": [
+                        {
+                                "label": "독립심",
+                                "val": 90
+                        },
+                        {
+                                "label": "관찰력",
+                                "val": 85
+                        },
+                        {
+                                "label": "감각",
+                                "val": 78
+                        }
+                ],
+                "desc": "You are a 고양이! 독립적이고 감각 있는 고양이 — a truly unique combination.",
+                "wantToHear": "네가 있어도 없어도 그냥 네 페이스대로 해",
+                "dontWantToHear": "왜 이렇게 혼자야?",
+                "compat": {
+                        "goodEmoji": "🦉",
+                        "goodName": "부엉이",
+                        "badEmoji": "🐬",
+                        "badName": "돌고래",
+                        "goodDesc": "Silent analyst who works and finishes alone",
+                        "badDesc": "Energetic type who brings life to any room"
+                },
+                "tags": [
+                        "#내방식대로",
+                        "#혼자도괜찮아",
+                        "#사실다보고있음",
+                        "#감각쟁이"
+                ]
+        }
+},
   },
 };
 
@@ -1747,6 +2133,9 @@ function showResult(){
   document.getElementById('compatBadEmoji').textContent=r.compat.badEmoji;
   document.getElementById('compatBadLabel').textContent=u.badLabel;
   document.getElementById('compatBadName').textContent=r.compat.badName;
+  document.getElementById('compatGoodDesc').textContent = r.compat.goodDesc || '';
+  document.getElementById('compatBadDesc').textContent  = r.compat.badDesc  || '';
+  if(document.getElementById('compatTitle')) document.getElementById('compatTitle').textContent = u.compatTitle || '';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };curQ=0;window.scrollTo({top:0,behavior:'smooth'});}

@@ -324,6 +324,16 @@
     .container { padding-top: 32px; padding-bottom: 80px; }
     .choices { gap: 10px; }
   }
+
+  .ci-desc {
+    font-size: clamp(10px, 2.6vw, 12px);
+    color: #999;
+    font-weight: 500;
+    margin-top: 3px;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+    word-break: keep-all;
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -410,6 +420,22 @@
 
     <!-- 궁합 -->
     <div class="compat-card">
+      <h3 id="compatTitle">💞 궁합 유형</h3>
+      <div class="compat-row">
+        <div class="compat-item compat-good">
+          <span class="ci-emoji" id="compatGoodEmoji">✨</span>
+          <div class="ci-label" id="compatGoodLabel">찰떡 궁합</div>
+          <div class="ci-name"  id="compatGoodName">—</div>
+          <div class="ci-desc"  id="compatGoodDesc">—</div>
+        </div>
+        <div class="compat-item compat-bad">
+          <span class="ci-emoji" id="compatBadEmoji">⚡</span>
+          <div class="ci-label" id="compatBadLabel">조심하세요</div>
+          <div class="ci-name"  id="compatBadName">—</div>
+          <div class="ci-desc"  id="compatBadDesc">—</div>
+        </div>
+      </div>
+    </div><div class="compat-card">
       <h3 id="compatTitle">💞 궁합 유형</h3>
       <div class="compat-row">
         <div class="compat-item compat-good">
@@ -658,143 +684,335 @@ const data = {
         ],
       }],
     results: {
-      A: {
-        emoji: "🌹",
-        name: "로맨틱 드리머",
-        tagline: "감성으로 연애를 예술로 만드는 타입",
-        badge: "낭만 가득",
-        traits: [
-          { label: "로맨스", val: 88 },
-          { label: "감수성", val: 79 },
-          { label: "표현력", val: 63 },
-          { label: "멘탈 안정", val: 31 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF6B9D;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">💕 사랑받고 싶은 마음이 남들보다 1.5배 큼</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">근데 그만큼 줄 줄도 아는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">기념일 <b>D-30부터</b> 뭐 할지 머릿속에서 계획 시작됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인이 지나가듯 했던 말도 <b>한 달 뒤에 정확히 기억</b>하고 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감동을 주고받는 게 연애의 핵심이라고 <b>진심으로</b> 믿는 사람</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F"><span style="color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#e05c8a">노력 안 하는 상대</span> 옆에 있으면 에너지가 빠르게 고갈됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">작은 말 한 마디에 <b>크게 상처</b>받기도 하고, 작은 행동 하나에 크게 감동받기도 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">싸우고 나서도 먼저 화해하고 싶어서 <b>결국 먼저 연락</b>하는 사람</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F"><span style="color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#FF6B9D">설레는 감정이 없어지면</span> 연애가 끝난 것 같은 느낌이 들기도 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">드라마 같은 순간을 직접 만들어냄 — 당신 곁에 있으면 <b>매일이 특별한 날</b>처럼 느껴짐</span></div><div style="height:12px"></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀 분위기를 부드럽게 만드는 감성 리더 — 힘든 상황에서도 <b>분위기 메이킹</b>을 자연스럽게 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬 한 마디에 진심으로 감동받고 더 열심히 함 — <b>인정욕구</b>가 업무 원동력</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">동료가 힘들어 보이면 먼저 "괜찮아요?" 묻는 <b>팀의 정서적 버팀목</b></span></div></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 생일, 기념일 꼭 챙기는 사람 — <b>잊어도 괜찮다고 했지만 혼자 기억하고 있음</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연락이 뜸해졌다 싶으면 불안해짐 — 관계에 <b>꾸준한 온기</b>를 원하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">속 깊은 대화를 좋아해서 <b>친해지면 인생 친구</b>가 되는 경우가 많음</span></div></div>`,
-        wantToHear: "\"너랑 있으면 매일 설레\"",
-        dontWantToHear: "\"기념일이 그게 그렇게 중요해?\"",
-        compat: { goodEmoji: "🌿", goodName: "안정 배려형", badEmoji: "🦋", badName: "자유 독립형" },
-        tags: ["#기념일은종교", "#감수성폭발", "#설렘없인못살아", "#낭만주의자"],
-      },
-      B: {
-        emoji: "🔥",
-        name: "열정 표현형",
-        tagline: "온 마음을 다 꺼내놓는 타입",
-        badge: "열정 가득",
-        traits: [
-          { label: "열정도",  val: 91 },
-          { label: "직진력",  val: 85 },
-          { label: "에너지",  val: 78 },
-          { label: "인내심",  val: 22 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF8C42;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🔥 마음에 담아두는 거 체질적으로 못 함</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">좋으면 좋다고, 싫으면 싫다고 — 필터 없음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">좋아하는 감정이 생기면 숨기려 해도 <b>표정이나 행동으로 이미 다 드러남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">싸울 때 할 말은 <b>그 자리에서 다 함</b> — 쌓아두고 나중에 터지는 게 더 힘듦</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사랑할 때는 세상 전부를 줄 것 같은 <b>뜨거움</b>이 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF8C420F"><span style="color:#FF8C42;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#e07030">어중간한 관계가 제일 힘듦</span> — 좋으면 확실히, 아니면 정리</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인의 반응이 없거나 무덤덤하면 <b>불안함이 빠르게 올라옴</b></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF8C420F"><span style="color:#FF8C42;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인이 힘들다고 하면 <span style="color:#FF8C42">"어디야? 지금 가도 돼?"</span> 가 자동으로 나옴</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">즉흥적으로 <b>"지금 뭐 해? 드라이브 가자"</b> 할 수 있는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">화해하고 나면 언제 싸웠냐는 듯이 <b>다시 따뜻해짐</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">당신과 연애하면 <b>지루할 틈이 없음</b> — 그게 장점이자, 가끔은 소용돌이</span></div><div style="height:12px"></div><div style="background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">마감 직전에 뚜렷하게 살아나는 타입 — <b>위기 상황에서 가장 빛남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">할 말은 그 자리에서 하는 편 — 회의에서 <b>직설적 피드백</b>으로 분위기를 흔들기도 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">열정이 넘쳐서 <b>주도적으로 일을 벌이는</b> 경우가 많음 — 수습도 본인이 함</span></div></div><div style="background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 힘들다고 하면 <b>"어디야? 지금 갈게"</b>가 반사적으로 나오는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정 표현이 솔직해서 <b>진짜 친구인지 아닌지 바로 느껴짐</b> — 애매한 관계를 못 견딤</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같이 있으면 <b>무조건 뭔가 일어나는</b> 타입 — 지루할 틈이 없는 친구</span></div></div>`,
-        wantToHear: "\"네가 먼저 표현해줘서 나도 편했어\"",
-        dontWantToHear: "\"왜 이렇게 감정적으로 굴어\"",
-        compat: { goodEmoji: "🌹", goodName: "로맨틱 드리머", badEmoji: "🌿", badName: "안정 배려형" },
-        tags: ["#직진본능", "#감정솔직", "#열정만수르", "#참는게병이야"],
-      },
-      C: {
-        emoji: "🌿",
-        name: "안정 배려형",
-        tagline: "말 없이 다 챙기는 타입",
-        badge: "신뢰 가득",
-        traits: [
-          { label: "신뢰감", val: 86 },
-          { label: "배려심", val: 82 },
-          { label: "안정감", val: 74 },
-          { label: "설렘 표현", val: 27 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#4CAF8A;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌿 "밥은 먹었어?" 한 마디가 사랑 표현의 전부인 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">화려하진 않지만, 곁에 있으면 왠지 안심이 됨</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인이 좋아하는 음식, 싫어하는 냄새, 잠버릇까지 <b>자연스럽게 기억</b>하고 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">힘들어 보이면 <b>말 안 해도 먼저 옆에</b> 와 있는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">드라마틱한 이벤트보다 <b>매일의 일상을 함께</b>하는 게 더 중요하다고 생각함</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4CAF8A0F"><span style="color:#4CAF8A;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">표현이 서툴러서 오해받는 경우</span>가 있음 — 관심 없는 게 아니라 방식이 다른 것</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4CAF8A0F"><span style="color:#4CAF8A;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">신뢰가 깨지면 회복이 느림</span> — 한 번 상처받으면 쉽게 잊지 못함</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인의 작은 불편함도 미리 알아채고 <b>조용히 해결</b>해 놓음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"왜 이렇게 잘 챙겨줘?" 소리를 들으면 <b>어색하게 웃고 넘김</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">당신 옆에 있으면 세상 어떤 폭풍이 와도 <b>버틸 것 같은 느낌</b>이 드는 게 사실임</span></div><div style="height:12px"></div><div style="background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">티 안 나게 팀을 받쳐주는 사람 — <b>"그 사람이 있어서 돌아갔던 거"</b>라는 말이 퇴사 후에 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">갈등 상황에서 중재 역할을 자연스럽게 맡게 됨 — <b>감정보다 분위기를 먼저 봄</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">꼼꼼하고 책임감 강해서 <b>믿고 맡길 수 있는 동료</b>로 인식되는 경우가 많음</span></div></div><div style="background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들 속사정을 제일 많이 알고 있는 타입 — <b>비밀 보관함</b> 역할</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"밥은 먹었어?"로 걱정을 표현하는 스타일 — <b>말보다 행동으로 챙김</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">쉽게 친해지진 않지만, <b>한번 친해지면 오래가는 관계</b>를 만드는 사람</span></div></div>`,
-        wantToHear: "\"네가 있으니까 든든해\"",
-        dontWantToHear: "\"요즘 나한테 관심 없는 거 아니야?\"",
-        compat: { goodEmoji: "🌹", goodName: "로맨틱 드리머", badEmoji: "🔥", badName: "열정 표현형" },
-        tags: ["#밥이최고의사랑", "#든든한버팀목", "#표현은서툴러도", "#신뢰장인"],
-      },
-      D: {
-        emoji: "🦋",
-        name: "자유 독립형",
-        tagline: "나를 잃지 않고 사랑하는 타입",
-        badge: "자유 가득",
-        traits: [
-          { label: "독립성", val: 87 },
-          { label: "자존감", val: 79 },
-          { label: "성장욕", val: 71 },
-          { label: "집착도", val: 8 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#7C67EE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦋 연애해도 내 삶은 내 삶 — 그게 건강한 거라고 생각함</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">구속하거나 구속받는 건 진짜 못 참음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인이 "지금 어디야? 뭐 해? 누구랑?" <b>세 가지를 연속으로 물으면 숨이 막힘</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><b>혼자만의 시간</b>이 충전에 꼭 필요함 — 이게 애정 없는 게 아님</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">서로의 친구 관계, 취미, 시간을 <b>존중하는 게 기본</b>이라고 생각함</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F"><span style="color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#7C67EE">관계에서 나를 잃는 느낌</span>이 들기 시작하면 본능적으로 거리를 둠</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F"><span style="color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#7C67EE">상대가 지나치게 붙어있으려 하면</span> 오히려 멀어지는 아이러니가 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연애보다 <b>자기 성장</b>을 더 중요하게 생각하는 편 — 그게 연애에도 도움이 된다고 믿음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같이 있어도 각자 할 거 하면서 <b>편한 시간</b>을 보낼 수 있는 관계를 이상적으로 봄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">당신과 함께하면 나도 더 나은 사람이 될 것 같다는 느낌 — 그게 <b>당신의 가장 큰 매력</b></span></div><div style="height:12px"></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">마이크로매니지먼트에 극도로 스트레스 받음 — <b>자율성이 보장될 때 최고 성과</b> 냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 집중할 때 퍼포먼스가 극대화됨 — <b>딥워크 능력</b>이 뛰어난 편</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">불필요한 회의나 형식적 절차를 싫어함 — <b>"이거 메일로 대체 안 돼요?"</b> 유형</span></div></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자주 못 봐도 <b>볼 때마다 편한 관계</b>를 이상적으로 봄 — 의존적인 친구가 부담스러움</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연락 안 해도 서로 이해하는 <b>진짜 독립적인 우정</b>을 추구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자만의 시간을 존중받으면 <b>더 좋은 친구</b>가 될 수 있는 사람</span></div></div>`,
-        wantToHear: "\"너 옆에 있으면 나도 성장하는 것 같아\"",
-        dontWantToHear: "\"나 지금 어디야? 뭐 해? 누구랑?\"",
-        compat: { goodEmoji: "🌿", goodName: "안정 배려형", badEmoji: "🌹", badName: "로맨틱 드리머" },
-        tags: ["#나를잃지않는연애", "#서로존중", "#집착사절", "#건강한거리"],
-      },
-      E: {
-        emoji: "💫",
-        name: "열정 낭만형",
-        tagline: "감성도 있고 표현도 강한 — 연애에 진심인 사람",
-        badge: "감성 폭발",
-        traits: [
-          { label: "로맨스",  val: 94 },
-          { label: "표현력",  val: 89 },
-          { label: "배려심",  val: 72 },
-          { label: "독립심",  val: 38 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#E91E8C;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">💫 사랑할 때 반만 하는 법을 모르는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">감동받으면 바로 표현하고, 표현하면 진심임</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상대가 특별하다고 느끼면 <b>그걸 말로, 행동으로 바로 보여주는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">이벤트도 좋고 일상 챙기는 것도 좋음 — <b>둘 다 하려는 사람</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연애에 에너지를 아끼지 않음 — <b>전력으로 좋아하는 스타일</b></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E91E8C0F"><span style="color:#E91E8C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#E91E8C">감정이 과하게 올라올 때 조절이 어려울 수</span> 있음 — 좋아할수록 더 많이 표현함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상대의 반응이 자신만큼 크지 않으면 <b>살짝 상처받기도 함</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같이 있는 시간이 <b>항상 특별하게 느껴지게 만드는</b> 재주가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"왜 이렇게 잘해줘?"라는 말을 들으면 <b>더 잘해주고 싶어짐</b></span></div><div style="height:12px"></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정과 이성을 동시에 쓰는 타입 — <b>판단은 냉정하게, 표현은 따뜻하게</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀 분위기와 성과를 동시에 챙기는 <b>균형 잡힌 협업자</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬도 피드백도 진심으로 해서 <b>동료들의 신뢰</b>를 받음</span></div></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">웃기기도 하고 깊은 얘기도 되는 <b>올라운드 친구</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 상황에 맞게 리액션을 조절하는 <b>감도 높은 사람</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같이 있으면 편하고 즐거운데 <b>이상하게 성장한 느낌</b>도 나는 친구</span></div></div>`,
-        wantToHear: "\"너랑 있으면 심장이 자꾸 빨라져\"",
-        dontWantToHear: "\"너 너무 과하지 않아?\"",
-        compat: { goodEmoji: "✨", goodName: "감성 배려형", badEmoji: "🧊", badName: "초독립형" },
-        tags: ["#열정만렙", "#감성충만", "#사랑에진심", "#표현왕"],
-      },
-      F: {
-        emoji: "🔥",
-        name: "즉흥 행동형",
-        tagline: "생각보다 행동이 먼저 — 연애도 직관으로 함",
-        badge: "행동파",
-        traits: [
-          { label: "행동력",  val: 92 },
-          { label: "솔직함",  val: 86 },
-          { label: "계획성",  val: 31 },
-          { label: "수용력",  val: 55 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF6B35;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🔥 생각이 나면 바로 해야 하는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">느낌이 오면 확인해야 직성이 풀림</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">보고 싶으면 <b>"어디야?" 먼저 보내고</b> 생각은 나중에 하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">갈등도 그 자리에서 해결 — <b>쌓아두는 걸 못하는 성격</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인이 힘들다고 하면 <b>"지금 가도 돼?"가 자동으로 나오는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B350F"><span style="color:#FF6B35;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#FF6B35">즉흥적인 결정이 상대를 당황하게</span> 할 수 있음 — 미리 얘기해주는 연습 필요</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">에너지가 넘칠 때와 방전됐을 때 차이가 커서 <b>기복이 있어 보일 수 있음</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">함께하는 순간순간을 <b>전력으로 즐기는</b> 연애를 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">잔잔하게 쌓아가는 것보다 <b>지금 이 순간에 몰입하는</b> 스타일</span></div><div style="height:12px"></div><div style="background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">주도적으로 움직이면서도 <b>팀 분위기를 해치지 않는</b> 균형감각</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과에 대한 집착이 강해서 <b>마무리 퀄리티</b>가 항상 높음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬받으면 진짜 더 잘함 — <b>인정이 연료</b>가 되는 타입</span></div></div><div style="background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 일이면 <b>내 일처럼 움직이는</b> 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">즐거운 분위기를 만드는 데 재능 있음 — <b>같이 있으면 자연히 신남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 힘들 때 <b>말보다 행동으로 먼저</b> 나타나는 사람</span></div></div>`,
-        wantToHear: "\"지금 당장 보고 싶어\"",
-        dontWantToHear: "\"왜 이렇게 갑자기야?\"",
-        compat: { goodEmoji: "⚡", goodName: "감성 배려형", badEmoji: "🧘", badName: "초계획형" },
-        tags: ["#즉흥의신", "#행동파", "#지금당장", "#에너지넘침"],
-      },
-      G: {
-        emoji: "🌊",
-        name: "균형 조율형",
-        tagline: "감성과 이성 사이 — 가장 안정적인 연애를 함",
-        badge: "균형파",
-        traits: [
-          { label: "안정감",  val: 88 },
-          { label: "공감력",  val: 82 },
-          { label: "표현력",  val: 61 },
-          { label: "독립심",  val: 67 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#2E86AB;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌊 연애에서 파도를 만들지 않는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">감정적이지도 차갑지도 않은, 딱 좋은 온도</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상대의 감정과 상황을 <b>자연스럽게 고려하면서도 자신을 잃지 않음</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">갈등이 생기면 감정 가라앉히고 <b>대화로 해결하는</b> 방식을 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연애와 개인 삶의 <b>균형을 잘 맞추는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2E86AB0F"><span style="color:#2E86AB;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#2E86AB">가끔 너무 안정적으로 보여서</span> 상대가 설레임을 덜 느낄 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자신의 감정을 말로 표현하는 데 <b>약간의 시간이 필요한</b> 편</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"너랑 있으면 편해"라는 말을 자주 듣는 — <b>심리적 안전감을 주는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">상대가 힘들 때 <b>옆에 있어주는 것만으로도 충분한</b> 존재감이 있음</span></div><div style="height:12px"></div><div style="background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">디테일에 강하고 <b>실수 없이 마무리하는</b> 신뢰형 동료</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">조용하지만 <b>업무 완성도는 팀 최상위권</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">무리한 요구에도 바로 거절 못하는 편 — <b>선 긋는 연습이 필요한 타입</b></span></div></div><div style="background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말은 없어도 <b>필요한 순간에 꼭 나타나는</b> 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">비밀 지키는 능력 탁월 — <b>털어놓기 좋은 존재</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">가끔 지나치게 배려해서 <b>자기 감정을 후순위</b>로 두는 경향</span></div></div>`,
-        wantToHear: "\"너랑 있으면 아무것도 안 해도 좋아\"",
-        dontWantToHear: "\"너는 왜 이렇게 쿨해?\"",
-        compat: { goodEmoji: "💞", goodName: "감성 표현형", badEmoji: "💥", badName: "갈등 유발형" },
-        tags: ["#균형잡힌", "#편안한존재", "#중재의신", "#안정감뿜뿜"],
-      },
-      H: {
-        emoji: "🌙",
-        name: "내면 탐구형",
-        tagline: "혼자도 괜찮고 같이도 괜찮은 — 연애에 철학이 있음",
-        badge: "철학파",
-        traits: [
-          { label: "독립심",  val: 91 },
-          { label: "깊이감",  val: 85 },
-          { label: "표현력",  val: 42 },
-          { label: "사교성",  val: 38 },
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#9C6ADE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌙 연애를 삶의 일부로 보는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">관계에 집착하지 않고, 그렇다고 무관심하지도 않음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연인과의 관계에서 <b>서로의 공간과 독립성을 중시</b>함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">깊이 있는 대화를 좋아하고 <b>표면적인 관계보다 본질</b>에 관심이 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">연애가 자신의 성장이나 삶과 <b>연결될 때 가장 의미 있다고</b> 느낌</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#9C6ADE0F"><span style="color:#9C6ADE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#9C6ADE">감정 표현이 부족해 보여서</span> 상대가 사랑받는 느낌을 덜 받을 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자만의 시간이 필요한데 <b>상대가 이해 못 하면 갈등</b>이 생김</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">한번 진심으로 연결되면 <b>쉽게 끊어지지 않는 깊은 유대감</b>이 생김</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"어떻게 그런 생각을 해?"라는 말을 자주 듣는 <b>철학적인 연인</b></span></div><div style="height:12px"></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 깊게 파고드는 작업에서 <b>비범한 결과물</b>이 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">창의적 발상이 강해서 <b>아무도 생각 못 한 접근</b>을 갖고 옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">반복적인 업무보다 <b>새로운 문제를 풀 때</b> 에너지가 올라가는 타입</span></div></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">겉으로는 조용해 보이지만 <b>속 얘기 하면 엄청 재밌는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 많진 않지만 <b>깊게 사귀는 관계</b>를 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기만의 세계가 뚜렷해서 <b>같이 있으면 신선한 자극</b>이 됨</span></div></div>`,
-        wantToHear: "\"너랑 있으면 생각이 많아지는데 그게 좋아\"",
-        dontWantToHear: "\"왜 이렇게 혼자 있으려고 해?\"",
-        compat: { goodEmoji: "🔮", goodName: "균형 조율형", badEmoji: "📣", badName: "의존 표현형" },
-        tags: ["#철학적연애", "#독립적인나", "#깊은생각", "#공간존중"],
-      },
-    },
+        "A": {
+                "emoji": "🌹",
+                "name": "로맨틱 드리머",
+                "tagline": "감성으로 연애를 예술로 만드는 타입",
+                "badge": "낭만 가득",
+                "traits": [
+                        {
+                                "label": "로맨스",
+                                "val": 88
+                        },
+                        {
+                                "label": "감수성",
+                                "val": 79
+                        },
+                        {
+                                "label": "표현력",
+                                "val": 63
+                        },
+                        {
+                                "label": "멘탈 안정",
+                                "val": 31
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#FF6B9D;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">💕 사랑받고 싶은 마음이 남들보다 1.5배 큼</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">근데 그만큼 줄 줄도 아는 사람</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">기념일 <b>D-30부터</b> 뭐 할지 머릿속에서 계획 시작됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인이 지나가듯 했던 말도 <b>한 달 뒤에 정확히 기억</b>하고 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감동을 주고받는 게 연애의 핵심이라고 <b>진심으로</b> 믿는 사람</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F\"><span style=\"color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#e05c8a\">노력 안 하는 상대</span> 옆에 있으면 에너지가 빠르게 고갈됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">작은 말 한 마디에 <b>크게 상처</b>받기도 하고, 작은 행동 하나에 크게 감동받기도 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">싸우고 나서도 먼저 화해하고 싶어서 <b>결국 먼저 연락</b>하는 사람</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F\"><span style=\"color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#FF6B9D\">설레는 감정이 없어지면</span> 연애가 끝난 것 같은 느낌이 들기도 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">드라마 같은 순간을 직접 만들어냄 — 당신 곁에 있으면 <b>매일이 특별한 날</b>처럼 느껴짐</span></div><div style=\"height:12px\"></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀 분위기를 부드럽게 만드는 감성 리더 — 힘든 상황에서도 <b>분위기 메이킹</b>을 자연스럽게 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬 한 마디에 진심으로 감동받고 더 열심히 함 — <b>인정욕구</b>가 업무 원동력</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">동료가 힘들어 보이면 먼저 \"괜찮아요?\" 묻는 <b>팀의 정서적 버팀목</b></span></div></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 생일, 기념일 꼭 챙기는 사람 — <b>잊어도 괜찮다고 했지만 혼자 기억하고 있음</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연락이 뜸해졌다 싶으면 불안해짐 — 관계에 <b>꾸준한 온기</b>를 원하는 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">속 깊은 대화를 좋아해서 <b>친해지면 인생 친구</b>가 되는 경우가 많음</span></div></div>",
+                "wantToHear": "\"너랑 있으면 매일 설레\"",
+                "dontWantToHear": "\"기념일이 그게 그렇게 중요해?\"",
+                "compat": {
+                        "goodEmoji": "🌿",
+                        "goodName": "안정 배려형",
+                        "goodDesc": "말없이 다 챙겨주는 든든한 배려형",
+                        "badEmoji": "🦋",
+                        "badName": "자유 독립형",
+                        "badDesc": "나만의 공간과 자유를 최우선으로 하는 타입"
+                },
+                "tags": [
+                        "#기념일은종교",
+                        "#감수성폭발",
+                        "#설렘없인못살아",
+                        "#낭만주의자"
+                ]
+        },
+        "B": {
+                "emoji": "🔥",
+                "name": "열정 표현형",
+                "tagline": "온 마음을 다 꺼내놓는 타입",
+                "badge": "열정 가득",
+                "traits": [
+                        {
+                                "label": "열정도",
+                                "val": 91
+                        },
+                        {
+                                "label": "직진력",
+                                "val": 85
+                        },
+                        {
+                                "label": "에너지",
+                                "val": 78
+                        },
+                        {
+                                "label": "인내심",
+                                "val": 22
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#FF8C42;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🔥 마음에 담아두는 거 체질적으로 못 함</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">좋으면 좋다고, 싫으면 싫다고 — 필터 없음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">좋아하는 감정이 생기면 숨기려 해도 <b>표정이나 행동으로 이미 다 드러남</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">싸울 때 할 말은 <b>그 자리에서 다 함</b> — 쌓아두고 나중에 터지는 게 더 힘듦</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사랑할 때는 세상 전부를 줄 것 같은 <b>뜨거움</b>이 있음</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF8C420F\"><span style=\"color:#FF8C42;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#e07030\">어중간한 관계가 제일 힘듦</span> — 좋으면 확실히, 아니면 정리</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인의 반응이 없거나 무덤덤하면 <b>불안함이 빠르게 올라옴</b></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF8C420F\"><span style=\"color:#FF8C42;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인이 힘들다고 하면 <span style=\"color:#FF8C42\">\"어디야? 지금 가도 돼?\"</span> 가 자동으로 나옴</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">즉흥적으로 <b>\"지금 뭐 해? 드라이브 가자\"</b> 할 수 있는 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">화해하고 나면 언제 싸웠냐는 듯이 <b>다시 따뜻해짐</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">당신과 연애하면 <b>지루할 틈이 없음</b> — 그게 장점이자, 가끔은 소용돌이</span></div><div style=\"height:12px\"></div><div style=\"background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">마감 직전에 뚜렷하게 살아나는 타입 — <b>위기 상황에서 가장 빛남</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">할 말은 그 자리에서 하는 편 — 회의에서 <b>직설적 피드백</b>으로 분위기를 흔들기도 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">열정이 넘쳐서 <b>주도적으로 일을 벌이는</b> 경우가 많음 — 수습도 본인이 함</span></div></div><div style=\"background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구가 힘들다고 하면 <b>\"어디야? 지금 갈게\"</b>가 반사적으로 나오는 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감정 표현이 솔직해서 <b>진짜 친구인지 아닌지 바로 느껴짐</b> — 애매한 관계를 못 견딤</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">같이 있으면 <b>무조건 뭔가 일어나는</b> 타입 — 지루할 틈이 없는 친구</span></div></div>",
+                "wantToHear": "\"네가 먼저 표현해줘서 나도 편했어\"",
+                "dontWantToHear": "\"왜 이렇게 감정적으로 굴어\"",
+                "compat": {
+                        "goodEmoji": "🌹",
+                        "goodName": "로맨틱 드리머",
+                        "goodDesc": "감성으로 연애를 예술로 만드는 낭만형",
+                        "badEmoji": "🌿",
+                        "badName": "안정 배려형",
+                        "badDesc": "설렘보다 안정과 일상을 중시하는 타입"
+                },
+                "tags": [
+                        "#직진본능",
+                        "#감정솔직",
+                        "#열정만수르",
+                        "#참는게병이야"
+                ]
+        },
+        "C": {
+                "emoji": "🌿",
+                "name": "안정 배려형",
+                "tagline": "말 없이 다 챙기는 타입",
+                "badge": "신뢰 가득",
+                "traits": [
+                        {
+                                "label": "신뢰감",
+                                "val": 86
+                        },
+                        {
+                                "label": "배려심",
+                                "val": 82
+                        },
+                        {
+                                "label": "안정감",
+                                "val": 74
+                        },
+                        {
+                                "label": "설렘 표현",
+                                "val": 27
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#4CAF8A;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🌿 \"밥은 먹었어?\" 한 마디가 사랑 표현의 전부인 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">화려하진 않지만, 곁에 있으면 왠지 안심이 됨</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인이 좋아하는 음식, 싫어하는 냄새, 잠버릇까지 <b>자연스럽게 기억</b>하고 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">힘들어 보이면 <b>말 안 해도 먼저 옆에</b> 와 있는 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">드라마틱한 이벤트보다 <b>매일의 일상을 함께</b>하는 게 더 중요하다고 생각함</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4CAF8A0F\"><span style=\"color:#4CAF8A;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">표현이 서툴러서 오해받는 경우</span>가 있음 — 관심 없는 게 아니라 방식이 다른 것</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4CAF8A0F\"><span style=\"color:#4CAF8A;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">신뢰가 깨지면 회복이 느림</span> — 한 번 상처받으면 쉽게 잊지 못함</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인의 작은 불편함도 미리 알아채고 <b>조용히 해결</b>해 놓음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"왜 이렇게 잘 챙겨줘?\" 소리를 들으면 <b>어색하게 웃고 넘김</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">당신 옆에 있으면 세상 어떤 폭풍이 와도 <b>버틸 것 같은 느낌</b>이 드는 게 사실임</span></div><div style=\"height:12px\"></div><div style=\"background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">티 안 나게 팀을 받쳐주는 사람 — <b>\"그 사람이 있어서 돌아갔던 거\"</b>라는 말이 퇴사 후에 나옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">갈등 상황에서 중재 역할을 자연스럽게 맡게 됨 — <b>감정보다 분위기를 먼저 봄</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">꼼꼼하고 책임감 강해서 <b>믿고 맡길 수 있는 동료</b>로 인식되는 경우가 많음</span></div></div><div style=\"background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구들 속사정을 제일 많이 알고 있는 타입 — <b>비밀 보관함</b> 역할</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"밥은 먹었어?\"로 걱정을 표현하는 스타일 — <b>말보다 행동으로 챙김</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">쉽게 친해지진 않지만, <b>한번 친해지면 오래가는 관계</b>를 만드는 사람</span></div></div>",
+                "wantToHear": "\"네가 있으니까 든든해\"",
+                "dontWantToHear": "\"요즘 나한테 관심 없는 거 아니야?\"",
+                "compat": {
+                        "goodEmoji": "🌹",
+                        "goodName": "로맨틱 드리머",
+                        "goodDesc": "감성과 감정이 풍부한 낭만형",
+                        "badEmoji": "🔥",
+                        "badName": "열정 표현형",
+                        "badDesc": "감정을 강렬하게 쏟아내는 표현형"
+                },
+                "tags": [
+                        "#밥이최고의사랑",
+                        "#든든한버팀목",
+                        "#표현은서툴러도",
+                        "#신뢰장인"
+                ]
+        },
+        "D": {
+                "emoji": "🦋",
+                "name": "자유 독립형",
+                "tagline": "나를 잃지 않고 사랑하는 타입",
+                "badge": "자유 가득",
+                "traits": [
+                        {
+                                "label": "독립성",
+                                "val": 87
+                        },
+                        {
+                                "label": "자존감",
+                                "val": 79
+                        },
+                        {
+                                "label": "성장욕",
+                                "val": 71
+                        },
+                        {
+                                "label": "집착도",
+                                "val": 8
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#7C67EE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🦋 연애해도 내 삶은 내 삶 — 그게 건강한 거라고 생각함</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">구속하거나 구속받는 건 진짜 못 참음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인이 \"지금 어디야? 뭐 해? 누구랑?\" <b>세 가지를 연속으로 물으면 숨이 막힘</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><b>혼자만의 시간</b>이 충전에 꼭 필요함 — 이게 애정 없는 게 아님</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">서로의 친구 관계, 취미, 시간을 <b>존중하는 게 기본</b>이라고 생각함</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F\"><span style=\"color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#7C67EE\">관계에서 나를 잃는 느낌</span>이 들기 시작하면 본능적으로 거리를 둠</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F\"><span style=\"color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#7C67EE\">상대가 지나치게 붙어있으려 하면</span> 오히려 멀어지는 아이러니가 있음</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연애보다 <b>자기 성장</b>을 더 중요하게 생각하는 편 — 그게 연애에도 도움이 된다고 믿음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">같이 있어도 각자 할 거 하면서 <b>편한 시간</b>을 보낼 수 있는 관계를 이상적으로 봄</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">당신과 함께하면 나도 더 나은 사람이 될 것 같다는 느낌 — 그게 <b>당신의 가장 큰 매력</b></span></div><div style=\"height:12px\"></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">마이크로매니지먼트에 극도로 스트레스 받음 — <b>자율성이 보장될 때 최고 성과</b> 냄</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 집중할 때 퍼포먼스가 극대화됨 — <b>딥워크 능력</b>이 뛰어난 편</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">불필요한 회의나 형식적 절차를 싫어함 — <b>\"이거 메일로 대체 안 돼요?\"</b> 유형</span></div></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자주 못 봐도 <b>볼 때마다 편한 관계</b>를 이상적으로 봄 — 의존적인 친구가 부담스러움</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연락 안 해도 서로 이해하는 <b>진짜 독립적인 우정</b>을 추구</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자만의 시간을 존중받으면 <b>더 좋은 친구</b>가 될 수 있는 사람</span></div></div>",
+                "wantToHear": "\"너 옆에 있으면 나도 성장하는 것 같아\"",
+                "dontWantToHear": "\"나 지금 어디야? 뭐 해? 누구랑?\"",
+                "compat": {
+                        "goodEmoji": "🌿",
+                        "goodName": "안정 배려형",
+                        "goodDesc": "변함없이 곁에 있어주는 배려형",
+                        "badEmoji": "🌹",
+                        "badName": "로맨틱 드리머",
+                        "badDesc": "낭만과 감성적 표현을 기대하는 드리머형"
+                },
+                "tags": [
+                        "#나를잃지않는연애",
+                        "#서로존중",
+                        "#집착사절",
+                        "#건강한거리"
+                ]
+        },
+        "E": {
+                "emoji": "💫",
+                "name": "열정 낭만형",
+                "tagline": "감성도 있고 표현도 강한 — 연애에 진심인 사람",
+                "badge": "감성 폭발",
+                "traits": [
+                        {
+                                "label": "로맨스",
+                                "val": 94
+                        },
+                        {
+                                "label": "표현력",
+                                "val": 89
+                        },
+                        {
+                                "label": "배려심",
+                                "val": 72
+                        },
+                        {
+                                "label": "독립심",
+                                "val": 38
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#E91E8C;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">💫 사랑할 때 반만 하는 법을 모르는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">감동받으면 바로 표현하고, 표현하면 진심임</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">상대가 특별하다고 느끼면 <b>그걸 말로, 행동으로 바로 보여주는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">이벤트도 좋고 일상 챙기는 것도 좋음 — <b>둘 다 하려는 사람</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연애에 에너지를 아끼지 않음 — <b>전력으로 좋아하는 스타일</b></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E91E8C0F\"><span style=\"color:#E91E8C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#E91E8C\">감정이 과하게 올라올 때 조절이 어려울 수</span> 있음 — 좋아할수록 더 많이 표현함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">상대의 반응이 자신만큼 크지 않으면 <b>살짝 상처받기도 함</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">같이 있는 시간이 <b>항상 특별하게 느껴지게 만드는</b> 재주가 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"왜 이렇게 잘해줘?\"라는 말을 들으면 <b>더 잘해주고 싶어짐</b></span></div><div style=\"height:12px\"></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감정과 이성을 동시에 쓰는 타입 — <b>판단은 냉정하게, 표현은 따뜻하게</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀 분위기와 성과를 동시에 챙기는 <b>균형 잡힌 협업자</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬도 피드백도 진심으로 해서 <b>동료들의 신뢰</b>를 받음</span></div></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">웃기기도 하고 깊은 얘기도 되는 <b>올라운드 친구</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 상황에 맞게 리액션을 조절하는 <b>감도 높은 사람</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">같이 있으면 편하고 즐거운데 <b>이상하게 성장한 느낌</b>도 나는 친구</span></div></div>",
+                "wantToHear": "\"너랑 있으면 심장이 자꾸 빨라져\"",
+                "dontWantToHear": "\"너 너무 과하지 않아?\"",
+                "compat": {
+                        "goodEmoji": "🌿",
+                        "goodName": "안정 배려형",
+                        "goodDesc": "감정을 세심하게 받아주는 배려형",
+                        "badEmoji": "🦋",
+                        "badName": "자유 독립형",
+                        "badDesc": "감정보다 혼자만의 공간을 우선하는 독립형"
+                },
+                "tags": [
+                        "#열정만렙",
+                        "#감성충만",
+                        "#사랑에진심",
+                        "#표현왕"
+                ]
+        },
+        "F": {
+                "emoji": "🔥",
+                "name": "즉흥 행동형",
+                "tagline": "생각보다 행동이 먼저 — 연애도 직관으로 함",
+                "badge": "행동파",
+                "traits": [
+                        {
+                                "label": "행동력",
+                                "val": 92
+                        },
+                        {
+                                "label": "솔직함",
+                                "val": 86
+                        },
+                        {
+                                "label": "계획성",
+                                "val": 31
+                        },
+                        {
+                                "label": "수용력",
+                                "val": 55
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#FF6B35;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🔥 생각이 나면 바로 해야 하는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">느낌이 오면 확인해야 직성이 풀림</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">보고 싶으면 <b>\"어디야?\" 먼저 보내고</b> 생각은 나중에 하는 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">갈등도 그 자리에서 해결 — <b>쌓아두는 걸 못하는 성격</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인이 힘들다고 하면 <b>\"지금 가도 돼?\"가 자동으로 나오는</b> 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B350F\"><span style=\"color:#FF6B35;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#FF6B35\">즉흥적인 결정이 상대를 당황하게</span> 할 수 있음 — 미리 얘기해주는 연습 필요</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">에너지가 넘칠 때와 방전됐을 때 차이가 커서 <b>기복이 있어 보일 수 있음</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">함께하는 순간순간을 <b>전력으로 즐기는</b> 연애를 함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">잔잔하게 쌓아가는 것보다 <b>지금 이 순간에 몰입하는</b> 스타일</span></div><div style=\"height:12px\"></div><div style=\"background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">주도적으로 움직이면서도 <b>팀 분위기를 해치지 않는</b> 균형감각</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">결과에 대한 집착이 강해서 <b>마무리 퀄리티</b>가 항상 높음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬받으면 진짜 더 잘함 — <b>인정이 연료</b>가 되는 타입</span></div></div><div style=\"background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 일이면 <b>내 일처럼 움직이는</b> 스타일</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">즐거운 분위기를 만드는 데 재능 있음 — <b>같이 있으면 자연히 신남</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구가 힘들 때 <b>말보다 행동으로 먼저</b> 나타나는 사람</span></div></div>",
+                "wantToHear": "\"지금 당장 보고 싶어\"",
+                "dontWantToHear": "\"왜 이렇게 갑자기야?\"",
+                "compat": {
+                        "goodEmoji": "💫",
+                        "goodName": "열정 낭만형",
+                        "goodDesc": "감성도 있고 표현도 강한 — 연애에 진심",
+                        "badEmoji": "🌊",
+                        "badName": "균형 조율형",
+                        "badDesc": "즉흥보다 계획과 안정을 선호하는 조율형"
+                },
+                "tags": [
+                        "#즉흥의신",
+                        "#행동파",
+                        "#지금당장",
+                        "#에너지넘침"
+                ]
+        },
+        "G": {
+                "emoji": "🌊",
+                "name": "균형 조율형",
+                "tagline": "감성과 이성 사이 — 가장 안정적인 연애를 함",
+                "badge": "균형파",
+                "traits": [
+                        {
+                                "label": "안정감",
+                                "val": 88
+                        },
+                        {
+                                "label": "공감력",
+                                "val": 82
+                        },
+                        {
+                                "label": "표현력",
+                                "val": 61
+                        },
+                        {
+                                "label": "독립심",
+                                "val": 67
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#2E86AB;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🌊 연애에서 파도를 만들지 않는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">감정적이지도 차갑지도 않은, 딱 좋은 온도</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">상대의 감정과 상황을 <b>자연스럽게 고려하면서도 자신을 잃지 않음</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">갈등이 생기면 감정 가라앉히고 <b>대화로 해결하는</b> 방식을 선호</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연애와 개인 삶의 <b>균형을 잘 맞추는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2E86AB0F\"><span style=\"color:#2E86AB;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#2E86AB\">가끔 너무 안정적으로 보여서</span> 상대가 설레임을 덜 느낄 수 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자신의 감정을 말로 표현하는 데 <b>약간의 시간이 필요한</b> 편</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"너랑 있으면 편해\"라는 말을 자주 듣는 — <b>심리적 안전감을 주는</b> 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">상대가 힘들 때 <b>옆에 있어주는 것만으로도 충분한</b> 존재감이 있음</span></div><div style=\"height:12px\"></div><div style=\"background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">디테일에 강하고 <b>실수 없이 마무리하는</b> 신뢰형 동료</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">조용하지만 <b>업무 완성도는 팀 최상위권</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">무리한 요구에도 바로 거절 못하는 편 — <b>선 긋는 연습이 필요한 타입</b></span></div></div><div style=\"background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">말은 없어도 <b>필요한 순간에 꼭 나타나는</b> 친구</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">비밀 지키는 능력 탁월 — <b>털어놓기 좋은 존재</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">가끔 지나치게 배려해서 <b>자기 감정을 후순위</b>로 두는 경향</span></div></div>",
+                "wantToHear": "\"너랑 있으면 아무것도 안 해도 좋아\"",
+                "dontWantToHear": "\"너는 왜 이렇게 쿨해?\"",
+                "compat": {
+                        "goodEmoji": "💫",
+                        "goodName": "열정 낭만형",
+                        "goodDesc": "감성도 있고 표현도 강한 — 연애에 진심",
+                        "badEmoji": "🔥",
+                        "badName": "열정 표현형",
+                        "badDesc": "온 감정을 쏟아내는 강렬한 표현형"
+                },
+                "tags": [
+                        "#균형잡힌",
+                        "#편안한존재",
+                        "#중재의신",
+                        "#안정감뿜뿜"
+                ]
+        },
+        "H": {
+                "emoji": "🌙",
+                "name": "내면 탐구형",
+                "tagline": "혼자도 괜찮고 같이도 괜찮은 — 연애에 철학이 있음",
+                "badge": "철학파",
+                "traits": [
+                        {
+                                "label": "독립심",
+                                "val": 91
+                        },
+                        {
+                                "label": "깊이감",
+                                "val": 85
+                        },
+                        {
+                                "label": "표현력",
+                                "val": 42
+                        },
+                        {
+                                "label": "사교성",
+                                "val": 38
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#9C6ADE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🌙 연애를 삶의 일부로 보는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">관계에 집착하지 않고, 그렇다고 무관심하지도 않음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연인과의 관계에서 <b>서로의 공간과 독립성을 중시</b>함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">깊이 있는 대화를 좋아하고 <b>표면적인 관계보다 본질</b>에 관심이 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">연애가 자신의 성장이나 삶과 <b>연결될 때 가장 의미 있다고</b> 느낌</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#9C6ADE0F\"><span style=\"color:#9C6ADE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#9C6ADE\">감정 표현이 부족해 보여서</span> 상대가 사랑받는 느낌을 덜 받을 수 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자만의 시간이 필요한데 <b>상대가 이해 못 하면 갈등</b>이 생김</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">한번 진심으로 연결되면 <b>쉽게 끊어지지 않는 깊은 유대감</b>이 생김</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"어떻게 그런 생각을 해?\"라는 말을 자주 듣는 <b>철학적인 연인</b></span></div><div style=\"height:12px\"></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 깊게 파고드는 작업에서 <b>비범한 결과물</b>이 나옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">창의적 발상이 강해서 <b>아무도 생각 못 한 접근</b>을 갖고 옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">반복적인 업무보다 <b>새로운 문제를 풀 때</b> 에너지가 올라가는 타입</span></div></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">겉으로는 조용해 보이지만 <b>속 얘기 하면 엄청 재밌는</b> 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구가 많진 않지만 <b>깊게 사귀는 관계</b>를 선호</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자기만의 세계가 뚜렷해서 <b>같이 있으면 신선한 자극</b>이 됨</span></div></div>",
+                "wantToHear": "\"너랑 있으면 생각이 많아지는데 그게 좋아\"",
+                "dontWantToHear": "\"왜 이렇게 혼자 있으려고 해?\"",
+                "compat": {
+                        "goodEmoji": "🌊",
+                        "goodName": "균형 조율형",
+                        "goodDesc": "감성과 이성 사이 — 가장 안정적인 연애",
+                        "badEmoji": "🔥",
+                        "badName": "열정 표현형",
+                        "badDesc": "온 감정을 강하게 쏟아내는 표현형"
+                },
+                "tags": [
+                        "#철학적연애",
+                        "#독립적인나",
+                        "#깊은생각",
+                        "#공간존중"
+                ]
+        }
+},
   },
   en: {
     ui: {
@@ -947,135 +1165,323 @@ const data = {
       },
     ],
     results: {
-      A: {
-        emoji: "🌹",
-        name: "Romantic Dreamer",
-        tagline: "The Hopeless Romantic",
-        badge: "Full of Romance",
-        traits: [
-          { label: "Romance",    val: 95 },
-          { label: "Sensitivity",val: 88 },
-          { label: "Expression", val: 64 },
-          { label: "Stability",  val: 60 },
-        ],
-        desc: "You're a true Romantic Dreamer who values butterflies and magic above all! You plan surprise gifts, remember every anniversary, and create cinematic moments from everyday life. Your high sensitivity means a small gesture can touch you deeply — but harsh words can too. Being with you feels like living in a love story. 💕",
-        compat: { goodEmoji: "✨", goodName: "Steady Caregiver", badEmoji: "⚡", badName: "Free Spirit" },
-        tags: ["#Hopeless Romantic", "#Anniversary Keeper", "#Deeply Sensitive", "#Loves Butterflies"],
-      },
-      B: {
-        emoji: "🔥",
-        name: "Passionate Expresser",
-        tagline: "All-in, All-heart Lover",
-        badge: "Full of Passion",
-        traits: [
-          { label: "Passion",    val: 98 },
-          { label: "Expression", val: 95 },
-          { label: "Energy",     val: 90 },
-          { label: "Patience",   val: 55 },
-        ],
-        desc: "You love with everything you've got! You wear your heart on your sleeve, say what you feel, and would run to the ends of the earth for your partner. Yes, your emotions can run high — but that same intensity means when you love, you love like wildfire. Life with you is never boring! 🔥",
-        compat: { goodEmoji: "🌸", goodName: "Romantic Dreamer", badEmoji: "🕊️", badName: "Steady Caregiver" },
-        tags: ["#WearYourHeart", "#IntenseFeels", "#NoHoldsBarred", "#Spontaneous"],
-      },
-      C: {
-        emoji: "🌿",
-        name: "Steady Caregiver",
-        tagline: "The Rock-Solid Partner",
-        badge: "Full of Trust",
-        traits: [
-          { label: "Reliability", val: 97 },
-          { label: "Empathy",     val: 94 },
-          { label: "Stability",   val: 92 },
-          { label: "Excitement",  val: 60 },
-        ],
-        desc: "You're the partner who shows up — every single time. You notice the small things, take care of your partner without being asked, and find happiness in simple daily moments together. No grand gestures needed; your consistency is your superpower. With you, your partner always feels safe and held. 🌿",
-        compat: { goodEmoji: "🌙", goodName: "Romantic Dreamer", badEmoji: "🔥", badName: "Passionate Expresser" },
-        tags: ["#AlwaysThereForYou", "#DependableAF", "#EverydayJoy", "#QuietStrength"],
-      },
-      D: {
-        emoji: "🦋",
-        name: "Free Spirit",
-        tagline: "Independent & Growing Together",
-        badge: "Full of Freedom",
-        traits: [
-          { label: "Independence", val: 95 },
-          { label: "Self-Esteem",  val: 92 },
-          { label: "Growth",       val: 88 },
-          { label: "Clinginess",   val: 10 },
-        ],
-        desc: "You believe love should liberate, not confine. You value personal space and respect your partner's individuality while creating meaningful moments together. You see your partner as a companion and growth partner — never possessive, never clingy. Being with you makes people feel inspired to become their best selves. 🦋",
-        compat: { goodEmoji: "🌿", goodName: "Steady Caregiver", badEmoji: "😰", badName: "Romantic Dreamer" },
-        tags: ["#FreeSpirit", "#MutualRespect", "#GrowTogether", "#HealthyBoundaries"],
-      },
-      E: {
-        emoji: "💫",
-        name: "Passionate Romantic",
-        tagline: "You love fully — with both heart and action",
-        badge: "All Heart",
-        traits: [
-          { label: "Romance", val: 94 },
-          { label: "Expression", val: 89 },
-          { label: "Care", val: 72 },
-          { label: "Independence", val: 38 },
-        ],
-        desc: "You combine deep emotional investment with enthusiastic expression. You don't just feel love—you show it through words, gestures, and memorable moments. Your partner always knows they're cherished.",
-        wantToHear: "\"You make every moment feel special\"",
-        dontWantToHear: "\"Aren't you a bit much?\"",
-        compat: { goodEmoji: "✨", goodName: "Caring Type", badEmoji: "🧊", badName: "Ultra-Independent" },
-        tags: ["#AllIn", "#RomanticEnergy", "#HeartOnSleeve"],
-      },
-      F: {
-        emoji: "🔥",
-        name: "Spontaneous Action",
-        tagline: "You act first, think later — love through momentum",
-        badge: "Go-Getter",
-        traits: [
-          { label: "Action", val: 92 },
-          { label: "Honesty", val: 86 },
-          { label: "Planning", val: 31 },
-          { label: "Flexibility", val: 55 },
-        ],
-        desc: "When you want to see your person, you're already grabbing your keys. You love with energy and urgency, keeping the relationship dynamic and alive.",
-        wantToHear: "\"I want to see you right now\"",
-        dontWantToHear: "\"Why so sudden?\"",
-        compat: { goodEmoji: "⚡", goodName: "Nurturing Type", badEmoji: "🧘", badName: "Over-Planner" },
-        tags: ["#SpontaneousLove", "#ActionTaker", "#NowNotLater"],
-      },
-      G: {
-        emoji: "🌊",
-        name: "Balanced Harmonizer",
-        tagline: "Emotionally steady — the relationship people wish they had",
-        badge: "Equilibrium",
-        traits: [
-          { label: "Stability", val: 88 },
-          { label: "Empathy", val: 82 },
-          { label: "Expression", val: 61 },
-          { label: "Independence", val: 67 },
-        ],
-        desc: "You're the rare partner who is both caring and self-assured. You don't lose yourself in relationships and you don't push others away. You create a safe, calm space that people want to be in.",
-        wantToHear: "\"I feel so comfortable with you\"",
-        dontWantToHear: "\"Why are you always so chill?\"",
-        compat: { goodEmoji: "💞", goodName: "Expressive Type", badEmoji: "💥", badName: "Drama-Prone" },
-        tags: ["#Balanced", "#SafeSpace", "#StableButFun"],
-      },
-      H: {
-        emoji: "🌙",
-        name: "Inner Philosopher",
-        tagline: "Love with depth — relationships as a path to growth",
-        badge: "Deep Thinker",
-        traits: [
-          { label: "Independence", val: 91 },
-          { label: "Depth", val: 85 },
-          { label: "Expression", val: 42 },
-          { label: "Sociability", val: 38 },
-        ],
-        desc: "You see love as more than comfort—it's a conversation that makes you both grow. You need space, depth, and meaning. When you connect, it goes deep and lasts long.",
-        wantToHear: "\"Talking to you makes me think differently\"",
-        dontWantToHear: "\"Why do you need so much alone time?\"",
-        compat: { goodEmoji: "🔮", goodName: "Balanced Type", badEmoji: "📣", badName: "Over-Dependent" },
-        tags: ["#PhilosophicalLove", "#IndependentMind", "#DeepConnection"],
-      },
-    },
+        "A": {
+                "emoji": "🌹",
+                "name": "Romantic Dreamer",
+                "tagline": "The Hopeless Romantic",
+                "badge": "Full of Romance",
+                "traits": [
+                        {
+                                "label": "Romance",
+                                "val": 95
+                        },
+                        {
+                                "label": "Sensitivity",
+                                "val": 88
+                        },
+                        {
+                                "label": "Expression",
+                                "val": 64
+                        },
+                        {
+                                "label": "Stability",
+                                "val": 60
+                        }
+                ],
+                "desc": "You're a true Romantic Dreamer who values butterflies and magic above all! You plan surprise gifts, remember every anniversary, and create cinematic moments from everyday life. Your high sensitivity means a small gesture can touch you deeply — but harsh words can too. Being with you feels like living in a love story. 💕",
+                "compat": {
+                        "goodEmoji": "🌿",
+                        "goodName": "Steady Caregiver",
+                        "goodDesc": "Quietly takes care of everything — rock solid",
+                        "badEmoji": "🦋",
+                        "badName": "Free Spirit",
+                        "badDesc": "Puts personal freedom and space above all else"
+                },
+                "tags": [
+                        "#Hopeless Romantic",
+                        "#Anniversary Keeper",
+                        "#Deeply Sensitive",
+                        "#Loves Butterflies"
+                ]
+        },
+        "B": {
+                "emoji": "🔥",
+                "name": "Passionate Expresser",
+                "tagline": "All-in, All-heart Lover",
+                "badge": "Full of Passion",
+                "traits": [
+                        {
+                                "label": "Passion",
+                                "val": 98
+                        },
+                        {
+                                "label": "Expression",
+                                "val": 95
+                        },
+                        {
+                                "label": "Energy",
+                                "val": 90
+                        },
+                        {
+                                "label": "Patience",
+                                "val": 55
+                        }
+                ],
+                "desc": "You love with everything you've got! You wear your heart on your sleeve, say what you feel, and would run to the ends of the earth for your partner. Yes, your emotions can run high — but that same intensity means when you love, you love like wildfire. Life with you is never boring! 🔥",
+                "compat": {
+                        "goodEmoji": "🌹",
+                        "goodName": "Romantic Dreamer",
+                        "goodDesc": "Makes romance into art through pure feeling",
+                        "badEmoji": "🌿",
+                        "badName": "Steady Caregiver",
+                        "badDesc": "Values daily stability over excitement"
+                },
+                "tags": [
+                        "#WearYourHeart",
+                        "#IntenseFeels",
+                        "#NoHoldsBarred",
+                        "#Spontaneous"
+                ]
+        },
+        "C": {
+                "emoji": "🌿",
+                "name": "Steady Caregiver",
+                "tagline": "The Rock-Solid Partner",
+                "badge": "Full of Trust",
+                "traits": [
+                        {
+                                "label": "Reliability",
+                                "val": 97
+                        },
+                        {
+                                "label": "Empathy",
+                                "val": 94
+                        },
+                        {
+                                "label": "Stability",
+                                "val": 92
+                        },
+                        {
+                                "label": "Excitement",
+                                "val": 60
+                        }
+                ],
+                "desc": "You're the partner who shows up — every single time. You notice the small things, take care of your partner without being asked, and find happiness in simple daily moments together. No grand gestures needed; your consistency is your superpower. With you, your partner always feels safe and held. 🌿",
+                "compat": {
+                        "goodEmoji": "🌹",
+                        "goodName": "Romantic Dreamer",
+                        "goodDesc": "Rich in emotion — a natural romantic",
+                        "badEmoji": "🔥",
+                        "badName": "Passionate Expresser",
+                        "badDesc": "Pours intense feelings out at full volume"
+                },
+                "tags": [
+                        "#AlwaysThereForYou",
+                        "#DependableAF",
+                        "#EverydayJoy",
+                        "#QuietStrength"
+                ]
+        },
+        "D": {
+                "emoji": "🦋",
+                "name": "Free Spirit",
+                "tagline": "Independent & Growing Together",
+                "badge": "Full of Freedom",
+                "traits": [
+                        {
+                                "label": "Independence",
+                                "val": 95
+                        },
+                        {
+                                "label": "Self-Esteem",
+                                "val": 92
+                        },
+                        {
+                                "label": "Growth",
+                                "val": 88
+                        },
+                        {
+                                "label": "Clinginess",
+                                "val": 10
+                        }
+                ],
+                "desc": "You believe love should liberate, not confine. You value personal space and respect your partner's individuality while creating meaningful moments together. You see your partner as a companion and growth partner — never possessive, never clingy. Being with you makes people feel inspired to become their best selves. 🦋",
+                "compat": {
+                        "goodEmoji": "🌿",
+                        "goodName": "Steady Caregiver",
+                        "goodDesc": "Consistently present — steady and dependable",
+                        "badEmoji": "🌹",
+                        "badName": "Romantic Dreamer",
+                        "badDesc": "Expects romantic expression and emotional flair"
+                },
+                "tags": [
+                        "#FreeSpirit",
+                        "#MutualRespect",
+                        "#GrowTogether",
+                        "#HealthyBoundaries"
+                ]
+        },
+        "E": {
+                "emoji": "💫",
+                "name": "Passionate Romantic",
+                "tagline": "You love fully — with both heart and action",
+                "badge": "All Heart",
+                "traits": [
+                        {
+                                "label": "Romance",
+                                "val": 94
+                        },
+                        {
+                                "label": "Expression",
+                                "val": 89
+                        },
+                        {
+                                "label": "Care",
+                                "val": 72
+                        },
+                        {
+                                "label": "Independence",
+                                "val": 38
+                        }
+                ],
+                "desc": "You combine deep emotional investment with enthusiastic expression. You don't just feel love—you show it through words, gestures, and memorable moments. Your partner always knows they're cherished.",
+                "wantToHear": "\"You make every moment feel special\"",
+                "dontWantToHear": "\"Aren't you a bit much?\"",
+                "compat": {
+                        "goodEmoji": "🌿",
+                        "goodName": "Steady Caregiver",
+                        "goodDesc": "Attentive and emotionally nurturing",
+                        "badEmoji": "🦋",
+                        "badName": "Free Spirit",
+                        "badDesc": "Needs personal space more than closeness"
+                },
+                "tags": [
+                        "#AllIn",
+                        "#RomanticEnergy",
+                        "#HeartOnSleeve"
+                ]
+        },
+        "F": {
+                "emoji": "🔥",
+                "name": "Spontaneous Action",
+                "tagline": "You act first, think later — love through momentum",
+                "badge": "Go-Getter",
+                "traits": [
+                        {
+                                "label": "Action",
+                                "val": 92
+                        },
+                        {
+                                "label": "Honesty",
+                                "val": 86
+                        },
+                        {
+                                "label": "Planning",
+                                "val": 31
+                        },
+                        {
+                                "label": "Flexibility",
+                                "val": 55
+                        }
+                ],
+                "desc": "When you want to see your person, you're already grabbing your keys. You love with energy and urgency, keeping the relationship dynamic and alive.",
+                "wantToHear": "\"I want to see you right now\"",
+                "dontWantToHear": "\"Why so sudden?\"",
+                "compat": {
+                        "goodEmoji": "💫",
+                        "goodName": "Passionate Romantic",
+                        "goodDesc": "Emotionally expressive — all-in on love",
+                        "badEmoji": "🌊",
+                        "badName": "Balanced Type",
+                        "badDesc": "Prefers structure and calm over spontaneity"
+                },
+                "tags": [
+                        "#SpontaneousLove",
+                        "#ActionTaker",
+                        "#NowNotLater"
+                ]
+        },
+        "G": {
+                "emoji": "🌊",
+                "name": "Balanced Harmonizer",
+                "tagline": "Emotionally steady — the relationship people wish they had",
+                "badge": "Equilibrium",
+                "traits": [
+                        {
+                                "label": "Stability",
+                                "val": 88
+                        },
+                        {
+                                "label": "Empathy",
+                                "val": 82
+                        },
+                        {
+                                "label": "Expression",
+                                "val": 61
+                        },
+                        {
+                                "label": "Independence",
+                                "val": 67
+                        }
+                ],
+                "desc": "You're the rare partner who is both caring and self-assured. You don't lose yourself in relationships and you don't push others away. You create a safe, calm space that people want to be in.",
+                "wantToHear": "\"I feel so comfortable with you\"",
+                "dontWantToHear": "\"Why are you always so chill?\"",
+                "compat": {
+                        "goodEmoji": "💫",
+                        "goodName": "Passionate Romantic",
+                        "goodDesc": "Emotionally expressive — all-in on love",
+                        "badEmoji": "🔥",
+                        "badName": "Passionate Expresser",
+                        "badDesc": "Pours intense feelings out at full volume"
+                },
+                "tags": [
+                        "#Balanced",
+                        "#SafeSpace",
+                        "#StableButFun"
+                ]
+        },
+        "H": {
+                "emoji": "🌙",
+                "name": "Inner Philosopher",
+                "tagline": "Love with depth — relationships as a path to growth",
+                "badge": "Deep Thinker",
+                "traits": [
+                        {
+                                "label": "Independence",
+                                "val": 91
+                        },
+                        {
+                                "label": "Depth",
+                                "val": 85
+                        },
+                        {
+                                "label": "Expression",
+                                "val": 42
+                        },
+                        {
+                                "label": "Sociability",
+                                "val": 38
+                        }
+                ],
+                "desc": "You see love as more than comfort—it's a conversation that makes you both grow. You need space, depth, and meaning. When you connect, it goes deep and lasts long.",
+                "wantToHear": "\"Talking to you makes me think differently\"",
+                "dontWantToHear": "\"Why do you need so much alone time?\"",
+                "compat": {
+                        "goodEmoji": "🌊",
+                        "goodName": "Balanced Type",
+                        "goodDesc": "Stable, steady — the most grounded love style",
+                        "badEmoji": "🔥",
+                        "badName": "Passionate Expresser",
+                        "badDesc": "Pours intense feelings out at full volume"
+                },
+                "tags": [
+                        "#PhilosophicalLove",
+                        "#IndependentMind",
+                        "#DeepConnection"
+                ]
+        }
+},
   },
 };
 
@@ -1253,6 +1659,9 @@ function showResult() {
   document.getElementById('compatBadEmoji').textContent  = r.compat.badEmoji;
   document.getElementById('compatBadLabel').textContent  = ui.badLabel;
   document.getElementById('compatBadName').textContent   = r.compat.badName;
+  document.getElementById('compatGoodDesc').textContent = r.compat.goodDesc || '';
+  document.getElementById('compatBadDesc').textContent  = r.compat.badDesc  || '';
+  if(document.getElementById('compatTitle')) document.getElementById('compatTitle').textContent = u.compatTitle || '';
 
   window.scrollTo({ top:0, behavior:'smooth' });
 }

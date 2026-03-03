@@ -343,6 +343,16 @@
     font-size: var(--fs-sm); font-weight: 700; color: #555;
     display: inline-flex; align-items: center; gap: 4px;
   }
+
+  .ci-desc {
+    font-size: clamp(10px, 2.6vw, 12px);
+    color: #999;
+    font-weight: 500;
+    margin-top: 3px;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+    word-break: keep-all;
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -470,7 +480,7 @@ const data={
       shareTitle:'🎉 친구들에게 결과 공유하기!',
       restartBtn:'🔄 다시 테스트하기',moreTitle:'🎯 다른 테스트도 해보세요!',
       copyOk:'🔗 링크가 복사되었어요!',langToggle:'🌏 EN',
-    },
+      compatTitle:'💞 협업 궁합', goodLabel:'잘 맞아요', badLabel:'조심하세요'},
     questions:[
       {
             "q": "회사에서 새로운 프로젝트를 맡았다. 팀원들이 각자 어떤 역할 할지 정해야 한다. 나는?",
@@ -942,131 +952,335 @@ const data={
       }
 ],
     results:{
-      A:{emoji:"🎨",name:"창의적 예술가",tagline:"세상을 감각으로 번역하는 사람",badge:"예술적 감각",
-        stats:[{label:"창의력",val:86},{label:"심미안",val:82},{label:"논리력",val:54}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#FF6B9D;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🎨 세상을 다른 사람들과 다른 눈으로 보는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">아직 본격적으로 시작도 안 했는데 '감각 있다'는 말을 듣는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><b>색감, 구도, 분위기의 어색함</b>이 남들보다 먼저 눈에 들어옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">뭔가를 만들 때 디테일에 자연스럽게 집착하게 됨 — <b>완성도 낮은 결과물이 불편함</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아이디어가 머릿속에서 <b>이미지나 장면으로 먼저 떠오름</b> — 말보다 그림이 편할 때가 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F"><span style="color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#FF6B9D">일상의 사소한 것에서 감동받는 경우</span>가 있음 — 빛의 각도, 색의 조합, 소리의 질감</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">본인 기준에서 '별거 아닌 것'을 만들었는데 주변에서 <b>'이거 어떻게 한 거야?'</b>가 나오는 경우</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F"><span style="color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">피드백에 민감할 수 있음</span> — 창작물은 자신의 일부이기 때문에 비판이 더 깊게 들어옴</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">미적 감각이 있는데 정작 본인은 <b>'나 딱히 잘하는 게 없는데'</b>라고 생각할 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">이 감각 제대로 쓰면 <b>말 없이도 사람들이 느끼게 만드는 것</b>을 할 수 있음</span></div><div style="height:12px"></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">단순 반복 업무에 쉽게 지침 — <b>창의성이 발휘될 때 최고 퍼포먼스</b>를 냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과물의 <b>완성도와 미적 퀄리티</b>에 남들보다 훨씬 까다로운 기준을 가짐</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이 디자인 좀 어색하지 않아요?"를 조용히 말하지만 <b>대부분 맞음</b></span></div></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">선물을 받으면 포장부터 내용물까지 <b>감각 있게 반응하는</b> 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">분위기 있는 카페, 숨겨진 전시회를 먼저 발견해서 <b>친구들 데려가는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감수성이 풍부해서 <b>친구의 감정 변화를 빠르게 알아채는</b> 편</span></div></div>`,
-        wantToHear:"\"이거 진짜 감각 있다. 어떻게 이런 생각을?\"",
-        dontWantToHear:"\"그게 밥은 돼?\"",
-        careers:["🎨 디자이너","📸 크리에이터/사진가","✍️ 작가","🎬 영상 PD","🖥️ UX 디자이너","🎭 아트 디렉터"],
-        tags:["#타고난감각","#시각적표현","#크리에이티브","#아직시작도안함"]},
-      B:{emoji:"🧠",name:"논리적 천재",tagline:"복잡한 것들을 꿰뚫어보는 사람",badge:"분석적 두뇌",
-        stats:[{label:"분석력",val:88},{label:"논리력",val:84},{label:"즉흥성",val:21}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#7C67EE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🧠 세상에서 제일 조용한 천재</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">말은 없는데, 사실 다 보고 있었음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">회의실에서 제일 말 없는 사람인데 끝나고 나서 <b>제일 정확한 피드백</b> 냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">'이걸 어떻게 생각한 거야?' 소리를 주기적으로 들음 — <b>본인은 당연한 거라 어리둥절</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">논리 빠진 소리 들으면 <b>입보다 머리가 먼저 반박 준비</b> 시작</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F"><span style="color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">대충 하는 게 오히려 더 힘든 사람</span> — 완성도 낮은 결과물 제출하면 본인이 제일 불편함</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F"><span style="color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#7C67EE">혼자 조용히 집중할 때 퍼포먼스 최대치</span> — 오픈형 사무실은 고역일 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">빠른 결정보다 <b>정확한 결정</b>이 더 중요하다고 생각함 — 느린 게 아니라 신중한 거임</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬을 잘 못 받아들이는 편 — <b>'별거 아닌데요'</b>가 입에서 자동으로 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">근데 <b>진짜 별거 맞음</b> — 본인만 모르는 거임</span></div><div style="height:12px"></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감으로 결정하는 방식을 불편하게 여김 — <b>데이터와 근거</b>로 설득하는 스타일</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">복잡한 문제를 <b>구조화해서 설명하는 능력</b>이 뛰어남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 조용히 집중할 때 <b>최고의 퍼포먼스</b>를 냄</span></div></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 고민을 듣고 <b>논리적으로 해결책을 제시</b>하는 편</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 수는 적어도 <b>깊이 있는 대화</b>를 즐기는 관계를 선호함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"그거 왜 그렇게 생각해?" 질문을 자주 함 — <b>지적 호기심</b>이 관계를 이끎</span></div></div>`,
-        wantToHear:"\"이걸 어떻게 생각한 거야. 진짜 천재 아니야?\"",
-        dontWantToHear:"\"그냥 대충 해도 되잖아\"",
-        careers:["💻 개발자","📊 데이터 분석가","🔬 연구원","💰 금융 전문가","📋 전략 컨설턴트","🤖 AI 엔지니어"],
-        tags:["#패턴발견","#논리왕","#문제해결사","#완성도집착"]},
-      C:{emoji:"🎤",name:"타고난 퍼포머",tagline:"사람의 마음을 움직이는 사람",badge:"표현의 천재",
-        stats:[{label:"표현력",val:87},{label:"공감능력",val:82},{label:"내향성",val:16}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#4A90E2;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🎤 무대만 없었을 뿐, 퍼포머는 원래부터였음</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">사람을 움직이는 게 이미 재능인 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말, 몸짓, 표정 하나하나에 힘이 있어서 <b>사람들이 자연스럽게 집중</b>하게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같은 내용이라도 당신이 말하면 <b>더 재미있거나 더 설득력</b> 있게 들리는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들의 감정 변화를 빠르게 캐치함 — <b>분위기가 달라지면 먼저 알아챔</b></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4A90E20F"><span style="color:#4A90E2;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#4A90E2">자리가 어색하거나 조용해지면</span> 자연스럽게 뭔가를 하게 됨 — 그게 특기임</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">사람들 앞에 서면 <b>에너지가 올라가는 타입</b> — 긴장보다 흥분이 먼저 옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 있을 때보다 <b>사람들과 있을 때 아이디어가 더 잘 나옴</b></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">분위기를 읽고 그 자리에 맞는 에너지를 만들어내는 게 <b>자연스러움</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">무대가 없었을 뿐 — <b>제대로 된 자리가 생기면 진짜 빛날 사람</b>임</span></div><div style="height:12px"></div><div style="background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">발표나 PT에서 <b>자연스럽게 빛나는</b> 타입 — 준비도 잘 하지만 즉흥도 강함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀원들의 사기를 높이는 <b>에너지 메이커</b> 역할을 자연스럽게 하게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬받으면 진짜로 더 잘함 — <b>인정과 관심</b>이 가장 큰 동기부여</span></div></div><div style="background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">모임에서 <b>자연스럽게 분위기를 이끄는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구들의 이야기를 <b>리액션 풍부하게 잘 들어주는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정 표현이 풍부해서 <b>같이 있으면 확실히 즐거운</b> 친구</span></div></div>`,
-        wantToHear:"\"너 앞에 서면 진짜 달라보여. 존재감이 장난 아님\"",
-        dontWantToHear:"\"왜 이렇게 나대?\"",
-        careers:["🎤 연사/MC","🎭 배우","📱 인플루언서","📣 마케터","👨‍🏫 강사","🎙️ 유튜버/팟캐스터"],
-        tags:["#존재감폭발","#사람을끌어당기는","#무대체질","#표현의달인"]},
-      D:{emoji:"⚙️",name:"창조적 메이커",tagline:"아이디어를 현실로 꺼내는 사람",badge:"실용적 창조력",
-        stats:[{label:"실행력",val:84},{label:"손재주",val:79},{label:"이론성",val:38}],
-        desc:`<span style="font-size:19px;font-weight:900;color:#e67e22;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">⚙️ 머릿속에 있는 걸 실제로 꺼낼 수 있는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">기회가 없었을 뿐 — 아이디어는 항상 넘쳤음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">머릿속 아이디어를 그냥 생각으로 두지 않음 — <b>어떻게든 실제로 만들어보려는 충동</b>이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">어릴 때부터 분해하거나 조립하거나 개조하는 것이 <b>자연스러웠음</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">'이게 왜 이렇게 만들어졌지? <b>내가 하면 더 잘 만들 것 같은데</b>'라는 생각이 종종 듦</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#e67e220F"><span style="color:#e67e22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">완벽주의가 있어서 결정이 느릴 수 있지만</span>, 결과물은 항상 퀄리티가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">비효율적인 것을 보면 <b>자동으로 개선 방법이 떠오름</b> — 그냥 지나치지 못함</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">손으로 직접 뭔가를 만들거나 고칠 때 <b>집중력이 극대화됨</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">현존하지 않는 것을 상상하고, 그걸 실제로 구현하는 데서 <b>가장 큰 만족감</b>을 얻음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">지금 세상에서 <b>가장 희귀하고 가치 있는 능력 중 하나</b> — 이 재능, 진짜로 써야 함</span></div><div style="height:12px"></div><div style="background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"말로만 하지 말고 직접 만들어봐"가 자연스럽게 나오는 타입 — <b>실행력이 압도적</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아이디어가 나오면 <b>바로 프로토타입</b>을 만들어서 들고 오는 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">도구나 기술을 <b>빠르게 익히는</b> 능력이 있어서 업무 자동화에 강함</span></div></div><div style="background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구 집 고장난 거 "내가 고쳐줄게"가 반사적으로 나오는 사람 — <b>실질적 도움</b>을 먼저 줌</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">뭔가 직접 만들어서 선물하는 타입 — <b>정성이 형태로 나타남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"그거 어떻게 한 거야?"를 제일 많이 듣는 친구 — <b>신기하고 유능한 사람</b>으로 인식됨</span></div></div>`,
-        wantToHear:"\"이걸 직접 만든 거라고? 이게 왜 가능하지\"",
-        dontWantToHear:"\"그냥 사면 되잖아\"",
-        careers:["🏗️ 엔지니어","🔧 발명가","🎮 게임 개발자","🤖 로봇 공학자","🏠 인테리어 디자이너","🚀 스타트업 창업가"],
-        tags:["#메이커기질","#아이디어실현","#직접만드는사람","#발명가"]},
-      E: {
-        emoji: "🏛️",
-        name: "창의적 건축가",
-        tagline: "아이디어를 설계도로 바꾸는 사람",
-        badge: "미적 설계자",
-        stats: [{label:'창의력',val:85},{label:'논리력',val:80},{label:'완성도',val:88}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#16A085;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🏛️ 아이디어가 생기면 설계도부터 그리는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">감각과 논리가 동시에 작동하는 — 드문 조합을 가진 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아름다움과 기능성을 <b>동시에 고려하는</b> 것이 자연스러움</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">구조적으로 사고하면서도 <b>미적 감각이 뛰어난</b> 드문 조합</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">완성도에 높은 기준을 가지고 있어서 <b>디테일에 끝없이 신경</b>을 씀</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16A0850F"><span style="color:#16A085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">완벽하게 만들고 싶어서 <b>시작이 늦어지거나 마감이 빠듯해지는</b> 경우</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16A0850F"><span style="color:#16A085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">혼자 다 해결하려는 경향이 있어 <b>협업에서 소통이 줄어들기도</b> 함</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">만들어낸 결과물이 <b>기능적이면서도 아름다운</b> 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이걸 왜 이렇게 만들었어?"에 대한 <b>명확한 이유를 항상 가지고 있음</b></span></div><div style="height:12px"></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감각과 논리를 함께 쓰는 <b>크리에이티브 기획자</b> 유형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과물에 <b>독창적인 관점</b>이 자연스럽게 녹아있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">피드백을 두려워하지 않고 <b>오히려 발전의 기회</b>로 삼음</span></div></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구의 취향을 기억하고 <b>딱 맞는 선물</b>을 해주는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감성적인 순간을 포착하는 능력이 있어 <b>사진찍기 좋은 장소</b>를 잘 앎</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계에 공을 들이는 편 — <b>오래 사귀면 없어선 안 되는 친구</b>가 됨</span></div></div>`,
-        wantToHear: "이걸 어떻게 이렇게 짰어? 진짜 감각이다",
-        dontWantToHear: "그냥 대충 만들면 안 돼?",
-        compat: {goodEmoji:"⚙️",goodName:"메이커",badEmoji:"🎤",badName:"퍼포머"},
-        tags: ['#아이디어설계', '#미적논리', '#완성도집착', '#남들이못보는걸봄'],
-      },
-      F: {
-        emoji: "📖",
-        name: "타고난 스토리텔러",
-        tagline: "이야기로 사람을 끌어당기는 사람",
-        badge: "감성 내러티브",
-        stats: [{label:'표현력',val:90},{label:'감수성',val:85},{label:'설득력',val:80}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#E74C3C;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">📖 말로, 글로, 표현으로 — 사람을 끌어당기는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">감성이 넘치는데 그걸 표현으로 연결하는 능력이 탁월함</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같은 이야기도 <b>다르게 들리게 만드는 힘</b>이 있음 — 언어 감각이 뛰어남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정을 느끼는 것뿐 아니라 <b>그걸 어떻게 전달할지</b>를 자연스럽게 생각함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">글이든 말이든 <b>흡입력이 있는 표현</b>을 자연스럽게 만들어냄</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E74C3C0F"><span style="color:#E74C3C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">감정에 따라 <b>퍼포먼스가 크게 달라지는</b> 편 — 컨디션 관리가 중요함</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E74C3C0F"><span style="color:#E74C3C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">완벽한 표현을 고민하다 <b>결정이 늦어지는</b> 경우가 있음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">청중을 <b>자연스럽게 이야기 안으로 끌어들이는</b> 능력</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 브랜딩이나 콘텐츠에서 <b>특별한 목소리</b>를 가지게 됨</span></div><div style="height:12px"></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 깊게 파고드는 분석 작업에서 <b>놀라운 인사이트</b>가 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말수는 적지만 <b>한 마디가 핵심</b>을 찌르는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">성과를 조용히 쌓아서 <b>어느 순간 팀에서 제일 중요한 사람</b>이 되어 있음</span></div></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계의 깊이를 중요시해서 <b>소수의 진한 친구</b>를 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 뭔가를 물어보면 <b>진짜 생각해서 답해주는</b> 신뢰형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 세계가 뚜렷해서 <b>같이 있으면 새로운 관점</b>을 얻는 느낌</span></div></div>`,
-        wantToHear: "네가 말하면 왜 이렇게 다르게 들려?",
-        dontWantToHear: "그냥 핵심만 말해줘",
-        compat: {goodEmoji:"🎨",goodName:"예술가",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#이야기꾼', '#감성표현', '#설득력폭발', '#듣다보면빠져듦'],
-      },
-      G: {
-        emoji: "⚡",
-        name: "실행하는 엔지니어",
-        tagline: "생각을 현실로 만드는 사람",
-        badge: "문제 해결사",
-        stats: [{label:'분석력',val:88},{label:'실행력',val:85},{label:'체계성',val:82}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#2980B9;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">⚡ 문제를 보면 해결책이 먼저 떠오르는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">분석하는 능력과 실제로 만드는 능력이 동시에 있는 드문 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">왜 안 되는지보다 <b>어떻게 하면 되는지</b>를 먼저 생각하는 방향성</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">이론으로 끝내지 않고 <b>직접 테스트해서 검증하는</b> 방식을 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">비효율적인 방식을 보면 <b>자동으로 더 나은 방법을 설계하게</b> 됨</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2980B90F"><span style="color:#2980B9;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">과정보다 결과를 중시하다 보니 <b>팀원들이 따라오지 못한다고 느낄 수</b> 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2980B90F"><span style="color:#2980B9;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">감정적인 대화보다 <b>논리적 해결을 선호해서 공감이 부족해 보일</b> 수 있음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">복잡한 문제를 <b>단순하고 명확하게 정리하는</b> 능력이 탁월함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이게 왜 이렇게 안 돌아가?"에 <b>가장 빠르게 답을 찾는</b> 사람</span></div><div style="height:12px"></div><div style="background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">무대 위에서 <b>존재감이 달라지는</b> 타입 — 평소엔 조용해도 발표만 하면 빛남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀 에너지를 끌어올리는 <b>자연스러운 무드메이커</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬받으면 더 열심히 하는 타입 — <b>격려가 연료</b></span></div></div><div style="background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">평소에 조용해도 <b>분위기 살릴 때는 확실하게</b> 살리는 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">공감 능력이 좋아서 <b>얘기 들어주는 것만으로 힘이 되는</b> 존재</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구의 작은 변화도 알아채는 <b>세심한 관찰자</b></span></div></div>`,
-        wantToHear: "역시 네한테 맡기면 돼",
-        dontWantToHear: "왜 이렇게 딱딱하게 생각해?",
-        compat: {goodEmoji:"🧠",goodName:"논리형",badEmoji:"🎨",badName:"예술가"},
-        tags: ['#논리+실행', '#문제해결', '#효율주의', '#말보다결과'],
-      },
-      H: {
-        emoji: "🎬",
-        name: "비전 프로듀서",
-        tagline: "연출하고 구현하는 사람",
-        badge: "창조적 연출가",
-        stats: [{label:'연출력',val:88},{label:'실행력',val:82},{label:'영향력',val:78}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#D35400;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🎬 머릿속 장면을 현실로 끌어내는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">표현력과 실행력이 동시에 있어서 — 아이디어가 흐지부지되지 않음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이런 걸 만들면 어떨까?"에서 <b>실제로 만들 때까지 포기하지 않는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과물이 사람들한테 <b>어떻게 느껴질지를 먼저 생각</b>하고 작업함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀이 있으면 <b>각자의 강점을 모아 시너지를 만드는</b> 연출 감각이 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#D354000F"><span style="color:#D35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">비전이 크다 보니 <b>혼자 감당해야 할 범위가 넓어지는</b> 경우가 많음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#D354000F"><span style="color:#D35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">현실적인 제약이 많은 환경에서는 <b>답답함을 많이 느끼는</b> 편</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">만들어낸 것이 <b>단순히 기능적인 것을 넘어 인상을 남기는</b> 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀의 방향성을 정하는 데 있어 <b>자연스럽게 비전을 제시하게</b> 됨</span></div><div style="height:12px"></div><div style="background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아이디어가 많아서 <b>기획 단계에서 팀에 자극</b>을 줌</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">손으로 만들거나 구현하는 작업에서 <b>집중도가 극대화</b>됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 하는 프로젝트보다 <b>결과물이 보이는 작업</b>에서 더 빛남</span></div></div><div style="background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구에게 뭔가 필요하면 <b>직접 만들어주는</b> 정성형 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이거 어떻게 한 거야?" 소리를 자주 듣는 <b>신기한 능력자</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">꾸미거나 고치는 걸 좋아해서 <b>같이 있으면 뭔가 뚝딱</b> 해결되는 느낌</span></div></div>`,
-        wantToHear: "네가 이걸 만들었다고? 진짜 대단하다",
-        dontWantToHear: "현실적으로 생각해봐",
-        compat: {goodEmoji:"🎤",goodName:"퍼포머",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#무대기획자', '#비전제시', '#표현+실행', '#팀의원동력'],
-      },
-      E: {
-        emoji: "🏛️",
-        name: "창의적 건축가",
-        tagline: "아이디어를 설계도로 바꾸는 사람",
-        badge: "미적 설계자",
-        stats: [{label:'창의력',val:85},{label:'논리력',val:80},{label:'완성도',val:88}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#16A085;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🏛️ 아이디어가 생기면 설계도부터 그리는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">감각과 논리가 동시에 작동하는 — 드문 조합을 가진 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아름다움과 기능성을 <b>동시에 고려하는</b> 것이 자연스러움</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">구조적으로 사고하면서도 <b>미적 감각이 뛰어난</b> 드문 조합</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">완성도에 높은 기준을 가지고 있어서 <b>디테일에 끝없이 신경</b>을 씀</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16A0850F"><span style="color:#16A085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">완벽하게 만들고 싶어서 <b>시작이 늦어지거나 마감이 빠듯해지는</b> 경우</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16A0850F"><span style="color:#16A085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">혼자 다 해결하려는 경향이 있어 <b>협업에서 소통이 줄어들기도</b> 함</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">만들어낸 결과물이 <b>기능적이면서도 아름다운</b> 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이걸 왜 이렇게 만들었어?"에 대한 <b>명확한 이유를 항상 가지고 있음</b></span></div><div style="height:12px"></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감각과 논리를 함께 쓰는 <b>크리에이티브 기획자</b> 유형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과물에 <b>독창적인 관점</b>이 자연스럽게 녹아있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">피드백을 두려워하지 않고 <b>오히려 발전의 기회</b>로 삼음</span></div></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구의 취향을 기억하고 <b>딱 맞는 선물</b>을 해주는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감성적인 순간을 포착하는 능력이 있어 <b>사진찍기 좋은 장소</b>를 잘 앎</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계에 공을 들이는 편 — <b>오래 사귀면 없어선 안 되는 친구</b>가 됨</span></div></div>`,
-        wantToHear: "이걸 어떻게 이렇게 짰어? 진짜 감각이다",
-        dontWantToHear: "그냥 대충 만들면 안 돼?",
-        compat: {goodEmoji:"⚙️",goodName:"메이커",badEmoji:"🎤",badName:"퍼포머"},
-        tags: ['#아이디어설계', '#미적논리', '#완성도집착', '#남들이못보는걸봄'],
-      },
-      F: {
-        emoji: "📖",
-        name: "타고난 스토리텔러",
-        tagline: "이야기로 사람을 끌어당기는 사람",
-        badge: "감성 내러티브",
-        stats: [{label:'표현력',val:90},{label:'감수성',val:85},{label:'설득력',val:80}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#E74C3C;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">📖 말로, 글로, 표현으로 — 사람을 끌어당기는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">감성이 넘치는데 그걸 표현으로 연결하는 능력이 탁월함</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">같은 이야기도 <b>다르게 들리게 만드는 힘</b>이 있음 — 언어 감각이 뛰어남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">감정을 느끼는 것뿐 아니라 <b>그걸 어떻게 전달할지</b>를 자연스럽게 생각함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">글이든 말이든 <b>흡입력이 있는 표현</b>을 자연스럽게 만들어냄</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E74C3C0F"><span style="color:#E74C3C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">감정에 따라 <b>퍼포먼스가 크게 달라지는</b> 편 — 컨디션 관리가 중요함</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E74C3C0F"><span style="color:#E74C3C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">완벽한 표현을 고민하다 <b>결정이 늦어지는</b> 경우가 있음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">청중을 <b>자연스럽게 이야기 안으로 끌어들이는</b> 능력</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 브랜딩이나 콘텐츠에서 <b>특별한 목소리</b>를 가지게 됨</span></div><div style="height:12px"></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 깊게 파고드는 분석 작업에서 <b>놀라운 인사이트</b>가 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">말수는 적지만 <b>한 마디가 핵심</b>을 찌르는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">성과를 조용히 쌓아서 <b>어느 순간 팀에서 제일 중요한 사람</b>이 되어 있음</span></div></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">관계의 깊이를 중요시해서 <b>소수의 진한 친구</b>를 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구가 뭔가를 물어보면 <b>진짜 생각해서 답해주는</b> 신뢰형</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">자기 세계가 뚜렷해서 <b>같이 있으면 새로운 관점</b>을 얻는 느낌</span></div></div>`,
-        wantToHear: "네가 말하면 왜 이렇게 다르게 들려?",
-        dontWantToHear: "그냥 핵심만 말해줘",
-        compat: {goodEmoji:"🎨",goodName:"예술가",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#이야기꾼', '#감성표현', '#설득력폭발', '#듣다보면빠져듦'],
-      },
-      G: {
-        emoji: "⚡",
-        name: "실행하는 엔지니어",
-        tagline: "생각을 현실로 만드는 사람",
-        badge: "문제 해결사",
-        stats: [{label:'분석력',val:88},{label:'실행력',val:85},{label:'체계성',val:82}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#2980B9;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">⚡ 문제를 보면 해결책이 먼저 떠오르는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">분석하는 능력과 실제로 만드는 능력이 동시에 있는 드문 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">왜 안 되는지보다 <b>어떻게 하면 되는지</b>를 먼저 생각하는 방향성</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">이론으로 끝내지 않고 <b>직접 테스트해서 검증하는</b> 방식을 선호</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">비효율적인 방식을 보면 <b>자동으로 더 나은 방법을 설계하게</b> 됨</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2980B90F"><span style="color:#2980B9;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">과정보다 결과를 중시하다 보니 <b>팀원들이 따라오지 못한다고 느낄 수</b> 있음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2980B90F"><span style="color:#2980B9;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">감정적인 대화보다 <b>논리적 해결을 선호해서 공감이 부족해 보일</b> 수 있음</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">복잡한 문제를 <b>단순하고 명확하게 정리하는</b> 능력이 탁월함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이게 왜 이렇게 안 돌아가?"에 <b>가장 빠르게 답을 찾는</b> 사람</span></div><div style="height:12px"></div><div style="background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">무대 위에서 <b>존재감이 달라지는</b> 타입 — 평소엔 조용해도 발표만 하면 빛남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀 에너지를 끌어올리는 <b>자연스러운 무드메이커</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">칭찬받으면 더 열심히 하는 타입 — <b>격려가 연료</b></span></div></div><div style="background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">평소에 조용해도 <b>분위기 살릴 때는 확실하게</b> 살리는 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">공감 능력이 좋아서 <b>얘기 들어주는 것만으로 힘이 되는</b> 존재</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구의 작은 변화도 알아채는 <b>세심한 관찰자</b></span></div></div>`,
-        wantToHear: "역시 네한테 맡기면 돼",
-        dontWantToHear: "왜 이렇게 딱딱하게 생각해?",
-        compat: {goodEmoji:"🧠",goodName:"논리형",badEmoji:"🎨",badName:"예술가"},
-        tags: ['#논리+실행', '#문제해결', '#효율주의', '#말보다결과'],
-      },
-      H: {
-        emoji: "🎬",
-        name: "비전 프로듀서",
-        tagline: "연출하고 구현하는 사람",
-        badge: "창조적 연출가",
-        stats: [{label:'연출력',val:88},{label:'실행력',val:82},{label:'영향력',val:78}],
-        desc: `<span style="font-size:19px;font-weight:900;color:#D35400;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🎬 머릿속 장면을 현실로 끌어내는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px">표현력과 실행력이 동시에 있어서 — 아이디어가 흐지부지되지 않음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이런 걸 만들면 어떨까?"에서 <b>실제로 만들 때까지 포기하지 않는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">결과물이 사람들한테 <b>어떻게 느껴질지를 먼저 생각</b>하고 작업함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀이 있으면 <b>각자의 강점을 모아 시너지를 만드는</b> 연출 감각이 있음</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#D354000F"><span style="color:#D35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">비전이 크다 보니 <b>혼자 감당해야 할 범위가 넓어지는</b> 경우가 많음</span></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#D354000F"><span style="color:#D35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all"><span style="color:#c0392b">현실적인 제약이 많은 환경에서는 <b>답답함을 많이 느끼는</b> 편</span></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">만들어낸 것이 <b>단순히 기능적인 것을 넘어 인상을 남기는</b> 경우가 많음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">팀의 방향성을 정하는 데 있어 <b>자연스럽게 비전을 제시하게</b> 됨</span></div><div style="height:12px"></div><div style="background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">아이디어가 많아서 <b>기획 단계에서 팀에 자극</b>을 줌</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">손으로 만들거나 구현하는 작업에서 <b>집중도가 극대화</b>됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">혼자 하는 프로젝트보다 <b>결과물이 보이는 작업</b>에서 더 빛남</span></div></div><div style="background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">친구에게 뭔가 필요하면 <b>직접 만들어주는</b> 정성형 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">"이거 어떻게 한 거야?" 소리를 자주 듣는 <b>신기한 능력자</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all">꾸미거나 고치는 걸 좋아해서 <b>같이 있으면 뭔가 뚝딱</b> 해결되는 느낌</span></div></div>`,
-        wantToHear: "네가 이걸 만들었다고? 진짜 대단하다",
-        dontWantToHear: "현실적으로 생각해봐",
-        compat: {goodEmoji:"🎤",goodName:"퍼포머",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#무대기획자', '#비전제시', '#표현+실행', '#팀의원동력'],
-      },
-    },
+        "A": {
+                "emoji": "🎨",
+                "name": "창의적 예술가",
+                "tagline": "세상을 감각으로 번역하는 사람",
+                "badge": "예술적 감각",
+                "stats": [
+                        {
+                                "label": "창의력",
+                                "val": 86
+                        },
+                        {
+                                "label": "심미안",
+                                "val": 82
+                        },
+                        {
+                                "label": "논리력",
+                                "val": 54
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#FF6B9D;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🎨 세상을 다른 사람들과 다른 눈으로 보는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">아직 본격적으로 시작도 안 했는데 '감각 있다'는 말을 듣는 사람</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><b>색감, 구도, 분위기의 어색함</b>이 남들보다 먼저 눈에 들어옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">뭔가를 만들 때 디테일에 자연스럽게 집착하게 됨 — <b>완성도 낮은 결과물이 불편함</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">아이디어가 머릿속에서 <b>이미지나 장면으로 먼저 떠오름</b> — 말보다 그림이 편할 때가 있음</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F\"><span style=\"color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#FF6B9D\">일상의 사소한 것에서 감동받는 경우</span>가 있음 — 빛의 각도, 색의 조합, 소리의 질감</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">본인 기준에서 '별거 아닌 것'을 만들었는데 주변에서 <b>'이거 어떻게 한 거야?'</b>가 나오는 경우</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F\"><span style=\"color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">피드백에 민감할 수 있음</span> — 창작물은 자신의 일부이기 때문에 비판이 더 깊게 들어옴</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">미적 감각이 있는데 정작 본인은 <b>'나 딱히 잘하는 게 없는데'</b>라고 생각할 수 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">이 감각 제대로 쓰면 <b>말 없이도 사람들이 느끼게 만드는 것</b>을 할 수 있음</span></div><div style=\"height:12px\"></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">단순 반복 업무에 쉽게 지침 — <b>창의성이 발휘될 때 최고 퍼포먼스</b>를 냄</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">결과물의 <b>완성도와 미적 퀄리티</b>에 남들보다 훨씬 까다로운 기준을 가짐</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"이 디자인 좀 어색하지 않아요?\"를 조용히 말하지만 <b>대부분 맞음</b></span></div></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">선물을 받으면 포장부터 내용물까지 <b>감각 있게 반응하는</b> 친구</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">분위기 있는 카페, 숨겨진 전시회를 먼저 발견해서 <b>친구들 데려가는</b> 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감수성이 풍부해서 <b>친구의 감정 변화를 빠르게 알아채는</b> 편</span></div></div>",
+                "wantToHear": "\"이거 진짜 감각 있다. 어떻게 이런 생각을?\"",
+                "dontWantToHear": "\"그게 밥은 돼?\"",
+                "careers": [
+                        "🎨 디자이너",
+                        "📸 크리에이터/사진가",
+                        "✍️ 작가",
+                        "🎬 영상 PD",
+                        "🖥️ UX 디자이너",
+                        "🎭 아트 디렉터"
+                ],
+                "tags": [
+                        "#타고난감각",
+                        "#시각적표현",
+                        "#크리에이티브",
+                        "#아직시작도안함"
+                ],
+                "compat": {
+                        "goodEmoji": "⚙️",
+                        "goodName": "창조적 메이커",
+                        "goodDesc": "아이디어를 직접 만들고 작동시키는 실행형",
+                        "badEmoji": "🧠",
+                        "badName": "논리적 천재",
+                        "badDesc": "분석과 체계로 사고하는 이성 중심형"
+                }
+        },
+        "B": {
+                "emoji": "🧠",
+                "name": "논리적 천재",
+                "tagline": "복잡한 것들을 꿰뚫어보는 사람",
+                "badge": "분석적 두뇌",
+                "stats": [
+                        {
+                                "label": "분석력",
+                                "val": 88
+                        },
+                        {
+                                "label": "논리력",
+                                "val": 84
+                        },
+                        {
+                                "label": "즉흥성",
+                                "val": 21
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#7C67EE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🧠 세상에서 제일 조용한 천재</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">말은 없는데, 사실 다 보고 있었음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">회의실에서 제일 말 없는 사람인데 끝나고 나서 <b>제일 정확한 피드백</b> 냄</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">'이걸 어떻게 생각한 거야?' 소리를 주기적으로 들음 — <b>본인은 당연한 거라 어리둥절</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">논리 빠진 소리 들으면 <b>입보다 머리가 먼저 반박 준비</b> 시작</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F\"><span style=\"color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">대충 하는 게 오히려 더 힘든 사람</span> — 완성도 낮은 결과물 제출하면 본인이 제일 불편함</span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F\"><span style=\"color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#7C67EE\">혼자 조용히 집중할 때 퍼포먼스 최대치</span> — 오픈형 사무실은 고역일 수 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">빠른 결정보다 <b>정확한 결정</b>이 더 중요하다고 생각함 — 느린 게 아니라 신중한 거임</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬을 잘 못 받아들이는 편 — <b>'별거 아닌데요'</b>가 입에서 자동으로 나옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">근데 <b>진짜 별거 맞음</b> — 본인만 모르는 거임</span></div><div style=\"height:12px\"></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감으로 결정하는 방식을 불편하게 여김 — <b>데이터와 근거</b>로 설득하는 스타일</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">복잡한 문제를 <b>구조화해서 설명하는 능력</b>이 뛰어남</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 조용히 집중할 때 <b>최고의 퍼포먼스</b>를 냄</span></div></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 고민을 듣고 <b>논리적으로 해결책을 제시</b>하는 편</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 수는 적어도 <b>깊이 있는 대화</b>를 즐기는 관계를 선호함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"그거 왜 그렇게 생각해?\" 질문을 자주 함 — <b>지적 호기심</b>이 관계를 이끎</span></div></div>",
+                "wantToHear": "\"이걸 어떻게 생각한 거야. 진짜 천재 아니야?\"",
+                "dontWantToHear": "\"그냥 대충 해도 되잖아\"",
+                "careers": [
+                        "💻 개발자",
+                        "📊 데이터 분석가",
+                        "🔬 연구원",
+                        "💰 금융 전문가",
+                        "📋 전략 컨설턴트",
+                        "🤖 AI 엔지니어"
+                ],
+                "tags": [
+                        "#패턴발견",
+                        "#논리왕",
+                        "#문제해결사",
+                        "#완성도집착"
+                ],
+                "compat": {
+                        "goodEmoji": "🎤",
+                        "goodName": "타고난 퍼포머",
+                        "goodDesc": "사람 앞에서 아이디어를 빛나게 하는 표현형",
+                        "badEmoji": "⚙️",
+                        "badName": "창조적 메이커",
+                        "badDesc": "말보다 직접 만들고 실행하는 타입"
+                }
+        },
+        "C": {
+                "emoji": "🎤",
+                "name": "타고난 퍼포머",
+                "tagline": "사람의 마음을 움직이는 사람",
+                "badge": "표현의 천재",
+                "stats": [
+                        {
+                                "label": "표현력",
+                                "val": 87
+                        },
+                        {
+                                "label": "공감능력",
+                                "val": 82
+                        },
+                        {
+                                "label": "내향성",
+                                "val": 16
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#4A90E2;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🎤 무대만 없었을 뿐, 퍼포머는 원래부터였음</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">사람을 움직이는 게 이미 재능인 사람</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">말, 몸짓, 표정 하나하나에 힘이 있어서 <b>사람들이 자연스럽게 집중</b>하게 됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">같은 내용이라도 당신이 말하면 <b>더 재미있거나 더 설득력</b> 있게 들리는 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사람들의 감정 변화를 빠르게 캐치함 — <b>분위기가 달라지면 먼저 알아챔</b></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4A90E20F\"><span style=\"color:#4A90E2;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#4A90E2\">자리가 어색하거나 조용해지면</span> 자연스럽게 뭔가를 하게 됨 — 그게 특기임</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">사람들 앞에 서면 <b>에너지가 올라가는 타입</b> — 긴장보다 흥분이 먼저 옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 있을 때보다 <b>사람들과 있을 때 아이디어가 더 잘 나옴</b></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">분위기를 읽고 그 자리에 맞는 에너지를 만들어내는 게 <b>자연스러움</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">무대가 없었을 뿐 — <b>제대로 된 자리가 생기면 진짜 빛날 사람</b>임</span></div><div style=\"height:12px\"></div><div style=\"background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">발표나 PT에서 <b>자연스럽게 빛나는</b> 타입 — 준비도 잘 하지만 즉흥도 강함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀원들의 사기를 높이는 <b>에너지 메이커</b> 역할을 자연스럽게 하게 됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬받으면 진짜로 더 잘함 — <b>인정과 관심</b>이 가장 큰 동기부여</span></div></div><div style=\"background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">모임에서 <b>자연스럽게 분위기를 이끄는</b> 사람</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구들의 이야기를 <b>리액션 풍부하게 잘 들어주는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감정 표현이 풍부해서 <b>같이 있으면 확실히 즐거운</b> 친구</span></div></div>",
+                "wantToHear": "\"너 앞에 서면 진짜 달라보여. 존재감이 장난 아님\"",
+                "dontWantToHear": "\"왜 이렇게 나대?\"",
+                "careers": [
+                        "🎤 연사/MC",
+                        "🎭 배우",
+                        "📱 인플루언서",
+                        "📣 마케터",
+                        "👨‍🏫 강사",
+                        "🎙️ 유튜버/팟캐스터"
+                ],
+                "tags": [
+                        "#존재감폭발",
+                        "#사람을끌어당기는",
+                        "#무대체질",
+                        "#표현의달인"
+                ],
+                "compat": {
+                        "goodEmoji": "🧠",
+                        "goodName": "논리적 천재",
+                        "goodDesc": "체계와 근거로 사고를 구조화하는 분석형",
+                        "badEmoji": "🎨",
+                        "badName": "창의적 예술가",
+                        "badDesc": "감각과 미적 직관이 앞서는 타입"
+                }
+        },
+        "D": {
+                "emoji": "⚙️",
+                "name": "창조적 메이커",
+                "tagline": "아이디어를 현실로 꺼내는 사람",
+                "badge": "실용적 창조력",
+                "stats": [
+                        {
+                                "label": "실행력",
+                                "val": 84
+                        },
+                        {
+                                "label": "손재주",
+                                "val": 79
+                        },
+                        {
+                                "label": "이론성",
+                                "val": 38
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#e67e22;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">⚙️ 머릿속에 있는 걸 실제로 꺼낼 수 있는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">기회가 없었을 뿐 — 아이디어는 항상 넘쳤음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">머릿속 아이디어를 그냥 생각으로 두지 않음 — <b>어떻게든 실제로 만들어보려는 충동</b>이 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">어릴 때부터 분해하거나 조립하거나 개조하는 것이 <b>자연스러웠음</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">'이게 왜 이렇게 만들어졌지? <b>내가 하면 더 잘 만들 것 같은데</b>'라는 생각이 종종 듦</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#e67e220F\"><span style=\"color:#e67e22;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">완벽주의가 있어서 결정이 느릴 수 있지만</span>, 결과물은 항상 퀄리티가 있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">비효율적인 것을 보면 <b>자동으로 개선 방법이 떠오름</b> — 그냥 지나치지 못함</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">손으로 직접 뭔가를 만들거나 고칠 때 <b>집중력이 극대화됨</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">현존하지 않는 것을 상상하고, 그걸 실제로 구현하는 데서 <b>가장 큰 만족감</b>을 얻음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">지금 세상에서 <b>가장 희귀하고 가치 있는 능력 중 하나</b> — 이 재능, 진짜로 써야 함</span></div><div style=\"height:12px\"></div><div style=\"background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"말로만 하지 말고 직접 만들어봐\"가 자연스럽게 나오는 타입 — <b>실행력이 압도적</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">아이디어가 나오면 <b>바로 프로토타입</b>을 만들어서 들고 오는 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">도구나 기술을 <b>빠르게 익히는</b> 능력이 있어서 업무 자동화에 강함</span></div></div><div style=\"background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구 집 고장난 거 \"내가 고쳐줄게\"가 반사적으로 나오는 사람 — <b>실질적 도움</b>을 먼저 줌</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">뭔가 직접 만들어서 선물하는 타입 — <b>정성이 형태로 나타남</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"그거 어떻게 한 거야?\"를 제일 많이 듣는 친구 — <b>신기하고 유능한 사람</b>으로 인식됨</span></div></div>",
+                "wantToHear": "\"이걸 직접 만든 거라고? 이게 왜 가능하지\"",
+                "dontWantToHear": "\"그냥 사면 되잖아\"",
+                "careers": [
+                        "🏗️ 엔지니어",
+                        "🔧 발명가",
+                        "🎮 게임 개발자",
+                        "🤖 로봇 공학자",
+                        "🏠 인테리어 디자이너",
+                        "🚀 스타트업 창업가"
+                ],
+                "tags": [
+                        "#메이커기질",
+                        "#아이디어실현",
+                        "#직접만드는사람",
+                        "#발명가"
+                ],
+                "compat": {
+                        "goodEmoji": "🎤",
+                        "goodName": "타고난 퍼포머",
+                        "goodDesc": "사람 앞에서 아이디어를 빛나게 하는 표현형",
+                        "badEmoji": "🧠",
+                        "badName": "논리적 천재",
+                        "badDesc": "분석과 체계로 사고하는 이성 중심형"
+                }
+        },
+        "E": {
+                "emoji": "🏛️",
+                "name": "창의적 건축가",
+                "tagline": "아이디어를 설계도로 바꾸는 사람",
+                "badge": "미적 설계자",
+                "stats": [
+                        {
+                                "label": "창의력",
+                                "val": 85
+                        },
+                        {
+                                "label": "논리력",
+                                "val": 80
+                        },
+                        {
+                                "label": "완성도",
+                                "val": 88
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#16A085;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🏛️ 아이디어가 생기면 설계도부터 그리는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">감각과 논리가 동시에 작동하는 — 드문 조합을 가진 타입</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">아름다움과 기능성을 <b>동시에 고려하는</b> 것이 자연스러움</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">구조적으로 사고하면서도 <b>미적 감각이 뛰어난</b> 드문 조합</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">완성도에 높은 기준을 가지고 있어서 <b>디테일에 끝없이 신경</b>을 씀</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16A0850F\"><span style=\"color:#16A085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">완벽하게 만들고 싶어서 <b>시작이 늦어지거나 마감이 빠듯해지는</b> 경우</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#16A0850F\"><span style=\"color:#16A085;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">혼자 다 해결하려는 경향이 있어 <b>협업에서 소통이 줄어들기도</b> 함</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">만들어낸 결과물이 <b>기능적이면서도 아름다운</b> 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#16A085;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"이걸 왜 이렇게 만들었어?\"에 대한 <b>명확한 이유를 항상 가지고 있음</b></span></div><div style=\"height:12px\"></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감각과 논리를 함께 쓰는 <b>크리에이티브 기획자</b> 유형</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">결과물에 <b>독창적인 관점</b>이 자연스럽게 녹아있음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">피드백을 두려워하지 않고 <b>오히려 발전의 기회</b>로 삼음</span></div></div><div style=\"background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구의 취향을 기억하고 <b>딱 맞는 선물</b>을 해주는 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감성적인 순간을 포착하는 능력이 있어 <b>사진찍기 좋은 장소</b>를 잘 앎</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">관계에 공을 들이는 편 — <b>오래 사귀면 없어선 안 되는 친구</b>가 됨</span></div></div>",
+                "wantToHear": "이걸 어떻게 이렇게 짰어? 진짜 감각이다",
+                "dontWantToHear": "그냥 대충 만들면 안 돼?",
+                "compat": {
+                        "goodEmoji": "⚙️",
+                        "goodName": "창조적 메이커",
+                        "goodDesc": "아이디어를 직접 만들고 작동시키는 실행형",
+                        "badEmoji": "🎤",
+                        "badName": "타고난 퍼포머",
+                        "badDesc": "감정과 표현으로 사람을 끌어당기는 타입"
+                },
+                "tags": [
+                        "#아이디어설계",
+                        "#미적논리",
+                        "#완성도집착",
+                        "#남들이못보는걸봄"
+                ]
+        },
+        "F": {
+                "emoji": "📖",
+                "name": "타고난 스토리텔러",
+                "tagline": "이야기로 사람을 끌어당기는 사람",
+                "badge": "감성 내러티브",
+                "stats": [
+                        {
+                                "label": "표현력",
+                                "val": 90
+                        },
+                        {
+                                "label": "감수성",
+                                "val": 85
+                        },
+                        {
+                                "label": "설득력",
+                                "val": 80
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#E74C3C;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">📖 말로, 글로, 표현으로 — 사람을 끌어당기는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">감성이 넘치는데 그걸 표현으로 연결하는 능력이 탁월함</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">같은 이야기도 <b>다르게 들리게 만드는 힘</b>이 있음 — 언어 감각이 뛰어남</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">감정을 느끼는 것뿐 아니라 <b>그걸 어떻게 전달할지</b>를 자연스럽게 생각함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">글이든 말이든 <b>흡입력이 있는 표현</b>을 자연스럽게 만들어냄</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E74C3C0F\"><span style=\"color:#E74C3C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">감정에 따라 <b>퍼포먼스가 크게 달라지는</b> 편 — 컨디션 관리가 중요함</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E74C3C0F\"><span style=\"color:#E74C3C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">완벽한 표현을 고민하다 <b>결정이 늦어지는</b> 경우가 있음</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">청중을 <b>자연스럽게 이야기 안으로 끌어들이는</b> 능력</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#E74C3C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자기 브랜딩이나 콘텐츠에서 <b>특별한 목소리</b>를 가지게 됨</span></div><div style=\"height:12px\"></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 깊게 파고드는 분석 작업에서 <b>놀라운 인사이트</b>가 나옴</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">말수는 적지만 <b>한 마디가 핵심</b>을 찌르는 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">성과를 조용히 쌓아서 <b>어느 순간 팀에서 제일 중요한 사람</b>이 되어 있음</span></div></div><div style=\"background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">관계의 깊이를 중요시해서 <b>소수의 진한 친구</b>를 선호</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구가 뭔가를 물어보면 <b>진짜 생각해서 답해주는</b> 신뢰형</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">자기 세계가 뚜렷해서 <b>같이 있으면 새로운 관점</b>을 얻는 느낌</span></div></div>",
+                "wantToHear": "네가 말하면 왜 이렇게 다르게 들려?",
+                "dontWantToHear": "그냥 핵심만 말해줘",
+                "compat": {
+                        "goodEmoji": "🎨",
+                        "goodName": "창의적 예술가",
+                        "goodDesc": "감각적 표현으로 분위기를 만드는 예술형",
+                        "badEmoji": "🧠",
+                        "badName": "논리적 천재",
+                        "badDesc": "체계와 분석이 앞서는 이성 중심형"
+                },
+                "tags": [
+                        "#이야기꾼",
+                        "#감성표현",
+                        "#설득력폭발",
+                        "#듣다보면빠져듦"
+                ]
+        },
+        "G": {
+                "emoji": "⚡",
+                "name": "실행하는 엔지니어",
+                "tagline": "생각을 현실로 만드는 사람",
+                "badge": "문제 해결사",
+                "stats": [
+                        {
+                                "label": "분석력",
+                                "val": 88
+                        },
+                        {
+                                "label": "실행력",
+                                "val": 85
+                        },
+                        {
+                                "label": "체계성",
+                                "val": 82
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#2980B9;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">⚡ 문제를 보면 해결책이 먼저 떠오르는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">분석하는 능력과 실제로 만드는 능력이 동시에 있는 드문 타입</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">왜 안 되는지보다 <b>어떻게 하면 되는지</b>를 먼저 생각하는 방향성</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">이론으로 끝내지 않고 <b>직접 테스트해서 검증하는</b> 방식을 선호</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">비효율적인 방식을 보면 <b>자동으로 더 나은 방법을 설계하게</b> 됨</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2980B90F\"><span style=\"color:#2980B9;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">과정보다 결과를 중시하다 보니 <b>팀원들이 따라오지 못한다고 느낄 수</b> 있음</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2980B90F\"><span style=\"color:#2980B9;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">감정적인 대화보다 <b>논리적 해결을 선호해서 공감이 부족해 보일</b> 수 있음</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">복잡한 문제를 <b>단순하고 명확하게 정리하는</b> 능력이 탁월함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#2980B9;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"이게 왜 이렇게 안 돌아가?\"에 <b>가장 빠르게 답을 찾는</b> 사람</span></div><div style=\"height:12px\"></div><div style=\"background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">무대 위에서 <b>존재감이 달라지는</b> 타입 — 평소엔 조용해도 발표만 하면 빛남</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀 에너지를 끌어올리는 <b>자연스러운 무드메이커</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">칭찬받으면 더 열심히 하는 타입 — <b>격려가 연료</b></span></div></div><div style=\"background:#4A90E20F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#4A90E2;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">평소에 조용해도 <b>분위기 살릴 때는 확실하게</b> 살리는 친구</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">공감 능력이 좋아서 <b>얘기 들어주는 것만으로 힘이 되는</b> 존재</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#4A90E2;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구의 작은 변화도 알아채는 <b>세심한 관찰자</b></span></div></div>",
+                "wantToHear": "역시 네한테 맡기면 돼",
+                "dontWantToHear": "왜 이렇게 딱딱하게 생각해?",
+                "compat": {
+                        "goodEmoji": "🧠",
+                        "goodName": "논리적 천재",
+                        "goodDesc": "체계와 근거로 사고를 구조화하는 분석형",
+                        "badEmoji": "🎨",
+                        "badName": "창의적 예술가",
+                        "badDesc": "감각과 미적 직관이 앞서는 타입"
+                },
+                "tags": [
+                        "#논리+실행",
+                        "#문제해결",
+                        "#효율주의",
+                        "#말보다결과"
+                ]
+        },
+        "H": {
+                "emoji": "🎬",
+                "name": "비전 프로듀서",
+                "tagline": "연출하고 구현하는 사람",
+                "badge": "창조적 연출가",
+                "stats": [
+                        {
+                                "label": "연출력",
+                                "val": 88
+                        },
+                        {
+                                "label": "실행력",
+                                "val": 82
+                        },
+                        {
+                                "label": "영향력",
+                                "val": 78
+                        }
+                ],
+                "desc": "<span style=\"font-size:19px;font-weight:900;color:#D35400;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px\">🎬 머릿속 장면을 현실로 끌어내는 사람</span><span style=\"font-size:13.5px;font-weight:500;color:#999;font-family:'Nanum Gothic',sans-serif;display:block;margin-bottom:12px;letter-spacing:0.1px\">표현력과 실행력이 동시에 있어서 — 아이디어가 흐지부지되지 않음</span><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"이런 걸 만들면 어떨까?\"에서 <b>실제로 만들 때까지 포기하지 않는</b> 타입</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">결과물이 사람들한테 <b>어떻게 느껴질지를 먼저 생각</b>하고 작업함</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀이 있으면 <b>각자의 강점을 모아 시너지를 만드는</b> 연출 감각이 있음</span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#D354000F\"><span style=\"color:#D35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">비전이 크다 보니 <b>혼자 감당해야 할 범위가 넓어지는</b> 경우가 많음</span></span></div><div style=\"display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#D354000F\"><span style=\"color:#D35400;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px\">⚡</span><span style=\"font-size:15px;line-height:1.55;color:#555;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\"><span style=\"color:#c0392b\">현실적인 제약이 많은 환경에서는 <b>답답함을 많이 느끼는</b> 편</span></span></div><div style=\"height:6px\"></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">만들어낸 것이 <b>단순히 기능적인 것을 넘어 인상을 남기는</b> 경우가 많음</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#D35400;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px\">›</span><span style=\"font-size:15px;line-height:1.55;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">팀의 방향성을 정하는 데 있어 <b>자연스럽게 비전을 제시하게</b> 됨</span></div><div style=\"height:12px\"></div><div style=\"background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">💼 직장에서는 어떨까?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">아이디어가 많아서 <b>기획 단계에서 팀에 자극</b>을 줌</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">손으로 만들거나 구현하는 작업에서 <b>집중도가 극대화</b>됨</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">혼자 하는 프로젝트보다 <b>결과물이 보이는 작업</b>에서 더 빛남</span></div></div><div style=\"background:#e67e220F;border-radius:10px;padding:10px 12px;margin:4px 0\"><div style=\"font-size:16px;font-weight:800;color:#e67e22;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px\">👫 친구 관계에서는?</div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">친구에게 뭔가 필요하면 <b>직접 만들어주는</b> 정성형 친구</span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">\"이거 어떻게 한 거야?\" 소리를 자주 듣는 <b>신기한 능력자</b></span></div><div style=\"display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0\"><span style=\"color:#e67e22;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900\">›</span><span style=\"font-size:14px;line-height:1.6;color:#444;font-family:'Nanum Gothic',sans-serif;word-break:keep-all\">꾸미거나 고치는 걸 좋아해서 <b>같이 있으면 뭔가 뚝딱</b> 해결되는 느낌</span></div></div>",
+                "wantToHear": "네가 이걸 만들었다고? 진짜 대단하다",
+                "dontWantToHear": "현실적으로 생각해봐",
+                "compat": {
+                        "goodEmoji": "🎤",
+                        "goodName": "타고난 퍼포머",
+                        "goodDesc": "사람 앞에서 아이디어를 빛나게 하는 표현형",
+                        "badEmoji": "🧠",
+                        "badName": "논리적 천재",
+                        "badDesc": "분석과 체계로 사고하는 이성 중심형"
+                },
+                "tags": [
+                        "#무대기획자",
+                        "#비전제시",
+                        "#표현+실행",
+                        "#팀의원동력"
+                ]
+        }
+}
   },
   en:{
     ui:{
@@ -1078,7 +1292,7 @@ const data={
       shareTitle:'🎉 Share Your Result!',
       restartBtn:'🔄 Try Again',moreTitle:'🎯 Try More Tests!',
       copyOk:'🔗 Link copied!',langToggle:'🇰🇷 KR',
-    },
+      compatTitle:'💞 Work Chemistry', goodLabel:'Great match', badLabel:'Watch out'},
     questions:[
       {
             "q": "What did you enjoy most as a child?",
@@ -1550,124 +1764,344 @@ const data={
       }
 ],
     results:{
-      A:{emoji:"🎨",name:"Creative Artist",tagline:"A Creator Who Makes the World Beautiful",badge:"Artistic Sense",
-        traits:[{label:"Creativity",val:87},{label:"Aesthetic Eye",val:82},{label:"Sensitivity",val:79},{label:"Logic",val:53}],
-        desc:"Your hidden talent is outstanding creativity and artistic sense! You have a unique eye for color, composition, and harmony, and an exceptional ability to express ideas visually. Even if you haven't started formally — don't people often tell you that you have great taste? Develop this talent and limitless possibilities await! 🎨",
-        careers:["🎨 Designer","📸 Photographer","🎬 Video Creator","✍️ Writer/Lyricist","🖥️ UX Designer","🎭 Art Director"],
-        tags:["#BornWithIt","#Creative","#VisualExpression","#ArtisticSoul"]},
-      B:{emoji:"🧠",name:"Logical Genius",tagline:"An Analyst Who Sees Through the World's Patterns",badge:"Analytical Mind",
-        traits:[{label:"Analysis",val:87},{label:"Logic",val:83},{label:"Problem Solving",val:78},{label:"Spontaneity",val:55}],
-        desc:"Your hidden talent is outstanding analytical ability and logical thinking! You can systematically break down complex problems and spot patterns and rules others miss. If people often say 'How did you even think of that?' — that's the proof of this talent. Harness it fully and you can become a peerless expert in any field! 🧠",
-        careers:["💻 Developer/Programmer","📊 Data Analyst","🔬 Researcher","💰 Finance Expert","📋 Strategy Consultant","🤖 AI Engineer"],
-        tags:["#GeniusAnalyst","#PatternFinder","#LogicKing","#ProblemSolver"]},
-      C:{emoji:"🎤",name:"Natural Performer",tagline:"An Expresser Who Moves People's Hearts",badge:"Expression Genius",
-        traits:[{label:"Expression",val:86},{label:"Empathy",val:81},{label:"Stage Presence",val:78},{label:"Introversion",val:40}],
-        desc:"Your hidden talent is a powerful expressiveness that moves people's hearts! Every word, gesture, and expression carries weight, making people naturally pay attention. Even without a big stage yet — haven't you noticed people getting drawn into your stories? Unleash this talent fully and you can influence countless people! 🎤",
-        careers:["🎤 Speaker/MC","🎭 Actor/Performer","📱 Influencer/Creator","📣 Marketer","👨‍🏫 Instructor/Teacher","🎙️ YouTuber/Podcaster"],
-        tags:["#MagneticPresence","#NaturalCharmer","#ExpressionMaster","#BornForStage"]},
-      D:{emoji:"⚙️",name:"Creative Maker",tagline:"An Inventor Who Turns Ideas Into Reality",badge:"Practical Creativity",
-        traits:[{label:"Execution",val:84},{label:"Creative Problem Solving",val:79},{label:"Hands-on Skill",val:75},{label:"Theory",val:60}],
-        desc:"Your hidden talent is a practical creativity that actually brings ideas to life! You don't just keep ideas in your head — you have an exceptional ability to build them into reality. Haven't you always enjoyed making, fixing, and modifying things since childhood? This talent is one of the most valuable in the age of the 4th Industrial Revolution! ⚙️",
-        careers:["🏗️ Engineer/Developer","🔧 Inventor/Maker","🎮 Game Developer","🤖 Robotics Engineer","🏠 Interior Designer","🚀 Startup Founder"],
-        tags:["#MakerMindset","#IdeaToReality","#HandsOnGenius","#BornInventor"]},
-      E: {
-        emoji: "🏛️",
-        name: "창의적 건축가",
-        tagline: "아이디어를 설계도로 바꾸는 사람",
-        badge: "미적 설계자",
-        stats: [{label:'창의력',val:85},{label:'논리력',val:80},{label:'완성도',val:88}],
-        desc: "You are a 창의적 건축가! 아이디어를 설계도로 바꾸는 사람 — a truly unique combination.",
-        wantToHear: "이걸 어떻게 이렇게 짰어? 진짜 감각이다",
-        dontWantToHear: "그냥 대충 만들면 안 돼?",
-        compat: {goodEmoji:"⚙️",goodName:"메이커",badEmoji:"🎤",badName:"퍼포머"},
-        tags: ['#아이디어설계', '#미적논리', '#완성도집착', '#남들이못보는걸봄'],
-      },
-      F: {
-        emoji: "📖",
-        name: "타고난 스토리텔러",
-        tagline: "이야기로 사람을 끌어당기는 사람",
-        badge: "감성 내러티브",
-        stats: [{label:'표현력',val:90},{label:'감수성',val:85},{label:'설득력',val:80}],
-        desc: "You are a 타고난 스토리텔러! 이야기로 사람을 끌어당기는 사람 — a truly unique combination.",
-        wantToHear: "네가 말하면 왜 이렇게 다르게 들려?",
-        dontWantToHear: "그냥 핵심만 말해줘",
-        compat: {goodEmoji:"🎨",goodName:"예술가",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#이야기꾼', '#감성표현', '#설득력폭발', '#듣다보면빠져듦'],
-      },
-      G: {
-        emoji: "⚡",
-        name: "실행하는 엔지니어",
-        tagline: "생각을 현실로 만드는 사람",
-        badge: "문제 해결사",
-        stats: [{label:'분석력',val:88},{label:'실행력',val:85},{label:'체계성',val:82}],
-        desc: "You are a 실행하는 엔지니어! 생각을 현실로 만드는 사람 — a truly unique combination.",
-        wantToHear: "역시 네한테 맡기면 돼",
-        dontWantToHear: "왜 이렇게 딱딱하게 생각해?",
-        compat: {goodEmoji:"🧠",goodName:"논리형",badEmoji:"🎨",badName:"예술가"},
-        tags: ['#논리+실행', '#문제해결', '#효율주의', '#말보다결과'],
-      },
-      H: {
-        emoji: "🎬",
-        name: "비전 프로듀서",
-        tagline: "연출하고 구현하는 사람",
-        badge: "창조적 연출가",
-        stats: [{label:'연출력',val:88},{label:'실행력',val:82},{label:'영향력',val:78}],
-        desc: "You are a 비전 프로듀서! 연출하고 구현하는 사람 — a truly unique combination.",
-        wantToHear: "네가 이걸 만들었다고? 진짜 대단하다",
-        dontWantToHear: "현실적으로 생각해봐",
-        compat: {goodEmoji:"🎤",goodName:"퍼포머",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#무대기획자', '#비전제시', '#표현+실행', '#팀의원동력'],
-      },
-      E: {
-        emoji: "🏛️",
-        name: "창의적 건축가",
-        tagline: "아이디어를 설계도로 바꾸는 사람",
-        badge: "미적 설계자",
-        stats: [{label:'창의력',val:85},{label:'논리력',val:80},{label:'완성도',val:88}],
-        desc: "You are a 창의적 건축가! 아이디어를 설계도로 바꾸는 사람 — a truly unique combination.",
-        wantToHear: "이걸 어떻게 이렇게 짰어? 진짜 감각이다",
-        dontWantToHear: "그냥 대충 만들면 안 돼?",
-        compat: {goodEmoji:"⚙️",goodName:"메이커",badEmoji:"🎤",badName:"퍼포머"},
-        tags: ['#아이디어설계', '#미적논리', '#완성도집착', '#남들이못보는걸봄'],
-      },
-      F: {
-        emoji: "📖",
-        name: "타고난 스토리텔러",
-        tagline: "이야기로 사람을 끌어당기는 사람",
-        badge: "감성 내러티브",
-        stats: [{label:'표현력',val:90},{label:'감수성',val:85},{label:'설득력',val:80}],
-        desc: "You are a 타고난 스토리텔러! 이야기로 사람을 끌어당기는 사람 — a truly unique combination.",
-        wantToHear: "네가 말하면 왜 이렇게 다르게 들려?",
-        dontWantToHear: "그냥 핵심만 말해줘",
-        compat: {goodEmoji:"🎨",goodName:"예술가",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#이야기꾼', '#감성표현', '#설득력폭발', '#듣다보면빠져듦'],
-      },
-      G: {
-        emoji: "⚡",
-        name: "실행하는 엔지니어",
-        tagline: "생각을 현실로 만드는 사람",
-        badge: "문제 해결사",
-        stats: [{label:'분석력',val:88},{label:'실행력',val:85},{label:'체계성',val:82}],
-        desc: "You are a 실행하는 엔지니어! 생각을 현실로 만드는 사람 — a truly unique combination.",
-        wantToHear: "역시 네한테 맡기면 돼",
-        dontWantToHear: "왜 이렇게 딱딱하게 생각해?",
-        compat: {goodEmoji:"🧠",goodName:"논리형",badEmoji:"🎨",badName:"예술가"},
-        tags: ['#논리+실행', '#문제해결', '#효율주의', '#말보다결과'],
-      },
-      H: {
-        emoji: "🎬",
-        name: "비전 프로듀서",
-        tagline: "연출하고 구현하는 사람",
-        badge: "창조적 연출가",
-        stats: [{label:'연출력',val:88},{label:'실행력',val:82},{label:'영향력',val:78}],
-        desc: "You are a 비전 프로듀서! 연출하고 구현하는 사람 — a truly unique combination.",
-        wantToHear: "네가 이걸 만들었다고? 진짜 대단하다",
-        dontWantToHear: "현실적으로 생각해봐",
-        compat: {goodEmoji:"🎤",goodName:"퍼포머",badEmoji:"🧠",badName:"논리형"},
-        tags: ['#무대기획자', '#비전제시', '#표현+실행', '#팀의원동력'],
-      },
-    },
-  },
+        "A": {
+                "emoji": "🎨",
+                "name": "Creative Artist",
+                "tagline": "A Creator Who Makes the World Beautiful",
+                "badge": "Artistic Sense",
+                "traits": [
+                        {
+                                "label": "Creativity",
+                                "val": 87
+                        },
+                        {
+                                "label": "Aesthetic Eye",
+                                "val": 82
+                        },
+                        {
+                                "label": "Sensitivity",
+                                "val": 79
+                        },
+                        {
+                                "label": "Logic",
+                                "val": 53
+                        }
+                ],
+                "desc": "Your hidden talent is outstanding creativity and artistic sense! You have a unique eye for color, composition, and harmony, and an exceptional ability to express ideas visually. Even if you haven't started formally — don't people often tell you that you have great taste? Develop this talent and limitless possibilities await! 🎨",
+                "careers": [
+                        "🎨 Designer",
+                        "📸 Photographer",
+                        "🎬 Video Creator",
+                        "✍️ Writer/Lyricist",
+                        "🖥️ UX Designer",
+                        "🎭 Art Director"
+                ],
+                "tags": [
+                        "#BornWithIt",
+                        "#Creative",
+                        "#VisualExpression",
+                        "#ArtisticSoul"
+                ],
+                "compat": {
+                        "goodEmoji": "⚙️",
+                        "goodName": "Creative Maker",
+                        "goodDesc": "Builds and runs ideas directly — action first",
+                        "badEmoji": "🧠",
+                        "badName": "Logical Genius",
+                        "badDesc": "Leads with analysis and structured thinking"
+                }
+        },
+        "B": {
+                "emoji": "🧠",
+                "name": "Logical Genius",
+                "tagline": "An Analyst Who Sees Through the World's Patterns",
+                "badge": "Analytical Mind",
+                "traits": [
+                        {
+                                "label": "Analysis",
+                                "val": 87
+                        },
+                        {
+                                "label": "Logic",
+                                "val": 83
+                        },
+                        {
+                                "label": "Problem Solving",
+                                "val": 78
+                        },
+                        {
+                                "label": "Spontaneity",
+                                "val": 55
+                        }
+                ],
+                "desc": "Your hidden talent is outstanding analytical ability and logical thinking! You can systematically break down complex problems and spot patterns and rules others miss. If people often say 'How did you even think of that?' — that's the proof of this talent. Harness it fully and you can become a peerless expert in any field! 🧠",
+                "careers": [
+                        "💻 Developer/Programmer",
+                        "📊 Data Analyst",
+                        "🔬 Researcher",
+                        "💰 Finance Expert",
+                        "📋 Strategy Consultant",
+                        "🤖 AI Engineer"
+                ],
+                "tags": [
+                        "#GeniusAnalyst",
+                        "#PatternFinder",
+                        "#LogicKing",
+                        "#ProblemSolver"
+                ],
+                "compat": {
+                        "goodEmoji": "🎤",
+                        "goodName": "Born Performer",
+                        "goodDesc": "Makes ideas shine in front of an audience",
+                        "badEmoji": "⚙️",
+                        "badName": "Creative Maker",
+                        "badDesc": "Builds and acts rather than talks"
+                }
+        },
+        "C": {
+                "emoji": "🎤",
+                "name": "Natural Performer",
+                "tagline": "An Expresser Who Moves People's Hearts",
+                "badge": "Expression Genius",
+                "traits": [
+                        {
+                                "label": "Expression",
+                                "val": 86
+                        },
+                        {
+                                "label": "Empathy",
+                                "val": 81
+                        },
+                        {
+                                "label": "Stage Presence",
+                                "val": 78
+                        },
+                        {
+                                "label": "Introversion",
+                                "val": 40
+                        }
+                ],
+                "desc": "Your hidden talent is a powerful expressiveness that moves people's hearts! Every word, gesture, and expression carries weight, making people naturally pay attention. Even without a big stage yet — haven't you noticed people getting drawn into your stories? Unleash this talent fully and you can influence countless people! 🎤",
+                "careers": [
+                        "🎤 Speaker/MC",
+                        "🎭 Actor/Performer",
+                        "📱 Influencer/Creator",
+                        "📣 Marketer",
+                        "👨‍🏫 Instructor/Teacher",
+                        "🎙️ YouTuber/Podcaster"
+                ],
+                "tags": [
+                        "#MagneticPresence",
+                        "#NaturalCharmer",
+                        "#ExpressionMaster",
+                        "#BornForStage"
+                ],
+                "compat": {
+                        "goodEmoji": "🧠",
+                        "goodName": "Logical Genius",
+                        "goodDesc": "Structures thinking through systems and evidence",
+                        "badEmoji": "🎨",
+                        "badName": "Creative Artist",
+                        "badDesc": "Leads with aesthetic sense and feeling"
+                }
+        },
+        "D": {
+                "emoji": "⚙️",
+                "name": "Creative Maker",
+                "tagline": "An Inventor Who Turns Ideas Into Reality",
+                "badge": "Practical Creativity",
+                "traits": [
+                        {
+                                "label": "Execution",
+                                "val": 84
+                        },
+                        {
+                                "label": "Creative Problem Solving",
+                                "val": 79
+                        },
+                        {
+                                "label": "Hands-on Skill",
+                                "val": 75
+                        },
+                        {
+                                "label": "Theory",
+                                "val": 60
+                        }
+                ],
+                "desc": "Your hidden talent is a practical creativity that actually brings ideas to life! You don't just keep ideas in your head — you have an exceptional ability to build them into reality. Haven't you always enjoyed making, fixing, and modifying things since childhood? This talent is one of the most valuable in the age of the 4th Industrial Revolution! ⚙️",
+                "careers": [
+                        "🏗️ Engineer/Developer",
+                        "🔧 Inventor/Maker",
+                        "🎮 Game Developer",
+                        "🤖 Robotics Engineer",
+                        "🏠 Interior Designer",
+                        "🚀 Startup Founder"
+                ],
+                "tags": [
+                        "#MakerMindset",
+                        "#IdeaToReality",
+                        "#HandsOnGenius",
+                        "#BornInventor"
+                ],
+                "compat": {
+                        "goodEmoji": "🎤",
+                        "goodName": "Born Performer",
+                        "goodDesc": "Makes ideas shine in front of an audience",
+                        "badEmoji": "🧠",
+                        "badName": "Logical Genius",
+                        "badDesc": "Leads with analysis and structured thinking"
+                }
+        },
+        "E": {
+                "emoji": "🏛️",
+                "name": "창의적 건축가",
+                "tagline": "아이디어를 설계도로 바꾸는 사람",
+                "badge": "미적 설계자",
+                "stats": [
+                        {
+                                "label": "창의력",
+                                "val": 85
+                        },
+                        {
+                                "label": "논리력",
+                                "val": 80
+                        },
+                        {
+                                "label": "완성도",
+                                "val": 88
+                        }
+                ],
+                "desc": "You are a 창의적 건축가! 아이디어를 설계도로 바꾸는 사람 — a truly unique combination.",
+                "wantToHear": "이걸 어떻게 이렇게 짰어? 진짜 감각이다",
+                "dontWantToHear": "그냥 대충 만들면 안 돼?",
+                "compat": {
+                        "goodEmoji": "⚙️",
+                        "goodName": "Creative Maker",
+                        "goodDesc": "Builds and runs ideas directly — action first",
+                        "badEmoji": "🎤",
+                        "badName": "Born Performer",
+                        "badDesc": "Draws people in through emotion and expression"
+                },
+                "tags": [
+                        "#아이디어설계",
+                        "#미적논리",
+                        "#완성도집착",
+                        "#남들이못보는걸봄"
+                ]
+        },
+        "F": {
+                "emoji": "📖",
+                "name": "타고난 스토리텔러",
+                "tagline": "이야기로 사람을 끌어당기는 사람",
+                "badge": "감성 내러티브",
+                "stats": [
+                        {
+                                "label": "표현력",
+                                "val": 90
+                        },
+                        {
+                                "label": "감수성",
+                                "val": 85
+                        },
+                        {
+                                "label": "설득력",
+                                "val": 80
+                        }
+                ],
+                "desc": "You are a 타고난 스토리텔러! 이야기로 사람을 끌어당기는 사람 — a truly unique combination.",
+                "wantToHear": "네가 말하면 왜 이렇게 다르게 들려?",
+                "dontWantToHear": "그냥 핵심만 말해줘",
+                "compat": {
+                        "goodEmoji": "🎨",
+                        "goodName": "Creative Artist",
+                        "goodDesc": "Creates atmosphere through sensory expression",
+                        "badEmoji": "🧠",
+                        "badName": "Logical Genius",
+                        "badDesc": "Leads with analysis and structured thinking"
+                },
+                "tags": [
+                        "#이야기꾼",
+                        "#감성표현",
+                        "#설득력폭발",
+                        "#듣다보면빠져듦"
+                ]
+        },
+        "G": {
+                "emoji": "⚡",
+                "name": "실행하는 엔지니어",
+                "tagline": "생각을 현실로 만드는 사람",
+                "badge": "문제 해결사",
+                "stats": [
+                        {
+                                "label": "분석력",
+                                "val": 88
+                        },
+                        {
+                                "label": "실행력",
+                                "val": 85
+                        },
+                        {
+                                "label": "체계성",
+                                "val": 82
+                        }
+                ],
+                "desc": "You are a 실행하는 엔지니어! 생각을 현실로 만드는 사람 — a truly unique combination.",
+                "wantToHear": "역시 네한테 맡기면 돼",
+                "dontWantToHear": "왜 이렇게 딱딱하게 생각해?",
+                "compat": {
+                        "goodEmoji": "🧠",
+                        "goodName": "Logical Genius",
+                        "goodDesc": "Structures thinking through systems and evidence",
+                        "badEmoji": "🎨",
+                        "badName": "Creative Artist",
+                        "badDesc": "Leads with aesthetic sense and feeling"
+                },
+                "tags": [
+                        "#논리+실행",
+                        "#문제해결",
+                        "#효율주의",
+                        "#말보다결과"
+                ]
+        },
+        "H": {
+                "emoji": "🎬",
+                "name": "비전 프로듀서",
+                "tagline": "연출하고 구현하는 사람",
+                "badge": "창조적 연출가",
+                "stats": [
+                        {
+                                "label": "연출력",
+                                "val": 88
+                        },
+                        {
+                                "label": "실행력",
+                                "val": 82
+                        },
+                        {
+                                "label": "영향력",
+                                "val": 78
+                        }
+                ],
+                "desc": "You are a 비전 프로듀서! 연출하고 구현하는 사람 — a truly unique combination.",
+                "wantToHear": "네가 이걸 만들었다고? 진짜 대단하다",
+                "dontWantToHear": "현실적으로 생각해봐",
+                "compat": {
+                        "goodEmoji": "🎤",
+                        "goodName": "Born Performer",
+                        "goodDesc": "Makes ideas shine in front of an audience",
+                        "badEmoji": "🧠",
+                        "badName": "Logical Genius",
+                        "badDesc": "Leads with analysis and structured thinking"
+                },
+                "tags": [
+                        "#무대기획자",
+                        "#비전제시",
+                        "#표현+실행",
+                        "#팀의원동력"
+                ]
+        }
+}
+  }
 };
 
 let curLang='ko',curQ=0,scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
@@ -1741,6 +2175,25 @@ function showResult(){
   r.tags.forEach(tag=>{const sp=document.createElement('span');sp.className='tag';sp.textContent=tag;tags.appendChild(sp);});
   document.getElementById('resultDesc').innerHTML=r.desc;
   // 듣고싶은말
+
+  // compat 렌더링
+  if (r.compat) {
+    const cu = data[curLang].ui;
+    const gE=document.getElementById('compatGoodEmoji'), gL=document.getElementById('compatGoodLabel'),
+          gN=document.getElementById('compatGoodName'), gD=document.getElementById('compatGoodDesc'),
+          bE=document.getElementById('compatBadEmoji'),  bL=document.getElementById('compatBadLabel'),
+          bN=document.getElementById('compatBadName'),   bD=document.getElementById('compatBadDesc'),
+          ct=document.getElementById('compatTitle');
+    if(gE) gE.textContent=r.compat.goodEmoji||'';
+    if(gL) gL.textContent=cu.goodLabel||'잘 맞아요';
+    if(gN) gN.textContent=r.compat.goodName||'';
+    if(gD) gD.textContent=r.compat.goodDesc||'';
+    if(bE) bE.textContent=r.compat.badEmoji||'';
+    if(bL) bL.textContent=cu.badLabel||'조심하세요';
+    if(bN) bN.textContent=r.compat.badName||'';
+    if(bD) bD.textContent=r.compat.badDesc||'';
+    if(ct) ct.textContent=cu.compatTitle||'💞 궁합 유형';
+  }
   const wantEl=document.getElementById('resultWantToHear');
   const dontEl=document.getElementById('resultDontWantToHear');
   if(wantEl&&r.wantToHear){const we=['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random()*9)];wantEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+we+'</span>'+r.wantToHear;}
@@ -1808,6 +2261,25 @@ function downloadResult() {
         <div style="font-size:20px;font-weight:800;color:${ty.color}">${r.wantToHear||''}</div>
       </div>
     </div>
+    
+    <div class="compat-card">
+      <h3 id="compatTitle">💞 협업 궁합</h3>
+      <div class="compat-row">
+        <div class="compat-item compat-good">
+          <span class="ci-emoji" id="compatGoodEmoji">✨</span>
+          <div class="ci-label" id="compatGoodLabel">찰떡 궁합</div>
+          <div class="ci-name"  id="compatGoodName">—</div>
+          <div class="ci-desc"  id="compatGoodDesc">—</div>
+        </div>
+        <div class="compat-item compat-bad">
+          <span class="ci-emoji" id="compatBadEmoji">⚡</span>
+          <div class="ci-label" id="compatBadLabel">조심하세요</div>
+          <div class="ci-name"  id="compatBadName">—</div>
+          <div class="ci-desc"  id="compatBadDesc">—</div>
+        </div>
+      </div>
+    </div>
+
     <div style="background:${ty.color}33;padding:12px;text-align:center;font-size:15px;color:${ty.color};font-weight:700">
       나도 해보기 → testworld.kr
     </div>
@@ -1819,7 +2291,7 @@ function downloadResult() {
     scale: 2.5,
     useCORS: true,
     backgroundColor: ty.bg,
-    logging: false,
+    logging: false
   }).then(canvas => {
     const link = document.createElement('a');
     link.download = 'testworld-result.png';
