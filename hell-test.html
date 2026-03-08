@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>당신의 지옥은? 🔥 심리테스트 | What Is Your Hell?</title>
+<meta name="description" content="누구에게나 자신만의 지옥이 있다. 나를 가장 힘들게 하는 것은 무엇일까? 15문항으로 알아보는 나만의 지옥 유형!">
+<meta property="og:title" content="당신의 지옥은? 🔥">
+<meta property="og:description" content="누구에게나 자신만의 지옥이 있다 — 당신의 지옥은 무엇인가요? 결과가 소름돋게 맞아요 😱">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/1A0A0A/FF4500?text=당신의+지옥은%3F+🔥">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700;800&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --fs-xs:   clamp(11px, 2.8vw, 13px);
+    --fs-sm:   clamp(12px, 3.2vw, 14px);
+    --fs-base: clamp(14px, 3.5vw, 15px);
+    --fs-md:   clamp(15px, 3.8vw, 16px);
+    --fs-lg:   clamp(16px, 4.2vw, 18px);
+    --fs-xl:   clamp(18px, 4.8vw, 20px);
+    --fs-2xl:  clamp(22px, 5.5vw, 26px);
+    --fs-3xl:  clamp(28px, 7vw,   34px);
+    --fs-hero: clamp(56px, 15vw,  80px);
+    --primary:   #E63946;
+    --secondary: #C77DFF;
+    --bg:        #FFF6F6;
+    --card:      #FFFFFF;
+    --border:    #FFD0D0;
+    --shadow:    0 4px 20px rgba(230,57,70,0.12);
+    --shadow-lg: 0 8px 28px rgba(230,57,70,0.22);
+    --radius:    18px;
+    --radius-sm: 12px;
+    --dark:      #2a1a1a;
+    --space-xs:  clamp(6px, 1.5vw, 8px);
+    --space-sm:  clamp(8px, 2vw, 12px);
+    --space-md:  clamp(8px, 2.5vw, 16px);
+    --space-lg:  clamp(16px, 4vw, 24px);
+    --space-xl:  clamp(20px, 5vw, 32px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: var(--bg); color: var(--dark);
+    min-height: 100vh; overflow-x: hidden;
+    font-size: var(--fs-base);
+    -webkit-text-size-adjust: 100%;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(230,57,70,0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(199,125,255,0.07) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+  .container {
+    max-width: 680px; margin: 0 auto;
+    padding: var(--space-lg) var(--space-md) clamp(40px,10vw,70px);
+    position: relative; z-index: 1;
+  }
+  .ad-slot {
+    background: #fff0f0; border: 2px dashed #f0c0c0;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    color: #ccc; font-size: var(--fs-sm); overflow: hidden;
+  }
+  .ad-top    { height: 80px; margin-bottom: var(--space-lg); }
+  .ad-mid    { height: 250px; margin: var(--space-lg) 0; display: none; }
+  .ad-result { height: 250px; margin: var(--space-md) 0; }
+  .ad-bottom { height: 80px; margin: var(--space-sm) 0; }
+
+  .lang-toggle {
+    position: fixed; top: 14px; right: 14px;
+    background: var(--card); border: 2px solid var(--primary);
+    border-radius: 99px; padding: 5px 14px;
+    font-size: var(--fs-sm); font-weight: 700;
+    cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s;
+  }
+  .lang-toggle:hover { background: var(--primary); color: white; }
+
+  /* 헤더 */
+  .header {
+    text-align: center; margin-bottom: var(--space-xl);
+    animation: fadeDown .5s ease;
+  }
+  .header .emoji-big {
+    font-size: var(--fs-hero); display: block;
+    margin-bottom: var(--space-sm);
+    animation: flicker 3s ease-in-out infinite;
+  }
+  @keyframes flicker {
+    0%,90%,100% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+    92% { transform: scale(1.08) rotate(-3deg); filter: brightness(1.2); }
+    95% { transform: scale(0.96) rotate(2deg); filter: brightness(0.9); }
+    98% { transform: scale(1.04) rotate(-1deg); filter: brightness(1.1); }
+  }
+  .header h1 {
+    font-family: 'Gaegu', cursive;
+    font-size: var(--fs-2xl); font-weight: 700;
+    line-height: 1.25; margin-bottom: var(--space-sm);
+  }
+  .header h1 span {
+    background: linear-gradient(135deg, var(--primary), #FF9F43);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .header p { font-size: var(--fs-md); color: #888; line-height: 1.7; }
+
+  /* 시작 카드 */
+  .start-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: var(--space-xl) var(--space-lg);
+    box-shadow: var(--shadow); border: 2px solid var(--border);
+    text-align: center; animation: fadeUp .5s ease;
+  }
+  .start-card p {
+    font-size: var(--fs-md); color: #666;
+    line-height: 1.8; margin: var(--space-md) 0 var(--space-lg);
+  }
+  .start-btn {
+    display: inline-block; width: 100%;
+    padding: clamp(14px,3.5vw,18px);
+    background: linear-gradient(135deg, var(--primary), #FF9F43);
+    color: white; border: none; border-radius: var(--radius-sm);
+    font-family: 'Gaegu', cursive;
+    font-size: var(--fs-xl); font-weight: 800;
+    cursor: pointer; transition: all .2s;
+    box-shadow: 0 5px 18px rgba(230,57,70,0.35);
+  }
+  .start-btn:hover { transform: translateY(-2px); }
+
+  /* 진행 */
+  .progress-label { text-align: center; font-size: var(--fs-sm); color: #aaa; margin-bottom: 5px; }
+  .progress-wrap {
+    background: #ffe8e8; border-radius: 99px;
+    height: 8px; margin-bottom: var(--space-lg); overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #FF9F43);
+    border-radius: 99px; transition: width .35s ease;
+  }
+
+  /* 질문 카드 */
+  .question-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(20px,5vw,28px) clamp(16px,4.5vw,24px);
+    box-shadow: var(--shadow); border: 2px solid var(--border);
+    margin-bottom: var(--space-md); animation: fadeUp .35s ease;
+  }
+  .question-num {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), #FF9F43);
+    color: white; font-family: 'Gaegu', cursive;
+    font-size: var(--fs-xs); font-weight: 800;
+    padding: 3px 12px; border-radius: 99px; margin-bottom: var(--space-sm);
+  }
+  .question-text {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: clamp(16px,4vw,19px); font-weight: 700;
+    line-height: 1.55; margin-bottom: 4px; word-break: keep-all;
+  }
+  .question-sub { font-size: var(--fs-sm); color: #bbb; margin-bottom: clamp(16px,4vw,22px); }
+  .choices { display: flex; flex-direction: column; gap: 8px; }
+  .choice-btn {
+    background: var(--bg); border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: clamp(11px,2.8vw,14px) clamp(14px,3.5vw,18px);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: clamp(14px,3.5vw,16px); font-weight: 600;
+    color: var(--dark); cursor: pointer; text-align: left;
+    transition: all .18s ease; display: flex; align-items: flex-start;
+    gap: 10px; line-height: 1.5; word-break: keep-all;
+  }
+  .choice-btn:hover {
+    background: color-mix(in srgb, var(--primary) 8%, white);
+    border-color: var(--primary); transform: translateX(4px);
+  }
+  .choice-btn.selected {
+    background: color-mix(in srgb, var(--primary) 12%, white);
+    border-color: var(--primary); transform: scale(1.015);
+  }
+  .choice-emoji { font-size: clamp(20px,5vw,24px); flex-shrink: 0; padding-top: 1px; }
+
+  /* 결과 화면 */
+  .result-screen { display: none; }
+  .result-hero {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(24px,6vw,36px) clamp(18px,5vw,28px) clamp(20px,5vw,28px);
+    box-shadow: var(--shadow-lg); border: 3px solid;
+    text-align: center; margin-bottom: var(--space-md);
+    position: relative; overflow: hidden; animation: fadeUp .5s ease;
+  }
+  .result-big-emoji {
+    font-size: clamp(64px,16vw,88px); display: block;
+    margin-bottom: var(--space-sm); animation: bounceIn .6s ease;
+  }
+  @keyframes bounceIn {
+    0%   { transform: scale(0) rotate(-12deg); opacity: 0; }
+    60%  { transform: scale(1.18) rotate(4deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); }
+  }
+  .result-badge {
+    display: inline-block; font-size: var(--fs-sm); font-weight: 800;
+    letter-spacing: 1.5px; padding: 4px 14px; border-radius: 99px;
+    margin-bottom: var(--space-xs); color: white;
+  }
+  .result-type-name {
+    font-family: 'Gaegu', cursive;
+    font-size: clamp(26px,7vw,34px); font-weight: 800;
+    line-height: 1.2; margin-bottom: var(--space-sm);
+  }
+  .result-tagline {
+    font-size: var(--fs-md); color: #888;
+    line-height: 1.6; margin-bottom: var(--space-md);
+  }
+  .result-desc-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(18px,4.5vw,26px); box-shadow: var(--shadow);
+    margin-bottom: var(--space-md); animation: fadeUp .6s ease .1s both;
+    border: 2px solid var(--border);
+  }
+  .result-desc-card h3 {
+    font-family: 'Gaegu', cursive; font-size: var(--fs-xl);
+    font-weight: 700; margin-bottom: var(--space-sm);
+  }
+  .result-desc-card p {
+    font-size: var(--fs-base); color: #555;
+    line-height: 1.85; word-break: keep-all;
+  }
+  .result-traits {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(18px,4.5vw,26px); box-shadow: var(--shadow);
+    margin-bottom: var(--space-md); animation: fadeUp .6s ease .2s both;
+    border: 2px solid var(--border);
+  }
+  .result-traits h3 {
+    font-family: 'Gaegu', cursive; font-size: var(--fs-xl);
+    font-weight: 700; margin-bottom: var(--space-sm);
+  }
+  .trait-list { display: flex; flex-direction: column; gap: 10px; }
+  .trait-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: var(--fs-base); line-height: 1.6; color: #555;
+  }
+  .trait-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 7px;
+  }
+  .escape-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(18px,4.5vw,26px); box-shadow: var(--shadow);
+    margin-bottom: var(--space-md); animation: fadeUp .6s ease .3s both;
+    border: 2px solid var(--border);
+  }
+  .escape-card h3 {
+    font-family: 'Gaegu', cursive; font-size: var(--fs-xl);
+    font-weight: 700; margin-bottom: var(--space-sm);
+  }
+  .escape-card p {
+    font-size: var(--fs-base); color: #555;
+    line-height: 1.85; word-break: keep-all;
+  }
+
+  /* 공유 카드 */
+  .share-card {
+    background: linear-gradient(135deg, rgba(230,57,70,0.07), rgba(255,159,67,0.07));
+    border-radius: var(--radius); padding: clamp(18px,4.5vw,26px);
+    box-shadow: var(--shadow); border: 2px solid var(--border);
+    text-align: center; margin-bottom: var(--space-md);
+    animation: fadeUp .6s ease .4s both;
+  }
+  .share-card h3 { font-family: 'Gaegu', cursive; font-size: var(--fs-xl); font-weight: 700; margin-bottom: var(--space-xs); }
+  .share-card p  { font-size: var(--fs-sm); color: #aaa; margin-bottom: var(--space-md); }
+  .share-buttons { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .share-btn {
+    padding: 10px 18px; border-radius: var(--radius-sm); border: none;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: var(--fs-sm); font-weight: 700;
+    cursor: pointer; transition: all .2s;
+  }
+  .share-btn:hover { transform: translateY(-2px); }
+  .btn-kakao    { background: #FEE500; color: #3C1E1E; }
+  .btn-copy     { background: linear-gradient(135deg, var(--primary), #FF9F43); color: white; }
+  .btn-twitter  { background: #1DA1F2; color: white; }
+
+  /* 다시하기 */
+  .restart-btn {
+    display: block; width: 100%;
+    padding: clamp(12px,3vw,16px);
+    background: white; border: 2px solid var(--border);
+    border-radius: var(--radius-sm); margin-bottom: var(--space-md);
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: var(--fs-base); font-weight: 700;
+    color: #888; cursor: pointer; transition: all .2s;
+    animation: fadeUp .6s ease .5s both;
+  }
+  .restart-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* 더보기 */
+  .more-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: clamp(18px,4.5vw,26px); box-shadow: var(--shadow);
+    border: 2px solid var(--border); margin-bottom: var(--space-md);
+    animation: fadeUp .6s ease .6s both;
+  }
+  .more-card h3 { font-family: 'Gaegu', cursive; font-size: var(--fs-xl); font-weight: 700; margin-bottom: var(--space-sm); }
+  .more-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: clamp(12px,3vw,16px); border-radius: var(--radius-sm);
+    background: var(--bg); border: 1.5px solid var(--border);
+    text-decoration: none; color: var(--dark);
+    transition: all .2s; margin-bottom: 8px;
+  }
+  .more-item:last-child { margin-bottom: 0; }
+  .more-item:hover { background: color-mix(in srgb, var(--primary) 10%, white); }
+  .more-item-emoji { font-size: clamp(26px,7vw,30px); flex-shrink: 0; }
+  .more-item-info  { flex: 1; }
+  .more-item-title { font-size: var(--fs-md); font-weight: 700; }
+  .more-item-sub   { font-size: var(--fs-xs); color: #aaa; margin-top: 2px; }
+
+  /* 푸터 */
+  .footer {
+    text-align: center; font-size: var(--fs-xs); color: #ccc;
+    padding: var(--space-lg) 0 0; border-top: 1px solid #f0e8e8; margin-top: var(--space-md);
+  }
+  .footer a { color: #ddd; text-decoration: none; margin: 0 4px; }
+  .footer a:hover { color: var(--primary); }
+
+  /* 토스트 */
+  .toast {
+    position: fixed; bottom: 28px; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #2a1a1a; color: white;
+    padding: 11px 24px; border-radius: 99px;
+    font-size: var(--fs-sm); font-weight: 700;
+    transition: transform .3s ease; z-index: 9999;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* 애니메이션 */
+  @keyframes fadeUp   { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+
+  @media (max-width: 480px) {
+    .share-buttons { flex-direction: column; }
+    .share-btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌏 EN</button>
+<div class="toast" id="toast"></div>
+
+<div class="container">
+
+  <div class="ad-slot ad-top">📢 광고 영역 (상단)</div>
+
+  <!-- 시작 화면 -->
+  <div id="startScreen">
+    <div class="header">
+      <span class="emoji-big">🔥</span>
+      <h1 id="mainTitle"><span>당신의 지옥은?</span></h1>
+      <p id="mainDesc">누구에게나 자신만의 지옥이 있다<br>나를 가장 힘들게 하는 것은 무엇일까요? ✨</p>
+    </div>
+    <div class="start-card">
+      <p id="startText">철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>15문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 2분 소요</span></p>
+      <button class="start-btn" onclick="startTest()" id="startBtn">🔥 테스트 시작하기</button>
+    </div>
+  </div>
+
+  <!-- 질문 화면 -->
+  <div id="questionScreen" style="display:none">
+    <p class="progress-label" id="progressLabel">1 / 15</p>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div class="question-card">
+      <span class="question-num" id="questionNum">Q1</span>
+      <div class="question-text" id="questionText"></div>
+      <div class="question-sub"  id="questionSub"></div>
+      <div class="choices" id="choicesContainer"></div>
+    </div>
+    <div class="ad-slot ad-mid">📢 광고 영역 (중간)</div>
+  </div>
+
+  <!-- 결과 화면 -->
+  <div id="resultScreen" class="result-screen">
+    <div class="result-hero" id="resultHero">
+      <span class="result-big-emoji" id="resultEmoji"></span>
+      <div class="result-badge" id="resultBadge"></div>
+      <div class="result-type-name" id="resultTypeName"></div>
+      <div class="result-tagline" id="resultTagline"></div>
+    </div>
+    <div class="result-desc-card">
+      <h3 id="descTitle">🔥 당신의 지옥</h3>
+      <p id="resultDesc"></p>
+    </div>
+    <div class="result-traits">
+      <h3 id="traitsTitle">😈 이런 상황이 특히 힘드시죠?</h3>
+      <div class="trait-list" id="traitList"></div>
+    </div>
+    <div class="escape-card">
+      <h3 id="escapeTitle">💡 탈출 힌트</h3>
+      <p id="escapeText"></p>
+    </div>
+    <div class="ad-slot ad-result">📢 광고 영역 (결과 직후 300×250 — 최고 CTR)</div>
+    <div class="share-card">
+      <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
+      <p id="shareSubtitle">친구의 지옥은 무엇일지 궁금하지 않나요?</p>
+      <div class="share-buttons">
+        <button class="share-btn btn-kakao"   onclick="shareKakao()">💬 카카오톡</button>
+        <button class="share-btn btn-twitter" onclick="shareTwitter()">🐦 Twitter</button>
+        <button class="share-btn btn-copy"    onclick="copyLink()">🔗 링크복사</button>
+      </div>
+    </div>
+    <button class="restart-btn" onclick="restartTest()" id="restartBtn">🔄 다시 테스트하기</button>
+    <div class="more-card">
+      <h3 id="moreTitle">🎯 다른 테스트도 해보세요!</h3>
+      <a class="more-item" href="love-style-test.html">
+        <span class="more-item-emoji">💕</span>
+        <div class="more-item-info"><div class="more-item-title" id="more1Title">나의 연애 스타일은?</div><div class="more-item-sub" id="more1Sub">당신은 어떤 연인인가요?</div></div><span>›</span>
+      </a>
+      <a class="more-item" href="animal-test.html">
+        <span class="more-item-emoji">🐾</span>
+        <div class="more-item-info"><div class="more-item-title" id="more2Title">나를 동물로 표현하면?</div><div class="more-item-sub" id="more2Sub">나와 닮은 동물을 찾아보세요</div></div><span>›</span>
+      </a>
+      <a class="more-item" href="past-life-test.html">
+        <span class="more-item-emoji">🔮</span>
+        <div class="more-item-info"><div class="more-item-title" id="more3Title">나의 전생은?</div><div class="more-item-sub" id="more3Sub">전생에 어떤 삶을 살았을까요?</div></div><span>›</span>
+      </a>
+      <a class="more-item" href="talent-test.html">
+        <span class="more-item-emoji">🌟</span>
+        <div class="more-item-info"><div class="more-item-title" id="more4Title">숨겨진 재능 테스트</div><div class="more-item-sub" id="more4Sub">당신만 모르는 나의 특기는?</div></div><span>›</span>
+      </a>
+    </div>
+    <div class="ad-slot ad-bottom">📢 광고 영역 (하단)</div>
+    <div class="footer">© 2026 테스트월드 · <a href="index.html">홈으로</a></div>
+  </div>
+
+</div>
+
+<script>
+/* ==============================
+   데이터
+============================== */
+const TYPES = {
+  A: { color: '#E63946', bg: '#FFF5F5', border: '#FFD0D0' },
+  B: { color: '#2D2233', bg: '#F5F0FF', border: '#C8B8E8' },
+  C: { color: '#E67E22', bg: '#FFF8EE', border: '#FFD0A0' },
+  D: { color: '#7C67EE', bg: '#F6F4FF', border: '#D0C8FF' },
+  E: { color: '#1A7A6E', bg: '#F0FFFC', border: '#A8DFCF' },
+  F: { color: '#C0392B', bg: '#FFF5F5', border: '#F5B8B8' },
+};
+
+const data = {
+  ko: {
+    mainTitle:    '당신의 지옥은?',
+    mainDesc:     '누구에게나 자신만의 지옥이 있다<br>나를 가장 힘들게 하는 것은 무엇일까요? ✨',
+    startText:    '철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>15문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 2분 소요</span>',
+    startBtn:     '🔥 테스트 시작하기',
+    descTitle:    '🔥 당신의 지옥',
+    traitsTitle:  '😈 이런 상황이 특히 힘드시죠?',
+    escapeTitle:  '💡 탈출 힌트',
+    shareTitle:   '🎉 친구들에게 결과 공유하기!',
+    shareSubtitle:'친구의 지옥은 무엇일지 궁금하지 않나요?',
+    moreTitle:    '🎯 다른 테스트도 해보세요!',
+    restartBtn:   '🔄 다시 테스트하기',
+    copyOk:       '🔗 링크가 복사되었어요!',
+    more1Title: '나의 연애 스타일은?', more1Sub: '당신은 어떤 연인인가요?',
+    more2Title: '나를 동물로 표현하면?', more2Sub: '나와 닮은 동물을 찾아보세요',
+    more3Title: '나의 전생은?', more3Sub: '전생에 어떤 삶을 살았을까요?',
+    more4Title: '숨겨진 재능 테스트', more4Sub: '당신만 모르는 나의 특기는?',
+    questions: [
+      {
+        q: '약속이 갑자기 취소됐다. 나의 반응은?',
+        sub: '가장 솔직한 첫 감정을 골라주세요',
+        choices: [
+          { e: '😤', t: '계획이 무너져서 짜증난다', s: { A: 2 } },
+          { e: '😌', t: '오히려 혼자 있을 수 있어서 좋다', s: { B: 2 } },
+          { e: '😔', t: '뭔가 허전하고 의욕이 사라진다', s: { C: 2 } },
+          { e: '😰', t: '상대방이 나를 싫어하나 걱정된다', s: { E: 2 } },
+        ]
+      },
+      {
+        q: '아무도 없는 공간에 홀로 하루를 보내야 한다면?',
+        sub: '인터넷도 없고 전화도 안 된다',
+        choices: [
+          { e: '😱', t: '미칠 것 같다. 사람이 없으면 못 산다', s: { D: 2 } },
+          { e: '😊', t: '솔직히 꿈같은 하루다', s: { B: -1, D: -1 } },
+          { e: '🤔', t: '처음엔 좋다가 나중엔 불안해질 것 같다', s: { E: 1, B: 1 } },
+          { e: '😤', t: '하고 싶은 게 있는데 못 하는 게 더 문제다', s: { C: 2, A: 1 } },
+        ]
+      },
+      {
+        q: '열심히 한 일이 아무런 성과 없이 끝났다. 어떤 기분인가?',
+        sub: '노력했지만 아무것도 이루어지지 않았을 때',
+        choices: [
+          { e: '🤬', t: '분하다. 왜 안 됐는지 원인을 찾아야겠다', s: { A: 2 } },
+          { e: '😩', t: '공허하다. 다시 시작할 의욕이 안 생긴다', s: { C: 2 } },
+          { e: '😔', t: '내가 부족한 것 같아서 자책하게 된다', s: { E: 2 } },
+          { e: '😮‍💨', t: '뭘 해도 이렇게 될 것 같다는 생각이 든다', s: { F: 2 } },
+        ]
+      },
+      {
+        q: '나를 가장 힘들게 하는 상황은?',
+        sub: '가장 에너지가 빠져나가는 느낌이 드는 상황',
+        choices: [
+          { e: '🌀', t: '계획대로 되는 게 하나도 없을 때', s: { A: 2 } },
+          { e: '🔇', t: '아무도 나에게 연락하지 않을 때', s: { D: 2 } },
+          { e: '📢', t: '끊임없이 누군가와 연결되어야 할 때', s: { B: 2 } },
+          { e: '🪤', t: '뭘 해도 결과가 달라지지 않을 때', s: { C: 2, F: 1 } },
+        ]
+      },
+      {
+        q: '누군가 나에게 "너는 왜 이것도 못 해?"라고 했다면?',
+        sub: '어떤 반응이 가장 먼저 나올 것 같나요?',
+        choices: [
+          { e: '😡', t: '화가 난다. 내가 왜 못 하는지 보여주겠다', s: { A: 1, C: 1 } },
+          { e: '😶', t: '표현은 안 하지만 오래 마음에 남는다', s: { E: 2, F: 1 } },
+          { e: '😞', t: '진짜 내가 못하는 건지 계속 생각하게 된다', s: { E: 2 } },
+          { e: '🙄', t: '무시한다. 그 사람 말이 틀렸으니까', s: { B: 1, A: 1 } },
+        ]
+      },
+      {
+        q: '완벽하게 준비한 발표가 기술 오류로 못 하게 됐다. 나는?',
+        sub: '통제할 수 없는 상황이 발생했을 때',
+        choices: [
+          { e: '😤', t: '극도로 당황하고 화가 난다', s: { A: 3 } },
+          { e: '😮‍💨', t: '당황하지만 금방 대안을 찾으려 한다', s: { A: 1, C: 1 } },
+          { e: '😰', t: '사람들 시선이 너무 신경 쓰인다', s: { E: 2 } },
+          { e: '😶', t: '그냥 멍해진다. 아무 생각이 안 든다', s: { F: 2 } },
+        ]
+      },
+      {
+        q: '모든 것을 혼자 결정해야 하는 상황이라면?',
+        sub: '도움 받을 사람이 없고 전적으로 나 혼자',
+        choices: [
+          { e: '💪', t: '오히려 편하다. 내 뜻대로 할 수 있으니까', s: { B: 2, A: -1 } },
+          { e: '😰', t: '누군가와 상의하고 싶어서 불안하다', s: { D: 2, E: 1 } },
+          { e: '😩', t: '결정 자체가 너무 버겁게 느껴진다', s: { C: 2, F: 1 } },
+          { e: '🤔', t: '결정은 할 수 있지만 책임이 무겁다', s: { E: 1, A: 1 } },
+        ]
+      },
+      {
+        q: '오늘 하루가 어제와 똑같이 반복된다는 걸 알았다. 기분은?',
+        sub: '메뉴도, 만나는 사람도, 하는 일도 모두 같다면',
+        choices: [
+          { e: '😱', t: '끔찍하다. 변화와 자극이 없으면 못 버틴다', s: { F: 3 } },
+          { e: '😌', t: '사실 안정적이라서 괜찮을 것 같다', s: { F: -2, A: -1 } },
+          { e: '😞', t: '점점 무기력해질 것 같다', s: { C: 2, F: 2 } },
+          { e: '🤔', t: '처음엔 괜찮다가 나중엔 답답해질 것 같다', s: { F: 1, D: 1 } },
+        ]
+      },
+      {
+        q: '내가 한 선택이 잘못됐다는 걸 나중에 알았을 때?',
+        sub: '돌이킬 수 없는 상황이라면',
+        choices: [
+          { e: '🔁', t: '그 순간을 자꾸 돌아보며 후회한다', s: { E: 2, F: 1 } },
+          { e: '💪', t: '어쩔 수 없다. 지금부터 잘하면 된다', s: { A: 1, C: 1 } },
+          { e: '😩', t: '왜 나만 이런가 싶어 허탈해진다', s: { C: 2, E: 1 } },
+          { e: '🫥', t: '없던 일로 하고 싶다는 생각이 강하게 든다', s: { F: 2 } },
+        ]
+      },
+      {
+        q: '사람들이 많은 파티에 혼자 가야 한다면?',
+        sub: '아는 사람이 한 명도 없는 상황',
+        choices: [
+          { e: '🥳', t: '새로운 사람을 만나는 게 기대된다', s: { D: 2, B: -1 } },
+          { e: '😰', t: '긴장되고 혼자라는 게 너무 불안하다', s: { E: 2, D: 1 } },
+          { e: '😶', t: '구석에서 조용히 있다가 빨리 나오고 싶다', s: { B: 2, E: 1 } },
+          { e: '🤔', t: '필요한 사람만 만나고 일찍 나온다', s: { B: 1, A: 1 } },
+        ]
+      },
+      {
+        q: '아무리 노력해도 나는 바뀌지 않는다는 생각이 드는 순간은?',
+        sub: '가장 공감되는 상황을 골라주세요',
+        choices: [
+          { e: '📅', t: '매년 같은 결심을 반복할 때', s: { F: 2 } },
+          { e: '👥', t: '다들 성장하는데 나만 제자리인 것 같을 때', s: { E: 2, C: 1 } },
+          { e: '🧱', t: '열심히 해도 결과가 안 따라올 때', s: { C: 2 } },
+          { e: '🌀', t: '내 감정과 행동이 내 뜻대로 안 될 때', s: { A: 2, F: 1 } },
+        ]
+      },
+      {
+        q: '갑자기 연락이 끊긴 친구가 있다. 나는?',
+        sub: '특별한 이유 없이 그냥 연락이 없어졌다',
+        choices: [
+          { e: '😔', t: '내가 뭔가 잘못한 게 아닌지 계속 생각한다', s: { E: 2 } },
+          { e: '😶', t: '그냥 그런가보다 하고 넘긴다', s: { B: 2 } },
+          { e: '📱', t: '먼저 연락해서 이유를 알고 싶다', s: { D: 2, A: 1 } },
+          { e: '😩', t: '연결이 끊겼다는 것 자체가 허전하다', s: { D: 2, C: 1 } },
+        ]
+      },
+      {
+        q: '내가 가장 두려운 것은?',
+        sub: '솔직하게 가장 피하고 싶은 상황',
+        choices: [
+          { e: '🌀', t: '모든 것이 내 통제 밖으로 나가는 것', s: { A: 3 } },
+          { e: '🏝️', t: '아무도 나를 필요로 하지 않는 것', s: { D: 3 } },
+          { e: '⏳', t: '아무리 해도 달라지지 않는 것', s: { C: 3 } },
+          { e: '👁️', t: '모두에게 부족한 사람으로 보이는 것', s: { E: 3 } },
+        ]
+      },
+      {
+        q: '스트레스를 받을 때 나의 패턴은?',
+        sub: '가장 자주 하는 행동',
+        choices: [
+          { e: '🔁', t: '같은 생각을 계속 반복하며 곱씹는다', s: { F: 2, E: 1 } },
+          { e: '🔇', t: '혼자 있고 싶어서 연락을 줄인다', s: { B: 2 } },
+          { e: '📱', t: '누군가와 대화해야 마음이 풀린다', s: { D: 2 } },
+          { e: '🏃', t: '뭔가를 해야 직성이 풀린다. 가만히 있지 못한다', s: { A: 2, C: 1 } },
+        ]
+      },
+      {
+        q: '죽기 전에 가장 후회할 것 같은 것은?',
+        sub: '가장 공감가는 것을 하나만 골라주세요',
+        choices: [
+          { e: '🎯', t: '내가 원하는 걸 한 번도 마음대로 못 해본 것', s: { A: 2, B: 1 } },
+          { e: '🤝', t: '소중한 사람들과 충분히 함께하지 못한 것', s: { D: 2 } },
+          { e: '🏆', t: '열심히 했는데 이룬 게 없는 것', s: { C: 3 } },
+          { e: '💔', t: '누군가에게 상처를 주거나 받은 것', s: { E: 2, F: 1 } },
+        ]
+      },
+    ],
+    results: {
+      A: {
+        emoji: '🌀',
+        badge: '통제 불능형',
+        name: '혼돈의 지옥',
+        tagline: '계획이 무너지고 아무것도 내 뜻대로 되지 않는 공간',
+        desc: '당신의 지옥은 모든 것이 통제 밖에 있는 공간입니다. 아무리 치밀하게 계획해도 매 순간 예상치 못한 일들이 터지고, 당신이 세운 모든 구조가 무너집니다. 가장 공들인 것이 마지막에 무너지는 기분 — 그것이 당신의 지옥입니다. 당신은 질서와 예측 가능성에서 안정을 얻는 사람이기 때문에, 혼돈 자체가 가장 큰 고통이 됩니다.',
+        traits: [
+          '계획이 조금만 틀어져도 하루가 무너지는 기분이 든다',
+          '예상치 못한 변수가 생기면 이미 완성된 것도 다시 하고 싶어진다',
+          '나는 열심히 했는데 외부 요인으로 결과가 달라지면 극도로 짜증난다',
+        ],
+        escape: '통제할 수 있는 것과 없는 것을 분리해보세요. 모든 것을 장악하려는 시도 자체가 때로는 더 큰 혼돈을 만듭니다. "내가 할 수 있는 것에만 집중한다"는 원칙 하나가 당신의 지옥에서 유일한 탈출구가 될 수 있어요.',
+      },
+      B: {
+        emoji: '🏝️',
+        badge: '고독 선호형',
+        name: '연결 강요의 지옥',
+        tagline: '원하지 않는데 끊임없이 누군가와 연결되어야 하는 공간',
+        desc: '당신의 지옥은 아무도 없이 혼자 있을 수가 없는 공간입니다. 쉬고 싶을 때 끊임없이 전화가 오고, 자신만의 시간이 필요할 때 누군가 곁에 있어야 하며, 침묵이 필요한 순간에도 말을 해야 하는 곳. 혼자만의 시간이 당신에게는 산소 같은 것인데, 그것이 완전히 차단된 공간 — 그것이 당신의 지옥입니다.',
+        traits: [
+          '사람들과 오래 있으면 에너지가 빠져나가는 느낌이 든다',
+          '혼자만의 시간 없이는 며칠이 지나도 재충전이 안 된다',
+          '누군가 허락 없이 나의 공간과 시간을 침범하면 심하게 불편하다',
+        ],
+        escape: '혼자 있고 싶다는 욕구는 이기적인 게 아닙니다. 당신에게는 명확한 경계 설정이 "탈출"의 시작입니다. "이 시간은 내 시간"이라고 말할 수 있는 용기가, 당신을 지옥에서 꺼내줄 유일한 열쇠예요.',
+      },
+      C: {
+        emoji: '⏳',
+        badge: '무기력 민감형',
+        name: '노력 무효의 지옥',
+        tagline: '아무리 해도 아무것도 달라지지 않는 공간',
+        desc: '당신의 지옥은 아무리 노력해도 현실이 바뀌지 않는 공간입니다. 최선을 다해도, 희생해도, 포기해도 — 결과는 항상 똑같습니다. 내가 존재하는지 모르겠는 무력감, 아무것도 이룰 수 없다는 허탈함이 깊이 쌓이는 곳. 성취감으로 자신을 증명하고 싶은 당신에게, 아무것도 이루어지지 않는 공간은 가장 잔인한 지옥입니다.',
+        traits: [
+          '열심히 한 일이 성과 없이 끝나면 한동안 무기력해진다',
+          '비슷한 노력을 해도 다른 사람보다 결과가 안 나오면 자신을 의심한다',
+          '노력이 쌓이는 게 느껴지지 않으면 지속 자체가 힘들어진다',
+        ],
+        escape: '결과보다 과정을 기록해보세요. "오늘 내가 한 것"을 적는 작은 습관이 무력감의 가장 강력한 해독제입니다. 보이지 않는 노력도 분명히 쌓이고 있어요. 그것이 아직 보이지 않을 뿐입니다.',
+      },
+      D: {
+        emoji: '🔇',
+        badge: '연결 갈망형',
+        name: '고독의 지옥',
+        tagline: '아무도 없는 완전한 고립 속에 혼자인 공간',
+        desc: '당신의 지옥은 아무도 없는 공간입니다. 전화해도 받는 사람이 없고, 말을 해도 들어주는 사람이 없으며, 존재해도 누구도 알아채지 못하는 곳. 관계 속에서 살아가는 당신에게, 완전한 단절은 단순한 외로움이 아닌 존재 자체가 사라지는 듯한 고통입니다. 당신은 연결로 숨쉬는 사람이기 때문에 고독은 그 자체로 지옥이 됩니다.',
+        traits: [
+          '연락이 없는 날이 길어지면 이유 없이 불안해진다',
+          '중요한 결정 앞에서 누군가와 대화해야 마음이 놓인다',
+          '관계가 멀어지는 것이 실패처럼 느껴질 때가 있다',
+        ],
+        escape: '연결에 대한 욕구는 당신의 가장 큰 강점이기도 합니다. 하지만 고독 속에서도 자신과 연결되는 연습이 필요해요. 하루 10분, 핸드폰 없이 자신의 감정에만 집중하는 시간이 당신을 지옥에서 조금 멀리 데려다줄 거예요.',
+      },
+      E: {
+        emoji: '👁️',
+        badge: '평가 민감형',
+        name: '판단의 지옥',
+        tagline: '모두가 나를 끊임없이 평가하고 비판하는 공간',
+        desc: '당신의 지옥은 모두의 시선이 집중된 공간입니다. 무슨 말을 해도 비판받고, 어떤 선택을 해도 틀렸다는 말을 듣고, 잘 해도 "더 잘할 수 있었는데"라는 말을 듣는 곳. 완벽하게 보이고 싶고 인정받고 싶은 당신에게, 끝없는 비판과 평가의 공간은 가장 숨막히는 지옥이 됩니다. 당신은 스스로에게도 가장 가혹한 비평가입니다.',
+        traits: [
+          '실수를 하면 남들보다 오래, 깊이 자책하는 경향이 있다',
+          '누군가 나를 오해했을 때 해명하지 못하면 오래 마음에 남는다',
+          '칭찬보다 비판이 훨씬 오래 기억에 남고 자주 떠오른다',
+        ],
+        escape: '다른 사람의 시선보다 나 자신의 기준을 먼저 세워보세요. "내가 나에게 부끄럽지 않은가?"라는 질문 하나가, 외부의 수천 개 시선보다 훨씬 강력한 기준이 됩니다. 당신은 이미 충분히 노력하고 있어요.',
+      },
+      F: {
+        emoji: '🔁',
+        badge: '반복 공포형',
+        name: '영원한 반복의 지옥',
+        tagline: '같은 하루를, 같은 감정을, 끝없이 반복하는 공간',
+        desc: '당신의 지옥은 아무것도 바뀌지 않는 공간입니다. 어제와 똑같은 오늘, 똑같은 사람들, 똑같은 실수, 똑같은 감정. 변화와 성장을 갈망하는 당신에게, 영원한 반복은 서서히 자신이 사라지는 것 같은 공포가 됩니다. 달라지고 싶은데 달라질 수 없다는 감각 — 그 무기력함이 쌓여 지옥이 됩니다.',
+        traits: [
+          '매년 비슷한 고민을 반복하고 있다는 생각이 들 때 괴롭다',
+          '오래된 상처나 후회가 예상치 못한 순간에 반복적으로 떠오른다',
+          '한 번 결정한 것이 정말 맞는지 계속 되돌아보게 된다',
+        ],
+        escape: '반복 속에서도 아주 작은 변화를 만들어보세요. 매일 같은 길이 아닌 다른 길로 출근해보는 것처럼 — 아주 사소한 변화가 반복의 고리를 끊는 첫 번째 균열이 됩니다. 변화는 크게 시작할 필요가 없어요.',
+      },
+    },
+    shareMsg: '나의 지옥 유형은? 🔥 당신의 지옥은 무엇인지 테스트해봐!',
+  },
+
+  en: {
+    mainTitle:    'What Is Your Hell?',
+    mainDesc:     'Everyone has their own personal hell.<br>What torments you the most? ✨',
+    startText:    'Philosophers say — the deepest hell<br>lies not outside, but within.<br><strong>15 questions</strong> to find your personal hell type!<br><span style="opacity:.7">About 2 minutes</span>',
+    startBtn:     '🔥 Start the Test',
+    descTitle:    '🔥 Your Hell',
+    traitsTitle:  '😈 Does this hit close to home?',
+    escapeTitle:  '💡 Escape Hint',
+    shareTitle:   '🎉 Share Your Result!',
+    shareSubtitle: 'Curious what kind of hell your friend has?',
+    moreTitle:    '🎯 Try More Tests!',
+    restartBtn:   '🔄 Take the Test Again',
+    copyOk:       '🔗 Link copied!',
+    more1Title: "What's My Love Style?", more1Sub: 'What kind of lover are you?',
+    more2Title: 'Which Animal Are You?', more2Sub: 'Find your spirit animal',
+    more3Title: 'My Past Life', more3Sub: 'Who were you in a past life?',
+    more4Title: 'Hidden Talent Test', more4Sub: 'Discover your secret superpower',
+    questions: [
+      {
+        q: 'A plan suddenly gets cancelled. Your reaction?',
+        sub: 'Pick the most honest first feeling',
+        choices: [
+          { e: '😤', t: "I'm annoyed — my whole plan fell apart", s: { A: 2 } },
+          { e: '😌', t: 'Actually, I love having time to myself', s: { B: 2 } },
+          { e: '😔', t: 'I feel empty and unmotivated', s: { C: 2 } },
+          { e: '😰', t: "I worry they don't like me anymore", s: { E: 2 } },
+        ]
+      },
+      {
+        q: 'You must spend a day completely alone — no internet, no calls.',
+        sub: 'How does that feel?',
+        choices: [
+          { e: '😱', t: "I'd go crazy. I need people to function", s: { D: 2 } },
+          { e: '😊', t: "Honestly, that sounds like a dream day", s: { B: -1, D: -1 } },
+          { e: '🤔', t: "Fine at first, but I'd get anxious later", s: { E: 1, B: 1 } },
+          { e: '😤', t: "I'd be frustrated I can't get things done", s: { C: 2, A: 1 } },
+        ]
+      },
+      {
+        q: 'You worked hard and got nowhere. How does that feel?',
+        sub: 'Your effort produced zero results',
+        choices: [
+          { e: '🤬', t: "Infuriating — I need to find out why it failed", s: { A: 2 } },
+          { e: '😩', t: "Empty — I can't find the motivation to start again", s: { C: 2 } },
+          { e: '😔', t: 'I blame myself and feel like I fell short', s: { E: 2 } },
+          { e: '😮‍💨', t: 'I feel like nothing I do will ever work', s: { F: 2 } },
+        ]
+      },
+      {
+        q: 'What drains your energy the most?',
+        sub: 'The situation that feels most exhausting',
+        choices: [
+          { e: '🌀', t: 'When nothing goes according to plan', s: { A: 2 } },
+          { e: '🔇', t: 'When no one reaches out to me', s: { D: 2 } },
+          { e: '📢', t: 'When I have to be constantly connected to others', s: { B: 2 } },
+          { e: '🪤', t: 'When nothing changes no matter what I do', s: { C: 2, F: 1 } },
+        ]
+      },
+      {
+        q: 'Someone says to you: "Why can\'t you even do this?"',
+        sub: 'Which reaction comes first?',
+        choices: [
+          { e: '😡', t: "I get angry and want to prove them wrong", s: { A: 1, C: 1 } },
+          { e: '😶', t: "I don't show it, but it stays with me for a long time", s: { E: 2, F: 1 } },
+          { e: '😞', t: 'I keep wondering if they might be right', s: { E: 2 } },
+          { e: '🙄', t: "I ignore it — they're just wrong", s: { B: 1, A: 1 } },
+        ]
+      },
+      {
+        q: 'A tech glitch ruins a perfectly prepared presentation. You:',
+        sub: 'An uncontrollable situation destroys your plans',
+        choices: [
+          { e: '😤', t: 'Panic and feel intense frustration', s: { A: 3 } },
+          { e: '😮‍💨', t: "I'm flustered but quickly start looking for a solution", s: { A: 1, C: 1 } },
+          { e: '😰', t: "I'm overwhelmed worrying about people's reactions", s: { E: 2 } },
+          { e: '😶', t: 'I just go blank. No thoughts at all.', s: { F: 2 } },
+        ]
+      },
+      {
+        q: 'You have to make every decision completely alone. How is that?',
+        sub: 'No one to help — entirely on your own',
+        choices: [
+          { e: '💪', t: "I prefer it — I get to do things my way", s: { B: 2, A: -1 } },
+          { e: '😰', t: 'I feel anxious and need someone to talk to', s: { D: 2, E: 1 } },
+          { e: '😩', t: 'Even deciding feels overwhelming', s: { C: 2, F: 1 } },
+          { e: '🤔', t: 'I can decide, but the responsibility feels heavy', s: { E: 1, A: 1 } },
+        ]
+      },
+      {
+        q: 'You discover today is an exact repeat of yesterday. How do you feel?',
+        sub: 'Same food, same people, same tasks — forever',
+        choices: [
+          { e: '😱', t: "Horrifying. I can't survive without change and stimulation", s: { F: 3 } },
+          { e: '😌', t: "Honestly, the stability sounds kind of nice", s: { F: -2, A: -1 } },
+          { e: '😞', t: "I'd slowly lose motivation and energy", s: { C: 2, F: 2 } },
+          { e: '🤔', t: "Fine at first, but eventually suffocating", s: { F: 1, D: 1 } },
+        ]
+      },
+      {
+        q: 'You realize a past decision was a mistake — and it\'s too late to change it.',
+        sub: 'What happens inside you?',
+        choices: [
+          { e: '🔁', t: 'I replay that moment over and over', s: { E: 2, F: 1 } },
+          { e: '💪', t: "Nothing I can do about it — I just focus forward", s: { A: 1, C: 1 } },
+          { e: '😩', t: "I feel like bad luck only follows me", s: { C: 2, E: 1 } },
+          { e: '🫥', t: 'I desperately wish I could erase it entirely', s: { F: 2 } },
+        ]
+      },
+      {
+        q: "You have to go to a party alone where you know no one.",
+        sub: 'Not a single familiar face',
+        choices: [
+          { e: '🥳', t: "I'm excited to meet new people", s: { D: 2, B: -1 } },
+          { e: '😰', t: "I feel anxious and being alone feels unsafe", s: { E: 2, D: 1 } },
+          { e: '😶', t: "I'd hide in the corner and leave as soon as possible", s: { B: 2, E: 1 } },
+          { e: '🤔', t: "I'd talk to whoever I need to, then leave early", s: { B: 1, A: 1 } },
+        ]
+      },
+      {
+        q: 'When does the feeling of "I never change" hit the hardest?',
+        sub: 'Pick the situation that resonates most',
+        choices: [
+          { e: '📅', t: 'When I make the same resolutions every year', s: { F: 2 } },
+          { e: '👥', t: "When everyone else seems to grow while I'm stuck", s: { E: 2, C: 1 } },
+          { e: '🧱', t: "When effort just doesn't translate to results", s: { C: 2 } },
+          { e: '🌀', t: "When my emotions and actions won't obey me", s: { A: 2, F: 1 } },
+        ]
+      },
+      {
+        q: "A friend you were close to suddenly stops reaching out.",
+        sub: 'No particular reason — they just went quiet',
+        choices: [
+          { e: '😔', t: 'I keep wondering if I did something wrong', s: { E: 2 } },
+          { e: '😶', t: 'I just let it go and move on', s: { B: 2 } },
+          { e: '📱', t: 'I reach out first — I need to know why', s: { D: 2, A: 1 } },
+          { e: '😩', t: 'The loss of that connection just feels hollow', s: { D: 2, C: 1 } },
+        ]
+      },
+      {
+        q: 'What do you fear the most?',
+        sub: 'The situation you most want to avoid',
+        choices: [
+          { e: '🌀', t: 'Everything spinning out of my control', s: { A: 3 } },
+          { e: '🏝️', t: 'No one needing me or missing me', s: { D: 3 } },
+          { e: '⏳', t: 'Trying endlessly and never changing', s: { C: 3 } },
+          { e: '👁️', t: 'Being seen as not enough by everyone', s: { E: 3 } },
+        ]
+      },
+      {
+        q: "What do you tend to do when you're stressed?",
+        sub: 'Your most common coping pattern',
+        choices: [
+          { e: '🔁', t: 'I ruminate on the same thoughts over and over', s: { F: 2, E: 1 } },
+          { e: '🔇', t: 'I withdraw and cut back on contact', s: { B: 2 } },
+          { e: '📱', t: 'I need to talk to someone to feel better', s: { D: 2 } },
+          { e: '🏃', t: "I have to do something — I can't just sit still", s: { A: 2, C: 1 } },
+        ]
+      },
+      {
+        q: 'What do you think you\'d regret most before you die?',
+        sub: 'Choose the one that resonates most',
+        choices: [
+          { e: '🎯', t: 'Never getting to do what I truly wanted', s: { A: 2, B: 1 } },
+          { e: '🤝', t: "Not spending enough time with the people who matter", s: { D: 2 } },
+          { e: '🏆', t: 'Trying so hard but achieving so little', s: { C: 3 } },
+          { e: '💔', t: 'Hurting someone or being deeply hurt', s: { E: 2, F: 1 } },
+        ]
+      },
+    ],
+    results: {
+      A: {
+        emoji: '🌀',
+        badge: 'Control Seeker',
+        name: 'Hell of Chaos',
+        tagline: 'Where all plans crumble and nothing goes your way',
+        desc: "Your hell is a place where everything is out of control. No matter how carefully you plan, unexpected things keep happening — every structure you build collapses. That feeling of your most precious effort falling apart at the last moment — that is your hell. You find stability in order and predictability, so chaos itself becomes your greatest torment.",
+        traits: [
+          'Even a small disruption to your plan can feel like the whole day is ruined',
+          'Unexpected variables make you want to redo even completed work from scratch',
+          'When external factors change the outcome despite your best effort, it feels deeply unfair',
+        ],
+        escape: "Separate what you can control from what you can't. The attempt to control everything sometimes creates more chaos. One principle — 'I focus only on what I can do' — may be the only exit from your hell.",
+      },
+      B: {
+        emoji: '🏝️',
+        badge: 'Solitude Seeker',
+        name: 'Hell of Forced Connection',
+        tagline: 'Where you must always be connected to others against your will',
+        desc: "Your hell is a place where you can never be alone. Calls keep coming when you want to rest; someone is always nearby when you need your own space; you have to keep talking even when silence is what you need. Solitude is like oxygen to you — and a space where it's completely cut off is your hell.",
+        traits: [
+          'Being around people for too long leaves you feeling drained',
+          "Without alone time, you don't feel recharged even after days",
+          "You feel deeply uncomfortable when someone invades your space or time without permission",
+        ],
+        escape: "Wanting to be alone is not selfish. For you, setting clear boundaries is the beginning of escape. The courage to say 'this time is mine' is the only key that can free you from this hell.",
+      },
+      C: {
+        emoji: '⏳',
+        badge: 'Effort Sensitive',
+        name: 'Hell of Futile Effort',
+        tagline: 'Where no matter how hard you try, nothing ever changes',
+        desc: "Your hell is a place where reality doesn't change no matter how hard you try. Your best effort, your sacrifices, your persistence — the result is always the same. Feeling invisible, feeling like you've achieved nothing — that hopelessness accumulates. For someone who proves themselves through achievement, a space where nothing can be accomplished is the cruelest hell.",
+        traits: [
+          'When hard work produces no results, you feel unmotivated for a long time afterward',
+          'If you see others succeed with similar effort, you start to doubt yourself',
+          "When you can't feel progress accumulating, continuing becomes almost impossible",
+        ],
+        escape: "Try recording process over outcome. The small habit of writing down 'what I did today' is the most powerful antidote to helplessness. Your invisible effort is absolutely accumulating — it just hasn't surfaced yet.",
+      },
+      D: {
+        emoji: '🔇',
+        badge: 'Connection Craver',
+        name: 'Hell of Solitude',
+        tagline: 'A space of total isolation where no one exists',
+        desc: "Your hell is a place with no one in it. You call but nobody answers; you speak but nobody listens; you exist but nobody notices. For someone who lives through relationships, complete disconnection is not just loneliness — it's pain that feels like your very existence is dissolving. You breathe through connection, so solitude becomes a hell in itself.",
+        traits: [
+          'On days when no one reaches out, you feel anxious without knowing why',
+          "Before important decisions, you need to talk to someone to feel at ease",
+          'Sometimes a fading relationship feels like a personal failure',
+        ],
+        escape: "Your desire for connection is also one of your greatest strengths. But you also need practice connecting with yourself in solitude. Ten minutes a day, phone off, focused only on your own feelings — that will slowly carry you away from this hell.",
+      },
+      E: {
+        emoji: '👁️',
+        badge: 'Approval Seeker',
+        name: 'Hell of Judgment',
+        tagline: 'Where everyone constantly evaluates and criticizes you',
+        desc: "Your hell is a place where all eyes are on you. Everything you say is criticized, every choice you make is called wrong, and even doing well earns you 'you could have done better.' You want to appear perfect and be recognized — so a space of endless evaluation and criticism becomes the most suffocating hell. You are also the harshest critic of yourself.",
+        traits: [
+          'When you make a mistake, you tend to self-criticize longer and deeper than others',
+          "When someone misunderstands you and you can't explain, it stays with you for a long time",
+          'Criticism lingers far longer in your memory than praise and surfaces more often',
+        ],
+        escape: "Try building your own standards before worrying about other people's eyes. The single question — 'Am I ashamed of myself?' — is a far more powerful standard than thousands of external opinions. You're already trying hard enough.",
+      },
+      F: {
+        emoji: '🔁',
+        badge: 'Change Craver',
+        name: 'Hell of Eternal Repetition',
+        tagline: 'Repeating the same day, the same feelings, endlessly',
+        desc: "Your hell is a place where nothing ever changes. The same today as yesterday, the same people, the same mistakes, the same emotions. For someone who craves change and growth, eternal repetition becomes a terror — the slow feeling that you yourself are disappearing. The sensation of wanting to change but being unable to — that accumulated helplessness becomes your hell.",
+        traits: [
+          "It's painful when you realize you've been wrestling with the same worries year after year",
+          'Old wounds or regrets resurface unexpectedly and repeatedly',
+          'You find yourself second-guessing decisions you already made, over and over',
+        ],
+        escape: "Try creating tiny changes even within repetition. Like taking a different route to work — the most trivial change can be the first crack that breaks the loop. Change doesn't have to start big.",
+      },
+    },
+    shareMsg: 'What type of hell is yours? 🔥 Find out what your personal hell is!',
+  },
+};
+
+/* ==============================
+   상태
+============================== */
+let curLang = 'ko';
+let currentQ = 0;
+let scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+const TOTAL = 15;
+
+/* ==============================
+   언어 토글
+============================== */
+function toggleLang() {
+  curLang = curLang === 'ko' ? 'en' : 'ko';
+  applyLang();
+}
+
+function applyLang() {
+  const d = data[curLang];
+  document.documentElement.lang = curLang;
+  document.getElementById('langBtn').textContent = curLang === 'ko' ? '🌏 EN' : '🇰🇷 KR';
+
+  const ids = ['mainTitle','mainDesc','startText','startBtn','descTitle','traitsTitle',
+               'escapeTitle','shareTitle','shareSubtitle','moreTitle','restartBtn',
+               'more1Title','more1Sub','more2Title','more2Sub','more3Title','more3Sub','more4Title','more4Sub'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id === 'mainDesc' || id === 'startText') el.innerHTML = d[id];
+    else el.textContent = d[id];
+  });
+}
+
+/* ==============================
+   테스트 진행
+============================== */
+function startTest() {
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('questionScreen').style.display = 'block';
+  currentQ = 0;
+  scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = data[curLang].questions[currentQ];
+  const pct = Math.round((currentQ / TOTAL) * 100);
+
+  document.getElementById('progressLabel').textContent = `${currentQ + 1} / ${TOTAL}`;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('questionNum').textContent = `Q${currentQ + 1}`;
+  document.getElementById('questionText').textContent = q.q;
+  document.getElementById('questionSub').textContent = q.sub || '';
+
+  const container = document.getElementById('choicesContainer');
+  container.innerHTML = '';
+  q.choices.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = `<span class="choice-emoji">${c.e}</span><span>${c.t}</span>`;
+    btn.onclick = () => selectChoice(c.s, btn);
+    container.appendChild(btn);
+  });
+}
+
+function selectChoice(scoreMap, btn) {
+  document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+
+  for (const [type, val] of Object.entries(scoreMap)) {
+    scores[type] = (scores[type] || 0) + val;
+  }
+
+  setTimeout(() => {
+    currentQ++;
+    if (currentQ < TOTAL) {
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      showResult();
+    }
+  }, 350);
+}
+
+/* ==============================
+   결과
+============================== */
+function showResult() {
+  document.getElementById('questionScreen').style.display = 'none';
+  const rs = document.getElementById('resultScreen');
+  rs.style.display = 'block';
+
+  const topType = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+  const r = data[curLang].results[topType];
+  const t = TYPES[topType];
+
+  // 헤더 꾸미기
+  const hero = document.getElementById('resultHero');
+  hero.style.borderColor = t.border;
+  hero.style.background  = t.bg;
+
+  document.getElementById('resultEmoji').textContent = r.emoji;
+
+  const badge = document.getElementById('resultBadge');
+  badge.textContent = r.badge;
+  badge.style.background = t.color;
+
+  const typeName = document.getElementById('resultTypeName');
+  typeName.textContent = r.name;
+  typeName.style.color = t.color;
+
+  document.getElementById('resultTagline').textContent = r.tagline;
+
+  // 설명
+  document.getElementById('resultDesc').textContent = r.desc;
+
+  // 특징
+  const traitList = document.getElementById('traitList');
+  traitList.innerHTML = '';
+  r.traits.forEach(trait => {
+    const item = document.createElement('div');
+    item.className = 'trait-item';
+    item.innerHTML = `<span class="trait-dot" style="background:${t.color}"></span><span>${trait}</span>`;
+    traitList.appendChild(item);
+  });
+
+  // 탈출 힌트
+  document.getElementById('escapeText').textContent = r.escape;
+
+  // 카드 테두리 색상 맞추기
+  document.querySelectorAll('.result-desc-card, .result-traits, .escape-card').forEach(el => {
+    el.style.borderColor = t.border;
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ==============================
+   공유
+============================== */
+function getShareMsg() {
+  const topType = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+  const r = data[curLang].results[topType];
+  return (curLang === 'ko')
+    ? `나의 지옥 유형은 "${r.name}"이래! 🔥 너는 뭐야?`
+    : `My hell type is "${r.name}"! 🔥 What's yours?`;
+}
+
+function shareKakao() {
+  showToast(curLang === 'ko' ? '카카오 SDK 연동 후 사용 가능해요!' : 'Requires Kakao SDK!');
+}
+function shareTwitter() {
+  const msg = encodeURIComponent(getShareMsg() + '\n' + location.href);
+  window.open('https://twitter.com/intent/tweet?text=' + msg, '_blank');
+}
+function copyLink() {
+  const txt = getShareMsg() + '\n' + location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(() => showToast(data[curLang].copyOk));
+  } else {
+    const el = document.createElement('textarea');
+    el.value = txt; document.body.appendChild(el);
+    el.select(); document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast(data[curLang].copyOk);
+  }
+}
+
+function restartTest() {
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('startScreen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

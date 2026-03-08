@@ -330,11 +330,11 @@
     <p id="heroDesc">재미있는 심리테스트 & 성격 퀴즈 모음<br>나를 더 잘 알아가는 즐거운 시간 ✨</p>
     <div class="hero-stats">
       <div class="stat-item">
-        <span class="stat-num">4</span>
+        <span class="stat-num">5</span>
         <div class="stat-label" id="statTests">테스트</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num">32+</span>
+        <span class="stat-num">38+</span>
         <div class="stat-label" id="statTypes">결과 유형</div>
       </div>
       <div class="stat-item">
@@ -425,25 +425,24 @@
       <div class="tc-desc"  id="tc2Desc">당신만 모르는 나의 특기는?</div>
       <button class="tc-btn active" id="tc2Btn">바로 시작 →</button>
     </a>
-    <div class="test-card soon-card" style="animation-delay:.34s">
-      <span class="soon-badge">SOON</span>
-      <span class="tc-emoji">🧠</span>
-      <div class="tc-title" id="tc3Title">나의 스트레스 유형</div>
-      <div class="tc-desc"  id="tc3Desc">번아웃 전에 나를 파악하기</div>
-      <button class="tc-btn soon" id="tc3Btn">준비 중 🔧</button>
-    </div>
+    <a class="test-card" href="hell-test.html" style="animation-delay:.34s">
+      <span class="tc-emoji">🔥</span>
+      <div class="tc-title" id="tc3Title">당신의 지옥은?</div>
+      <div class="tc-desc"  id="tc3Desc">나를 가장 힘들게 하는 것</div>
+      <button class="tc-btn active" id="tc3Btn">바로 시작 →</button>
+    </a>
     <div class="test-card soon-card" style="animation-delay:.39s">
       <span class="soon-badge">SOON</span>
-      <span class="tc-emoji">💼</span>
-      <div class="tc-title" id="tc4Title">나의 직업 유형은?</div>
-      <div class="tc-desc"  id="tc4Desc">천직을 찾아드립니다</div>
+      <span class="tc-emoji">🧠</span>
+      <div class="tc-title" id="tc4Title">나의 스트레스 유형</div>
+      <div class="tc-desc"  id="tc4Desc">번아웃 전에 나를 파악하기</div>
       <button class="tc-btn soon" id="tc4Btn">준비 중 🔧</button>
     </div>
     <div class="test-card soon-card" style="animation-delay:.44s">
       <span class="soon-badge">SOON</span>
-      <span class="tc-emoji">🌙</span>
-      <div class="tc-title" id="tc5Title">나의 에너지 유형</div>
-      <div class="tc-desc"  id="tc5Desc">내향형? 외향형? 그 사이?</div>
+      <span class="tc-emoji">💼</span>
+      <div class="tc-title" id="tc5Title">나의 직업 유형은?</div>
+      <div class="tc-desc"  id="tc5Desc">천직을 찾아드립니다</div>
       <button class="tc-btn soon" id="tc5Btn">준비 중 🔧</button>
     </div>
     <div class="test-card soon-card" style="animation-delay:.49s">
@@ -505,9 +504,9 @@ const ui = {
     fc2Types:     '4가지 유형',
     tc1Title: '나를 동물로 표현하면?', tc1Desc: '나와 닮은 동물을 찾아보세요',  tc1Btn: '바로 시작 →',
     tc2Title: '숨겨진 재능 테스트',   tc2Desc: '당신만 모르는 나의 특기는?',   tc2Btn: '바로 시작 →',
-    tc3Title: '나의 스트레스 유형',   tc3Desc: '번아웃 전에 나를 파악하기',    tc3Btn: '준비 중 🔧',
-    tc4Title: '나의 직업 유형은?',    tc4Desc: '천직을 찾아드립니다',          tc4Btn: '준비 중 🔧',
-    tc5Title: '나의 에너지 유형',     tc5Desc: '내향형? 외향형? 그 사이?',     tc5Btn: '준비 중 🔧',
+    tc3Title: '당신의 지옥은?',       tc3Desc: '나를 가장 힘들게 하는 것',      tc3Btn: '바로 시작 →',
+    tc4Title: '나의 스트레스 유형',   tc4Desc: '번아웃 전에 나를 파악하기',    tc4Btn: '준비 중 🔧',
+    tc5Title: '나의 직업 유형은?',    tc5Desc: '천직을 찾아드립니다',          tc5Btn: '준비 중 🔧',
     tc6Title: '2026 나의 운세는?',    tc6Desc: '올해 나에게 찾아올 행운',      tc6Btn: '준비 중 🔧',
     shareH3:  '친구에게 공유하기 🎉',
     shareP:   '재미있는 테스트를 친구들과 함께해요!',
@@ -540,9 +539,9 @@ const ui = {
     fc2Types:     '4 Types',
     tc1Title: 'Which Animal Are You?', tc1Desc: 'Find your spirit animal',           tc1Btn: 'Start Now →',
     tc2Title: 'Hidden Talent Test',    tc2Desc: 'Discover your secret superpower',   tc2Btn: 'Start Now →',
-    tc3Title: 'My Stress Type',        tc3Desc: 'Know yourself before burnout',       tc3Btn: 'Coming Soon 🔧',
-    tc4Title: 'My Career Type',        tc4Desc: 'Find your calling',                  tc4Btn: 'Coming Soon 🔧',
-    tc5Title: 'My Energy Type',        tc5Desc: 'Introvert? Extrovert? In-between?',  tc5Btn: 'Coming Soon 🔧',
+    tc3Title: 'What Is Your Hell?',    tc3Desc: 'What torments you the most?',       tc3Btn: 'Start Now →',
+    tc4Title: 'My Stress Type',        tc4Desc: 'Know yourself before burnout',       tc4Btn: 'Coming Soon 🔧',
+    tc5Title: 'My Career Type',        tc5Desc: 'Find your calling',                  tc5Btn: 'Coming Soon 🔧',
     tc6Title: '2026 Fortune Test',     tc6Desc: 'What luck awaits you this year?',    tc6Btn: 'Coming Soon 🔧',
     shareH3:  'Share With Friends 🎉',
     shareP:   'Enjoy these tests with your friends!',
