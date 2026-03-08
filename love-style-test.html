@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Gaegu:wght@300;400;700;800&display=swap" rel="stylesheet">
 
 <!-- Google AdSense (실제 사용시 교체) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9026857738724369" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
 <style>
   :root {
@@ -334,6 +334,100 @@
     font-family: 'Nanum Gothic', sans-serif;
     word-break: keep-all;
   }
+
+  /* ── 개선된 UI 추가 스타일 ── */
+  .progress-ring-wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: var(--space-sm);
+  }
+  .progress-steps {
+    display: flex; gap: 3px; flex-wrap: wrap; align-items: center;
+  }
+  .progress-step {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #f0e0ea; transition: all .3s ease;
+    flex-shrink: 0;
+  }
+  .progress-step.done { background: var(--primary); transform: scale(1.1); }
+  .progress-step.current {
+    background: var(--secondary); transform: scale(1.3);
+    box-shadow: 0 0 0 3px rgba(199,125,255,0.25);
+  }
+  .progress-count {
+    font-family: 'Gaegu', cursive; font-size: var(--fs-md);
+    font-weight: 800; color: var(--primary); white-space: nowrap;
+    margin-left: 8px;
+  }
+  .question-card {
+    position: relative;
+  }
+  .question-category {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: var(--fs-xs); color: #bbb; font-weight: 700;
+    margin-bottom: var(--space-xs); letter-spacing: 0.3px;
+  }
+  .choice-btn {
+    position: relative; overflow: hidden;
+  }
+  .choice-btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0; transition: opacity .2s;
+    border-radius: inherit;
+  }
+  .choice-btn.selected::after { opacity: 0.07; }
+  .choice-btn.selected .choice-emoji {
+    animation: popEmoji .3s ease;
+  }
+  @keyframes popEmoji {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.5) rotate(10deg); }
+    100% { transform: scale(1); }
+  }
+  .choice-check {
+    margin-left: auto; flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: none; align-items: center; justify-content: center;
+    color: white; font-size: 11px; font-weight: 800;
+  }
+  .choice-btn.selected .choice-check { display: flex; }
+
+  /* 결과화면 개선 */
+  .result-score-bar {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg); border-radius: var(--radius-sm);
+    padding: 10px 14px; margin-bottom: 8px;
+  }
+  .result-score-label { font-size: var(--fs-xs); font-weight: 800; color: #888; width: 60px; flex-shrink: 0; }
+  .result-score-track { flex: 1; background: #f0e0ea; border-radius: 99px; height: 8px; overflow: hidden; }
+  .result-score-fill  { height: 100%; border-radius: 99px; transition: width 1.2s cubic-bezier(.2,.8,.3,1) .4s; }
+  .result-score-val   { font-family: 'Gaegu', cursive; font-size: var(--fs-sm); font-weight: 800; color: var(--primary); width: 36px; text-align: right; }
+
+  /* 시작 카드 개선 */
+  .start-stats {
+    display: flex; justify-content: center; gap: var(--space-md);
+    margin: var(--space-md) 0; flex-wrap: wrap;
+  }
+  .start-stat {
+    display: flex; flex-direction: column; align-items: center;
+    background: var(--bg); border-radius: var(--radius-sm);
+    padding: 10px 18px; min-width: 80px;
+  }
+  .start-stat-num { font-family: 'Gaegu', cursive; font-size: var(--fs-xl); font-weight: 800; color: var(--primary); }
+  .start-stat-lbl { font-size: var(--fs-xs); color: #aaa; font-weight: 700; }
+
+  /* 질문 전환 슬라이드 */
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideOutLeft {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(-30px); }
+  }
+  .question-card.slide-in  { animation: slideInRight .35s ease; }
+  .question-card.slide-out { animation: slideOutLeft .2s ease forwards; }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -364,8 +458,22 @@
       <p id="startText">
         연애에도 각자의 스타일이 있어요.<br>
         몇 가지 솔직한 질문으로 당신만의 연애 유형을 발견해보세요!<br>
-        <strong>소요시간: 약 2분</strong>
+        <strong>소요시간: 약 3분</strong>
       </p>
+      <div class="start-stats">
+        <div class="start-stat">
+          <span class="start-stat-num">20</span>
+          <span class="start-stat-lbl">질문</span>
+        </div>
+        <div class="start-stat">
+          <span class="start-stat-num">8</span>
+          <span class="start-stat-lbl">유형</span>
+        </div>
+        <div class="start-stat">
+          <span class="start-stat-num">3분</span>
+          <span class="start-stat-lbl">소요</span>
+        </div>
+      </div>
       <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">
         💕 테스트 시작하기
       </button>
@@ -374,11 +482,14 @@
 
   <!-- 퀴즈 섹션 -->
   <div id="quizSection" style="display:none">
-    <div class="progress-label" id="progressLabel">1 / 10</div>
-    <div class="progress-wrap">
-      <div class="progress-bar" id="progressBar" style="width:10%"></div>
+    <div class="progress-ring-wrap">
+      <div class="progress-steps" id="progressSteps"></div>
+      <div class="progress-count" id="progressLabel">1 / 20</div>
     </div>
-    <div class="question-card" id="questionCard">
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar" style="width:5%"></div>
+    </div>
+    <div class="question-card slide-in" id="questionCard">
       <span class="question-num" id="questionNum">Q1</span>
       <div class="question-text" id="questionText"></div>
       <div class="question-sub"  id="questionSub"></div>
@@ -435,20 +546,6 @@
           <div class="ci-desc"  id="compatBadDesc">—</div>
         </div>
       </div>
-    </div><div class="compat-card">
-      <h3 id="compatTitle">💞 궁합 유형</h3>
-      <div class="compat-row">
-        <div class="compat-item compat-good">
-          <span class="ci-emoji" id="compatGoodEmoji">✨</span>
-          <div class="ci-label" id="compatGoodLabel">잘 맞아요</div>
-          <div class="ci-name"  id="compatGoodName">감성 표현형</div>
-        </div>
-        <div class="compat-item compat-bad">
-          <span class="ci-emoji" id="compatBadEmoji">⚡</span>
-          <div class="ci-label" id="compatBadLabel">조심하세요</div>
-          <div class="ci-name"  id="compatBadName">현실 분석형</div>
-        </div>
-      </div>
     </div>
 
     <!-- 결과 후 광고 (가장 CTR 높은 구간) -->
@@ -503,7 +600,7 @@
 
   </div>
 
-  <div class="footer">© 2026 연애 스타일 테스트 · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
+  <div class="footer">© 2026 연애 스타일 테스트 · <a href="index.html" style="color:#ddd">🏠 홈</a> · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
 </div>
 
 <script>
@@ -539,7 +636,7 @@ const data = {
     ui: {
       mainTitle:   '나의 <span>연애 스타일</span>은?',
       mainDesc:    '다양한 질문으로 알아보는 나의 연애 유형<br>당신은 어떤 방식으로 사랑하나요? 💘',
-      startText: '연애에도 각자의 스타일이 있어요.<br><strong>총 13가지 질문</strong>으로 당신만의 연애 유형을 발견해보세요!<br><span style="opacity:.7">소요시간: 약 2분</span>',
+      startText: '연애에도 각자의 스타일이 있어요.<br><strong>총 20가지 질문</strong>으로 당신만의 연애 유형을 발견해보세요!<br><span style="opacity:.7">소요시간: 약 3분</span>',
       startBtn:    '💕 테스트 시작하기',
       descTitle:   '💬 연애 스타일 분석',
       compatTitle: '💞 궁합 유형',
@@ -681,6 +778,76 @@ const data = {
           { emoji: '🎢', text: '딱 정하지 말고 즉흥으로 가자 — 그게 더 재밌잖아', type: 'F' },
           { emoji: '⚖️', text: '둘 다 하고 싶은 거 있으면 중간 어딘가 가자', type: 'G' },
           { emoji: '🌌', text: '솔직히 오늘은 그냥 조용히 있는 시간이 필요해', type: 'H' },
+        ],
+      },
+      {
+        q: '연인이 자기 전에 "자기야, 나 요즘 나한테 잘해주는 거 맞아?" 라고 물었다. 나는?',
+        sub: '솔직한 반응',
+        choices: [
+          { emoji: '🥺', text: '갑자기 되게 미안해짐 — 머릿속에서 최근 내가 어땠나 복기 시작', type: 'A' },
+          { emoji: '😠', text: '억울함 — 나 나름대로 열심히 했는데, 바로 반박하고 싶음', type: 'B' },
+          { emoji: '🤍', text: '\"뭔가 부족했나?\" — 조용히 돌아보고, 다음날 더 챙겨주려고 생각함', type: 'C' },
+          { emoji: '🙃', text: '\"이런 말 꺼내는 게 더 힘드네\" — 직접 얘기해줬으면 좋겠다고 느낌', type: 'D' },
+        ],
+      },
+      {
+        q: '연인과 영화를 보다가, 연인이 지루해 보인다. 나는?',
+        sub: '이 순간 내 반응',
+        choices: [
+          { emoji: '🍿', text: '\"재미없어? 다른 거 틀어줄까?\" — 바로 확인함', type: 'A' },
+          { emoji: '😏', text: '그냥 계속 봄 — 나는 재밌으니까', type: 'B' },
+          { emoji: '🛋️', text: '슬쩍 기대거나 손잡음 — 행동으로 신경 쓰고 있다는 걸 표현', type: 'C' },
+          { emoji: '📱', text: '\"지루하면 딴 거 해도 돼\" — 각자 편하게 있는 게 좋음', type: 'D' },
+        ],
+      },
+      {
+        q: '나 없이 연인이 친구들이랑 신나게 놀고 온 걸 SNS로 봤다. 든 생각은?',
+        sub: '진짜 속마음',
+        choices: [
+          { emoji: '🌷', text: '\"나도 같이 갔으면 좋았겠다\" — 살짝 섭섭하긴 함', type: 'E' },
+          { emoji: '🎉', text: '\"재밌었나 보네\" — 기분 좋음, 나도 내 친구들이랑 놀아야겠다', type: 'F' },
+          { emoji: '😌', text: '\"잘 놀았으면 됐지\" — 크게 신경 안 씀', type: 'G' },
+          { emoji: '✌️', text: '\"각자 시간 잘 쓴 거잖아\" — 딱 좋음', type: 'H' },
+        ],
+      },
+      {
+        q: '연인이 처음으로 나한테 "사랑해"라고 했다. 나는?',
+        sub: '그 순간 내 반응',
+        choices: [
+          { emoji: '😭', text: '눈물이 날 것 같음 — 이 순간 기억하고 싶다고 생각함', type: 'A' },
+          { emoji: '🔥', text: '나도 바로 \"나도!\" — 망설임 없이 돌려줌', type: 'B' },
+          { emoji: '🌸', text: '웃으면서 \"나도 좋아\" — 표현은 살짝 달라도 마음은 진심', type: 'C' },
+          { emoji: '🌙', text: '말보다 행동으로 — 말이 먼저 안 나와서 대신 더 꽉 안아줌', type: 'H' },
+        ],
+      },
+      {
+        q: '연인이 요즘 이상하게 연락이 짧아졌다. 딱히 싸운 것도 없는데. 나는?',
+        sub: '가장 솔직한 내 행동',
+        choices: [
+          { emoji: '😟', text: '계속 신경 쓰임 — \"내가 뭔가 잘못했나?\" 계속 되뇜', type: 'A' },
+          { emoji: '📞', text: '직접 물어봄 — \"요즘 왜 이래?\" 바로 꺼냄', type: 'B' },
+          { emoji: '⏳', text: '일단 기다림 — 좀 더 지켜보다가 계속 이러면 그때 물어볼 것', type: 'C' },
+          { emoji: '🎧', text: '내 일 함 — 상대도 자기 시간 있는 거라고 생각함', type: 'D' },
+        ],
+      },
+      {
+        q: '지금 나한테 연애란 어떤 존재야?',
+        sub: '가장 가까운 걸 골라봐',
+        choices: [
+          { emoji: '🌙', text: '지치는 날 불을 켜주는 것 — 없으면 어두운 느낌', type: 'E' },
+          { emoji: '⚡', text: '살아있다는 걸 실감하게 해주는 것 — 에너지 그 자체', type: 'F' },
+          { emoji: '🏠', text: '어디든 갈 수 있게 해주는 베이스캠프 같은 것', type: 'G' },
+          { emoji: '🌱', text: '나를 더 나답게 만들어주는 것 — 성장의 일부', type: 'H' },
+        ],
+      },
+      {
+        q: '연인한테 딱 한 가지 바란다면?',
+        sub: '제일 솔직한 걸로',
+        choices: [
+          { emoji: '💌', text: '\"오늘 생각났어\"라는 말 한마디 — 사소해도 기억해줬으면', type: 'A' },
+          { emoji: '🤝', text: '힘들 때 도망치지 않는 것 — 그게 제일 중요함', type: 'B' },
+          { emoji: '☀️', text: '일상을 함께 나눠주는 것 — 별거 아닌 것도 같이', type: 'C' },
+          { emoji: '🌊', text: '나를 있는 그대로 놔줬으면 — 바꾸려 하지 않는 것', type: 'D' },
         ],
       }],
     results: {
@@ -1018,7 +1185,7 @@ const data = {
     ui: {
       mainTitle:   'What\'s My <span>Love Style</span>?',
       mainDesc:    'Discover your love type with a few questions!<br>How do you love? 💘',
-      startText: 'Everyone has their own love style.<br><strong>13 questions</strong> to discover yours!<br><span style="opacity:.7">Takes about 2 minutes</span>',
+      startText: 'Everyone has their own love style.<br><strong>20 questions</strong> to discover yours!<br><span style="opacity:.7">Takes about 3 minutes</span>',
       startBtn:    '💕 Start Test',
       descTitle:   '💬 Love Style Analysis',
       compatTitle: '💞 Compatibility',
@@ -1161,6 +1328,76 @@ const data = {
           { emoji: "🏃", text: "Something spontaneous — let's just go and see what happens", type: "F" },
           { emoji: "🍳", text: "Stay in, cook together, nothing special — but together", type: "G" },
           { emoji: "🌙", text: "Honestly? I'm a little drained — can we just rest quietly?", type: "H" },
+        ]
+      },
+      {
+        q: "Late at night, your partner asks: 'Do you think you've been treating me well lately?'",
+        sub: "Your honest gut reaction",
+        choices: [
+          { emoji: "🥺", text: "Suddenly feel guilty — instantly replay the last few days in your head", type: "A" },
+          { emoji: "😤", text: "Feel a bit unfairly accused — you want to defend yourself", type: "B" },
+          { emoji: "🤍", text: "Quietly reflect — and plan to be more attentive tomorrow", type: "C" },
+          { emoji: "🙃", text: "Wish they'd just said what was bothering them directly", type: "D" },
+        ]
+      },
+      {
+        q: "You're watching a movie with your partner and they look bored. You...",
+        sub: "What do you actually do?",
+        choices: [
+          { emoji: "🍿", text: "Ask immediately — 'Bored? Want to switch to something else?'", type: "A" },
+          { emoji: "😏", text: "Keep watching — you're into it, they'll be fine", type: "B" },
+          { emoji: "🛋️", text: "Scoot closer or hold their hand — a quiet signal you noticed", type: "C" },
+          { emoji: "📱", text: "Tell them it's totally fine to do their own thing", type: "D" },
+        ]
+      },
+      {
+        q: "You see on Instagram that your partner had a great time with friends — without you. Your reaction?",
+        sub: "Your real inner feeling",
+        choices: [
+          { emoji: "🌷", text: "A little wistful — 'Wish I could've been there too'", type: "E" },
+          { emoji: "🎉", text: "Happy for them — and makes you want to hang out with YOUR friends", type: "F" },
+          { emoji: "😌", text: "Glad they had fun — no big reaction", type: "G" },
+          { emoji: "✌️", text: "Perfect — you each have your own lives and that's ideal", type: "H" },
+        ]
+      },
+      {
+        q: "Your partner says 'I love you' for the very first time. You...",
+        sub: "What actually happens in that moment?",
+        choices: [
+          { emoji: "😭", text: "Tear up — you want to hold onto this moment forever", type: "A" },
+          { emoji: "🔥", text: "Say it right back without hesitation", type: "B" },
+          { emoji: "🌸", text: "Smile and say 'me too' — different words, same heart", type: "C" },
+          { emoji: "🌙", text: "Words don't come easily — you just hold them tighter instead", type: "H" },
+        ]
+      },
+      {
+        q: "Your partner's texts have been unusually short lately — but nothing happened. You...",
+        sub: "Your most honest response",
+        choices: [
+          { emoji: "😟", text: "Can't stop thinking about it — 'Did I do something wrong?'", type: "A" },
+          { emoji: "📞", text: "Call them directly — 'Hey, what's going on with you lately?'", type: "B" },
+          { emoji: "⏳", text: "Wait it out — if it keeps up, you'll bring it up calmly later", type: "C" },
+          { emoji: "🎧", text: "Keep doing your thing — they probably just need some space", type: "D" },
+        ]
+      },
+      {
+        q: "Right now, what does love mean to you?",
+        sub: "Pick the one that feels most true",
+        choices: [
+          { emoji: "🌙", text: "The light that turns on when everything feels dark", type: "E" },
+          { emoji: "⚡", text: "The thing that makes you feel most alive — pure energy", type: "F" },
+          { emoji: "🏠", text: "A home base — somewhere safe to return to no matter what", type: "G" },
+          { emoji: "🌱", text: "Something that makes you grow into a better version of yourself", type: "H" },
+        ]
+      },
+      {
+        q: "If you could ask one thing of your partner, what would it be?",
+        sub: "The most honest answer",
+        choices: [
+          { emoji: "💌", text: "Send a 'thinking of you' message once in a while — small things matter", type: "A" },
+          { emoji: "🤝", text: "Don't run away when things get hard — just stay", type: "B" },
+          { emoji: "☀️", text: "Share the little everyday moments with me — nothing has to be big", type: "C" },
+          { emoji: "🌊", text: "Let me be exactly who I am — don't try to change me", type: "D" },
         ]
       },
     ],
@@ -1499,13 +1736,10 @@ function toggleLang() {
   curLang = curLang === 'ko' ? 'en' : 'ko';
   applyLang();
   const quizSec   = document.getElementById('quizSection');
-  const resultSec = document.getElementById('resultSection') || document.getElementById('resultScreen');
+  const resultSec = document.getElementById('resultSection');
   if (quizSec && quizSec.style.display !== 'none') {
     renderQuestion();
-  
-  const resultSec = document.getElementById('resultSection') || document.getElementById('resultScreen');
-  if (resultSec && resultSec.style.display !== 'none') showResult();
-} else if (resultSec && resultSec.style.display !== 'none') {
+  } else if (resultSec && resultSec.style.display !== 'none') {
     showResult();
   }
 }
@@ -1529,7 +1763,7 @@ function applyLang() {
 // Start
 // ─────────────────────────────────
 function startTest() {
-  curQ = 0; scores = { A:0,B:0,C:0,D:0 };
+  curQ = 0; scores = { A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0 };
   document.getElementById('startSection').style.display = 'none';
   document.getElementById('quizSection').style.display  = 'block';
   renderQuestion();
@@ -1549,22 +1783,34 @@ function renderQuestion() {
   document.getElementById('questionText').textContent   = q.q;
   document.getElementById('questionSub').textContent    = q.sub;
 
+  // 진행 스텝 도트 렌더링
+  const stepsBox = document.getElementById('progressSteps');
+  stepsBox.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'progress-step' +
+      (i < curQ ? ' done' : i === curQ ? ' current' : '');
+    stepsBox.appendChild(dot);
+  }
+
   const box = document.getElementById('choicesContainer');
   box.innerHTML = '';
   q.choices.forEach(c => {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
-    btn.innerHTML = `<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span>`;
+    btn.innerHTML = `<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span><span class="choice-check">✓</span>`;
     btn.onclick   = () => pick(c.type, btn);
     box.appendChild(btn);
   });
 
-  document.getElementById('adMid').style.display = (curQ === 5) ? 'flex' : 'none';
+  document.getElementById('adMid').style.display = (curQ === 9) ? 'flex' : 'none';
 
-  // 카드 애니메이션 리셋
+  // 카드 슬라이드 인 애니메이션
   const card = document.getElementById('questionCard');
-  card.style.animation = 'none';
-  requestAnimationFrame(() => { card.style.animation = 'fadeUp .4s ease'; });
+  card.classList.remove('slide-in', 'slide-out');
+  requestAnimationFrame(() => {
+    card.classList.add('slide-in');
+  });
 }
 
 // ─────────────────────────────────
@@ -1777,7 +2023,7 @@ function restartTest() {
   document.getElementById('resultSection').style.display  = 'none';
   document.getElementById('headerSection').style.display  = 'block';
   document.getElementById('startSection').style.display   = 'block';
-  scores={A:0,B:0,C:0,D:0}; curQ=0;
+  scores={A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0}; curQ=0;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
