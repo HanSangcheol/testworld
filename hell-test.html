@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>당신의 지옥은? 🔥 심리테스트 | What Is Your Hell?</title>
-<meta name="description" content="누구에게나 자신만의 지옥이 있다. 나를 가장 힘들게 하는 것은 무엇일까? 15문항으로 알아보는 나만의 지옥 유형!">
+<meta name="description" content="누구에게나 자신만의 지옥이 있다. 나를 가장 힘들게 하는 것은 무엇일까? 11문항으로 알아보는 나만의 지옥 유형!">
 <meta property="og:title" content="당신의 지옥은? 🔥">
 <meta property="og:description" content="누구에게나 자신만의 지옥이 있다 — 당신의 지옥은 무엇인가요? 결과가 소름돋게 맞아요 😱">
 <meta property="og:image" content="https://via.placeholder.com/1200x630/1A0A0A/FF4500?text=당신의+지옥은%3F+🔥">
@@ -368,7 +368,7 @@
       <p id="mainDesc">누구에게나 자신만의 지옥이 있다<br>나를 가장 힘들게 하는 것은 무엇일까요? ✨</p>
     </div>
     <div class="start-card">
-      <p id="startText">철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>15문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 2분 소요</span></p>
+      <p id="startText">철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>11문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 2분 소요</span></p>
       <button class="start-btn" onclick="startTest()" id="startBtn">🔥 테스트 시작하기</button>
     </div>
   </div>
@@ -447,22 +447,23 @@
    데이터
 ============================== */
 const TYPES = {
-  A: { color: '#E63946', bg: '#FFF5F5', border: '#FFD0D0' },
-  B: { color: '#2D2233', bg: '#F5F0FF', border: '#C8B8E8' },
-  C: { color: '#E67E22', bg: '#FFF8EE', border: '#FFD0A0' },
-  D: { color: '#7C67EE', bg: '#F6F4FF', border: '#D0C8FF' },
-  E: { color: '#1A7A6E', bg: '#F0FFFC', border: '#A8DFCF' },
-  F: { color: '#C0392B', bg: '#FFF5F5', border: '#F5B8B8' },
+  A: { color: '#1A3A4A', bg: '#F0F6F8', border: '#B0CED8' }, // 우로보로스 (자기 자신)
+  B: { color: '#7B3FA0', bg: '#FAF4FF', border: '#D8B8F0' }, // 거울의 방 (외모)
+  C: { color: '#2C5F8A', bg: '#F0F7FF', border: '#A8CCE8' }, // 항아리 (애정 결핍)
+  D: { color: '#2E7D50', bg: '#F0FFF6', border: '#A0DFBC' }, // 가지 잃은 나무 (친구)
+  E: { color: '#6B4226', bg: '#FFF9F5', border: '#E0C4A8' }, // 뿌리 잃은 나무 (부모)
+  F: { color: '#9A7B10', bg: '#FFFDF0', border: '#E8D880' }, // 탄탈로스 (돈)
+  G: { color: '#5A2D6E', bg: '#FAF0FF', border: '#C8A0D8' }, // 비밀의 방 (과거)
 };
 
 const data = {
   ko: {
     mainTitle:    '당신의 지옥은?',
-    mainDesc:     '누구에게나 자신만의 지옥이 있다<br>나를 가장 힘들게 하는 것은 무엇일까요? ✨',
-    startText:    '철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>15문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 2분 소요</span>',
+    mainDesc:     '누구에게나 자신만의 지옥이 있다<br>나를 가장 오래 붙잡는 것은 무엇일까요? 🔥',
+    startText:    '지옥은 불꽃이 아닌 반복으로 만들어진다고 했다.<br><strong>11문항</strong>으로 알아보는 나만의 지옥 유형<br><span style="opacity:.7">약 2분 소요</span>',
     startBtn:     '🔥 테스트 시작하기',
     descTitle:    '🔥 당신의 지옥',
-    traitsTitle:  '😈 이런 상황이 특히 힘드시죠?',
+    traitsTitle:  '😈 이런 순간들이 특히 힘드시죠?',
     escapeTitle:  '💡 탈출 힌트',
     shareTitle:   '🎉 친구들에게 결과 공유하기!',
     shareSubtitle:'친구의 지옥은 무엇일지 궁금하지 않나요?',
@@ -475,234 +476,206 @@ const data = {
     more4Title: '숨겨진 재능 테스트', more4Sub: '당신만 모르는 나의 특기는?',
     questions: [
       {
-        q: '약속이 갑자기 취소됐다. 나의 반응은?',
-        sub: '가장 솔직한 첫 감정을 골라주세요',
+        q: '나의 지옥은 몇 살 때쯤 생겨났을까요?',
+        sub: '처음으로 그 감정이나 상처를 느꼈던 시기를 떠올려보세요',
         choices: [
-          { e: '😤', t: '계획이 무너져서 짜증난다', s: { A: 2 } },
-          { e: '😌', t: '오히려 혼자 있을 수 있어서 좋다', s: { B: 2 } },
-          { e: '😔', t: '뭔가 허전하고 의욕이 사라진다', s: { C: 2 } },
-          { e: '😰', t: '상대방이 나를 싫어하나 걱정된다', s: { E: 2 } },
+          { e: '🌱', t: '태어났을 때부터였던 것 같다 — 기억이 시작되는 시점부터 이미 그 감정이 있었다', s: { E: 3 } },
+          { e: '🧒', t: '10대 무렵이었던 것 같다 — 학교, 친구, 외모, 그 시절에 무언가 금이 갔다', s: { D: 2, B: 1 } },
+          { e: '🧑', t: '20대에 생긴 것 같다 — 연애, 직업, 관계의 실망이 지옥의 씨앗이 됐다', s: { C: 2, G: 1 } },
+          { e: '🧔', t: '30대 이후다 — 현실의 벽에 부딪히면서 지금의 고통이 시작됐다', s: { F: 2, A: 1 } },
         ]
       },
       {
-        q: '아무도 없는 공간에 홀로 하루를 보내야 한다면?',
-        sub: '인터넷도 없고 전화도 안 된다',
+        q: '그 시절로 시간을 되돌린다면, 지금의 지옥을 없앨 수 있을까요?',
+        sub: '솔직하게 생각해보세요',
         choices: [
-          { e: '😱', t: '미칠 것 같다. 사람이 없으면 못 산다', s: { D: 2 } },
-          { e: '😊', t: '솔직히 꿈같은 하루다', s: { B: -1, D: -1 } },
-          { e: '🤔', t: '처음엔 좋다가 나중엔 불안해질 것 같다', s: { E: 1, B: 1 } },
-          { e: '😤', t: '하고 싶은 게 있는데 못 하는 게 더 문제다', s: { C: 2, A: 1 } },
+          { e: '✅', t: '그렇다 — 그때 다른 선택을 했거나 다른 일이 일어났다면 지금은 달랐을 것 같다', s: { G: 3 } },
+          { e: '❌', t: '아니다 — 어디서 시작됐든 결국 나는 이런 사람이었을 것 같다', s: { A: 3 } },
+          { e: '🌫️', t: '잘 모르겠다 — 생각해본 적도 없고, 지금과 달랐을 거라는 확신이 없다', s: { E: 1, C: 1 } },
         ]
       },
       {
-        q: '열심히 한 일이 아무런 성과 없이 끝났다. 어떤 기분인가?',
-        sub: '노력했지만 아무것도 이루어지지 않았을 때',
+        q: '천사가 당신에게 조용히 묻는다. "부모님 중 한 분을 지금 행복한 곳으로 모셔갈 수 있어요. 누구를 선택하시겠어요?"',
+        sub: '논리 말고, 본능으로 느껴지는 것을 골라주세요',
         choices: [
-          { e: '🤬', t: '분하다. 왜 안 됐는지 원인을 찾아야겠다', s: { A: 2 } },
-          { e: '😩', t: '공허하다. 다시 시작할 의욕이 안 생긴다', s: { C: 2 } },
-          { e: '😔', t: '내가 부족한 것 같아서 자책하게 된다', s: { E: 2 } },
-          { e: '😮‍💨', t: '뭘 해도 이렇게 될 것 같다는 생각이 든다', s: { F: 2 } },
+          { e: '👩', t: '엄마를 데려가고 아빠를 남겨두겠다', s: { E: 2, C: 1 } },
+          { e: '👨', t: '아빠를 데려가고 엄마를 남겨두겠다', s: { E: 2, F: 1 } },
+          { e: '🤝', t: '두 분 모두 행복하셨으면 좋겠다 — 선택 못 하겠다', s: { E: 1, C: 1 } },
+          { e: '💔', t: '솔직히, 한 분이 먼저 편해지셔도 된다는 생각이 든 적 있다', s: { E: 3, A: 1 } },
         ]
       },
       {
-        q: '나를 가장 힘들게 하는 상황은?',
-        sub: '가장 에너지가 빠져나가는 느낌이 드는 상황',
+        q: '아무 알림도 없는 조용한 방에 혼자 있을 때, 당신의 기분은?',
+        sub: '즉각적으로 느껴지는 감정',
         choices: [
-          { e: '🌀', t: '계획대로 되는 게 하나도 없을 때', s: { A: 2 } },
-          { e: '🔇', t: '아무도 나에게 연락하지 않을 때', s: { D: 2 } },
-          { e: '📢', t: '끊임없이 누군가와 연결되어야 할 때', s: { B: 2 } },
-          { e: '🪤', t: '뭘 해도 결과가 달라지지 않을 때', s: { C: 2, F: 1 } },
+          { e: '😌', t: '고요하고 좋다 — 이런 시간이 나에게 꼭 필요했다', s: { A: 1, G: 1 } },
+          { e: '😣', t: '싫다 — 빨리 뭔가를 하거나 나가고 싶다, 혼자는 불편하다', s: { D: 2, C: 1 } },
+          { e: '🥺', t: '외롭다 — 누군가 문을 두드렸으면 좋겠다는 생각이 든다', s: { C: 3 } },
+          { e: '🌀', t: '나가고 싶기도 하고 나가기 싫기도 하다 — 이상하게 몸이 안 움직인다', s: { A: 2, E: 1 } },
         ]
       },
       {
-        q: '누군가 나에게 "너는 왜 이것도 못 해?"라고 했다면?',
-        sub: '어떤 반응이 가장 먼저 나올 것 같나요?',
+        q: '내 이야기가 친구들 사이에 돌고 있다. 가장 견디기 힘든 말은?',
+        sub: '이런 말이 오갔다면 어떤 것이 제일 힘들까요',
         choices: [
-          { e: '😡', t: '화가 난다. 내가 왜 못 하는지 보여주겠다', s: { A: 1, C: 1 } },
-          { e: '😶', t: '표현은 안 하지만 오래 마음에 남는다', s: { E: 2, F: 1 } },
-          { e: '😞', t: '진짜 내가 못하는 건지 계속 생각하게 된다', s: { E: 2 } },
-          { e: '🙄', t: '무시한다. 그 사람 말이 틀렸으니까', s: { B: 1, A: 1 } },
+          { e: '💬', t: '"있잖아, 걔 외모가... 솔직히 좀 별로 아니야? 그 부분이 진짜 좀 그래."', s: { B: 3 } },
+          { e: '💬', t: '"걔 옛날에 그런 일이 있었잖아. 왜 모른 척하고 다니는 거야, 진짜."', s: { G: 3 } },
+          { e: '💬', t: '"걔 우리한테 친한 척하는 거 아냐? 솔직히 좀 부담스럽지 않아?"', s: { D: 3 } },
+          { e: '💬', t: '"걔 집안이 좀 그렇잖아. 그러니까 그렇게 되는 거지, 어쩔 수 없어."', s: { F: 2, E: 1 } },
         ]
       },
       {
-        q: '완벽하게 준비한 발표가 기술 오류로 못 하게 됐다. 나는?',
-        sub: '통제할 수 없는 상황이 발생했을 때',
+        q: '당신에게 신이란 어떤 존재인가요?',
+        sub: '종교와 무관하게, 가장 솔직한 감각으로 골라주세요',
         choices: [
-          { e: '😤', t: '극도로 당황하고 화가 난다', s: { A: 3 } },
-          { e: '😮‍💨', t: '당황하지만 금방 대안을 찾으려 한다', s: { A: 1, C: 1 } },
-          { e: '😰', t: '사람들 시선이 너무 신경 쓰인다', s: { E: 2 } },
-          { e: '😶', t: '그냥 멍해진다. 아무 생각이 안 든다', s: { F: 2 } },
+          { e: '🙏', t: '나를 구원해주었다 — 가장 힘들었던 시간에 믿음이 실제로 버팀목이 됐다', s: { G: 1, E: 1 } },
+          { e: '🌫️', t: '있는지 모르겠지만, 있다면 내 고통에 이유가 있는지 묻고 싶다', s: { A: 2, G: 1 } },
+          { e: '😤', t: '있다면 화가 난다 — 나를 이렇게 만들어놓고 왜 아무것도 안 해주는 건지', s: { E: 2, A: 1 } },
+          { e: '🚫', t: '없다고 생각한다 — 신이 아닌 내가 내 삶을 책임져야 한다고 믿는다', s: { F: 1, A: 1 } },
         ]
       },
       {
-        q: '모든 것을 혼자 결정해야 하는 상황이라면?',
-        sub: '도움 받을 사람이 없고 전적으로 나 혼자',
+        q: '내 일기장을 절대 읽어서는 안 되는 사람이 있다면, 누구인가요?',
+        sub: '가장 먼저 떠오르는 사람',
         choices: [
-          { e: '💪', t: '오히려 편하다. 내 뜻대로 할 수 있으니까', s: { B: 2, A: -1 } },
-          { e: '😰', t: '누군가와 상의하고 싶어서 불안하다', s: { D: 2, E: 1 } },
-          { e: '😩', t: '결정 자체가 너무 버겁게 느껴진다', s: { C: 2, F: 1 } },
-          { e: '🤔', t: '결정은 할 수 있지만 책임이 무겁다', s: { E: 1, A: 1 } },
+          { e: '👥', t: '친구 — 내가 그들에 대해 느낀 솔직한 감정들, 그 관계들에 대한 기록', s: { D: 3 } },
+          { e: '👨‍👩‍👧', t: '가족, 특히 부모님 — 그분들에 대한 원망이나 상처가 적혀 있다', s: { E: 3 } },
+          { e: '❤️', t: '애인 또는 사랑했던 사람 — 불안과 집착, 질투가 그대로 담겨 있다', s: { C: 3 } },
+          { e: '🪞', t: '나 자신 — 과거의 내가 쓴 걸 다시 읽는 게 너무 힘들고 부끄럽다', s: { A: 2, G: 1 } },
         ]
       },
       {
-        q: '오늘 하루가 어제와 똑같이 반복된다는 걸 알았다. 기분은?',
-        sub: '메뉴도, 만나는 사람도, 하는 일도 모두 같다면',
+        q: '한때 사랑했던 사람이 새 연인과 함께 있는 모습을 마주쳤다. 머릿속에 가장 먼저 떠오르는 생각은?',
+        sub: '아주 솔직하게',
         choices: [
-          { e: '😱', t: '끔찍하다. 변화와 자극이 없으면 못 버틴다', s: { F: 3 } },
-          { e: '😌', t: '사실 안정적이라서 괜찮을 것 같다', s: { F: -2, A: -1 } },
-          { e: '😞', t: '점점 무기력해질 것 같다', s: { C: 2, F: 2 } },
-          { e: '🤔', t: '처음엔 괜찮다가 나중엔 답답해질 것 같다', s: { F: 1, D: 1 } },
+          { e: '💬', t: '"저 사람이 나보다 더 예쁘다/잘생겼다. 내가 더 잘생겼으면 안 헤어졌을까."', s: { B: 3 } },
+          { e: '💬', t: '"그 사람은 나를 사랑한다고 했었는데. 역시 사람은 믿으면 안 되는 건가."', s: { C: 3 } },
+          { e: '💬', t: '"어떻게 나 없이도 저렇게 행복할 수 있지. 나는 이렇게 힘든데."', s: { A: 2, C: 1 } },
+          { e: '💬', t: '"이 장면이 나중에도 계속 떠오를 것 같아. 빨리 잊어버리고 싶다."', s: { G: 3 } },
         ]
       },
       {
-        q: '내가 한 선택이 잘못됐다는 걸 나중에 알았을 때?',
-        sub: '돌이킬 수 없는 상황이라면',
+        q: '길에서 노숙자가 손을 내밀며 말한다. "배가 너무 고파요." 당신의 첫 반응은?',
+        sub: '즉각적인 내면의 목소리',
         choices: [
-          { e: '🔁', t: '그 순간을 자꾸 돌아보며 후회한다', s: { E: 2, F: 1 } },
-          { e: '💪', t: '어쩔 수 없다. 지금부터 잘하면 된다', s: { A: 1, C: 1 } },
-          { e: '😩', t: '왜 나만 이런가 싶어 허탈해진다', s: { C: 2, E: 1 } },
-          { e: '🫥', t: '없던 일로 하고 싶다는 생각이 강하게 든다', s: { F: 2 } },
+          { e: '💬', t: '"지갑에 얼마 있더라... 내가 이걸 줘도 될 만큼 지금 여유가 있나?"', s: { F: 3 } },
+          { e: '💬', t: '"드리고 싶은데... 주변 사람들이 나를 어떻게 볼지 신경 쓰인다."', s: { B: 2, A: 1 } },
+          { e: '💬', t: '"바로 드렸다. 그런데 돌아서는 순간 — 나는 왜 이렇게 살고 있나 싶었다."', s: { A: 3 } },
+          { e: '💬', t: '"드렸는데 그 눈빛이 계속 생각난다. 충분히 도움이 됐는지 모르겠다."', s: { G: 2, C: 1 } },
         ]
       },
       {
-        q: '사람들이 많은 파티에 혼자 가야 한다면?',
-        sub: '아는 사람이 한 명도 없는 상황',
+        q: '다음 중 나에 대한 설명으로 가장 크게 공감되는 것은?',
+        sub: '억누르지 말고 솔직하게 골라주세요',
         choices: [
-          { e: '🥳', t: '새로운 사람을 만나는 게 기대된다', s: { D: 2, B: -1 } },
-          { e: '😰', t: '긴장되고 혼자라는 게 너무 불안하다', s: { E: 2, D: 1 } },
-          { e: '😶', t: '구석에서 조용히 있다가 빨리 나오고 싶다', s: { B: 2, E: 1 } },
-          { e: '🤔', t: '필요한 사람만 만나고 일찍 나온다', s: { B: 1, A: 1 } },
+          { e: '🪞', t: '내 외모나 몸이 조금만 달랐어도 더 많은 사랑과 기회를 얻었을 것 같다', s: { B: 3 } },
+          { e: '🏺', t: '나를 진심으로, 무조건적으로 원한 사람을 만나본 적이 없는 것 같다', s: { C: 3 } },
+          { e: '🌿', t: '친구 무리 안에 있으면서도 항상 조금은 겉돈다는 느낌이 있다', s: { D: 3 } },
+          { e: '💸', t: '내가 얼마를 버느냐가 내 가치를 결정하는 것 같다는 생각이 든다', s: { F: 2, B: 1 } },
         ]
       },
       {
-        q: '아무리 노력해도 나는 바뀌지 않는다는 생각이 드는 순간은?',
-        sub: '가장 공감되는 상황을 골라주세요',
+        q: '누군가 나를 진심으로 이해하려 한다면, 가장 감추고 싶은 것은?',
+        sub: '단 하나만 고른다면',
         choices: [
-          { e: '📅', t: '매년 같은 결심을 반복할 때', s: { F: 2 } },
-          { e: '👥', t: '다들 성장하는데 나만 제자리인 것 같을 때', s: { E: 2, C: 1 } },
-          { e: '🧱', t: '열심히 해도 결과가 안 따라올 때', s: { C: 2 } },
-          { e: '🌀', t: '내 감정과 행동이 내 뜻대로 안 될 때', s: { A: 2, F: 1 } },
-        ]
-      },
-      {
-        q: '갑자기 연락이 끊긴 친구가 있다. 나는?',
-        sub: '특별한 이유 없이 그냥 연락이 없어졌다',
-        choices: [
-          { e: '😔', t: '내가 뭔가 잘못한 게 아닌지 계속 생각한다', s: { E: 2 } },
-          { e: '😶', t: '그냥 그런가보다 하고 넘긴다', s: { B: 2 } },
-          { e: '📱', t: '먼저 연락해서 이유를 알고 싶다', s: { D: 2, A: 1 } },
-          { e: '😩', t: '연결이 끊겼다는 것 자체가 허전하다', s: { D: 2, C: 1 } },
-        ]
-      },
-      {
-        q: '내가 가장 두려운 것은?',
-        sub: '솔직하게 가장 피하고 싶은 상황',
-        choices: [
-          { e: '🌀', t: '모든 것이 내 통제 밖으로 나가는 것', s: { A: 3 } },
-          { e: '🏝️', t: '아무도 나를 필요로 하지 않는 것', s: { D: 3 } },
-          { e: '⏳', t: '아무리 해도 달라지지 않는 것', s: { C: 3 } },
-          { e: '👁️', t: '모두에게 부족한 사람으로 보이는 것', s: { E: 3 } },
-        ]
-      },
-      {
-        q: '스트레스를 받을 때 나의 패턴은?',
-        sub: '가장 자주 하는 행동',
-        choices: [
-          { e: '🔁', t: '같은 생각을 계속 반복하며 곱씹는다', s: { F: 2, E: 1 } },
-          { e: '🔇', t: '혼자 있고 싶어서 연락을 줄인다', s: { B: 2 } },
-          { e: '📱', t: '누군가와 대화해야 마음이 풀린다', s: { D: 2 } },
-          { e: '🏃', t: '뭔가를 해야 직성이 풀린다. 가만히 있지 못한다', s: { A: 2, C: 1 } },
-        ]
-      },
-      {
-        q: '죽기 전에 가장 후회할 것 같은 것은?',
-        sub: '가장 공감가는 것을 하나만 골라주세요',
-        choices: [
-          { e: '🎯', t: '내가 원하는 걸 한 번도 마음대로 못 해본 것', s: { A: 2, B: 1 } },
-          { e: '🤝', t: '소중한 사람들과 충분히 함께하지 못한 것', s: { D: 2 } },
-          { e: '🏆', t: '열심히 했는데 이룬 게 없는 것', s: { C: 3 } },
-          { e: '💔', t: '누군가에게 상처를 주거나 받은 것', s: { E: 2, F: 1 } },
+          { e: '🪞', t: '내 외모와 몸에 대한 오래된 콤플렉스와 수치심', s: { B: 3 } },
+          { e: '🏺', t: '사람에 대한 뿌리 깊은 불신과, 그럼에도 사랑받고 싶은 집착', s: { C: 2, A: 1 } },
+          { e: '🌳', t: '부모님과의 관계에서 온 상처와 결핍 — 아직 아무에게도 말한 적 없다', s: { E: 3 } },
+          { e: '🚪', t: '결코 입 밖에 낼 수 없는 그 기억 — 알게 되면 나를 달리 볼 것 같다', s: { G: 3 } },
         ]
       },
     ],
     results: {
       A: {
-        emoji: '🌀',
-        badge: '통제 불능형',
-        name: '혼돈의 지옥',
-        tagline: '계획이 무너지고 아무것도 내 뜻대로 되지 않는 공간',
-        desc: '당신의 지옥은 모든 것이 통제 밖에 있는 공간입니다. 아무리 치밀하게 계획해도 매 순간 예상치 못한 일들이 터지고, 당신이 세운 모든 구조가 무너집니다. 가장 공들인 것이 마지막에 무너지는 기분 — 그것이 당신의 지옥입니다. 당신은 질서와 예측 가능성에서 안정을 얻는 사람이기 때문에, 혼돈 자체가 가장 큰 고통이 됩니다.',
+        emoji: '🐍',
+        badge: '우로보로스형',
+        name: '자기 꼬리를 먹는 뱀의 지옥',
+        tagline: '가장 큰 적이 자기 자신인 공간',
+        desc: '당신의 지옥은 자기 자신 안에 있습니다. 우로보로스 — 자신의 꼬리를 먹는 뱀처럼, 당신은 끊임없이 자기 자신을 향해 돌아섭니다. 잘 알면서도 반복하는 패턴, 변하고 싶지만 변하지 않는 자신에 대한 실망, 스스로를 갉아먹는 자책. 외부의 적이 아닌 내면의 목소리가 가장 잔인한 지옥이 됩니다. 당신의 지옥에는 간수가 없습니다 — 문을 잠근 것도, 열쇠를 쥔 것도 모두 당신 자신입니다.',
         traits: [
-          '계획이 조금만 틀어져도 하루가 무너지는 기분이 든다',
-          '예상치 못한 변수가 생기면 이미 완성된 것도 다시 하고 싶어진다',
-          '나는 열심히 했는데 외부 요인으로 결과가 달라지면 극도로 짜증난다',
+          '무언가 잘못되면 남보다 훨씬 오래, 깊이 자책한다',
+          '변하고 싶다는 다짐을 반복하지만 같은 패턴이 반복된다',
+          '내 감정과 행동이 내 뜻대로 되지 않는다는 느낌이 강하다',
         ],
-        escape: '통제할 수 있는 것과 없는 것을 분리해보세요. 모든 것을 장악하려는 시도 자체가 때로는 더 큰 혼돈을 만듭니다. "내가 할 수 있는 것에만 집중한다"는 원칙 하나가 당신의 지옥에서 유일한 탈출구가 될 수 있어요.',
+        escape: '자책은 자기 개선이 아닙니다. 당신이 자신에게 하는 말을 친한 친구에게 하겠습니까? 아마 아닐 겁니다. 뱀이 꼬리를 놓는 법 — 그건 용서가 아니라 인식입니다. "또 시작이네"라고 알아차리는 순간, 뱀의 이가 조금 느슨해집니다.',
       },
       B: {
-        emoji: '🏝️',
-        badge: '고독 선호형',
-        name: '연결 강요의 지옥',
-        tagline: '원하지 않는데 끊임없이 누군가와 연결되어야 하는 공간',
-        desc: '당신의 지옥은 아무도 없이 혼자 있을 수가 없는 공간입니다. 쉬고 싶을 때 끊임없이 전화가 오고, 자신만의 시간이 필요할 때 누군가 곁에 있어야 하며, 침묵이 필요한 순간에도 말을 해야 하는 곳. 혼자만의 시간이 당신에게는 산소 같은 것인데, 그것이 완전히 차단된 공간 — 그것이 당신의 지옥입니다.',
+        emoji: '🪞',
+        badge: '거울의 방형',
+        name: '거울의 방 지옥',
+        tagline: '어느 방향을 봐도 자신의 결점만 보이는 공간',
+        desc: '당신의 지옥은 거울로 둘러싸인 방입니다. 어느 방향을 봐도 자신의 외모가, 자신의 부족함이 반사되어 돌아옵니다. 나르키소스처럼 거울 앞에 서지만 결코 만족하지 못하는 — 거울이 보여주는 것은 항상 충분하지 않은 자신입니다. 외모는 단순한 외모가 아닙니다. 그것은 당신이 세상에서 받아들여질 수 있는가에 대한 깊은 불안의 투영입니다.',
         traits: [
-          '사람들과 오래 있으면 에너지가 빠져나가는 느낌이 든다',
-          '혼자만의 시간 없이는 며칠이 지나도 재충전이 안 된다',
-          '누군가 허락 없이 나의 공간과 시간을 침범하면 심하게 불편하다',
+          '사진이나 영상 속 자신을 볼 때 불편한 감정이 먼저 든다',
+          '나보다 외모가 좋은 사람이 있으면 자동으로 비교하게 된다',
+          '외모가 달랐으면 내 인생이 달라졌을 거라는 생각이 든다',
         ],
-        escape: '혼자 있고 싶다는 욕구는 이기적인 게 아닙니다. 당신에게는 명확한 경계 설정이 "탈출"의 시작입니다. "이 시간은 내 시간"이라고 말할 수 있는 용기가, 당신을 지옥에서 꺼내줄 유일한 열쇠예요.',
+        escape: '거울의 방에서 탈출하는 법은 거울을 깨는 것이 아닙니다. 거울에서 눈을 돌려 다른 것을 보는 것입니다. 당신이 외모로 기억하지 않는 사람을 생각해보세요 — 그 사람도 당신을 같은 방식으로 보고 있을 가능성이 높습니다.',
       },
       C: {
-        emoji: '⏳',
-        badge: '무기력 민감형',
-        name: '노력 무효의 지옥',
-        tagline: '아무리 해도 아무것도 달라지지 않는 공간',
-        desc: '당신의 지옥은 아무리 노력해도 현실이 바뀌지 않는 공간입니다. 최선을 다해도, 희생해도, 포기해도 — 결과는 항상 똑같습니다. 내가 존재하는지 모르겠는 무력감, 아무것도 이룰 수 없다는 허탈함이 깊이 쌓이는 곳. 성취감으로 자신을 증명하고 싶은 당신에게, 아무것도 이루어지지 않는 공간은 가장 잔인한 지옥입니다.',
+        emoji: '🏺',
+        badge: '채워지지 않는 항아리형',
+        name: '채워지지 않는 항아리의 지옥',
+        tagline: '아무리 받아도 채워지지 않는 결핍의 공간',
+        desc: '당신의 지옥은 구멍 뚫린 항아리입니다. 다나이데스처럼 영원히 물을 부어도 채워지지 않는 — 사랑을 받아도, 인정을 받아도, 곁에 사람이 있어도 왜인지 항상 비어있는 느낌. 이 결핍은 현재의 문제가 아닐 수 있습니다. 오래전 누군가에게 받지 못한 것, 배신당한 기억들이 항아리에 구멍을 냈습니다. 누군가 물을 부어줘도, 그 구멍이 막히지 않는 한 항아리는 계속 샙니다.',
         traits: [
-          '열심히 한 일이 성과 없이 끝나면 한동안 무기력해진다',
-          '비슷한 노력을 해도 다른 사람보다 결과가 안 나오면 자신을 의심한다',
-          '노력이 쌓이는 게 느껴지지 않으면 지속 자체가 힘들어진다',
+          '사랑받고 있다는 걸 알면서도 불안하고 확인받고 싶어진다',
+          '가까운 사람이 멀어질 것 같은 예감이 자주 든다',
+          '충분히 사랑받아본 적이 없는 것 같은 느낌이 어딘가에 있다',
         ],
-        escape: '결과보다 과정을 기록해보세요. "오늘 내가 한 것"을 적는 작은 습관이 무력감의 가장 강력한 해독제입니다. 보이지 않는 노력도 분명히 쌓이고 있어요. 그것이 아직 보이지 않을 뿐입니다.',
+        escape: '항아리의 구멍은 더 많은 물로 채워지지 않습니다. 구멍이 어디서 났는지 보는 것이 먼저입니다. 그 구멍을 낸 사람이 당신이 아니라는 것 — 그것을 아는 순간이 항아리가 조금씩 회복되는 시작점이 됩니다.',
       },
       D: {
-        emoji: '🔇',
-        badge: '연결 갈망형',
-        name: '고독의 지옥',
-        tagline: '아무도 없는 완전한 고립 속에 혼자인 공간',
-        desc: '당신의 지옥은 아무도 없는 공간입니다. 전화해도 받는 사람이 없고, 말을 해도 들어주는 사람이 없으며, 존재해도 누구도 알아채지 못하는 곳. 관계 속에서 살아가는 당신에게, 완전한 단절은 단순한 외로움이 아닌 존재 자체가 사라지는 듯한 고통입니다. 당신은 연결로 숨쉬는 사람이기 때문에 고독은 그 자체로 지옥이 됩니다.',
+        emoji: '🌿',
+        badge: '가지 잃은 나무형',
+        name: '가지 잃은 나무의 지옥',
+        tagline: '친구 무리에서 조용히 잘려나가는 공간',
+        desc: '당신의 지옥은 나무에서 가지가 하나씩 잘려나가는 것입니다. 나만 빠진 모임, 나만 모르는 대화, 점점 줄어드는 연락 — 명확한 이유도 없이 무리에서 조금씩 멀어지는 느낌. 소리 없이 잘려나가는 가지처럼, 어느 날 돌아보면 혼자 남아있는 나무. 배신도 아니고, 싸움도 아니고, 그냥 — 어느 순간 제외된 느낌이 당신의 가장 깊은 지옥입니다.',
         traits: [
-          '연락이 없는 날이 길어지면 이유 없이 불안해진다',
-          '중요한 결정 앞에서 누군가와 대화해야 마음이 놓인다',
-          '관계가 멀어지는 것이 실패처럼 느껴질 때가 있다',
+          '단체 채팅방이 조용할 때 나 때문인가 먼저 생각하게 된다',
+          '친구들이 나 없이 모인 사실을 알았을 때 유독 오래 마음에 남는다',
+          '먼저 연락하지 않으면 연락이 없는 관계들이 신경 쓰인다',
         ],
-        escape: '연결에 대한 욕구는 당신의 가장 큰 강점이기도 합니다. 하지만 고독 속에서도 자신과 연결되는 연습이 필요해요. 하루 10분, 핸드폰 없이 자신의 감정에만 집중하는 시간이 당신을 지옥에서 조금 멀리 데려다줄 거예요.',
+        escape: '나무는 가지가 없어도 존재합니다. 가지가 줄었다는 것이 나무의 가치가 줄었다는 뜻이 아닙니다. 당신이 그 무리에 속하기 위해 변형했던 자신을 먼저 돌아보세요 — 진짜 나를 필요로 하는 가지는 반드시 있습니다.',
       },
       E: {
-        emoji: '👁️',
-        badge: '평가 민감형',
-        name: '판단의 지옥',
-        tagline: '모두가 나를 끊임없이 평가하고 비판하는 공간',
-        desc: '당신의 지옥은 모두의 시선이 집중된 공간입니다. 무슨 말을 해도 비판받고, 어떤 선택을 해도 틀렸다는 말을 듣고, 잘 해도 "더 잘할 수 있었는데"라는 말을 듣는 곳. 완벽하게 보이고 싶고 인정받고 싶은 당신에게, 끝없는 비판과 평가의 공간은 가장 숨막히는 지옥이 됩니다. 당신은 스스로에게도 가장 가혹한 비평가입니다.',
+        emoji: '🌳',
+        badge: '뿌리 잃은 나무형',
+        name: '뿌리 잃은 나무의 지옥',
+        tagline: '단단히 서 있어야 할 곳이 처음부터 없었던 공간',
+        desc: '당신의 지옥은 땅이 없는 것입니다. 나무는 뿌리로 서는데 — 당신의 뿌리가 충분히 내려앉지 못했습니다. 부모님과의 관계에서 받지 못한 것, 채워지지 않은 공백, 정체성의 불안. 단단히 서고 싶은데 어딘가 흔들리는 느낌, 남들은 당연히 받은 것 같은데 나는 그게 없는 것 같은 서운함. 뿌리 없는 나무는 바람이 조금만 불어도 더 크게 흔들립니다.',
         traits: [
-          '실수를 하면 남들보다 오래, 깊이 자책하는 경향이 있다',
-          '누군가 나를 오해했을 때 해명하지 못하면 오래 마음에 남는다',
-          '칭찬보다 비판이 훨씬 오래 기억에 남고 자주 떠오른다',
+          '부모님과의 관계에서 풀리지 않은 감정이 남아있다',
+          '어딘가 내 정체성의 기반이 흔들린다는 느낌이 든다',
+          '남들은 당연히 받았을 것들을 나는 받지 못한 것 같다',
         ],
-        escape: '다른 사람의 시선보다 나 자신의 기준을 먼저 세워보세요. "내가 나에게 부끄럽지 않은가?"라는 질문 하나가, 외부의 수천 개 시선보다 훨씬 강력한 기준이 됩니다. 당신은 이미 충분히 노력하고 있어요.',
+        escape: '뿌리는 부모만이 줄 수 있는 것이 아닙니다. 당신이 스스로 땅을 고르고, 직접 뿌리를 내릴 수 있습니다. 늦지 않았어요. 지금 내 발 아래에 있는 땅이 — 내가 직접 선택한 곳이 — 당신의 진짜 뿌리가 될 수 있습니다.',
       },
       F: {
-        emoji: '🔁',
-        badge: '반복 공포형',
-        name: '영원한 반복의 지옥',
-        tagline: '같은 하루를, 같은 감정을, 끝없이 반복하는 공간',
-        desc: '당신의 지옥은 아무것도 바뀌지 않는 공간입니다. 어제와 똑같은 오늘, 똑같은 사람들, 똑같은 실수, 똑같은 감정. 변화와 성장을 갈망하는 당신에게, 영원한 반복은 서서히 자신이 사라지는 것 같은 공포가 됩니다. 달라지고 싶은데 달라질 수 없다는 감각 — 그 무기력함이 쌓여 지옥이 됩니다.',
+        emoji: '💸',
+        badge: '탄탈로스형',
+        name: '탄탈로스의 지옥',
+        tagline: '손에 닿을 것 같지만 절대 닿지 않는 것의 공간',
+        desc: '당신의 지옥은 탄탈로스의 것입니다 — 물은 목까지 차있고 과일은 바로 위에 있지만, 몸을 기울이면 모두 물러납니다. 돈이 조금만 더 있으면, 돈 걱정만 없다면 — 그 생각이 하루를 지배합니다. 돈은 단순한 돈이 아닙니다. 그것은 안전, 자유, 선택지의 다른 이름입니다. 그 불안이 삶의 모든 부분에 스며들어, 지금 있는 것을 즐기지 못하게 합니다.',
         traits: [
-          '매년 비슷한 고민을 반복하고 있다는 생각이 들 때 괴롭다',
-          '오래된 상처나 후회가 예상치 못한 순간에 반복적으로 떠오른다',
-          '한 번 결정한 것이 정말 맞는지 계속 되돌아보게 된다',
+          '돈 걱정이 일상의 배경처럼 항상 깔려있다',
+          '경제적으로 여유가 없을 때 자존감도 같이 낮아진다',
+          '돈이 생겨도 불안이 완전히 사라지지 않는 것 같다',
         ],
-        escape: '반복 속에서도 아주 작은 변화를 만들어보세요. 매일 같은 길이 아닌 다른 길로 출근해보는 것처럼 — 아주 사소한 변화가 반복의 고리를 끊는 첫 번째 균열이 됩니다. 변화는 크게 시작할 필요가 없어요.',
+        escape: '탄탈로스의 과일은 손이 아닌 마음의 거리에 있습니다. 지금 없는 것이 아닌 지금 있는 것을 적어보세요. 불안은 미래의 결핍에서 오지만, 실제 삶은 지금 이 순간에만 존재합니다.',
+      },
+      G: {
+        emoji: '🚪',
+        badge: '비밀의 방형',
+        name: '비밀의 방 지옥',
+        tagline: '지워지지 않는 그 기억이 살고 있는 방',
+        desc: '당신의 지옥에는 절대 열어서는 안 되는 방이 하나 있습니다. 그 방 안에는 지워버리고 싶은 기억들이 살고 있습니다. 잊은 것 같다가도 예상치 못한 순간 문이 열리고, 그 안의 것들이 쏟아집니다. 특정 날, 특정 사람, 특정 말 — 그게 무엇인지 당신은 알고 있습니다. 현재를 살고 싶은데 과거가 자꾸 불러냅니다. 그 방은 사라지지 않습니다. 하지만 방의 주인은 당신입니다.',
+        traits: [
+          '불쑥 떠오르는 특정 기억이 있고, 그 때마다 감정이 올라온다',
+          '잊었다고 생각했는데 비슷한 상황이 오면 다시 생각난다',
+          '그 기억만 없었더라면 지금이 달랐을 거라는 생각이 든다',
+        ],
+        escape: '방을 없애려 하지 마세요. 문을 잠가두는 것도 답이 아닙니다. 방이 거기 있다는 것을 알면서도, 그 방이 지금의 나를 결정하지는 않는다는 것을 아는 것 — 그것이 시작입니다. 그 방 안에 있는 것은 과거이지, 당신 자신이 아닙니다.',
       },
     },
     shareMsg: '나의 지옥 유형은? 🔥 당신의 지옥은 무엇인지 테스트해봐!',
@@ -710,8 +683,8 @@ const data = {
 
   en: {
     mainTitle:    'What Is Your Hell?',
-    mainDesc:     'Everyone has their own personal hell.<br>What torments you the most? ✨',
-    startText:    'Philosophers say — the deepest hell<br>lies not outside, but within.<br><strong>15 questions</strong> to find your personal hell type!<br><span style="opacity:.7">About 2 minutes</span>',
+    mainDesc:     'Everyone has their own personal hell.<br>What keeps holding you back? 🔥',
+    startText:    'They say hell is made not of flames, but of repetition.<br><strong>11 questions</strong> to find your personal hell type<br><span style="opacity:.7">About 2 minutes</span>',
     startBtn:     '🔥 Start the Test',
     descTitle:    '🔥 Your Hell',
     traitsTitle:  '😈 Does this hit close to home?',
@@ -727,234 +700,206 @@ const data = {
     more4Title: 'Hidden Talent Test', more4Sub: 'Discover your secret superpower',
     questions: [
       {
-        q: 'A plan suddenly gets cancelled. Your reaction?',
-        sub: 'Pick the most honest first feeling',
+        q: 'When do you think your personal hell first appeared?',
+        sub: 'Think about when you first felt that emotion or wound',
         choices: [
-          { e: '😤', t: "I'm annoyed — my whole plan fell apart", s: { A: 2 } },
-          { e: '😌', t: 'Actually, I love having time to myself', s: { B: 2 } },
-          { e: '😔', t: 'I feel empty and unmotivated', s: { C: 2 } },
-          { e: '😰', t: "I worry they don't like me anymore", s: { E: 2 } },
+          { e: '🌱', t: 'From the very beginning — that feeling was already there as far back as I can remember', s: { E: 3 } },
+          { e: '🧒', t: 'Around my teens — something cracked in me during those school years, friendships, or looks', s: { D: 2, B: 1 } },
+          { e: '🧑', t: 'In my twenties — the disappointments of love, career, and relationships planted the seed', s: { C: 2, G: 1 } },
+          { e: '🧔', t: 'My thirties or later — hitting the wall of reality is when the real pain began', s: { F: 2, A: 1 } },
         ]
       },
       {
-        q: 'You must spend a day completely alone — no internet, no calls.',
-        sub: 'How does that feel?',
+        q: 'If you could go back to that time, do you think you could erase your hell?',
+        sub: 'Think about it honestly',
         choices: [
-          { e: '😱', t: "I'd go crazy. I need people to function", s: { D: 2 } },
-          { e: '😊', t: "Honestly, that sounds like a dream day", s: { B: -1, D: -1 } },
-          { e: '🤔', t: "Fine at first, but I'd get anxious later", s: { E: 1, B: 1 } },
-          { e: '😤', t: "I'd be frustrated I can't get things done", s: { C: 2, A: 1 } },
+          { e: '✅', t: 'Yes — if things had gone differently back then, I believe my life would look very different now', s: { G: 3 } },
+          { e: '❌', t: 'No — wherever it started, I think I would have ended up this way regardless', s: { A: 3 } },
+          { e: '🌫️', t: "Not sure — I have never really thought about it, and I cannot say it would have changed anything", s: { E: 1, C: 1 } },
         ]
       },
       {
-        q: 'You worked hard and got nowhere. How does that feel?',
-        sub: 'Your effort produced zero results',
+        q: 'An angel quietly asks you: "I can take one of your parents to a happy place right now. Who will you choose?"',
+        sub: 'Go with instinct, not logic',
         choices: [
-          { e: '🤬', t: "Infuriating — I need to find out why it failed", s: { A: 2 } },
-          { e: '😩', t: "Empty — I can't find the motivation to start again", s: { C: 2 } },
-          { e: '😔', t: 'I blame myself and feel like I fell short', s: { E: 2 } },
-          { e: '😮‍💨', t: 'I feel like nothing I do will ever work', s: { F: 2 } },
+          { e: '👩', t: 'Take my mother and leave my father', s: { E: 2, C: 1 } },
+          { e: '👨', t: 'Take my father and leave my mother', s: { E: 2, F: 1 } },
+          { e: '🤝', t: 'I want them both to be happy — I cannot choose', s: { E: 1, C: 1 } },
+          { e: '💔', t: 'Honestly, there have been moments I thought it would be okay if one of them found peace first', s: { E: 3, A: 1 } },
         ]
       },
       {
-        q: 'What drains your energy the most?',
-        sub: 'The situation that feels most exhausting',
+        q: "You are alone in a quiet room with no notifications. How do you feel?",
+        sub: 'Your immediate emotional response',
         choices: [
-          { e: '🌀', t: 'When nothing goes according to plan', s: { A: 2 } },
-          { e: '🔇', t: 'When no one reaches out to me', s: { D: 2 } },
-          { e: '📢', t: 'When I have to be constantly connected to others', s: { B: 2 } },
-          { e: '🪤', t: 'When nothing changes no matter what I do', s: { C: 2, F: 1 } },
+          { e: '😌', t: 'Calm and good — I needed this kind of time', s: { A: 1, G: 1 } },
+          { e: '😣', t: 'I hate it — I want to do something or leave. Being alone feels uncomfortable', s: { D: 2, C: 1 } },
+          { e: '🥺', t: 'Lonely — I find myself wishing someone would knock on the door', s: { C: 3 } },
+          { e: '🌀', t: 'I want to leave, but I also do not want to leave — my body just will not move', s: { A: 2, E: 1 } },
         ]
       },
       {
-        q: 'Someone says to you: "Why can\'t you even do this?"',
-        sub: 'Which reaction comes first?',
+        q: 'Word is going around in your friend group. Which of these would hurt you the most?',
+        sub: 'If you heard one of these being said about you',
         choices: [
-          { e: '😡', t: "I get angry and want to prove them wrong", s: { A: 1, C: 1 } },
-          { e: '😶', t: "I don't show it, but it stays with me for a long time", s: { E: 2, F: 1 } },
-          { e: '😞', t: 'I keep wondering if they might be right', s: { E: 2 } },
-          { e: '🙄', t: "I ignore it — they're just wrong", s: { B: 1, A: 1 } },
+          { e: '💬', t: '"Honestly, do you not think their looks are kind of... you know? It is just a little much."', s: { B: 3 } },
+          { e: '💬', t: '"You know what happened with them back then, right? Why are they pretending nothing happened?"', s: { G: 3 } },
+          { e: '💬', t: '"Are they really as close to us as they act? Honestly I find it a bit exhausting."', s: { D: 3 } },
+          { e: '💬', t: '"You know their background, right? That is just how it goes. Cannot be helped."', s: { F: 2, E: 1 } },
         ]
       },
       {
-        q: 'A tech glitch ruins a perfectly prepared presentation. You:',
-        sub: 'An uncontrollable situation destroys your plans',
+        q: 'What does God — or the divine — mean to you?',
+        sub: 'Regardless of religion, answer with your most honest gut feeling',
         choices: [
-          { e: '😤', t: 'Panic and feel intense frustration', s: { A: 3 } },
-          { e: '😮‍💨', t: "I'm flustered but quickly start looking for a solution", s: { A: 1, C: 1 } },
-          { e: '😰', t: "I'm overwhelmed worrying about people's reactions", s: { E: 2 } },
-          { e: '😶', t: 'I just go blank. No thoughts at all.', s: { F: 2 } },
+          { e: '🙏', t: 'God saved me — during my hardest times, faith genuinely held me up', s: { G: 1, E: 1 } },
+          { e: '🌫️', t: 'I do not know if God exists, but if so, I would want to ask why all this pain was necessary', s: { A: 2, G: 1 } },
+          { e: '😤', t: 'If God exists, I am angry — who made me like this and then just watched?', s: { E: 2, A: 1 } },
+          { e: '🚫', t: 'I do not believe in God — I think I am the one responsible for my own life', s: { F: 1, A: 1 } },
         ]
       },
       {
-        q: 'You have to make every decision completely alone. How is that?',
-        sub: 'No one to help — entirely on your own',
+        q: 'If there is someone who absolutely must never read your diary, who is it?',
+        sub: 'The first person who comes to mind',
         choices: [
-          { e: '💪', t: "I prefer it — I get to do things my way", s: { B: 2, A: -1 } },
-          { e: '😰', t: 'I feel anxious and need someone to talk to', s: { D: 2, E: 1 } },
-          { e: '😩', t: 'Even deciding feels overwhelming', s: { C: 2, F: 1 } },
-          { e: '🤔', t: 'I can decide, but the responsibility feels heavy', s: { E: 1, A: 1 } },
+          { e: '👥', t: 'A friend — the honest feelings I have written about them, the record of those relationships', s: { D: 3 } },
+          { e: '👨‍👩‍👧', t: 'Family, especially my parents — the resentment and wounds toward them are all written there', s: { E: 3 } },
+          { e: '❤️', t: 'A partner or someone I loved — the anxiety, obsession, and jealousy are all in there', s: { C: 3 } },
+          { e: '🪞', t: 'Myself — rereading what my past self wrote is too painful and embarrassing', s: { A: 2, G: 1 } },
         ]
       },
       {
-        q: 'You discover today is an exact repeat of yesterday. How do you feel?',
-        sub: 'Same food, same people, same tasks — forever',
+        q: 'You run into someone you once loved — now with a new partner. What is the very first thought in your head?',
+        sub: 'Be completely honest',
         choices: [
-          { e: '😱', t: "Horrifying. I can't survive without change and stimulation", s: { F: 3 } },
-          { e: '😌', t: "Honestly, the stability sounds kind of nice", s: { F: -2, A: -1 } },
-          { e: '😞', t: "I'd slowly lose motivation and energy", s: { C: 2, F: 2 } },
-          { e: '🤔', t: "Fine at first, but eventually suffocating", s: { F: 1, D: 1 } },
+          { e: '💬', t: '"They are more attractive than me. If I had been better-looking, would we still be together?"', s: { B: 3 } },
+          { e: '💬', t: '"They said they loved me. I guess you really cannot trust people after all."', s: { C: 3 } },
+          { e: '💬', t: '"How can they be that happy without me? I am still struggling like this."', s: { A: 2, C: 1 } },
+          { e: '💬', t: '"This image is going to keep coming back to me. I just want to forget it fast."', s: { G: 3 } },
         ]
       },
       {
-        q: 'You realize a past decision was a mistake — and it\'s too late to change it.',
-        sub: 'What happens inside you?',
+        q: 'A homeless person reaches out their hand and says: "I am so hungry." What is your very first reaction?',
+        sub: 'Your immediate inner voice',
         choices: [
-          { e: '🔁', t: 'I replay that moment over and over', s: { E: 2, F: 1 } },
-          { e: '💪', t: "Nothing I can do about it — I just focus forward", s: { A: 1, C: 1 } },
-          { e: '😩', t: "I feel like bad luck only follows me", s: { C: 2, E: 1 } },
-          { e: '🫥', t: 'I desperately wish I could erase it entirely', s: { F: 2 } },
+          { e: '💬', t: '"Wait, how much do I have in my wallet... can I actually afford to give right now?"', s: { F: 3 } },
+          { e: '💬', t: '"I want to help, but I am worried about what the people around me will think."', s: { B: 2, A: 1 } },
+          { e: '💬', t: '"I gave right away. But walking away, I thought — why is my own life like this?"', s: { A: 3 } },
+          { e: '💬', t: '"I gave, but their eyes stayed with me. I am not sure it was enough."', s: { G: 2, C: 1 } },
         ]
       },
       {
-        q: "You have to go to a party alone where you know no one.",
-        sub: 'Not a single familiar face',
+        q: 'Which of these descriptions feels most true about you?',
+        sub: "Be honest — do not suppress anything",
         choices: [
-          { e: '🥳', t: "I'm excited to meet new people", s: { D: 2, B: -1 } },
-          { e: '😰', t: "I feel anxious and being alone feels unsafe", s: { E: 2, D: 1 } },
-          { e: '😶', t: "I'd hide in the corner and leave as soon as possible", s: { B: 2, E: 1 } },
-          { e: '🤔', t: "I'd talk to whoever I need to, then leave early", s: { B: 1, A: 1 } },
+          { e: '🪞', t: 'If my appearance or body had been a little different, I would have received more love and opportunity', s: { B: 3 } },
+          { e: '🏺', t: 'I do not think I have ever met someone who wanted me unconditionally, from the heart', s: { C: 3 } },
+          { e: '🌿', t: 'Even inside a friend group, I always feel a little like I am on the outside', s: { D: 3 } },
+          { e: '💸', t: 'Sometimes it feels like how much I earn determines how much I am worth as a person', s: { F: 2, B: 1 } },
         ]
       },
       {
-        q: 'When does the feeling of "I never change" hit the hardest?',
-        sub: 'Pick the situation that resonates most',
+        q: 'If someone truly tried to understand you, what would you most want to hide?',
+        sub: 'If you could only pick one',
         choices: [
-          { e: '📅', t: 'When I make the same resolutions every year', s: { F: 2 } },
-          { e: '👥', t: "When everyone else seems to grow while I'm stuck", s: { E: 2, C: 1 } },
-          { e: '🧱', t: "When effort just doesn't translate to results", s: { C: 2 } },
-          { e: '🌀', t: "When my emotions and actions won't obey me", s: { A: 2, F: 1 } },
-        ]
-      },
-      {
-        q: "A friend you were close to suddenly stops reaching out.",
-        sub: 'No particular reason — they just went quiet',
-        choices: [
-          { e: '😔', t: 'I keep wondering if I did something wrong', s: { E: 2 } },
-          { e: '😶', t: 'I just let it go and move on', s: { B: 2 } },
-          { e: '📱', t: 'I reach out first — I need to know why', s: { D: 2, A: 1 } },
-          { e: '😩', t: 'The loss of that connection just feels hollow', s: { D: 2, C: 1 } },
-        ]
-      },
-      {
-        q: 'What do you fear the most?',
-        sub: 'The situation you most want to avoid',
-        choices: [
-          { e: '🌀', t: 'Everything spinning out of my control', s: { A: 3 } },
-          { e: '🏝️', t: 'No one needing me or missing me', s: { D: 3 } },
-          { e: '⏳', t: 'Trying endlessly and never changing', s: { C: 3 } },
-          { e: '👁️', t: 'Being seen as not enough by everyone', s: { E: 3 } },
-        ]
-      },
-      {
-        q: "What do you tend to do when you're stressed?",
-        sub: 'Your most common coping pattern',
-        choices: [
-          { e: '🔁', t: 'I ruminate on the same thoughts over and over', s: { F: 2, E: 1 } },
-          { e: '🔇', t: 'I withdraw and cut back on contact', s: { B: 2 } },
-          { e: '📱', t: 'I need to talk to someone to feel better', s: { D: 2 } },
-          { e: '🏃', t: "I have to do something — I can't just sit still", s: { A: 2, C: 1 } },
-        ]
-      },
-      {
-        q: 'What do you think you\'d regret most before you die?',
-        sub: 'Choose the one that resonates most',
-        choices: [
-          { e: '🎯', t: 'Never getting to do what I truly wanted', s: { A: 2, B: 1 } },
-          { e: '🤝', t: "Not spending enough time with the people who matter", s: { D: 2 } },
-          { e: '🏆', t: 'Trying so hard but achieving so little', s: { C: 3 } },
-          { e: '💔', t: 'Hurting someone or being deeply hurt', s: { E: 2, F: 1 } },
+          { e: '🪞', t: 'An old, deep shame and complex about my appearance and body', s: { B: 3 } },
+          { e: '🏺', t: 'A deep distrust of people — and the desperate need to be loved despite it', s: { C: 2, A: 1 } },
+          { e: '🌳', t: 'The wounds and gaps left by my relationship with my parents — I have never told anyone', s: { E: 3 } },
+          { e: '🚪', t: 'A memory I can never speak aloud — if they knew, they would see me differently', s: { G: 3 } },
         ]
       },
     ],
     results: {
       A: {
-        emoji: '🌀',
-        badge: 'Control Seeker',
-        name: 'Hell of Chaos',
-        tagline: 'Where all plans crumble and nothing goes your way',
-        desc: "Your hell is a place where everything is out of control. No matter how carefully you plan, unexpected things keep happening — every structure you build collapses. That feeling of your most precious effort falling apart at the last moment — that is your hell. You find stability in order and predictability, so chaos itself becomes your greatest torment.",
+        emoji: '🐍',
+        badge: 'The Ouroboros',
+        name: 'Hell of the Ouroboros',
+        tagline: 'The place where your greatest enemy is yourself',
+        desc: "Your hell lives inside you. Like the Ouroboros — the snake that devours its own tail — you perpetually turn on yourself. Patterns you know but repeat anyway. Disappointment in a self that won't change no matter how hard you try. A voice that gnaws at you from the inside. There is no warden in your hell. The one who locked the door, and the one who holds the key — it's the same person.",
         traits: [
-          'Even a small disruption to your plan can feel like the whole day is ruined',
-          'Unexpected variables make you want to redo even completed work from scratch',
-          'When external factors change the outcome despite your best effort, it feels deeply unfair',
+          'When something goes wrong, you self-criticize far longer and more deeply than others',
+          'You make the same resolution to change, but the same patterns keep repeating',
+          "You often feel like your emotions and actions don't obey you",
         ],
-        escape: "Separate what you can control from what you can't. The attempt to control everything sometimes creates more chaos. One principle — 'I focus only on what I can do' — may be the only exit from your hell.",
+        escape: "Self-blame is not self-improvement. Would you say to a close friend what you say to yourself? Probably not. The way the snake releases its tail is not forgiveness — it's awareness. The moment you catch yourself and think 'here it is again' — the snake's grip loosens just a little.",
       },
       B: {
-        emoji: '🏝️',
-        badge: 'Solitude Seeker',
-        name: 'Hell of Forced Connection',
-        tagline: 'Where you must always be connected to others against your will',
-        desc: "Your hell is a place where you can never be alone. Calls keep coming when you want to rest; someone is always nearby when you need your own space; you have to keep talking even when silence is what you need. Solitude is like oxygen to you — and a space where it's completely cut off is your hell.",
+        emoji: '🪞',
+        badge: 'Hall of Mirrors',
+        name: 'Hell of the Hall of Mirrors',
+        tagline: 'Where every reflection shows only your flaws',
+        desc: "Your hell is a room lined with mirrors. In every direction, your appearance — your inadequacy — reflects back at you. Like Narcissus before the water, you stand before the glass but never feel satisfied. What the mirror shows is always not enough. But the mirror isn't just about looks. It's the projection of a deeper anxiety: am I acceptable to the world?",
         traits: [
-          'Being around people for too long leaves you feeling drained',
-          "Without alone time, you don't feel recharged even after days",
-          "You feel deeply uncomfortable when someone invades your space or time without permission",
+          'Seeing yourself in photos or videos brings discomfort before anything else',
+          "When someone more attractive is around, you automatically compare yourself",
+          'You believe your life would have been different if you looked different',
         ],
-        escape: "Wanting to be alone is not selfish. For you, setting clear boundaries is the beginning of escape. The courage to say 'this time is mine' is the only key that can free you from this hell.",
+        escape: "Escaping the hall of mirrors isn't about breaking the mirrors. It's about turning away and looking at something else. Think of someone you don't remember by their looks — they're probably seeing you the same way.",
       },
       C: {
-        emoji: '⏳',
-        badge: 'Effort Sensitive',
-        name: 'Hell of Futile Effort',
-        tagline: 'Where no matter how hard you try, nothing ever changes',
-        desc: "Your hell is a place where reality doesn't change no matter how hard you try. Your best effort, your sacrifices, your persistence — the result is always the same. Feeling invisible, feeling like you've achieved nothing — that hopelessness accumulates. For someone who proves themselves through achievement, a space where nothing can be accomplished is the cruelest hell.",
+        emoji: '🏺',
+        badge: 'The Leaking Jar',
+        name: 'Hell of the Never-Full Jar',
+        tagline: 'Where no matter how much you receive, nothing fills you',
+        desc: "Your hell is a jar with a hole in it. Like the daughters of Danaus, you pour and pour — but it never fills. Someone loves you, someone is there for you, someone chooses you — and yet, somehow, you still feel empty. This emptiness may not be about the present. Old betrayals, the love you didn't receive long ago — they punctured the jar. Until those holes are mended, the water keeps leaking out.",
         traits: [
-          'When hard work produces no results, you feel unmotivated for a long time afterward',
-          'If you see others succeed with similar effort, you start to doubt yourself',
-          "When you can't feel progress accumulating, continuing becomes almost impossible",
+          "You feel anxious and need reassurance even when you know you're loved",
+          "You often sense that people close to you will eventually drift away",
+          "There's a feeling that you've never truly been loved enough",
         ],
-        escape: "Try recording process over outcome. The small habit of writing down 'what I did today' is the most powerful antidote to helplessness. Your invisible effort is absolutely accumulating — it just hasn't surfaced yet.",
+        escape: "More water doesn't fill a jar with holes. The first step is seeing where the hole came from. The moment you realize the person who made the hole wasn't you — that's when the jar begins, slowly, to mend itself.",
       },
       D: {
-        emoji: '🔇',
-        badge: 'Connection Craver',
-        name: 'Hell of Solitude',
-        tagline: 'A space of total isolation where no one exists',
-        desc: "Your hell is a place with no one in it. You call but nobody answers; you speak but nobody listens; you exist but nobody notices. For someone who lives through relationships, complete disconnection is not just loneliness — it's pain that feels like your very existence is dissolving. You breathe through connection, so solitude becomes a hell in itself.",
+        emoji: '🌿',
+        badge: 'Branchless Tree',
+        name: 'Hell of the Branchless Tree',
+        tagline: 'Where branches are quietly cut away, one by one',
+        desc: "Your hell is watching branches fall from your tree, one by one. The meetup you weren't invited to. The conversation you found out about after. The gradual silence where there used to be connection. No clear betrayal, no fight — just the quiet, creeping feeling of being excluded. One day you look around and realize you're standing alone. That soundless pruning is your deepest hell.",
         traits: [
-          'On days when no one reaches out, you feel anxious without knowing why',
-          "Before important decisions, you need to talk to someone to feel at ease",
-          'Sometimes a fading relationship feels like a personal failure',
+          'When a group chat goes quiet, your first thought is that you did something wrong',
+          "Finding out friends met without you stays with you longer than it probably should",
+          'Relationships where you always have to reach out first quietly bother you',
         ],
-        escape: "Your desire for connection is also one of your greatest strengths. But you also need practice connecting with yourself in solitude. Ten minutes a day, phone off, focused only on your own feelings — that will slowly carry you away from this hell.",
+        escape: "A tree is still a tree without branches. Fewer branches doesn't mean less worth. Look at the version of yourself you shaped to fit that group — the branches you're meant to grow are still ahead of you.",
       },
       E: {
-        emoji: '👁️',
-        badge: 'Approval Seeker',
-        name: 'Hell of Judgment',
-        tagline: 'Where everyone constantly evaluates and criticizes you',
-        desc: "Your hell is a place where all eyes are on you. Everything you say is criticized, every choice you make is called wrong, and even doing well earns you 'you could have done better.' You want to appear perfect and be recognized — so a space of endless evaluation and criticism becomes the most suffocating hell. You are also the harshest critic of yourself.",
+        emoji: '🌳',
+        badge: 'Rootless Tree',
+        name: 'Hell of the Rootless Tree',
+        tagline: 'Where the ground you were meant to stand on was never there',
+        desc: "Your hell is having no ground to stand on. A tree stands through its roots — but yours were never fully planted. What went ungiven in your relationship with your parents. The gaps left unfilled. An unsteady feeling at the core of your identity. Others seem to have a foundation as a matter of course — the quiet ache of wondering why you don't. A rootless tree sways harder in the wind.",
         traits: [
-          'When you make a mistake, you tend to self-criticize longer and deeper than others',
-          "When someone misunderstands you and you can't explain, it stays with you for a long time",
-          'Criticism lingers far longer in your memory than praise and surfaces more often',
+          'There are unresolved feelings about your relationship with your parents',
+          'There are moments when you feel your sense of self is shaky at its foundation',
+          "There are things you feel others received as a matter of course that you didn't",
         ],
-        escape: "Try building your own standards before worrying about other people's eyes. The single question — 'Am I ashamed of myself?' — is a far more powerful standard than thousands of external opinions. You're already trying hard enough.",
+        escape: "Roots aren't only something parents give you. You can choose your own ground and plant your own roots. It's not too late. The soil beneath your feet right now — the place you chose — can become your real roots.",
       },
       F: {
-        emoji: '🔁',
-        badge: 'Change Craver',
-        name: 'Hell of Eternal Repetition',
-        tagline: 'Repeating the same day, the same feelings, endlessly',
-        desc: "Your hell is a place where nothing ever changes. The same today as yesterday, the same people, the same mistakes, the same emotions. For someone who craves change and growth, eternal repetition becomes a terror — the slow feeling that you yourself are disappearing. The sensation of wanting to change but being unable to — that accumulated helplessness becomes your hell.",
+        emoji: '💸',
+        badge: 'Tantalus',
+        name: "Hell of Tantalus",
+        tagline: 'Where what you need is always just out of reach',
+        desc: "Your hell belongs to Tantalus — water up to your chin, fruit just above your head, but the moment you reach, it all pulls away. Just a little more money. If only the financial worry were gone. That thought governs the day. Money isn't just money. It's another name for safety, freedom, options. That anxiety seeps into everything — making it impossible to enjoy what you already have.",
         traits: [
-          "It's painful when you realize you've been wrestling with the same worries year after year",
-          'Old wounds or regrets resurface unexpectedly and repeatedly',
-          'You find yourself second-guessing decisions you already made, over and over',
+          'Financial worry hums in the background of daily life like a constant low note',
+          'When money is tight, your self-esteem tends to fall with it',
+          "Even when money comes in, the anxiety doesn't fully disappear",
         ],
-        escape: "Try creating tiny changes even within repetition. Like taking a different route to work — the most trivial change can be the first crack that breaks the loop. Change doesn't have to start big.",
+        escape: "The fruit of Tantalus is not a physical distance — it's a distance of the heart. Try writing down what you have right now, not what you lack. Anxiety lives in future scarcity, but real life only exists in this moment.",
+      },
+      G: {
+        emoji: '🚪',
+        badge: 'The Secret Room',
+        name: 'Hell of the Secret Room',
+        tagline: "A room where the memories you can't erase still live",
+        desc: "In your hell, there is a room you must never open. Inside it live the memories you'd erase if you could. You seem to have forgotten — and then, in an unguarded moment, the door swings open and everything spills out. A specific day. A specific person. A specific thing that was said. You know what it is. You want to live in the present, but the past keeps calling you back. The room doesn't disappear. But you are its owner.",
+        traits: [
+          'There is a specific memory that surfaces sometimes, bringing emotions with it',
+          "You think you've forgotten something — until a similar situation brings it all back",
+          "You believe things would be different now if only that memory didn't exist",
+        ],
+        escape: "Don't try to destroy the room. Locking it away isn't the answer either. Knowing the room is there — while also knowing it doesn't define who you are now — that is the beginning. What lives in that room is the past. It is not you.",
       },
     },
     shareMsg: 'What type of hell is yours? 🔥 Find out what your personal hell is!',
@@ -966,8 +911,8 @@ const data = {
 ============================== */
 let curLang = 'ko';
 let currentQ = 0;
-let scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
-const TOTAL = 15;
+let scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0 };
+const TOTAL = 11;
 
 /* ==============================
    언어 토글
@@ -1000,7 +945,7 @@ function startTest() {
   document.getElementById('startScreen').style.display = 'none';
   document.getElementById('questionScreen').style.display = 'block';
   currentQ = 0;
-  scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+  scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0 };
   renderQuestion();
 }
 
