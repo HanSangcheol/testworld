@@ -436,7 +436,84 @@
 
   <!-- 지옥 테스트 (인기 1위) -->
   <a class="featured-card" href="hell-test.html" style="animation-delay:.08s">
-    <div class="fc-banner" style="background:linear-gradient(135deg,#1a0005,#6B0F1A,#C45E20)">🔥</div>
+    <div class="fc-banner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" style="width:100%;height:100%;display:block">
+  <defs>
+    <linearGradient id="bg1b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A0200"/>
+      <stop offset="100%" stop-color="#1A0500"/>
+    </linearGradient>
+    <radialGradient id="fire1" cx="75%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#D44A00" stop-opacity="0.65"/>
+      <stop offset="45%" stop-color="#8B2200" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="candle1" cx="20%" cy="90%" r="35%">
+      <stop offset="0%" stop-color="#D4901A" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig1" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.75"/>
+    </radialGradient>
+    <filter id="tex1b">
+      <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
+      <feBlend in="SourceGraphic" in2="g" mode="overlay" result="t"/>
+      <feComposite in="t" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="blur1b"><feGaussianBlur stdDeviation="1.8"/></filter>
+  </defs>
+  <rect width="360" height="130" fill="url(#bg1b)"/>
+  <rect width="360" height="130" fill="url(#bg1b)" filter="url(#tex1b)" opacity="0.16"/>
+  <!-- Fire glow right -->
+  <rect width="360" height="130" fill="url(#fire1)"/>
+  <!-- Candle glow left -->
+  <rect width="360" height="130" fill="url(#candle1)"/>
+
+  <!-- Rocky hill slope -->
+  <path d="M0,110 Q80,90 160,75 Q240,60 360,55 L360,130 L0,130Z" fill="#1A0D05" opacity="0.85"/>
+
+  <!-- BOULDER — dark heavy stone -->
+  <circle cx="252" cy="68" r="28" fill="#1E1810" opacity="0.92"/>
+  <circle cx="252" cy="68" r="26" fill="#2E2618" opacity="0.85"/>
+  <ellipse cx="243" cy="59" rx="15" ry="12" fill="#4A3E28" opacity="0.4"/>
+
+  <!-- SISYPHUS silhouette — pushing boulder, Caravaggio lit from fire side -->
+  <!-- Back leg -->
+  <path d="M178,120 Q185,100 190,85" stroke="#6B4020" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- Front leg (bent) -->
+  <path d="M190,120 Q195,105 198,90" stroke="#6B4020" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- Torso hunched forward -->
+  <path d="M178,88 Q190,78 205,70 Q218,65 225,63" stroke="#9B6E3A" stroke-width="13" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- Arms reaching boulder -->
+  <path d="M205,70 Q215,64 223,62" stroke="#C4874A" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <!-- Head bowed -->
+  <circle cx="175" cy="85" r="10" fill="#8B5E2A" opacity="0.9"/>
+  <circle cx="175" cy="84" r="9" fill="#C4874A" opacity="0.75"/>
+
+  <!-- FIRE — right side, warm amber/red/orange tongues -->
+  <ellipse cx="320" cy="100" rx="25" ry="40" fill="#6B1A00" opacity="0.55"/>
+  <ellipse cx="318" cy="88" rx="18" ry="32" fill="#B83A00" opacity="0.55"/>
+  <ellipse cx="315" cy="75" rx="12" ry="24" fill="#D47000" opacity="0.6"/>
+  <ellipse cx="312" cy="65" rx="7" ry="16" fill="#FFB830" opacity="0.55"/>
+  <ellipse cx="310" cy="58" rx="4" ry="10" fill="#FFE060" opacity="0.5"/>
+  <!-- Flame tendrils -->
+  <path d="M306,58 Q310,44 314,35 Q316,28 318,22" fill="none" stroke="#FF9900" stroke-width="3" opacity="0.4"/>
+  <path d="M310,54 Q314,40 318,30" fill="none" stroke="#FFD060" stroke-width="2" opacity="0.35"/>
+  <path d="M302,62 Q304,50 308,40" fill="none" stroke="#D46000" stroke-width="2.5" opacity="0.4"/>
+
+  <!-- Embers floating up -->
+  <circle cx="295" cy="35" r="1.5" fill="#FF9900" opacity="0.5"/>
+  <circle cx="308" cy="22" r="1" fill="#FFD060" opacity="0.45"/>
+  <circle cx="285" cy="28" r="1.2" fill="#FF6600" opacity="0.4"/>
+  <circle cx="275" cy="42" r="1" fill="#FF9900" opacity="0.35"/>
+
+  <!-- Shadow/darkness — atmosphere -->
+  <rect width="360" height="130" fill="url(#vig1)"/>
+
+  <!-- Title overlay (subtle) -->
+  <text x="50" y="112" font-family="Georgia,serif" font-size="11" fill="#C8A96E" opacity="0.55" letter-spacing="2">나의 지옥은 무엇일까?</text>
+</svg></div>
     <div class="fc-body">
       <div class="fc-top">
         <span class="fc-badge badge-hot" id="badge1">🔥 인기 1위</span>
@@ -460,7 +537,102 @@
 
   <!-- 로맨스 판타지 전생 테스트 (인기 2위) -->
   <a class="featured-card" href="past-life-test.html" style="animation-delay:.16s">
-    <div class="fc-banner" style="background:linear-gradient(135deg,#0D0D1A,#4A148C,#B8860B)">👑</div>
+    <div class="fc-banner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" style="width:100%;height:100%;display:block">
+  <defs>
+    <linearGradient id="bg2b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06040E"/>
+      <stop offset="100%" stop-color="#100818"/>
+    </linearGradient>
+    <radialGradient id="glow2b" cx="62%" cy="55%" r="42%">
+      <stop offset="0%" stop-color="#C4901A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2c" cx="30%" cy="70%" r="30%">
+      <stop offset="0%" stop-color="#8B600A" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig2b" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.78"/>
+    </radialGradient>
+    <filter id="tex2b">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
+      <feBlend in="SourceGraphic" in2="g" mode="overlay" result="t"/>
+      <feComposite in="t" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="blur2b"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="360" height="130" fill="url(#bg2b)"/>
+  <rect width="360" height="130" fill="url(#bg2b)" filter="url(#tex2b)" opacity="0.15"/>
+  <rect width="360" height="130" fill="url(#glow2b)"/>
+  <rect width="360" height="130" fill="url(#glow2c)"/>
+
+  <!-- Architectural elements — dark palace columns -->
+  <!-- Left pillar -->
+  <rect x="28" y="0" width="22" height="130" fill="#0D0A08" opacity="0.7"/>
+  <rect x="30" y="0" width="18" height="130" fill="#181410" opacity="0.6"/>
+  <rect x="30" y="0" width="5" height="130" fill="#2A2018" opacity="0.35"/>
+  <!-- Right pillar -->
+  <rect x="310" y="0" width="22" height="130" fill="#0D0A08" opacity="0.7"/>
+  <rect x="312" y="0" width="18" height="130" fill="#181410" opacity="0.6"/>
+  <rect x="324" y="0" width="5" height="130" fill="#2A2018" opacity="0.3"/>
+
+  <!-- Throne suggestion — ornate back -->
+  <path d="M155,5 Q180,0 205,5 L208,75 Q180,80 152,75Z" fill="#1A1008" opacity="0.8"/>
+  <path d="M158,8 Q180,3 202,8 L204,72 Q180,77 156,72Z" fill="#2A1A0A" opacity="0.7"/>
+  <!-- Throne ornament top -->
+  <path d="M155,5 Q165,−5 180,−8 Q195,−5 205,5" fill="none" stroke="#6B4A10" stroke-width="3" opacity="0.6"/>
+  <ellipse cx="180" cy="3" rx="12" ry="6" fill="#6B4A10" opacity="0.5"/>
+  <!-- Crown on throne/figure -->
+  <path d="M165,32 L168,20 L175,28 L180,16 L185,28 L192,20 L195,32Z" fill="#9B7020" opacity="0.8"/>
+  <path d="M165,32 L168,20 L175,28 L180,16 L185,28 L192,20 L195,32Z" fill="#C4A040" opacity="0.55"/>
+  <!-- Jewels on crown -->
+  <circle cx="180" cy="19" r="2.5" fill="#9B2040" opacity="0.8"/>
+  <circle cx="170" cy="24" r="2" fill="#204090" opacity="0.7"/>
+  <circle cx="190" cy="24" r="2" fill="#204090" opacity="0.7"/>
+
+  <!-- FIGURE — robed, seated, Caravaggio lit from candle left -->
+  <!-- Body/robes -->
+  <path d="M158,40 Q154,58 154,78 Q158,82 180,83 Q202,82 206,78 Q206,58 202,40Z"
+        fill="#1E1408" opacity="0.9"/>
+  <path d="M162,42 Q158,60 158,76 Q162,80 180,81 Q198,80 202,76 Q202,60 198,42Z"
+        fill="#2E1E0C" opacity="0.75"/>
+  <!-- Candlelit fabric highlight -->
+  <path d="M162,45 Q160,62 162,74 Q168,80 175,80 Q166,70 164,55 Q163,48 165,44Z"
+        fill="#C4A060" opacity="0.2"/>
+  <!-- Neck / chest lit by candle -->
+  <ellipse cx="180" cy="40" rx="14" ry="8" fill="#8B5E2A" opacity="0.8"/>
+  <!-- Face — Caravaggio three-quarter profile -->
+  <ellipse cx="180" cy="32" rx="13" ry="14" fill="#8B5E2A" opacity="0.9"/>
+  <ellipse cx="180" cy="31" rx="12" ry="13" fill="#C4874A" opacity="0.8"/>
+  <!-- Shadow on right side of face (dark side) -->
+  <ellipse cx="186" cy="31" rx="6" ry="10" fill="#1A0A02" opacity="0.35"/>
+  <!-- Light on left side (candlelit) -->
+  <ellipse cx="174" cy="29" rx="6" ry="7" fill="#D4A060" opacity="0.4"/>
+  <!-- Eyes -->
+  <ellipse cx="176" cy="29" rx="2.5" ry="2" fill="#1A0800" opacity="0.8"/>
+  <ellipse cx="184" cy="30" rx="2" ry="1.8" fill="#1A0800" opacity="0.7"/>
+
+  <!-- Candle — left side, warm glow source -->
+  <rect x="65" y="82" width="7" height="22" fill="#E8D4A0" opacity="0.6"/>
+  <rect x="66" y="81" width="5" height="22" fill="#F8ECC0" opacity="0.5"/>
+  <ellipse cx="68" cy="79" rx="4" ry="6" fill="#FFD060" opacity="0.65"/>
+  <ellipse cx="68" cy="76" rx="2" ry="4" fill="#FFEF90" opacity="0.7"/>
+  <ellipse cx="68" cy="73" rx="1.2" ry="2.5" fill="#FFFFFF" opacity="0.6"/>
+  <!-- Candle holder -->
+  <ellipse cx="68" cy="104" rx="9" ry="4" fill="#6B4A10" opacity="0.7"/>
+
+  <!-- Falling petals / incense -->
+  <ellipse cx="100" cy="30" rx="3" ry="5" fill="#8B1A30" opacity="0.35" transform="rotate(-20,100,30)"/>
+  <ellipse cx="242" cy="22" rx="3" ry="5" fill="#8B1A30" opacity="0.3" transform="rotate(15,242,22)"/>
+  <ellipse cx="130" cy="15" rx="2.5" ry="4" fill="#9B2A3A" opacity="0.3" transform="rotate(-35,130,15)"/>
+
+  <!-- Vignette -->
+  <rect width="360" height="130" fill="url(#vig2b)"/>
+
+  <text x="50" y="112" font-family="Georgia,serif" font-size="11" fill="#C8A96E" opacity="0.55" letter-spacing="2">로맨스 판타지 전생 테스트</text>
+</svg></div>
     <div class="fc-body">
       <div class="fc-top">
         <span class="fc-badge badge-hot" id="badge2" style="background:linear-gradient(135deg,#7B1FA2,#B8860B)">👑 인기 2위</span>
@@ -482,26 +654,127 @@
     </div>
   </a>
 
-  <!-- 연애 스타일 테스트 (인기 3위) -->
-  <a class="featured-card" href="love-style-test.html" style="animation-delay:.24s">
-    <div class="fc-banner" style="background:linear-gradient(135deg,#FF6B9D,#C77DFF)">💕</div>
+  <!-- 패트로누스 테스트 (인기 3위) -->
+  <a class="featured-card" href="animal-test.html" style="animation-delay:.24s">
+    <div class="fc-banner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" style="width:100%;height:100%;display:block">
+  <defs>
+    <linearGradient id="bg3b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#040408"/>
+      <stop offset="100%" stop-color="#08060E"/>
+    </linearGradient>
+    <radialGradient id="glow3b" cx="55%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="#8B60C4" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#3A1A8B" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3c" cx="35%" cy="65%" r="30%">
+      <stop offset="0%" stop-color="#C4A01A" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig3b" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.80"/>
+    </radialGradient>
+    <filter id="tex3b">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
+      <feBlend in="SourceGraphic" in2="g" mode="overlay" result="t"/>
+      <feComposite in="t" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="magicGlow3">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="360" height="130" fill="url(#bg3b)"/>
+  <rect width="360" height="130" fill="url(#bg3b)" filter="url(#tex3b)" opacity="0.15"/>
+  <rect width="360" height="130" fill="url(#glow3b)"/>
+  <rect width="360" height="130" fill="url(#glow3c)"/>
+
+  <!-- Dark forest/void background trees (silhouette) -->
+  <rect x="22" y="40" width="14" height="90" fill="#06040A" opacity="0.8" rx="3"/>
+  <rect x="30" y="20" width="10" height="80" fill="#06040A" opacity="0.6" rx="2"/>
+  <rect x="318" y="35" width="14" height="95" fill="#06040A" opacity="0.8" rx="3"/>
+  <rect x="310" y="15" width="10" height="85" fill="#06040A" opacity="0.6" rx="2"/>
+  <rect x="60" y="55" width="8" height="75" fill="#06040A" opacity="0.5" rx="2"/>
+  <rect x="290" y="50" width="8" height="80" fill="#06040A" opacity="0.5" rx="2"/>
+
+  <!-- STAG / Patronus animal — emerging from shadow, ethereal glow
+       Golden stag, Caravaggio chiaroscuro lit -->
+  <!-- Stag body — side view, glowing silver-gold in darkness -->
+  <!-- Body mass -->
+  <ellipse cx="185" cy="82" rx="55" ry="32" fill="#1A1508" opacity="0.85"/>
+  <ellipse cx="183" cy="80" rx="50" ry="29" fill="#3A2E18" opacity="0.7"/>
+  <!-- Warm light on back/shoulder -->
+  <ellipse cx="168" cy="70" rx="28" ry="18" fill="#C4A040" opacity="0.3"/>
+  <ellipse cx="160" cy="66" rx="18" ry="12" fill="#D4B050" opacity="0.25"/>
+  <!-- Neck -->
+  <path d="M148,70 Q142,55 138,42 Q136,35 138,30" stroke="#3A2E18" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <path d="M148,68 Q142,53 138,40 Q137,33 140,28" stroke="#C4A040" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.35"/>
+  <!-- Head -->
+  <ellipse cx="142" cy="28" rx="16" ry="13" fill="#2A2010" opacity="0.9"/>
+  <ellipse cx="142" cy="27" rx="14" ry="12" fill="#4A3818" opacity="0.8"/>
+  <!-- Snout/muzzle -->
+  <ellipse cx="130" cy="30" rx="10" ry="7" fill="#3A2C14" opacity="0.85"/>
+  <ellipse cx="127" cy="30" rx="6" ry="5" fill="#5A4520" opacity="0.7"/>
+  <!-- Eye — luminous amber -->
+  <circle cx="146" cy="24" r="4.5" fill="#0A0604"/>
+  <circle cx="146" cy="24" r="3.5" fill="#3A1A00" opacity="0.9"/>
+  <circle cx="146" cy="23" r="2" fill="#C47A00" opacity="0.8"/>
+  <circle cx="147" cy="22" r="1" fill="#FFD060" opacity="0.9"/>
+  <!-- ANTLERS — dramatic branching, golden/amber -->
+  <!-- Left main beam -->
+  <path d="M140,18 Q132,8 120,2 Q112,-2 108,3" fill="none" stroke="#7A5A10" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M140,18 Q132,8 120,2" fill="none" stroke="#C4A030" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <!-- Left tines -->
+  <path d="M130,10 Q122,4 116,2" fill="none" stroke="#7A5A10" stroke-width="2.5" opacity="0.75"/>
+  <path d="M122,5 Q118,-1 113,-3" fill="none" stroke="#7A5A10" stroke-width="2" opacity="0.65"/>
+  <!-- Right main beam -->
+  <path d="M145,16 Q148,5 158,-1 Q166,-5 170,0" fill="none" stroke="#7A5A10" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M145,16 Q148,5 158,-1" fill="none" stroke="#C4A030" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <!-- Right tines -->
+  <path d="M152,6 Q158,0 163,-3" fill="none" stroke="#7A5A10" stroke-width="2.5" opacity="0.75"/>
+  <path d="M158,-2 Q162,-7 167,-8" fill="none" stroke="#7A5A10" stroke-width="2" opacity="0.6"/>
+  <!-- Legs — front two visible -->
+  <path d="M162,108 Q162,118 160,128" stroke="#2A2010" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <path d="M162,108 Q163,118 162,128" stroke="#4A3818" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M178,110 Q179,120 180,128" stroke="#2A2010" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- Magical light emanating from stag — Patronus silvery glow -->
+  <ellipse cx="175" cy="70" rx="65" ry="45" fill="#8080FF" opacity="0.04" filter="url(#magicGlow3)"/>
+  <ellipse cx="175" cy="70" rx="45" ry="30" fill="#C0C8FF" opacity="0.06"/>
+  <!-- Magic sparkles -->
+  <circle cx="108" cy="45" r="1.5" fill="#C0C8FF" opacity="0.5"/>
+  <circle cx="238" cy="38" r="1.2" fill="#C0C8FF" opacity="0.45"/>
+  <circle cx="258" cy="60" r="1.8" fill="#D4D0FF" opacity="0.4"/>
+  <circle cx="92" cy="62" r="1.3" fill="#D4D0FF" opacity="0.4"/>
+  <circle cx="220" cy="25" r="1" fill="#C0C8FF" opacity="0.45"/>
+  <circle cx="155" cy="15" r="1.2" fill="#C0C8FF" opacity="0.5"/>
+  <!-- Hooves shimmer -->
+  <rect x="157" y="125" width="8" height="5" fill="#8080C4" rx="2" opacity="0.4"/>
+  <rect x="177" y="125" width="7" height="5" fill="#8080C4" rx="2" opacity="0.35"/>
+
+  <!-- Vignette -->
+  <rect width="360" height="130" fill="url(#vig3b)"/>
+
+  <text x="50" y="112" font-family="Georgia,serif" font-size="11" fill="#C8A96E" opacity="0.55" letter-spacing="2">나의 패트로누스는 어떤 동물일까?</text>
+</svg></div>
     <div class="fc-body">
       <div class="fc-top">
-        <span class="fc-badge badge-hot" id="badge3" style="background:linear-gradient(135deg,#C77DFF,#FF6B9D)">💕 인기 3위</span>
+        <span class="fc-badge badge-hot" id="badge3" style="background:linear-gradient(135deg,#1A237E,#4A148C)">🪄 인기 3위</span>
         <span class="fc-cta">바로 시작 →</span>
       </div>
-      <div class="fc-title" id="fc3Title">나의 연애 스타일은?</div>
-      <div class="fc-desc"  id="fc3Desc">로맨틱 드리머부터 성장 동반형까지 — 나는 어떤 방식으로 사랑하나요?</div>
+      <div class="fc-title" id="fc3Title">나의 패트로누스는 어떤 동물일까?</div>
+      <div class="fc-desc"  id="fc3Desc">호그와트 상황극으로 찾는 나의 패트로누스</div>
       <div class="fc-meta">
-        <span>⏱️ <span id="fc3Time">약 3분</span></span>
+        <span>⏱️ <span id="fc3Time">약 3~4분</span></span>
         <span>💬 <span id="fc3Mystery">공유 급상승</span></span>
         <span>🎯 <span id="fc3Types">10가지 유형</span></span>
-        <span>📝 <span id="fc3Questions">15문항</span></span>
+        <span>📝 <span id="fc3Questions">22문항</span></span>
       </div>
       <div class="fc-tags">
-        <span class="fc-tag" style="color:#FF6B9D;border-color:#FFB6D9;">#연애심리</span>
-        <span class="fc-tag" style="color:#C77DFF;border-color:#DDB0FF;">#성격유형</span>
-        <span class="fc-tag" style="color:#FF8C42;border-color:#FFD0A0;">#궁합</span>
+        <span class="fc-tag" style="color:#1565C0;border-color:#90CAF9;">#호그와트</span>
+        <span class="fc-tag" style="color:#6A1B9A;border-color:#CE93D8;">#패트로누스</span>
+        <span class="fc-tag" style="color:#B8860B;border-color:#E8C870;">#해리포터</span>
       </div>
     </div>
   </a>
@@ -591,7 +864,7 @@ const ui = {
     comingTitle:  '🎯 전체 테스트',
     badge1:       '🔥 인기 1위',
     badge2:       '👑 인기 2위',
-    badge3:       '💕 인기 3위',
+    badge3:       '🪄 인기 3위',
     fc1Title:     '나의 지옥은 무엇일까?',
     fc1Desc:      '누구에게나 자신만의 지옥이 있다.',
     fc1Time:      '약 3분',
@@ -604,12 +877,12 @@ const ui = {
     fc2Mystery:   '공유 급상승',
     fc2Types:     '10가지 유형',
     fc2Questions: '22문항',
-    fc3Title:     '나의 연애 스타일은?',
-    fc3Desc:      '로맨틱 드리머부터 성장 동반형까지 — 나는 어떤 방식으로 사랑하나요?',
-    fc3Time:      '약 3분',
+    fc3Title:     '나의 패트로누스는 어떤 동물일까?',
+    fc3Desc:      '호그와트 상황극으로 찾는 나의 패트로누스',
+    fc3Time:      '약 3~4분',
     fc3Mystery:   '공유 급상승',
     fc3Types:     '10가지 유형',
-    fc3Questions: '15문항',
+    fc3Questions: '22문항',
     tc1Title: '나의 패트로누스는 어떤 동물일까?', tc1Desc: '호그와트 상황극으로 찾는 나의 패트로누스', tc1Btn: '바로 시작 →',
     tc2Title: '숨겨진 재능 테스트',   tc2Desc: '당신만 모르는 나의 특기는?',         tc2Btn: '바로 시작 →',
     tc3Title: '나의 지옥은 무엇일까?',  tc3Desc: '누구에게나 자신만의 지옥이 있다.',            tc3Btn: '바로 시작 →',
@@ -634,7 +907,7 @@ const ui = {
     comingTitle:  '🎯 All Tests',
     badge1:       '🔥 #1 Popular',
     badge2:       '👑 #2 Popular',
-    badge3:       '💕 #3 Popular',
+    badge3:       '🪄 #3 Popular',
     fc1Title:     'What Kind of Hell is Mine?',
     fc1Desc:      "Everyone has their own personal hell.",
     fc1Time:      '~3 min',
@@ -647,12 +920,12 @@ const ui = {
     fc2Mystery:   'Trending Now',
     fc2Types:     '10 Types',
     fc2Questions: '22 Questions',
-    fc3Title:     "What's My Love Style?",
-    fc3Desc:      'From Romantic Dreamer to Growth Partner — how do you love?',
-    fc3Time:      '~3 min',
+    fc3Title:     'What Is My Patronus?',
+    fc3Desc:      'Hogwarts scenarios reveal your Patronus',
+    fc3Time:      '~3-4 min',
     fc3Mystery:   'Trending Now',
     fc3Types:     '10 Types',
-    fc3Questions: '15 Questions',
+    fc3Questions: '22 Questions',
     tc1Title: 'What Is My Patronus?',   tc1Desc: 'Hogwarts scenarios reveal your Patronus', tc1Btn: 'Start Now →',
     tc2Title: 'Hidden Talent Test',    tc2Desc: 'Discover your secret superpower',   tc2Btn: 'Start Now →',
     tc3Title: 'What Kind of Hell is Mine?', tc3Desc: 'Everyone has their own personal hell.',       tc3Btn: 'Start Now →',
