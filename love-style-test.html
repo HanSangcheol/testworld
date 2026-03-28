@@ -2934,6 +2934,7 @@ function showResult() {
   document.getElementById('headerSection').style.display = 'none';
   const rs = document.getElementById('resultSection');
   rs.style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
 
   const topType = resolveType(scores);
   const r       = data[curLang].results[topType];

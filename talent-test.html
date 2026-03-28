@@ -2154,7 +2154,7 @@ function resolveType(scores) {
 function showResult(){
   document.getElementById('quizSection').style.display='none';
   document.getElementById('headerSection').style.display='none';
-  document.getElementById('resultSection').style.display='block';
+  document.getElementById('resultSection').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
   const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
   const r=data[curLang].results[t],ty=TYPES[t];
   const hero=document.getElementById('resultHero');

@@ -22,7 +22,7 @@
     --green:  #4CAF8A;
     --yellow: #FFE066;
     --dark:   #2D2233;
-    --bg:     #FFFBF5;
+    --bg:     #06061A;
     --card:   #FFFFFF;
     --shadow: 0 6px 28px rgba(0,0,0,0.07);
     --shadow-hover: 0 14px 44px rgba(0,0,0,0.13);
@@ -40,9 +40,9 @@
   body::before {
     content: ''; position: fixed; inset: 0;
     background:
-      radial-gradient(circle at 10% 15%, rgba(255,107,157,.09) 0%, transparent 45%),
-      radial-gradient(circle at 88% 78%, rgba(199,125,255,.09) 0%, transparent 45%),
-      radial-gradient(circle at 50% 50%, rgba(255,224,102,.05) 0%, transparent 60%);
+      radial-gradient(ellipse at 25% 20%, rgba(100,0,160,.22) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 80%, rgba(0,10,70,.28) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(10,0,40,.15) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
 
@@ -296,6 +296,33 @@
   @keyframes fadeUp   { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
 
+
+  /* ── 별밤 테마 텍스트 & UI 색상 ── */
+  .hero h1   { color: #F0E8FF; }
+  .hero p    { color: #B0A0CC !important; }
+  .section-title { color: #D8C8F8; }
+  .title-line { background: linear-gradient(90deg, rgba(180,120,255,.35), transparent); }
+  .hero-stats .stat-item {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(200,160,255,.18);
+    box-shadow: none;
+  }
+  .hero-stats .stat-label { color: #9880B8; }
+  .lang-btn {
+    background: rgba(20,10,40,.85);
+    border-color: rgba(160,100,255,.55);
+    color: #D8C8F8;
+    box-shadow: 0 3px 14px rgba(140,80,255,.18);
+  }
+  .lang-btn:hover { background: #7B1FA2; color: white; border-color: #9C27B0; }
+  .ad-slot { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.08); color: rgba(200,180,255,.3); }
+  .footer { border-top-color: rgba(255,255,255,.07); color: rgba(200,180,240,.4); }
+  .footer a { color: rgba(200,180,240,.35); }
+  .footer a:hover { color: var(--purple); }
+  .share-section { background: rgba(255,255,255,.06); border-color: rgba(200,160,255,.15); }
+  .share-section h3 { color: #E8D8FF; }
+  .share-section p  { color: rgba(200,180,240,.55); }
+
   /* 반응형 */
   @media (max-width: 480px) {
     .hero h1  { font-size: 34px; }
@@ -312,6 +339,56 @@
 </style>
 </head>
 <body>
+
+<canvas id="starsBg" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+<script>
+(function(){
+  const c=document.getElementById('starsBg');
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  const ctx=c.getContext('2d');
+  // regular stars
+  const stars=Array.from({length:220},()=>({
+    x:Math.random(),y:Math.random(),
+    r:Math.random()*1.3+0.2,
+    a:Math.random()*.7+.15,
+    da:(Math.random()-.5)*.009+.003
+  }));
+  // occasional shooting stars
+  let shoots=[];
+  setInterval(()=>{
+    if(Math.random()<.4) shoots.push({x:Math.random()*.7,y:Math.random()*.4,vx:.012,vy:.006,a:1});
+  },2200);
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    // twinkle stars
+    stars.forEach(s=>{
+      s.a+=s.da;
+      if(s.a>0.95){s.a=0.95;s.da*=-1;}
+      if(s.a<0.08){s.a=0.08;s.da*=-1;}
+      ctx.beginPath();
+      ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(248,240,255,'+s.a.toFixed(2)+')';
+      ctx.fill();
+    });
+    // shooting stars
+    shoots=shoots.filter(s=>{
+      s.x+=s.vx;s.y+=s.vy;s.a-=.025;
+      if(s.a<=0)return false;
+      const x1=s.x*c.width,y1=s.y*c.height;
+      const x0=x1-s.vx*c.width*4,y0=y1-s.vy*c.height*4;
+      const g=ctx.createLinearGradient(x0,y0,x1,y1);
+      g.addColorStop(0,'rgba(255,248,255,0)');
+      g.addColorStop(1,'rgba(255,248,220,'+s.a.toFixed(2)+')');
+      ctx.strokeStyle=g;ctx.lineWidth=1.5;
+      ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x1,y1);ctx.stroke();
+      return true;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
 
 <button class="lang-btn" onclick="toggleLang()" id="langBtn">🌏 EN</button>
 <div class="toast" id="toast"></div>
@@ -365,8 +442,8 @@
         <span class="fc-badge badge-hot" id="badge1">🔥 인기 1위</span>
         <span class="fc-cta">바로 시작 →</span>
       </div>
-      <div class="fc-title" id="fc1Title">당신의 지옥은?</div>
-      <div class="fc-desc"  id="fc1Desc">시지프스부터 나르키소스까지 — 나를 가장 힘들게 하는 지옥 유형은?</div>
+      <div class="fc-title" id="fc1Title">나의 지옥은 무엇일까?</div>
+      <div class="fc-desc"  id="fc1Desc">누구에게나 자신만의 지옥이 있다.</div>
       <div class="fc-meta">
         <span>⏱️ <span id="fc1Time">약 3분</span></span>
         <span>💬 <span id="fc1Share">공유 급상승</span></span>
@@ -381,21 +458,45 @@
     </div>
   </a>
 
-  <!-- 연애 스타일 테스트 (인기 2위) -->
-  <a class="featured-card" href="love-style-test.html" style="animation-delay:.16s">
+  <!-- 로맨스 판타지 전생 테스트 (인기 2위) -->
+  <a class="featured-card" href="past-life-test.html" style="animation-delay:.16s">
+    <div class="fc-banner" style="background:linear-gradient(135deg,#0D0D1A,#4A148C,#B8860B)">👑</div>
+    <div class="fc-body">
+      <div class="fc-top">
+        <span class="fc-badge badge-hot" id="badge2" style="background:linear-gradient(135deg,#7B1FA2,#B8860B)">👑 인기 2위</span>
+        <span class="fc-cta">바로 시작 →</span>
+      </div>
+      <div class="fc-title" id="fc2Title">로맨스 판타지로 알아보는 당신의 전생</div>
+      <div class="fc-desc"  id="fc2Desc">황궁 속 로맨스 판타지 — 공주, 황제, 마법사? 나의 전생 캐릭터는?</div>
+      <div class="fc-meta">
+        <span>⏱️ <span id="fc2Time">약 3~4분</span></span>
+        <span>💬 <span id="fc2Mystery">공유 급상승</span></span>
+        <span>🎯 <span id="fc2Types">10가지 유형</span></span>
+        <span>📝 <span id="fc2Questions">22문항</span></span>
+      </div>
+      <div class="fc-tags">
+        <span class="fc-tag" style="color:#B8860B;border-color:#E8C870;">#로맨스판타지</span>
+        <span class="fc-tag" style="color:#9C27B0;border-color:#CE93D8;">#전생테스트</span>
+        <span class="fc-tag" style="color:#607D8B;border-color:#B0BEC5;">#황궁로맨스</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- 연애 스타일 테스트 (인기 3위) -->
+  <a class="featured-card" href="love-style-test.html" style="animation-delay:.24s">
     <div class="fc-banner" style="background:linear-gradient(135deg,#FF6B9D,#C77DFF)">💕</div>
     <div class="fc-body">
       <div class="fc-top">
-        <span class="fc-badge badge-hot" id="badge2" style="background:linear-gradient(135deg,#C77DFF,#FF6B9D)">💕 인기 2위</span>
+        <span class="fc-badge badge-hot" id="badge3" style="background:linear-gradient(135deg,#C77DFF,#FF6B9D)">💕 인기 3위</span>
         <span class="fc-cta">바로 시작 →</span>
       </div>
-      <div class="fc-title" id="fc2Title">나의 연애 스타일은?</div>
-      <div class="fc-desc"  id="fc2Desc">로맨틱 드리머부터 성장 동반형까지 — 나는 어떤 방식으로 사랑하나요?</div>
+      <div class="fc-title" id="fc3Title">나의 연애 스타일은?</div>
+      <div class="fc-desc"  id="fc3Desc">로맨틱 드리머부터 성장 동반형까지 — 나는 어떤 방식으로 사랑하나요?</div>
       <div class="fc-meta">
-        <span>⏱️ <span id="fc2Time">약 3분</span></span>
-        <span>💬 <span id="fc2Mystery">공유 급상승</span></span>
-        <span>🎯 <span id="fc2Types">10가지 유형</span></span>
-        <span>📝 <span id="fc2Questions">15문항</span></span>
+        <span>⏱️ <span id="fc3Time">약 3분</span></span>
+        <span>💬 <span id="fc3Mystery">공유 급상승</span></span>
+        <span>🎯 <span id="fc3Types">10가지 유형</span></span>
+        <span>📝 <span id="fc3Questions">15문항</span></span>
       </div>
       <div class="fc-tags">
         <span class="fc-tag" style="color:#FF6B9D;border-color:#FFB6D9;">#연애심리</span>
@@ -415,9 +516,9 @@
 
   <div class="test-grid">
     <a class="test-card" href="animal-test.html" style="animation-delay:.24s">
-      <span class="tc-emoji">🐾</span>
-      <div class="tc-title" id="tc1Title">나를 동물로 표현하면?</div>
-      <div class="tc-desc"  id="tc1Desc">나와 닮은 동물을 찾아보세요</div>
+      <span class="tc-emoji">🪄</span>
+      <div class="tc-title" id="tc1Title">나의 패트로누스는 어떤 동물일까?</div>
+      <div class="tc-desc"  id="tc1Desc">호그와트 상황극으로 찾는 나의 패트로누스</div>
       <button class="tc-btn active" id="tc1Btn">바로 시작 →</button>
     </a>
     <a class="test-card" href="talent-test.html" style="animation-delay:.29s">
@@ -433,9 +534,9 @@
       <button class="tc-btn active" id="tc3Btn">바로 시작 →</button>
     </a>
     <a class="test-card" href="past-life-test.html" style="animation-delay:.39s">
-      <span class="tc-emoji">🔮</span>
-      <div class="tc-title" id="tc4Title">나의 전생은?</div>
-      <div class="tc-desc"  id="tc4Desc">마법사, 전사, 신선, 군주 — 당신의 전생은?</div>
+      <span class="tc-emoji">👑</span>
+      <div class="tc-title" id="tc4Title">로맨스 판타지로 알아보는 당신의 전생</div>
+      <div class="tc-desc"  id="tc4Desc">황궁 로맨스 — 나의 전생 캐릭터는?</div>
       <button class="tc-btn active" id="tc4Btn">바로 시작 →</button>
     </a>
     <a class="test-card" href="love-style-test.html" style="animation-delay:.44s">
@@ -489,23 +590,30 @@ const ui = {
     popularTitle: '🔥 인기 테스트',
     comingTitle:  '🎯 전체 테스트',
     badge1:       '🔥 인기 1위',
-    badge2:       '💕 인기 2위',
-    fc1Title:     '당신의 지옥은?',
-    fc1Desc:      '시지프스부터 나르키소스까지 — 나를 가장 힘들게 하는 지옥 유형은?',
+    badge2:       '👑 인기 2위',
+    badge3:       '💕 인기 3위',
+    fc1Title:     '나의 지옥은 무엇일까?',
+    fc1Desc:      '누구에게나 자신만의 지옥이 있다.',
     fc1Time:      '약 3분',
     fc1Share:     '공유 급상승',
     fc1Types:     '10가지 유형',
     fc1Questions: '12문항',
-    fc2Title:     '나의 연애 스타일은?',
-    fc2Desc:      '로맨틱 드리머부터 성장 동반형까지 — 나는 어떤 방식으로 사랑하나요?',
-    fc2Time:      '약 3분',
+    fc2Title:     '로맨스 판타지로 알아보는 당신의 전생',
+    fc2Desc:      '황궁 속 로맨스 판타지 — 공주, 황제, 마법사? 나의 전생 캐릭터를 찾아보세요!',
+    fc2Time:      '약 3~4분',
     fc2Mystery:   '공유 급상승',
     fc2Types:     '10가지 유형',
-    fc2Questions: '15문항',
-    tc1Title: '나를 동물로 표현하면?', tc1Desc: '나와 닮은 동물을 찾아보세요',        tc1Btn: '바로 시작 →',
+    fc2Questions: '22문항',
+    fc3Title:     '나의 연애 스타일은?',
+    fc3Desc:      '로맨틱 드리머부터 성장 동반형까지 — 나는 어떤 방식으로 사랑하나요?',
+    fc3Time:      '약 3분',
+    fc3Mystery:   '공유 급상승',
+    fc3Types:     '10가지 유형',
+    fc3Questions: '15문항',
+    tc1Title: '나의 패트로누스는 어떤 동물일까?', tc1Desc: '호그와트 상황극으로 찾는 나의 패트로누스', tc1Btn: '바로 시작 →',
     tc2Title: '숨겨진 재능 테스트',   tc2Desc: '당신만 모르는 나의 특기는?',         tc2Btn: '바로 시작 →',
-    tc3Title: '당신의 지옥은?',       tc3Desc: '나를 가장 힘들게 하는 것',            tc3Btn: '바로 시작 →',
-    tc4Title: '나의 전생은?',         tc4Desc: '마법사, 전사, 신선, 군주 — 전생은?', tc4Btn: '바로 시작 →',
+    tc3Title: '나의 지옥은 무엇일까?',  tc3Desc: '누구에게나 자신만의 지옥이 있다.',            tc3Btn: '바로 시작 →',
+    tc4Title: '로맨스 판타지로 알아보는 당신의 전생', tc4Desc: '황궁 로맨스 — 나의 전생 캐릭터는?',  tc4Btn: '바로 시작 →',
     tc5Title: '나의 연애 스타일은?',  tc5Desc: '10가지 연애 유형 — 나는 어떤 타입?', tc5Btn: '바로 시작 →',
     tc6Title: '2026 나의 운세는?',    tc6Desc: '올해 나에게 찾아올 행운',            tc6Btn: '준비 중 🔧',
     shareH3:  '친구에게 공유하기 🎉',
@@ -525,23 +633,30 @@ const ui = {
     popularTitle: '🔥 Popular Tests',
     comingTitle:  '🎯 All Tests',
     badge1:       '🔥 #1 Popular',
-    badge2:       '💕 #2 Popular',
-    fc1Title:     'What Is Your Hell?',
-    fc1Desc:      'From Sisyphus to Narcissus — which mythic hell torments you the most?',
+    badge2:       '👑 #2 Popular',
+    badge3:       '💕 #3 Popular',
+    fc1Title:     'What Kind of Hell is Mine?',
+    fc1Desc:      "Everyone has their own personal hell.",
     fc1Time:      '~3 min',
     fc1Share:     'Trending Now',
     fc1Types:     '10 Types',
     fc1Questions: '12 Questions',
-    fc2Title:     "What's My Love Style?",
-    fc2Desc:      'From Romantic Dreamer to Growth Partner — how do you love?',
-    fc2Time:      '~3 min',
+    fc2Title:     'Romance Fantasy Past Life Test',
+    fc2Desc:      'Princess, Emperor, Mage? Discover your romance fantasy past life!',
+    fc2Time:      '~3-4 min',
     fc2Mystery:   'Trending Now',
     fc2Types:     '10 Types',
-    fc2Questions: '15 Questions',
-    tc1Title: 'Which Animal Are You?', tc1Desc: 'Find your spirit animal',           tc1Btn: 'Start Now →',
+    fc2Questions: '22 Questions',
+    fc3Title:     "What's My Love Style?",
+    fc3Desc:      'From Romantic Dreamer to Growth Partner — how do you love?',
+    fc3Time:      '~3 min',
+    fc3Mystery:   'Trending Now',
+    fc3Types:     '10 Types',
+    fc3Questions: '15 Questions',
+    tc1Title: 'What Is My Patronus?',   tc1Desc: 'Hogwarts scenarios reveal your Patronus', tc1Btn: 'Start Now →',
     tc2Title: 'Hidden Talent Test',    tc2Desc: 'Discover your secret superpower',   tc2Btn: 'Start Now →',
-    tc3Title: 'What Is Your Hell?',    tc3Desc: 'What torments you the most?',       tc3Btn: 'Start Now →',
-    tc4Title: 'What Was My Past Life?',tc4Desc: 'Wizard, Warrior, Sage, or Monarch', tc4Btn: 'Start Now →',
+    tc3Title: 'What Kind of Hell is Mine?', tc3Desc: 'Everyone has their own personal hell.',       tc3Btn: 'Start Now →',
+    tc4Title: 'Your Romance Fantasy Past Life', tc4Desc: 'Royal court — what was your role?', tc4Btn: 'Start Now →',
     tc5Title: "What's My Love Style?", tc5Desc: '10 types — which one are you?',     tc5Btn: 'Start Now →',
     tc6Title: '2026 Fortune Test',     tc6Desc: 'What luck awaits you this year?',    tc6Btn: 'Coming Soon 🔧',
     shareH3:  'Share With Friends 🎉',
@@ -565,9 +680,10 @@ function applyLang() {
   const ids = [
     'langBtn','brandName','heroDesc','statTests','statTypes','statTime',
     'rbTitle','rbDesc','popularTitle','comingTitle',
-    'badge1','badge2',
+    'badge1','badge2','badge3',
     'fc1Title','fc1Desc','fc1Time','fc1Share','fc1Types','fc1Questions',
     'fc2Title','fc2Desc','fc2Time','fc2Mystery','fc2Types','fc2Questions',
+    'fc3Title','fc3Desc','fc3Time','fc3Mystery','fc3Types','fc3Questions',
     'tc1Title','tc1Desc','tc1Btn',
     'tc2Title','tc2Desc','tc2Btn',
     'tc3Title','tc3Desc','tc3Btn',

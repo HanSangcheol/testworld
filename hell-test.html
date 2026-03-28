@@ -1866,6 +1866,7 @@ function showResult() {
   document.getElementById('questionScreen').style.display = 'none';
   const rs = document.getElementById('resultScreen');
   rs.style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
 
   const topType = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
   const r = data[curLang].results[topType];
