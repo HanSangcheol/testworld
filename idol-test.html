@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내가 만약 아이돌이라면? 🎤 나는 어떤 아이돌이 될까? | Idol Type Test</title>
+<meta name="description" content="내가 만약 아이돌이 된다면 어떤 타입일까? 12가지 상황극 질문으로 알아보는 나의 아이돌 유형! Discover what kind of K-pop idol you'd be!">
+<meta property="og:title" content="내가 만약 아이돌이라면? 🎤 나는 어떤 아이돌이 될까?">
+<meta property="og:description" content="12가지 상황극으로 알아보는 나의 아이돌 유형! 결과가 너무 공감돼서 공유 안 할 수가 없어요 🎤">
+<meta property="og:image" content="images/idol/landing.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Google AdSense (실제 사용시 교체) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --fs-xs:   clamp(11px, 2.8vw, 13px);
+    --fs-sm:   clamp(12px, 3.2vw, 14px);
+    --fs-base: clamp(14px, 3.5vw, 15px);
+    --fs-md:   clamp(15px, 3.8vw, 16px);
+    --fs-lg:   clamp(16px, 4.2vw, 18px);
+    --fs-xl:   clamp(18px, 4.8vw, 20px);
+    --fs-2xl:  clamp(22px, 5.5vw, 26px);
+    --fs-3xl:  clamp(28px, 7vw,   34px);
+    --fs-hero: clamp(56px, 15vw,  80px);
+    --primary:   #C026D3;
+    --secondary: #FF6B9D;
+    --bg:        #FDF4FF;
+    --card:      #FFFFFF;
+    --border:    #E9D5FF;
+    --shadow:    0 4px 20px rgba(192,38,211,0.12);
+    --shadow-lg: 0 8px 28px rgba(192,38,211,0.22);
+    --radius:    18px;
+    --radius-sm: 12px;
+    --dark:      #2a2a3a;
+    --space-xs:  clamp(6px, 1.5vw, 8px);
+    --space-sm:  clamp(8px, 2vw, 12px);
+    --space-md:  clamp(8px, 2.5vw, 16px);
+    --space-lg:  clamp(16px, 4vw, 24px);
+    --space-xl:  clamp(20px, 5vw, 32px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
+    background: var(--bg); color: var(--dark);
+    min-height: 100vh; overflow-x: hidden;
+    font-size: var(--fs-base);
+    -webkit-text-size-adjust: 100%;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(192,38,211,0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255,107,157,0.07) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+  .container {
+    max-width: 680px; margin: 0 auto;
+    padding: var(--space-lg) var(--space-md) clamp(40px,10vw,70px);
+    position: relative; z-index: 1;
+  }
+  .ad-slot {
+    background: #f8f0ff; border: 2px dashed #d8b4fe;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    color: #bbb; font-size: var(--fs-sm); overflow: hidden;
+  }
+  .ad-top    { height: 80px; margin-bottom: var(--space-lg); }
+  .ad-mid    { height: 250px; margin: var(--space-lg) 0; display: none; }
+  .ad-result { height: 250px; margin: var(--space-md) 0; }
+  .ad-bottom { height: 80px; margin: var(--space-sm) 0; }
+  .lang-toggle {
+    position: fixed; top: 14px; right: 14px;
+    background: var(--card); border: 2px solid var(--primary);
+    border-radius: 99px; padding: 5px 14px;
+    font-size: var(--fs-sm); font-weight: 700;
+    cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s;
+  }
+  .lang-toggle:hover { background: var(--primary); color: white; }
+  .header {
+    text-align: center; margin-bottom: var(--space-xl);
+    animation: fadeDown .5s ease;
+  }
+  .header .emoji-big {
+    font-size: var(--fs-hero); display: block;
+    margin-bottom: var(--space-sm);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+  .header h1 {
+    font-family: 'Gaegu', cursive;
+    font-size: var(--fs-3xl); font-weight: 800;
+    line-height: 1.25; margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header h1 span { display: block; font-size: var(--fs-xl); opacity:.85; }
+  .header p {
+    font-size: var(--fs-sm); color: #888; line-height: 1.6;
+  }
+  .landing-img {
+    width: 100%; border-radius: var(--radius);
+    margin-bottom: var(--space-lg);
+    box-shadow: var(--shadow-lg);
+    display: block;
+  }
+  .card {
+    background: var(--card); border: 2px solid var(--border);
+    border-radius: var(--radius); padding: var(--space-xl);
+    box-shadow: var(--shadow); margin-bottom: var(--space-lg);
+    animation: fadeUp .4s ease;
+  }
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+  @keyframes fadeUp   { from { opacity:0; transform:translateY(16px);  } to { opacity:1; transform:none; } }
+  .start-img {
+    width: 100%; border-radius: var(--radius);
+    margin-bottom: var(--space-lg); display: block;
+  }
+  .start-desc {
+    font-size: var(--fs-base); line-height: 1.75;
+    color: #555; margin-bottom: var(--space-lg); text-align: center;
+  }
+  .btn {
+    display: block; width: 100%; padding: 15px 20px;
+    font-size: var(--fs-md); font-weight: 700; font-family: inherit;
+    border: none; border-radius: 99px; cursor: pointer;
+    transition: all .2s; text-align: center;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white; box-shadow: var(--shadow-lg);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(192,38,211,0.35); }
+  .btn-outline {
+    background: transparent; border: 2px solid var(--primary);
+    color: var(--primary); margin-top: var(--space-sm);
+  }
+  .btn-outline:hover { background: var(--primary); color: white; }
+  .progress-wrap {
+    margin-bottom: var(--space-md);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .progress-bar {
+    flex: 1; height: 8px; background: var(--border);
+    border-radius: 99px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 99px; transition: width .4s ease;
+  }
+  .progress-txt { font-size: var(--fs-xs); color: #aaa; white-space: nowrap; }
+  .q-num {
+    font-size: var(--fs-xs); font-weight: 700; color: var(--primary);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: var(--space-xs);
+  }
+  .q-text {
+    font-size: var(--fs-lg); font-weight: 700; line-height: 1.45;
+    margin-bottom: var(--space-xs);
+  }
+  .q-sub {
+    font-size: var(--fs-xs); color: #999; margin-bottom: var(--space-md);
+  }
+  .choices { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .choice-btn {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 13px 16px;
+    background: #faf5ff; border: 2px solid var(--border);
+    border-radius: var(--radius-sm); cursor: pointer;
+    font-size: var(--fs-sm); font-family: inherit; text-align: left;
+    transition: all .18s; line-height: 1.5;
+  }
+  .choice-btn:hover { border-color: var(--primary); background: #f3e8ff; transform: translateX(4px); }
+  .choice-btn.selected { border-color: var(--primary); background: #ede9fe; }
+  .choice-emoji { font-size: 1.4em; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+
+  /* Result */
+  .result-screen { display: none; }
+  .result-type-badge {
+    display: inline-block; padding: 4px 14px;
+    border-radius: 99px; font-size: var(--fs-xs); font-weight: 700;
+    margin-bottom: var(--space-sm); letter-spacing: 1px;
+  }
+  .result-title {
+    font-size: var(--fs-2xl); font-weight: 800; line-height: 1.3;
+    margin-bottom: var(--space-xs);
+  }
+  .result-subtitle {
+    font-size: var(--fs-md); color: #666;
+    margin-bottom: var(--space-md);
+  }
+  .result-img {
+    width: 80%; max-width: 320px; border-radius: var(--radius);
+    margin: 0 auto var(--space-md); display: block;
+  }
+  .result-desc {
+    font-size: var(--fs-base); line-height: 1.75;
+    color: #444; margin-bottom: var(--space-md);
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-md); }
+  .tag {
+    display: inline-block; padding: 4px 12px;
+    background: var(--border); border-radius: 99px;
+    font-size: var(--fs-xs); font-weight: 600; color: var(--primary);
+  }
+  .stat-bar-wrap { margin-bottom: var(--space-md); }
+  .stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .stat-label { font-size: var(--fs-xs); color: #666; width: 64px; flex-shrink: 0; }
+  .stat-bar { flex: 1; height: 8px; background: #eee; border-radius: 99px; overflow: hidden; }
+  .stat-fill { height: 100%; border-radius: 99px; transition: width .6s .1s ease; }
+  .stat-val { font-size: var(--fs-xs); font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
+  .compat-box {
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .compat-item {
+    padding: var(--space-sm); border-radius: var(--radius-sm);
+    text-align: center; border: 2px solid;
+  }
+  .compat-label { font-size: var(--fs-xs); font-weight: 700; margin-bottom: 8px; }
+  .compat-emoji { font-size: 1.5em; display: block; margin-bottom: 4px; }
+  .compat-name { font-size: var(--fs-xs); color: #666; }
+  .compat-img-wrap { width: 64px; height: 64px; margin: 0 auto 4px; border-radius: 50%; overflow: hidden; }
+  .compat-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .section-title {
+    font-size: var(--fs-md); font-weight: 800;
+    margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 6px;
+  }
+  .share-btns { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .share-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 20px; border-radius: 99px; font-size: var(--fs-sm);
+    font-weight: 700; cursor: pointer; border: none; font-family: inherit; transition: all .2s;
+  }
+  .share-kakao { background: #FEE500; color: #3C1E1E; }
+  .share-kakao:hover { background: #f0d700; }
+  .share-copy  { background: #f1f5f9; color: #334155; border: 2px solid #e2e8f0; }
+  .share-copy:hover  { background: #e2e8f0; }
+  .share-dl    { background: var(--primary); color: white; }
+  .share-dl:hover    { opacity: .9; }
+  .more-tests { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .more-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 13px 16px; border-radius: var(--radius-sm);
+    background: #faf5ff; border: 2px solid var(--border);
+    text-decoration: none; color: inherit; transition: all .18s;
+  }
+  .more-item:hover { border-color: var(--primary); transform: translateX(4px); }
+  .more-item-emoji { font-size: 1.6em; }
+  .more-item-info { flex: 1; }
+  .more-item-title { font-weight: 700; font-size: var(--fs-sm); }
+  .more-item-sub { font-size: var(--fs-xs); color: #999; }
+  .footer {
+    background: #2a2a3a; color: #aaa; text-align: center;
+    padding: 20px; font-size: var(--fs-xs); margin-top: 40px;
+  }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" id="langBtn" onclick="toggleLang()">🌏 EN</button>
+
+<div class="container">
+
+  <!-- 상단 광고 -->
+  <div class="ad-slot ad-top">📢 광고 영역 (상단 배너)</div>
+
+  <!-- ① 랜딩/시작 화면 -->
+  <div id="startScreen">
+    <div class="header">
+      <h1 id="mainTitle">내가 만약 아이돌이라면?<span id="mainSubtitle">나는 어떤 아이돌이 될까? 🎤</span></h1>
+      <p id="mainDesc">12가지 상황극으로 알아보는 나의 아이돌 유형!</p>
+    </div>
+
+    <div class="card">
+      <img src="images/idol/start.png" class="start-img" alt="아이돌 테스트 시작">
+      <p class="start-desc" id="startDesc">
+        연습생 생활을 마치고 드디어 데뷔!<br>
+        과연 나는 그룹에서 어떤 포지션을 차지하게 될까?<br>
+        <span style="opacity:.7">소요시간: 약 2분</span>
+      </p>
+      <button class="btn btn-primary" onclick="startTest()" id="startBtn">🎤 데뷔 시작하기</button>
+    </div>
+
+    <div class="ad-slot ad-mid" id="adMid">📢 중간 광고 영역</div>
+  </div>
+
+  <!-- ② 질문 화면 -->
+  <div id="quizScreen" class="hidden">
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <span class="progress-txt" id="progressTxt">0 / 6</span>
+    </div>
+    <div class="card" id="qCard">
+      <!-- 질문 내용은 JS로 렌더링 -->
+    </div>
+  </div>
+
+  <!-- ③ 결과 화면 -->
+  <div id="resultScreen" class="result-screen">
+    <div class="card" id="resultCard">
+      <span class="result-type-badge" id="rBadge"></span>
+      <div class="result-title" id="rTitle"></div>
+      <div class="result-subtitle" id="rSub"></div>
+      <img id="rImg" class="result-img" alt="결과 이미지">
+      <div class="result-desc" id="rDesc"></div>
+      <div class="tags" id="rTags"></div>
+      <div class="stat-bar-wrap" id="rStats"></div>
+
+      <!-- 궁합 섹션 -->
+      <div class="section-title" id="rCompatTitle">🎭 나와 잘 맞는 & 안 맞는 멤버 유형</div>
+      <div class="compat-box" id="rCompat"></div>
+
+      <!-- 광고 -->
+      <div class="ad-slot ad-result">📢 광고 영역 (결과 중간)</div>
+
+      <!-- 공유 -->
+      <div class="section-title" id="rShareTitle">🎉 친구들에게 결과 공유하기!</div>
+      <div class="share-btns">
+        <button class="share-btn share-kakao" onclick="shareKakao()">💬 카카오톡 공유</button>
+        <button class="share-btn share-copy" onclick="copyLink()" id="copyBtn">🔗 링크 복사하기</button>
+        <button class="share-btn share-dl" onclick="downloadResult()">📥 결과 이미지 저장</button>
+      </div>
+    </div>
+
+    <!-- 다시하기 -->
+    <button class="btn btn-outline" onclick="restartTest()" id="restartBtn">🔄 다시 테스트하기</button>
+
+    <!-- 더 보기 -->
+    <div class="card" style="margin-top:var(--space-lg)">
+      <div class="section-title" id="rMoreTitle">🎯 다른 테스트도 해보세요!</div>
+      <div class="more-tests">
+        <a class="more-item" href="animal-test.html">
+          <span class="more-item-emoji">🦊</span>
+          <div class="more-item-info">
+            <div class="more-item-title">나의 패트로누스는?</div>
+            <div class="more-item-sub">내 영혼을 닮은 동물은?</div>
+          </div><span>›</span>
+        </a>
+        <a class="more-item" href="love-style-test.html">
+          <span class="more-item-emoji">💘</span>
+          <div class="more-item-info">
+            <div class="more-item-title">내 짝사랑이 이뤄질 확률은?</div>
+            <div class="more-item-sub">18가지 상황극으로 알아보는 짝사랑 성사율</div>
+          </div><span>›</span>
+        </a>
+        <a class="more-item" href="hell-test.html">
+          <span class="more-item-emoji">🔥</span>
+          <div class="more-item-info">
+            <div class="more-item-title">당신의 지옥은?</div>
+            <div class="more-item-sub">나를 가장 힘들게 하는 것은?</div>
+          </div><span>›</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 하단 광고 -->
+    <div class="ad-slot ad-bottom">📢 광고 영역 (하단 배너)</div>
+  </div>
+
+</div>
+
+<div class="footer">© 2026 아이돌 유형 테스트 · <a href="index.html" style="color:#ddd">🏠 홈</a> · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
+
+<script>
+// ──────────────────────────────────────────
+// 결과 유형 정의 (A~I)
+// ──────────────────────────────────────────
+const TYPES = {
+  A: { color: '#FF6B9D', bg: '#FFF0F8', borderColor: '#FFB3D1' },
+  B: { color: '#FF1493', bg: '#FFF0F9', borderColor: '#FF69B4' },
+  C: { color: '#7B2FBE', bg: '#F5EEFF', borderColor: '#D4AAFF' },
+  D: { color: '#D4A017', bg: '#FFFBEB', borderColor: '#FFD966' },
+  E: { color: '#2563EB', bg: '#EFF6FF', borderColor: '#93C5FD' },
+  F: { color: '#F97316', bg: '#FFF7ED', borderColor: '#FDBA74' },
+  G: { color: '#6B7280', bg: '#F3F4F6', borderColor: '#D1D5DB' },
+  H: { color: '#65A30D', bg: '#F7FEE7', borderColor: '#BEF264' },
+  I: { color: '#DC2626', bg: '#FEF2F2', borderColor: '#FCA5A5' },
+};
+
+// 타입별 결과 이미지
+const IDOL_RESULT_IMGS = {
+  A: 'images/idol/result_A.png',
+  B: 'images/idol/result_B.png',
+  C: 'images/idol/result_C.png',
+  D: 'images/idol/result_D.png',
+  E: 'images/idol/result_E.png',
+  F: 'images/idol/result_F.png',
+  G: 'images/idol/result_G.png',
+  H: 'images/idol/result_H.png',
+  I: 'images/idol/result_I.png',
+};
+
+// 궁합 이미지 (결과 이미지 재사용)
+const COMPAT_IMG = IDOL_RESULT_IMGS;
+
+function resolveType(scores) {
+  let best = 'A', bestVal = -1;
+  for (const t in scores) {
+    if (scores[t] > bestVal) { bestVal = scores[t]; best = t; }
+  }
+  return best;
+}
+
+// ──────────────────────────────────────────
+// 데이터 (한/영)
+// ──────────────────────────────────────────
+const data = {
+  ko: {
+    ui: {
+      mainTitle:   '내가 만약 아이돌이라면?',
+      mainSubtitle:'나는 어떤 아이돌이 될까? 🎤',
+      mainDesc:    '12가지 상황극으로 알아보는 나의 아이돌 유형!',
+      startDesc:   '연습생 생활을 마치고 드디어 데뷔!<br>과연 나는 그룹에서 어떤 포지션을 차지하게 될까?<br><span style="opacity:.7">소요시간: 약 2분</span>',
+      startBtn:    '🎤 데뷔 시작하기',
+      compatTitle: '🎭 나와 잘 맞는 & 안 맞는 멤버 유형',
+      shareTitle:  '🎉 친구들에게 결과 공유하기!',
+      restartBtn:  '🔄 다시 테스트하기',
+      moreTitle:   '🎯 다른 테스트도 해보세요!',
+      goodLabel:   '찰떡 궁합 멤버 💜',
+      badLabel:    '충돌 주의 멤버 ⚡',
+      copyOk:      '🔗 링크가 복사되었어요!',
+      langBtn:     '🌏 EN',
+    },
+    questions: [
+      {
+        q: '길을 걷다가 연예기획사 캐스터가 다가와 명함을 내밀었다. 나의 반응은?',
+        sub: '(솔직하게 골라주세요)',
+        choices: [
+          { emoji: '😍', text: '환하게 웃으며 바로 명함 받음. 나 이쁜 거 알았어!', type: 'A' },
+          { emoji: '💃', text: '카메라가 어디 있나 먼저 찾음. 춤 시범 보여줄 기회?', type: 'C' },
+          { emoji: '😨', text: '무서워서 손 거절하고 도망감. 나 그런 거 아닌데...', type: 'G' },
+          { emoji: '😒', text: '받긴 했는데 귀찮아서 그냥 버림', type: 'I' },
+        ]
+      },
+      {
+        q: '학교 축제 무대에 서게 됐다! 나의 포지션은?',
+        sub: '(가장 어울리는 모습을 골라주세요)',
+        choices: [
+          { emoji: '👑', text: '맨 앞 센터. 조명 독차지하고 팬들 시선 집중!', type: 'A' },
+          { emoji: '🔥', text: '댄서로 섰는데 내 춤에 모두 집중하기 시작함', type: 'C' },
+          { emoji: '🎙️', text: '노래보다 MC가 더 잘 맞음. 분위기 메이커!', type: 'F' },
+          { emoji: '😅', text: '안무 까먹어서 어물쩡어물쩡... 민폐 캐릭터', type: 'H' },
+        ]
+      },
+      {
+        q: '나에게 열광하는 남자팬이 생겼다! 나의 반응은?',
+        sub: '(본능에 충실하게 골라주세요)',
+        choices: [
+          { emoji: '💅', text: '뿌듯함. 역시 내 외모 + 끼는 어딜 가도 통해', type: 'A' },
+          { emoji: '💕', text: '팬인지 썸남인지 모르겠는데... 일단 만나봐야지', type: 'B' },
+          { emoji: '🤝', text: '팬이 많아야 좋은 리더지! 모두에게 공평하게 대해줌', type: 'E' },
+          { emoji: '😰', text: '부담스럽고 어색함. 사람이 너무 무서워', type: 'G' },
+        ]
+      },
+      {
+        q: '그룹 멤버들이 심하게 다투고 있다! 나는?',
+        sub: '(가장 솔직한 반응을 골라주세요)',
+        choices: [
+          { emoji: '🕺', text: '내가 나서서 댄스 타임으로 분위기 전환 시도!', type: 'C' },
+          { emoji: '🧘', text: '리더답게 중간에서 조율하고 화해시킴', type: 'E' },
+          { emoji: '🛏️', text: '귀찮아서 그냥 방에 들어가서 잠이나 잠', type: 'H' },
+          { emoji: '✈️', text: '이 팀 못 하겠다... 탈퇴 각을 재기 시작', type: 'I' },
+        ]
+      },
+      {
+        q: '시상식에서 나의 최애 남자 아이돌이 먼저 말을 걸어왔다! 어떻게 됐어?',
+        sub: '(꿈같은 순간, 솔직하게!)',
+        choices: [
+          { emoji: '📱', text: '바로 번호 교환하고 다음날 연락이 옴', type: 'B' },
+          { emoji: '🎬', text: '드라마 같이 찍자는 제안을 받음', type: 'D' },
+          { emoji: '📹', text: '예능 프로 같이 나오자고 섭외됨', type: 'F' },
+          { emoji: '🫣', text: '너무 긴장해서 말 한마디 못하고 그 자리 피해버림', type: 'G' },
+        ]
+      },
+      {
+        q: '같은 날 드라마 캐스팅 제안과 앨범 쇼케이스가 겹쳤다! 어떻게 할까?',
+        sub: '(어떤 선택을 하게 될 것 같아?)',
+        choices: [
+          { emoji: '🎭', text: '당연히 드라마 촬영! 연기가 내 진짜 무대야', type: 'D' },
+          { emoji: '⚡', text: '일정 조율해서 둘 다 소화함. 올라운더니까!', type: 'E' },
+          { emoji: '😴', text: '쇼케이스는 가기 싫어... 안무 연습도 못 했는데', type: 'H' },
+          { emoji: '🚪', text: '둘 다 안 감. 이 생활 이제 지쳤어', type: 'I' },
+        ]
+      },
+      {
+        q: '드디어 팬 사인회 날! 수많은 팬들 앞에 앉게 됐다. 나는?',
+        sub: '(팬들을 처음 직접 만나는 순간)',
+        choices: [
+          { emoji: '✨', text: '최대한 예쁜 포즈와 얼굴로 팬들을 완전히 홀려버림', type: 'A' },
+          { emoji: '💌', text: '귀여운 남팬에게 눈 마주치고 살짝 윙크... 이미 다음 만남을 기대 중', type: 'B' },
+          { emoji: '🎬', text: '팬 한 명 한 명의 이야기를 경청. 이게 진정한 퍼포머의 마음가짐', type: 'D' },
+          { emoji: '🎤', text: '각종 개그와 즉흥 리액션으로 팬들을 빵빵 웃김. 나는 타고난 예능인', type: 'F' },
+        ]
+      },
+      {
+        q: '소속사에서 갑자기 해외 투어 참여 제안이 들어왔다! 나의 반응은?',
+        sub: '(새로운 도전 앞에서의 솔직한 나)',
+        choices: [
+          { emoji: '🌏', text: '글로벌 스타로 가는 길! 영어 공부부터 바로 시작', type: 'E' },
+          { emoji: '😓', text: '낯선 나라, 낯선 팬들... 상상만 해도 긴장돼서 속이 안 좋아', type: 'G' },
+          { emoji: '✈️', text: '해외 투어? 비행기 오래 타야 하는데... 일단 자고 생각하자', type: 'H' },
+          { emoji: '🚪', text: '어차피 나 곧 탈퇴할 것 같은데, 투어는 무슨...', type: 'I' },
+        ]
+      },
+      {
+        q: '첫 뮤직비디오 촬영! 감독이 "각자 개성대로 해달라"고 했다. 나는?',
+        sub: '(카메라 앞에서의 나)',
+        choices: [
+          { emoji: '🎥', text: '자연스럽게 카메라 앞에서 빛나기 시작. 감독이 나만 계속 찍음', type: 'A' },
+          { emoji: '💃', text: '안무 씬에서 칼군무로 존재감 폭발! 댄서 포지션에서 빛남', type: 'C' },
+          { emoji: '🎭', text: '대사 없는 씬인데도 눈빛 연기로 감독을 놀라게 함', type: 'D' },
+          { emoji: '😂', text: 'NG가 날 때마다 웃기게 반응해서 현장 분위기를 살림', type: 'F' },
+        ]
+      },
+      {
+        q: '연습실에 갑자기 유명 선배 아이돌이 방문했다! 나는?',
+        sub: '(선배 아이돌 앞에서의 나)',
+        choices: [
+          { emoji: '😏', text: '선배가 잘생겼다면? 바로 다가가서 번호 교환 시도', type: 'B' },
+          { emoji: '🤝', text: '존경하는 마음으로 먼저 다가가 인사하고 조언을 구함', type: 'E' },
+          { emoji: '🫣', text: '너무 긴장해서 구석에 숨음. 선배가 먼저 말 걸어줄 때까지 대기', type: 'G' },
+          { emoji: '😴', text: '연습 중 잠깐 졸다가 선배 등장에 깜짝 놀라서 일어남', type: 'H' },
+        ]
+      },
+      {
+        q: '새 앨범 컨셉 회의 중! 멤버들이 각자 의견을 내고 있다. 내 아이디어는?',
+        sub: '(내가 원하는 컨셉은?)',
+        choices: [
+          { emoji: '🔥', text: '강렬한 댄스 퍼포먼스 위주 컨셉! 무대로 승부해야지', type: 'C' },
+          { emoji: '🎬', text: '스토리가 있는 영화 같은 컨셉을 제안. 나는 연기파니까', type: 'D' },
+          { emoji: '🎉', text: '트렌디하고 예능감 살리는 컨셉으로! 화제성이 중요해', type: 'F' },
+          { emoji: '💭', text: '솔직히 다음 컨셉보다 내가 이 팀에 있을지가 더 고민임', type: 'I' },
+        ]
+      },
+      {
+        q: '드디어 데뷔 1주년 콘서트 날! 무대 위에서 나는?',
+        sub: '(1년을 함께한 팬들 앞에서의 나)',
+        choices: [
+          { emoji: '👑', text: '1년 동안 더 예뻐진 나! 오늘은 특히 더 빛나는 것 같아', type: 'A' },
+          { emoji: '💕', text: '첫사랑 고백처럼... 팬들 앞에서 로맨틱한 멘트로 팬심 폭발', type: 'B' },
+          { emoji: '😭', text: '팬 한 명 한 명의 얼굴이 기억나서 감동의 눈물이 흘러내림', type: 'E' },
+          { emoji: '😬', text: '안무 틀렸지만 미소로 자연스럽게 넘김. 연습 좀 할걸...', type: 'H' },
+        ]
+      },
+    ],
+    results: {
+      A: {
+        badge: 'TYPE A',
+        title: '이쁘기만한 센터 👑',
+        subtitle: '얼굴만 이뻐요. 노래를 시작하면 모두 경악!',
+        desc: '무대 위에서 가장 빛나는 얼굴! 조명이 당신만을 비추는 것 같지만... 노래 실력은 비밀로 하는 게 좋을 것 같아요. 외모 하나만으로도 팬들의 마음을 사로잡는 비주얼 폭격기! 댄스 실력은 평균이지만 그냥 서 있어도 화보 그 자체예요. 아이돌 세계에서 외모 경쟁력은 절반 이상이니까 절대 작은 게 아니에요.',
+        tags: ['#비주얼담당', '#센터포지션', '#외모천재', '#노래는글쎄', '#화보그자체'],
+        stats: { '비주얼': 99, '보컬': 25, '댄스': 50, '예능감': 60, '인성': 70 },
+        goodType: 'E', badType: 'I',
+        goodDesc: '올라운더 리더가 내 부족한 부분을 채워줌',
+        badDesc: '탈퇴형과는 팀워크 제로',
+      },
+      B: {
+        badge: 'TYPE B',
+        title: '연애형 아이돌 💕',
+        subtitle: '매일같이 남자아이돌과 열애설!',
+        desc: '데뷔하자마자 열애설이 터져나오는 로맨티스트! 팬들은 멘붕이지만 당신은 이미 다음 남자를 보고 있어요. 연습실보다 데이트 코스가 더 잘 어울리는 아이돌계의 로맨스 주인공. 팬들이 울고 있을 때 당신은 이미 남자친구와 공항 패션을 찍고 있습니다. 연애도 하나의 재능 아닐까요?',
+        tags: ['#열애설맛집', '#로맨티스트', '#공개연애', '#팬들은멘붕', '#사랑이직업'],
+        stats: { '비주얼': 80, '보컬': 60, '댄스': 60, '예능감': 70, '연애력': 99 },
+        goodType: 'F', badType: 'G',
+        goodDesc: '예능형과 함께면 미디어 노출 극대화',
+        badDesc: '소심한 타입과는 에너지가 맞지 않음',
+      },
+      C: {
+        badge: 'TYPE C',
+        title: '댄스형 아이돌 💃',
+        subtitle: '춤 하나로 여기까지 올라왔어요 (인기는 글쎄요)',
+        desc: '무대 위에서 춤을 추는 순간만큼은 세계 최강! 그러나 무대 밖에서는 존재감이 살짝 흐릿해요. 댄스 실력은 그룹 내 넘버원이지만 캐릭터가 약해 팬들이 이름 기억하는 데 시간이 걸립니다. 그래도 퍼포먼스 영상에서 당신을 발견한 팬들은 "댄서분 누구세요?" 하고 찾아오게 되어 있어요!',
+        tags: ['#댄스머신', '#퍼포먼스특화', '#캐릭터개발중', '#존재감업', '#숨은고수'],
+        stats: { '비주얼': 70, '보컬': 55, '댄스': 97, '예능감': 45, '인성': 75 },
+        goodType: 'A', badType: 'H',
+        goodDesc: '비주얼 센터와 시너지로 완벽한 무대를 만듦',
+        badDesc: '연습 게으른 타입 때문에 화가 남',
+      },
+      D: {
+        badge: 'TYPE D',
+        title: '끼쟁이 아이돌 🎬',
+        subtitle: '연기부터 광고까지! 최고의 끼쟁이, 하지만 멤버들의 질투를 한몸에',
+        desc: '드라마, CF, 뮤지컬까지 섭외가 끊이지 않는 만능 엔터테이너! 하지만 그룹 스케줄은 자주 빠지게 되고... 멤버들의 눈빛이 점점 날카로워지고 있어요. 솔로 활동이 본업이 되어버린 그룹 멤버. 팬들은 "요즘 그룹보다 개인 활동이 더 많은 것 같은데?"라고 말하지만 당신은 오늘도 드라마 현장에 있어요.',
+        tags: ['#멀티엔터테이너', '#연기도잘해', '#CF퀸', '#멤버질투주의', '#솔로행보'],
+        stats: { '비주얼': 85, '보컬': 75, '댄스': 65, '연기력': 95, '예능감': 80 },
+        goodType: 'B', badType: 'G',
+        goodDesc: '연애형과 함께면 화제성 최고',
+        badDesc: '소심한 타입과는 에너지 충돌',
+      },
+      E: {
+        badge: 'TYPE E',
+        title: '올라운더 리더 🌟',
+        subtitle: '이것저것 다 잘하는 그룹의 든든한 중심!',
+        desc: '노래, 댄스, 예능, 비주얼까지 뭐 하나 빠지는 게 없는 그룹의 에이스이자 리더! 멤버들이 싸울 때 중재하고, 팬 사인회에서 모두에게 따뜻하게 대해주는 믿음직한 캡틴. 방송에서도, 무대에서도, 사생활에서도 모범 그 자체. 가끔 "나 혼자 다 하는 것 같아"라는 생각이 들지만 그게 리더의 운명이에요.',
+        tags: ['#올라운더', '#리더십갑', '#그룹의버팀목', '#멀티플레이어', '#믿고보는'],
+        stats: { '비주얼': 85, '보컬': 85, '댄스': 85, '예능감': 85, '리더십': 99 },
+        goodType: 'C', badType: 'I',
+        goodDesc: '댄스형과 함께면 퍼포먼스 완성',
+        badDesc: '탈퇴형과는 비전이 맞지 않음',
+      },
+      F: {
+        badge: 'TYPE F',
+        title: '예능형 아이돌 😂',
+        subtitle: '무대위에서는 그닥이지만 예능 프로에 자주 나가요!',
+        desc: '노래도 댄스도 평균이지만 카메라만 들이대면 빛나는 타고난 예능인! 어떤 예능에 나가도 분위기를 살려주고, 진행자들이 제일 좋아하는 게스트예요. 팬들은 "무대보다 예능이 더 볼 만해"라고 말하지만 그게 뭐 어때요? 대중들에게 웃음을 주는 것도 훌륭한 재능이에요!',
+        tags: ['#예능맛집', '#리액션천재', '#진행자픽', '#웃음제조기', '#방송친화적'],
+        stats: { '비주얼': 70, '보컬': 60, '댄스': 55, '예능감': 99, '인기': 80 },
+        goodType: 'D', badType: 'H',
+        goodDesc: '끼쟁이와 함께면 콘텐츠 폭발',
+        badDesc: '게으른 타입과는 열정 차이가 큼',
+      },
+      G: {
+        badge: 'TYPE G',
+        title: '아이돌 부적응자 😰',
+        subtitle: '아이돌은 적성에 안맞아! 악플에 시달리고 사람이 무서운 아이돌',
+        desc: '사실 아이돌이 꿈이었는데... 막상 데뷔하고 보니 사람들의 시선이 너무 무서워요. 악플 하나에 며칠씩 잠을 못 자고, 팬 사인회에서 손 떨리고, 방송 카메라 앞에서 얼어버리는 내향형 아이돌. 그러나 진정한 팬들은 이런 모습에서 오히려 더 큰 애정을 느끼기도 해요. 꾸준히 치유받고 성장하는 모습을 응원해줄 팬덤이 있을 거예요.',
+        tags: ['#내향형아이돌', '#사람무서움', '#악플내성없음', '#성장형캐릭터', '#응원해줘'],
+        stats: { '비주얼': 65, '보컬': 65, '댄스': 60, '예능감': 30, '멘탈': 20 },
+        goodType: 'E', badType: 'B',
+        goodDesc: '든든한 리더가 옆에 있으면 버틸 수 있음',
+        badDesc: '연애형의 무모함이 너무 부담스러움',
+      },
+      H: {
+        badge: 'TYPE H',
+        title: '연습 게으른 멤버 😴',
+        subtitle: '춤 연습이 항상 게으른 멤버, 열심히 좀 해!',
+        desc: '연습 스케줄이 있는 날엔 항상 지각, 안무를 못 외워서 옆 멤버한테 의지하는 팀의 골칫덩이. 근데 왜인지 미워할 수가 없는 독특한 매력이 있어요. "이번 안무는 좀 어렵지 않아?" 라며 합리화하는 모습도 어딘가 귀엽습니다. 팬들은 "열심히 하는 모습 보여줘!" 하고 말하지만 당신은 오늘도 연습실 소파에서 낮잠 중이에요.',
+        tags: ['#연습지각왕', '#안무까먹음', '#소파가본업', '#열심히도전중?', '#귀여운민폐'],
+        stats: { '비주얼': 75, '보컬': 65, '댄스': 45, '예능감': 65, '성실도': 15 },
+        goodType: 'C', badType: 'E',
+        goodDesc: '댄스형 멤버가 옆에서 가르쳐줌',
+        badDesc: '올라운더 리더의 잔소리가 매일 들려옴',
+      },
+      I: {
+        badge: 'TYPE I',
+        title: '조기 탈퇴 멤버 🚪',
+        subtitle: '팀에서 제일 먼저 탈퇴하는 멤버',
+        desc: '데뷔 첫 날부터 "나 여기서 오래 할 수 있을까?"라는 생각이 들었어요. 그룹 스케줄이 맞지 않고, 비전이 흐릿하고, 이 생활이 내 적성이 아닌 것 같아서 결국 팀을 떠나게 되는 멤버. 하지만 솔로 전향 후 오히려 더 빛나는 케이스가 많아요! 그룹이 아닌 나만의 길을 가는 것이 정답일 수도 있어요.',
+        tags: ['#탈퇴예정자', '#솔로전향후성공', '#그룹부적응', '#내길을간다', '#새출발'],
+        stats: { '비주얼': 80, '보컬': 70, '댄스': 60, '예능감': 55, '팀워크': 10 },
+        goodType: 'D', badType: 'E',
+        goodDesc: '끼쟁이와 함께면 솔로 활동 시너지',
+        badDesc: '올라운더 리더와는 비전 충돌',
+      },
+    },
+  },
+  en: {
+    ui: {
+      mainTitle:   'If I Were a K-pop Idol...',
+      mainSubtitle:'What kind of idol would I be? 🎤',
+      mainDesc:    'Discover your idol type through 12 situational scenarios!',
+      startDesc:   'Training days are over — you\'ve finally debuted!<br>What position will you take in the group?<br><span style="opacity:.7">Takes about 2 minutes</span>',
+      startBtn:    '🎤 Start Your Debut',
+      compatTitle: '🎭 Best & Worst Member Match',
+      shareTitle:  '🎉 Share your result with friends!',
+      restartBtn:  '🔄 Take the Test Again',
+      moreTitle:   '🎯 Try other tests too!',
+      goodLabel:   'Perfect Match 💜',
+      badLabel:    'Watch Out ⚡',
+      copyOk:      '🔗 Link copied!',
+      langBtn:     '🌏 KO',
+    },
+    questions: [
+      {
+        q: 'You\'re walking down the street and a talent agent hands you their card. What do you do?',
+        sub: '(Be honest!)',
+        choices: [
+          { emoji: '😍', text: 'Flash a big smile and take the card immediately. I knew I had it!', type: 'A' },
+          { emoji: '💃', text: 'Look around for a camera first. Could be a chance to show off my moves?', type: 'C' },
+          { emoji: '😨', text: 'Back away and run. That\'s not really my thing...', type: 'G' },
+          { emoji: '😒', text: 'Take it, but throw it away later. Too much hassle.', type: 'I' },
+        ]
+      },
+      {
+        q: 'You\'re performing at a school festival! What\'s your role?',
+        sub: '(Pick what suits you best)',
+        choices: [
+          { emoji: '👑', text: 'Center front. All eyes and spotlights on me!', type: 'A' },
+          { emoji: '🔥', text: 'I\'m a dancer — and everyone ends up watching only me', type: 'C' },
+          { emoji: '🎙️', text: 'MC fits me better than singing. I\'m the vibe-maker!', type: 'F' },
+          { emoji: '😅', text: 'I forgot the choreography and kept fumbling around...', type: 'H' },
+        ]
+      },
+      {
+        q: 'A male fan who is obsessed with you appears! How do you react?',
+        sub: '(Go with your gut)',
+        choices: [
+          { emoji: '💅', text: 'Proud. My looks + charisma work everywhere.', type: 'A' },
+          { emoji: '💕', text: 'Is he a fan or a potential date? Either way, I\'ll meet him!', type: 'B' },
+          { emoji: '🤝', text: 'A good leader treats all fans equally. That\'s just who I am.', type: 'E' },
+          { emoji: '😰', text: 'It\'s uncomfortable. People are just... scary to me.', type: 'G' },
+        ]
+      },
+      {
+        q: 'Your group members are having a heated argument! What do you do?',
+        sub: '(Your most honest reaction)',
+        choices: [
+          { emoji: '🕺', text: 'Jump in with a spontaneous dance break to lighten the mood!', type: 'C' },
+          { emoji: '🧘', text: 'Step in as leader to mediate and help them make up', type: 'E' },
+          { emoji: '🛏️', text: 'Too bothersome. I\'ll just go to my room and sleep.', type: 'H' },
+          { emoji: '✈️', text: 'That\'s it. I\'m starting to seriously think about leaving this team.', type: 'I' },
+        ]
+      },
+      {
+        q: 'At an awards show, your favorite male idol approaches you first. What happens?',
+        sub: '(A dream-come-true moment — be honest!)',
+        choices: [
+          { emoji: '📱', text: 'We exchange numbers and he texts the next day', type: 'B' },
+          { emoji: '🎬', text: 'He offers to cast me in his upcoming drama', type: 'D' },
+          { emoji: '📹', text: 'I get recruited for a variety show together', type: 'F' },
+          { emoji: '🫣', text: 'I freeze up and can\'t say a word, then escape', type: 'G' },
+        ]
+      },
+      {
+        q: 'A drama casting offer and your album showcase are on the same day. What do you do?',
+        sub: '(What do you think you\'d actually choose?)',
+        choices: [
+          { emoji: '🎭', text: 'Drama, obviously! Acting is my true stage.', type: 'D' },
+          { emoji: '⚡', text: 'Rearrange schedules and do both. I\'m an all-rounder!', type: 'E' },
+          { emoji: '😴', text: 'I don\'t want to go to the showcase... I didn\'t even practice the choreo.', type: 'H' },
+          { emoji: '🚪', text: 'I skip both. I\'m exhausted with this lifestyle.', type: 'I' },
+        ]
+      },
+      {
+        q: 'It\'s fan signing day! You finally get to meet fans in person. What do you do?',
+        sub: '(Your honest reaction meeting fans for the first time)',
+        choices: [
+          { emoji: '✨', text: 'Strike the perfect pose with flawless face. I\'ll have them completely obsessed', type: 'A' },
+          { emoji: '💌', text: 'Lock eyes with a cute male fan and give a little wink... Already looking forward to seeing him again', type: 'B' },
+          { emoji: '🎬', text: 'Listen to each fan\'s story carefully. That\'s the true performer\'s mindset', type: 'D' },
+          { emoji: '🎤', text: 'Non-stop jokes and reactions, fans are dying laughing. I\'m a natural entertainer', type: 'F' },
+        ]
+      },
+      {
+        q: 'Your agency suddenly offers you a spot on an overseas tour! Your reaction?',
+        sub: '(Your honest reaction facing a new challenge)',
+        choices: [
+          { emoji: '🌏', text: 'This is the road to global stardom! I\'m starting English practice immediately', type: 'E' },
+          { emoji: '😓', text: 'A foreign country, unfamiliar fans... Just imagining it makes my stomach hurt', type: 'G' },
+          { emoji: '✈️', text: 'Overseas tour? That\'s a long flight... Let me sleep on it', type: 'H' },
+          { emoji: '🚪', text: 'I might be leaving the group soon anyway, why bother with a tour...', type: 'I' },
+        ]
+      },
+      {
+        q: 'It\'s your first music video shoot! The director says "show your individual personality." What do you do?',
+        sub: '(You in front of the camera)',
+        choices: [
+          { emoji: '🎥', text: 'Naturally start glowing on camera. The director keeps filming only me', type: 'A' },
+          { emoji: '💃', text: 'Explode with presence in the dance scene — sharp and powerful choreo', type: 'C' },
+          { emoji: '🎭', text: 'No lines but stunning the director with acting eyes alone', type: 'D' },
+          { emoji: '😂', text: 'Every time there\'s an NG, my funny reaction lifts the whole set\'s mood', type: 'F' },
+        ]
+      },
+      {
+        q: 'A famous senior idol suddenly visits your practice room! What do you do?',
+        sub: '(You in front of a senior idol)',
+        choices: [
+          { emoji: '😏', text: 'If they\'re good-looking? Walk right up and try to get their number', type: 'B' },
+          { emoji: '🤝', text: 'Approach first with respect, introduce yourself and ask for advice', type: 'E' },
+          { emoji: '🫣', text: 'Too nervous, hide in the corner. Wait for them to talk to me first', type: 'G' },
+          { emoji: '😴', text: 'Caught half-asleep during practice, jump up startled when they appear', type: 'H' },
+        ]
+      },
+      {
+        q: 'During the new album concept meeting, everyone\'s sharing ideas. What\'s your pitch?',
+        sub: '(The concept you want)',
+        choices: [
+          { emoji: '🔥', text: 'A strong dance performance concept — win it all on stage', type: 'C' },
+          { emoji: '🎬', text: 'A cinematic, storyline-driven concept. I\'m the acting type after all', type: 'D' },
+          { emoji: '🎉', text: 'Light and trendy — maximize variety appeal and create buzz', type: 'F' },
+          { emoji: '💭', text: 'Honestly I\'m more worried about whether I\'ll even still be in this group', type: 'I' },
+        ]
+      },
+      {
+        q: 'Your debut 1st anniversary concert is finally here! On stage, you are:',
+        sub: '(You in front of fans who\'ve been with you for a year)',
+        choices: [
+          { emoji: '👑', text: 'I\'ve gotten even prettier this past year! I feel especially radiant today', type: 'A' },
+          { emoji: '💕', text: 'Like a first confession of love... Romantic ment that sends fans into a total frenzy', type: 'B' },
+          { emoji: '😭', text: 'Every fan\'s face comes to mind — overwhelmed with emotion and tears', type: 'E' },
+          { emoji: '😬', text: 'Messed up the choreo but covered it with a smile. I should\'ve practiced more...', type: 'H' },
+        ]
+      },
+    ],
+    results: {
+      A: {
+        badge: 'TYPE A',
+        title: 'The Pretty Center 👑',
+        subtitle: 'All looks, no vocals — jaws drop when you actually sing!',
+        desc: 'On stage, you shine brightest of all — the spotlight seems made just for you. But your singing? Best kept a secret. A visual bomb who wins hearts by simply standing there. Dance skills are average, but you\'re basically a walking photo shoot. In the idol world, visual appeal counts for more than half the battle!',
+        tags: ['#VisualAce', '#CenterPosition', '#BeautyGenius', '#VocalsWho', '#LivingPhotoshoot'],
+        stats: { 'Visual': 99, 'Vocal': 25, 'Dance': 50, 'Variety': 60, 'Character': 70 },
+        goodType: 'E', badType: 'I',
+        goodDesc: 'The all-rounder leader covers your weak spots',
+        badDesc: 'Zero teamwork with the quitter type',
+      },
+      B: {
+        badge: 'TYPE B',
+        title: 'The Romance Idol 💕',
+        subtitle: 'Dating rumors with male idols... daily!',
+        desc: 'Barely debuted and dating scandals are already breaking! Fans are in shock, but you\'re already eyeing the next guy. You belong on a date, not in a practice room. While fans are crying, you\'re already snapping airport fashion photos with your boyfriend. Is romance itself a talent? For you, absolutely.',
+        tags: ['#DatingRumorMagnet', '#Romantic', '#PublicRelationship', '#FansMeltdown', '#LoveIsMyJob'],
+        stats: { 'Visual': 80, 'Vocal': 60, 'Dance': 60, 'Variety': 70, 'Romance': 99 },
+        goodType: 'F', badType: 'G',
+        goodDesc: 'With the variety idol, media exposure skyrockets',
+        badDesc: 'Energy clash with the shy, anxious type',
+      },
+      C: {
+        badge: 'TYPE C',
+        title: 'The Dance Idol 💃',
+        subtitle: 'Made it purely on dance skills (popularity... we\'ll see)',
+        desc: 'The moment you hit the stage, you\'re the world\'s best dancer! Off stage though, your presence fades a little. Your dance skills are #1 in the group, but weak character means fans take a while to learn your name. Still, viewers watching performance cuts will be searching "who\'s that dancer??" and finding you!',
+        tags: ['#DanceMachine', '#PerformanceSpecialist', '#BuildingCharacter', '#HiddenAce', '#RiseSlowly'],
+        stats: { 'Visual': 70, 'Vocal': 55, 'Dance': 97, 'Variety': 45, 'Character': 75 },
+        goodType: 'A', badType: 'H',
+        goodDesc: 'Synergy with the visual center makes a perfect stage',
+        badDesc: 'Gets furious at the lazy practice member',
+      },
+      D: {
+        badge: 'TYPE D',
+        title: 'The Multi-Talented Scene-Stealer 🎬',
+        subtitle: 'Acting, CFs, everything! Most talented, but jealousy magnet',
+        desc: 'Drama, CFs, musicals — offers never stop for this all-around entertainer! But group schedules get missed more often, and your fellow members\' eyes are getting sharper by the day. Solo activities have become the main gig. Fans say "you do more solo stuff than group stuff lately," but you\'re already on set.',
+        tags: ['#MultiEntertainer', '#ActingKing', '#CFStar', '#MemberJealousy', '#SoloCareer'],
+        stats: { 'Visual': 85, 'Vocal': 75, 'Dance': 65, 'Acting': 95, 'Variety': 80 },
+        goodType: 'B', badType: 'G',
+        goodDesc: 'With the romance idol, buzz is off the charts',
+        badDesc: 'Energy clash with the anxious type',
+      },
+      E: {
+        badge: 'TYPE E',
+        title: 'The All-Rounder Leader 🌟',
+        subtitle: 'Excels at everything — the group\'s dependable pillar!',
+        desc: 'Vocals, dance, variety, visuals — nothing\'s missing in this group ace and leader! You mediate when members fight, treat every fan warmly at signings, and are the model member on screen, on stage, and in private. Sometimes you think "am I the only one pulling weight here?" — but that\'s just the leader\'s destiny.',
+        tags: ['#AllRounder', '#LeadershipPro', '#GroupBackbone', '#MultiPlayer', '#Trustworthy'],
+        stats: { 'Visual': 85, 'Vocal': 85, 'Dance': 85, 'Variety': 85, 'Leadership': 99 },
+        goodType: 'C', badType: 'I',
+        goodDesc: 'With the dance idol, performances become flawless',
+        badDesc: 'Visions clash with the quitter type',
+      },
+      F: {
+        badge: 'TYPE F',
+        title: 'The Variety Idol 😂',
+        subtitle: 'Not great on stage, but a variety show regular!',
+        desc: 'Average singer and dancer, but put a camera in front of you and you GLOW — a born entertainer! You liven up any variety show and hosts always want you back. Fans say "your variety shows are more worth watching than your concerts," but who cares? Making people laugh is a genuine, irreplaceable talent.',
+        tags: ['#VarietyGold', '#ReactionKing', '#HostFavorite', '#LaughMachine', '#CameraReady'],
+        stats: { 'Visual': 70, 'Vocal': 60, 'Dance': 55, 'Variety': 99, 'Popularity': 80 },
+        goodType: 'D', badType: 'H',
+        goodDesc: 'With the scene-stealer, content goes viral',
+        badDesc: 'Big passion gap with the lazy member',
+      },
+      G: {
+        badge: 'TYPE G',
+        title: 'The Idol Who Doesn\'t Fit 😰',
+        subtitle: 'Not cut out for idol life — hate comments and social anxiety',
+        desc: 'Being an idol was the dream... but now that you\'ve debuted, all those eyes are terrifying. A single hate comment keeps you up for days, your hands shake at fan signings, and you freeze on camera. Still, true fans fall harder for this vulnerability. There\'s definitely a fandom out there rooting for your slow, steady healing and growth.',
+        tags: ['#IntrovertIdol', '#ScaredOfPeople', '#HateSensitive', '#GrowthArc', '#WeRootForYou'],
+        stats: { 'Visual': 65, 'Vocal': 65, 'Dance': 60, 'Variety': 30, 'MentalStrength': 20 },
+        goodType: 'E', badType: 'B',
+        goodDesc: 'A steady leader nearby makes it bearable',
+        badDesc: 'The romance idol\'s boldness is overwhelming',
+      },
+      H: {
+        badge: 'TYPE H',
+        title: 'The Lazy Practice Member 😴',
+        subtitle: 'Always late to dance practice. Come on, try harder!',
+        desc: 'Late to every practice session, always leaning on the member next to you because you didn\'t memorize the choreography — the group\'s lovable problem child. Yet somehow, nobody can really hate you. "Isn\'t this choreography kinda hard?" you rationalize, and even that sounds weirdly endearing. While fans beg you to try harder, you\'re already napping on the practice room sofa.',
+        tags: ['#LateKing', '#ForgotChoreo', '#SofaIsMyCalling', '#TryingHard?', '#CutelyUseless'],
+        stats: { 'Visual': 75, 'Vocal': 65, 'Dance': 45, 'Variety': 65, 'Diligence': 15 },
+        goodType: 'C', badType: 'E',
+        goodDesc: 'The dance idol teaches you step by step',
+        badDesc: 'The all-rounder leader never stops nagging you',
+      },
+      I: {
+        badge: 'TYPE I',
+        title: 'The Early Quitter 🚪',
+        subtitle: 'First member to leave the group',
+        desc: 'From day one you wondered, "can I really do this long-term?" Group schedules clash, the vision feels blurry, and this lifestyle just doesn\'t feel like yours — so eventually, you leave. But many early quitters go on to shine even brighter as soloists! Maybe your path was never meant to be with a group after all.',
+        tags: ['#DepatureAnnounced', '#SoloSuccessStory', '#GroupMismatch', '#MyOwnPath', '#FreshStart'],
+        stats: { 'Visual': 80, 'Vocal': 70, 'Dance': 60, 'Variety': 55, 'Teamwork': 10 },
+        goodType: 'D', badType: 'E',
+        goodDesc: 'With the scene-stealer, solo activities sync perfectly',
+        badDesc: 'Vision clashes with the all-rounder leader',
+      },
+    },
+  },
+};
+
+// ──────────────────────────────────────────
+// 상태 변수
+// ──────────────────────────────────────────
+let curLang = 'ko';
+let curQ = 0;
+let scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0 };
+
+// ──────────────────────────────────────────
+// 언어 토글
+// ──────────────────────────────────────────
+function toggleLang() {
+  curLang = curLang === 'ko' ? 'en' : 'ko';
+  const ui = data[curLang].ui;
+  document.getElementById('langBtn').textContent = ui.langBtn;
+
+  // 결과 화면이 보이는지 확인
+  const rs = document.getElementById('resultScreen');
+  const isResult = rs && rs.style.display !== 'none' && rs.style.display !== '';
+  const isQuiz = !document.getElementById('quizScreen').classList.contains('hidden');
+
+  if (isResult) {
+    // 결과 화면 재렌더
+    const type = resolveType(scores);
+    renderResult(type);
+  } else if (isQuiz) {
+    renderQuestion();
+  } else {
+    // 시작 화면
+    document.getElementById('mainTitle').innerHTML = ui.mainTitle;
+    document.getElementById('mainSubtitle').innerHTML = ui.mainSubtitle || '';
+    document.getElementById('mainDesc').textContent = ui.mainDesc;
+    document.getElementById('startDesc').innerHTML = ui.startDesc;
+    document.getElementById('startBtn').textContent = ui.startBtn;
+  }
+}
+
+// ──────────────────────────────────────────
+// 시작
+// ──────────────────────────────────────────
+function startTest() {
+  curQ = 0;
+  scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0 };
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('quizScreen').classList.remove('hidden');
+  renderQuestion();
+}
+
+// ──────────────────────────────────────────
+// 질문 렌더링
+// ──────────────────────────────────────────
+function renderQuestion() {
+  const qs = data[curLang].questions;
+  const total = qs.length;
+  const q = qs[curQ];
+  const pct = Math.round((curQ / total) * 100);
+
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressTxt').textContent = curQ + ' / ' + total;
+
+  const card = document.getElementById('qCard');
+  card.innerHTML =
+    '<div class="q-num">Q' + (curQ + 1) + ' / ' + total + '</div>' +
+    '<div class="q-text">' + q.q + '</div>' +
+    '<div class="q-sub">' + q.sub + '</div>' +
+    '<div class="choices">' +
+    q.choices.map(function(c, i) {
+      return '<button class="choice-btn" onclick="pick(\'' + c.type + '\', this)">' +
+        '<span class="choice-emoji">' + c.emoji + '</span>' +
+        '<span>' + c.text + '</span>' +
+        '</button>';
+    }).join('') +
+    '</div>';
+}
+
+// ──────────────────────────────────────────
+// 선택
+// ──────────────────────────────────────────
+function pick(type, btn) {
+  // 애니메이션
+  btn.classList.add('selected');
+  var allBtns = btn.parentElement.querySelectorAll('.choice-btn');
+  allBtns.forEach(function(b) { b.disabled = true; });
+
+  scores[type] = (scores[type] || 0) + 1;
+  curQ++;
+
+  var total = data[curLang].questions.length;
+  document.getElementById('progressFill').style.width = Math.round((curQ / total) * 100) + '%';
+  document.getElementById('progressTxt').textContent = curQ + ' / ' + total;
+
+  if (curQ >= total) {
+    setTimeout(showResult, 350);
+  } else {
+    setTimeout(renderQuestion, 350);
+  }
+}
+
+// ──────────────────────────────────────────
+// 결과 표시
+// ──────────────────────────────────────────
+function showResult() {
+  const type = resolveType(scores);
+  document.getElementById('quizScreen').classList.add('hidden');
+  var rs = document.getElementById('resultScreen');
+  rs.style.display = 'block';
+  renderResult(type);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderResult(type) {
+  const result = data[curLang].results[type];
+  const ui = data[curLang].ui;
+  const T = TYPES[type];
+
+  // 결과 카드 색상
+  var card = document.getElementById('resultCard');
+  card.style.background = T.bg;
+  card.style.borderColor = T.borderColor;
+
+  // 뱃지
+  var badge = document.getElementById('rBadge');
+  badge.textContent = result.badge;
+  badge.style.background = T.color;
+  badge.style.color = '#fff';
+
+  document.getElementById('rTitle').textContent = result.title;
+  document.getElementById('rTitle').style.color = T.color;
+  document.getElementById('rSub').textContent = result.subtitle;
+
+  // 이미지
+  var img = document.getElementById('rImg');
+  img.src = IDOL_RESULT_IMGS[type];
+  img.alt = result.title;
+
+  document.getElementById('rDesc').textContent = result.desc;
+
+  // 태그
+  var tagsEl = document.getElementById('rTags');
+  tagsEl.innerHTML = result.tags.map(function(t) {
+    return '<span class="tag" style="background:' + T.bg + ';color:' + T.color + ';border:1px solid ' + T.borderColor + '">' + t + '</span>';
+  }).join('');
+
+  // 스탯
+  var statsEl = document.getElementById('rStats');
+  statsEl.innerHTML = Object.entries(result.stats).map(function(entry) {
+    var label = entry[0], val = entry[1];
+    return '<div class="stat-row">' +
+      '<div class="stat-label">' + label + '</div>' +
+      '<div class="stat-bar"><div class="stat-fill" style="width:' + val + '%;background:' + T.color + '"></div></div>' +
+      '<div class="stat-val" style="color:' + T.color + '">' + val + '</div>' +
+      '</div>';
+  }).join('');
+
+  // 궁합
+  document.getElementById('rCompatTitle').textContent = ui.compatTitle;
+  var goodType = result.goodType;
+  var badType = result.badType;
+  var goodT = TYPES[goodType];
+  var badT = TYPES[badType];
+
+  var goodImgSrc = COMPAT_IMG[goodType];
+  var badImgSrc = COMPAT_IMG[badType];
+
+  document.getElementById('rCompat').innerHTML =
+    '<div class="compat-item" style="background:' + goodT.bg + ';border-color:' + goodT.borderColor + '">' +
+      '<div class="compat-label" style="color:' + goodT.color + '">' + ui.goodLabel + '</div>' +
+      '<div class="compat-img-wrap"><img src="' + goodImgSrc + '" alt="' + goodType + '"></div>' +
+      '<div class="compat-name">' + (data[curLang].results[goodType] ? data[curLang].results[goodType].title : goodType) + '</div>' +
+      '<div style="font-size:0.78em;color:#888;margin-top:4px">' + result.goodDesc + '</div>' +
+    '</div>' +
+    '<div class="compat-item" style="background:' + badT.bg + ';border-color:' + badT.borderColor + '">' +
+      '<div class="compat-label" style="color:' + badT.color + '">' + ui.badLabel + '</div>' +
+      '<div class="compat-img-wrap"><img src="' + badImgSrc + '" alt="' + badType + '"></div>' +
+      '<div class="compat-name">' + (data[curLang].results[badType] ? data[curLang].results[badType].title : badType) + '</div>' +
+      '<div style="font-size:0.78em;color:#888;margin-top:4px">' + result.badDesc + '</div>' +
+    '</div>';
+
+  // 공유/다시하기 버튼 레이블
+  document.getElementById('rShareTitle').textContent = ui.shareTitle;
+  document.getElementById('restartBtn').textContent = ui.restartBtn;
+  document.getElementById('copyBtn').textContent = '🔗 ' + (curLang === 'ko' ? '링크 복사하기' : 'Copy Link');
+  document.getElementById('rMoreTitle').textContent = ui.moreTitle;
+}
+
+// ──────────────────────────────────────────
+// 다시하기
+// ──────────────────────────────────────────
+function restartTest() {
+  curQ = 0;
+  scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0 };
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('quizScreen').classList.add('hidden');
+  document.getElementById('startScreen').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ──────────────────────────────────────────
+// 공유 기능
+// ──────────────────────────────────────────
+function shareKakao() {
+  if (typeof Kakao === 'undefined') {
+    copyLink();
+    return;
+  }
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: curLang === 'ko' ? '내가 만약 아이돌이라면? 🎤' : 'What K-pop idol would I be? 🎤',
+      description: curLang === 'ko' ? '12가지 상황극으로 알아보는 나의 아이돌 유형!' : 'Discover your idol type!',
+      imageUrl: window.location.origin + '/images/idol/landing.png',
+      link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
+    },
+    buttons: [{
+      title: curLang === 'ko' ? '나도 테스트하기' : 'Take the test',
+      link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
+    }]
+  });
+}
+
+function copyLink() {
+  var btn = document.getElementById('copyBtn');
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = data[curLang].ui.copyOk;
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = window.location.href;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var orig = btn.textContent;
+    btn.textContent = data[curLang].ui.copyOk;
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  });
+}
+
+function downloadResult() {
+  var type = resolveType(scores);
+  var imgSrc = IDOL_RESULT_IMGS[type];
+  var a = document.createElement('a');
+  a.href = imgSrc;
+  a.download = 'idol-result-' + type + '.png';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function getMsg() {
+  var type = resolveType(scores);
+  var result = data[curLang].results[type];
+  return result ? result.title : '';
+}
+</script>
+</body>
+</html>

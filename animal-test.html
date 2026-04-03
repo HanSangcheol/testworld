@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
 <style>
@@ -166,11 +166,13 @@
   }
   .choice-btn:hover {
     background: color-mix(in srgb, var(--primary) 8%, white);
-    border-color: var(--primary); transform: translateX(4px);
+    border-color: var(--primary);
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--primary) 20%, transparent);
   }
   .choice-btn.selected {
     background: color-mix(in srgb, var(--primary) 12%, white);
-    border-color: var(--primary); transform: scale(1.015);
+    border-color: var(--primary);
+    box-shadow: 0 3px 14px color-mix(in srgb, var(--primary) 25%, transparent);
   }
   .choice-emoji { font-size: clamp(20px,5vw,24px); flex-shrink: 0; padding-top: 1px; }
   .result-screen { display: none; }
@@ -336,10 +338,10 @@
   #animalResultImg svg { display:block; width:100%; }
 
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">🌏 EN</button>
+<button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌏 EN</button>
 <div class="toast" id="toast"></div>
 
 <div class="container">
@@ -353,6 +355,7 @@
 
   <div id="startSection">
     <div class="start-card">
+      <img src="images/animal/start.png" style="width:100%;display:block;border-radius:14px;margin-bottom:18px;" alt="동물 테스트">
       <span style="font-size:56px">🦁</span>
       <p id="startText">호그와트의 여러 상황 속 나의 선택이 패트로누스를 결정합니다.<br><strong>총 22가지 상황극</strong>에 솔직하게 답해보세요!<br><span style="opacity:.7">소요시간: 약 3~4분</span></p>
       <button class="restart-btn" onclick="startTest()" style="margin-bottom:0" id="startBtn">🪄 패트로누스 찾기</button>
@@ -439,7 +442,7 @@
       </a>
       <a class="more-item" href="talent-test.html">
         <span class="more-item-emoji">🌟</span>
-        <div class="more-item-info"><div class="more-item-title">숨겨진 재능 테스트</div><div class="more-item-sub">당신만 모르는 나의 특기는?</div></div><span>›</span>
+        <div class="more-item-info"><div class="more-item-title">나의 재테크 유형 테스트</div><div class="more-item-sub">나에게 맞는 투자 스타일은?</div></div><span>›</span>
       </a>
       <a class="more-item" href="hell-test.html">
         <span class="more-item-emoji">🔥</span>
@@ -1183,1268 +1186,308 @@ function resolveType(scores) {
 }
 
 const ANIMAL_TYPE_SVGS = {
-  A: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcAbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1A1200"/>
-      <stop offset="100%" stop-color="#0D0A00"/>
-    </linearGradient>
-    <linearGradient id="tcAframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E8C840"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#E8C840"/>
-    </linearGradient>
-    <radialGradient id="tcAglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#E8C840" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#0D0A00" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcAtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcAfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcAbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcAglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcAframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#E8C840" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#E8C840" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#E8C840" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#E8C840" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#E8C840" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#E8C840" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#E8C840" letter-spacing="3" opacity=".85">I</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#E8C840" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#E8C840" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#E8C840" letter-spacing="1.5">황금빛 수사슴</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#B8860B" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="155" rx="44" ry="55" fill="#B8860B" opacity=".18"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="155" rx="32" ry="42" fill="#6B4C1A" opacity=".8"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="100" rx="18" ry="22" fill="#7A5520"/>
-    <!-- Neck -->
-    <rect x="83" y="118" width="18" height="22" rx="8" fill="#7A5520"/>
-    <!-- Eyes -->
-    <ellipse cx="86" cy="97" rx="3" ry="3.5" fill="#0A0600"/>
-    <ellipse cx="98" cy="97" rx="3" ry="3.5" fill="#0A0600"/>
-    <circle cx="87" cy="96" r="1" fill="white" opacity=".7"/>
-    <circle cx="99" cy="96" r="1" fill="white" opacity=".7"/>
-    <!-- Antlers left -->
-    <path d="M80,85 L65,60 L58,42" stroke="#B8860B" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <path d="M65,60 L55,50" stroke="#B8860B" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M65,60 L72,48" stroke="#B8860B" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M58,42 L50,34" stroke="#B8860B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M58,42 L65,32" stroke="#B8860B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <!-- Antlers right -->
-    <path d="M104,85 L119,60 L126,42" stroke="#B8860B" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <path d="M119,60 L129,50" stroke="#B8860B" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M119,60 L112,48" stroke="#B8860B" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M126,42 L134,34" stroke="#B8860B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M126,42 L119,32" stroke="#B8860B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <!-- Legs -->
-    <rect x="70" y="192" width="12" height="30" rx="5" fill="#6B4C1A"/>
-    <rect x="86" y="192" width="12" height="30" rx="5" fill="#6B4C1A"/>
-    <rect x="100" y="192" width="11" height="28" rx="5" fill="#5E4015"/>
-    <!-- Golden glow -->
-    <ellipse cx="92" cy="130" rx="38" ry="48" fill="#E8C840" opacity=".08" style="animation:tcAtwink 3s ease-in-out infinite"/>
-    <!-- Sparkles -->
-    <text x="25" y="45" font-size="12" fill="#E8C840" opacity=".6" style="animation:tcAtwink 2s ease-in-out infinite">✦</text>
-    <text x="140" y="55" font-size="10" fill="#E8C840" opacity=".5" style="animation:tcAtwink 2.5s ease-in-out infinite .5s">✧</text>
-    <text x="30" y="170" font-size="8" fill="#E8C840" opacity=".5" style="animation:tcAtwink 3s ease-in-out infinite 1s">✦</text>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#E8C840" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#E8C840" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#E8C840" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#E8C840" font-weight="bold" letter-spacing="1">GOLDEN STAG</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#E8C840" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#E8C840" style="animation:tcAtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#E8C840" style="animation:tcAtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#E8C840" style="animation:tcAtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#E8C840" style="animation:tcAtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  B: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcBbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#001428"/>
-      <stop offset="100%" stop-color="#000C1E"/>
-    </linearGradient>
-    <linearGradient id="tcBframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#90CAF9"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#90CAF9"/>
-    </linearGradient>
-    <radialGradient id="tcBglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#90CAF9" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#000C1E" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcBtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcBfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcBbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcBglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcBframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#90CAF9" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#90CAF9" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#90CAF9" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#90CAF9" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#90CAF9" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#90CAF9" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#90CAF9" letter-spacing="3" opacity=".85">II</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#90CAF9" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#90CAF9" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#90CAF9" letter-spacing="1.5">청명한 수달</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#1565C0" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="150" rx="40" ry="50" fill="#1565C0" opacity=".12"/>
-    <!-- Water ripples -->
-    <ellipse cx="92" cy="185" rx="55" ry="12" fill="none" stroke="#90CAF9" stroke-width="1" opacity=".3"/>
-    <ellipse cx="92" cy="192" rx="45" ry="8" fill="none" stroke="#90CAF9" stroke-width=".8" opacity=".2"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="148" rx="28" ry="45" fill="#2B6A9E" transform="rotate(-10,92,148)"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="95" rx="22" ry="20" fill="#1E5280"/>
-    <!-- Ears -->
-    <ellipse cx="76" cy="82" rx="7" ry="9" fill="#1E5280"/>
-    <ellipse cx="108" cy="82" rx="7" ry="9" fill="#1E5280"/>
-    <ellipse cx="76" cy="82" rx="4" ry="5" fill="#2B6A9E"/>
-    <ellipse cx="108" cy="82" rx="4" ry="5" fill="#2B6A9E"/>
-    <!-- Eyes -->
-    <ellipse cx="85" cy="93" rx="4" ry="4" fill="#0A1E30"/>
-    <ellipse cx="99" cy="93" rx="4" ry="4" fill="#0A1E30"/>
-    <circle cx="86" cy="92" r="1.5" fill="white" opacity=".8"/>
-    <circle cx="100" cy="92" r="1.5" fill="white" opacity=".8"/>
-    <!-- Nose -->
-    <ellipse cx="92" cy="100" rx="4" ry="3" fill="#0A1E30"/>
-    <!-- Whiskers -->
-    <line x1="70" y1="100" x2="82" y2="101" stroke="#90CAF9" stroke-width="1" opacity=".6"/>
-    <line x1="70" y1="104" x2="82" y2="103" stroke="#90CAF9" stroke-width="1" opacity=".6"/>
-    <line x1="102" y1="101" x2="114" y2="100" stroke="#90CAF9" stroke-width="1" opacity=".6"/>
-    <line x1="102" y1="103" x2="114" y2="104" stroke="#90CAF9" stroke-width="1" opacity=".6"/>
-    <!-- Paws -->
-    <ellipse cx="68" cy="155" rx="10" ry="8" fill="#1E5280"/>
-    <ellipse cx="116" cy="155" rx="10" ry="8" fill="#1E5280"/>
-    <!-- Tail -->
-    <path d="M110,175 Q145,160 140,185 Q135,195 115,188" fill="#2B6A9E"/>
-    <!-- Bubble -->
-    <circle cx="50" cy="120" r="6" fill="none" stroke="#90CAF9" stroke-width="1" opacity=".5"/>
-    <circle cx="42" cy="108" r="4" fill="none" stroke="#90CAF9" stroke-width="1" opacity=".4"/>
-    <circle cx="130" cy="130" r="5" fill="none" stroke="#90CAF9" stroke-width="1" opacity=".4"/>
-    <!-- Book floating -->
-    <rect x="60" y="58" width="22" height="16" rx="2" fill="#0D3A6B"/>
-    <rect x="60" y="58" width="3" height="16" rx="1" fill="#1565C0"/>
-    <line x1="65" y1="62" x2="80" y2="62" stroke="#90CAF9" stroke-width=".8" opacity=".5"/>
-    <line x1="65" y1="66" x2="80" y2="66" stroke="#90CAF9" stroke-width=".8" opacity=".4"/>
-    <line x1="65" y1="70" x2="75" y2="70" stroke="#90CAF9" stroke-width=".8" opacity=".3"/>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#90CAF9" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#90CAF9" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#90CAF9" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#90CAF9" font-weight="bold" letter-spacing="1">SILVER OTTER</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#90CAF9" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#90CAF9" style="animation:tcBtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#90CAF9" style="animation:tcBtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#90CAF9" style="animation:tcBtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#90CAF9" style="animation:tcBtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  C: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcCbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#111418"/>
-      <stop offset="100%" stop-color="#0A0E12"/>
-    </linearGradient>
-    <linearGradient id="tcCframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#B0BEC5"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#B0BEC5"/>
-    </linearGradient>
-    <radialGradient id="tcCglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#B0BEC5" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#0A0E12" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcCtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcCfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcCbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcCglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcCframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#B0BEC5" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#B0BEC5" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#B0BEC5" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#B0BEC5" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#B0BEC5" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#B0BEC5" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#B0BEC5" letter-spacing="3" opacity=".85">III</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#B0BEC5" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#B0BEC5" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#B0BEC5" letter-spacing="1.5">은빛 고양이</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#546E7A" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="150" rx="38" ry="48" fill="#546E7A" opacity=".15"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="155" rx="30" ry="44" fill="#37474F"/>
-    <!-- Tail -->
-    <path d="M122,170 Q155,140 150,175 Q145,195 118,185" fill="#37474F"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="100" rx="24" ry="22" fill="#455A64"/>
-    <!-- Ears -->
-    <polygon points="72,84 65,62 82,80" fill="#455A64"/>
-    <polygon points="112,84 119,62 102,80" fill="#455A64"/>
-    <polygon points="74,84 68,67 82,80" fill="#78909C" opacity=".6"/>
-    <polygon points="110,84 116,67 102,80" fill="#78909C" opacity=".6"/>
-    <!-- Silver fur highlight -->
-    <ellipse cx="92" cy="110" rx="18" ry="12" fill="#607D8B" opacity=".5"/>
-    <!-- Eyes — distinctive large cat eyes -->
-    <ellipse cx="84" cy="99" rx="6" ry="5" fill="#90A4AE"/>
-    <ellipse cx="100" cy="99" rx="6" ry="5" fill="#90A4AE"/>
-    <ellipse cx="84" cy="99" rx="2" ry="5" fill="#050A0D"/>
-    <ellipse cx="100" cy="99" rx="2" ry="5" fill="#050A0D"/>
-    <circle cx="83" cy="97" r="1.5" fill="white" opacity=".9"/>
-    <circle cx="99" cy="97" r="1.5" fill="white" opacity=".9"/>
-    <!-- Nose + mouth -->
-    <path d="M88,107 L92,104 L96,107" fill="none" stroke="#90A4AE" stroke-width="1.5"/>
-    <ellipse cx="92" cy="107" rx="3" ry="2" fill="#B0BEC5"/>
-    <!-- Whiskers -->
-    <line x1="66" y1="104" x2="84" y2="106" stroke="#CFD8DC" stroke-width="1" opacity=".7"/>
-    <line x1="66" y1="109" x2="84" y2="108" stroke="#CFD8DC" stroke-width="1" opacity=".7"/>
-    <line x1="100" y1="106" x2="118" y2="104" stroke="#CFD8DC" stroke-width="1" opacity=".7"/>
-    <line x1="100" y1="108" x2="118" y2="109" stroke="#CFD8DC" stroke-width="1" opacity=".7"/>
-    <!-- Paws -->
-    <ellipse cx="70" cy="188" rx="12" ry="8" fill="#455A64"/>
-    <ellipse cx="114" cy="188" rx="12" ry="8" fill="#455A64"/>
-    <!-- Silver glow effect -->
-    <circle cx="92" cy="99" r="28" fill="#B0BEC5" opacity=".04" style="animation:tcCtwink 3s ease-in-out infinite"/>
-    <!-- Moon in bg -->
-    <circle cx="145" cy="42" r="14" fill="#78909C" opacity=".2"/>
-    <circle cx="152" cy="36" r="12" fill="#0A0E12" opacity=".7"/>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#B0BEC5" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#B0BEC5" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#B0BEC5" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#B0BEC5" font-weight="bold" letter-spacing="1">SILVER CAT</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#B0BEC5" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#B0BEC5" style="animation:tcCtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#B0BEC5" style="animation:tcCtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#B0BEC5" style="animation:tcCtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#B0BEC5" style="animation:tcCtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  D: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcDbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#14002A"/>
-      <stop offset="100%" stop-color="#0A001C"/>
-    </linearGradient>
-    <linearGradient id="tcDframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#CE93D8"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#CE93D8"/>
-    </linearGradient>
-    <radialGradient id="tcDglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#CE93D8" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#0A001C" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcDtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcDfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcDbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcDglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcDframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#CE93D8" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#CE93D8" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#CE93D8" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#CE93D8" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#CE93D8" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#CE93D8" letter-spacing="3" opacity=".85">IV</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#CE93D8" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#CE93D8" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#CE93D8" letter-spacing="1.5">달빛 산토끼</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#7B1FA2" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="148" rx="42" ry="52" fill="#7B1FA2" opacity=".12"/>
-    <!-- Moon backdrop -->
-    <circle cx="92" cy="110" r="55" fill="#CE93D8" opacity=".06"/>
-    <circle cx="155" cy="40" r="20" fill="#F3E5F5" opacity=".15"/>
-    <circle cx="162" cy="34" r="16" fill="#14002A" opacity=".8"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="158" rx="28" ry="40" fill="#6A1B9A"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="104" rx="22" ry="20" fill="#7B1FA2"/>
-    <!-- Long ears -->
-    <ellipse cx="80" cy="68" rx="9" ry="28" fill="#7B1FA2" transform="rotate(-8,80,68)"/>
-    <ellipse cx="104" cy="68" rx="9" ry="28" fill="#7B1FA2" transform="rotate(8,104,68)"/>
-    <ellipse cx="80" cy="68" rx="5" ry="22" fill="#CE93D8" opacity=".5" transform="rotate(-8,80,68)"/>
-    <ellipse cx="104" cy="68" rx="5" ry="22" fill="#CE93D8" opacity=".5" transform="rotate(8,104,68)"/>
-    <!-- Eyes — round and dreamy -->
-    <ellipse cx="85" cy="103" rx="5.5" ry="6" fill="#0A0015"/>
-    <ellipse cx="99" cy="103" rx="5.5" ry="6" fill="#0A0015"/>
-    <circle cx="84" cy="101" r="2" fill="white" opacity=".85"/>
-    <circle cx="98" cy="101" r="2" fill="white" opacity=".85"/>
-    <!-- Star reflection in eyes -->
-    <circle cx="87" cy="105" r=".8" fill="#CE93D8" opacity=".8"/>
-    <circle cx="101" cy="105" r=".8" fill="#CE93D8" opacity=".8"/>
-    <!-- Nose -->
-    <ellipse cx="92" cy="112" rx="3.5" ry="2.5" fill="#CE93D8"/>
-    <!-- Whiskers -->
-    <line x1="68" y1="110" x2="84" y2="112" stroke="#E1BEE7" stroke-width="1" opacity=".6"/>
-    <line x1="100" y1="112" x2="116" y2="110" stroke="#E1BEE7" stroke-width="1" opacity=".6"/>
-    <!-- Front paws -->
-    <ellipse cx="76" cy="185" rx="11" ry="7" fill="#6A1B9A"/>
-    <ellipse cx="108" cy="185" rx="11" ry="7" fill="#6A1B9A"/>
-    <!-- Floating magical flowers -->
-    <circle cx="44" cy="88" r="5" fill="#CE93D8" opacity=".5"/>
-    <circle cx="44" cy="88" r="2" fill="#E1BEE7" opacity=".7"/>
-    <circle cx="142" cy="100" r="4" fill="#CE93D8" opacity=".4"/>
-    <!-- Stars -->
-    <text x="38" y="52" font-size="14" fill="#CE93D8" opacity=".5" style="animation:tcDtwink 2s ease-in-out infinite">✦</text>
-    <text x="134" y="72" font-size="10" fill="#CE93D8" opacity=".4" style="animation:tcDtwink 3s ease-in-out infinite .7s">✧</text>
-    <text x="40" y="150" font-size="8" fill="#CE93D8" opacity=".4" style="animation:tcDtwink 2.5s ease-in-out infinite 1.2s">✦</text>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#CE93D8" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#CE93D8" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#CE93D8" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#CE93D8" font-weight="bold" letter-spacing="1">MOON HARE</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#CE93D8" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#CE93D8" style="animation:tcDtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#CE93D8" style="animation:tcDtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#CE93D8" style="animation:tcDtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#CE93D8" style="animation:tcDtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  E: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcEbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0A0E12"/>
-      <stop offset="100%" stop-color="#060A0D"/>
-    </linearGradient>
-    <linearGradient id="tcEframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#90A4AE"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#90A4AE"/>
-    </linearGradient>
-    <radialGradient id="tcEglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#90A4AE" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#060A0D" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcEtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcEfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcEbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcEglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcEframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#90A4AE" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#90A4AE" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#90A4AE" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#90A4AE" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#90A4AE" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#90A4AE" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#90A4AE" letter-spacing="3" opacity=".85">V</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#90A4AE" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#90A4AE" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#90A4AE" letter-spacing="1.5">회빛 늑대</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#37474F" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="148" rx="45" ry="52" fill="#37474F" opacity=".15"/>
-    <!-- Forest bg -->
-    <rect x="0" y="130" width="184" height="80" fill="#0A0E12" opacity=".3"/>
-    <polygon points="20,130 35,90 50,130" fill="#1B2A33" opacity=".7"/>
-    <polygon points="50,130 65,85 80,130" fill="#1B2A33" opacity=".7"/>
-    <polygon points="110,130 125,88 140,130" fill="#1B2A33" opacity=".7"/>
-    <polygon points="140,130 158,92 172,130" fill="#1B2A33" opacity=".7"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="155" rx="38" ry="45" fill="#455A64"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="100" rx="26" ry="24" fill="#546E7A"/>
-    <!-- Pointed ears -->
-    <polygon points="72,85 65,58 84,82" fill="#546E7A"/>
-    <polygon points="112,85 119,58 100,82" fill="#546E7A"/>
-    <polygon points="74,85 68,64 84,82" fill="#607D8B" opacity=".5"/>
-    <polygon points="110,85 116,64 100,82" fill="#607D8B" opacity=".5"/>
-    <!-- Fur texture on face -->
-    <ellipse cx="92" cy="108" rx="20" ry="14" fill="#607D8B" opacity=".4"/>
-    <ellipse cx="92" cy="98" rx="8" ry="6" fill="#78909C" opacity=".3"/>
-    <!-- Eyes — fierce yellow -->
-    <ellipse cx="83" cy="98" rx="5.5" ry="5" fill="#E65100"/>
-    <ellipse cx="101" cy="98" rx="5.5" ry="5" fill="#E65100"/>
-    <ellipse cx="83" cy="98" rx="2" ry="5" fill="#050809"/>
-    <ellipse cx="101" cy="98" rx="2" ry="5" fill="#050809"/>
-    <circle cx="82" cy="96" r="1.5" fill="white" opacity=".8"/>
-    <circle cx="100" cy="96" r="1.5" fill="white" opacity=".8"/>
-    <!-- Snout -->
-    <ellipse cx="92" cy="112" rx="14" ry="10" fill="#546E7A"/>
-    <ellipse cx="92" cy="108" rx="7" ry="5" fill="#37474F"/>
-    <ellipse cx="92" cy="106" rx="4" ry="3" fill="#263238"/>
-    <!-- Mouth line -->
-    <path d="M85,115 Q92,120 99,115" fill="none" stroke="#37474F" stroke-width="1.5"/>
-    <!-- Fangs -->
-    <polygon points="88,117 86,124 90,117" fill="white" opacity=".8"/>
-    <polygon points="96,117 98,124 94,117" fill="white" opacity=".8"/>
-    <!-- Legs / paws -->
-    <ellipse cx="66" cy="188" rx="14" ry="9" fill="#455A64"/>
-    <ellipse cx="118" cy="188" rx="14" ry="9" fill="#455A64"/>
-    <!-- Moon behind wolf -->
-    <circle cx="92" cy="78" r="22" fill="#90A4AE" opacity=".08" style="animation:tcEtwink 3s ease-in-out infinite"/>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#90A4AE" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#90A4AE" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#90A4AE" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#90A4AE" font-weight="bold" letter-spacing="1">GREY WOLF</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#90A4AE" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#90A4AE" style="animation:tcEtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#90A4AE" style="animation:tcEtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#90A4AE" style="animation:tcEtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#90A4AE" style="animation:tcEtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  F: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcFbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1E0500"/>
-      <stop offset="100%" stop-color="#0F0200"/>
-    </linearGradient>
-    <linearGradient id="tcFframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FF7043"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#FF7043"/>
-    </linearGradient>
-    <radialGradient id="tcFglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#FF7043" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#0F0200" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcFtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcFfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcFbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcFglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcFframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#FF7043" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#FF7043" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#FF7043" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#FF7043" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#FF7043" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#FF7043" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#FF7043" letter-spacing="3" opacity=".85">VI</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#FF7043" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#FF7043" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#FF7043" letter-spacing="1.5">붉은 불사조</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#BF360C" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="130" rx="55" ry="70" fill="#BF360C" opacity=".1"/>
-    <!-- Flame backdrop -->
-    <ellipse cx="92" cy="160" rx="50" ry="40" fill="#FF7043" opacity=".06"/>
-    <!-- Rising flames -->
-    <path d="M55,200 Q45,150 65,120 Q55,140 75,130" fill="#E64A19" opacity=".3"/>
-    <path d="M92,200 Q80,140 92,100 Q104,140 92,200" fill="#FF7043" opacity=".25"/>
-    <path d="M129,200 Q135,155 115,130 Q125,148 108,135" fill="#E64A19" opacity=".3"/>
-    <!-- Wings -->
-    <path d="M92,130 Q45,80 30,50 Q55,70 70,95 Q80,108 92,120" fill="#C62828" opacity=".8"/>
-    <path d="M92,130 Q139,80 154,50 Q129,70 114,95 Q104,108 92,120" fill="#BF360C" opacity=".8"/>
-    <!-- Wing feather details -->
-    <path d="M92,120 Q60,85 40,55" stroke="#FF7043" stroke-width="1.5" fill="none" opacity=".5"/>
-    <path d="M92,120 Q55,90 38,65" stroke="#FF8A65" stroke-width="1" fill="none" opacity=".4"/>
-    <path d="M92,120 Q124,85 144,55" stroke="#FF7043" stroke-width="1.5" fill="none" opacity=".5"/>
-    <path d="M92,120 Q129,90 146,65" stroke="#FF8A65" stroke-width="1" fill="none" opacity=".4"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="140" rx="22" ry="32" fill="#C62828"/>
-    <!-- Neck -->
-    <rect x="85" y="108" width="14" height="22" rx="6" fill="#C62828"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="100" rx="18" ry="17" fill="#D32F2F"/>
-    <!-- Crest feathers -->
-    <path d="M84,88 Q75,68 78,52" stroke="#FF7043" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M92,86 Q90,65 93,50" stroke="#FF5722" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M100,88 Q109,68 106,52" stroke="#FF7043" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <!-- Eyes — golden fire -->
-    <ellipse cx="86" cy="99" rx="4.5" ry="4.5" fill="#FF8F00"/>
-    <ellipse cx="98" cy="99" rx="4.5" ry="4.5" fill="#FF8F00"/>
-    <ellipse cx="86" cy="99" rx="2" ry="4.5" fill="#050200"/>
-    <ellipse cx="98" cy="99" rx="2" ry="4.5" fill="#050200"/>
-    <circle cx="85" cy="97" r="1.5" fill="white" opacity=".8"/>
-    <circle cx="97" cy="97" r="1.5" fill="white" opacity=".8"/>
-    <!-- Beak -->
-    <polygon points="88,110 96,110 92,118" fill="#E65100"/>
-    <!-- Tail feathers -->
-    <path d="M80,170 Q60,200 50,210" stroke="#FF7043" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <path d="M92,172 Q92,205 90,215" stroke="#E64A19" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <path d="M104,170 Q124,200 134,210" stroke="#FF7043" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <!-- Ember sparks -->
-    <circle cx="48" cy="90" r="2" fill="#FF7043" opacity=".7" style="animation:tcFtwink 1.5s ease-in-out infinite"/>
-    <circle cx="136" cy="78" r="2.5" fill="#FF9800" opacity=".6" style="animation:tcFtwink 2s ease-in-out infinite .4s"/>
-    <circle cx="40" cy="150" r="1.5" fill="#FF7043" opacity=".5" style="animation:tcFtwink 2.2s ease-in-out infinite .8s"/>
-    <circle cx="145" cy="140" r="2" fill="#FF9800" opacity=".5" style="animation:tcFtwink 1.8s ease-in-out infinite 1s"/>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#FF7043" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#FF7043" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#FF7043" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#FF7043" font-weight="bold" letter-spacing="1">RED PHOENIX</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#FF7043" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#FF7043" style="animation:tcFtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#FF7043" style="animation:tcFtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#FF7043" style="animation:tcFtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#FF7043" style="animation:tcFtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  G: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcGbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#120A00"/>
-      <stop offset="100%" stop-color="#0A0600"/>
-    </linearGradient>
-    <linearGradient id="tcGframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#D7B899"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#D7B899"/>
-    </linearGradient>
-    <radialGradient id="tcGglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#BCAAA4" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#0A0600" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcGtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcGfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcGbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcGglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcGframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#D7B899" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#D7B899" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#D7B899" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#D7B899" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#D7B899" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#D7B899" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#D7B899" letter-spacing="3" opacity=".85">VII</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#D7B899" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#D7B899" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#D7B899" letter-spacing="1.5">황금 올빼미</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#6D4C41" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="145" rx="42" ry="55" fill="#6D4C41" opacity=".15"/>
-    <!-- Branch -->
-    <rect x="10" y="185" width="164" height="12" rx="6" fill="#3E2723"/>
-    <rect x="10" y="185" width="164" height="4" rx="2" fill="#4E342E"/>
-    <!-- Body — round owl body -->
-    <ellipse cx="92" cy="148" rx="34" ry="44" fill="#5D4037"/>
-    <!-- Wing patterns -->
-    <ellipse cx="68" cy="152" rx="22" ry="30" fill="#4E342E" transform="rotate(-12,68,152)"/>
-    <ellipse cx="116" cy="152" rx="22" ry="30" fill="#4E342E" transform="rotate(12,116,152)"/>
-    <!-- Feather texture -->
-    <path d="M60,140 Q68,132 76,140" stroke="#795548" stroke-width="1.5" fill="none" opacity=".6"/>
-    <path d="M60,150 Q68,142 76,150" stroke="#795548" stroke-width="1.5" fill="none" opacity=".6"/>
-    <path d="M108,140 Q116,132 124,140" stroke="#795548" stroke-width="1.5" fill="none" opacity=".6"/>
-    <path d="M108,150 Q116,142 124,150" stroke="#795548" stroke-width="1.5" fill="none" opacity=".6"/>
-    <!-- Belly white -->
-    <ellipse cx="92" cy="155" rx="20" ry="28" fill="#D7CCC8" opacity=".4"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="100" rx="28" ry="28" fill="#6D4C41"/>
-    <!-- Facial disc -->
-    <ellipse cx="92" cy="104" rx="22" ry="20" fill="#8D6E63" opacity=".6"/>
-    <!-- Ear tufts -->
-    <polygon points="72,78 68,58 80,76" fill="#5D4037"/>
-    <polygon points="112,78 116,58 104,76" fill="#5D4037"/>
-    <!-- Eyes — large round owl eyes -->
-    <circle cx="82" cy="100" r="10" fill="#F9A825"/>
-    <circle cx="102" cy="100" r="10" fill="#F9A825"/>
-    <circle cx="82" cy="100" r="6" fill="#050200"/>
-    <circle cx="102" cy="100" r="6" fill="#050200"/>
-    <circle cx="80" cy="97" r="2.5" fill="white" opacity=".9"/>
-    <circle cx="100" cy="97" r="2.5" fill="white" opacity=".9"/>
-    <!-- Beak -->
-    <polygon points="88,111 96,111 92,119" fill="#BF360C" opacity=".8"/>
-    <!-- Talons -->
-    <path d="M72,193 Q68,200 65,205" stroke="#3E2723" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <path d="M78,195 Q76,202 74,207" stroke="#3E2723" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <path d="M112,193 Q116,200 119,205" stroke="#3E2723" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <path d="M106,195 Q108,202 110,207" stroke="#3E2723" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <!-- Wise aura -->
-    <circle cx="92" cy="100" r="32" fill="#D7B899" opacity=".04" style="animation:tcGtwink 4s ease-in-out infinite"/>
-    <!-- Stars -->
-    <text x="38" y="48" font-size="12" fill="#D7B899" opacity=".5" style="animation:tcGtwink 2.5s ease-in-out infinite">✦</text>
-    <text x="140" y="62" font-size="9" fill="#D7B899" opacity=".4" style="animation:tcGtwink 3s ease-in-out infinite .6s">✧</text>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#D7B899" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#D7B899" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#D7B899" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#D7B899" font-weight="bold" letter-spacing="1">GOLDEN OWL</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#D7B899" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#BCAAA4" style="animation:tcGtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#BCAAA4" style="animation:tcGtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#BCAAA4" style="animation:tcGtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#BCAAA4" style="animation:tcGtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  H: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcHbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#000820"/>
-      <stop offset="100%" stop-color="#000412"/>
-    </linearGradient>
-    <linearGradient id="tcHframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#9FA8DA"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#9FA8DA"/>
-    </linearGradient>
-    <radialGradient id="tcHglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#9FA8DA" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#000412" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcHtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcHfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcHbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcHglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcHframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#9FA8DA" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#9FA8DA" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#9FA8DA" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#9FA8DA" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#9FA8DA" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#9FA8DA" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#9FA8DA" letter-spacing="3" opacity=".85">VIII</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#9FA8DA" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#9FA8DA" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#9FA8DA" letter-spacing="1.5">눈빛 흰곰</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#1A237E" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="155" rx="48" ry="58" fill="#1A237E" opacity=".12"/>
-    <!-- Snow ground -->
-    <ellipse cx="92" cy="200" rx="75" ry="15" fill="#E8EAF6" opacity=".1"/>
-    <!-- Snowflakes bg -->
-    <text x="35" y="48" font-size="16" fill="#9FA8DA" opacity=".2" style="animation:tcHtwink 3s ease-in-out infinite">❄</text>
-    <text x="130" y="60" font-size="12" fill="#9FA8DA" opacity=".2" style="animation:tcHtwink 4s ease-in-out infinite .8s">❄</text>
-    <text x="40" y="165" font-size="10" fill="#9FA8DA" opacity=".15" style="animation:tcHtwink 3.5s ease-in-out infinite 1.5s">❄</text>
-    <!-- Body — massive and round -->
-    <ellipse cx="92" cy="158" rx="42" ry="50" fill="#1A237E"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="100" rx="30" ry="28" fill="#283593"/>
-    <!-- Round ears -->
-    <circle cx="68" cy="78" r="12" fill="#1A237E"/>
-    <circle cx="116" cy="78" r="12" fill="#1A237E"/>
-    <circle cx="68" cy="78" r="7" fill="#283593"/>
-    <circle cx="116" cy="78" r="7" fill="#283593"/>
-    <!-- Eyes — small and deep set -->
-    <ellipse cx="82" cy="100" rx="6" ry="5.5" fill="#050812"/>
-    <ellipse cx="102" cy="100" rx="6" ry="5.5" fill="#050812"/>
-    <circle cx="81" cy="98" r="2" fill="white" opacity=".8"/>
-    <circle cx="101" cy="98" r="2" fill="white" opacity=".8"/>
-    <!-- Snout -->
-    <ellipse cx="92" cy="114" rx="16" ry="12" fill="#283593"/>
-    <ellipse cx="92" cy="110" rx="8" ry="6" fill="#1A237E"/>
-    <ellipse cx="92" cy="108" rx="5" ry="4" fill="#050812"/>
-    <!-- Front paws — massive -->
-    <ellipse cx="56" cy="185" rx="18" ry="12" fill="#1A237E"/>
-    <ellipse cx="128" cy="185" rx="18" ry="12" fill="#1A237E"/>
-    <!-- Claws -->
-    <path d="M46,190 Q44,196 43,200" stroke="#3949AB" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <path d="M52,192 Q51,198 50,202" stroke="#3949AB" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <path d="M138,190 Q140,196 141,200" stroke="#3949AB" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <path d="M132,192 Q133,198 134,202" stroke="#3949AB" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <!-- Northern lights effect -->
-    <path d="M0,50 Q45,40 92,55 Q139,70 184,50" fill="none" stroke="#3F51B5" stroke-width="2" opacity=".15"/>
-    <path d="M0,60 Q45,55 92,68 Q139,80 184,58" fill="none" stroke="#5C6BC0" stroke-width="1.5" opacity=".12"/>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#9FA8DA" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#9FA8DA" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#9FA8DA" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#9FA8DA" font-weight="bold" letter-spacing="1">WHITE BEAR</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#9FA8DA" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#9FA8DA" style="animation:tcHtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#9FA8DA" style="animation:tcHtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#9FA8DA" style="animation:tcHtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#9FA8DA" style="animation:tcHtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  I: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcIbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#001412"/>
-      <stop offset="100%" stop-color="#00090C"/>
-    </linearGradient>
-    <linearGradient id="tcIframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#80CBC4"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#80CBC4"/>
-    </linearGradient>
-    <radialGradient id="tcIglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#80CBC4" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#00090C" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcItwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcIfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcIbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcIglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcIframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#80CBC4" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#80CBC4" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#80CBC4" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#80CBC4" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#80CBC4" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#80CBC4" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#80CBC4" letter-spacing="3" opacity=".85">IX</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#80CBC4" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#80CBC4" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#80CBC4" letter-spacing="1.5">은빛 돌고래</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#00695C" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="140" rx="55" ry="65" fill="#00695C" opacity=".12"/>
-    <!-- Ocean waves -->
-    <path d="M0,175 Q25,162 50,175 Q75,188 100,175 Q125,162 150,175 Q175,188 184,175" fill="none" stroke="#80CBC4" stroke-width="1.5" opacity=".3"/>
-    <path d="M0,183 Q30,170 60,183 Q90,196 120,183 Q150,170 184,183" fill="none" stroke="#80CBC4" stroke-width="1" opacity=".2"/>
-    <!-- Water surface -->
-    <rect x="0" y="178" width="184" height="32" fill="#00695C" opacity=".08"/>
-    <!-- Dolphin body - leaping arc -->
-    <ellipse cx="92" cy="130" rx="18" ry="60" fill="#00796B" transform="rotate(-25,92,130)"/>
-    <!-- Fins -->
-    <path d="M104,108 Q125,90 118,115" fill="#006157"/>
-    <!-- Dorsal fin -->
-    <path d="M82,80 Q88,58 96,80" fill="#00796B"/>
-    <!-- Tail -->
-    <path d="M70,175 Q60,188 48,192 Q55,178 62,172" fill="#006157"/>
-    <path d="M70,175 Q72,190 65,198 Q62,185 65,175" fill="#00695C"/>
-    <!-- Head - smooth -->
-    <ellipse cx="108" cy="95" rx="20" ry="14" fill="#00897B" transform="rotate(-30,108,95)"/>
-    <!-- Melon (forehead bump) -->
-    <ellipse cx="112" cy="86" rx="10" ry="8" fill="#00796B" transform="rotate(-20,112,86)"/>
-    <!-- Eye -->
-    <ellipse cx="120" cy="90" rx="4.5" ry="4.5" fill="#041210"/>
-    <circle cx="119" cy="88" r="1.5" fill="white" opacity=".8"/>
-    <!-- Smile -->
-    <path d="M112,100 Q118,104 124,100" fill="none" stroke="#80CBC4" stroke-width="1.5" opacity=".7"/>
-    <!-- Water splashes -->
-    <path d="M55,165 Q50,155 55,148" stroke="#80CBC4" stroke-width="1.5" fill="none" opacity=".5"/>
-    <path d="M60,163 Q58,152 62,146" stroke="#80CBC4" stroke-width="1" fill="none" opacity=".4"/>
-    <!-- Bubbles -->
-    <circle cx="42" cy="130" r="4" fill="none" stroke="#80CBC4" stroke-width="1" opacity=".5"/>
-    <circle cx="34" cy="118" r="3" fill="none" stroke="#80CBC4" stroke-width="1" opacity=".4"/>
-    <circle cx="48" cy="108" r="2" fill="none" stroke="#80CBC4" stroke-width="1" opacity=".35"/>
-    <!-- Sparkle on water -->
-    <text x="130" y="165" font-size="12" fill="#80CBC4" opacity=".5" style="animation:tcItwink 2s ease-in-out infinite">✦</text>
-    <text x="35" y="148" font-size="9" fill="#80CBC4" opacity=".4" style="animation:tcItwink 2.5s ease-in-out infinite .5s">✧</text>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#80CBC4" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#80CBC4" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#80CBC4" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#80CBC4" font-weight="bold" letter-spacing="1">SILVER DOLPHIN</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#80CBC4" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#80CBC4" style="animation:tcItwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#80CBC4" style="animation:tcItwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#80CBC4" style="animation:tcItwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#80CBC4" style="animation:tcItwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-  J: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" style="width:100%;display:block;max-width:320px;margin:0 auto">
-  <defs>
-    <linearGradient id="tcJbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0E0018"/>
-      <stop offset="100%" stop-color="#07000F"/>
-    </linearGradient>
-    <linearGradient id="tcJframe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#CE93D8"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#CE93D8"/>
-    </linearGradient>
-    <radialGradient id="tcJglow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#CE93D8" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#07000F" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      @keyframes tcJtwink{0%,100%{opacity:.3}50%{opacity:1}}
-      @keyframes tcJfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    </style>
-  </defs>
-  <!-- Card background -->
-  <rect width="240" height="380" rx="16" fill="url(#tcJbg)"/>
-  <rect width="240" height="380" rx="16" fill="url(#tcJglow)"/>
-  <!-- Outer ornate border -->
-  <rect x="6" y="6" width="228" height="368" rx="13" fill="none" stroke="url(#tcJframe)" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <rect x="11" y="11" width="218" height="358" rx="10" fill="none" stroke="#CE93D8" stroke-width="1" opacity=".5"/>
-  <!-- Corner ornaments -->
-  <circle cx="18" cy="18" r="5" fill="#CE93D8" opacity=".7"/>
-  <circle cx="222" cy="18" r="5" fill="#CE93D8" opacity=".7"/>
-  <circle cx="18" cy="362" r="5" fill="#CE93D8" opacity=".7"/>
-  <circle cx="222" cy="362" r="5" fill="#CE93D8" opacity=".7"/>
-  <line x1="18" y1="24" x2="18" y2="34" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="18" x2="22" y2="18" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="24" x2="222" y2="34" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="18" x2="228" y2="18" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="18" y1="356" x2="18" y2="346" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="12" y1="362" x2="22" y2="362" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="222" y1="356" x2="222" y2="346" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <line x1="218" y1="362" x2="228" y2="362" stroke="#CE93D8" stroke-width="1.5" opacity=".6"/>
-  <!-- Roman numeral top -->
-  <text x="120" y="36" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#CE93D8" letter-spacing="3" opacity=".85">X</text>
-  <!-- Decorative top divider -->
-  <line x1="30" y1="44" x2="210" y2="44" stroke="#CE93D8" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="44" r="3" fill="#CE93D8" opacity=".7"/>
-  <!-- Title top (Korean) -->
-  <text x="120" y="60" text-anchor="middle" font-family="Nanum Myeongjo,Times New Roman,serif" font-size="11" fill="#CE93D8" letter-spacing="1.5">은빛 여우</text>
-  <!-- Main illustration area -->
-  <rect x="28" y="68" width="184" height="210" rx="8" fill="none" stroke="#6A1B9A" stroke-width="1.5" opacity=".4"/>
-  <!-- Animal illustration -->
-  <g transform="translate(28,68)">
-    <ellipse cx="92" cy="148" rx="45" ry="55" fill="#6A1B9A" opacity=".14"/>
-    <!-- Mystic forest bg -->
-    <polygon points="0,170 20,130 40,170" fill="#1A0030" opacity=".6"/>
-    <polygon points="30,170 50,120 70,170" fill="#1A0030" opacity=".6"/>
-    <polygon points="114,170 134,125 154,170" fill="#1A0030" opacity=".6"/>
-    <polygon points="144,170 164,132 184,170" fill="#1A0030" opacity=".6"/>
-    <!-- Body -->
-    <ellipse cx="92" cy="158" rx="30" ry="42" fill="#6A1B9A"/>
-    <!-- Tail — bushy -->
-    <path d="M120,165 Q160,140 162,170 Q160,192 130,185" fill="#7B1FA2" opacity=".9"/>
-    <path d="M120,165 Q155,148 158,172 Q156,188 128,183" fill="#9C27B0" opacity=".5"/>
-    <path d="M120,165 Q158,158 154,178" stroke="#CE93D8" stroke-width="2" fill="none" opacity=".4"/>
-    <!-- Tail tip white -->
-    <ellipse cx="158" cy="172" rx="8" ry="6" fill="#E1BEE7" opacity=".7"/>
-    <!-- Head -->
-    <ellipse cx="92" cy="98" rx="22" ry="20" fill="#7B1FA2"/>
-    <!-- Pointed ears -->
-    <polygon points="74,84 68,55 86,82" fill="#7B1FA2"/>
-    <polygon points="110,84 116,55 98,82" fill="#7B1FA2"/>
-    <polygon points="76,84 71,60 86,82" fill="#CE93D8" opacity=".35"/>
-    <polygon points="108,84 113,60 98,82" fill="#CE93D8" opacity=".35"/>
-    <!-- Muzzle -->
-    <ellipse cx="92" cy="110" rx="14" ry="10" fill="#8E24AA"/>
-    <ellipse cx="92" cy="106" rx="8" ry="6" fill="#6A1B9A"/>
-    <!-- Eyes — cunning amber -->
-    <ellipse cx="84" cy="96" rx="5.5" ry="5" fill="#FF8F00"/>
-    <ellipse cx="100" cy="96" rx="5.5" ry="5" fill="#FF8F00"/>
-    <ellipse cx="84" cy="96" rx="1.8" ry="5" fill="#060010"/>
-    <ellipse cx="100" cy="96" rx="1.8" ry="5" fill="#060010"/>
-    <circle cx="83" cy="94" r="1.8" fill="white" opacity=".85"/>
-    <circle cx="99" cy="94" r="1.8" fill="white" opacity=".85"/>
-    <!-- Nose -->
-    <ellipse cx="92" cy="113" rx="4" ry="3" fill="#1A0030"/>
-    <!-- Whiskers -->
-    <line x1="68" y1="110" x2="84" y2="112" stroke="#E1BEE7" stroke-width="1" opacity=".6"/>
-    <line x1="68" y1="114" x2="84" y2="114" stroke="#E1BEE7" stroke-width="1" opacity=".5"/>
-    <line x1="100" y1="112" x2="116" y2="110" stroke="#E1BEE7" stroke-width="1" opacity=".6"/>
-    <line x1="100" y1="114" x2="116" y2="114" stroke="#E1BEE7" stroke-width="1" opacity=".5"/>
-    <!-- Paws -->
-    <ellipse cx="72" cy="190" rx="12" ry="8" fill="#6A1B9A"/>
-    <ellipse cx="110" cy="190" rx="12" ry="8" fill="#6A1B9A"/>
-    <!-- Stars/magic -->
-    <text x="36" y="50" font-size="12" fill="#CE93D8" opacity=".5" style="animation:tcJtwink 2.2s ease-in-out infinite">✦</text>
-    <text x="136" y="68" font-size="9" fill="#CE93D8" opacity=".4" style="animation:tcJtwink 3s ease-in-out infinite .6s">✧</text>
-    <circle cx="46" cy="118" r="2" fill="#CE93D8" opacity=".5" style="animation:tcJtwink 2s ease-in-out infinite .3s"/>
-    
-  </g>
-  <!-- Decorative bottom divider -->
-  <line x1="30" y1="290" x2="210" y2="290" stroke="#CE93D8" stroke-width=".8" opacity=".5"/>
-  <circle cx="120" cy="290" r="3" fill="#CE93D8" opacity=".7"/>
-  <!-- Stats area -->
-  <text x="120" y="314" text-anchor="middle" font-family="Times New Roman,serif" font-size="9" fill="#CE93D8" letter-spacing="2" opacity=".7">PATRONUS</text>
-  <!-- Title bottom (English) -->
-  <text x="120" y="332" text-anchor="middle" font-family="Times New Roman,serif" font-size="13" fill="#CE93D8" font-weight="bold" letter-spacing="1">SILVER FOX</text>
-  <!-- Magic runes at bottom -->
-  <text x="120" y="352" text-anchor="middle" font-family="Times New Roman,serif" font-size="10" fill="#CE93D8" opacity=".5" letter-spacing="4">✦ ✧ ✦</text>
-  <!-- Twinkling stars in bg -->
-  <circle cx="40" cy="90" r="1" fill="#CE93D8" style="animation:tcJtwink 2.2s ease-in-out infinite"/>
-  <circle cx="190" cy="110" r="1.2" fill="#CE93D8" style="animation:tcJtwink 3s ease-in-out infinite .5s"/>
-  <circle cx="50" cy="250" r="1" fill="#CE93D8" style="animation:tcJtwink 2.7s ease-in-out infinite 1s"/>
-  <circle cx="195" cy="260" r="1" fill="#CE93D8" style="animation:tcJtwink 2s ease-in-out infinite .3s"/>
-</svg>`,
-}
+  A: `<img src="images/animal/result_A.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 A">`,
+  B: `<img src="images/animal/result_B.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 B">`,
+  C: `<img src="images/animal/result_C.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 C">`,
+  D: `<img src="images/animal/result_D.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 D">`,
+  E: `<img src="images/animal/result_E.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 E">`,
+  F: `<img src="images/animal/result_F.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 F">`,
+  G: `<img src="images/animal/result_G.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 G">`,
+  H: `<img src="images/animal/result_H.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 H">`,
+  I: `<img src="images/animal/result_I.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 I">`,
+  J: `<img src="images/animal/result_J.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="동물 유형 J">`,
+};
 
-/* ── 상태 변수 ── */
+// ============================================================
+// COMPAT IMAGE MAPPING (emoji → result image path)
+// ============================================================
+const ANIMAL_COMPAT_IMG = {
+  '🦌': 'images/animal/result_A.png',
+  '🦦': 'images/animal/result_B.png',
+  '🐱': 'images/animal/result_C.png',
+  '🐇': 'images/animal/result_D.png',
+  '🐺': 'images/animal/result_E.png',
+  '🔥': 'images/animal/result_F.png',
+  '🦉': 'images/animal/result_G.png',
+  '🐻': 'images/animal/result_H.png',
+  '🐻‍❄️': 'images/animal/result_H.png',
+  '🐬': 'images/animal/result_I.png',
+  '🦊': 'images/animal/result_J.png',
+};
+
+// ============================================================
+// STATE
+// ============================================================
 let curLang = 'ko';
 let curQ = 0;
-let scores = { A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0,I:0,J:0 };
-const TOTAL = 22;
+let scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
 
-/* ── 언어 토글 ── */
+// ============================================================
+// 언어 전환
+// ============================================================
 function toggleLang() {
   curLang = curLang === 'ko' ? 'en' : 'ko';
-  applyLang();
-}
-
-function applyLang() {
-  const d = data[curLang].ui;
+  const ui = data[curLang].ui;
+  document.getElementById('langBtn').textContent = ui.langBtn;
+  document.getElementById('mainTitle').innerHTML = ui.mainTitle;
+  document.getElementById('mainDesc').innerHTML = ui.mainDesc;
+  document.getElementById('startText').innerHTML = ui.startText;
+  document.getElementById('startBtn').textContent = ui.startBtn;
   document.documentElement.lang = curLang;
-  const ids = ['langBtn','mainTitle','mainDesc','startText','startBtn','descTitle',
-               'compatTitle','shareTitle','moreTitle','restartBtn'];
-  ids.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (id === 'mainDesc' || id === 'startText') el.innerHTML = d[id] || '';
-    else if (id === 'mainTitle') el.innerHTML = d[id] || '';
-    else el.textContent = d[id] || '';
-  });
+  if (document.getElementById('quizSection').style.display !== 'none') {
+    renderQuestion();
+  } else if (document.getElementById('resultSection').style.display === 'block') {
+    showResult();
+  }
 }
 
-/* ── 테스트 진행 ── */
+// ============================================================
+// 테스트 시작
+// ============================================================
 function startTest() {
-  document.getElementById('startSection').style.display = 'none';
-  document.getElementById('headerSection').style.display = 'none';
-  document.getElementById('quizSection').style.display = 'block';
   curQ = 0;
-  scores = { A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0,I:0,J:0 };
+  scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+  document.getElementById('startSection').style.display = 'none';
+  document.getElementById('quizSection').style.display = 'block';
+  document.getElementById('headerSection').style.display = 'none';
   renderQuestion();
 }
 
+// ============================================================
+// 질문 렌더링
+// ============================================================
 function renderQuestion() {
   const q = data[curLang].questions[curQ];
-  const pct = Math.round((curQ / TOTAL) * 100);
-  document.getElementById('progressLabel').textContent = `${curQ+1} / ${TOTAL}`;
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('questionNum').textContent = `Q${curQ+1}`;
+  const total = data[curLang].questions.length;
+  document.getElementById('progressLabel').textContent = (curQ + 1) + ' / ' + total;
+  document.getElementById('progressBar').style.width = ((curQ + 1) / total * 100) + '%';
+  document.getElementById('questionNum').textContent = 'Q' + (curQ + 1);
   document.getElementById('questionText').textContent = q.q;
   document.getElementById('questionSub').textContent = q.sub || '';
   const container = document.getElementById('choicesContainer');
   container.innerHTML = '';
-  q.choices.forEach(c => {
+  q.choices.forEach(function(c) {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
-    btn.innerHTML = `<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span>`;
-    btn.onclick = () => selectAnswer(c.type, btn);
+    btn.innerHTML = '<span class="choice-emoji">' + c.emoji + '</span><span>' + c.text + '</span>';
+    btn.onclick = function() { pick(c.type, btn); };
     container.appendChild(btn);
   });
-  if (document.getElementById('adMid')) {
-    document.getElementById('adMid').style.display = curQ === 10 ? 'flex' : 'none';
-  }
+  document.getElementById('adMid').style.display = curQ === 5 ? 'flex' : 'none';
 }
 
-function selectAnswer(type, btn) {
-  document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+// ============================================================
+// 선택지 클릭
+// ============================================================
+function pick(type, btn) {
+  if (document.querySelector('.choice-btn.selected')) return;
   btn.classList.add('selected');
-  scores[type] = (scores[type] || 0) + 1;
-  setTimeout(() => {
+  scores[type]++;
+  setTimeout(function() {
     curQ++;
-    if (curQ < TOTAL) {
+    if (curQ < data[curLang].questions.length) {
       renderQuestion();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       showResult();
     }
-  }, 320);
+  }, 400);
 }
 
-function showResult(){
-  document.getElementById('quizSection').style.display='none';
-  document.getElementById('headerSection').style.display='none';
-  document.getElementById('resultSection').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
-  const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
-  const r=data[curLang].results[t],ty=TYPES[t];
-  const hero=document.getElementById('resultHero');
-  hero.style.borderColor=ty.border;hero.style.background=ty.bg;
-  document.getElementById('resultEmoji').textContent=r.emoji;
-  document.getElementById('resultBadge').textContent=r.badge;document.getElementById('resultBadge').style.background=ty.color;
-  document.getElementById('resultName').textContent=r.name;document.getElementById('resultName').style.color=ty.color;
-  document.getElementById('resultTagline').textContent=r.tagline||r.badge||'';
-  // 달 아이콘 스탯 렌더링 (traits 대신)
-  const tb=document.getElementById('traitsContainer');tb.innerHTML='';
-  const statsData = r.stats || r.traits;
-  if(statsData){
-    statsData.forEach(s=>{
-      const val = s.val > 5 ? Math.round(s.val/20) : s.val;
-      tb.innerHTML+=`<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:18px;">
-        <span style="font-weight:800;color:#888;min-width:68px;">${s.label}</span>
-        <span style="letter-spacing:3px;">${'🌙'.repeat(val)}${'<span style="opacity:.2">🌙</span>'.repeat(5-val)}</span>
-      </div>`;
-    });
-  }
-  const tags=document.getElementById('tagsContainer');tags.innerHTML='';
-  r.tags.forEach(tag=>{const sp=document.createElement('span');sp.className='tag';sp.textContent=tag;tags.appendChild(sp);});
-  document.getElementById('resultDesc').innerHTML=r.desc;
+// ============================================================
+// 결과 표시
+// ============================================================
+function showResult() {
+  document.getElementById('quizSection').style.display = 'none';
+  document.getElementById('resultSection').style.display = 'block';
+  document.getElementById('headerSection').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  const aImg = document.getElementById('animalResultImg');
-  if (aImg) aImg.innerHTML = ANIMAL_TYPE_SVGS[t] || '';
-
-  // 듣고싶은말 / 듣기싫은말
-  const wantEl=document.getElementById('resultWantToHear');
-  const dontEl=document.getElementById('resultDontWantToHear');
-  if(wantEl && r.wantToHear) { const we=['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random()*9)]; wantEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+we+'</span>'+r.wantToHear; }
-  if(dontEl && r.dontWantToHear) { const de=['😤','🙅','💢','😬','🫠','😑','🚫','😶','🫤'][Math.floor(Math.random()*9)]; dontEl.innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+de+'</span>'+r.dontWantToHear; }
-  const u=data[curLang].ui;
-  document.getElementById('compatGoodEmoji').textContent=r.compat.goodEmoji;
-  document.getElementById('compatGoodLabel').textContent=u.goodLabel;
-  document.getElementById('compatGoodName').textContent=r.compat.goodName;
-  document.getElementById('compatBadEmoji').textContent=r.compat.badEmoji;
-  document.getElementById('compatBadLabel').textContent=u.badLabel;
-  document.getElementById('compatBadName').textContent=r.compat.badName;
-  document.getElementById('compatGoodDesc').textContent = r.compat.goodDesc || '';
-  document.getElementById('compatBadDesc').textContent  = r.compat.badDesc  || '';
-  if(document.getElementById('compatTitle')) document.getElementById('compatTitle').textContent = u.compatTitle || '';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
-function getMsg(){const t=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);const n=data[curLang].results[t].name;return curLang==='ko'?`내 패트로누스는 "${n}"이래! 🪄 너는 뭐야?`:`My Patronus is "${n}"! 🪄 What's yours?`;}
-
-function downloadResult() {
-  const topType = Object.keys(scores).reduce((a,b) => scores[a] > scores[b] ? a : b);
-  const r  = data[curLang].results[topType];
+  const topType = resolveType(scores);
+  const d = data[curLang];
+  const result = d.results[topType];
+  const ui = d.ui;
   const ty = TYPES[topType];
 
-  if (!r) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
-  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+  // 테마 색상
+  const rHero = document.getElementById('resultHero');
+  if (rHero && ty) { rHero.style.borderColor = ty.border; rHero.style.background = ty.bg; }
+
+  // 기본 정보
+  document.getElementById('resultEmoji').textContent = result.emoji;
+  document.getElementById('resultBadge').textContent = result.badge;
+  document.getElementById('resultName').textContent = result.name;
+  document.getElementById('resultTagline').textContent = result.badge;
+
+  // 스탯 렌더링
+  const traits = document.getElementById('traitsContainer');
+  if (traits && result.stats) {
+    traits.innerHTML = result.stats.map(function(s) {
+      const pct = Math.round(s.val / 5 * 100);
+      return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+        '<span style="font-size:12px;font-weight:800;color:#888;min-width:56px">' + s.label + '</span>' +
+        '<div style="flex:1;background:#eee;border-radius:20px;height:8px;overflow:hidden">' +
+        '<div style="width:' + pct + '%;background:' + ty.color + ';height:100%;border-radius:20px;transition:width .6s"></div>' +
+        '</div>' +
+        '<span style="font-size:11px;font-weight:700;color:' + ty.color + ';min-width:28px;text-align:right">' + pct + '%</span>' +
+        '</div>';
+    }).join('');
+  }
+
+  // 태그 렌더링
+  const tags = document.getElementById('tagsContainer');
+  if (tags && result.tags) {
+    tags.innerHTML = result.tags.map(function(t) {
+      return '<span class="tag">' + t + '</span>';
+    }).join('');
+  }
+
+  // 결과 이미지
+  const imgEl = document.getElementById('animalResultImg');
+  if (imgEl) imgEl.innerHTML = ANIMAL_TYPE_SVGS[topType] || '';
+
+  // 설명
+  const descEl = document.getElementById('resultDesc');
+  if (descEl) descEl.innerHTML = result.desc || '';
+
+  // 듣고 싶은 말 / 듣기 싫은 말
+  const we = ['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random() * 9)];
+  const de = ['😤','🙅','💢','😬','🫠','😑','🚫','😶','🫤'][Math.floor(Math.random() * 9)];
+  const wEl = document.getElementById('resultWantToHear');
+  const dEl = document.getElementById('resultDontWantToHear');
+  if (wEl && result.wantToHear) wEl.innerHTML = '<span style="font-size:30px;display:block;margin-bottom:8px">' + we + '</span>' + result.wantToHear;
+  if (dEl && result.dontWantToHear) dEl.innerHTML = '<span style="font-size:30px;display:block;margin-bottom:8px">' + de + '</span>' + result.dontWantToHear;
+
+  // 궁합 렌더링 (이미지 버전)
+  const gE = document.getElementById('compatGoodEmoji'), gL = document.getElementById('compatGoodLabel'),
+        gN = document.getElementById('compatGoodName'),  gD = document.getElementById('compatGoodDesc'),
+        bE = document.getElementById('compatBadEmoji'),  bL = document.getElementById('compatBadLabel'),
+        bN = document.getElementById('compatBadName'),   bD = document.getElementById('compatBadDesc'),
+        ct = document.getElementById('compatTitle');
+  if (ct) ct.textContent = ui.compatTitle || '💞 잘 맞는 패트로누스';
+  if (gL) gL.textContent = ui.goodLabel || '찰떡 궁합 ✨';
+  if (bL) bL.textContent = ui.badLabel || '조심하세요 ⚡';
+  if (result.compat) {
+    if (gE) { const gImg = ANIMAL_COMPAT_IMG[result.compat.goodEmoji]; gE.innerHTML = gImg ? '<img src="' + gImg + '" style="width:100%;border-radius:10px;display:block;margin-bottom:5px;" alt="궁합 패트로누스">' : result.compat.goodEmoji || ''; }
+    if (gN) gN.textContent = result.compat.goodName || '';
+    if (gD) gD.textContent = result.compat.goodDesc || '';
+    if (bE) { const bImg = ANIMAL_COMPAT_IMG[result.compat.badEmoji]; bE.innerHTML = bImg ? '<img src="' + bImg + '" style="width:100%;border-radius:10px;display:block;margin-bottom:5px;" alt="궁합 패트로누스">' : result.compat.badEmoji || ''; }
+    if (bN) bN.textContent = result.compat.badName || '';
+    if (bD) bD.textContent = result.compat.badDesc || '';
+  }
+
+  // UI 문구
+  const shareEl = document.getElementById('shareTitle');
+  const restartEl = document.getElementById('restartBtn');
+  const moreEl = document.getElementById('moreTitle');
+  const descTitleEl = document.getElementById('descTitle');
+  if (shareEl) shareEl.textContent = ui.shareTitle;
+  if (restartEl) restartEl.textContent = ui.restartBtn;
+  if (moreEl) moreEl.textContent = ui.moreTitle;
+  if (descTitleEl) descTitleEl.textContent = ui.descTitle;
+}
+
+// ============================================================
+// 다시하기
+// ============================================================
+function restartTest() {
+  curQ = 0;
+  scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+  document.getElementById('resultSection').style.display = 'none';
+  document.getElementById('headerSection').style.display = 'block';
+  document.getElementById('startSection').style.display = 'block';
+  document.getElementById('quizSection').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// 공유 텍스트
+// ============================================================
+function getMsg() {
+  const topType = resolveType(scores);
+  const result = data[curLang].results[topType];
+  return result ? (result.name + ' — ' + result.badge) : '';
+}
+
+// ============================================================
+// 결과 저장 (다운로드)
+// ============================================================
+function downloadResult() {
+  const topType = resolveType(scores);
+  const r = data[curLang].results[topType];
+  const ty = TYPES[topType];
+
+  if (!r) {
+    showToast(curLang === 'ko' ? '먼저 테스트를 완료해주세요!' : 'Please complete the test first!');
+    return;
+  }
+  showToast(curLang === 'ko' ? '이미지 만드는 중...' : 'Creating image...');
+
+  const bgColor = ty ? ty.bg : '#FFF';
+  const accentColor = ty ? ty.color : '#B8860B';
+
+  const tagsHtml = (r.tags || []).map(function(t) {
+    return '<span style="display:inline-block;background:white;border:1.5px solid ' + accentColor + '44;color:' + accentColor + ';border-radius:99px;padding:4px 14px;font-size:13px;font-weight:700;margin:3px">' + t + '</span>';
+  }).join('');
+
+  const statsHtml = (r.stats || []).map(function(s) {
+    const pct = Math.round(s.val / 5 * 100);
+    return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
+      '<span style="font-size:13px;font-weight:800;color:#888;min-width:70px">' + s.label + '</span>' +
+      '<div style="flex:1;background:#eee;border-radius:20px;height:8px;overflow:hidden">' +
+      '<div style="width:' + pct + '%;background:' + accentColor + ';height:100%;border-radius:20px"></div>' +
+      '</div>' +
+      '<span style="font-size:12px;font-weight:700;color:' + accentColor + ';min-width:28px;text-align:right">' + pct + '%</span>' +
+      '</div>';
+  }).join('');
+
+  const rawDesc = (r.desc || '').replace(/<[^>]+>/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  const shortDesc = rawDesc.length > 200 ? rawDesc.slice(0, 200) + '...' : rawDesc;
 
   const card = document.createElement('div');
   card.id = '__share_card__';
   card.style.cssText = [
-    'position:fixed','top:-9999px','left:-9999px',
-    'width:420px','padding:0','background:'+ty.bg,
-    'border-radius:24px','overflow:hidden',
-    "font-family:'Gaegu',cursive",
+    'position:fixed', 'top:-9999px', 'left:-9999px',
+    'width:420px', 'padding:0',
+    'background:' + bgColor,
+    'border-radius:24px', 'overflow:hidden',
     'box-shadow:0 8px 40px rgba(0,0,0,.18)',
   ].join(';');
 
-  const tagsHtml = (r.tags||[]).map(t =>
-    `<span style="display:inline-block;background:white;border:1.5px solid ${ty.borderColor};color:${ty.color};border-radius:99px;padding:4px 14px;font-size:16px;font-weight:700;margin:3px">${t}</span>`
-  ).join('');
-
-  const traitsHtml = (r.traits||r.stats||[]).map(tr =>
-    `<div style="margin-bottom:10px">
-      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;margin-bottom:4px">
-        <span>${tr.label}</span><span style="color:${ty.color}">${tr.val}%</span>
-      </div>
-      <div style="background:rgba(0,0,0,.08);border-radius:99px;height:9px;overflow:hidden">
-        <div style="width:${tr.val}%;height:100%;background:linear-gradient(90deg,${ty.color},${ty.color}88);border-radius:99px"></div>
-      </div>
-    </div>`
-  ).join('');
-
-  const rawDesc = (r.desc||'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').trim();
-  const shortDesc = rawDesc.length > 220 ? rawDesc.slice(0,220)+'...' : rawDesc;
-
-  card.innerHTML = `
-    <div style="background:${ty.color};padding:8px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">
-      ✨ TestWorld
-    </div>
-    <div style="padding:28px 24px 20px;text-align:center">
-      <div style="font-size:76px;line-height:1;margin-bottom:12px">${r.emoji}</div>
-      <div style="display:inline-block;background:${ty.color};color:white;border-radius:99px;padding:5px 20px;font-size:16px;font-weight:800;margin-bottom:12px">${r.badge}</div>
-      <div style="font-size:38px;font-weight:700;color:${ty.color};margin-bottom:4px">${r.name||r.title||''}</div>
-      <div style="font-size:18px;color:#777;margin-bottom:20px">${r.tagline||r.subtitle||''}</div>
-      <div style="background:white;border-radius:16px;padding:18px;margin-bottom:16px">${traitsHtml}</div>
-      <div style="margin-bottom:18px">${tagsHtml}</div>
-      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:left;margin-bottom:14px">
-        <div style="font-size:17px;font-weight:800;margin-bottom:10px;color:${ty.color}">💬 분석</div>
-        <div style="font-size:17px;line-height:2;color:#444">${shortDesc}</div>
-      </div>
-      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:center">
-        <div style="font-size:16px;color:#aaa;font-weight:700;margin-bottom:8px">💕 들으면 좋은 말</div>
-        <div style="font-size:20px;font-weight:800;color:${ty.color}">${r.wantToHear||''}</div>
-      </div>
-    </div>
-    <div style="background:${ty.color}33;padding:12px;text-align:center;font-size:15px;color:${ty.color};font-weight:700">
-      나도 해보기 → testworld.kr
-    </div>
-  `;
+  card.innerHTML = '<div style="background:' + accentColor + ';padding:8px 0;text-align:center;font-size:14px;font-weight:800;color:white;letter-spacing:2px">🐾 TestWorld</div>' +
+    '<div style="padding:28px 24px 20px;text-align:center">' +
+    '<div style="font-size:76px;line-height:1;margin-bottom:10px">' + r.emoji + '</div>' +
+    '<div style="font-size:13px;color:#aaa;font-weight:800;margin-bottom:6px">당신의 패트로누스</div>' +
+    '<div style="font-size:30px;font-weight:700;color:' + accentColor + ';margin-bottom:4px">' + r.name + '</div>' +
+    '<div style="font-size:15px;color:#777;margin-bottom:18px">' + r.badge + '</div>' +
+    '<div style="background:white;border-radius:16px;padding:16px;margin-bottom:14px;text-align:left">' + statsHtml + '</div>' +
+    '<div style="margin-bottom:16px">' + tagsHtml + '</div>' +
+    '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;margin-bottom:12px">' +
+    '<div style="font-size:14px;font-weight:800;margin-bottom:8px;color:' + accentColor + '">💬 분석</div>' +
+    '<div style="font-size:14px;line-height:1.9;color:#444">' + shortDesc + '</div>' +
+    '</div>' +
+    '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:center">' +
+    '<div style="font-size:13px;color:#aaa;font-weight:700;margin-bottom:6px">🌟 들으면 기분 좋은 말</div>' +
+    '<div style="font-size:17px;font-weight:800;color:' + accentColor + '">' + (r.wantToHear || '') + '</div>' +
+    '</div>' +
+    '</div>' +
+    '<div style="background:' + accentColor + '22;padding:12px;text-align:center;font-size:13px;color:' + accentColor + ';font-weight:700">나도 해보기 → testworld.kr</div>';
 
   document.body.appendChild(card);
 
   html2canvas(card, {
     scale: 2.5,
     useCORS: true,
-    backgroundColor: ty.bg,
+    backgroundColor: bgColor,
     logging: false,
-  }).then(canvas => {
+  }).then(function(canvas) {
     const link = document.createElement('a');
     link.download = 'testworld-result.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
-    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-  }).catch(e => {
-    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');
-  }).finally(() => {
+    showToast(curLang === 'ko' ? '✅ 저장 완료!' : '✅ Saved!');
+  }).catch(function(e) {
+    showToast(curLang === 'ko' ? '저장 실패. 다시 시도해주세요.' : 'Save failed.');
+  }).finally(function() {
     if (document.body.contains(card)) document.body.removeChild(card);
   });
 }

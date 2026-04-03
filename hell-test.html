@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>당신의 지옥은? 🔥 심리테스트 | What Is Your Hell?</title>
-<meta name="description" content="누구에게나 자신만의 지옥이 있다. 나를 가장 힘들게 하는 것은 무엇일까? 15문항으로 알아보는 나만의 지옥 유형!">
+<meta name="description" content="누구에게나 자신만의 지옥이 있다. 나를 가장 힘들게 하는 것은 무엇일까? 20문항으로 알아보는 나만의 지옥 유형!">
 <meta property="og:title" content="당신의 지옥은? 🔥">
 <meta property="og:description" content="누구에게나 자신만의 지옥이 있다 — 당신의 지옥은 무엇인가요? 결과가 소름돋게 맞아요 😱">
 <meta property="og:image" content="https://via.placeholder.com/1200x630/1A0A0A/FF4500?text=당신의+지옥은%3F+🔥">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
 <style>
@@ -25,16 +25,16 @@
     --fs-2xl:  clamp(22px, 5.5vw, 26px);
     --fs-3xl:  clamp(28px, 7vw,   34px);
     --fs-hero: clamp(56px, 15vw,  80px);
-    --primary:   #E63946;
+    --primary:   #FF4500;
     --secondary: #C77DFF;
-    --bg:        #FFF6F6;
-    --card:      #FFFFFF;
-    --border:    #FFD0D0;
-    --shadow:    0 4px 20px rgba(230,57,70,0.12);
-    --shadow-lg: 0 8px 28px rgba(230,57,70,0.22);
+    --bg:        #080818;
+    --card:      #121228;
+    --border:    #2a1a4a;
+    --shadow:    0 4px 20px rgba(255,69,0,0.18);
+    --shadow-lg: 0 8px 28px rgba(255,69,0,0.28);
     --radius:    18px;
     --radius-sm: 12px;
-    --dark:      #2a1a1a;
+    --dark:      #e8d8f0;
     --space-xs:  clamp(6px, 1.5vw, 8px);
     --space-sm:  clamp(8px, 2vw, 12px);
     --space-md:  clamp(8px, 2.5vw, 16px);
@@ -52,8 +52,23 @@
   body::before {
     content: ''; position: fixed; inset: 0;
     background-image:
-      radial-gradient(circle at 20% 20%, rgba(230,57,70,0.07) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(199,125,255,0.07) 0%, transparent 50%);
+      radial-gradient(circle at 15% 25%, rgba(255,69,0,0.10) 0%, transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(120,40,180,0.12) 0%, transparent 35%),
+      radial-gradient(circle at 50% 80%, rgba(80,20,140,0.15) 0%, transparent 50%),
+      radial-gradient(1px 1px at 10% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 55%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 33% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 45% 5%, rgba(255,255,200,0.8) 0%, transparent 100%),
+      radial-gradient(2px 2px at 80% 25%, rgba(255,255,200,0.7) 0%, transparent 100%),
+      radial-gradient(2px 2px at 5% 50%, rgba(200,200,255,0.7) 0%, transparent 100%);
     pointer-events: none; z-index: 0;
   }
   .container {
@@ -62,10 +77,10 @@
     position: relative; z-index: 1;
   }
   .ad-slot {
-    background: #fff0f0; border: 2px dashed #f0c0c0;
+    background: #1a0a2a; border: 2px dashed #3a1a5a;
     border-radius: var(--radius-sm);
     display: flex; align-items: center; justify-content: center;
-    color: #ccc; font-size: var(--fs-sm); overflow: hidden;
+    color: #666; font-size: var(--fs-sm); overflow: hidden;
   }
   .ad-top    { height: 80px; margin-bottom: var(--space-lg); }
   .ad-mid    { height: 250px; margin: var(--space-lg) 0; display: none; }
@@ -76,7 +91,7 @@
     position: fixed; top: 14px; right: 14px;
     background: var(--card); border: 2px solid var(--primary);
     border-radius: 99px; padding: 5px 14px;
-    font-size: var(--fs-sm); font-weight: 700;
+    font-size: var(--fs-sm); font-weight: 700; color: #e8d8f0;
     cursor: pointer; z-index: 100; box-shadow: var(--shadow); transition: all .2s;
   }
   .lang-toggle:hover { background: var(--primary); color: white; }
@@ -106,7 +121,7 @@
     background: linear-gradient(135deg, var(--primary), #FF9F43);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .header p { font-size: var(--fs-md); color: #888; line-height: 1.7; }
+  .header p { font-size: var(--fs-md); color: #a090b0; line-height: 1.7; }
 
   /* 시작 카드 */
   .start-card {
@@ -116,7 +131,7 @@
     text-align: center; animation: fadeUp .5s ease;
   }
   .start-card p {
-    font-size: var(--fs-md); color: #666;
+    font-size: var(--fs-md); color: #a090b0;
     line-height: 1.8; margin: var(--space-md) 0 var(--space-lg);
   }
   .start-btn {
@@ -134,7 +149,7 @@
   /* 진행 */
   .progress-label { text-align: center; font-size: var(--fs-sm); color: #aaa; margin-bottom: 5px; }
   .progress-wrap {
-    background: #ffe8e8; border-radius: 99px;
+    background: #1a0a2a; border-radius: 99px;
     height: 8px; margin-bottom: var(--space-lg); overflow: hidden;
   }
   .progress-bar {
@@ -162,7 +177,7 @@
     font-size: clamp(16px,4vw,19px); font-weight: 700;
     line-height: 1.55; margin-bottom: 4px; word-break: keep-all;
   }
-  .question-sub { font-size: var(--fs-sm); color: #bbb; margin-bottom: clamp(16px,4vw,22px); }
+  .question-sub { font-size: var(--fs-sm); color: #7a6a8a; margin-bottom: clamp(16px,4vw,22px); }
   .choices { display: flex; flex-direction: column; gap: 8px; }
   .choice-btn {
     background: var(--bg); border: 2px solid var(--border);
@@ -175,12 +190,14 @@
     gap: 10px; line-height: 1.5; word-break: keep-all;
   }
   .choice-btn:hover {
-    background: color-mix(in srgb, var(--primary) 8%, white);
-    border-color: var(--primary); transform: translateX(4px);
+    background: rgba(255,69,0,0.15);
+    border-color: var(--primary);
+    box-shadow: 0 2px 10px rgba(255,69,0,0.25);
   }
   .choice-btn.selected {
-    background: color-mix(in srgb, var(--primary) 12%, white);
-    border-color: var(--primary); transform: scale(1.015);
+    background: rgba(255,69,0,0.20);
+    border-color: var(--primary);
+    box-shadow: 0 3px 14px rgba(255,69,0,0.30);
   }
   .choice-emoji { font-size: clamp(20px,5vw,24px); flex-shrink: 0; padding-top: 1px; }
 
@@ -188,10 +205,11 @@
   .result-screen { display: none; }
   .result-hero {
     background: var(--card); border-radius: var(--radius);
-    padding: clamp(24px,6vw,36px) clamp(18px,5vw,28px) clamp(20px,5vw,28px);
+    padding: clamp(28px,7vw,42px) clamp(20px,5vw,32px) clamp(24px,6vw,32px);
     box-shadow: var(--shadow-lg); border: 3px solid;
     text-align: center; margin-bottom: var(--space-md);
     position: relative; overflow: hidden; animation: fadeUp .5s ease;
+    color: #1a1a2a;
   }
   .result-big-emoji {
     font-size: clamp(64px,16vw,88px); display: block;
@@ -213,7 +231,7 @@
     line-height: 1.2; margin-bottom: var(--space-sm);
   }
   .result-tagline {
-    font-size: var(--fs-md); color: #888;
+    font-size: var(--fs-md); color: #666;
     line-height: 1.6; margin-bottom: var(--space-md);
   }
   .result-desc-card {
@@ -227,7 +245,7 @@
     font-weight: 700; margin-bottom: var(--space-sm);
   }
   .result-desc-card p {
-    font-size: var(--fs-base); color: #555;
+    font-size: var(--fs-base); color: #b0a0c0;
     line-height: 1.85; word-break: keep-all;
     margin-bottom: 1em;
   }
@@ -245,7 +263,7 @@
   .trait-list { display: flex; flex-direction: column; gap: 10px; }
   .trait-item {
     display: flex; align-items: flex-start; gap: 10px;
-    font-size: var(--fs-base); line-height: 1.6; color: #555;
+    font-size: var(--fs-base); line-height: 1.6; color: #b0a0c0;
   }
   .trait-dot {
     width: 8px; height: 8px; border-radius: 50%;
@@ -262,13 +280,13 @@
     font-weight: 700; margin-bottom: var(--space-sm);
   }
   .escape-card p {
-    font-size: var(--fs-base); color: #555;
+    font-size: var(--fs-base); color: #b0a0c0;
     line-height: 1.85; word-break: keep-all;
   }
 
   /* 공유 카드 */
   .share-card {
-    background: linear-gradient(135deg, rgba(230,57,70,0.07), rgba(255,159,67,0.07));
+    background: linear-gradient(135deg, rgba(255,69,0,0.10), rgba(120,40,180,0.10));
     border-radius: var(--radius); padding: clamp(18px,4.5vw,26px);
     box-shadow: var(--shadow); border: 2px solid var(--border);
     text-align: center; margin-bottom: var(--space-md);
@@ -292,11 +310,11 @@
   .restart-btn {
     display: block; width: 100%;
     padding: clamp(12px,3vw,16px);
-    background: white; border: 2px solid var(--border);
+    background: var(--card); border: 2px solid var(--border);
     border-radius: var(--radius-sm); margin-bottom: var(--space-md);
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
     font-size: var(--fs-base); font-weight: 700;
-    color: #888; cursor: pointer; transition: all .2s;
+    color: #8070a0; cursor: pointer; transition: all .2s;
     animation: fadeUp .6s ease .5s both;
   }
   .restart-btn:hover { border-color: var(--primary); color: var(--primary); }
@@ -317,7 +335,7 @@
     transition: all .2s; margin-bottom: 8px;
   }
   .more-item:last-child { margin-bottom: 0; }
-  .more-item:hover { background: color-mix(in srgb, var(--primary) 10%, white); }
+  .more-item:hover { background: color-mix(in srgb, var(--primary) 15%, #121228); }
   .more-item-emoji { font-size: clamp(26px,7vw,30px); flex-shrink: 0; }
   .more-item-info  { flex: 1; }
   .more-item-title { font-size: var(--fs-md); font-weight: 700; }
@@ -325,8 +343,8 @@
 
   /* 푸터 */
   .footer {
-    text-align: center; font-size: var(--fs-xs); color: #ccc;
-    padding: var(--space-lg) 0 0; border-top: 1px solid #f0e8e8; margin-top: var(--space-md);
+    text-align: center; font-size: var(--fs-xs); color: #666;
+    padding: var(--space-lg) 0 0; border-top: 1px solid #1a0a2a; margin-top: var(--space-md);
   }
   .footer a { color: #ddd; text-decoration: none; margin: 0 4px; }
   .footer a:hover { color: var(--primary); }
@@ -335,7 +353,7 @@
   .toast {
     position: fixed; bottom: 28px; left: 50%;
     transform: translateX(-50%) translateY(80px);
-    background: #2a1a1a; color: white;
+    background: #1a0a2a; color: white;
     padding: 11px 24px; border-radius: 99px;
     font-size: var(--fs-sm); font-weight: 700;
     transition: transform .3s ease; z-index: 9999;
@@ -378,115 +396,16 @@
       <p id="mainDesc">누구에게나 자신만의 지옥이 있다<br>나를 가장 힘들게 하는 것은 무엇일까요? ✨</p>
     </div>
 
-    <div class="hell-hero-img">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="hSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#030007"/>
-            <stop offset="45%" stop-color="#19000b"/>
-            <stop offset="100%" stop-color="#580d14"/>
-          </linearGradient>
-          <linearGradient id="hFire" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stop-color="#FF3200"/>
-            <stop offset="60%" stop-color="#FF6600" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#FF9900" stop-opacity="0"/>
-          </linearGradient>
-          <radialGradient id="hMoon" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#CC1100" stop-opacity="0.8"/>
-            <stop offset="50%" stop-color="#880000" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#440000" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="hBlur">
-            <feGaussianBlur stdDeviation="2"/>
-          </filter>
-        </defs>
-        <!-- sky -->
-        <rect width="400" height="190" fill="url(#hSky)"/>
-        <!-- blood moon glow -->
-        <circle cx="200" cy="52" r="45" fill="url(#hMoon)"/>
-        <circle cx="200" cy="52" r="24" fill="#BB1100" opacity="0.65"/>
-        <circle cx="200" cy="52" r="16" fill="#DD2200" opacity="0.5"/>
-        <circle cx="196" cy="48" r="4" fill="#AA1100" opacity="0.4"/>
-        <!-- faint crack-light beams from moon -->
-        <line x1="200" y1="68" x2="185" y2="115" stroke="#FF2200" stroke-width="0.4" opacity="0.35"/>
-        <line x1="200" y1="68" x2="215" y2="118" stroke="#FF2200" stroke-width="0.4" opacity="0.35"/>
-        <line x1="200" y1="68" x2="170" y2="112" stroke="#FF2200" stroke-width="0.4" opacity="0.25"/>
-        <line x1="200" y1="68" x2="228" y2="110" stroke="#FF2200" stroke-width="0.4" opacity="0.25"/>
-        <!-- far distant mountains -->
-        <polygon points="0,160 45,108 80,130 120,88 160,115 195,90 210,102 248,82 285,108 320,88 360,115 400,95 400,190 0,190" fill="#1e0009"/>
-        <!-- mid mountains (darker) -->
-        <polygon points="0,172 35,145 70,158 110,138 155,155 200,135 245,158 290,140 330,156 370,143 400,152 400,190 0,190" fill="#140006"/>
-        <!-- Tall hellish spires/towers -->
-        <rect x="52" y="96" width="7" height="72" fill="#0c0004" rx="1"/>
-        <polygon points="55.5,84 50,98 61,98" fill="#0c0004"/>
-        <rect x="57" y="78" width="3" height="88" fill="#0c0004" rx="1"/>
-        <rect x="270" y="80" width="8" height="80" fill="#0c0004" rx="1"/>
-        <polygon points="274,68 268,84 280,84" fill="#0c0004"/>
-        <rect x="190" y="62" width="10" height="96" fill="#0c0004" rx="1"/>
-        <polygon points="195,50 188,66 202,66" fill="#0c0004"/>
-        <rect x="105" y="112" width="5" height="56" fill="#100005" rx="1"/>
-        <polygon points="107.5,103 104,114 111,114" fill="#100005"/>
-        <rect x="325" y="100" width="6" height="62" fill="#100005" rx="1"/>
-        <polygon points="328,90 323,103 333,103" fill="#100005"/>
-        <rect x="20" y="130" width="4" height="45" fill="#12000a" rx="1"/>
-        <polygon points="22,122 19,133 25,133" fill="#12000a"/>
-        <rect x="375" y="120" width="4" height="52" fill="#12000a" rx="1"/>
-        <polygon points="377,111 374,123 380,123" fill="#12000a"/>
-        <!-- foreground glow on horizon -->
-        <ellipse cx="200" cy="175" rx="200" ry="25" fill="#CC2200" opacity="0.25"/>
-        <!-- fire base layer -->
-        <path d="M0,190 Q18,168 36,178 Q55,158 75,172 Q95,152 115,168 Q135,155 155,170 Q175,155 200,168 Q225,155 245,170 Q265,152 285,168 Q305,155 325,172 Q345,160 365,176 Q382,165 400,172 L400,190Z" fill="#CC2200" opacity="0.6"/>
-        <!-- main flame layer with gradient -->
-        <path d="M0,190 Q12,155 32,168 Q55,132 78,152 Q98,122 120,148 Q140,128 162,152 Q182,132 200,155 Q218,132 238,150 Q258,125 280,150 Q302,128 322,152 Q342,130 368,155 Q385,140 400,152 L400,190Z" fill="url(#hFire)" opacity="0.95"/>
-        <!-- bright inner flames -->
-        <path d="M40,190 Q48,165 58,175 Q68,150 80,168 Q92,145 105,168 L100,190Z" fill="#FF4400" opacity="0.5"/>
-        <path d="M155,190 Q162,160 174,172 Q186,148 200,168 Q214,148 226,172 Q238,160 245,190Z" fill="#FF4400" opacity="0.5"/>
-        <path d="M295,190 Q304,162 318,175 Q330,148 345,170 Q358,155 368,175 L370,190Z" fill="#FF4400" opacity="0.5"/>
-        <!-- animated embers -->
-        <circle cx="65" cy="155" r="2.2" fill="#FF8800">
-          <animate attributeName="cy" values="155;90;155" dur="3s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
-          <animate attributeName="cx" values="65;70;65" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="155" cy="148" r="1.6" fill="#FFAA00">
-          <animate attributeName="cy" values="148;78;148" dur="2.6s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="1;0;1" dur="2.6s" repeatCount="indefinite"/>
-          <animate attributeName="cx" values="155;149;155" dur="2.6s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="245" cy="152" r="2" fill="#FF6600">
-          <animate attributeName="cy" values="152;82;152" dur="4s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite"/>
-          <animate attributeName="cx" values="245;252;245" dur="4s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="340" cy="150" r="1.8" fill="#FF8800">
-          <animate attributeName="cy" values="150;82;150" dur="3.4s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="1;0;1" dur="3.4s" repeatCount="indefinite"/>
-          <animate attributeName="cx" values="340;335;340" dur="3.4s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="110" cy="158" r="1.2" fill="#FFCC00">
-          <animate attributeName="cy" values="158;105;158" dur="2.9s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="1;0;1" dur="2.9s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="305" cy="153" r="1.4" fill="#FF6600">
-          <animate attributeName="cy" values="153;88;153" dur="3.7s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="1;0;1" dur="3.7s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="200" cy="145" r="1" fill="#FFDD00">
-          <animate attributeName="cy" values="145;60;145" dur="3.5s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0;0.8" dur="3.5s" repeatCount="indefinite"/>
-          <animate attributeName="cx" values="200;204;200" dur="3.5s" repeatCount="indefinite"/>
-        </circle>
-      </svg>
-    </div>
+    <div class="hell-hero-img"><img src="images/hell/start.png" style="width:100%;display:block;border-radius:14px;" alt="지옥 테스트"></div>
     <div class="start-card">
-      <p id="startText">철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>15문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 2분 소요</span></p>
+      <p id="startText">철학자들은 말한다 — 가장 깊은 지옥은<br>외부가 아닌 내면에 있다고.<br><strong>20문항</strong>으로 알아보는 나만의 지옥 유형!<br><span style="opacity:.7">약 3분 소요</span></p>
       <button class="start-btn" onclick="startTest()" id="startBtn">🔥 테스트 시작하기</button>
     </div>
   </div>
 
   <!-- 질문 화면 -->
   <div id="questionScreen" style="display:none">
-    <p class="progress-label" id="progressLabel">1 / 15</p>
+    <p class="progress-label" id="progressLabel">1 / 16</p>
     <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
     <div class="question-card">
       <span class="question-num" id="questionNum">Q1</span>
@@ -532,20 +451,20 @@
     <div class="more-card">
       <h3 id="moreTitle">🎯 다른 테스트도 해보세요!</h3>
       <a class="more-item" href="love-style-test.html">
-        <span class="more-item-emoji">💕</span>
-        <div class="more-item-info"><div class="more-item-title" id="more1Title">나의 연애 스타일은?</div><div class="more-item-sub" id="more1Sub">당신은 어떤 연인인가요?</div></div><span>›</span>
+        <span class="more-item-emoji">💘</span>
+        <div class="more-item-info"><div class="more-item-title" id="more1Title">내 짝사랑이 이뤄질 확률은?</div><div class="more-item-sub" id="more1Sub">18가지 상황극으로 알아보는 짝사랑 성사율</div></div><span>›</span>
       </a>
       <a class="more-item" href="animal-test.html">
         <span class="more-item-emoji">🐾</span>
-        <div class="more-item-info"><div class="more-item-title" id="more2Title">나를 동물로 표현하면?</div><div class="more-item-sub" id="more2Sub">나와 닮은 동물을 찾아보세요</div></div><span>›</span>
+        <div class="more-item-info"><div class="more-item-title" id="more2Title">나의 패트로누스를 알아보자</div><div class="more-item-sub" id="more2Sub">호그와트 상황극으로 찾는 나의 패트로누스</div></div><span>›</span>
       </a>
       <a class="more-item" href="past-life-test.html">
         <span class="more-item-emoji">🔮</span>
-        <div class="more-item-info"><div class="more-item-title" id="more3Title">나의 전생은?</div><div class="more-item-sub" id="more3Sub">전생에 어떤 삶을 살았을까요?</div></div><span>›</span>
+        <div class="more-item-info"><div class="more-item-title" id="more3Title">로맨스 판타지로 알아보는 나의 전생</div><div class="more-item-sub" id="more3Sub">황궁 로맨스 — 나의 전생 캐릭터는?</div></div><span>›</span>
       </a>
       <a class="more-item" href="talent-test.html">
         <span class="more-item-emoji">🌟</span>
-        <div class="more-item-info"><div class="more-item-title" id="more4Title">숨겨진 재능 테스트</div><div class="more-item-sub" id="more4Sub">당신만 모르는 나의 특기는?</div></div><span>›</span>
+        <div class="more-item-info"><div class="more-item-title" id="more4Title">나의 재테크 유형 테스트</div><div class="more-item-sub" id="more4Sub">나에게 맞는 투자 스타일은?</div></div><span>›</span>
       </a>
     </div>
     <div class="ad-slot ad-bottom">📢 광고 영역 (하단)</div>
@@ -575,7 +494,7 @@ const data = {
   ko: {
     mainTitle:    '당신의 지옥은?',
     mainDesc:     '누구에게나 자신만의 지옥이 있다<br>나를 가장 힘들게 하는 것은 무엇일까요? 🔥',
-    startText:    '누구에게나 자신만의 지옥이 있습니다. 부족할 것 없어보이는 당신의 옆자리 사람에게도, 행복해보이는 인스타그램 사진 속 사람에게도. 그리고 당신에게도 당신의 지옥이 있습니다. 당신을 가장 힘들게 하는 지옥, 무엇일까요? 같이 한 번 알아봅시다.<br><br><strong>11문항</strong> · 약 2분 소요',
+    startText:    '누구에게나 자신만의 지옥이 있습니다. 부족할 것 없어보이는 당신의 옆자리 사람에게도, 행복해보이는 인스타그램 사진 속 사람에게도. 그리고 당신에게도 당신의 지옥이 있습니다. 당신을 가장 힘들게 하는 지옥, 무엇일까요? 같이 한 번 알아봅시다.<br><br><strong>20문항</strong> · 약 3분 소요',
     startBtn:     '🔥 테스트 시작하기',
     descTitle:    '🔥 당신의 지옥',
     traitsTitle:  '😈 이런 상황이 특히 힘드시죠?',
@@ -585,10 +504,10 @@ const data = {
     moreTitle:    '🎯 다른 테스트도 해보세요!',
     restartBtn:   '🔄 다시 테스트하기',
     copyOk:       '🔗 링크가 복사되었어요!',
-    more1Title: '나의 연애 스타일은?', more1Sub: '당신은 어떤 연인인가요?',
-    more2Title: '나를 동물로 표현하면?', more2Sub: '나와 닮은 동물을 찾아보세요',
-    more3Title: '나의 전생은?', more3Sub: '전생에 어떤 삶을 살았을까요?',
-    more4Title: '숨겨진 재능 테스트', more4Sub: '당신만 모르는 나의 특기는?',
+    more1Title: '내 짝사랑이 이뤄질 확률은?', more1Sub: '18가지 상황극으로 알아보는 짝사랑 성사율',
+    more2Title: '나의 패트로누스를 알아보자', more2Sub: '호그와트 상황극으로 찾는 나의 패트로누스',
+    more3Title: '로맨스 판타지로 알아보는 나의 전생', more3Sub: '황궁 로맨스 — 나의 전생 캐릭터는?',
+    more4Title: '나의 재테크 유형 테스트', more4Sub: '나에게 맞는 투자 스타일은?',
     questions: [
       {
         q: '한번 생긴 나의 지옥은 내가 자라면서 점점 커져가고 이것은 사라지지 않습니다. 지옥은 가장 처음 몇살 때 생겨났을까요?',
@@ -631,10 +550,10 @@ const data = {
         q: '지금 당신이 알고 있는 모든 사람들에게 당신을 향한 험담과 소문이 돌고 있습니다. 친구들 마저 당신 앞에선 쉬쉬 했지만 사실 이 험담을 즐기고 있습니다. 이 중 어떤 것이 그나마 견디기 쉬운말인가요?',
         sub: '이 중에 그나마 견딜 수 있는 것을 골라주세요',
         choices: [
-          { e: '💬', t: '"솔직히 개못생기지 않음? 근데 지 괜찮은 줄 알고 맨날 거울 보는 거 같아ㅋㅋ거울 쳐보고있는 거 볼때마다 뒤통수 마려움. 거울 셀카 찍은건 인스타에 왕 맨날 올려? 진짜 차단하고 싶은데 참는다."', s: { A: 1, C: 2 } },
+          { e: '💬', t: '"솔직히 개못생기지 않음? 근데 지 괜찮은 줄 알고 맨날 거울 보는 거 같아ㅋㅋ거울 쳐보고있는 거 볼때마다 뒤통수 마려움. 거울 셀카 찍은건 인스타에 왜 맨날 올려? 진짜 차단하고 싶은데 참는다."', s: { A: 1, C: 2 } },
           { e: '💬', t: '"개 옛날에 그랬다던데? 진짜 입닥고 모르는 척 하고 다니는 거 소름돋는다ㅋㅋ 그러면 없는 일 되는 줄 아나보지. 진짜 웃긴다ㅋㅋ"', s: { F: 2, D: 1 } },
           { e: '💬', t: '"아..왜 자꾸 친한 척해? 이제 슬슬 부담스럽지 않아? 몇 번 맞춰줬더니 이제 우리랑 친한 줄 아는 것 같아. 나는 슬슬 연락 피하려고. 너도 걔한테 답장 하지마."', s: { E: 2, A: 1 } },
-          { e: '💬', t: '"그런 집안이면 좀 그렇잖아..그게 자기는 그런 집안인 거 티 안 내려고 노력 하는거 같은데 진짜 숨길 수가 없더라. 집안이 그 꾼인 건 결국 자식한테도 알게 모르게 티가 나는 거야."', s: { G: 1, J: 2 } },
+          { e: '💬', t: '"그런 집안이면 좀 그렇잖아..그게 자기는 그런 집안인 거 티 안 내려고 노력 하는거 같은데 진짜 숨길 수가 없더라. 집안이 그 꼬라지면 결국 자식한테도 알게 모르게 티가 나는 거야."', s: { G: 1, J: 2 } },
         ]
       },
       {
@@ -695,6 +614,96 @@ const data = {
           { e: '🌺', t: '사람에 대한 뿌리 깊은 불신과, 그럼에도 사랑받고 싶은 집착', s: { C: 2, A: 1 } },
           { e: '🌳', t: '부모님과의 관계에서 온 상처와 결함 — 아직 아무에게도 말한 적 없다', s: { E: 3 } },
           { e: '🔥', t: '내가 모든 걸 주고 있는데, 정작 내 몫은 없다는 것. 그리고 그게 당연하다고 생각하며 살아왔다는 것.', s: { I: 3 } },
+        ]
+      },
+      {
+        q: '당신의 가장 친한 친구가 당신 몰래 당신이 좋아하는 사람과 사귀기 시작했습니다. 둘은 지금 연락도 잘 되고 사이도 좋습니다. 당신의 반응은?',
+        sub: '가장 솔직한 첫 번째 감정',
+        choices: [
+          { e: '🔪', t: '배신감. 친구한테 당장 따진다. 왜 나한테 먼저 말 안 했냐고. 이건 우정에 대한 배신이다.', s: { A: 3 } },
+          { e: '💸', t: '억울함. 내가 더 잘해줬는데, 왜 나는 안 되고 저 친구는 되는 걸까. 내가 뭐가 부족한 건지 따지고 싶다.', s: { F: 3 } },
+          { e: '🫥', t: '아무 말도 못 하고 그냥 혼자 삭힌다. 티 내봤자 내가 이상한 사람 되는 거 알고 있으니까.', s: { D: 3 } },
+          { e: '📵', t: '아무것도 안 느껴진다. 그냥 천천히 둘 다 거리를 두기 시작한다.', s: { H: 2, G: 1 } },
+        ]
+      },
+      {
+        q: '당신은 야근을 밥 먹듯 하며 팀을 위해 희생해왔습니다. 그런데 연말 평가에서 당신은 탈락하고, 별로 한 것도 없어 보이는 동료가 승진했습니다. 당신의 반응은?',
+        sub: '가장 솔직한 내면의 소리',
+        choices: [
+          { e: '😶', t: '아무것도 안 한다. 이게 세상이구나, 싶다. 어차피 열심히 해도 안 된다는 걸 또 확인했다.', s: { H: 3 } },
+          { e: '🤬', t: '당장 상사한테 따진다. 내가 얼마나 했는데. 이건 명백히 불공평하다.', s: { A: 2, J: 1 } },
+          { e: '😭', t: '혼자 울다가 다음 날 또 열심히 한다. 언젠가는 알아주겠지.', s: { I: 3 } },
+          { e: '💰', t: '이직 준비 시작한다. 노력이 보상받는 곳으로 가야겠다.', s: { F: 2, D: 1 } },
+        ]
+      },
+      {
+        q: '당신이 SNS에 공들여 올린 게시물에 아무도 반응을 안 합니다. 반면 같은 날 올린 지인의 게시물엔 댓글과 좋아요가 넘칩니다. 속마음은?',
+        sub: '억누르지 말고 솔직하게',
+        choices: [
+          { e: '🪞', t: '"저 사람은 외모가 낫고 나는 아니니까. 내가 더 예쁘거나 잘생겼다면 달랐겠지." 자꾸 외모 비교로 이어진다.', s: { B: 3 } },
+          { e: '🌀', t: '"나는 왜 이럴까." 반응 없는 게시물을 지웠다 올렸다 반복하며 계속 확인한다.', s: { A: 2, B: 1 } },
+          { e: '🕳️', t: '별 느낌 없다. 어차피 관심받는다고 달라지는 것도 없다고 생각한다.', s: { H: 2, G: 1 } },
+          { e: '😤', t: '"내 콘텐츠가 더 낫다. 저 사람은 그냥 알고리즘 운이 좋은 거다." 억울하고 화가 난다.', s: { J: 3 } },
+        ]
+      },
+      {
+        q: '당신이 오랫동안 준비한 중요한 발표가 끝났습니다. 발표는 잘 됐지만, 끝나고 팀장이 당신 대신 옆자리 동료를 칭찬합니다. "오늘 발표 정말 잘됐어요. ○○씨 덕분이에요." 당신의 반응은?',
+        sub: '즉각적인 내면의 목소리',
+        choices: [
+          { e: '🔥', t: '속이 탄다. 내가 준비한 건데. 하지만 아무 말도 못 하고 웃으면서 "감사합니다" 한다.', s: { I: 3 } },
+          { e: '💬', t: '바로 정정한다. "제가 준비한 발표입니다." 억울한 건 짚고 넘어가야 한다.', s: { J: 2, A: 1 } },
+          { e: '📉', t: '아무 말도 안 한다. 이런 일이 한두 번이 아니다. 이제 기대도 안 한다.', s: { H: 3 } },
+          { e: '💸', t: '"열심히 해도 인정받지 못하는구나." 이 조직에서 올라갈 수 없다는 걸 다시 확인한다.', s: { F: 3 } },
+        ]
+      },
+      {
+        q: '어릴 때부터 알고 지낸 오랜 친구가 최근 갑자기 연락이 뜸해졌습니다. SNS를 보니 다른 친구들과는 잘 어울리고 있습니다. 당신의 반응은?',
+        sub: '가장 솔직한 내면',
+        choices: [
+          { e: '🫣', t: '혹시 내가 뭔가 실수를 했나. 지난 대화들을 다시 떠올리며 원인을 찾으려 한다.', s: { D: 3 } },
+          { e: '📵', t: '별말 없이 나도 서서히 연락을 줄인다. 억지로 붙잡을 생각은 없다.', s: { G: 2, H: 1 } },
+          { e: '😤', t: '"내가 뭘 잘못했다고." 먼저 연락해서 왜 그러는지 따지고 싶다.', s: { J: 3 } },
+          { e: '🌀', t: '괜찮은 척하려 하지만, 머릿속에서 그 사람 생각이 계속 맴돈다.', s: { B: 2, C: 1 } },
+        ]
+      },
+      {
+        q: '당신이 오랫동안 숨겨온 비밀을 가장 친한 사람이 눈치챘다는 걸 알게 됐습니다. 아직 아무 말도 없이 그냥 알고만 있는 것 같습니다. 당신의 심정은?',
+        sub: '가장 먼저 오는 감정',
+        choices: [
+          { e: '🔒', t: '등골이 서늘해진다. 그 사람이 언제 꺼낼지 모르는 것이 더 무섭다.', s: { G: 3 } },
+          { e: '🤐', t: '모른 척하면서 그 비밀이 언급될 만한 상황을 조심스럽게 피하기 시작한다.', s: { G: 2, A: 1 } },
+          { e: '💔', t: '차라리 먼저 털어놓고 싶다. 알고 있다는 걸 아는 것 자체가 고통이다.', s: { C: 2, I: 1 } },
+          { e: '😶', t: '딱히 무너지지 않는다. 어차피 언젠가는 알게 될 일이라고 생각했다.', s: { B: 2, H: 1 } },
+        ]
+      },
+      {
+        q: '당신은 한 달째 같은 실수를 반복하고 있습니다. 노력도 했고, 반성도 했는데, 또 같은 자리로 돌아와 있습니다. 당신의 내면은?',
+        sub: '솔직하게',
+        choices: [
+          { e: '🪞', t: '"역시 나는 안 되는 사람인가." 외모까지 포함해서 모든 것이 부족하게 느껴진다.', s: { B: 3 } },
+          { e: '🐍', t: '"왜 나는 항상 이럴까." 자책이 꼬리를 물고 이어진다. 멈추기가 어렵다.', s: { A: 2, B: 1 } },
+          { e: '🪨', t: '또 처음으로 돌아왔구나. 그냥 다시 시작하는 수밖에. 감정보다 행동이 먼저다.', s: { H: 2, F: 1 } },
+          { e: '🌿', t: '이렇게 사는 게 원래 내 모습인 건지, 아니면 뭔가 바뀌어야 하는 건지 모르겠다.', s: { E: 2, D: 1 } },
+        ]
+      },
+      {
+        q: '친구 모임에서 당신의 이야기를 하고 있는데, 도중에 화제가 다른 사람으로 넘어가버립니다. 아무도 당신의 이야기를 마저 듣지 않았습니다. 속마음은?',
+        sub: '가장 솔직한 첫 번째 감정',
+        choices: [
+          { e: '😤', t: '"내가 무시당한 건가." 속이 상하고, 저 사람들이 나를 어떻게 보는지 신경 쓰인다.', s: { J: 3 } },
+          { e: '🫥', t: '별말 없이 그냥 웃고 있는다. 굳이 다시 꺼낼 만한 이야기는 아니었을 수도 있다.', s: { D: 2, G: 1 } },
+          { e: '🪞', t: '"내가 재미없는 사람이라서 그런 거 아닐까." 자꾸 내 자신이 문제인 것 같다.', s: { B: 2, A: 1 } },
+          { e: '🔥', t: '속으로는 상처받았지만, 오히려 더 밝게 굴며 분위기를 맞춰나간다.', s: { I: 2, C: 1 } },
+        ]
+      },
+      {
+        q: '당신이 아끼는 사람이 힘들다고 연락해왔습니다. 한참 들어주고, 위로하고, 같이 해결책도 생각해줬습니다. 그런데 대화가 끝난 뒤 그 사람은 "고마워"라는 말 한마디 없이 그냥 사라졌습니다.',
+        sub: '이 상황에서 당신의 내면은?',
+        choices: [
+          { e: '🔥', t: '뒤에서 허탈하다. 나는 항상 주는 편인데, 언제쯤 받는 편이 될 수 있을까.', s: { I: 3 } },
+          { e: '😤', t: '"이 정도면 고맙다는 말 정도는 해줘야 하지 않나." 서운함이 분노로 바뀐다.', s: { J: 3 } },
+          { e: '😌', t: '별 기대를 안 했다. 원래 사람들이란 그런 거다.', s: { G: 2, A: 1 } },
+          { e: '🌀', t: '혹시 내가 뭔가 잘못 말한 건 아닐까. 대화를 되짚어보기 시작한다.', s: { D: 2, B: 1 } },
         ]
       },
     ],
@@ -836,7 +845,7 @@ const data = {
   en: {
     mainTitle:    'What Is Your Hell?',
     mainDesc:     "Everyone has their own personal hell.<br>What keeps holding you back? 🔥",
-    startText:    'Everyone has their own personal hell. Even the person sitting right next to you who seems to have it all. Even the one smiling in that Instagram photo. And you — you have yours too. What is the hell that torments you most? Let us find out together.<br><br><strong>11 questions</strong> · About 2 minutes',
+    startText:    'Everyone has their own personal hell. Even the person sitting right next to you who seems to have it all. Even the one smiling in that Instagram photo. And you — you have yours too. What is the hell that torments you most? Let us find out together.<br><br><strong>20 questions</strong> · About 3 minutes',
     startBtn:     '🔥 Start the Test',
     descTitle:    '🔥 Your Hell',
     traitsTitle:  '😈 Does this hit close to home?',
@@ -846,10 +855,10 @@ const data = {
     moreTitle:    '🎯 Try More Tests!',
     restartBtn:   '🔄 Take the Test Again',
     copyOk:       '🔗 Link copied!',
-    more1Title: "What's My Love Style?", more1Sub: 'What kind of lover are you?',
-    more2Title: 'Which Animal Are You?', more2Sub: 'Find your spirit animal',
-    more3Title: 'My Past Life', more3Sub: 'Who were you in a past life?',
-    more4Title: 'Hidden Talent Test', more4Sub: 'Discover your secret superpower',
+    more1Title: 'Will My Crush Like Me Back?', more1Sub: '18 situational questions — crush success rate!',
+    more2Title: 'What Is My Patronus?', more2Sub: 'Hogwarts scenarios reveal your Patronus',
+    more3Title: 'My Romance Fantasy Past Life', more3Sub: 'Royal court — what was your role?',
+    more4Title: 'Money Type Test', more4Sub: "What's your investment style?",
     questions: [
       {
         q: 'Once my personal hell takes shape, it only grows larger as I grow — and it does not disappear. How old were you when your hell first appeared?',
@@ -956,6 +965,96 @@ const data = {
           { e: '🌺', t: 'A deep distrust of people — and the desperate need to be loved despite it', s: { C: 2, A: 1 } },
           { e: '🌳', t: 'The wounds and gaps left by my relationship with my parents — I have never told anyone', s: { E: 3 } },
           { e: '🔥', t: 'That I have been giving everything I have, and there has never been anything left for me — and that I lived as though that was just the way things were supposed to be', s: { I: 3 } },
+        ]
+      },
+      {
+        q: 'Your closest friend has secretly started dating someone you liked. They are both in contact and getting along well. Your reaction?',
+        sub: 'Your most honest first emotion',
+        choices: [
+          { e: '🔪', t: "Betrayal. You confront the friend immediately. Why didn't they tell you first? This is a violation of the friendship.", s: { A: 3 } },
+          { e: '💸', t: "Resentment. You did more for them, so why does the friend get chosen and not you? What are you lacking?", s: { F: 3 } },
+          { e: '🫥', t: 'You say nothing and bury it alone. You know that if you show it, you become the strange one.', s: { D: 3 } },
+          { e: '📵', t: 'You feel nothing in particular. You just slowly start putting distance between yourself and both of them.', s: { H: 2, G: 1 } },
+        ]
+      },
+      {
+        q: 'You have been working late constantly, sacrificing yourself for the team. But at the year-end review, you are passed over, and a colleague who seemed to do far less gets promoted. Your reaction?',
+        sub: 'Your most honest inner voice',
+        choices: [
+          { e: '😶', t: 'You do nothing. So this is how it is, you think. Another confirmation that working hard changes nothing.', s: { H: 3 } },
+          { e: '🤬', t: 'You confront your manager immediately. After everything you did — this is clearly unfair.', s: { A: 2, J: 1 } },
+          { e: '😭', t: 'You cry alone, then show up the next day and try even harder. Someone will notice eventually.', s: { I: 3 } },
+          { e: '💰', t: 'You start looking for a new job. You need to be somewhere that actually rewards effort.', s: { F: 2, D: 1 } },
+        ]
+      },
+      {
+        q: 'You post something you worked hard on. Nobody reacts. That same day, a post from an acquaintance gets flooded with likes and comments. Your inner thought?',
+        sub: 'Be honest — do not hold back',
+        choices: [
+          { e: '🪞', t: '"They are better looking and I am not. If I looked different, it would have been different." The comparison keeps circling back to appearance.', s: { B: 3 } },
+          { e: '🌀', t: '"Why am I like this." You delete and repost and keep checking. You cannot stop.', s: { A: 2, B: 1 } },
+          { e: '🕳️', t: 'You feel nothing much. Getting attention would not change anything anyway.', s: { H: 2, G: 1 } },
+          { e: '😤', t: '"My content is better. They just got lucky with the algorithm." You feel unfairly overlooked.', s: { J: 3 } },
+        ]
+      },
+      {
+        q: 'After a presentation you spent weeks preparing, your manager turns to your colleague and says, "That went great. We could not have done it without you." Your reaction?',
+        sub: 'Your immediate inner voice',
+        choices: [
+          { e: '🔥', t: 'It burns inside. You prepared this. But you smile and say "thank you" and stay quiet.', s: { I: 3 } },
+          { e: '💬', t: 'You correct it on the spot. "That was my presentation." Injustice has to be named.', s: { J: 2, A: 1 } },
+          { e: '📉', t: 'You say nothing. This happens all the time. You stopped expecting anything long ago.', s: { H: 3 } },
+          { e: '💸', t: '"Hard work goes unrecognized here." Another confirmation you cannot move up in this organization.', s: { F: 3 } },
+        ]
+      },
+      {
+        q: 'An old friend you have known since childhood has suddenly gone quiet. Their social media shows them hanging out with others just fine. Your reaction?',
+        sub: 'Your most honest inner response',
+        choices: [
+          { e: '🫣', t: 'Did I do something wrong? You replay past conversations, looking for the reason.', s: { D: 3 } },
+          { e: '📵', t: 'You quietly start pulling back too. You have no intention of chasing anyone.', s: { G: 2, H: 1 } },
+          { e: '😤', t: '"What did I even do?" You want to reach out and ask them directly.', s: { J: 3 } },
+          { e: '🌀', t: 'You try to act like it is fine, but you cannot stop thinking about it.', s: { B: 2, C: 1 } },
+        ]
+      },
+      {
+        q: 'Someone closest to you seems to have figured out a secret you have kept hidden for a long time. They have not said anything yet — they just seem to know. How do you feel?',
+        sub: 'Your very first emotion',
+        choices: [
+          { e: '🔒', t: 'A chill runs down your spine. Not knowing when they will bring it up is somehow worse.', s: { G: 3 } },
+          { e: '🤐', t: 'You act normal, but quietly start avoiding any situation where it might come up.', s: { G: 2, A: 1 } },
+          { e: '💔', t: 'You almost want to bring it up yourself. Knowing that they know is its own kind of pain.', s: { C: 2, I: 1 } },
+          { e: '😶', t: 'You do not collapse. You always expected this would come out eventually.', s: { B: 2, H: 1 } },
+        ]
+      },
+      {
+        q: 'You have been making the same mistake for a month. You tried, you reflected, and you are back in the same place again. What is going on inside you?',
+        sub: 'Be honest',
+        choices: [
+          { e: '🪞', t: '"Maybe I am just not capable." Everything about yourself — including how you look — feels lacking.', s: { B: 3 } },
+          { e: '🐍', t: '"Why am I always like this." The self-criticism loops and loops. You cannot stop it.', s: { A: 2, B: 1 } },
+          { e: '🪨', t: 'Back to square one. Fine. You start again. Action before emotion.', s: { H: 2, F: 1 } },
+          { e: '🌿', t: 'You genuinely do not know if this is just who you are, or if something needs to change.', s: { E: 2, D: 1 } },
+        ]
+      },
+      {
+        q: 'You are in the middle of telling a story in a group of friends, and the conversation suddenly shifts to someone else. Nobody waited to hear how yours ended. Your inner thought?',
+        sub: 'Your most honest first feeling',
+        choices: [
+          { e: '😤', t: '"Did they just dismiss me?" You feel stung — and start wondering what they really think of you.', s: { J: 3 } },
+          { e: '🫥', t: 'You say nothing and just smile along. Maybe it was not that important a story anyway.', s: { D: 2, G: 1 } },
+          { e: '🪞', t: '"Is it because I am boring?" You start suspecting the problem is you.', s: { B: 2, A: 1 } },
+          { e: '🔥', t: 'You are hurt inside, but you immediately brighten up and go along with the new topic.', s: { I: 2, C: 1 } },
+        ]
+      },
+      {
+        q: 'Someone you care about reached out saying they were struggling. You listened, comforted them, and helped them think through solutions. When the conversation ended, they disappeared without so much as a "thank you."',
+        sub: 'What is going on inside you?',
+        choices: [
+          { e: '🔥', t: 'You feel hollow afterward. You are always the one who gives. When does it become your turn?', s: { I: 3 } },
+          { e: '😤', t: '"After all that, a simple thank you would not have hurt." The hurt turns into quiet anger.', s: { J: 3 } },
+          { e: '😌', t: 'You did not expect much to begin with. That is just how people are.', s: { G: 2, A: 1 } },
+          { e: '🌀', t: 'Maybe you said something wrong. You start replaying the conversation in your head.', s: { D: 2, B: 1 } },
         ]
       },
     ],
@@ -1101,7 +1200,7 @@ const data = {
 let curLang = 'ko';
 let currentQ = 0;
 let scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0, I: 0, J: 0 };
-const TOTAL = 11;
+const TOTAL = 20;
 
 /* ==============================
    언어 토글
@@ -1171,11 +1270,6 @@ function selectChoice(scoreMap, btn) {
     currentQ++;
     if (currentQ < TOTAL) {
       renderQuestion();
-      // 타입별 신화 이미지
-  const imgEl = document.getElementById('resultTypeImage');
-  if (imgEl) imgEl.innerHTML = TYPE_SVGS[topType] || '';
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       showResult();
     }
@@ -1186,816 +1280,16 @@ function selectChoice(scoreMap, btn) {
    결과
 ============================== */
 const TYPE_SVGS = {
-  A: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgA" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0A0005"/>
-      <stop offset="100%" stop-color="#150010"/>
-    </linearGradient>
-    <radialGradient id="glowA" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#C47A1A" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigA" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texA" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softA">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurA">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgA)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgA)" filter="url(#texA)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowA)"/>
-  <!-- Illustration -->
-  
-  <!-- Snake body coil — amber/gold on dark -->
-  <ellipse cx="150" cy="108" rx="58" ry="58" fill="none" stroke="#7A4A00" stroke-width="18" filter="url(#soft_A)" opacity="0.6"/>
-  <ellipse cx="150" cy="108" rx="58" ry="58" fill="none" stroke="#C47A1A" stroke-width="14" filter="url(#soft_A)" opacity="0.55"/>
-  <!-- Scales suggestion — small arcs on the snake body -->
-  <g opacity="0.55" fill="#D4901A">
-    <ellipse cx="208" cy="108" rx="7" ry="4" transform="rotate(0,208,108)"/>
-    <ellipse cx="195" cy="75" rx="7" ry="4" transform="rotate(-38,195,75)"/>
-    <ellipse cx="170" cy="54" rx="7" ry="4" transform="rotate(-70,170,54)"/>
-    <ellipse cx="140" cy="50" rx="7" ry="4" transform="rotate(-90,140,50)"/>
-    <ellipse cx="110" cy="60" rx="7" ry="4" transform="rotate(-115,110,60)"/>
-    <ellipse cx="93" cy="82" rx="7" ry="4" transform="rotate(-140,93,82)"/>
-    <ellipse cx="93" cy="110" rx="7" ry="4" transform="rotate(-175,93,110)"/>
-    <ellipse cx="102" cy="137" rx="7" ry="4" transform="rotate(160,102,137)"/>
-    <ellipse cx="122" cy="155" rx="7" ry="4" transform="rotate(130,122,155)"/>
-    <ellipse cx="152" cy="164" rx="7" ry="4" transform="rotate(95,152,164)"/>
-    <ellipse cx="180" cy="155" rx="7" ry="4" transform="rotate(60,180,155)"/>
-    <ellipse cx="199" cy="138" rx="7" ry="4" transform="rotate(30,199,138)"/>
-  </g>
-  <!-- Snake head (upper right of coil) -->
-  <ellipse cx="208" cy="100" rx="14" ry="10" fill="#B8720E" filter="url(#soft_A)"/>
-  <ellipse cx="208" cy="100" rx="13" ry="9" fill="#D4901A" opacity="0.9"/>
-  <!-- Snake eye — glowing amber -->
-  <circle cx="213" cy="97" r="3" fill="#FF9900" opacity="0.9"/>
-  <circle cx="213" cy="97" r="1.5" fill="#FFD060"/>
-  <!-- Forked tongue reaching toward tail -->
-  <line x1="196" y1="104" x2="178" y2="116" stroke="#C45020" stroke-width="1.8" opacity="0.8"/>
-  <line x1="178" y1="116" x2="172" y2="122" stroke="#C45020" stroke-width="1.5" opacity="0.7"/>
-  <line x1="178" y1="116" x2="174" y2="124" stroke="#C45020" stroke-width="1.5" opacity="0.7"/>
-  <!-- Tail meeting mouth — golden glow there -->
-  <circle cx="170" cy="120" r="8" fill="#8B4A00" opacity="0.6"/>
-  <circle cx="170" cy="120" r="5" fill="#D4901A" opacity="0.5"/>
-  <!-- Inner glow of the coil -->
-  <circle cx="150" cy="108" r="30" fill="#3A1A00" opacity="0.4"/>
-  <circle cx="150" cy="108" r="18" fill="#5A2E00" opacity="0.3"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigA)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">우로보로스의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Ouroboros</text>
-</svg>`,
-  B: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgB" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#07040E"/>
-      <stop offset="100%" stop-color="#100820"/>
-    </linearGradient>
-    <radialGradient id="glowB" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#C48A2A" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigB" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texB" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softB">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurB">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgB)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgB)" filter="url(#texB)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowB)"/>
-  <!-- Illustration -->
-  
-  <!-- Dark room background -->
-  <rect x="60" y="28" width="180" height="140" fill="#0A0510" opacity="0.7" rx="3"/>
-  <!-- Mirror frame — ornate in dark gold -->
-  <rect x="95" y="32" width="110" height="130" fill="#0D0815" rx="2"/>
-  <rect x="95" y="32" width="110" height="130" fill="none" stroke="#6B4A10" stroke-width="3" rx="2"/>
-  <rect x="98" y="35" width="104" height="124" fill="none" stroke="#9B6A20" stroke-width="1.2" rx="1.5" opacity="0.7"/>
-  <!-- Candle-like ambient glow in the mirror -->
-  <ellipse cx="150" cy="97" rx="40" ry="50" fill="#3A2505" opacity="0.5"/>
-  <!-- Figure in mirror — standing silhouette, warm amber lit from below -->
-  <!-- Body/cloak -->
-  <ellipse cx="150" cy="130" rx="22" ry="12" fill="#1A0D02" opacity="0.8"/>
-  <rect x="132" y="75" width="36" height="55" fill="#2A1605" rx="4" opacity="0.9"/>
-  <rect x="135" y="76" width="30" height="50" fill="#3D2010" rx="3" opacity="0.7"/>
-  <!-- Flesh — face illuminated in amber -->
-  <ellipse cx="150" cy="72" rx="14" ry="16" fill="#8B5E2A" opacity="0.9"/>
-  <ellipse cx="150" cy="70" rx="12" ry="13" fill="#C4874A" opacity="0.8"/>
-  <!-- Face shadow side -->
-  <ellipse cx="145" cy="70" rx="6" ry="10" fill="#3A1A05" opacity="0.5"/>
-  <!-- Eyes -->
-  <ellipse cx="147" cy="68" rx="2" ry="2.5" fill="#1A0800" opacity="0.9"/>
-  <ellipse cx="154" cy="68" rx="2" ry="2.5" fill="#1A0800" opacity="0.9"/>
-  <!-- Reflected self (slightly different, ghostly) -->
-  <rect x="210" y="78" width="22" height="40" fill="#1E0E04" rx="3" opacity="0.5"/>
-  <ellipse cx="221" cy="75" rx="9" ry="11" fill="#6B4020" opacity="0.5"/>
-  <rect x="65" y="80" width="20" height="38" fill="#1E0E04" rx="3" opacity="0.45"/>
-  <ellipse cx="75" cy="77" rx="8" ry="10" fill="#5A3018" opacity="0.4"/>
-  <!-- Candlelight at bottom center -->
-  <ellipse cx="150" cy="162" rx="8" ry="4" fill="#D4901A" opacity="0.6"/>
-  <ellipse cx="150" cy="155" rx="4" ry="8" fill="#FFD060" opacity="0.5"/>
-  <ellipse cx="150" cy="151" rx="2" ry="4" fill="#FFFFC0" opacity="0.6"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigB)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">거울의 방 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">Hall of Mirrors</text>
-</svg>`,
-  C: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgC" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#080500"/>
-      <stop offset="100%" stop-color="#120D03"/>
-    </linearGradient>
-    <radialGradient id="glowC" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#8B7E55" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigC" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texC" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softC">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurC">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgC)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgC)" filter="url(#texC)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowC)"/>
-  <!-- Illustration -->
-  
-  <!-- Ancient amphora / jar -->
-  <!-- Main body -->
-  <path d="M120,155 Q108,130 110,100 Q112,72 150,62 Q188,72 190,100 Q192,130 180,155 Z"
-        fill="#4A2D0A" opacity="0.9"/>
-  <path d="M122,153 Q110,128 112,100 Q114,74 150,65 Q186,74 188,100 Q190,128 178,153 Z"
-        fill="#6B4218" opacity="0.8"/>
-  <!-- Warm highlight on jar left side -->
-  <path d="M122,153 Q112,125 115,98 Q118,76 140,68 Q155,65 150,65 Q120,72 118,100 Q116,128 124,153Z"
-        fill="#9B6530" opacity="0.5"/>
-  <!-- Dark shadow right side -->
-  <path d="M178,153 Q188,125 187,100 Q185,75 165,67 Q175,74 182,100 Q185,127 176,153Z"
-        fill="#1A0800" opacity="0.4"/>
-  <!-- Neck and rim -->
-  <rect x="135" y="52" width="30" height="14" fill="#5A3A12" rx="2" opacity="0.9"/>
-  <rect x="132" y="50" width="36" height="6" fill="#7A5020" rx="3" opacity="0.9"/>
-  <!-- Amphora handles -->
-  <path d="M110,100 Q95,95 98,115 Q101,130 114,128" fill="none" stroke="#5A3A12" stroke-width="6" opacity="0.8"/>
-  <path d="M190,100 Q205,95 202,115 Q199,130 186,128" fill="none" stroke="#5A3A12" stroke-width="6" opacity="0.8"/>
-  <!-- Water pouring out — cracks -->
-  <path d="M130,145 Q128,160 125,175" stroke="#4A80C4" stroke-width="2" fill="none" opacity="0.5"/>
-  <path d="M150,155 Q150,168 148,180" stroke="#4A80C4" stroke-width="2.5" fill="none" opacity="0.6"/>
-  <path d="M170,148 Q172,162 175,173" stroke="#4A80C4" stroke-width="1.8" fill="none" opacity="0.45"/>
-  <!-- Water pools below -->
-  <ellipse cx="150" cy="183" rx="35" ry="6" fill="#2A4A7A" opacity="0.4"/>
-  <!-- Hands above jar (pouring in) — warm flesh in amber light -->
-  <ellipse cx="130" cy="44" rx="12" ry="8" fill="#C4874A" opacity="0.7" transform="rotate(-20,130,44)"/>
-  <ellipse cx="170" cy="44" rx="12" ry="8" fill="#C4874A" opacity="0.7" transform="rotate(20,170,44)"/>
-  <!-- Water stream going in -->
-  <path d="M148,52 Q146,45 145,38" stroke="#6AAAE8" stroke-width="2.5" fill="none" opacity="0.5"/>
-  <!-- Crack lines on jar -->
-  <path d="M140,90 L145,110 L138,125" stroke="#3A1A00" stroke-width="1" fill="none" opacity="0.5"/>
-  <path d="M162,85 L158,108 L164,130" stroke="#3A1A00" stroke-width="1" fill="none" opacity="0.4"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigC)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">채워지지 않는 항아리</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Unfillable Jar</text>
-</svg>`,
-  D: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgD" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#050508"/>
-      <stop offset="100%" stop-color="#0A0810"/>
-    </linearGradient>
-    <radialGradient id="glowD" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#8B8060" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigD" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texD" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softD">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurD">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgD)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgD)" filter="url(#texD)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowD)"/>
-  <!-- Illustration -->
-  
-  <!-- Dark ground/earth -->
-  <ellipse cx="150" cy="178" rx="70" ry="15" fill="#1A0D05" opacity="0.7"/>
-  <!-- Tree trunk — thick and bare -->
-  <rect x="135" y="48" width="30" height="130" fill="#2A1605" rx="6" opacity="0.9"/>
-  <rect x="138" y="50" width="22" height="126" fill="#3D2210" rx="5" opacity="0.8"/>
-  <!-- Bark texture lines -->
-  <line x1="142" y1="60" x2="140" y2="170" stroke="#1A0A00" stroke-width="1.2" opacity="0.4"/>
-  <line x1="148" y1="55" x2="148" y2="175" stroke="#1A0A00" stroke-width="1" opacity="0.3"/>
-  <line x1="155" y1="58" x2="157" y2="172" stroke="#1A0A00" stroke-width="1" opacity="0.3"/>
-  <line x1="161" y1="62" x2="159" y2="170" stroke="#1A0A00" stroke-width="0.8" opacity="0.25"/>
-  <!-- Warm highlight on trunk left -->
-  <rect x="138" y="52" width="8" height="122" fill="#7A5025" rx="3" opacity="0.4"/>
-  <!-- Stub stumps where branches were broken off -->
-  <ellipse cx="135" cy="80" rx="10" ry="6" fill="#3D2210" transform="rotate(-15,135,80)" opacity="0.9"/>
-  <ellipse cx="165" cy="95" rx="9" ry="5" fill="#3D2210" transform="rotate(20,165,95)" opacity="0.9"/>
-  <ellipse cx="133" cy="115" rx="8" ry="5" fill="#3D2210" transform="rotate(-10,133,115)" opacity="0.8"/>
-  <ellipse cx="167" cy="130" rx="8" ry="5" fill="#3D2210" transform="rotate(15,167,130)" opacity="0.8"/>
-  <!-- Moon in background — pale and cold -->
-  <circle cx="220" cy="48" r="22" fill="#C8C0A0" opacity="0.12"/>
-  <circle cx="220" cy="48" r="18" fill="#D8D0B0" opacity="0.08"/>
-  <!-- Atmospheric mist/fog -->
-  <ellipse cx="150" cy="110" rx="100" ry="60" fill="#100808" opacity="0.3"/>
-  <!-- Dead leaves on ground -->
-  <ellipse cx="118" cy="178" rx="8" ry="3" fill="#5A3010" opacity="0.5" transform="rotate(-20,118,178)"/>
-  <ellipse cx="185" cy="180" rx="7" ry="2.5" fill="#5A3010" opacity="0.4" transform="rotate(15,185,180)"/>
-  <ellipse cx="130" cy="182" rx="6" ry="2" fill="#4A2808" opacity="0.4" transform="rotate(-30,130,182)"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigD)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">가지 잃은 나무의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Branchless Tree</text>
-</svg>`,
-  E: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgE" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#040608"/>
-      <stop offset="100%" stop-color="#08100A"/>
-    </linearGradient>
-    <radialGradient id="glowE" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#7A9050" stop-opacity="0.30"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigE" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texE" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softE">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurE">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgE)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgE)" filter="url(#texE)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowE)"/>
-  <!-- Illustration -->
-  
-  <!-- Tree floats in dark space — roots dangling -->
-  <!-- Canopy/foliage mass — dark, sparse -->
-  <ellipse cx="150" cy="65" rx="55" ry="40" fill="#0D1A05" opacity="0.8"/>
-  <ellipse cx="130" cy="58" rx="35" ry="28" fill="#142208" opacity="0.7"/>
-  <ellipse cx="172" cy="60" rx="30" ry="25" fill="#142208" opacity="0.6"/>
-  <!-- A few sparse surviving leaves -->
-  <ellipse cx="108" cy="48" rx="10" ry="5" fill="#1E3A08" opacity="0.7" transform="rotate(-25,108,48)"/>
-  <ellipse cx="192" cy="50" rx="9" ry="4.5" fill="#1E3A08" opacity="0.6" transform="rotate(20,192,50)"/>
-  <ellipse cx="150" cy="35" rx="8" ry="5" fill="#253F0A" opacity="0.6" transform="rotate(-10,150,35)"/>
-  <!-- Main trunk -->
-  <rect x="138" y="95" width="24" height="60" fill="#2A1605" rx="4" opacity="0.9"/>
-  <rect x="141" y="97" width="16" height="56" fill="#3D2210" rx="3" opacity="0.8"/>
-  <!-- Bark lines -->
-  <line x1="144" y1="100" x2="143" y2="150" stroke="#1A0A00" stroke-width="1" opacity="0.3"/>
-  <line x1="151" y1="97" x2="151" y2="153" stroke="#1A0A00" stroke-width="1" opacity="0.25"/>
-  <!-- Roots hanging down — dangling in air, not in soil -->
-  <path d="M142,155 Q136,165 130,178 Q126,188 120,192" fill="none" stroke="#3D2210" stroke-width="3.5" opacity="0.8"/>
-  <path d="M145,156 Q143,170 140,183 Q138,192 136,198" fill="none" stroke="#3D2210" stroke-width="2.8" opacity="0.7"/>
-  <path d="M150,155 Q150,170 150,183 Q150,192 150,200" fill="none" stroke="#3D2210" stroke-width="3" opacity="0.75"/>
-  <path d="M155,156 Q157,170 160,183 Q162,192 164,198" fill="none" stroke="#3D2210" stroke-width="2.8" opacity="0.7"/>
-  <path d="M158,155 Q164,165 170,178 Q174,188 180,192" fill="none" stroke="#3D2210" stroke-width="3.5" opacity="0.8"/>
-  <!-- Sub-roots branching -->
-  <path d="M120,192 Q114,198 110,205" fill="none" stroke="#2A1605" stroke-width="1.8" opacity="0.5"/>
-  <path d="M136,198 Q131,205 128,210" fill="none" stroke="#2A1605" stroke-width="1.5" opacity="0.5"/>
-  <path d="M164,198 Q168,205 172,210" fill="none" stroke="#2A1605" stroke-width="1.5" opacity="0.5"/>
-  <path d="M180,192 Q186,198 190,205" fill="none" stroke="#2A1605" stroke-width="1.8" opacity="0.5"/>
-  <!-- Ground below — just darkness, no soil -->
-  <ellipse cx="150" cy="200" rx="80" ry="8" fill="#08050A" opacity="0.5"/>
-  <!-- Warm glow from above — like fading sunlight on canopy -->
-  <ellipse cx="150" cy="55" rx="60" ry="35" fill="#D4901A" opacity="0.07"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigE)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">뿌리 잃은 나무의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Rootless Tree</text>
-</svg>`,
-  F: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgF" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#080300"/>
-      <stop offset="100%" stop-color="#120800"/>
-    </linearGradient>
-    <radialGradient id="glowF" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#C47A1A" stop-opacity="0.42"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigF" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texF" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softF">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurF">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgF)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgF)" filter="url(#texF)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowF)"/>
-  <!-- Illustration -->
-  
-  <!-- Water rising around ankles — deep and dark -->
-  <ellipse cx="150" cy="175" rx="90" ry="22" fill="#0D1525" opacity="0.8"/>
-  <rect x="60" y="163" width="180" height="30" fill="#0A1020" opacity="0.7"/>
-  <!-- Figure — Tantalus, standing in water, reaching upward -->
-  <!-- Legs in water -->
-  <rect x="138" y="148" width="14" height="28" fill="#8B5E2A" rx="4" opacity="0.8"/>
-  <rect x="148" y="150" width="14" height="26" fill="#7A5020" rx="4" opacity="0.7"/>
-  <!-- Robe/tunic — tattered cloth -->
-  <path d="M128,90 Q124,110 122,140 Q126,148 138,150 L150,155 L162,150 Q174,148 178,140 Q176,110 172,90 Z"
-        fill="#2A1E12" opacity="0.9"/>
-  <path d="M132,92 Q128,112 126,140 L138,148 L150,152 L162,148 L174,140 Q172,112 168,92 Z"
-        fill="#3D2D1A" opacity="0.7"/>
-  <!-- Torso -->
-  <ellipse cx="150" cy="105" rx="24" ry="22" fill="#8B5E2A" opacity="0.8"/>
-  <!-- Arms stretching upward — in strain -->
-  <path d="M128,95 Q110,75 100,55 Q96,48 98,42" fill="none" stroke="#8B5E2A" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
-  <path d="M172,95 Q190,75 200,55 Q204,48 202,42" fill="none" stroke="#8B5E2A" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
-  <!-- Hands grasping at air -->
-  <ellipse cx="98" cy="39" rx="9" ry="7" fill="#C4874A" opacity="0.8" transform="rotate(-15,98,39)"/>
-  <ellipse cx="202" cy="39" rx="9" ry="7" fill="#C4874A" opacity="0.8" transform="rotate(15,202,39)"/>
-  <!-- Head, looking up -->
-  <ellipse cx="150" cy="82" rx="16" ry="17" fill="#8B5E2A" opacity="0.9"/>
-  <ellipse cx="150" cy="80" rx="13" ry="14" fill="#C4874A" opacity="0.8"/>
-  <!-- Eyes looking up (whites showing) -->
-  <ellipse cx="145" cy="78" rx="3" ry="2.5" fill="#D0C0A0" opacity="0.7"/>
-  <ellipse cx="155" cy="78" rx="3" ry="2.5" fill="#D0C0A0" opacity="0.7"/>
-  <!-- Grapes/fruit — JUST out of reach above, golden in candlelight -->
-  <circle cx="100" cy="28" r="7" fill="#8B1A00" opacity="0.7"/>
-  <circle cx="112" cy="22" r="8" fill="#7A1800" opacity="0.75"/>
-  <circle cx="125" cy="18" r="7" fill="#8B1A00" opacity="0.7"/>
-  <circle cx="138" cy="14" r="8" fill="#901C00" opacity="0.75"/>
-  <circle cx="152" cy="12" r="9" fill="#9B2000" opacity="0.8"/>
-  <circle cx="166" cy="14" r="8" fill="#8B1A00" opacity="0.75"/>
-  <circle cx="178" cy="18" r="7" fill="#8B1A00" opacity="0.7"/>
-  <!-- Vine connecting fruit -->
-  <path d="M100,28 Q130,20 152,12 Q174,18 200,28" fill="none" stroke="#2A4A05" stroke-width="2" opacity="0.6"/>
-  <!-- Light on the fruit — golden glow -->
-  <circle cx="100" cy="25" r="3" fill="#D4A04A" opacity="0.5"/>
-  <circle cx="152" cy="10" r="4" fill="#D4A04A" opacity="0.55"/>
-  <circle cx="200" cy="25" r="3" fill="#D4A04A" opacity="0.5"/>
-  <!-- Water reflection below -->
-  <ellipse cx="150" cy="173" rx="60" ry="5" fill="#1E3060" opacity="0.3"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigF)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">탄탈로스의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Hell of Tantalus</text>
-</svg>`,
-  G: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#050300"/>
-      <stop offset="100%" stop-color="#0D0800"/>
-    </linearGradient>
-    <radialGradient id="glowG" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#D4901A" stop-opacity="0.40"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigG" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texG" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softG">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurG">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgG)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgG)" filter="url(#texG)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowG)"/>
-  <!-- Illustration -->
-  
-  <!-- Stone wall texture -->
-  <rect x="30" y="28" width="240" height="155" fill="#0D0A08" opacity="0.9" rx="2"/>
-  <!-- Stone block lines -->
-  <line x1="30" y1="62" x2="270" y2="62" stroke="#1A1410" stroke-width="1" opacity="0.5"/>
-  <line x1="30" y1="96" x2="270" y2="96" stroke="#1A1410" stroke-width="1" opacity="0.5"/>
-  <line x1="30" y1="130" x2="270" y2="130" stroke="#1A1410" stroke-width="1" opacity="0.5"/>
-  <line x1="90" y1="28" x2="90" y2="183" stroke="#1A1410" stroke-width="1" opacity="0.4"/>
-  <line x1="210" y1="28" x2="210" y2="183" stroke="#1A1410" stroke-width="1" opacity="0.4"/>
-  <!-- Arched doorframe — dark iron/stone -->
-  <path d="M95,180 L95,88 Q95,48 150,48 Q205,48 205,88 L205,180 Z" fill="#1E1208" opacity="0.95"/>
-  <path d="M100,178 L100,90 Q100,55 150,55 Q200,55 200,90 L200,178 Z" fill="#0A0604" opacity="0.95"/>
-  <!-- Door surface — heavy dark wood -->
-  <path d="M102,178 L102,92 Q102,60 150,60 Q198,60 198,92 L198,178 Z" fill="#1A1008" opacity="0.95"/>
-  <!-- Door wood grain -->
-  <line x1="125" y1="62" x2="125" y2="178" stroke="#0D0804" stroke-width="1" opacity="0.5"/>
-  <line x1="150" y1="60" x2="150" y2="178" stroke="#0D0804" stroke-width="1.2" opacity="0.6"/>
-  <line x1="175" y1="62" x2="175" y2="178" stroke="#0D0804" stroke-width="1" opacity="0.5"/>
-  <!-- Door panels (carved recesses) -->
-  <rect x="108" y="72" width="35" height="45" fill="none" stroke="#2A1A0A" stroke-width="2" rx="2" opacity="0.6"/>
-  <rect x="157" y="72" width="35" height="45" fill="none" stroke="#2A1A0A" stroke-width="2" rx="2" opacity="0.6"/>
-  <rect x="108" y="125" width="35" height="45" fill="none" stroke="#2A1A0A" stroke-width="2" rx="2" opacity="0.6"/>
-  <rect x="157" y="125" width="35" height="45" fill="none" stroke="#2A1A0A" stroke-width="2" rx="2" opacity="0.6"/>
-  <!-- Iron door knob/handle — warm gold -->
-  <circle cx="185" cy="122" r="6" fill="#6B4A10" opacity="0.9"/>
-  <circle cx="185" cy="122" r="5" fill="#9B7030" opacity="0.8"/>
-  <circle cx="184" cy="121" r="2" fill="#D4A050" opacity="0.7"/>
-  <!-- Keyhole -->
-  <circle cx="150" cy="118" r="4" fill="#0A0604"/>
-  <rect x="148.5" y="119" width="3" height="6" fill="#0A0604"/>
-  <!-- Light seeping from UNDER the door — golden warm glow -->
-  <rect x="102" y="175" width="96" height="4" fill="#D4901A" opacity="0.6" rx="1"/>
-  <ellipse cx="150" cy="178" rx="55" ry="8" fill="#D4901A" opacity="0.4"/>
-  <ellipse cx="150" cy="180" rx="70" ry="10" fill="#C4800A" opacity="0.25"/>
-  <!-- Light from keyhole — small glow -->
-  <ellipse cx="150" cy="118" rx="10" ry="8" fill="#D4A030" opacity="0.2"/>
-  <!-- Door frame ornate top — arch molding -->
-  <path d="M95,90 Q95,48 150,48 Q205,48 205,90" fill="none" stroke="#3A2510" stroke-width="4" opacity="0.7"/>
-  <path d="M100,90 Q100,55 150,55 Q200,55 200,90" fill="none" stroke="#5A3820" stroke-width="2" opacity="0.5"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigG)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">비밀의 방 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Secret Door</text>
-</svg>`,
-  H: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgH" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#060402"/>
-      <stop offset="100%" stop-color="#100808"/>
-    </linearGradient>
-    <radialGradient id="glowH" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#C4874A" stop-opacity="0.38"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigH" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texH" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softH">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurH">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgH)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgH)" filter="url(#texH)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowH)"/>
-  <!-- Illustration -->
-  
-  <!-- Hill slope -->
-  <path d="M30,190 Q100,155 170,120 Q220,95 270,80 L270,220 L30,220 Z" fill="#1A0D05" opacity="0.8"/>
-  <path d="M30,188 Q100,153 170,118 Q220,93 270,78" fill="none" stroke="#2A1808" stroke-width="3" opacity="0.6"/>
-  <!-- Boulder — massive round rock -->
-  <circle cx="195" cy="105" r="38" fill="#2A2018" opacity="0.9"/>
-  <circle cx="195" cy="105" r="36" fill="#3A2E20" opacity="0.8"/>
-  <!-- Boulder surface texture / lit side -->
-  <ellipse cx="183" cy="94" rx="22" ry="18" fill="#5A4830" opacity="0.4"/>
-  <!-- Boulder shadow -->
-  <ellipse cx="200" cy="140" rx="38" ry="10" fill="#0A0604" opacity="0.6"/>
-  <!-- SISYPHUS figure — hunched, pushing -->
-  <!-- Legs (lower, bearing weight) -->
-  <rect x="128" y="152" width="16" height="32" fill="#8B5E2A" rx="5" opacity="0.9" transform="rotate(-10,128,152)"/>
-  <rect x="142" y="148" width="16" height="35" fill="#8B5E2A" rx="5" opacity="0.9" transform="rotate(5,142,148)"/>
-  <!-- Body/back — hunched forward powerfully -->
-  <path d="M122,120 Q118,135 120,155 L140,155 L158,145 Q168,130 165,115 Q158,100 145,95 Q130,92 122,100Z"
-        fill="#8B5E2A" opacity="0.85"/>
-  <path d="M125,122 Q122,138 124,152 L140,153 L155,144 Q163,130 161,117 Q154,103 143,97 Q131,94 125,103Z"
-        fill="#C4874A" opacity="0.6"/>
-  <!-- Arms pushing boulder -->
-  <path d="M125,115 Q140,105 155,100" stroke="#8B5E2A" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.9"/>
-  <path d="M155,100 Q165,94 175,92" stroke="#8B5E2A" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.85"/>
-  <!-- Hands on boulder -->
-  <ellipse cx="176" cy="90" rx="10" ry="8" fill="#C4874A" opacity="0.8" transform="rotate(-15,176,90)"/>
-  <!-- Head, bowed in effort -->
-  <circle cx="118" cy="112" r="15" fill="#8B5E2A" opacity="0.9"/>
-  <circle cx="118" cy="111" r="13" fill="#C4874A" opacity="0.8"/>
-  <!-- Face in anguish — brow furrowed -->
-  <path d="M111,108 Q114,105 118,107 Q122,105 125,108" fill="none" stroke="#3A1A05" stroke-width="1.5" opacity="0.7"/>
-  <!-- Sweat / strain highlight -->
-  <ellipse cx="115" cy="106" rx="4" ry="3" fill="#D4A060" opacity="0.3"/>
-  <!-- Greek tunic -->
-  <path d="M122,128 Q118,148 125,162 Q135,162 142,158 L145,125Z" fill="#2A1E12" opacity="0.7"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigH)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">시시포스의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Hell of Sisyphus</text>
-</svg>`,
-  I: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgI" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#060200"/>
-      <stop offset="100%" stop-color="#0E0600"/>
-    </linearGradient>
-    <radialGradient id="glowI" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#D4701A" stop-opacity="0.40"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigI" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texI" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softI">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurI">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgI)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgI)" filter="url(#texI)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowI)"/>
-  <!-- Illustration -->
-  
-  <!-- Rocky outcrop / mountain peak -->
-  <path d="M30,190 Q80,165 120,158 Q150,155 160,158 Q200,162 270,180 L270,220 L30,220Z"
-        fill="#1A0D05" opacity="0.8"/>
-  <!-- Rock surface on which he is chained -->
-  <path d="M100,155 Q130,148 160,155 Q175,158 178,170 Q160,172 120,170 Q102,168 100,155Z"
-        fill="#2A1808" opacity="0.9"/>
-  <!-- PROMETHEUS — figure lying/chained to rock -->
-  <!-- Body — powerful, tortured -->
-  <path d="M105,138 Q108,148 115,158 Q130,165 148,162 Q162,158 168,148 Q172,138 168,128 Q158,115 148,112 Q132,108 118,118 Q108,125 105,138Z"
-        fill="#8B5E2A" opacity="0.8"/>
-  <path d="M110,138 Q113,147 120,155 Q132,162 148,158 Q160,154 164,145 Q168,136 164,127 Q155,115 148,113 Q134,110 122,120 Q112,127 110,138Z"
-        fill="#C4874A" opacity="0.65"/>
-  <!-- Arms outstretched / chained -->
-  <path d="M105,135 Q88,132 70,130" stroke="#8B5E2A" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.9"/>
-  <path d="M168,130 Q185,128 205,125" stroke="#8B5E2A" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.9"/>
-  <!-- Chains on wrists -->
-  <rect x="58" y="125" width="16" height="10" fill="#5A4828" rx="2" opacity="0.8"/>
-  <rect x="60" y="124" width="14" height="9" fill="#8B7040" rx="2" opacity="0.6"/>
-  <rect x="196" y="120" width="16" height="10" fill="#5A4828" rx="2" opacity="0.8"/>
-  <rect x="198" y="119" width="14" height="9" fill="#8B7040" rx="2" opacity="0.6"/>
-  <!-- Legs -->
-  <rect x="132" y="158" width="15" height="28" fill="#8B5E2A" rx="4" opacity="0.85"/>
-  <rect x="146" y="158" width="14" height="26" fill="#7A5020" rx="4" opacity="0.8"/>
-  <!-- Head (tilted back in anguish) -->
-  <ellipse cx="148" cy="120" rx="16" ry="17" fill="#8B5E2A" opacity="0.9"/>
-  <ellipse cx="148" cy="118" rx="14" ry="15" fill="#C4874A" opacity="0.8"/>
-  <!-- Eyes looking up, mouth open in silent cry -->
-  <ellipse cx="143" cy="114" rx="3" ry="2.5" fill="#1A0800" opacity="0.7"/>
-  <ellipse cx="153" cy="114" rx="3" ry="2.5" fill="#1A0800" opacity="0.7"/>
-  <path d="M144,122 Q148,126 152,122" fill="none" stroke="#3A1A05" stroke-width="1.5" opacity="0.6"/>
-  <!-- FIRE — warm amber, red, orange, dramatic light source at right -->
-  <ellipse cx="240" cy="135" rx="22" ry="35" fill="#8B2200" opacity="0.5"/>
-  <ellipse cx="238" cy="125" rx="16" ry="28" fill="#C44A00" opacity="0.55"/>
-  <ellipse cx="236" cy="115" rx="10" ry="20" fill="#D47000" opacity="0.6"/>
-  <ellipse cx="234" cy="108" rx="6" ry="14" fill="#FFD060" opacity="0.55"/>
-  <ellipse cx="232" cy="104" rx="3" ry="8" fill="#FFEF90" opacity="0.5"/>
-  <!-- Flame tips -->
-  <path d="M228,100 Q232,88 236,80 Q238,72 240,65" fill="none" stroke="#FF9900" stroke-width="3" opacity="0.45"/>
-  <path d="M232,96 Q236,84 238,75" fill="none" stroke="#FFD060" stroke-width="2" opacity="0.4"/>
-  <!-- Fire glow on Prometheus -->
-  <ellipse cx="160" cy="135" rx="40" ry="30" fill="#8B3A00" opacity="0.15"/>
-  <!-- Eagle silhouette (shadow) -->
-  <path d="M165,75 Q180,68 195,72 Q185,78 175,82 Q180,86 185,88 Q175,90 168,88 Q163,92 158,95 Q155,88 158,82 Q153,80 148,82 Q153,78 160,76Z"
-        fill="#0A0604" opacity="0.5"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigI)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">프로메테우스의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Hell of Prometheus</text>
-</svg>`,
-  J: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" style="display:block">
-  <defs>
-    <linearGradient id="bgJ" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#060406"/>
-      <stop offset="100%" stop-color="#0D080E"/>
-    </linearGradient>
-    <radialGradient id="glowJ" cx="50%" cy="55%" r="45%">
-      <stop offset="0%" stop-color="#C4874A" stop-opacity="0.42"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vigJ" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
-    </radialGradient>
-    <filter id="texJ" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <filter id="softJ">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="gblurJ">
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-  </defs>
-  <!-- Dark painterly background -->
-  <rect width="300" height="220" fill="url(#bgJ)"/>
-  <!-- Canvas texture overlay -->
-  <rect width="300" height="220" fill="url(#bgJ)" filter="url(#texJ)" opacity="0.18"/>
-  <!-- Candlelight glow -->
-  <ellipse cx="150" cy="120" rx="130" ry="90" fill="url(#glowJ)"/>
-  <!-- Illustration -->
-  
-  <!-- CARAVAGGIO NARCISSUS composition:
-       Young man kneeling/leaning forward over water,
-       arms on dark ground, looking down at reflection
-       Very dark bg, warm amber lit figure, perfect mirror image in water below -->
-
-  <!-- Water surface — dark mirror, subtle shimmer -->
-  <ellipse cx="150" cy="160" rx="85" ry="28" fill="#0A0D18" opacity="0.9"/>
-  <ellipse cx="150" cy="160" rx="80" ry="24" fill="#0D1020" opacity="0.8"/>
-  <!-- Water shimmer lines -->
-  <path d="M90,158 Q120,154 150,158 Q180,162 210,158" fill="none" stroke="#2A3545" stroke-width="0.8" opacity="0.5"/>
-  <path d="M95,163 Q125,159 155,163 Q185,167 215,163" fill="none" stroke="#2A3545" stroke-width="0.8" opacity="0.4"/>
-
-  <!-- REFLECTION in water (mirror image of figure below, slightly distorted, lighter) -->
-  <!-- Reflected torso -->
-  <ellipse cx="152" cy="178" rx="20" ry="14" fill="#5A3A15" opacity="0.45" transform="scale(1,-1) translate(0,-355)"/>
-  <!-- Simplified reflection -->
-  <path d="M132,172 Q130,178 134,184 Q142,188 152,187 Q162,186 168,182 Q172,178 168,173Z"
-        fill="#4A2D10" opacity="0.4"/>
-  <ellipse cx="152" cy="170" rx="14" ry="10" fill="#6B4220" opacity="0.35"/>
-  <!-- Reflected face shape -->
-  <ellipse cx="152" cy="168" rx="10" ry="9" fill="#8B5E2A" opacity="0.35"/>
-
-  <!-- FIGURE — Narcissus -->
-  <!-- Legs/lower body receding to right -->
-  <path d="M162,145 Q178,148 198,152 Q215,154 230,152" stroke="#5A3A15" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.85"/>
-  <path d="M165,143 Q180,146 200,150 Q216,152 229,150" stroke="#8B5E2A" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6"/>
-  <!-- Knee on ground -->
-  <ellipse cx="162" cy="148" rx="14" ry="12" fill="#6B4020" opacity="0.8"/>
-  <ellipse cx="162" cy="147" rx="12" ry="10" fill="#9B6030" opacity="0.7"/>
-  <!-- Body/torso — white/cream garment, Caravaggio style -->
-  <path d="M120,95 Q112,112 112,132 Q115,145 130,150 Q145,155 162,148 Q172,140 172,128 Q172,110 165,95 Q155,80 142,78 Q128,78 120,95Z"
-        fill="#2A1E12" opacity="0.8"/>
-  <!-- Garment folds and light on white fabric -->
-  <path d="M122,100 Q118,118 118,135 Q122,147 135,152 L145,152 Q158,148 162,140 Q166,128 164,108 Q158,90 148,84 Q135,82 125,95Z"
-        fill="#C8B898" opacity="0.35"/>
-  <path d="M126,105 Q122,125 124,140 Q128,150 140,152 Q148,150 155,143 Q160,132 158,112 Q154,95 148,87 Q138,85 128,99Z"
-        fill="#E8DCC0" opacity="0.2"/>
-  <!-- Left arm stretched toward water -->
-  <path d="M120,115 Q105,118 90,124" stroke="#8B5E2A" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.85"/>
-  <path d="M120,113 Q106,116 92,122" stroke="#C4874A" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.55"/>
-  <!-- Right arm supporting body -->
-  <path d="M165,120 Q175,115 185,118" stroke="#8B5E2A" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.8"/>
-  <!-- Hands touching / near water surface -->
-  <ellipse cx="88" cy="125" rx="11" ry="8" fill="#C4874A" opacity="0.8" transform="rotate(10,88,125)"/>
-  <ellipse cx="88" cy="125" rx="9" ry="7" fill="#D4974A" opacity="0.6"/>
-  <!-- HEAD — tilted down, face toward water, Caravaggio style illumination -->
-  <ellipse cx="135" cy="88" rx="17" ry="18" fill="#8B5E2A" opacity="0.9"/>
-  <ellipse cx="135" cy="86" rx="15" ry="16" fill="#C4874A" opacity="0.85"/>
-  <!-- Light falls from upper left — Caravaggio side-lighting -->
-  <ellipse cx="130" cy="83" rx="9" ry="8" fill="#D4A060" opacity="0.45"/>
-  <!-- Shadow on right side of face -->
-  <ellipse cx="141" cy="87" rx="7" ry="10" fill="#3A1A05" opacity="0.35"/>
-  <!-- Eyes gazing downward into the water -->
-  <ellipse cx="131" cy="86" rx="3" ry="2.5" fill="#1A0800" opacity="0.8"/>
-  <ellipse cx="140" cy="87" rx="2.5" ry="2" fill="#1A0800" opacity="0.7"/>
-  <!-- Hair — dark, curly (Caravaggio youth) -->
-  <path d="M122,80 Q125,70 135,68 Q145,68 148,78" fill="#1A0D05" opacity="0.9" stroke="#1A0D05" stroke-width="3"/>
-  <path d="M122,80 Q118,75 120,68 Q124,62 130,65" fill="#2A1205" opacity="0.7"/>
-  <path d="M148,78 Q152,73 150,65 Q146,60 140,63" fill="#2A1205" opacity="0.65"/>
-  <!-- Lips, slightly parted in wonder -->
-  <path d="M131,94 Q135,97 139,94" fill="none" stroke="#8B4020" stroke-width="1.5" opacity="0.5"/>
-
-  <!-- Edge vignette -->
-  <rect width="300" height="220" fill="url(#vigJ)"/>
-  <!-- Title -->
-  <text x="150" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="10"
-        fill="#C8A96E" opacity="0.9" letter-spacing="1">나르키소스의 지옥</text>
-  <text x="150" y="213" text-anchor="middle" font-family="Georgia,serif" font-size="7.5"
-        fill="#8B7355" opacity="0.7" letter-spacing="0.5" font-style="italic">The Hell of Narcissus</text>
-</svg>`
+  A: `<img src="images/hell/result_A.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 A">`,
+  B: `<img src="images/hell/result_B.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 B">`,
+  C: `<img src="images/hell/result_C.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 C">`,
+  D: `<img src="images/hell/result_D.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 D">`,
+  E: `<img src="images/hell/result_E.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 E">`,
+  F: `<img src="images/hell/result_F.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 F">`,
+  G: `<img src="images/hell/result_G.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 G">`,
+  H: `<img src="images/hell/result_H.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 H">`,
+  I: `<img src="images/hell/result_I.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 I">`,
+  J: `<img src="images/hell/result_J.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="지옥유형 J">`
 };
 
 function showResult() {
@@ -2046,6 +1340,10 @@ function showResult() {
   document.querySelectorAll('.result-desc-card, .result-traits, .escape-card').forEach(el => {
     el.style.borderColor = t.border;
   });
+
+  // 타입별 신화 일러스트 삽입
+  const imgEl = document.getElementById('resultTypeImage');
+  if (imgEl) imgEl.innerHTML = TYPE_SVGS[topType] || '';
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

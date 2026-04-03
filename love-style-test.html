@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나의 연애 스타일은? 💕 연애 심리테스트 | Love Style Test</title>
-<meta name="description" content="당신의 연애 스타일은 무엇인가요? 다양한 질문으로 알아보는 나의 연애 유형! What's your love style? Find out now!">
-<meta property="og:title" content="나의 연애 스타일은? 💕">
+<title>내 짝사랑이 이뤄질 확률은? 💘 짝사랑 성사율 테스트 | Crush Probability Test</title>
+<meta name="description" content="내 짝사랑이 이뤄질 확률은 얼마나 될까? 18가지 상황극 질문으로 짝사랑 성사율을 계산해보세요! Crush probability test!">
+<meta property="og:title" content="내 짝사랑이 이뤄질 확률은? 💘">
 <meta property="og:description" content="나만의 연애 스타일 테스트! 결과가 너무 공감돼서 공유 안 할 수가 없어요 💘">
 <meta property="og:image" content="https://via.placeholder.com/1200x630/FFB6C1/333333?text=나의+연애+스타일은%3F+💕">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- Google AdSense (실제 사용시 교체) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
@@ -169,11 +169,13 @@
   }
   .choice-btn:hover {
     background: color-mix(in srgb, var(--primary) 8%, white);
-    border-color: var(--primary); transform: translateX(4px);
+    border-color: var(--primary);
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--primary) 20%, transparent);
   }
   .choice-btn.selected {
     background: color-mix(in srgb, var(--primary) 12%, white);
-    border-color: var(--primary); transform: scale(1.015);
+    border-color: var(--primary);
+    box-shadow: 0 3px 14px color-mix(in srgb, var(--primary) 25%, transparent);
   }
   .choice-emoji { font-size: clamp(20px,5vw,24px); flex-shrink: 0; padding-top: 1px; }
   .result-screen { display: none; }
@@ -451,18 +453,18 @@
   <!-- 헤더 -->
   <div class="header" id="headerSection">
     <span class="emoji-big">💕</span>
-    <h1 id="mainTitle">나의 <span>연애 스타일</span>은?</h1>
-    <p id="mainDesc">다양한 질문으로 알아보는 나의 연애 유형<br>당신은 어떤 방식으로 사랑하나요? 💘</p>
+    <h1 id="mainTitle">두근두근 짝사랑..<span>어떻게 될까?</span></h1>
+    <p id="mainDesc">짝사랑에게 고백하면 어떻게 될까 궁금하지 않았나요?<br>지금 바로 시뮬레이션 진행해봅시다!</p>
   </div>
 
   <!-- 시작 섹션 -->
   <div id="startSection">
     <div class="start-card">
-      <span style="font-size:56px">💌</span>
+      <img src="images/love/start.png" style="width:100%;display:block;border-radius:14px;margin-bottom:18px;" alt="짝사랑 성사율 테스트">
       <p id="startText">
-        연애에도 각자의 스타일이 있어요.<br>
-        몇 가지 솔직한 질문으로 당신만의 연애 유형을 발견해보세요!<br>
-        <strong>소요시간: 약 3분</strong>
+        내 짝사랑이 이루어질 확률은 얼마나 될까?<br>
+        상황극으로 알아보는 내 사랑의 성사 가능성!<br>
+        <span style="opacity:.7">소요시간: 약 3분</span>
       </p>
       <div class="start-stats">
         <div class="start-stat">
@@ -536,7 +538,7 @@
 
     <!-- 궁합 -->
     <div class="compat-card">
-      <h3 id="compatTitle">💞 궁합 유형</h3>
+      <h3 id="compatTitle">✅ 해야할 것과 말아야 할 것</h3>
       <div class="compat-row">
         <div class="compat-item compat-good">
           <span class="ci-emoji" id="compatGoodEmoji">✨</span>
@@ -612,7 +614,7 @@
 
   </div>
 
-  <div class="footer">© 2026 연애 스타일 테스트 · <a href="index.html" style="color:#ddd">🏠 홈</a> · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
+  <div class="footer">© 2026 짝사랑 성사율 테스트 · <a href="index.html" style="color:#ddd">🏠 홈</a> · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
 </div>
 
 <script>
@@ -622,1680 +624,712 @@
 // C = 안정 배려형    D = 자유 독립형
 // ──────────────────────────────────────────
 const TYPES = {
-  A: { color: '#FF6B9D', bg: '#FFF0F7', borderColor: '#FFB6D9' },
-  B: { color: '#FF8C42', bg: '#FFF5EE', borderColor: '#FFD0B0' },
-  C: { color: '#4CAF8A', bg: '#F0FBF5', borderColor: '#A8DFC8' },
-  D: { color: '#7C67EE', bg: '#F5F2FF', borderColor: '#C9BFFF' },
-  E: { color: '#E91E8C', bg: '#FFF0FA', borderColor: '#FFB3E6' },
-  F: { color: '#FF6B35', bg: '#FFF3EE', borderColor: '#FFC4A3' },
-  G: { color: '#2E86AB', bg: '#EFF8FF', borderColor: '#A8D5ED' },
-  H: { color: '#9C6ADE', bg: '#F7F2FF', borderColor: '#D4BFFF' },
-  I: { color: '#FF85A1', bg: '#FFF0F5', borderColor: '#FFC0D0' },
-  J: { color: '#5C9E73', bg: '#F0FAF4', borderColor: '#A0D8B0' },
+  L1: { color: '#9B9B9B', bg: '#F5F5F5', borderColor: '#DDDDDD' },
+  L2: { color: '#5B8FD4', bg: '#EFF6FF', borderColor: '#BAD0F0' },
+  L3: { color: '#5DB88E', bg: '#F0FBF5', borderColor: '#A8DFC8' },
+  L4: { color: '#F5A623', bg: '#FFF8EC', borderColor: '#FADDAB' },
+  L5: { color: '#FF6B9D', bg: '#FFF0F7', borderColor: '#FFB6D9' },
+  L6: { color: '#C91E8C', bg: '#FFF0F9', borderColor: '#FFB3E6' },
 };
 
 // 10타입 결정 로직
-function resolveType(scores) {
-  const sorted = Object.keys(scores).sort((a,b) => scores[b]-scores[a]);
-  const top1 = sorted[0], top2 = sorted[1];
-  const gap = scores[top1] - scores[top2];
-  if (gap >= 2) return top1;
-  const combo = [top1, top2].sort().join('');
-  const comboMap = {
-    'AB':'E','AC':'A','AD':'D','AE':'E','AF':'A','AG':'A','AH':'A','AI':'I','AJ':'A',
-    'BC':'B','BD':'F','BE':'E','BF':'F','BG':'G','BH':'B','BI':'B','BJ':'J',
-    'CD':'G','CE':'C','CF':'F','CG':'G','CH':'C','CI':'I','CJ':'J',
-    'DE':'E','DF':'F','DG':'G','DH':'D','DI':'D','DJ':'D',
-    'EF':'F','EG':'E','EH':'E','EI':'I','EJ':'E',
-    'FG':'G','FH':'F','FI':'F','FJ':'J',
-    'GH':'G','GI':'I','GJ':'J',
-    'HI':'I','HJ':'H','IJ':'J'
-  };
-  return comboMap[combo] || top1;
+const LOVE_RESULT_IMGS = {
+  L1: `<img src="images/love/result_L1.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="짝사랑 결과 L1">`,
+  L2: `<img src="images/love/result_L2.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="짝사랑 결과 L2">`,
+  L3: `<img src="images/love/result_L3.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="짝사랑 결과 L3">`,
+  L4: `<img src="images/love/result_L4.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="짝사랑 결과 L4">`,
+  L5: `<img src="images/love/result_L5.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="짝사랑 결과 L5">`,
+  L6: `<img src="images/love/result_L6.png" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="짝사랑 결과 L6">`,
+};
+
+// 확률 레벨 결정 (18문항 × 3점 = 최대 54점)
+function resolveType(score) {
+  if (score >= 46) return 'L6';
+  if (score >= 38) return 'L5';
+  if (score >= 30) return 'L4';
+  if (score >= 22) return 'L3';
+  if (score >= 14) return 'L2';
+  return 'L1';
 }
 
 const data = {
   ko: {
     ui: {
-      mainTitle:   '나의 <span>연애 스타일</span>은?',
-      mainDesc:    '다양한 질문으로 알아보는 나의 연애 유형<br>당신은 어떤 방식으로 사랑하나요? 💘',
-      startText: '연애에도 각자의 스타일이 있어요.<br><strong>15가지 질문</strong>으로 나의 연애 유형을 발견해보세요!<br><span style="opacity:.7">소요시간: 약 3분</span>',
-      startBtn:    '💕 테스트 시작하기',
-      descTitle:   '💬 연애 스타일 분석',
-      compatTitle: '💞 궁합 유형',
+      mainTitle:   '두근두근 짝사랑..<span>어떻게 될까?</span>',
+      mainDesc:    '짝사랑에게 고백하면 어떻게 될까 궁금하지 않았나요?<br>지금 바로 시뮬레이션 진행해봅시다!',
+      startText:   '내 짝사랑이 이루어질 확률은 얼마나 될까?<br>상황극으로 알아보는 내 사랑의 성사 가능성!<br><span style="opacity:.7">소요시간: 약 3분</span>',
+      startBtn:    '💕 확률 계산 시작하기',
+      descTitle:   '💬 짝사랑 분석 결과',
+      compatTitle: '✅ 해야할 것과 말아야 할 것',
       shareTitle:  '🎉 친구들에게 결과 공유하기!',
       restartBtn:  '🔄 다시 테스트하기',
       moreTitle:   '🎯 다른 테스트도 해보세요!',
-      badgeTxt:    '연애 유형',
-      goodLabel:   '잘 맞아요 ✨',
-      badLabel:    '조심하세요 ⚡',
+      badgeTxt:    '짝사랑 확률',
+      goodLabel:   '지금 당장 이것을! ✅',
+      badLabel:    '이것만은 참으세요 ⚠️',
       copyOk:      '🔗 링크가 복사되었어요!',
       langBtn:     '🌏 EN',
     },
     questions: [
       {
-        q: `오늘 유독 지치는 하루였어. 집 도착하자마자 연인한테 연락이 왔다. 어떻게 반응해?`,
-        sub: `가장 자연스럽게 나올 것 같은 걸 골라요`,
+        q: '솔직하게, 외모에서 나는 어느 편인가요?',
+        sub: '(자기 자신을 가장 객관적으로 평가해보세요)',
         choices: [
-          {
-            emoji: `📱`,
-            text: `"나 오늘 좀 힘들었어" — 하루 이야기 다 꺼냄. 들어줬으면 해서`,
-            type: `A`
-          },
-          {
-            emoji: `🚪`,
-            text: `"어디야? 보고 싶다" — 말보다 만나고 싶음`,
-            type: `B`
-          },
-          {
-            emoji: `💬`,
-            text: `"응, 왔어. 밥은?" — 일상 대화로 자연스럽게 이어감`,
-            type: `C`
-          },
-          {
-            emoji: `🔇`,
-            text: `"나중에 연락할게" — 지금은 혼자 있고 싶음`,
-            type: `D`
-          }
+          { emoji: '👑', text: '확실히 매력 있어. 돌아보는 사람 꽤 있음', pts: 3 },
+          { emoji: '😊', text: '평균 이상인 것 같고, 단점보다 장점이 더 많음', pts: 2 },
+          { emoji: '😐', text: '그냥 평범함. 특별히 눈에 띄진 않음', pts: 1 },
+          { emoji: '😔', text: '솔직히 외모에 자신이 없어', pts: 0 }
         ]
       },
       {
-        q: `연인이 처음으로 설렜던 순간을 기억해봐. 그때 내 모습은?`,
-        sub: `솔직하게 골라봐요`,
+        q: '내 짝사랑 상대의 외모는 나와 비교하면?',
+        sub: '(현실적으로 솔직하게 평가해 주세요)',
         choices: [
-          {
-            emoji: `🌙`,
-            text: `그 사람 생각에 밤에 잠을 못 잠 — 설렘이 온몸을 채웠음`,
-            type: `A`
-          },
-          {
-            emoji: `💫`,
-            text: `그 사람만 보임 — 다른 게 아무것도 안 될 정도로 몰입됨`,
-            type: `E`
-          },
-          {
-            emoji: `⚡`,
-            text: `좋다고 바로 표현했음 — 기다리는 게 더 힘들어서`,
-            type: `B`
-          },
-          {
-            emoji: `🌸`,
-            text: `상대의 기분이 어떤지 먼저 살폈음 — 내 감정보다 상대 먼저`,
-            type: `I`
-          }
+          { emoji: '😏', text: '비슷하거나 내가 좀 더 낫다는 소리를 들어본 것 같기도?', pts: 3 },
+          { emoji: '😅', text: '비슷한 수준인 것 같음', pts: 2 },
+          { emoji: '😤', text: '상대가 나보다 조금 더 매력적임', pts: 1 },
+          { emoji: '😭', text: '상대가 훨씬 더 매력적임. 레벨 차이 남', pts: 0 }
         ]
       },
       {
-        q: `연인이 갑자기 생일도 아닌데 선물을 줬다. 받고 나서 드는 첫 생각은?`,
-        sub: `제일 먼저 떠오르는 걸로`,
+        q: '짝사랑 상대와 얼마나 자주 만나나요?',
+        sub: '(학교, 직장, 동네 등 어떤 상황이든 포함)',
         choices: [
-          {
-            emoji: `🎁`,
-            text: `"왜 이런 걸 기억했지..." — 감동해서 눈물 날 것 같음`,
-            type: `A`
-          },
-          {
-            emoji: `😄`,
-            text: `"나도 뭔가 해줘야겠다" — 바로 보답하고 싶어짐`,
-            type: `B`
-          },
-          {
-            emoji: `😊`,
-            text: `"고마워" — 진심으로 좋은데 크게 표현은 못 함`,
-            type: `C`
-          },
-          {
-            emoji: `😅`,
-            text: `"이런 거 안 해도 되는데" — 오히려 부담스럽기도 함`,
-            type: `D`
-          }
+          { emoji: '📅', text: '거의 매일 봄', pts: 3 },
+          { emoji: '🗓️', text: '일주일에 2~3번', pts: 2 },
+          { emoji: '📆', text: '일주일에 한 번 정도', pts: 1 },
+          { emoji: '🌙', text: '한 달에 몇 번 혹은 그 이하', pts: 0 }
         ]
       },
       {
-        q: `연인이 요즘 바빠서 만남이 줄었다. 3주째 제대로 못 봤을 때 나는?`,
-        sub: `솔직한 내 상태`,
+        q: '상대와 나이 차이는?',
+        sub: '(상대가 연상이든 연하든 상관없이 차이만)',
         choices: [
-          {
-            emoji: `📅`,
-            text: `"다음 주에 시간 되면 만나자" — 먼저 날짜 잡음`,
-            type: `B`
-          },
-          {
-            emoji: `😌`,
-            text: `"바쁜 시기니까" — 나도 내 일에 집중함`,
-            type: `C`
-          },
-          {
-            emoji: `🧘`,
-            text: `솔직히 나도 혼자 시간이 필요해서 딱 좋았음`,
-            type: `D`
-          },
-          {
-            emoji: `🥺`,
-            text: `많이 보고 싶은데 말 못 하고 혼자 삭이는 중`,
-            type: `H`
-          }
+          { emoji: '🎂', text: '동갑 또는 ±1살', pts: 3 },
+          { emoji: '📅', text: '2~3살 차이', pts: 2 },
+          { emoji: '🧮', text: '4~5살 차이', pts: 1 },
+          { emoji: '🗓️', text: '6살 이상 차이', pts: 0 }
         ]
       },
       {
-        q: `연인이 이성 친구와 자주 만난다고 했다. 솔직한 내 반응은?`,
-        sub: `속마음을 가장 잘 나타내는 걸로`,
+        q: '현재 상대와 나는 어떤 관계인가요?',
+        sub: '(가장 가까운 현재 상태를 골라주세요)',
         choices: [
-          {
-            emoji: `✌️`,
-            text: `신경 안 씀 — 서로 믿으면 됐지, 일일이 신경 쓰기 싫음`,
-            type: `D`
-          },
-          {
-            emoji: `💭`,
-            text: `솔직히 신경 쓰임 — 근데 말하면 좁아 보일까봐 참음`,
-            type: `E`
-          },
-          {
-            emoji: `💬`,
-            text: `대화로 서로 편한 선을 정해두는 게 맞다고 생각함`,
-            type: `G`
-          },
-          {
-            emoji: `👀`,
-            text: `연인 기분이 어떤지 먼저 확인하고 싶어짐`,
-            type: `I`
-          }
+          { emoji: '💬', text: '단독으로 자주 만나고 속 얘기도 나누는 사이', pts: 3 },
+          { emoji: '👥', text: '같은 그룹이고 대화도 자주 하는 사이', pts: 2 },
+          { emoji: '👋', text: '서로 아는 사이지만 깊은 대화는 없음', pts: 1 },
+          { emoji: '😶', text: '거의 말 한 번 해본 적 없는 사이', pts: 0 }
         ]
       },
       {
-        q: `연인이 내가 싫어하는 행동을 또 했다. 이미 한 번 말한 적 있는 상황이야. 나는?`,
-        sub: `솔직한 내 반응`,
+        q: '내가 뭔가 재미있는 말을 했을 때 상대는?',
+        sub: '(지금까지 기억나는 반응을 떠올려 보세요)',
         choices: [
-          {
-            emoji: `😢`,
-            text: `또 상처받음 — 말하기 싫어서 혼자 삭임, 근데 표정에 다 나옴`,
-            type: `A`
-          },
-          {
-            emoji: `💬`,
-            text: `바로 말함 — "저번에도 얘기했잖아" 직구로 꺼냄`,
-            type: `B`
-          },
-          {
-            emoji: `⏸️`,
-            text: `타이밍 봐서 말함 — 감정 가라앉히고 나서 차분하게`,
-            type: `C`
-          },
-          {
-            emoji: `🌙`,
-            text: `혼자 삭이다가 나중에 아무렇지 않은 척 넘어감`,
-            type: `H`
-          }
+          { emoji: '😄', text: '나를 보며 크게 웃고, 몸이 내 쪽으로 향함', pts: 3 },
+          { emoji: '😂', text: '웃긴 하지만 딱히 나만 보는 건 아님', pts: 2 },
+          { emoji: '😑', text: '그냥 웃고 다른 곳 봄', pts: 1 },
+          { emoji: '😶', text: '별 반응 없음', pts: 0 }
         ]
       },
       {
-        q: `5년 후, 연인과 이상적인 관계를 상상해봤을 때 가장 가까운 장면은?`,
-        sub: `직관적으로 골라봐요`,
+        q: '길에서 우연히 마주쳤을 때 상대는?',
+        sub: '(비슷한 상황이 있었다면 어떻게 됐는지 골라주세요)',
         choices: [
-          {
-            emoji: `🕯️`,
-            text: `특별한 날마다 뭔가 준비하고, 서로에게 여전히 설레는 사이`,
-            type: `A`
-          },
-          {
-            emoji: `🏕️`,
-            text: `같이 도전하고 경험하면서, 서로가 서로의 에너지원인 사이`,
-            type: `F`
-          },
-          {
-            emoji: `☕`,
-            text: `말 없이도 편하고, 그냥 옆에 있는 것만으로 충분한 사이`,
-            type: `C`
-          },
-          {
-            emoji: `🌱`,
-            text: `각자 성장하면서도, 함께할 때 더 나은 사람이 되는 사이`,
-            type: `J`
-          }
+          { emoji: '🤗', text: '먼저 반갑게 인사하고 대화를 이어간다', pts: 3 },
+          { emoji: '😊', text: '인사는 하지만 그냥 지나친다', pts: 2 },
+          { emoji: '😬', text: '어색하게 지나치거나, 못 본 척 지나친다', pts: 1 },
+          { emoji: '😶', text: '이런 상황이 없었다', pts: 0 }
         ]
       },
       {
-        q: `연인이 고민을 털어놨을 때 나는 어떻게 반응하는 편이야?`,
-        sub: `가장 자연스러운 내 스타일`,
+        q: '"오늘 점심 같이 먹을래요?"라고 했을 때 상대는?',
+        sub: '(실제로 일어났거나, 일어난다면 어떨 것 같나요?)',
         choices: [
-          {
-            emoji: `🤗`,
-            text: `같이 감정을 느껴줌 — 공감이 먼저, 해결은 그다음`,
-            type: `A`
-          },
-          {
-            emoji: `🛋️`,
-            text: `조용히 들어줌 — 말 안 해도 옆에 있어주는 게 최선`,
-            type: `C`
-          },
-          {
-            emoji: `📝`,
-            text: `솔직하고 현실적인 조언 — 해결책이 더 중요하다고 생각함`,
-            type: `G`
-          },
-          {
-            emoji: `🌊`,
-            text: `말 안 해도 이미 어떤 기분인지 알 것 같음 — 그냥 느껴짐`,
-            type: `I`
-          }
+          { emoji: '🍽️', text: '바로 "그럼! 어디 갈까?" 하고 수락한다', pts: 3 },
+          { emoji: '🙂', text: '아쉬운 표정으로 거절하면서 "다음에 꼭 가자"고 한다', pts: 2 },
+          { emoji: '😐', text: '별 감흥 없이 담담하게 따라온다', pts: 1 },
+          { emoji: '😕', text: '어색하게 웃으며 핑계를 댄다', pts: 0 }
         ]
       },
       {
-        q: `연애에서 제일 상처받을 때는 언제야?`,
-        sub: `가장 공감 가는 상황`,
+        q: '내가 힘들어 보이면 상대는?',
+        sub: '(평소 상대가 나를 어떻게 대하는지 생각해 보세요)',
         choices: [
-          {
-            emoji: `💔`,
-            text: `설레는 감정이 없어진 것 같을 때 — 연애가 끝난 것 같은 느낌`,
-            type: `A`
-          },
-          {
-            emoji: `😶`,
-            text: `나만의 공간이 침범당하는 느낌이 들 때`,
-            type: `D`
-          },
-          {
-            emoji: `💫`,
-            text: `내가 전력인데 상대는 아닌 것 같을 때`,
-            type: `E`
-          },
-          {
-            emoji: `🌸`,
-            text: `내 감정이 무시당하거나 과민 반응이라는 말을 들을 때`,
-            type: `I`
-          }
+          { emoji: '💕', text: '먼저 "무슨 일 있어?" 하고 진심으로 챙겨준다', pts: 3 },
+          { emoji: '🙂', text: '눈치는 채지만 직접 물어보진 않는다', pts: 2 },
+          { emoji: '😑', text: '딱히 모른 척이거나 별로 관심 없어 보인다', pts: 1 },
+          { emoji: '😶', text: '아예 모를 것 같다', pts: 0 }
         ]
       },
       {
-        q: `연인과 영화를 보다가, 연인이 지루해 보인다. 나는?`,
-        sub: `이 순간 내 반응`,
+        q: '단체 카톡방에서 내가 재미있는 말을 했을 때 상대는?',
+        sub: '(온라인 접촉이 없다면 마지막 보기를 선택해주세요)',
         choices: [
-          {
-            emoji: `🍿`,
-            text: `"재미없어? 다른 거 틀어줄까?" — 바로 확인함`,
-            type: `A`
-          },
-          {
-            emoji: `😏`,
-            text: `그냥 계속 봄 — 나는 재밌으니까`,
-            type: `B`
-          },
-          {
-            emoji: `🛋️`,
-            text: `슬쩍 기대거나 손잡음 — 행동으로 신경 쓰고 있다는 걸 표현`,
-            type: `C`
-          },
-          {
-            emoji: `💡`,
-            text: `"같이 뭐 다른 거 할까?" — 둘 다 즐길 수 있는 걸 제안`,
-            type: `G`
-          }
+          { emoji: '💬', text: '바로 반응하고 나한테 따로 DM까지 보낸다', pts: 3 },
+          { emoji: '😊', text: '공개 채팅에서 웃으며 반응한다', pts: 2 },
+          { emoji: '😑', text: '읽긴 했겠지만 딱히 반응이 없다', pts: 1 },
+          { emoji: '📵', text: '온라인으로 접촉이 없다', pts: 0 }
         ]
       },
       {
-        q: `연인한테 딱 한 가지 바란다면?`,
-        sub: `제일 솔직한 걸로`,
+        q: '상대와 단둘이 있게 됐을 때 분위기는?',
+        sub: '(엘리베이터, 복도, 대기 중 등 어떤 상황이든)',
         choices: [
-          {
-            emoji: `💌`,
-            text: `"오늘 생각났어"라는 말 한마디 — 사소해도 기억해줬으면`,
-            type: `A`
-          },
-          {
-            emoji: `🤝`,
-            text: `힘들 때 도망치지 않는 것 — 그게 제일 중요함`,
-            type: `B`
-          },
-          {
-            emoji: `🌊`,
-            text: `나를 있는 그대로 놔줬으면 — 바꾸려 하지 않는 것`,
-            type: `D`
-          },
-          {
-            emoji: `🌱`,
-            text: `서로 성장할 수 있는 자극이 있는 관계`,
-            type: `J`
-          }
+          { emoji: '💬', text: '편안하고 자연스럽게 대화가 이어진다', pts: 3 },
+          { emoji: '😊', text: '어색하지 않지만 특별히 길게 대화하진 않음', pts: 2 },
+          { emoji: '😅', text: '약간 어색하지만 짧게 대화는 한다', pts: 1 },
+          { emoji: '😶', text: '단둘이 있어본 적이 없다', pts: 0 }
         ]
       },
       {
-        q: `지금 나한테 연애란 어떤 존재야?`,
-        sub: `가장 가까운 걸 골라봐`,
+        q: '"나 뭔가 달라진 거 없어?"라고 물었을 때 상대는?',
+        sub: '(실제 상황이나 예상 반응을 골라주세요)',
         choices: [
-          {
-            emoji: `🌙`,
-            text: `지치는 날 불을 켜주는 것 — 없으면 어두운 느낌`,
-            type: `E`
-          },
-          {
-            emoji: `⚡`,
-            text: `살아있다는 걸 실감하게 해주는 것 — 에너지 그 자체`,
-            type: `F`
-          },
-          {
-            emoji: `🏠`,
-            text: `어디든 갈 수 있게 해주는 베이스캠프 같은 것`,
-            type: `C`
-          },
-          {
-            emoji: `🌱`,
-            text: `나를 더 나답게, 더 나은 사람으로 만들어주는 것`,
-            type: `J`
-          }
+          { emoji: '👀', text: '꼼꼼히 살펴보며 "어? 머리 잘랐어?" 하고 알아챈다', pts: 3 },
+          { emoji: '😊', text: '생각해보다가 한 가지 찾아낸다', pts: 2 },
+          { emoji: '😐', text: '"모르겠다" 하며 대충 넘어간다', pts: 1 },
+          { emoji: '😶', text: '이런 대화를 나눠본 적이 없다', pts: 0 }
         ]
       },
       {
-        q: `연인이 "요즘 나한테 좀 소홀한 것 같아"라고 말했다. 나는?`,
-        sub: `가장 가까운 반응을 골라요`,
+        q: '"요즘 좀 힘들어..."라고 했을 때 상대는?',
+        sub: '(일부러 힘든 티를 냈을 때 상대의 반응이에요)',
         choices: [
-          {
-            emoji: `😰`,
-            text: `엄청 미안함 — 바로 뭔가 해주려고 계획 세우기 시작`,
-            type: `A`
-          },
-          {
-            emoji: `😤`,
-            text: `억울한 면도 있음 — "내가 언제?" 하고 바로 반박`,
-            type: `B`
-          },
-          {
-            emoji: `🧐`,
-            text: `돌아봄 — "그랬나?" 하고 진지하게 생각해봄`,
-            type: `G`
-          },
-          {
-            emoji: `😶`,
-            text: `"내가 원래 이런 스타일이야"라고 설명함 — 억지로 바꾸긴 싫음`,
-            type: `H`
-          }
+          { emoji: '🥺', text: '걱정하며 "많이 힘들어? 뭐가 문제야?" 하고 진심으로 물어본다', pts: 3 },
+          { emoji: '😊', text: '"그래? 무리하지 마" 하고 가볍게 위로한다', pts: 2 },
+          { emoji: '😐', text: '"요즘 다들 그래..." 하고 공감만 한다', pts: 1 },
+          { emoji: '😶', text: '별 반응이 없거나 화제를 바꾼다', pts: 0 }
         ]
       },
       {
-        q: `나 없이 연인이 친구들이랑 신나게 놀고 온 걸 SNS로 봤다. 든 생각은?`,
-        sub: `진짜 속마음`,
+        q: '상대가 나에 대한 사소한 것(취향, 습관 등)을 기억하나요?',
+        sub: '(내가 말했던 것을 상대가 기억하고 있었던 적이 있나요?)',
         choices: [
-          {
-            emoji: `🌷`,
-            text: `"나도 같이 갔으면 좋았겠다" — 살짝 섭섭하긴 함`,
-            type: `E`
-          },
-          {
-            emoji: `🎉`,
-            text: `"재밌었나 보네" — 기분 좋음, 나도 내 친구들이랑 놀아야겠다`,
-            type: `F`
-          },
-          {
-            emoji: `😌`,
-            text: `"잘 놀았으면 됐지" — 크게 신경 안 씀`,
-            type: `C`
-          },
-          {
-            emoji: `✌️`,
-            text: `"각자 시간 잘 쓴 거잖아" — 딱 좋음`,
-            type: `D`
-          }
+          { emoji: '🧠', text: '분명히 기억한다. 내가 말한 작은 것도 챙겨줌', pts: 3 },
+          { emoji: '😊', text: '중요한 것 정도는 기억하는 것 같다', pts: 2 },
+          { emoji: '😐', text: '그냥 흘려 듣는 것 같다', pts: 1 },
+          { emoji: '😶', text: '기억해줄 기회 자체가 없었다', pts: 0 }
         ]
       },
       {
-        q: `사랑에서 내가 제일 원하는 건?`,
-        sub: `솔직하게 하나만`,
+        q: '내가 실수를 했을 때 상대는?',
+        sub: '(실수나 민망한 상황이 생겼을 때의 반응이에요)',
         choices: [
-          {
-            emoji: `💕`,
-            text: `감동과 설렘 — 늘 두근거리게 해주는 사람`,
-            type: `A`
-          },
-          {
-            emoji: `🔥`,
-            text: `열정과 솔직함 — 마음을 숨기지 않는 사람`,
-            type: `B`
-          },
-          {
-            emoji: `🌿`,
-            text: `안정과 편안함 — 곁에 있으면 숨이 쉬어지는 사람`,
-            type: `C`
-          },
-          {
-            emoji: `🦋`,
-            text: `자유와 신뢰 — 서로의 공간을 존중하는 사이`,
-            type: `D`
-          }
+          { emoji: '😄', text: '"괜찮아, 나도 그런 적 있어" 하며 편하게 해준다', pts: 3 },
+          { emoji: '😊', text: '딱히 신경쓰지 않고 그냥 넘어간다', pts: 2 },
+          { emoji: '😐', text: '지적하거나 피식 웃고 넘어간다', pts: 1 },
+          { emoji: '😶', text: '그런 상황이 없었다', pts: 0 }
+        ]
+      },
+      {
+        q: '상대가 나의 개인적인 고민을 들어준 적이 있나요?',
+        sub: '(상대와 사적인 이야기를 나눠본 적이 있는지 생각해 보세요)',
+        choices: [
+          { emoji: '💬', text: '자주 있다. 상대가 나한테 꽤 오픈하는 편이다', pts: 3 },
+          { emoji: '😊', text: '가끔은 있다', pts: 2 },
+          { emoji: '😐', text: '거의 없다', pts: 1 },
+          { emoji: '😶', text: '전혀 없다', pts: 0 }
+        ]
+      },
+      {
+        q: '눈이 자주 마주치나요?',
+        sub: '(자연스럽게 시선이 겹치는 일이 얼마나 있나요?)',
+        choices: [
+          { emoji: '👀', text: '자주 눈이 마주치고, 상대가 먼저 시선을 주는 것 같다', pts: 3 },
+          { emoji: '😊', text: '가끔 눈이 마주치긴 한다', pts: 2 },
+          { emoji: '😐', text: '내가 볼 때 상대는 주로 다른 곳을 보고 있다', pts: 1 },
+          { emoji: '🙈', text: '한 번도 눈이 마주친 적이 없다', pts: 0 }
+        ]
+      },
+      {
+        q: '주변 사람들이 나와 상대를 어떻게 보나요?',
+        sub: '(제3자 시각에서의 반응을 골라주세요)',
+        choices: [
+          { emoji: '💑', text: '"너네 사귀는 거 아니야?" 하는 소리를 들어본 적 있다', pts: 3 },
+          { emoji: '😊', text: '둘이 친해 보인다는 말을 들었다', pts: 2 },
+          { emoji: '😐', text: '아무도 우리 관계에 관심 없어 보인다', pts: 1 },
+          { emoji: '😶', text: '주변 사람들이 우리가 아는 사이인 것도 모른다', pts: 0 }
         ]
       }
     ],
-        results: {
-      A: {
-        emoji: `🌹`,
-        name: `로맨틱 드리머`,
-        tagline: `감성으로 연애를 예술로 만드는 타입`,
-        badge: `낭만 가득`,
+    results: {
+      L1: {
+        probability: '10%',
+        emoji:   '💔',
+        badge:   '짝사랑 성사율 10%',
+        name:    '아쉽게도... 사랑은 다음 생애에서',
+        tagline: '지금은 아직 씨앗도 뿌려지지 않은 단계예요',
         traits: [
-          {
-            label: `로맨스`,
-            val: 90
-          },
-          {
-            label: `감수성`,
-            val: 82
-          },
-          {
-            label: `표현력`,
-            val: 65
-          },
-          {
-            label: `멘탈 안정`,
-            val: 28
-          }
+          { label: '호감 신호', val: 8 },
+          { label: '친밀도',    val: 10 },
+          { label: '만남 빈도', val: 15 },
+          { label: '나의 자신감', val: 12 }
         ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF6B9D;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">💕 사랑받고 싶은 마음이 남들보다 1.5배 큼</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">근데 그만큼 줄 줄도 아는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">기념일 <b>D-30부터</b> 뭐 할지 머릿속에서 계획 시작됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인이 지나가듯 했던 말도 <b>한 달 뒤에 정확히 기억</b>하고 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">감동을 주고받는 게 연애의 핵심이라고 <b>진심으로</b> 믿는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">드라마 같은 순간을 직접 만들어냄 — 당신 곁에 있으면 <b>매일이 특별한 날</b>처럼 느껴짐</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F"><span style="color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF6B9D">노력 안 하는 상대</span> 옆에 있으면 에너지가 빠르게 고갈됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">작은 말 한 마디에 <b>크게 상처</b>받기도 하고, 작은 행동 하나에 크게 감동받기도 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">싸우고 나서도 먼저 화해하고 싶어서 <b>결국 먼저 연락</b>하는 사람</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B9D0F"><span style="color:#FF6B9D;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF6B9D">설레는 감정이 없어지면</span> 연애가 끝난 것 같은 느낌이 들기도 함</span></div><div style="height:12px"></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">팀 분위기를 부드럽게 만드는 감성 리더 — 힘든 상황에서도 <b>분위기 메이킹</b>을 자연스럽게 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">칭찬 한 마디에 진심으로 감동받고 더 열심히 함 — <b>인정욕구</b>가 업무 원동력</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">동료가 힘들어 보이면 먼저 "괜찮아요?" 묻는 <b>팀의 정서적 버팀목</b></span></div></div><div style="background:#FF6B9D0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B9D;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구 생일, 기념일 꼭 챙기는 사람 — <b>잊어도 괜찮다고 했지만 혼자 기억하고 있음</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연락이 뜸해졌다 싶으면 불안해짐 — 관계에 <b>꾸준한 온기</b>를 원하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B9D;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">속 깊은 대화를 좋아해서 <b>친해지면 인생 친구</b>가 되는 경우가 많음</span></div></div>`,
-        wantToHear: `"너랑 있으면 매일 설레"`,
-        dontWantToHear: `"기념일이 그렇게 중요해?"`,
+        tags: ['🌙 인연 미형성', '💭 짝사랑 시작단계', '🔮 먼 미래의 이야기'],
+        desc: '솔직히 말씀드릴게요. 지금 상황에서 성공 확률은 매우 낮아요. 상대방이 여러분을 아직 특별한 사람으로 인식하지 못하고 있을 가능성이 높고, 현재의 접점 자체가 부족한 상태예요. 하지만 포기하기엔 아직 시작도 안 한 거예요! 일단 상대방이 나를 "존재하는 사람"으로 인식하게 만드는 것부터 시작해 보세요.',
+        wantToHear: '먼저 말을 걸어보세요. 지금은 접점 만들기가 최우선이에요!',
+        dontWantToHear: '고백은 아직 절대 NO! 지금 고백하면 더 어색해질 수 있어요.',
         compat: {
-          goodEmoji: `🌿`,
-          goodName: `안정 배려형`,
-          goodDesc: `말없이 다 챙겨주는 든든한 배려형`,
-          badEmoji: `🦋`,
-          badName: `자유 독립형`,
-          badDesc: `구속보다 공간과 자유를 최우선으로 하는 타입`
-        },
-        tags: [
-          `#기념일은종교`,
-          `#감수성폭발`,
-          `#설렘없인못살아`,
-          `#낭만주의자`
-        ]
+          goodEmoji: '✅', goodName: '작은 대화 한 번부터!',
+          goodDesc:  '안부 문자, 짧은 인사 한 마디가 시작이에요',
+          badEmoji:  '⚠️', badName:  '갑작스러운 고백 또는 고백 떡밥',
+          badDesc:   '지금 고백이나 암시는 역효과 날 수 있어요'
+        }
       },
-      B: {
-        emoji: `🔥`,
-        name: `열정 표현형`,
-        tagline: `온 마음을 다 꺼내놓는 타입`,
-        badge: `열정 가득`,
+      L2: {
+        probability: '25%',
+        emoji:   '🌧️',
+        badge:   '짝사랑 성사율 25%',
+        name:    '희미한 빛이 보여요... 아직 포기는 이르다!',
+        tagline: '가능성이 조금씩 생기고 있는 단계예요',
         traits: [
-          {
-            label: `열정도`,
-            val: 93
-          },
-          {
-            label: `직진력`,
-            val: 88
-          },
-          {
-            label: `에너지`,
-            val: 80
-          },
-          {
-            label: `인내심`,
-            val: 20
-          }
+          { label: '호감 신호', val: 22 },
+          { label: '친밀도',    val: 28 },
+          { label: '만남 빈도', val: 35 },
+          { label: '나의 자신감', val: 20 }
         ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF8C42;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🔥 마음에 담아두는 거 체질적으로 못 함</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">좋으면 좋다고, 싫으면 싫다고 — 필터가 없는 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">좋아하는 감정이 생기면 숨기려 해도 <b>표정이나 행동으로 이미 다 드러남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">싸울 때 할 말은 <b>그 자리에서 다 함</b> — 쌓아두고 나중에 터지는 게 더 힘듦</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">사랑할 때는 세상 전부를 줄 것 같은 <b>뜨거움</b>이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">즉흥적으로 <b>"지금 드라이브 가자"</b>를 아무렇지 않게 할 수 있는 사람</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF8C420F"><span style="color:#FF8C42;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF8C42">어중간한 관계가 제일 힘듦</span> — 좋으면 확실히, 아니면 정리</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인의 반응이 없거나 무덤덤하면 <b>불안함이 빠르게 올라옴</b></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF8C420F"><span style="color:#FF8C42;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF8C42">연인이 힘들다고 하면</span> "어디야? 지금 가도 돼?" 가 자동으로 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">화해하고 나면 언제 싸웠냐는 듯이 <b>다시 따뜻해짐</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신과 연애하면 <b>지루할 틈이 없음</b> — 그게 장점이자, 가끔은 소용돌이</span></div><div style="height:12px"></div><div style="background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">마감 직전에 뚜렷하게 살아나는 타입 — <b>위기 상황에서 가장 빛남</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">할 말은 그 자리에서 하는 편 — 회의에서 <b>직설적 피드백</b>으로 분위기를 흔들기도 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">열정이 넘쳐서 <b>주도적으로 일을 벌이는</b> 경우가 많음 — 수습도 본인이 함</span></div></div><div style="background:#FF8C420F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF8C42;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구가 힘들다고 하면 <b>"어디야? 지금 갈게"</b>가 반사적으로 나오는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">감정 표현이 솔직해서 <b>진짜 친구인지 아닌지 바로 느껴짐</b> — 애매한 관계를 못 견딤</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF8C42;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">같이 있으면 <b>무조건 뭔가 일어나는</b> 타입 — 지루할 틈이 없는 친구</span></div></div>`,
-        wantToHear: `"네가 먼저 표현해줘서 나도 편했어"`,
-        dontWantToHear: `"왜 이렇게 감정적으로 굴어"`,
+        tags: ['🌱 가능성 싹', '💬 대화 시작단계', '🌤️ 흐림이지만 맑아질 수 있음'],
+        desc: '상대방이 여러분을 특별히 신경 쓰고 있는 것 같지는 않지만, 그렇다고 완전히 무관심한 것도 아니에요. 현재의 관계에서 조금 더 접점을 늘리고, 좋은 인상을 남기는 기회를 만드는 것이 중요해요. 지금 단계에서는 친해지는 것에 집중하세요. 아직 고백보다는 관계 형성에 에너지를 써야 할 때예요.',
+        wantToHear: '관계를 조금씩 발전시켜 가세요. 매일 짧게라도 대화를 시도해봐요!',
+        dontWantToHear: '서두르지 마세요. 지금 빠르게 밀어붙이면 상대가 부담을 느낄 수 있어요.',
         compat: {
-          goodEmoji: `🌹`,
-          goodName: `로맨틱 드리머`,
-          goodDesc: `감성으로 연애를 예술로 만드는 낭만형`,
-          badEmoji: `🌿`,
-          badName: `안정 배려형`,
-          badDesc: `설렘보다 안정과 일상을 중시하는 타입`
-        },
-        tags: [
-          `#직진본능`,
-          `#감정솔직`,
-          `#열정만수르`,
-          `#지루할틈없음`
-        ]
+          goodEmoji: '✅', goodName: '꾸준한 존재감 어필',
+          goodDesc:  '자연스러운 대화와 작은 친절을 반복하세요',
+          badEmoji:  '⚠️', badName:  '조급한 고백 또는 연락 폭탄',
+          badDesc:   '너무 적극적인 접근은 상대를 도망가게 해요'
+        }
       },
-      C: {
-        emoji: `☕`,
-        name: `안정 배려형`,
-        tagline: `일상 속에서 사랑을 키우는 타입`,
-        badge: `따뜻한 일상`,
+      L3: {
+        probability: '45%',
+        emoji:   '🌱',
+        badge:   '짝사랑 성사율 45%',
+        name:    '씨앗이 뿌려졌어요! 정성껏 물을 주세요',
+        tagline: '관계의 싹이 서서히 트고 있는 중이에요',
         traits: [
-          {
-            label: `안정감`,
-            val: 91
-          },
-          {
-            label: `배려심`,
-            val: 85
-          },
-          {
-            label: `인내심`,
-            val: 77
-          },
-          {
-            label: `표현력`,
-            val: 40
-          }
+          { label: '호감 신호', val: 42 },
+          { label: '친밀도',    val: 45 },
+          { label: '만남 빈도', val: 50 },
+          { label: '나의 자신감', val: 40 }
         ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#4CAF8A;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌿 특별한 날보다 평범한 오늘에 진심인 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">큰 이벤트보다 꾸준한 일상이 진짜 사랑이라고 믿음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인이 좋아하는 메뉴 <b>아무 말 없이 챙겨두는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">감정을 말로 꺼내는 것보다 <b>행동으로 먼저 표현</b>함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">싸우고 나서 감정이 가라앉으면 <b>차분하게 대화로 풀어나감</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">상대가 바쁜 시기엔 <b>군말 없이 기다려줌</b> — 이해심이 진심</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4CAF8A0F"><span style="color:#4CAF8A;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#4CAF8A">인정받지 못하면</span> 묵묵히 챙겨줬는데 당연하게 여겨질 때 가장 상처받음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">표현이 서툴러서 <b>오해받기도 하지만</b> 마음은 누구보다 깊음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#4CAF8A0F"><span style="color:#4CAF8A;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#4CAF8A">갑작스러운 변화에 약함</span> 예측 불가한 상황이 오면 스트레스가 쌓임</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">오래 사귄 연인과 함께하면 <b>말 없이도 통하는</b> 깊은 관계가 형성됨</span></div><div style="height:12px"></div><div style="background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">조용하지만 <b>꼭 필요한 순간에 빠짐없이 역할을 해내는</b> 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">마감 전에 미리미리 준비함 — <b>막판 스퍼트보다 꾸준함</b>이 특기</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">팀원이 실수해도 조용히 수습하는 편 — <b>뒤에서 팀을 받쳐주는</b> 사람</span></div></div><div style="background:#4CAF8A0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#4CAF8A;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">오래된 친구가 많음 — <b>관계를 쉽게 끊지 않고</b> 꾸준히 유지함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">말보다 밥 한 끼로 위로를 전하는 타입 — <b>실질적인 도움</b>이 먼저</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#4CAF8A;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구들의 고민을 들어주다 <b>자기 얘기는 잘 못 꺼냄</b> — 속은 더 깊음</span></div></div>`,
-        wantToHear: `"네 곁에 있으면 그냥 마음이 편해"`,
-        dontWantToHear: `"왜 맨날 그렇게 무감각해?"`,
+        tags: ['🌿 성장 중', '💛 호감 형성', '☀️ 가능성 반반'],
+        desc: '현재 상황은 꽤 희망적이에요! 상대방이 여러분을 좋아한다고 확신할 수는 없지만, 적어도 좋은 인상을 남기고 있는 것은 분명해요. 지금은 공략의 "중간 단계"로, 서로에 대한 이해를 깊게 하는 것이 중요해요. 단독 만남의 기회를 자연스럽게 만들어 보는 것이 다음 단계예요!',
+        wantToHear: '단독으로 밥 한 번 먹어보는 걸 제안해 보세요. 자연스럽게요!',
+        dontWantToHear: '상대를 떠보거나 자존심 게임은 금물! 솔직함이 더 매력적이에요.',
         compat: {
-          goodEmoji: `🌹`,
-          goodName: `로맨틱 드리머`,
-          goodDesc: `감동 주고받는 것을 사랑의 언어로 삼는 낭만형`,
-          badEmoji: `⚡`,
-          badName: `즉흥 에너지형`,
-          badDesc: `루틴보다 새로운 자극을 최우선으로 하는 타입`
-        },
-        tags: [
-          `#일상이로맨스`,
-          `#말보다행동`,
-          `#꾸준함이답`,
-          `#베이스캠프같은사람`
-        ]
+          goodEmoji: '✅', goodName: '자연스러운 단독 만남 제안',
+          goodDesc:  '밥, 카페, 산책 등 가볍게 시작해 보세요',
+          badEmoji:  '⚠️', badName:  '밀당 또는 감정 숨기기',
+          badDesc:   '너무 계산적으로 구는 것은 오히려 역효과예요'
+        }
       },
-      D: {
-        emoji: `🦋`,
-        name: `자유 독립형`,
-        tagline: `각자의 세계를 지키며 사랑하는 타입`,
-        badge: `자유로운 영혼`,
+      L4: {
+        probability: '60%',
+        emoji:   '💛',
+        badge:   '짝사랑 성사율 60%',
+        name:    '희망이 보여요! 용기만 내면 돼요',
+        tagline: '상대도 당신을 특별하게 생각하고 있을 수 있어요',
         traits: [
-          {
-            label: `독립성`,
-            val: 92
-          },
-          {
-            label: `자기존중`,
-            val: 85
-          },
-          {
-            label: `신뢰도`,
-            val: 78
-          },
-          {
-            label: `의존도`,
-            val: 12
-          }
+          { label: '호감 신호', val: 62 },
+          { label: '친밀도',    val: 65 },
+          { label: '만남 빈도', val: 68 },
+          { label: '나의 자신감', val: 58 }
         ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#7C67EE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🦋 같이 있어도 각자의 세계가 있어야 행복한 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">독립이 사랑을 더 오래 지속시킨다고 믿음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">상대의 연락에 <b>바로 답해야 한다는 압박</b>이 스트레스로 느껴짐</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인의 공간도 존중하고, 내 공간도 침범받기 싫음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">구속받는 느낌이 드는 순간 <b>본능적으로 거리를 두게 됨</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">혼자 있는 시간이 충전의 시간 — <b>못 만난 기간이 오히려 그리움을 키움</b></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F"><span style="color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#7C67EE">"요즘 왜 연락 없어?" 라는 말이 제일 힘듦</span> 자유를 체크당하는 느낌</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">관계에서 <b>서로의 신뢰가 최우선</b> — 믿어주는 만큼 편하게 사랑할 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#7C67EE0F"><span style="color:#7C67EE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#7C67EE">의존적인 연인과는 장기 연애가 어려움</span> 에너지가 빠르게 소진됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신과 연애하면 <b>서로를 더 빛나게 해주는</b> 관계가 될 수 있음</span></div><div style="height:12px"></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">혼자 집중하는 딥워크 환경에서 <b>최고의 퍼포먼스</b>를 냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">세세한 간섭에 예민함 — <b>자율성이 보장된 환경</b>에서 진가 발휘</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">프리랜서나 독립적인 업무 방식을 선호하는 경향이 있음</span></div></div><div style="background:#7C67EE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#7C67EE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친한 친구는 적지만 <b>깊고 오래가는</b> 관계를 유지함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">약속을 잡는 것 자체에 에너지가 드는 편 — <b>자연스럽게 만나는 게 편함</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#7C67EE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구가 힘들 때 조용히 옆에 있어줌 — 많은 말 없이도 <b>존재만으로 위로가 됨</b></span></div></div>`,
-        wantToHear: `"나도 내 시간이 중요해서 그게 좋더라"`,
-        dontWantToHear: `"요즘 왜 이렇게 연락이 없어?"`,
+        tags: ['💛 호감 확인 중', '🌟 긍정 신호 포착', '🎯 조준 완료'],
+        desc: '좋은 신호들이 제법 보여요! 상대방이 여러분에게 특별한 관심을 가지고 있을 가능성이 높아요. 지금은 관계가 "친구 이상 연인 미만"의 경계 어딘가에 있는 것 같아요. 한 번의 결정적인 순간이 필요한 타이밍이에요. 조금 더 솔직하게 감정을 표현해 보거나, 단둘이 특별한 시간을 만들어 보세요!',
+        wantToHear: '분위기 좋은 날, 단둘이 만나는 자리를 만들어 보세요. 그게 시작이에요!',
+        dontWantToHear: '지금 더 망설이면 타이밍을 놓칠 수도 있어요. 행동할 때예요!',
         compat: {
-          goodEmoji: `🧭`,
-          goodName: `이성 균형형`,
-          goodDesc: `이성적이고 공평한 관계를 추구하는 타입`,
-          badEmoji: `💫`,
-          badName: `몰입 헌신형`,
-          badDesc: `상대에게 전부를 쏟는 깊은 헌신형`
-        },
-        tags: [
-          `#각자의공간`,
-          `#신뢰기반`,
-          `#독립적인사랑`,
-          `#숨막힘은싫어`
-        ]
+          goodEmoji: '✅', goodName: '특별한 단둘 만남 기회 만들기',
+          goodDesc:  '소소한 이벤트나 특별한 날에 단독 약속을 잡아보세요',
+          badEmoji:  '⚠️', badName:  '계속 망설이며 기회 놓치기',
+          badDesc:   '타이밍은 영원하지 않아요. 용기를 내야 할 때예요'
+        }
       },
-      E: {
-        emoji: `💫`,
-        name: `몰입 헌신형`,
-        tagline: `사랑하면 그 사람이 전부가 되는 타입`,
-        badge: `깊은 헌신`,
+      L5: {
+        probability: '75%',
+        emoji:   '💕',
+        badge:   '짝사랑 성사율 75%',
+        name:    '거의 다 왔어요! 고백만 남았네요',
+        tagline: '상대는 이미 당신에게 특별한 감정을 가지고 있어요',
         traits: [
-          {
-            label: `헌신도`,
-            val: 95
-          },
-          {
-            label: `감정 깊이`,
-            val: 88
-          },
-          {
-            label: `몰입도`,
-            val: 91
-          },
-          {
-            label: `감정 안정`,
-            val: 22
-          }
+          { label: '호감 신호', val: 80 },
+          { label: '친밀도',    val: 78 },
+          { label: '만남 빈도', val: 82 },
+          { label: '나의 자신감', val: 72 }
         ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#E91E8C;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">💫 연애를 시작하면 그 사람이 세상의 중심이 되는 타입</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">반쪽짜리가 아닌, 모든 걸 다 주고 싶은 사람</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인이 힘들다고 하면 <b>내 일보다 먼저</b> 떠오르는 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">관계에 <b>온 에너지를 다 쏟는</b> 편 — 어중간하게 하는 법을 모름</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">상대의 표정 변화 하나에도 <b>극도로 민감하게 반응</b>함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">사랑받고 있다는 확신이 생기면 <b>세상 무서울 게 없어짐</b></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E91E8C0F"><span style="color:#E91E8C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#E91E8C">상대가 나만큼 진심이 아닌 것 같을 때</span> 가장 깊게 상처받음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">"나 말고 다른 사람 만나는 거 아냐?" 생각이 <b>가끔 불쑥 올라옴</b></span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#E91E8C0F"><span style="color:#E91E8C;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#E91E8C">감정 기복이 상대에게 부담이 될 수 있음</span> 기대가 크면 실망도 큼</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신을 제대로 받아주는 사람을 만나면 <b>세상에서 가장 헌신적인 연인</b>이 됨</span></div><div style="height:12px"></div><div style="background:#E91E8C0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#E91E8C;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">맡은 일에 <b>완전히 몰입</b>하는 타입 — 중간에 딴짓 못 함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">팀보다 <b>단독 프로젝트</b>에서 역량이 가장 빛남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">한 가지 목표가 생기면 <b>그것만 보임</b> — 몰입도가 강점이자 때론 약점</span></div></div><div style="background:#E91E8C0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#E91E8C;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친한 친구에게는 <b>전부를 줌</b> — 친구 수는 적지만 깊이가 남다름</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구의 고민을 내 일처럼 <b>같이 해결하려고 애씀</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#E91E8C;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연락이 뜸해지면 <b>"내가 뭔가 잘못한 건가?"</b> 하고 혼자 걱정함</span></div></div>`,
-        wantToHear: `"너 없이는 상상이 안 돼"`,
-        dontWantToHear: `"왜 이렇게 집착해?"`,
+        tags: ['💕 호감 확실', '🌸 감정 무르익음', '💫 고백 타이밍 임박'],
+        desc: '축하드려요! 상대방은 분명히 여러분에게 특별한 감정을 가지고 있어요. 여러 호감 신호가 확인되고, 관계도 충분히 깊어져 있어요. 지금 필요한 건 단 하나, 용기 있는 고백이에요! 너무 오래 기다리면 오히려 "그냥 친구"로 자리를 굳혀버릴 수 있어요. 지금이 딱 고백할 타이밍이에요!',
+        wantToHear: '이번 주 안에 고백 계획을 세워보세요. 상대도 기다리고 있을 수 있어요!',
+        dontWantToHear: '"아직은 아닌 것 같아서..." 하며 또 미루는 건 절대 금물이에요!',
         compat: {
-          goodEmoji: `🌸`,
-          goodName: `섬세 공감형`,
-          goodDesc: `감정을 깊이 읽고 먼저 다가오는 타입`,
-          badEmoji: `🦋`,
-          badName: `자유 독립형`,
-          badDesc: `독립적이고 공간을 중시하는 타입`
-        },
-        tags: [
-          `#전부를준다`,
-          `#사랑하면몰입`,
-          `#감정깊이`,
-          `#헌신의아이콘`
-        ]
+          goodEmoji: '✅', goodName: '진심 담은 고백 (언제든 OK!)',
+          goodDesc:  '상대방도 이미 여러분을 특별하게 생각하고 있어요',
+          badEmoji:  '⚠️', badName:  '고백을 또 미루며 현상 유지',
+          badDesc:   '"그냥 친구"로 굳어지기 전에 행동하세요!'
+        }
       },
-      F: {
-        emoji: `⚡`,
-        name: `즉흥 에너지형`,
-        tagline: `연애도 즉흥, 계획보다 지금 이 순간`,
-        badge: `스파크 넘침`,
+      L6: {
+        probability: '90%',
+        emoji:   '💍',
+        badge:   '짝사랑 성사율 90%',
+        name:    '천생연분! 식장을 잡으세요!',
+        tagline: '사실 두 분은 이미 사귀고 있는 거 아닌가요?',
         traits: [
-          {
-            label: `즉흥성`,
-            val: 92
-          },
-          {
-            label: `활동성`,
-            val: 88
-          },
-          {
-            label: `에너지`,
-            val: 85
-          },
-          {
-            label: `지속성`,
-            val: 35
-          }
+          { label: '호감 신호', val: 95 },
+          { label: '친밀도',    val: 92 },
+          { label: '만남 빈도', val: 90 },
+          { label: '나의 자신감', val: 88 }
         ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF6B35;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">⚡ 연애도 즉흥, 계획보다 지금 이 순간</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">루틴보다 새로운 자극 — 연인은 나의 모험 파트너</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">"지금 뭐 해? 나와" 한 마디로 <b>하루를 통째로 바꿀 수 있는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">데이트 계획은 당일에 짜는 게 더 재밌음 — <b>즉흥이 로맨스</b>라고 생각함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인이랑 새로운 걸 계속 경험하면서 <b>관계가 살아있다는 느낌</b>을 받음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">지루한 일상이 반복되면 <b>관계에도 권태가 빠르게 옴</b></span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B350F"><span style="color:#FF6B35;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF6B35">계획적이고 조심스러운 연인과는</span> 에너지 충돌이 생기기 쉬움</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">약속을 어기거나 변경하는 것에 <b>비교적 유연한 편</b> — 상대도 그러길 바람</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF6B350F"><span style="color:#FF6B35;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF6B35">장기 계획 세우는 걸 어려워함</span> 미래 이야기가 나오면 살짝 부담스러움</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신과 함께하면 <b>매일이 새롭고 예상 못 한 방향</b>으로 흘러가는 연애가 됨</span></div><div style="height:12px"></div><div style="background:#FF6B350F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B35;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">브레인스토밍이나 <b>아이디어 발산 단계</b>에서 가장 탁월함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">루틴한 반복 업무에 쉽게 질림 — <b>변화가 많은 환경</b>에서 더 생산적</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">급하게 들어온 일도 <b>빠르게 적응하고 처리</b>하는 능력이 뛰어남</span></div></div><div style="background:#FF6B350F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF6B35;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구 만남의 <b>80%가 즉흥 약속</b> — 예약 없이 연락해도 잘 만남</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">같이 있으면 <b>계속 뭔가 일이 생기는</b> 재미있는 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF6B35;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">오래된 친구도 만날 때마다 <b>처음 만난 것처럼 에너지가 넘침</b></span></div></div>`,
-        wantToHear: `"너랑 있으면 지루할 틈이 없어"`,
-        dontWantToHear: `"왜 이렇게 계획성이 없어?"`,
+        tags: ['💍 거의 연인', '🎊 축하드립니다', '💫 천생연분 에너지'],
+        desc: '솔직히 물어볼게요 — 이 테스트를 하기 전에 이미 둘이 사귀고 있는 거 아닌가요? 😆 거의 모든 신호가 최고점이에요. 상대방은 분명히 여러분을 좋아하고 있어요. 지금 이 순간에도 상대는 여러분의 고백을 기다리고 있을 수도 있어요. 정말이지 더 기다릴 이유가 없어요. 오늘 당장 고백하세요!',
+        wantToHear: '오늘 당장 고백하세요! 결과는 거의 확정이에요. 식장 잡을 준비 하세요! 💍',
+        dontWantToHear: '이 점수 받고도 아직 망설이고 있다면... 그게 더 문제예요!',
         compat: {
-          goodEmoji: `☕`,
-          goodName: `안정 배려형`,
-          goodDesc: `즉흥적인 나를 따뜻하게 받아주는 타입`,
-          badEmoji: `🧭`,
-          badName: `이성 균형형`,
-          badDesc: `합리적이고 계획적인 것을 중시하는 타입`
-        },
-        tags: [
-          `#즉흥데이트`,
-          `#모험파트너`,
-          `#지금이순간`,
-          `#루틴은사망`
-        ]
-      },
-      G: {
-        emoji: `🧭`,
-        name: `이성 균형형`,
-        tagline: `감정보다 이해가 먼저인 타입`,
-        badge: `균형의 달인`,
-        traits: [
-          {
-            label: `이성도`,
-            val: 89
-          },
-          {
-            label: `균형감`,
-            val: 84
-          },
-          {
-            label: `소통력`,
-            val: 78
-          },
-          {
-            label: `감정표현`,
-            val: 42
-          }
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#2E86AB;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🧭 감정보다 이해가 먼저인 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">균형 잡힌 시각으로 관계를 바라봄</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">싸우면 감정보다 <b>원인 분석이 먼저</b> — 왜 이렇게 됐는지 파악해야 풀림</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">공평하지 않다고 느끼면 <b>솔직하게 말하는 편</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인의 말을 들을 때 <b>감정보다 맥락을 더 집중해서 듣는</b> 경향이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">관계에서 역할 분담이나 <b>서로의 경계가 명확할 때 편안함</b>을 느낌</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2E86AB0F"><span style="color:#2E86AB;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#2E86AB">감정적으로 반응하는 연인에게</span> "왜 이렇게 예민해?" 라는 말이 나올 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">표현이 이성적이라 <b>차갑게 오해받기도 하지만</b> 속은 따뜻함</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#2E86AB0F"><span style="color:#2E86AB;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#2E86AB">너무 합리적으로 접근하다보면</span> 연인이 공감보다 분석 당하는 느낌을 받을 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신과 함께하면 <b>서로 존중하며 오래가는</b> 안정적인 관계가 됨</span></div><div style="height:12px"></div><div style="background:#2E86AB0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#2E86AB;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">감정에 흔들리지 않고 <b>데이터와 논리로 판단</b>하는 타입</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">갈등 상황에서 <b>중재자 역할</b>을 자연스럽게 맡게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">장기 프로젝트에서 <b>일관성 있게 성과를 내는</b> 능력이 강함</span></div></div><div style="background:#2E86AB0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#2E86AB;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구의 고민을 들으면 <b>해결책을 먼저 제시</b>하는 경향이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">공감보다 조언이 자연스럽게 나옴 — 가끔 <b>"그냥 들어줘"</b> 라는 말이 필요</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#2E86AB;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">신뢰가 쌓인 친구에게는 <b>의외로 솔직하고 진솔한</b> 면모를 보임</span></div></div>`,
-        wantToHear: `"너한테 얘기하면 항상 명확해져"`,
-        dontWantToHear: `"왜 이렇게 차갑게 대해?"`,
-        compat: {
-          goodEmoji: `🌱`,
-          goodName: `성장 동반형`,
-          goodDesc: `논리적으로 함께 발전하는 관계를 원하는 타입`,
-          badEmoji: `💫`,
-          badName: `몰입 헌신형`,
-          badDesc: `감정 몰입이 깊고 확신을 원하는 타입`
-        },
-        tags: [
-          `#논리적연애`,
-          `#공평한관계`,
-          `#합리적소통`,
-          `#감정분석가`
-        ]
-      },
-      H: {
-        emoji: `🌙`,
-        name: `조용한 수호자형`,
-        tagline: `말보다 행동으로 사랑을 전하는 타입`,
-        badge: `조용한 깊이`,
-        traits: [
-          {
-            label: `깊이`,
-            val: 90
-          },
-          {
-            label: `배려심`,
-            val: 82
-          },
-          {
-            label: `인내심`,
-            val: 78
-          },
-          {
-            label: `표현력`,
-            val: 25
-          }
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#9C6ADE;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌙 말 대신 행동으로 사랑을 전하는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">표현은 서툴러도 마음은 누구보다 깊음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">"사랑해" 한 마디보다 <b>아무 말 없이 옆에 있어주는 것</b>이 더 자연스러움</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인이 힘들 때 말보다 <b>조용히 안아주거나 차 한 잔 가져다주는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">감정을 쉽게 드러내지 않아서 <b>오해를 사기도 하지만</b> 속으로는 다 느끼고 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">혼자 감정을 소화하는 편 — <b>다 정리되고 나서야</b> 꺼내는 타입</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#9C6ADE0F"><span style="color:#9C6ADE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#9C6ADE">감정 표현을 강요받으면</span> 오히려 더 닫히는 경향이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">처음엔 거리가 느껴지지만 <b>시간이 지나면 깊어지는</b> 관계를 만듦</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#9C6ADE0F"><span style="color:#9C6ADE;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#9C6ADE">속에 쌓인 감정을 꺼내지 않으면</span> 어느 날 갑자기 무너지는 경우도 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신을 오래 알아갈수록 <b>얼마나 깊은 사람인지</b> 알게 되는 유형</span></div><div style="height:12px"></div><div style="background:#9C6ADE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#9C6ADE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">말보다 결과물로 증명하는 타입 — <b>조용히 최고의 퀄리티</b>를 냄</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">팀의 분위기를 읽고 <b>필요한 것을 알아서 해주는</b> 배려형 동료</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">자기 공을 내세우지 않아서 <b>조직 내에서 의외로 신뢰가 높음</b></span></div></div><div style="background:#9C6ADE0F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#9C6ADE;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">말수는 적지만 <b>진짜 힘들 때 옆에 있어주는</b> 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구가 힘들다고 할 때 공감보다 <b>실질적인 도움이 먼저</b> 나옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#9C6ADE;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">오래 알수록 좋은 사람 — <b>처음엔 낯가리지만 깊어지면 평생 친구</b></span></div></div>`,
-        wantToHear: `"말 안 해도 알아줘서 고마워"`,
-        dontWantToHear: `"왜 아무 말도 안 해?"`,
-        compat: {
-          goodEmoji: `🌸`,
-          goodName: `섬세 공감형`,
-          goodDesc: `말 없이도 감정을 읽어주는 타입`,
-          badEmoji: `🔥`,
-          badName: `열정 표현형`,
-          badDesc: `즉각적이고 강렬한 표현을 원하는 타입`
-        },
-        tags: [
-          `#말없이도알아`,
-          `#행동으로사랑`,
-          `#깊은내면`,
-          `#오래알수록좋은사람`
-        ]
-      },
-      I: {
-        emoji: `🌸`,
-        name: `섬세 공감형`,
-        tagline: `말하지 않아도 다 읽히는 타입`,
-        badge: `감정 레이더`,
-        traits: [
-          {
-            label: `공감력`,
-            val: 95
-          },
-          {
-            label: `섬세함`,
-            val: 90
-          },
-          {
-            label: `감지력`,
-            val: 87
-          },
-          {
-            label: `자기방어`,
-            val: 28
-          }
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#FF85A1;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌸 말하지 않아도 이미 다 읽히는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">상대의 감정을 누구보다 빠르게 알아채는 타입</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인의 목소리 톤만 들어도 <b>오늘 기분이 어떤지</b> 바로 감지됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">상대가 힘들 때 말하기 전에 <b>먼저 알아채고 다가가는</b> 사람</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">공감 능력이 높아서 <b>연인의 감정에 같이 출렁이는</b> 경향이 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">대화할 때 말 내용보다 <b>감정과 뉘앙스에 더 집중</b>하는 편</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF85A10F"><span style="color:#FF85A1;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF85A1">감정을 너무 많이 흡수하면</span> 나도 모르게 지쳐버리는 경우가 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">상대방의 기분을 맞추다 <b>내 감정을 나중에 챙기는</b> 패턴이 있음</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#FF85A10F"><span style="color:#FF85A1;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#FF85A1">공감을 받지 못하면</span> 감정적으로 혼자라는 느낌이 강하게 옴</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신과 연애하면 <b>처음으로 "다 말하지 않아도 된다"</b>는 편안함을 느낄 수 있음</span></div><div style="height:12px"></div><div style="background:#FF85A10F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF85A1;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">팀 분위기를 제일 빠르게 읽는 사람 — <b>갈등이 생기기 전에 이미 눈치챔</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">면담이나 소통이 필요한 상황에서 <b>자연스럽게 중재 역할</b>을 하게 됨</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">사람 상대하는 업무에서 <b>탁월한 친화력</b>을 발휘함</span></div></div><div style="background:#FF85A10F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#FF85A1;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">힘든 친구가 "나 별로야"라고 해도 <b>진짜 힘들다는 걸 바로 알아차림</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">말보다 <b>표정과 분위기</b>로 친구의 상태를 파악함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#FF85A1;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">고민 상담을 제일 잘 들어줌 — <b>친구들이 속 얘기 가장 먼저 꺼내는</b> 사람</span></div></div>`,
-        wantToHear: `"너한테는 다 말하고 싶어"`,
-        dontWantToHear: `"왜 이렇게 예민하게 굴어?"`,
-        compat: {
-          goodEmoji: `🌙`,
-          goodName: `조용한 수호자형`,
-          goodDesc: `말 없이 깊이 이어지는 관계를 만드는 타입`,
-          badEmoji: `⚡`,
-          badName: `즉흥 에너지형`,
-          badDesc: `감정보다 행동과 자극을 우선하는 타입`
-        },
-        tags: [
-          `#감정레이더`,
-          `#말안해도알아`,
-          `#공감천재`,
-          `#섬세한사랑`
-        ]
-      },
-      J: {
-        emoji: `🌱`,
-        name: `성장 동반형`,
-        tagline: `함께 더 나은 사람이 되고 싶은 타입`,
-        badge: `함께 성장`,
-        traits: [
-          {
-            label: `성장욕구`,
-            val: 92
-          },
-          {
-            label: `자기계발`,
-            val: 88
-          },
-          {
-            label: `파트너십`,
-            val: 82
-          },
-          {
-            label: `현재 만족`,
-            val: 40
-          }
-        ],
-        desc: `<span style="font-size:19px;font-weight:900;color:#5C9E73;font-family:'Gaegu',cursive;display:block;line-height:1.35;margin-bottom:1px">🌱 연애를 통해 서로가 더 나아지기를 바라는 사람</span><span style="font-size:13.5px;font-weight:500;color:#999;font-family:'Times New Roman', 'Nanum Myeongjo', serif;display:block;margin-bottom:12px;letter-spacing:0.1px">함께 성장하는 관계가 진짜 사랑이라고 믿음</span><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인이 자신의 꿈이나 목표를 이야기할 때 <b>진심으로 응원하고 함께 생각해줌</b></span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">편안함도 좋지만 <b>서로를 더 나은 사람으로 만드는</b> 관계를 원함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">연인에게서 배울 점을 찾고, <b>나도 무언가를 줄 수 있는지</b> 생각함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">정체된 느낌이 드는 관계에서는 <b>빠르게 권태감</b>이 옴</span></div><div style="height:6px"></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#5C9E730F"><span style="color:#5C9E73;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#5C9E73">성장하지 않으려는 연인과는</span> 장기 연애가 어렵게 느껴짐</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">관계를 개선하려는 노력을 <b>당연하게 여기는 편</b> — 상대에게도 같은 걸 기대함</span></div><div style="display:flex;align-items:flex-start;gap:8px;padding:5px 9px;margin:2px 0;border-radius:8px;background:#5C9E730F"><span style="color:#5C9E73;font-size:14px;line-height:1.55;flex-shrink:0;margin-top:1px">⚡</span><span style="font-size:15px;line-height:1.55;color:#555;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all"><span style="color:#5C9E73">너무 발전 지향적이 되면</span> 지금 이 순간을 즐기는 걸 놓칠 수 있음</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.55;flex-shrink:0;font-weight:900;margin-top:0px">›</span><span style="font-size:15px;line-height:1.55;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">당신과 함께한 후 <b>"나 많이 성장한 것 같아"</b> 라는 말을 듣게 되는 연인</span></div><div style="height:12px"></div><div style="background:#5C9E730F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#5C9E73;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">💼 직장에서는 어떨까?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">자기 계발을 멈추지 않는 타입 — <b>꾸준히 배우고 적용</b>하는 습관이 강함</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">피드백을 두려워하지 않음 — <b>성장의 재료로</b> 받아들이는 마인드셋</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">팀 전체의 역량이 올라가는 것에도 <b>진심으로 관심</b>을 가짐</span></div></div><div style="background:#5C9E730F;border-radius:10px;padding:10px 12px;margin:4px 0"><div style="font-size:16px;font-weight:800;color:#5C9E73;font-family:'Gaegu',cursive;display:flex;align-items:center;gap:5px;margin-bottom:7px">👫 친구 관계에서는?</div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">친구의 꿈을 같이 고민해주는 <b>진심 응원단</b> 같은 존재</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">같이 있으면 <b>뭔가 더 잘해보고 싶어지는</b> 자극을 주는 친구</span></div><div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0;margin:1px 0"><span style="color:#5C9E73;font-size:13px;line-height:1.6;flex-shrink:0;font-weight:900">›</span><span style="font-size:14px;line-height:1.6;color:#444;font-family:'Times New Roman', 'Nanum Myeongjo', serif;word-break:keep-all">관계가 정체되거나 부정적인 영향을 준다고 느끼면 <b>자연스럽게 거리가 생김</b></span></div></div>`,
-        wantToHear: `"너 덕분에 내가 많이 성장한 것 같아"`,
-        dontWantToHear: `"왜 이렇게 발전만 생각해? 그냥 편하게 있으면 안 돼?"`,
-        compat: {
-          goodEmoji: `🧭`,
-          goodName: `이성 균형형`,
-          goodDesc: `논리적이고 균형 잡힌 발전을 함께 추구하는 타입`,
-          badEmoji: `⚡`,
-          badName: `즉흥 에너지형`,
-          badDesc: `지금 이 순간의 감각을 최우선으로 하는 타입`
-        },
-        tags: [
-          `#함께성장`,
-          `#서로자극`,
-          `#발전하는관계`,
-          `#동반자사랑`
-        ]
+          goodEmoji: '✅', goodName: '오늘 바로 고백!',
+          goodDesc:  '진심을 담아서, 솔직하게. 타이밍은 지금이에요',
+          badEmoji:  '⚠️', badName:  '"아직 완벽한 타이밍이 아닌 것 같아..."',
+          badDesc:   '완벽한 타이밍은 없어요. 용기가 완벽함이에요'
+        }
       }
     }
   },
   en: {
     ui: {
-      mainTitle:   'What\'s My <span>Love Style</span>?',
-      mainDesc:    'Discover your love type with a few questions!<br>How do you love? 💘',
-      startText: 'Everyone has their own love style.<br><strong>15 questions</strong> to discover yours!<br><span style="opacity:.7">Takes about 3 minutes</span>',
-      startBtn:    '💕 Start Test',
-      descTitle:   '💬 Love Style Analysis',
-      compatTitle: '💞 Compatibility',
-      shareTitle:  '🎉 Share Your Result!',
-      restartBtn:  '🔄 Try Again',
-      moreTitle:   '🎯 Try More Tests!',
-      badgeTxt:    'Love Type',
-      goodLabel:   'Great Match ✨',
-      badLabel:    'Watch Out ⚡',
+      mainTitle:   'Will My Crush <span>Like Me Back?</span>',
+      mainDesc:    'Find out the probability with 18 situational questions<br>The more honest you are, the more accurate! 💘',
+      startText:   'Should I confess? Or is it too soon?<br><strong>18 situational questions</strong> will calculate the success rate of your crush!<br><span style="opacity:.7">About 3 minutes</span>',
+      startBtn:    '💕 Calculate the probability',
+      descTitle:   '💬 Crush Analysis',
+      compatTitle: '✅ What to do & What not to do',
+      shareTitle:  '🎉 Share your result with friends!',
+      restartBtn:  '🔄 Take the test again',
+      moreTitle:   '🎯 Try other tests!',
+      badgeTxt:    'Crush Success Rate',
+      goodLabel:   'Do this now! ✅',
+      badLabel:    'Avoid this! ⚠️',
       copyOk:      '🔗 Link copied!',
-      langBtn:     '🇰🇷 KR',
+      langBtn:     '🌏 KO',
     },
     questions: [
       {
-        q: `After an exhausting day, your partner texts you. What's your natural reaction?`,
-        sub: `Pick what feels most like you`,
+        q: 'Honestly, how would you rate your own looks?',
+        sub: '(Try to be as objective as possible)',
         choices: [
-          {
-            emoji: `📱`,
-            text: `"I had such a rough day" — you open up, wanting to be heard`,
-            type: `A`
-          },
-          {
-            emoji: `🚪`,
-            text: `"Where are you? I wanna see you" — words aren't enough`,
-            type: `B`
-          },
-          {
-            emoji: `💬`,
-            text: `"Hey, I'm home. Have you eaten?" — slipping into normal chat`,
-            type: `C`
-          },
-          {
-            emoji: `🔇`,
-            text: `"Talk later" — you need alone time right now`,
-            type: `D`
-          }
+          { emoji: '👑', text: "Definitely attractive — people notice me", pts: 3 },
+          { emoji: '😊', text: "Above average — my strengths outweigh my weaknesses", pts: 2 },
+          { emoji: '😐', text: "Pretty average — nothing stands out", pts: 1 },
+          { emoji: '😔', text: "I'm not very confident in my appearance", pts: 0 }
         ]
       },
       {
-        q: `Think back to when you first fell for someone. What were you like?`,
-        sub: `Be honest`,
+        q: 'How does your crush compare to you in terms of looks?',
+        sub: '(Be honest with yourself!)',
         choices: [
-          {
-            emoji: `🌙`,
-            text: `Couldn't sleep — the excitement filled your whole body`,
-            type: `A`
-          },
-          {
-            emoji: `💫`,
-            text: `Completely fixated — nothing else existed in that moment`,
-            type: `E`
-          },
-          {
-            emoji: `⚡`,
-            text: `You told them right away — waiting felt impossible`,
-            type: `B`
-          },
-          {
-            emoji: `🌸`,
-            text: `You checked how they were feeling before you expressed anything`,
-            type: `I`
-          }
+          { emoji: '😏', text: "Similar or I might even have an edge", pts: 3 },
+          { emoji: '😅', text: "About the same level", pts: 2 },
+          { emoji: '😤', text: "My crush is a bit more attractive than me", pts: 1 },
+          { emoji: '😭', text: "Way out of my league honestly", pts: 0 }
         ]
       },
       {
-        q: `Your partner surprises you with a gift out of nowhere. Your first thought?`,
-        sub: `Go with your gut`,
+        q: 'How often do you see your crush?',
+        sub: '(School, work, neighborhood — any setting counts)',
         choices: [
-          {
-            emoji: `🎁`,
-            text: `"You remembered this?" — you're so touched you could cry`,
-            type: `A`
-          },
-          {
-            emoji: `😄`,
-            text: `"I need to do something for them too" — you want to give back right away`,
-            type: `B`
-          },
-          {
-            emoji: `😊`,
-            text: `"Thank you" — genuinely grateful but can't quite show it`,
-            type: `C`
-          },
-          {
-            emoji: `😅`,
-            text: `"You didn't have to" — it feels a little overwhelming`,
-            type: `D`
-          }
+          { emoji: '📅', text: "Almost every day", pts: 3 },
+          { emoji: '🗓️', text: "2~3 times a week", pts: 2 },
+          { emoji: '📆', text: "About once a week", pts: 1 },
+          { emoji: '🌙', text: "A few times a month or less", pts: 0 }
         ]
       },
       {
-        q: `You haven't seen your partner properly in 3 weeks because they're busy. What do you do?`,
-        sub: `Honestly`,
+        q: 'What is the age difference between you and your crush?',
+        sub: '(Just the gap, regardless of who is older)',
         choices: [
-          {
-            emoji: `📅`,
-            text: `"Free next week? Let's meet" — you initiate and lock in a date`,
-            type: `B`
-          },
-          {
-            emoji: `😌`,
-            text: `"They're in a busy season" — you focus on your own stuff`,
-            type: `C`
-          },
-          {
-            emoji: `🧘`,
-            text: `Honestly, you've been enjoying the solo time anyway`,
-            type: `D`
-          },
-          {
-            emoji: `🥺`,
-            text: `You miss them a lot but hold it in and say nothing`,
-            type: `H`
-          }
+          { emoji: '🎂', text: "Same age or ±1 year", pts: 3 },
+          { emoji: '📅', text: "2~3 years apart", pts: 2 },
+          { emoji: '🧮', text: "4~5 years apart", pts: 1 },
+          { emoji: '🗓️', text: "6+ years apart", pts: 0 }
         ]
       },
       {
-        q: `Your partner mentions they hang out with someone of the opposite sex often. Your honest reaction?`,
-        sub: `Your real inner voice`,
+        q: 'How would you describe your current relationship?',
+        sub: '(Choose the option that best fits right now)',
         choices: [
-          {
-            emoji: `✌️`,
-            text: `Not bothered — trust is the foundation, no need to overthink`,
-            type: `D`
-          },
-          {
-            emoji: `💭`,
-            text: `It bothers you a little — but you hold back so you don't seem clingy`,
-            type: `E`
-          },
-          {
-            emoji: `💬`,
-            text: `You believe in talking it out and setting comfortable boundaries together`,
-            type: `G`
-          },
-          {
-            emoji: `👀`,
-            text: `You want to check how your partner feels about it first`,
-            type: `I`
-          }
+          { emoji: '💬', text: "We hang out one-on-one and share personal stuff", pts: 3 },
+          { emoji: '👥', text: "Same group, talk often", pts: 2 },
+          { emoji: '👋', text: "We know each other but not deeply", pts: 1 },
+          { emoji: '😶', text: "Barely spoken to each other", pts: 0 }
         ]
       },
       {
-        q: `Your partner repeated something you already asked them to stop doing. You:`,
-        sub: `Your honest reaction`,
+        q: 'When you say something funny, what does your crush do?',
+        sub: '(Think of the most recent reaction)',
         choices: [
-          {
-            emoji: `😢`,
-            text: `Feel hurt again — swallow it, but it shows on your face`,
-            type: `A`
-          },
-          {
-            emoji: `💬`,
-            text: `Call it out directly — "We already talked about this"`,
-            type: `B`
-          },
-          {
-            emoji: `⏸️`,
-            text: `Wait until things cool down, then bring it up calmly`,
-            type: `C`
-          },
-          {
-            emoji: `🌙`,
-            text: `Let it go again — but quietly draw a line in your head`,
-            type: `H`
-          }
+          { emoji: '😄', text: "Laughs and turns toward me with full attention", pts: 3 },
+          { emoji: '😂', text: "Laughs but doesn't particularly focus on me", pts: 2 },
+          { emoji: '😑', text: "Chuckles and looks away", pts: 1 },
+          { emoji: '😶', text: "Barely reacts", pts: 0 }
         ]
       },
       {
-        q: `Imagine your ideal relationship 5 years from now. Which scene fits best?`,
-        sub: `Go with your gut`,
+        q: 'If you run into your crush unexpectedly, what happens?',
+        sub: '(Think of a similar situation or imagine it)',
         choices: [
-          {
-            emoji: `🕯️`,
-            text: `Still surprising each other, still feeling butterflies on special days`,
-            type: `A`
-          },
-          {
-            emoji: `🏕️`,
-            text: `Always chasing new experiences together — you're each other's energy source`,
-            type: `F`
-          },
-          {
-            emoji: `☕`,
-            text: `Comfortable silence — just being near each other is enough`,
-            type: `C`
-          },
-          {
-            emoji: `🌱`,
-            text: `Each growing individually, but becoming better together`,
-            type: `J`
-          }
+          { emoji: '🤗', text: "They greet me warmly first and chat a bit", pts: 3 },
+          { emoji: '😊', text: "We say hi but just walk by", pts: 2 },
+          { emoji: '😬', text: "Things get awkward and we pass by stiffly", pts: 1 },
+          { emoji: '😶', text: "This situation has never happened", pts: 0 }
         ]
       },
       {
-        q: `When your partner comes to you with a problem, how do you naturally respond?`,
-        sub: `Your default mode`,
+        q: 'If you asked "Want to have lunch together?" what would happen?',
+        sub: '(Real or imagined response)',
         choices: [
-          {
-            emoji: `🤗`,
-            text: `You feel it with them — empathy first, solutions later`,
-            type: `A`
-          },
-          {
-            emoji: `🛋️`,
-            text: `You listen quietly — sometimes being present is the best help`,
-            type: `C`
-          },
-          {
-            emoji: `📝`,
-            text: `You offer honest, practical advice — you think solutions matter most`,
-            type: `G`
-          },
-          {
-            emoji: `🌊`,
-            text: `You already sense how they feel before they finish explaining`,
-            type: `I`
-          }
+          { emoji: '🍽️', text: '"Sure! Where do you wanna go?" — instant yes', pts: 3 },
+          { emoji: '🙂', text: "Declines today but says \"next time for sure!\"", pts: 2 },
+          { emoji: '😐', text: "Comes along with no particular enthusiasm", pts: 1 },
+          { emoji: '😕', text: "Makes up an excuse to decline", pts: 0 }
         ]
       },
       {
-        q: `When do you feel most hurt in a relationship?`,
-        sub: `The one that resonates most`,
+        q: 'If you look upset, what does your crush do?',
+        sub: '(Think about how they normally treat you)',
         choices: [
-          {
-            emoji: `💔`,
-            text: `When the excitement fades — it feels like the relationship is ending`,
-            type: `A`
-          },
-          {
-            emoji: `😶`,
-            text: `When your personal space or freedom is being infringed on`,
-            type: `D`
-          },
-          {
-            emoji: `💫`,
-            text: `When you realize you're all-in but they're not`,
-            type: `E`
-          },
-          {
-            emoji: `🌸`,
-            text: `When your feelings are dismissed or called "too sensitive"`,
-            type: `I`
-          }
+          { emoji: '💕', text: "Asks first: \"Are you okay? What happened?\"", pts: 3 },
+          { emoji: '🙂', text: "Notices but doesn't say anything", pts: 2 },
+          { emoji: '😑', text: "Seems indifferent or doesn't notice", pts: 1 },
+          { emoji: '😶', text: "Definitely wouldn't notice", pts: 0 }
         ]
       },
       {
-        q: `While watching a movie, your partner seems bored. You:`,
-        sub: `Your natural response in that moment`,
+        q: 'If you said something funny in a group chat, what does your crush do?',
+        sub: '(If no online contact, choose the last option)',
         choices: [
-          {
-            emoji: `🍿`,
-            text: `"Bored? Want to switch to something else?" — you check in right away`,
-            type: `A`
-          },
-          {
-            emoji: `😏`,
-            text: `Keep watching — you're enjoying it, they can handle it`,
-            type: `B`
-          },
-          {
-            emoji: `🛋️`,
-            text: `Lean closer or hold their hand — you show care through touch`,
-            type: `C`
-          },
-          {
-            emoji: `💡`,
-            text: `"Want to do something else together?" — you suggest an alternative`,
-            type: `G`
-          }
+          { emoji: '💬', text: "Reacts right away AND sends me a DM", pts: 3 },
+          { emoji: '😊', text: "Reacts with a laugh in the group chat", pts: 2 },
+          { emoji: '😑', text: "Probably read it but no reaction", pts: 1 },
+          { emoji: '📵', text: "No online contact", pts: 0 }
         ]
       },
       {
-        q: `If you could ask for one thing from your partner, it would be:`,
-        sub: `Be honest`,
+        q: 'What is the vibe when you two are alone together?',
+        sub: '(Elevator, hallway, waiting — any situation counts)',
         choices: [
-          {
-            emoji: `💌`,
-            text: `"I was thinking about you today" — even a small message like that`,
-            type: `A`
-          },
-          {
-            emoji: `🤝`,
-            text: `Don't disappear when it's hard — that's what matters most`,
-            type: `B`
-          },
-          {
-            emoji: `🌊`,
-            text: `Let me be myself — don't try to change me`,
-            type: `D`
-          },
-          {
-            emoji: `🌱`,
-            text: `A relationship where we both grow and inspire each other`,
-            type: `J`
-          }
+          { emoji: '💬', text: "Comfortable and easy — conversation flows naturally", pts: 3 },
+          { emoji: '😊', text: "Not awkward, but we don't talk for long", pts: 2 },
+          { emoji: '😅', text: "A little awkward, but we manage a short chat", pts: 1 },
+          { emoji: '😶', text: "We've never been alone together", pts: 0 }
         ]
       },
       {
-        q: `What does love mean to you right now?`,
-        sub: `Pick the closest one`,
+        q: 'If you asked "Do I look different today?" what would happen?',
+        sub: '(Real or imagined response)',
         choices: [
-          {
-            emoji: `🌙`,
-            text: `A light on dark days — life feels dim without it`,
-            type: `E`
-          },
-          {
-            emoji: `⚡`,
-            text: `The feeling of being fully alive — pure energy`,
-            type: `F`
-          },
-          {
-            emoji: `🏠`,
-            text: `A home base — somewhere safe to return to`,
-            type: `C`
-          },
-          {
-            emoji: `🌱`,
-            text: `Something that makes me more myself, a better version of me`,
-            type: `J`
-          }
+          { emoji: '👀', text: "They look closely and say \"Oh did you cut your hair?\"", pts: 3 },
+          { emoji: '😊', text: "They think about it and find something", pts: 2 },
+          { emoji: '😐', text: "\"Not sure...\" and moves on", pts: 1 },
+          { emoji: '😶', text: "This kind of conversation has never happened", pts: 0 }
         ]
       },
       {
-        q: `Your partner says, "I feel like you've been neglecting me lately." You:`,
-        sub: `Closest to your real reaction`,
+        q: 'If you said "I\'ve been feeling really drained lately..." what happens?',
+        sub: '(Testing a little emotional signal from you)',
         choices: [
-          {
-            emoji: `😰`,
-            text: `Feel terrible — immediately start planning something to make it up`,
-            type: `A`
-          },
-          {
-            emoji: `😤`,
-            text: `Feel defensive — "When did I?" you want to explain yourself`,
-            type: `B`
-          },
-          {
-            emoji: `🧐`,
-            text: `Reflect honestly — "Have I been?" you take it seriously`,
-            type: `G`
-          },
-          {
-            emoji: `😶`,
-            text: `Explain that this is just how you are — you don't want to force change`,
-            type: `H`
-          }
+          { emoji: '🥺', text: "\"Really? What\'s going on?\" — genuinely concerned", pts: 3 },
+          { emoji: '😊', text: '"Oh, don\'t push yourself too hard" — light comfort', pts: 2 },
+          { emoji: '😐', text: '"Yeah, same here..." — just relates', pts: 1 },
+          { emoji: '😶', text: "Barely reacts or changes the topic", pts: 0 }
         ]
       },
       {
-        q: `You see your partner had a great time with their friends without you on social media. You think:`,
-        sub: `Your honest inner voice`,
+        q: 'Does your crush remember small details about you?',
+        sub: '(Have they ever brought up something you mentioned before?)',
         choices: [
-          {
-            emoji: `🌷`,
-            text: `"Wish I was there" — a small pang of longing`,
-            type: `E`
-          },
-          {
-            emoji: `🎉`,
-            text: `"Looks fun!" — you're happy for them, and it reminds you to see your own friends`,
-            type: `F`
-          },
-          {
-            emoji: `😌`,
-            text: `"Good, they had a nice time" — no big feelings either way`,
-            type: `C`
-          },
-          {
-            emoji: `✌️`,
-            text: `"We both had our own time — perfect"`,
-            type: `D`
-          }
+          { emoji: '🧠', text: "Yes! They remember even little things I said", pts: 3 },
+          { emoji: '😊', text: "They probably remember the important stuff", pts: 2 },
+          { emoji: '😐', text: "Seems like they just let things go in one ear", pts: 1 },
+          { emoji: '😶', text: "They never had the chance to remember anything", pts: 0 }
         ]
       },
       {
-        q: `What do you want most from love?`,
-        sub: `Just one honest answer`,
+        q: 'When you make a mistake, what does your crush do?',
+        sub: '(Think of an embarrassing or awkward moment)',
         choices: [
-          {
-            emoji: `💕`,
-            text: `Excitement and romance — someone who keeps my heart racing`,
-            type: `A`
-          },
-          {
-            emoji: `🔥`,
-            text: `Passion and honesty — someone who holds nothing back`,
-            type: `B`
-          },
-          {
-            emoji: `🌿`,
-            text: `Comfort and peace — someone who helps me breathe easy`,
-            type: `C`
-          },
-          {
-            emoji: `🦋`,
-            text: `Freedom and trust — two full people, choosing each other every day`,
-            type: `D`
-          }
+          { emoji: '😄', text: '"It\'s okay, happened to me too!" — makes it comfortable', pts: 3 },
+          { emoji: '😊', text: "Just lets it go without making a big deal", pts: 2 },
+          { emoji: '😐', text: "Points it out or snickers a little", pts: 1 },
+          { emoji: '😶', text: "That kind of situation hasn\'t happened", pts: 0 }
+        ]
+      },
+      {
+        q: 'Has your crush ever listened to your personal problems?',
+        sub: '(Have you had a real, private conversation with them?)',
+        choices: [
+          { emoji: '💬', text: "Yes, often — they open up to me a lot too", pts: 3 },
+          { emoji: '😊', text: "Occasionally, yes", pts: 2 },
+          { emoji: '😐', text: "Rarely", pts: 1 },
+          { emoji: '😶', text: "Never", pts: 0 }
+        ]
+      },
+      {
+        q: 'Do your eyes meet often?',
+        sub: '(How often does your crush naturally look your way?)',
+        choices: [
+          { emoji: '👀', text: "Often — and they seem to look at me first", pts: 3 },
+          { emoji: '😊', text: "Sometimes we make eye contact", pts: 2 },
+          { emoji: '😐', text: "When I look, they\'re usually looking elsewhere", pts: 1 },
+          { emoji: '🙈', text: "We\'ve never made eye contact", pts: 0 }
+        ]
+      },
+      {
+        q: 'What do people around you think about you and your crush?',
+        sub: '(Third-party perspective)',
+        choices: [
+          { emoji: '💑', text: "\"Are you two dating?\" — heard this at least once", pts: 3 },
+          { emoji: '😊', text: "People say we look close", pts: 2 },
+          { emoji: '😐', text: "Nobody seems to care about our relationship", pts: 1 },
+          { emoji: '😶', text: "People don\'t even know we know each other", pts: 0 }
         ]
       }
     ],
-        results: {
-      A: {
-        emoji: `🌹`,
-        name: `Romantic Dreamer`,
-        tagline: `Turning love into a work of art`,
-        badge: `Pure Romance`,
+    results: {
+      L1: {
+        probability: '10%',
+        emoji:   '💔',
+        badge:   'Crush Success Rate: 10%',
+        name:    'Save it for the next life...',
+        tagline: 'The seed has not even been planted yet',
         traits: [
-          {
-            label: `Romance`,
-            val: 90
-          },
-          {
-            label: `Sensitivity`,
-            val: 82
-          },
-          {
-            label: `Expression`,
-            val: 65
-          },
-          {
-            label: `Resilience`,
-            val: 28
-          }
+          { label: 'Interest signals', val: 8 },
+          { label: 'Closeness',        val: 10 },
+          { label: 'Meeting frequency', val: 15 },
+          { label: 'Confidence',        val: 12 }
         ],
-        desc: `<b>You feel love with your whole heart — and you pour it all back out.</b> Anniversaries are planned weeks ahead. You remember everything your partner says in passing. The thought of losing the spark feels like losing the relationship itself. You need a partner who matches your effort — otherwise you burn out fast. But with the right person, you create a love that feels like living inside a beautiful story.`,
-        wantToHear: `"Being with you feels like a new adventure every day"`,
-        dontWantToHear: `"Does the anniversary really matter that much?"`,
+        tags: ['🌙 No connection yet', '💭 Early stage crush', '🔮 Far future territory'],
+        desc: 'Honestly? The chances are quite low right now. Your crush probably hasn\'t noticed you as someone special yet, and there isn\'t enough connection built up. But it\'s not over — it hasn\'t even started! The first step is simply getting them to notice you exist.',
+        wantToHear: 'Start with one conversation. Building contact is the top priority right now!',
+        dontWantToHear: 'No confessions yet! Confessing now could make things really awkward.',
         compat: {
-          goodEmoji: `🌿`,
-          goodName: `Stable Nurturer`,
-          goodDesc: `A steady, quietly caring type who grounds you`,
-          badEmoji: `🦋`,
-          badName: `Free Spirit`,
-          badDesc: `Values independence and space above all else`
-        },
-        tags: [
-          `#Romanticatcore`,
-          `#LoveSpark`,
-          `#AlwaysRemembering`,
-          `#HeartOnSleeve`
-        ]
+          goodEmoji: '✅', goodName: 'Start with one small conversation',
+          goodDesc:  'A greeting or a short message is all it takes',
+          badEmoji:  '⚠️', badName:  'Sudden confession or dropping hints',
+          badDesc:   'Moving too fast now could seriously backfire'
+        }
       },
-      B: {
-        emoji: `🔥`,
-        name: `Passionate Expressor`,
-        tagline: `Everything on full volume, all the time`,
-        badge: `All Passion`,
+      L2: {
+        probability: '25%',
+        emoji:   '🌧️',
+        badge:   'Crush Success Rate: 25%',
+        name:    "A glimmer of hope — don't give up yet!",
+        tagline: "Possibilities are slowly starting to form",
         traits: [
-          {
-            label: `Passion`,
-            val: 93
-          },
-          {
-            label: `Directness`,
-            val: 88
-          },
-          {
-            label: `Energy`,
-            val: 80
-          },
-          {
-            label: `Patience`,
-            val: 20
-          }
+          { label: 'Interest signals', val: 22 },
+          { label: 'Closeness',        val: 28 },
+          { label: 'Meeting frequency', val: 35 },
+          { label: 'Confidence',        val: 20 }
         ],
-        desc: `<b>You can't keep feelings inside — and honestly, why would you?</b> When you like someone, everyone can tell. Arguments get resolved on the spot because you say it all right then and there. A lukewarm relationship is worse than no relationship. You need responses, energy, and presence. And when things are good? There's no one more alive in love than you.`,
-        wantToHear: `"Your honesty made it so easy for me to open up too"`,
-        dontWantToHear: `"Why do you always have to be so emotional?"`,
+        tags: ['🌱 Budding potential', '💬 Early conversation stage', '🌤️ Partly cloudy but clearing'],
+        desc: "Your crush doesn't seem to be paying you special attention yet, but they're not completely indifferent either. Right now, it's important to build more interaction and leave a good impression. Focus on becoming friends first — it's too early to confess.",
+        wantToHear: 'Build the relationship gradually. Try to have a short conversation every day!',
+        dontWantToHear: "Don't rush it. Being too aggressive right now might scare them off.",
         compat: {
-          goodEmoji: `🌹`,
-          goodName: `Romantic Dreamer`,
-          goodDesc: `A romantic who matches your depth of feeling`,
-          badEmoji: `🌿`,
-          badName: `Stable Nurturer`,
-          badDesc: `Values routine and stability over excitement`
-        },
-        tags: [
-          `#StraightShooter`,
-          `#NoFilter`,
-          `#MaxEnergy`,
-          `#NeverBoring`
-        ]
+          goodEmoji: '✅', goodName: 'Consistent, visible presence',
+          goodDesc:  'Repeat natural conversations and small acts of kindness',
+          badEmoji:  '⚠️', badName:  'Rushing or bombing them with messages',
+          badDesc:   'Coming on too strong will push them away'
+        }
       },
-      C: {
-        emoji: `☕`,
-        name: `Stable Nurturer`,
-        tagline: `Love lives in the everyday moments`,
-        badge: `Warm Everyday`,
+      L3: {
+        probability: '45%',
+        emoji:   '🌱',
+        badge:   'Crush Success Rate: 45%',
+        name:    "The seed is planted! Now water it carefully",
+        tagline: "The relationship is slowly starting to bloom",
         traits: [
-          {
-            label: `Stability`,
-            val: 91
-          },
-          {
-            label: `Care`,
-            val: 85
-          },
-          {
-            label: `Patience`,
-            val: 77
-          },
-          {
-            label: `Expression`,
-            val: 40
-          }
+          { label: 'Interest signals', val: 42 },
+          { label: 'Closeness',        val: 45 },
+          { label: 'Meeting frequency', val: 50 },
+          { label: 'Confidence',        val: 40 }
         ],
-        desc: `<b>You show love through actions, not grand gestures.</b> You remember what they like, you show up consistently, and you don't need a special occasion. When things get hard, you wait for the storm to pass, then talk it through calmly. You get hurt most when your quiet effort goes unnoticed. But with someone who sees you, you build a love that's built to last.`,
-        wantToHear: `"Just being near you makes me feel calm"`,
-        dontWantToHear: `"Why are you always so flat and emotionless?"`,
+        tags: ['🌿 Growing', '💛 Mutual interest forming', '☀️ 50/50 odds'],
+        desc: "Things look pretty hopeful! You can't be certain your crush likes you back, but you're definitely making a good impression. You're at a \"middle stage\" where deepening mutual understanding is key. The next step is naturally creating a chance to hang out one-on-one!",
+        wantToHear: 'Suggest a casual one-on-one meal or coffee. Keep it natural!',
+        dontWantToHear: "No games or playing hard to get — sincerity is more attractive.",
         compat: {
-          goodEmoji: `🌹`,
-          goodName: `Romantic Dreamer`,
-          goodDesc: `Brings out warmth in your steady, quiet love`,
-          badEmoji: `⚡`,
-          badName: `Spontaneous Adventurer`,
-          badDesc: `Craves novelty and resists routine`
-        },
-        tags: [
-          `#EverydayRomance`,
-          `#ActsOfService`,
-          `#QuietButDeep`,
-          `#SteadyAndTrue`
-        ]
+          goodEmoji: '✅', goodName: 'Casual one-on-one hangout',
+          goodDesc:  'Suggest coffee, a meal, or a walk together',
+          badEmoji:  '⚠️', badName:  'Playing games or hiding your feelings',
+          badDesc:   'Being too calculating will backfire'
+        }
       },
-      D: {
-        emoji: `🦋`,
-        name: `Free Spirit`,
-        tagline: `Love with room to breathe`,
-        badge: `Independent Soul`,
+      L4: {
+        probability: '60%',
+        emoji:   '💛',
+        badge:   'Crush Success Rate: 60%',
+        name:    "Hope is visible! Just need a little courage",
+        tagline: "Your crush might already think of you as special",
         traits: [
-          {
-            label: `Independence`,
-            val: 92
-          },
-          {
-            label: `Self-respect`,
-            val: 85
-          },
-          {
-            label: `Trust`,
-            val: 78
-          },
-          {
-            label: `Dependency`,
-            val: 12
-          }
+          { label: 'Interest signals', val: 62 },
+          { label: 'Closeness',        val: 65 },
+          { label: 'Meeting frequency', val: 68 },
+          { label: 'Confidence',        val: 58 }
         ],
-        desc: `<b>You love deeply — but on your own terms.</b> You need your own space to recharge, and you expect the same for your partner. Constant check-ins feel like a cage. The best love story for you? Two whole people who choose each other freely, not out of need. Trust is your foundation. With a partner who gets that, you're surprisingly steady and devoted.`,
-        wantToHear: `"I love that we both have our own lives"`,
-        dontWantToHear: `"Why haven't you texted me back?"`,
+        tags: ['💛 Mutual interest confirmed', '🌟 Positive signals spotted', '🎯 Locked on'],
+        desc: "Good signals are coming in! There's a solid chance your crush has special feelings for you. Right now you seem to be somewhere between \"just friends\" and \"more than friends.\" You need one decisive moment. Try expressing your feelings a bit more openly, or create a special alone-time opportunity!",
+        wantToHear: 'On a good day, create a special moment just for the two of you. That\'s the start!',
+        dontWantToHear: "If you keep hesitating, you might miss the timing. It's time to act!",
         compat: {
-          goodEmoji: `🧭`,
-          goodName: `Balanced Rationalist`,
-          goodDesc: `Respects boundaries and communicates fairly`,
-          badEmoji: `💫`,
-          badName: `Deep Devoter`,
-          badDesc: `Wants total connection and constant closeness`
-        },
-        tags: [
-          `#LoveWithSpace`,
-          `#TrustFirst`,
-          `#IndependentLove`,
-          `#TwoWholePeople`
-        ]
+          goodEmoji: '✅', goodName: 'Create a special one-on-one opportunity',
+          goodDesc:  'Plan a small outing or special occasion together',
+          badEmoji:  '⚠️', badName:  'Endless hesitation and missed moments',
+          badDesc:   'The right timing won\'t last forever. Be brave!'
+        }
       },
-      E: {
-        emoji: `💫`,
-        name: `Deep Devoter`,
-        tagline: `When you love, they become your whole world`,
-        badge: `All-In Love`,
+      L5: {
+        probability: '75%',
+        emoji:   '💕',
+        badge:   'Crush Success Rate: 75%',
+        name:    "Almost there! Just need to confess now",
+        tagline: "Your crush already has special feelings for you",
         traits: [
-          {
-            label: `Devotion`,
-            val: 95
-          },
-          {
-            label: `Depth`,
-            val: 88
-          },
-          {
-            label: `Focus`,
-            val: 91
-          },
-          {
-            label: `Stability`,
-            val: 22
-          }
+          { label: 'Interest signals', val: 80 },
+          { label: 'Closeness',        val: 78 },
+          { label: 'Meeting frequency', val: 82 },
+          { label: 'Confidence',        val: 72 }
         ],
-        desc: `<b>You don't do half-measures in love.</b> When you're in, you're fully in — their problems become your problems, their joy becomes yours. You notice every shift in their energy. The worst feeling is sensing you care more than they do. With the right person, you're the most loyal, devoted partner imaginable. Just remember to leave some of that love for yourself too.`,
-        wantToHear: `"I can't imagine this without you"`,
-        dontWantToHear: `"Why are you so obsessive about this?"`,
+        tags: ['💕 Mutual crush likely', '🌸 Feelings are ripe', '💫 Confession moment incoming'],
+        desc: "Congratulations! Your crush clearly has special feelings for you. Multiple positive signals have been confirmed, and your relationship is deep enough. The only thing left is one brave confession! Wait too long and you risk getting stuck in the \"just friends\" zone forever. Now is the perfect moment!",
+        wantToHear: "Plan your confession this week. They might be waiting for you too!",
+        dontWantToHear: '"I feel like it\'s not the right time yet..." — absolutely not. Stop stalling!',
         compat: {
-          goodEmoji: `🌸`,
-          goodName: `Empathetic Listener`,
-          goodDesc: `Senses your feelings before you say a word`,
-          badEmoji: `🦋`,
-          badName: `Free Spirit`,
-          badDesc: `Values independence and resists emotional dependency`
-        },
-        tags: [
-          `#AllIn`,
-          `#DeepConnection`,
-          `#LoveWithEverything`,
-          `#OnePersonUniverse`
-        ]
+          goodEmoji: '✅', goodName: 'A sincere confession (any time works!)',
+          goodDesc:  'Your crush is already thinking of you as someone special',
+          badEmoji:  '⚠️', badName:  'Postponing the confession again',
+          badDesc:   "Don't let things solidify into just-friends mode. Act now!"
+        }
       },
-      F: {
-        emoji: `⚡`,
-        name: `Spontaneous Adventurer`,
-        tagline: `Love is a live adventure, not a plan`,
-        badge: `Live Spark`,
+      L6: {
+        probability: '90%',
+        emoji:   '💍',
+        badge:   'Crush Success Rate: 90%',
+        name:    "Soulmates! Book the venue!",
+        tagline: "Wait — are you two already dating?",
         traits: [
-          {
-            label: `Spontaneity`,
-            val: 92
-          },
-          {
-            label: `Energy`,
-            val: 88
-          },
-          {
-            label: `Excitement`,
-            val: 85
-          },
-          {
-            label: `Consistency`,
-            val: 35
-          }
+          { label: 'Interest signals', val: 95 },
+          { label: 'Closeness',        val: 92 },
+          { label: 'Meeting frequency', val: 90 },
+          { label: 'Confidence',        val: 88 }
         ],
-        desc: `<b>Your best dates are the ones no one planned.</b> "Come out right now" is a perfectly normal text to you. Routines kill the vibe. You need a partner who's game for anything — a co-pilot on a life that never gets boring. The danger zone? Long-term planning makes you restless, and partners who need consistency can feel stifling. But when you find your match, every day is a new story.`,
-        wantToHear: `"I never know what we're doing but I'm always having the best time"`,
-        dontWantToHear: `"Why don't you ever plan anything?"`,
+        tags: ['💍 Practically dating', '🎊 Congratulations!', '💫 Soulmate energy'],
+        desc: "Honestly, were you two already dating before you took this test? 😆 Nearly every indicator is at maximum. Your crush definitely likes you. They might be waiting for your confession right now. There is literally no reason to wait anymore. Confess today!",
+        wantToHear: "Confess today! The outcome is basically guaranteed. Start planning the wedding! 💍",
+        dontWantToHear: "If you're still hesitating with a score like this... that's the real problem!",
         compat: {
-          goodEmoji: `☕`,
-          goodName: `Stable Nurturer`,
-          goodDesc: `Grounds your energy while embracing your spirit`,
-          badEmoji: `🧭`,
-          badName: `Balanced Rationalist`,
-          badDesc: `Prefers structure and rational decision-making`
-        },
-        tags: [
-          `#SpontaneousRomance`,
-          `#AdventurePartner`,
-          `#LiveInTheMoment`,
-          `#NoBoringDays`
-        ]
-      },
-      G: {
-        emoji: `🧭`,
-        name: `Balanced Rationalist`,
-        tagline: `Understanding before emotion`,
-        badge: `Fair & Clear`,
-        traits: [
-          {
-            label: `Rationality`,
-            val: 89
-          },
-          {
-            label: `Balance`,
-            val: 84
-          },
-          {
-            label: `Communication`,
-            val: 78
-          },
-          {
-            label: `Emotion`,
-            val: 42
-          }
-        ],
-        desc: `<b>You'd rather understand a problem than react to it.</b> In arguments, you need to know the root cause before you can move forward. You value fairness — if the balance is off, you say so. You might come across as cold, but underneath you're genuinely thoughtful and caring. With a partner who values clear communication, you build a relationship that's stable, fair, and built to last.`,
-        wantToHear: `"Talking things through with you always makes everything clearer"`,
-        dontWantToHear: `"Why do you always act so cold and distant?"`,
-        compat: {
-          goodEmoji: `🌱`,
-          goodName: `Growth Partner`,
-          goodDesc: `Values mutual development and logical progress`,
-          badEmoji: `💫`,
-          badName: `Deep Devoter`,
-          badDesc: `Needs constant emotional reassurance and closeness`
-        },
-        tags: [
-          `#ClearCommunication`,
-          `#FairRelationship`,
-          `#LogicFirst`,
-          `#BalancedLove`
-        ]
-      },
-      H: {
-        emoji: `🌙`,
-        name: `Quiet Guardian`,
-        tagline: `Love through presence, not words`,
-        badge: `Deep & Still`,
-        traits: [
-          {
-            label: `Depth`,
-            val: 90
-          },
-          {
-            label: `Care`,
-            val: 82
-          },
-          {
-            label: `Patience`,
-            val: 78
-          },
-          {
-            label: `Expression`,
-            val: 25
-          }
-        ],
-        desc: `<b>Your love is all in what you do, not what you say.</b> You show up. You bring the tea when they're sick. You sit with them in silence when nothing needs to be said. You process feelings internally — sometimes too long — but when you finally share, it's always real. The right partner will see past the quiet and recognize just how much you actually feel.`,
-        wantToHear: `"I know you care, even when you don't say it"`,
-        dontWantToHear: `"Why won't you just SAY something?"`,
-        compat: {
-          goodEmoji: `🌸`,
-          goodName: `Empathetic Listener`,
-          goodDesc: `Reads your silence and meets you there`,
-          badEmoji: `🔥`,
-          badName: `Passionate Expressor`,
-          badDesc: `Needs immediate, intense verbal expression`
-        },
-        tags: [
-          `#SilentStrength`,
-          `#ActionSpeaksLouder`,
-          `#DeepWaters`,
-          `#BetterWithTime`
-        ]
-      },
-      I: {
-        emoji: `🌸`,
-        name: `Empathetic Listener`,
-        tagline: `You feel what others haven't said yet`,
-        badge: `Emotion Radar`,
-        traits: [
-          {
-            label: `Empathy`,
-            val: 95
-          },
-          {
-            label: `Sensitivity`,
-            val: 90
-          },
-          {
-            label: `Perception`,
-            val: 87
-          },
-          {
-            label: `Self-guard`,
-            val: 28
-          }
-        ],
-        desc: `<b>You read the room before anyone else even walks in.</b> A shift in tone, a brief pause — you catch it all. You know your partner's mood before they say a word. This makes you an incredible partner, but it also means you absorb a lot. Make sure to protect your own emotional energy. With someone who appreciates your depth, you create a connection that feels like being truly seen.`,
-        wantToHear: `"You always know exactly what I need"`,
-        dontWantToHear: `"You're way too sensitive"`,
-        compat: {
-          goodEmoji: `🌙`,
-          goodName: `Quiet Guardian`,
-          goodDesc: `Connects through silence and presence, just like you`,
-          badEmoji: `⚡`,
-          badName: `Spontaneous Adventurer`,
-          badDesc: `Prioritizes action and energy over emotional attunement`
-        },
-        tags: [
-          `#EmotionRadar`,
-          `#TuningIn`,
-          `#EmpathyFirst`,
-          `#SensitiveStrong`
-        ]
-      },
-      J: {
-        emoji: `🌱`,
-        name: `Growth Partner`,
-        tagline: `Love that makes you both better`,
-        badge: `Growing Together`,
-        traits: [
-          {
-            label: `Growth`,
-            val: 92
-          },
-          {
-            label: `Self-dev`,
-            val: 88
-          },
-          {
-            label: `Partnership`,
-            val: 82
-          },
-          {
-            label: `Contentment`,
-            val: 40
-          }
-        ],
-        desc: `<b>You don't just want a relationship — you want one that makes you both grow.</b> You cheer for your partner's goals as if they were your own. You look for what you can learn from them, and what you can give back. Stagnation is the enemy of love for you. With a partner who matches your drive, you build something that evolves and deepens over time — love as a journey, not a destination.`,
-        wantToHear: `"I feel like a better version of myself with you"`,
-        dontWantToHear: `"Can't you just relax and stop pushing for more?"`,
-        compat: {
-          goodEmoji: `🧭`,
-          goodName: `Balanced Rationalist`,
-          goodDesc: `Logical and steady growth-oriented partner`,
-          badEmoji: `⚡`,
-          badName: `Spontaneous Adventurer`,
-          badDesc: `Lives fully in the moment without long-term focus`
-        },
-        tags: [
-          `#GrowTogether`,
-          `#LoveAndDevelop`,
-          `#MutualInspiration`,
-          `#PartnershipGoals`
-        ]
+          goodEmoji: '✅', goodName: 'Confess right now!',
+          goodDesc:  'Sincerely and honestly. The timing is now',
+          badEmoji:  '⚠️', badName:  '"It\'s still not the perfect moment..."',
+          badDesc:   "There is no perfect moment. Courage IS perfection."
+        }
       }
     }
   }
@@ -2304,9 +1338,9 @@ const data = {
 // ─────────────────────────────────
 // State
 // ─────────────────────────────────
-let curLang = 'ko';
-let curQ    = 0;
-let scores  = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+let curLang    = 'ko';
+let curQ       = 0;
+let totalScore = 0;
 
 // ─────────────────────────────────
 // Lang toggle
@@ -2342,7 +1376,7 @@ function applyLang() {
 // Start
 // ─────────────────────────────────
 function startTest() {
-  curQ = 0; scores = { A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0,I:0,J:0 };
+  curQ = 0; totalScore = 0;
   document.getElementById('startSection').style.display = 'none';
   document.getElementById('quizSection').style.display  = 'block';
   renderQuestion();
@@ -2378,7 +1412,7 @@ function renderQuestion() {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
     btn.innerHTML = `<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span><span class="choice-check">✓</span>`;
-    btn.onclick   = () => pick(c.type, btn);
+    btn.onclick   = () => pick(c.pts, btn);
     box.appendChild(btn);
   });
 
@@ -2395,10 +1429,10 @@ function renderQuestion() {
 // ─────────────────────────────────
 // Pick answer
 // ─────────────────────────────────
-function pick(type, btn) {
+function pick(pts, btn) {
   if (document.querySelector('.choice-btn.selected')) return;
   btn.classList.add('selected');
-  scores[type]++;
+  totalScore += pts;
   setTimeout(() => {
     curQ++;
     curQ < data[curLang].questions.length ? renderQuestion() : showResult();
@@ -2408,526 +1442,6 @@ function pick(type, btn) {
 // ─────────────────────────────────
 // Show result
 // ─────────────────────────────────
-const LOVE_TYPE_SVGS = {
-  A: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLA" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a0010"/>
-      <stop offset="100%" stop-color="#2d0018"/>
-    </linearGradient>
-    <radialGradient id="roseGlowA" cx="50%" cy="55%">
-      <stop offset="0%" stop-color="#ff6699" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#880033" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLA)"/>
-  <ellipse cx="150" cy="100" rx="80" ry="70" fill="url(#roseGlowA)"/>
-  <!-- rose stem -->
-  <line x1="150" y1="165" x2="150" y2="105" stroke="#1a4a10" stroke-width="3"/>
-  <path d="M150,145 Q135,138 130,128" fill="none" stroke="#1a4a10" stroke-width="2"/>
-  <path d="M150,145 Q165,138 170,128" fill="none" stroke="#1a4a10" stroke-width="2"/>
-  <!-- leaf left -->
-  <path d="M150,145 Q132,136 128,122 Q140,128 150,145" fill="#1e5a12"/>
-  <!-- leaf right -->
-  <path d="M150,135 Q168,126 172,112 Q160,118 150,135" fill="#1e5a12"/>
-  <!-- rose petals (layered circles) -->
-  <ellipse cx="150" cy="95" rx="30" ry="22" fill="#cc0044"/>
-  <ellipse cx="138" cy="90" rx="20" ry="16" fill="#dd1155" transform="rotate(-20 138 90)"/>
-  <ellipse cx="162" cy="90" rx="20" ry="16" fill="#dd1155" transform="rotate(20 162 90)"/>
-  <ellipse cx="150" cy="80" rx="18" ry="14" fill="#ee2266" transform="rotate(0 150 80)"/>
-  <ellipse cx="140" cy="83" rx="14" ry="11" fill="#ff4488" transform="rotate(-30 140 83)"/>
-  <ellipse cx="160" cy="83" rx="14" ry="11" fill="#ff4488" transform="rotate(30 160 83)"/>
-  <ellipse cx="150" cy="75" rx="12" ry="9" fill="#ff66aa"/>
-  <!-- rose center -->
-  <ellipse cx="150" cy="78" rx="7" ry="6" fill="#cc0044"/>
-  <ellipse cx="150" cy="78" rx="4" ry="3" fill="#880030"/>
-  <!-- floating hearts -->
-  <text x="60" y="55" font-size="14" fill="#ff6699" opacity="0.7">♥</text>
-  <text x="220" y="45" font-size="10" fill="#ff99bb" opacity="0.6">♥</text>
-  <text x="90" y="35" font-size="8" fill="#ff6699" opacity="0.5">♥</text>
-  <text x="240" y="70" font-size="12" fill="#ff88aa" opacity="0.6">♥</text>
-  <text x="35" y="80" font-size="9" fill="#ff99cc" opacity="0.5">♥</text>
-  <!-- stars -->
-  <circle cx="50" cy="25" r="1" fill="#ffbbdd" opacity="0.8"/>
-  <circle cx="260" cy="30" r="1.2" fill="#ffbbdd" opacity="0.7"/>
-  <circle cx="200" cy="18" r="0.8" fill="#ffbbdd" opacity="0.6"/>
-  <circle cx="30" cy="55" r="1" fill="#ffbbdd" opacity="0.5"/>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#ff88aa" font-family="serif" opacity="0.8">로맨틱 드리머 — 사랑을 꿈꾸는 낭만주의자</text>
-</svg>`,
-  B: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLB" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a0500"/>
-      <stop offset="100%" stop-color="#2a0800"/>
-    </linearGradient>
-    <linearGradient id="heartFire" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FF6600"/>
-      <stop offset="100%" stop-color="#CC0000"/>
-    </linearGradient>
-    <radialGradient id="fireGlowB" cx="50%" cy="60%">
-      <stop offset="0%" stop-color="#ff4400" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#880000" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLB)"/>
-  <ellipse cx="150" cy="105" rx="90" ry="65" fill="url(#fireGlowB)"/>
-  <!-- heart shape filled with flame gradient -->
-  <path d="M150,135 C110,110 90,90 90,72 C90,54 105,45 120,45 C133,45 144,53 150,60 C156,53 167,45 180,45 C195,45 210,54 210,72 C210,90 190,110 150,135Z" fill="url(#heartFire)"/>
-  <!-- flame inside heart -->
-  <path d="M150,125 Q130,108 125,92 Q132,100 138,88 Q140,102 150,95 Q160,102 162,88 Q168,100 175,92 Q170,108 150,125Z" fill="#FF8800" opacity="0.7"/>
-  <path d="M150,112 Q138,100 136,88 Q143,95 150,85 Q157,95 164,88 Q162,100 150,112Z" fill="#FFCC00" opacity="0.6"/>
-  <!-- sparks -->
-  <circle cx="105" cy="60" r="2.5" fill="#FF6600" opacity="0.8"><animate attributeName="opacity" values="0.8;0;0.8" dur="1.5s" repeatCount="indefinite"/></circle>
-  <circle cx="195" cy="55" r="2" fill="#FF8800" opacity="0.7"><animate attributeName="opacity" values="0.7;0;0.7" dur="1.8s" repeatCount="indefinite"/></circle>
-  <circle cx="120" cy="42" r="1.5" fill="#FFAA00" opacity="0.8"><animate attributeName="opacity" values="0.8;0;0.8" dur="1.3s" repeatCount="indefinite"/></circle>
-  <circle cx="180" cy="38" r="2" fill="#FF6600" opacity="0.7"><animate attributeName="opacity" values="0.7;0;0.7" dur="2s" repeatCount="indefinite"/></circle>
-  <circle cx="150" cy="35" r="1.5" fill="#FF4400" opacity="0.9"><animate attributeName="opacity" values="0.9;0;0.9" dur="1.6s" repeatCount="indefinite"/></circle>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#FF8844" font-family="serif" opacity="0.85">열정 표현형 — 감정을 온몸으로 표현하는 열정가</text>
-</svg>`,
-  C: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLC" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a0e00"/>
-      <stop offset="100%" stop-color="#261404"/>
-    </linearGradient>
-    <linearGradient id="cupGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#8B5E3C"/>
-      <stop offset="100%" stop-color="#5c3a1e"/>
-    </linearGradient>
-    <radialGradient id="warmGlow" cx="50%" cy="55%">
-      <stop offset="0%" stop-color="#cc7733" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#662200" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLC)"/>
-  <ellipse cx="150" cy="100" rx="85" ry="65" fill="url(#warmGlow)"/>
-  <!-- window frame background (cozy home feel) -->
-  <rect x="60" y="20" width="180" height="130" rx="10" fill="#1a0e04" opacity="0.5"/>
-  <rect x="62" y="22" width="176" height="126" rx="8" fill="none" stroke="#5c3a1e" stroke-width="2"/>
-  <!-- curtains -->
-  <path d="M62,22 Q80,50 72,148" fill="#3a1e08" opacity="0.6"/>
-  <path d="M238,22 Q220,50 228,148" fill="#3a1e08" opacity="0.6"/>
-  <!-- rainy window effect -->
-  <line x1="100" y1="25" x2="98" y2="50" stroke="#4488aa" stroke-width="0.8" opacity="0.3"/>
-  <line x1="140" y1="25" x2="138" y2="55" stroke="#4488aa" stroke-width="0.8" opacity="0.25"/>
-  <line x1="175" y1="25" x2="173" y2="48" stroke="#4488aa" stroke-width="0.8" opacity="0.3"/>
-  <line x1="210" y1="25" x2="208" y2="52" stroke="#4488aa" stroke-width="0.8" opacity="0.25"/>
-  <!-- table surface -->
-  <ellipse cx="150" cy="148" rx="75" ry="10" fill="#3a2010"/>
-  <rect x="78" y="140" width="144" height="12" fill="#3a2010" rx="3"/>
-  <!-- saucer -->
-  <ellipse cx="150" cy="138" rx="42" ry="8" fill="#5c3a1e"/>
-  <ellipse cx="150" cy="137" rx="38" ry="6" fill="#6b4522"/>
-  <!-- cup body -->
-  <path d="M118,115 Q116,138 120,140 Q150,145 180,140 Q184,138 182,115Z" fill="url(#cupGrad)"/>
-  <!-- cup rim -->
-  <ellipse cx="150" cy="115" rx="32" ry="7" fill="#7a5030"/>
-  <!-- coffee surface -->
-  <ellipse cx="150" cy="115" rx="28" ry="5" fill="#3a1e06"/>
-  <!-- coffee swirl -->
-  <path d="M140,114 Q148,111 158,114 Q150,117 140,114" fill="none" stroke="#7a4418" stroke-width="1.5" opacity="0.6"/>
-  <!-- handle -->
-  <path d="M182,120 Q198,120 198,130 Q198,138 182,138" fill="none" stroke="#5c3a1e" stroke-width="6" stroke-linecap="round"/>
-  <path d="M182,120 Q196,120 196,130 Q196,136 182,136" fill="none" stroke="#7a5030" stroke-width="3" stroke-linecap="round"/>
-  <!-- steam -->
-  <path d="M135,110 Q132,100 135,90 Q138,80 135,70" fill="none" stroke="#cc9955" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-  <path d="M150,108 Q147,96 150,84 Q153,72 150,62" fill="none" stroke="#cc9955" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-  <path d="M165,110 Q168,100 165,90 Q162,80 165,70" fill="none" stroke="#cc9955" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-  <!-- small hearts in steam -->
-  <text x="148" y="60" font-size="9" fill="#ff9966" opacity="0.5">♥</text>
-  <text x="135" y="50" font-size="7" fill="#ffaa77" opacity="0.4">♥</text>
-  <text x="162" y="55" font-size="8" fill="#ff9966" opacity="0.4">♥</text>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#cc8844" font-family="serif" opacity="0.85">안정 배려형 — 따뜻한 일상으로 사랑을 짓는 사람</text>
-</svg>`,
-  D: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLD" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#040c18"/>
-      <stop offset="100%" stop-color="#081422"/>
-    </linearGradient>
-    <radialGradient id="skyGlowD" cx="50%" cy="40%">
-      <stop offset="0%" stop-color="#6644bb" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#220066" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="wingSkyL" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#9966ff" stop-opacity="0.9"/>
-      <stop offset="60%" stop-color="#6633cc" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#330088" stop-opacity="0.7"/>
-    </linearGradient>
-    <linearGradient id="wingSkyR" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#bb88ff" stop-opacity="0.9"/>
-      <stop offset="60%" stop-color="#8855cc" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#440099" stop-opacity="0.7"/>
-    </linearGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLD)"/>
-  <ellipse cx="150" cy="70" rx="100" ry="70" fill="url(#skyGlowD)"/>
-  <!-- stars in field -->
-  <circle cx="30" cy="20" r="1" fill="#ccaaff" opacity="0.7"/>
-  <circle cx="270" cy="15" r="1.2" fill="#ccaaff" opacity="0.6"/>
-  <circle cx="80" cy="12" r="0.8" fill="#ddbbff" opacity="0.5"/>
-  <circle cx="230" cy="25" r="1" fill="#bbaaff" opacity="0.6"/>
-  <circle cx="50" cy="45" r="0.8" fill="#ddccff" opacity="0.5"/>
-  <circle cx="260" cy="55" r="1" fill="#ccbbff" opacity="0.5"/>
-  <!-- butterfly (large, centered) -->
-  <!-- left upper wing -->
-  <path d="M150,88 Q120,68 95,55 Q80,42 88,62 Q96,75 120,82 Q138,86 150,88Z" fill="url(#wingSkyL)"/>
-  <!-- right upper wing -->
-  <path d="M150,88 Q180,68 205,55 Q220,42 212,62 Q204,75 180,82 Q162,86 150,88Z" fill="url(#wingSkyR)"/>
-  <!-- left lower wing -->
-  <path d="M150,92 Q125,100 105,118 Q88,132 100,125 Q115,115 135,105 Q146,97 150,92Z" fill="#7733bb" opacity="0.8"/>
-  <!-- right lower wing -->
-  <path d="M150,92 Q175,100 195,118 Q212,132 200,125 Q185,115 165,105 Q154,97 150,92Z" fill="#9944cc" opacity="0.8"/>
-  <!-- wing patterns -->
-  <circle cx="120" cy="72" r="8" fill="#aa77ff" opacity="0.4"/>
-  <circle cx="180" cy="72" r="8" fill="#cc99ff" opacity="0.4"/>
-  <circle cx="112" cy="68" r="4" fill="#ffffff" opacity="0.2"/>
-  <circle cx="188" cy="68" r="4" fill="#ffffff" opacity="0.2"/>
-  <!-- body -->
-  <ellipse cx="150" cy="90" rx="4" ry="15" fill="#220044"/>
-  <ellipse cx="150" cy="90" rx="2.5" ry="13" fill="#442266"/>
-  <!-- antennae -->
-  <path d="M149,76 Q145,62 138,52" fill="none" stroke="#8855cc" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="138" cy="52" r="2.5" fill="#aa77ff"/>
-  <path d="M151,76 Q155,62 162,52" fill="none" stroke="#8855cc" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="162" cy="52" r="2.5" fill="#aa77ff"/>
-  <!-- flower meadow below -->
-  <path d="M0,160 Q75,150 150,155 Q225,150 300,160 L300,180 L0,180Z" fill="#0a1408"/>
-  <circle cx="60" cy="158" r="4" fill="#cc88ff" opacity="0.6"/>
-  <circle cx="100" cy="155" r="3" fill="#9966cc" opacity="0.5"/>
-  <circle cx="200" cy="157" r="4" fill="#aa77ee" opacity="0.6"/>
-  <circle cx="240" cy="155" r="3" fill="#cc88ff" opacity="0.5"/>
-  <text x="150" y="174" text-anchor="middle" font-size="10" fill="#aa77ff" font-family="serif" opacity="0.85">자유 독립형 — 구속 없이 자유롭게 피어나는 사랑</text>
-</svg>`,
-  E: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLE" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#020510"/>
-      <stop offset="100%" stop-color="#060d25"/>
-    </linearGradient>
-    <radialGradient id="star1E" cx="50%" cy="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#4466ff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orbitGlow" cx="50%" cy="50%">
-      <stop offset="0%" stop-color="#6688ff" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#001155" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLE)"/>
-  <!-- star field -->
-  <circle cx="20" cy="15" r="0.8" fill="#aabbff" opacity="0.7"/>
-  <circle cx="50" cy="30" r="1" fill="#8899ff" opacity="0.6"/>
-  <circle cx="80" cy="10" r="0.8" fill="#ccddff" opacity="0.5"/>
-  <circle cx="140" cy="20" r="1" fill="#aabbff" opacity="0.6"/>
-  <circle cx="200" cy="12" r="0.8" fill="#8899ff" opacity="0.5"/>
-  <circle cx="255" cy="25" r="1" fill="#ccddff" opacity="0.6"/>
-  <circle cx="280" cy="18" r="0.8" fill="#aabbff" opacity="0.5"/>
-  <circle cx="290" cy="50" r="1" fill="#8899ff" opacity="0.6"/>
-  <circle cx="30" cy="80" r="0.8" fill="#ccddff" opacity="0.4"/>
-  <circle cx="270" cy="90" r="0.8" fill="#aabbff" opacity="0.4"/>
-  <!-- main celestial body 1 (left) -->
-  <circle cx="110" cy="85" r="35" fill="url(#orbitGlow)"/>
-  <circle cx="110" cy="85" r="22" fill="#112255"/>
-  <circle cx="110" cy="85" r="18" fill="#1a3388"/>
-  <circle cx="106" cy="82" r="6" fill="#4466cc" opacity="0.6"/>
-  <!-- celestial body 2 (right) -->
-  <circle cx="190" cy="95" r="28" fill="url(#orbitGlow)"/>
-  <circle cx="190" cy="95" r="18" fill="#110044"/>
-  <circle cx="190" cy="95" r="14" fill="#330077"/>
-  <circle cx="186" cy="92" r="5" fill="#6644aa" opacity="0.6"/>
-  <!-- orbit path between them -->
-  <ellipse cx="150" cy="90" rx="55" ry="25" fill="none" stroke="#4466ff" stroke-width="1" stroke-dasharray="6 4" opacity="0.4"/>
-  <!-- connection beam of light -->
-  <path d="M128,85 Q150,78 172,92" fill="none" stroke="#8899ff" stroke-width="2" opacity="0.5"/>
-  <path d="M128,87 Q150,82 172,94" fill="none" stroke="#aabbff" stroke-width="1" opacity="0.4"/>
-  <!-- sparkle stars around them -->
-  <text x="85" y="52" font-size="14" fill="#ccddff" opacity="0.7">✦</text>
-  <text x="205" y="70" font-size="12" fill="#aabbff" opacity="0.6">✦</text>
-  <text x="140" y="45" font-size="10" fill="#ddeeFF" opacity="0.5">✦</text>
-  <text x="60" y="110" font-size="10" fill="#aabbff" opacity="0.5">✦</text>
-  <text x="220" y="125" font-size="12" fill="#ccddff" opacity="0.5">✦</text>
-  <!-- heart constellation connecting the two -->
-  <path d="M148,65 C140,55 128,58 128,68 C128,78 148,90 148,90 C148,90 168,78 168,68 C168,58 156,55 148,65Z" fill="none" stroke="#6688ff" stroke-width="1.5" opacity="0.5"/>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#8899ff" font-family="serif" opacity="0.85">몰입 헌신형 — 온 우주를 걸고 사랑하는 사람</text>
-</svg>`,
-  F: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLF" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0e0a00"/>
-      <stop offset="100%" stop-color="#1a1200"/>
-    </linearGradient>
-    <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFEE00"/>
-      <stop offset="50%" stop-color="#FFAA00"/>
-      <stop offset="100%" stop-color="#FF6600"/>
-    </linearGradient>
-    <radialGradient id="energyGlow" cx="50%" cy="50%">
-      <stop offset="0%" stop-color="#ffcc00" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#aa6600" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLF)"/>
-  <ellipse cx="150" cy="90" rx="90" ry="70" fill="url(#energyGlow)"/>
-  <!-- main lightning bolt -->
-  <path d="M165,20 L138,85 L158,85 L130,160 L180,80 L158,80 L185,20Z" fill="url(#boltGrad)"/>
-  <path d="M163,22 L138,83 L156,83 L130,155 L178,82 L157,82 L183,22Z" fill="#FFFF44" opacity="0.4"/>
-  <!-- side sparks -->
-  <line x1="100" y1="60" x2="120" y2="75" stroke="#FFCC00" stroke-width="2" opacity="0.7"/>
-  <line x1="95" y1="55" x2="108" y2="58" stroke="#FFEE00" stroke-width="1.5" opacity="0.6"/>
-  <line x1="200" y1="65" x2="182" y2="78" stroke="#FFCC00" stroke-width="2" opacity="0.7"/>
-  <line x1="208" y1="60" x2="195" y2="62" stroke="#FFEE00" stroke-width="1.5" opacity="0.6"/>
-  <line x1="110" y1="110" x2="128" y2="100" stroke="#FFAA00" stroke-width="2" opacity="0.6"/>
-  <line x1="190" y1="115" x2="174" y2="105" stroke="#FFAA00" stroke-width="2" opacity="0.6"/>
-  <!-- energy circles -->
-  <circle cx="150" cy="90" r="60" fill="none" stroke="#FFCC00" stroke-width="0.8" stroke-dasharray="5 8" opacity="0.3"/>
-  <circle cx="150" cy="90" r="80" fill="none" stroke="#FFAA00" stroke-width="0.8" stroke-dasharray="4 10" opacity="0.2"/>
-  <!-- spark particles -->
-  <circle cx="85" cy="50" r="2.5" fill="#FFEE00" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.2s" repeatCount="indefinite"/></circle>
-  <circle cx="218" cy="55" r="2" fill="#FFCC00" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="1.5s" repeatCount="indefinite"/></circle>
-  <circle cx="78" cy="120" r="2" fill="#FF9900" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="1.8s" repeatCount="indefinite"/></circle>
-  <circle cx="225" cy="125" r="2.5" fill="#FFCC00" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.4s" repeatCount="indefinite"/></circle>
-  <circle cx="60" cy="88" r="1.5" fill="#FFEE00" opacity="0.6"><animate attributeName="opacity" values="0.6;0;0.6" dur="1.1s" repeatCount="indefinite"/></circle>
-  <circle cx="242" cy="92" r="1.5" fill="#FFCC00" opacity="0.6"><animate attributeName="opacity" values="0.6;0;0.6" dur="1.3s" repeatCount="indefinite"/></circle>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#FFCC44" font-family="serif" opacity="0.85">즉흥 에너지형 — 지금 이 순간 전부를 불태우는 사랑</text>
-</svg>`,
-  G: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLG" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#020e10"/>
-      <stop offset="100%" stop-color="#051518"/>
-    </linearGradient>
-    <radialGradient id="compassGlow" cx="50%" cy="50%">
-      <stop offset="0%" stop-color="#22bbcc" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#005566" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLG)"/>
-  <ellipse cx="150" cy="90" rx="80" ry="70" fill="url(#compassGlow)"/>
-  <!-- compass outer ring -->
-  <circle cx="150" cy="87" r="62" fill="none" stroke="#226677" stroke-width="2"/>
-  <circle cx="150" cy="87" r="58" fill="#050e10"/>
-  <circle cx="150" cy="87" r="56" fill="none" stroke="#113344" stroke-width="1"/>
-  <!-- degree marks -->
-  <line x1="150" y1="31" x2="150" y2="38" stroke="#226677" stroke-width="2"/>
-  <line x1="150" y1="136" x2="150" y2="143" stroke="#226677" stroke-width="2"/>
-  <line x1="94" y1="87" x2="101" y2="87" stroke="#226677" stroke-width="2"/>
-  <line x1="199" y1="87" x2="206" y2="87" stroke="#226677" stroke-width="2"/>
-  <!-- N E S W -->
-  <text x="150" y="44" text-anchor="middle" font-size="9" fill="#22ccdd" font-family="serif" font-weight="bold">N</text>
-  <text x="150" y="148" text-anchor="middle" font-size="9" fill="#445566" font-family="serif">S</text>
-  <text x="204" y="91" text-anchor="middle" font-size="9" fill="#445566" font-family="serif">E</text>
-  <text x="96" y="91" text-anchor="middle" font-size="9" fill="#445566" font-family="serif">W</text>
-  <!-- compass rose cross lines -->
-  <line x1="150" y1="38" x2="150" y2="136" stroke="#1a4455" stroke-width="1" opacity="0.5"/>
-  <line x1="101" y1="87" x2="199" y2="87" stroke="#1a4455" stroke-width="1" opacity="0.5"/>
-  <!-- diagonal marks -->
-  <line x1="109" y1="46" x2="113" y2="50" stroke="#1a4455" stroke-width="1.5" opacity="0.6"/>
-  <line x1="191" y1="46" x2="187" y2="50" stroke="#1a4455" stroke-width="1.5" opacity="0.6"/>
-  <line x1="109" y1="128" x2="113" y2="124" stroke="#1a4455" stroke-width="1.5" opacity="0.6"/>
-  <line x1="191" y1="128" x2="187" y2="124" stroke="#1a4455" stroke-width="1.5" opacity="0.6"/>
-  <!-- needle (pointing N with heart tip) -->
-  <path d="M150,87 L146,58 L150,50 L154,58 Z" fill="#22ccdd"/>
-  <path d="M150,87 L153,110 L150,120 L147,110 Z" fill="#445566"/>
-  <!-- center pivot -->
-  <circle cx="150" cy="87" r="5" fill="#1a4455"/>
-  <circle cx="150" cy="87" r="3" fill="#22ccdd" opacity="0.8"/>
-  <!-- heart at needle north tip -->
-  <path d="M150,50 C148,46 144,47 144,51 C144,55 150,58 150,58 C150,58 156,55 156,51 C156,47 152,46 150,50Z" fill="#22ffff" opacity="0.8"/>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#22aacc" font-family="serif" opacity="0.85">이성 균형형 — 방향을 잃지 않는 균형 잡힌 사랑</text>
-</svg>`,
-  H: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLH" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#02040e"/>
-      <stop offset="100%" stop-color="#050818"/>
-    </linearGradient>
-    <radialGradient id="moonGlowH" cx="50%" cy="40%">
-      <stop offset="0%" stop-color="#8899ff" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#220044" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLH)"/>
-  <ellipse cx="150" cy="70" rx="100" ry="75" fill="url(#moonGlowH)"/>
-  <!-- stars -->
-  <circle cx="30" cy="18" r="1.2" fill="#aabbff" opacity="0.8"/>
-  <circle cx="60" cy="8" r="0.8" fill="#ddccff" opacity="0.6"/>
-  <circle cx="110" cy="15" r="1" fill="#ccddff" opacity="0.7"/>
-  <circle cx="200" cy="10" r="0.8" fill="#bbccff" opacity="0.6"/>
-  <circle cx="250" cy="20" r="1.2" fill="#aabbff" opacity="0.7"/>
-  <circle cx="280" cy="12" r="0.8" fill="#ccddff" opacity="0.5"/>
-  <circle cx="40" cy="50" r="0.8" fill="#bbaaff" opacity="0.5"/>
-  <circle cx="270" cy="55" r="1" fill="#aabbff" opacity="0.5"/>
-  <circle cx="20" cy="90" r="0.8" fill="#ddccff" opacity="0.4"/>
-  <circle cx="285" cy="100" r="0.8" fill="#bbaaff" opacity="0.4"/>
-  <!-- crescent moon -->
-  <circle cx="150" cy="62" r="36" fill="#c8c8f0"/>
-  <circle cx="162" cy="57" r="30" fill="#04060e"/>
-  <!-- moon texture (subtle craters) -->
-  <circle cx="138" cy="58" r="4" fill="#b0b0e0" opacity="0.4"/>
-  <circle cx="133" cy="72" r="3" fill="#b0b0e0" opacity="0.35"/>
-  <circle cx="148" cy="80" r="2.5" fill="#b0b0e0" opacity="0.3"/>
-  <!-- moon glow ring -->
-  <circle cx="150" cy="62" r="40" fill="none" stroke="#8899ff" stroke-width="0.8" opacity="0.3"/>
-  <circle cx="150" cy="62" r="48" fill="none" stroke="#6677dd" stroke-width="0.5" opacity="0.2"/>
-  <!-- silent guardian silhouette below -->
-  <path d="M100,160 Q120,145 135,135 Q143,128 150,125 Q157,128 165,135 Q180,145 200,160Z" fill="#0a0818"/>
-  <!-- figure silhouette (standing watch, arms slightly out) -->
-  <ellipse cx="150" cy="125" rx="10" ry="11" fill="#0a0818"/>
-  <rect x="143" y="136" width="14" height="22" fill="#0a0818" rx="3"/>
-  <!-- arms slightly spread (protective) -->
-  <path d="M143,142 Q130,148 120,155" fill="none" stroke="#0a0818" stroke-width="7" stroke-linecap="round"/>
-  <path d="M157,142 Q170,148 180,155" fill="none" stroke="#0a0818" stroke-width="7" stroke-linecap="round"/>
-  <!-- ground line -->
-  <path d="M0,165 Q150,158 300,165 L300,180 L0,180Z" fill="#030510"/>
-  <text x="150" y="174" text-anchor="middle" font-size="10" fill="#8899dd" font-family="serif" opacity="0.85">조용한 수호자형 — 말 없이 곁을 지키는 깊은 사랑</text>
-</svg>`,
-  I: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLI" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#100408"/>
-      <stop offset="100%" stop-color="#180610"/>
-    </linearGradient>
-    <radialGradient id="blossomGlow" cx="50%" cy="45%">
-      <stop offset="0%" stop-color="#ff99bb" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#550022" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLI)"/>
-  <ellipse cx="150" cy="80" rx="100" ry="70" fill="url(#blossomGlow)"/>
-  <!-- cherry blossom branch -->
-  <path d="M20,170 Q50,140 80,115 Q100,100 120,88 Q135,80 150,75" fill="none" stroke="#5a1e28" stroke-width="8" stroke-linecap="round"/>
-  <path d="M20,170 Q50,140 80,115 Q100,100 120,88 Q135,80 150,75" fill="none" stroke="#7a2e3a" stroke-width="4" stroke-linecap="round"/>
-  <!-- branch left -->
-  <path d="M85,118 Q75,100 65,85" fill="none" stroke="#5a1e28" stroke-width="5" stroke-linecap="round"/>
-  <path d="M105,102 Q98,88 92,72" fill="none" stroke="#5a1e28" stroke-width="4" stroke-linecap="round"/>
-  <path d="M125,88 Q122,72 118,58" fill="none" stroke="#5a1e28" stroke-width="4" stroke-linecap="round"/>
-  <path d="M150,75 Q148,58 145,42" fill="none" stroke="#5a1e28" stroke-width="5" stroke-linecap="round"/>
-  <!-- branch right extends -->
-  <path d="M150,75 Q175,65 200,55 Q220,48 240,45" fill="none" stroke="#5a1e28" stroke-width="5" stroke-linecap="round"/>
-  <path d="M180,62 Q190,48 200,36" fill="none" stroke="#5a1e28" stroke-width="4" stroke-linecap="round"/>
-  <path d="M215,50 Q222,38 228,26" fill="none" stroke="#5a1e28" stroke-width="3" stroke-linecap="round"/>
-  <!-- blossoms (cherry flowers) -->
-  <!-- helper: 5-petal flower at cx,cy,r -->
-  <!-- flower 1 -->
-  <circle cx="65" cy="83" r="11" fill="#ff88aa" opacity="0.85"/>
-  <circle cx="56" cy="76" r="8" fill="#ff99bb" opacity="0.8"/>
-  <circle cx="74" cy="76" r="8" fill="#ff99bb" opacity="0.8"/>
-  <circle cx="56" cy="90" r="8" fill="#ffaabb" opacity="0.8"/>
-  <circle cx="74" cy="90" r="8" fill="#ffaabb" opacity="0.8"/>
-  <circle cx="65" cy="83" r="4" fill="#ffddee"/>
-  <circle cx="65" cy="83" r="2" fill="#ff4488" opacity="0.6"/>
-  <!-- flower 2 -->
-  <circle cx="93" cy="70" r="10" fill="#ff88aa" opacity="0.8"/>
-  <circle cx="85" cy="63" r="7" fill="#ff99bb" opacity="0.75"/>
-  <circle cx="101" cy="63" r="7" fill="#ff99bb" opacity="0.75"/>
-  <circle cx="85" cy="77" r="7" fill="#ffaabb" opacity="0.75"/>
-  <circle cx="101" cy="77" r="7" fill="#ffaabb" opacity="0.75"/>
-  <circle cx="93" cy="70" r="3.5" fill="#ffddee"/>
-  <circle cx="93" cy="70" r="1.8" fill="#ff4488" opacity="0.6"/>
-  <!-- flower 3 -->
-  <circle cx="120" cy="55" r="10" fill="#ff88aa" opacity="0.8"/>
-  <circle cx="112" cy="48" r="7" fill="#ff99bb" opacity="0.75"/>
-  <circle cx="128" cy="48" r="7" fill="#ff99bb" opacity="0.75"/>
-  <circle cx="112" cy="62" r="7" fill="#ffaabb" opacity="0.75"/>
-  <circle cx="128" cy="62" r="7" fill="#ffaabb" opacity="0.75"/>
-  <circle cx="120" cy="55" r="3.5" fill="#ffddee"/>
-  <circle cx="120" cy="55" r="1.8" fill="#ff4488" opacity="0.6"/>
-  <!-- flower 4 (big center) -->
-  <circle cx="150" cy="40" r="12" fill="#ff77aa" opacity="0.9"/>
-  <circle cx="140" cy="32" r="9" fill="#ff99bb" opacity="0.85"/>
-  <circle cx="160" cy="32" r="9" fill="#ff99bb" opacity="0.85"/>
-  <circle cx="140" cy="48" r="9" fill="#ffaabb" opacity="0.85"/>
-  <circle cx="160" cy="48" r="9" fill="#ffaabb" opacity="0.85"/>
-  <circle cx="150" cy="40" r="5" fill="#ffddee"/>
-  <circle cx="150" cy="40" r="2.5" fill="#ff2266" opacity="0.7"/>
-  <!-- flower 5 -->
-  <circle cx="200" cy="33" r="9" fill="#ff88aa" opacity="0.8"/>
-  <circle cx="193" cy="26" r="7" fill="#ff99bb" opacity="0.75"/>
-  <circle cx="207" cy="26" r="7" fill="#ff99bb" opacity="0.75"/>
-  <circle cx="193" cy="40" r="7" fill="#ffaabb" opacity="0.75"/>
-  <circle cx="207" cy="40" r="7" fill="#ffaabb" opacity="0.75"/>
-  <circle cx="200" cy="33" r="3.5" fill="#ffddee"/>
-  <circle cx="200" cy="33" r="1.8" fill="#ff4488" opacity="0.6"/>
-  <!-- flower 6 -->
-  <circle cx="228" cy="23" r="8" fill="#ff88aa" opacity="0.7"/>
-  <circle cx="222" cy="17" r="6" fill="#ff99bb" opacity="0.65"/>
-  <circle cx="234" cy="17" r="6" fill="#ff99bb" opacity="0.65"/>
-  <circle cx="222" cy="29" r="6" fill="#ffaabb" opacity="0.65"/>
-  <circle cx="234" cy="29" r="6" fill="#ffaabb" opacity="0.65"/>
-  <circle cx="228" cy="23" r="3" fill="#ffddee"/>
-  <!-- falling petals -->
-  <ellipse cx="180" cy="100" rx="5" ry="8" fill="#ffaacc" opacity="0.6" transform="rotate(30 180 100)"/>
-  <ellipse cx="230" cy="130" rx="4" ry="7" fill="#ff99bb" opacity="0.5" transform="rotate(-20 230 130)"/>
-  <ellipse cx="70" cy="145" rx="4" ry="7" fill="#ffbbdd" opacity="0.5" transform="rotate(15 70 145)"/>
-  <ellipse cx="255" cy="90" rx="3.5" ry="6" fill="#ffaacc" opacity="0.5" transform="rotate(-35 255 90)"/>
-  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#ff88aa" font-family="serif" opacity="0.85">섬세 공감형 — 꽃잎처럼 섬세하게 마음을 읽는 사랑</text>
-</svg>`,
-  J: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
-  <defs>
-    <linearGradient id="bgLJ" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#030b04"/>
-      <stop offset="100%" stop-color="#041206"/>
-    </linearGradient>
-    <linearGradient id="dawnLJ" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#0a1808"/>
-      <stop offset="60%" stop-color="#0e2008"/>
-      <stop offset="100%" stop-color="#1a4010"/>
-    </linearGradient>
-    <radialGradient id="sunriseJ" cx="50%" cy="85%">
-      <stop offset="0%" stop-color="#aaff44" stop-opacity="0.35"/>
-      <stop offset="60%" stop-color="#44aa00" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#002200" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="300" height="180" fill="url(#bgLJ)"/>
-  <ellipse cx="150" cy="158" rx="150" ry="60" fill="url(#sunriseJ)"/>
-  <!-- ground -->
-  <path d="M0,158 Q75,150 150,154 Q225,150 300,158 L300,180 L0,180Z" fill="#081408"/>
-  <!-- left tree (smaller, younger) -->
-  <line x1="105" y1="155" x2="105" y2="88" stroke="#2a4a10" stroke-width="6" stroke-linecap="round"/>
-  <!-- left branches -->
-  <path d="M105,118 Q92,110 82,102" fill="none" stroke="#2a4a10" stroke-width="4" stroke-linecap="round"/>
-  <path d="M105,102 Q90,95 78,88" fill="none" stroke="#2a4a10" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M105,88 Q116,82 124,74" fill="none" stroke="#2a4a10" stroke-width="3" stroke-linecap="round"/>
-  <!-- left canopy -->
-  <circle cx="82" cy="100" r="14" fill="#1e5a10" opacity="0.85"/>
-  <circle cx="78" cy="86" r="12" fill="#246612" opacity="0.8"/>
-  <circle cx="92" cy="80" r="13" fill="#2a7214" opacity="0.8"/>
-  <circle cx="105" cy="82" r="16" fill="#1e6010" opacity="0.85"/>
-  <circle cx="115" cy="75" r="12" fill="#226614" opacity="0.8"/>
-  <circle cx="125" cy="72" r="10" fill="#1e5a10" opacity="0.75"/>
-  <!-- right tree (taller, established) -->
-  <line x1="195" y1="155" x2="195" y2="60" stroke="#2a4a10" stroke-width="7" stroke-linecap="round"/>
-  <!-- right branches -->
-  <path d="M195,130 Q210,120 222,112" fill="none" stroke="#2a4a10" stroke-width="5" stroke-linecap="round"/>
-  <path d="M195,108 Q210,98 224,90" fill="none" stroke="#2a4a10" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M195,85 Q180,76 168,68" fill="none" stroke="#2a4a10" stroke-width="4" stroke-linecap="round"/>
-  <path d="M195,68 Q208,60 218,52" fill="none" stroke="#2a4a10" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- right canopy -->
-  <circle cx="222" cy="110" r="14" fill="#246612" opacity="0.85"/>
-  <circle cx="225" cy="95" r="13" fill="#2a7214" opacity="0.8"/>
-  <circle cx="218" cy="80" r="15" fill="#1e6010" opacity="0.85"/>
-  <circle cx="195" cy="72" r="18" fill="#246612" opacity="0.9"/>
-  <circle cx="180" cy="68" r="14" fill="#2a7214" opacity="0.8"/>
-  <circle cx="168" cy="65" r="12" fill="#1e5a10" opacity="0.75"/>
-  <circle cx="210" cy="58" r="13" fill="#226614" opacity="0.8"/>
-  <!-- connecting vines between trees (growth connection) -->
-  <path d="M118,105 Q150,92 175,110" fill="none" stroke="#1a4a08" stroke-width="2" stroke-dasharray="5 6" opacity="0.6"/>
-  <path d="M122,92 Q150,80 172,96" fill="none" stroke="#1a4a08" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
-  <!-- shared leaf/growth symbol in gap -->
-  <ellipse cx="150" cy="98" rx="8" ry="12" fill="#2a7218" opacity="0.7" transform="rotate(-15 150 98)"/>
-  <ellipse cx="150" cy="95" rx="6" ry="10" fill="#3a8a22" opacity="0.6" transform="rotate(-15 150 95)"/>
-  <!-- sun rising glow at horizon -->
-  <circle cx="150" cy="158" r="20" fill="#aaff44" opacity="0.15"/>
-  <circle cx="150" cy="158" r="12" fill="#88ee22" opacity="0.2"/>
-  <!-- light rays -->
-  <line x1="150" y1="146" x2="150" y2="128" stroke="#88ff22" stroke-width="1" opacity="0.2"/>
-  <line x1="138" y1="150" x2="122" y2="138" stroke="#88ff22" stroke-width="1" opacity="0.15"/>
-  <line x1="162" y1="150" x2="178" y2="138" stroke="#88ff22" stroke-width="1" opacity="0.15"/>
-  <text x="150" y="174" text-anchor="middle" font-size="10" fill="#66cc44" font-family="serif" opacity="0.85">성장 동반형 — 함께 자라며 더 깊어지는 사랑</text>
-</svg>`,
-};
 
 function showResult() {
   document.getElementById('quizSection').style.display   = 'none';
@@ -2936,7 +1450,7 @@ function showResult() {
   rs.style.display = 'block';
   window.scrollTo({top:0,behavior:'smooth'});
 
-  const topType = resolveType(scores);
+  const topType = resolveType(totalScore);
   const r       = data[curLang].results[topType];
   const t       = TYPES[topType];
 
@@ -2952,6 +1466,10 @@ function showResult() {
   document.getElementById('resultName').textContent    = r.name;
   document.getElementById('resultName').style.color    = t.color;
   document.getElementById('resultTagline').textContent = r.tagline;
+
+  // 결과 이미지
+  const imgEl = document.getElementById('loveResultImg');
+  if (imgEl) imgEl.innerHTML = LOVE_RESULT_IMGS[topType] || '';
 
   // 특성 바
   const traitsBox = document.getElementById('traitsContainer');
@@ -3017,7 +1535,7 @@ function showResult() {
 // Share
 // ─────────────────────────────────
 function getShareMsg() {
-  const topType = resolveType(scores);
+  const topType = resolveType(totalScore);
   const name    = data[curLang].results[topType].name;
   return curLang === 'ko'
     ? `나의 연애 스타일은 "${name}"이래! 💕 너는 어떤 스타일이야?`
@@ -3025,7 +1543,7 @@ function getShareMsg() {
 }
 
 function downloadResult() {
-  const topType = resolveType(scores);
+  const topType = resolveType(totalScore);
   const r  = data[curLang].results[topType];
   const ty = TYPES[topType];
 
