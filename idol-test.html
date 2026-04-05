@@ -7,7 +7,7 @@
 <meta name="description" content="내가 만약 아이돌이 된다면 어떤 타입일까? 12가지 상황극 질문으로 알아보는 나의 아이돌 유형! Discover what kind of K-pop idol you'd be!">
 <meta property="og:title" content="내가 만약 아이돌이라면? 🎤 나는 어떤 아이돌이 될까?">
 <meta property="og:description" content="12가지 상황극으로 알아보는 나의 아이돌 유형! 결과가 너무 공감돼서 공유 안 할 수가 없어요 🎤">
-<meta property="og:image" content="images/idol/landing.png">
+<meta property="og:image" content="images/idol/landing.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -281,7 +281,7 @@
     </div>
 
     <div class="card">
-      <img src="images/idol/start.png" class="start-img" alt="아이돌 테스트 시작">
+      <img src="images/idol/start.jpg" class="start-img" alt="아이돌 테스트 시작">
       <p class="start-desc" id="startDesc">
         연습생 생활을 마치고 드디어 데뷔!<br>
         과연 나는 그룹에서 어떤 포지션을 차지하게 될까?<br>
@@ -388,15 +388,15 @@ const TYPES = {
 
 // 타입별 결과 이미지
 const IDOL_RESULT_IMGS = {
-  A: 'images/idol/result_A.png',
-  B: 'images/idol/result_B.png',
-  C: 'images/idol/result_C.png',
-  D: 'images/idol/result_D.png',
-  E: 'images/idol/result_E.png',
-  F: 'images/idol/result_F.png',
-  G: 'images/idol/result_G.png',
-  H: 'images/idol/result_H.png',
-  I: 'images/idol/result_I.png',
+  A: 'images/idol/result_A.jpg',
+  B: 'images/idol/result_B.jpg',
+  C: 'images/idol/result_C.jpg',
+  D: 'images/idol/result_D.jpg',
+  E: 'images/idol/result_E.jpg',
+  F: 'images/idol/result_F.jpg',
+  G: 'images/idol/result_G.jpg',
+  H: 'images/idol/result_H.jpg',
+  I: 'images/idol/result_I.jpg',
 };
 
 // 궁합 이미지 (결과 이미지 재사용)
@@ -1105,7 +1105,7 @@ function shareKakao() {
     content: {
       title: curLang === 'ko' ? '내가 만약 아이돌이라면? 🎤' : 'What K-pop idol would I be? 🎤',
       description: curLang === 'ko' ? '12가지 상황극으로 알아보는 나의 아이돌 유형!' : 'Discover your idol type!',
-      imageUrl: window.location.origin + '/images/idol/landing.png',
+      imageUrl: window.location.origin + '/images/idol/landing.jpg',
       link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
     },
     buttons: [{

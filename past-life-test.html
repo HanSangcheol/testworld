@@ -413,7 +413,7 @@
   <!-- 시작 버튼 영역 -->
   
 <div id="startSection">
-  <div style="border-radius:16px;overflow:hidden;margin-bottom:12px"><img src="images/past-life/start.png" style="width:100%;display:block;" alt="전생 테스트"></div>
+  <div style="border-radius:16px;overflow:hidden;margin-bottom:12px"><img src="images/past-life/start.jpg" style="width:100%;display:block;" alt="전생 테스트"></div>
     <div class="question-card" style="text-align:center">
       <span style="font-size:52px">✨</span>
       <p style="font-size:17px; margin:16px 0; line-height:1.7; color:#555;" id="startText">
@@ -2736,7 +2736,7 @@ function renderQuestion() {
   const qNum = currentQuestion + 1;
   const imgWrap = document.getElementById('questionImgWrap');
   const imgEl = document.getElementById('questionImg');
-  const ext = qNum === 16 ? 'jpg' : 'png';
+  const ext = 'jpg';
   const imgSrc = `images/past-life/questions/Q${qNum}.${ext}`;
   imgEl.src = imgSrc;
   imgEl.alt = `Q${qNum} 이미지`;
@@ -2962,30 +2962,30 @@ function downloadResult() {
 
 // 궁합 이모지 → 결과 이미지 매핑
 const COMPAT_EMOJI_IMG = {
-  '👑': 'images/past-life/result_A.png',
-  '🗡️': 'images/past-life/result_B.png',
-  '🎀': 'images/past-life/result_C.png',
-  '💕': 'images/past-life/result_D.png',
-  '🌙': 'images/past-life/result_E.png',
-  '🌟': 'images/past-life/result_F.png',
-  '🔒': 'images/past-life/result_G.png',
-  '🔮': 'images/past-life/result_H.png',
-  '🌹': 'images/past-life/result_I.png',
-  '📜': 'images/past-life/result_J.png',
+  '👑': 'images/past-life/result_A.jpg',
+  '🗡️': 'images/past-life/result_B.jpg',
+  '🎀': 'images/past-life/result_C.jpg',
+  '💕': 'images/past-life/result_D.jpg',
+  '🌙': 'images/past-life/result_E.jpg',
+  '🌟': 'images/past-life/result_F.jpg',
+  '🔒': 'images/past-life/result_G.jpg',
+  '🔮': 'images/past-life/result_H.jpg',
+  '🌹': 'images/past-life/result_I.jpg',
+  '📜': 'images/past-life/result_J.jpg',
 };
 
 // 8타입: 상위 2점 조합으로 결정
 const PAST_LIFE_SVGS = {
-  A: `<img src="images/past-life/result_A.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 A">`,
-  B: `<img src="images/past-life/result_B.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 B">`,
-  C: `<img src="images/past-life/result_C.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 C">`,
-  D: `<img src="images/past-life/result_D.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 D">`,
-  E: `<img src="images/past-life/result_E.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 E">`,
-  F: `<img src="images/past-life/result_F.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 F">`,
-  G: `<img src="images/past-life/result_G.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 G">`,
-  H: `<img src="images/past-life/result_H.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 H">`,
-  I: `<img src="images/past-life/result_I.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 I">`,
-  J: `<img src="images/past-life/result_J.png" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 J">`,
+  A: `<img src="images/past-life/result_A.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 A">`,
+  B: `<img src="images/past-life/result_B.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 B">`,
+  C: `<img src="images/past-life/result_C.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 C">`,
+  D: `<img src="images/past-life/result_D.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 D">`,
+  E: `<img src="images/past-life/result_E.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 E">`,
+  F: `<img src="images/past-life/result_F.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 F">`,
+  G: `<img src="images/past-life/result_G.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 G">`,
+  H: `<img src="images/past-life/result_H.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 H">`,
+  I: `<img src="images/past-life/result_I.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 I">`,
+  J: `<img src="images/past-life/result_J.jpg" style="width:100%;display:block;border-radius:12px;" alt="전생 유형 J">`,
 };
 
 function resolveType(scores) {
