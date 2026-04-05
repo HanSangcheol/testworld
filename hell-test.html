@@ -464,7 +464,11 @@
       </a>
       <a class="more-item" href="talent-test.html">
         <span class="more-item-emoji">🌟</span>
-        <div class="more-item-info"><div class="more-item-title" id="more4Title">나의 재테크 유형 테스트</div><div class="more-item-sub" id="more4Sub">나에게 맞는 투자 스타일은?</div></div><span>›</span>
+        <div class="more-item-info"><div class="more-item-title" id="more4Title">나는 어떤 재테크 유형일까?</div><div class="more-item-sub" id="more4Sub">나에게 맞는 투자 스타일은?</div></div><span>›</span>
+      </a>
+      <a class="more-item" href="idol-test.html">
+        <span class="more-item-emoji">🎤</span>
+        <div class="more-item-info"><div class="more-item-title" id="more5Title">내가 만약 아이돌이라면?</div><div class="more-item-sub" id="more5Sub">나는 어떤 아이돌이 될까?</div></div><span>›</span>
       </a>
     </div>
     <div class="ad-slot ad-bottom">📢 광고 영역 (하단)</div>
@@ -507,7 +511,8 @@ const data = {
     more1Title: '내 짝사랑이 이뤄질 확률은?', more1Sub: '18가지 상황극으로 알아보는 짝사랑 성사율',
     more2Title: '나의 패트로누스를 알아보자', more2Sub: '호그와트 상황극으로 찾는 나의 패트로누스',
     more3Title: '로맨스 판타지로 알아보는 나의 전생', more3Sub: '황궁 로맨스 — 나의 전생 캐릭터는?',
-    more4Title: '나의 재테크 유형 테스트', more4Sub: '나에게 맞는 투자 스타일은?',
+    more4Title: '나는 어떤 재테크 유형일까?', more4Sub: '나에게 맞는 투자 스타일은?',
+    more5Title: '내가 만약 아이돌이라면?', more5Sub: '나는 어떤 아이돌이 될까?',
     questions: [
       {
         q: '한번 생긴 나의 지옥은 내가 자라면서 점점 커져가고 이것은 사라지지 않습니다. 지옥은 가장 처음 몇살 때 생겨났을까요?',
@@ -859,6 +864,7 @@ const data = {
     more2Title: 'What Is My Patronus?', more2Sub: 'Hogwarts scenarios reveal your Patronus',
     more3Title: 'My Romance Fantasy Past Life', more3Sub: 'Royal court — what was your role?',
     more4Title: 'Money Type Test', more4Sub: "What's your investment style?",
+    more5Title: 'What Kind of Idol Would I Be?', more5Sub: 'Discover your K-pop idol type!',
     questions: [
       {
         q: 'Once my personal hell takes shape, it only grows larger as I grow — and it does not disappear. How old were you when your hell first appeared?',
@@ -1217,7 +1223,7 @@ function applyLang() {
 
   const ids = ['mainTitle','mainDesc','startText','startBtn','descTitle','traitsTitle',
                'escapeTitle','shareTitle','shareSubtitle','moreTitle','restartBtn',
-               'more1Title','more1Sub','more2Title','more2Sub','more3Title','more3Sub','more4Title','more4Sub'];
+               'more1Title','more1Sub','more2Title','more2Sub','more3Title','more3Sub','more4Title','more4Sub','more5Title','more5Sub'];
   ids.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;

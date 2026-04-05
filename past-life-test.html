@@ -520,8 +520,8 @@
       <a class="test-item" href="love-style-test.html">
         <span class="test-item-emoji">💕</span>
         <div class="test-item-info">
-          <div class="test-item-title">나의 연애 스타일은?</div>
-          <div class="test-item-desc">10가지 연애 유형 — 나는 어떤 타입?</div>
+          <div class="test-item-title">내 짝사랑이 이뤄질 확률은?</div>
+          <div class="test-item-desc">18가지 상황극으로 알아보는 짝사랑 성사율</div>
         </div>
         <span>›</span>
       </a>
@@ -536,7 +536,7 @@
       <a class="test-item" href="talent-test.html">
         <span class="test-item-emoji">🌟</span>
         <div class="test-item-info">
-          <div class="test-item-title">나의 재테크 유형 테스트</div>
+          <div class="test-item-title">나는 어떤 재테크 유형일까?</div>
           <div class="test-item-desc">나에게 맞는 투자 스타일은?</div>
         </div>
         <span>›</span>
@@ -546,6 +546,14 @@
         <div class="test-item-info">
           <div class="test-item-title">당신의 지옥은?</div>
           <div class="test-item-desc">나를 가장 힘들게 하는 것은?</div>
+        </div>
+        <span>›</span>
+      </a>
+      <a class="test-item" href="idol-test.html">
+        <span class="test-item-emoji">🎤</span>
+        <div class="test-item-info">
+          <div class="test-item-title">내가 만약 아이돌이라면?</div>
+          <div class="test-item-desc">나는 어떤 아이돌이 될까?</div>
         </div>
         <span>›</span>
       </a>
@@ -2748,10 +2756,20 @@ function renderQuestion() {
     const offset = window.scrollY + rect.top - 12;
     window.scrollTo({ top: offset, behavior: 'smooth' });
   };
-  if (imgEl.complete) {
+  if (imgEl.complete && imgEl.naturalWidth > 0) {
     scrollToImg();
   } else {
     imgEl.onload = scrollToImg;
+  }
+
+  // 다음 1~2개 질문 이미지 미리 로드
+  const total2 = questions[currentLang].length;
+  for (let i = 1; i <= 2; i++) {
+    const nextNum = qNum + i;
+    if (nextNum <= total2) {
+      const pre = new Image();
+      pre.src = `images/past-life/questions/Q${nextNum}.jpg`;
+    }
   }
 
   const container = document.getElementById('choicesContainer');
