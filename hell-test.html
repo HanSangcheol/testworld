@@ -7,7 +7,7 @@
 <meta name="description" content="누구에게나 자신만의 지옥이 있다. 나를 가장 힘들게 하는 것은 무엇일까? 20문항으로 알아보는 나만의 지옥 유형!">
 <meta property="og:title" content="당신의 지옥은? 🔥">
 <meta property="og:description" content="누구에게나 자신만의 지옥이 있다 — 당신의 지옥은 무엇인가요? 결과가 소름돋게 맞아요 😱">
-<meta property="og:image" content="https://via.placeholder.com/1200x630/1A0A0A/FF4500?text=당신의+지옥은%3F+🔥">
+<meta property="og:image" content="images/hell/start.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -302,7 +302,6 @@
     cursor: pointer; transition: all .2s;
   }
   .share-btn:hover { transform: translateY(-2px); }
-  .btn-kakao    { background: #FEE500; color: #3C1E1E; }
   .btn-copy     { background: linear-gradient(135deg, var(--primary), #FF9F43); color: white; }
   .btn-twitter  { background: #1DA1F2; color: white; }
 
@@ -442,9 +441,9 @@
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <p id="shareSubtitle">친구의 지옥은 무엇일지 궁금하지 않나요?</p>
       <div class="share-buttons">
-        <button class="share-btn btn-kakao"   onclick="shareKakao()">💬 카카오톡</button>
         <button class="share-btn btn-twitter" onclick="shareTwitter()">🐦 Twitter</button>
         <button class="share-btn btn-copy"    onclick="copyLink()">🔗 링크복사</button>
+        <button class="share-btn btn-download" onclick="downloadResult()">📥 결과이미지저장</button>
       </div>
     </div>
     <button class="restart-btn" onclick="restartTest()" id="restartBtn">🔄 다시 테스트하기</button>
@@ -477,6 +476,7 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 /* ==============================
    데이터
@@ -1305,6 +1305,9 @@ function showResult() {
   window.scrollTo({top:0,behavior:'smooth'});
 
   const topType = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+  history.replaceState({}, '', '?result=' + topType);
+  const _ogMeta = document.querySelector('meta[property="og:image"]');
+  if (_ogMeta) _ogMeta.content = location.origin + location.pathname.replace(/[^/]*$/, '') + 'images/hell/result_' + topType + '.jpg';
   const r = data[curLang].results[topType];
   const t = TYPES[topType];
 
@@ -1365,13 +1368,61 @@ function getShareMsg() {
     : `My hell type is "${r.name}"! 🔥 What's yours?`;
 }
 
-function shareKakao() {
-  showToast(curLang === 'ko' ? '카카오 SDK 연동 후 사용 가능해요!' : 'Requires Kakao SDK!');
-}
 function shareTwitter() {
   const msg = encodeURIComponent(getShareMsg() + '\n' + location.href);
   window.open('https://twitter.com/intent/tweet?text=' + msg, '_blank');
 }
+function downloadResult() {
+  var __dlType = Object.keys(scores).reduce(function(a,b){return scores[a]>=scores[b]?a:b;});
+  var __dlR    = data[curLang].results[__dlType];
+  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+  var __accent = (TYPES[__dlType]?TYPES[__dlType].color:"#C45E20");
+  var __bg     = (TYPES[__dlType]?TYPES[__dlType].bg:"#FBF3F0");
+  var __imgSrc = "images/hell/result_"+__dlType+".jpg";
+  var __title  = (__dlR.name)||'';
+  var __sub    = (__dlR.tagline)||'';
+  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
+  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
+  var __tmp    = new Image();
+  __tmp.crossOrigin = 'anonymous';
+  __tmp.onload = function() {
+    var __tc = document.createElement('canvas');
+    __tc.width=__tmp.naturalWidth; __tc.height=__tmp.naturalHeight;
+    __tc.getContext('2d').drawImage(__tmp,0,0);
+    var __du = __tc.toDataURL('image/jpeg',0.95);
+    var card = document.createElement('div');
+    card.id = '__share_card__';
+    card.style.cssText = ['position:fixed','top:-9999px','left:-9999px',
+      'width:420px','padding:0','background:'+__bg,
+      'border-radius:24px','overflow:hidden',
+      "font-family:'Gaegu',cursive",
+      'box-shadow:0 8px 40px rgba(0,0,0,.18)'].join(';');
+    card.innerHTML =
+      '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
+      '<img src="'+__du+'" style="width:100%;display:block;border:none">'+
+      '<div style="padding:20px 22px;text-align:center">'+
+        '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
+        '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
+        '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
+      '</div>'+
+      '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
+    document.body.appendChild(card);
+    html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:__bg,logging:false})
+      .then(function(canvas){
+        var link=document.createElement('a');
+        link.download='testworld-result.png';
+        link.href=canvas.toDataURL('image/png');
+        link.click();
+        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+      })
+      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
+      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
+  };
+  __tmp.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');};
+  __tmp.src = __imgSrc;
+}
+
 function copyLink() {
   const txt = getShareMsg() + '\n' + location.href;
   if (navigator.clipboard) {
@@ -1396,6 +1447,18 @@ function showToast(msg) {
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
+
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
 </script>
 </body>
 </html>

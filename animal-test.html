@@ -8,10 +8,23 @@
 <meta property="og:title" content="나의 패트로누스를 알아보자 🪄">
 <meta property="og:description" content="호그와트 생활 상황극으로 알아보는 나만의 패트로누스 — 공유 안 할 수가 없어요 🪄✨">
 <meta property="og:type" content="website">
+<meta property="og:image" content="images/animal/start.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous">
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
+</script>
 
 <style>
   :root {
@@ -271,7 +284,6 @@
     cursor: pointer; transition: all .18s; text-decoration: none;
   }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.13); }
-  .btn-kakao    { background: #FEE500; color: #3C1E1E; }
   .btn-copy     { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
   .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
   .restart-btn {
@@ -338,7 +350,19 @@
   #animalResultImg svg { display:block; width:100%; }
 
 </style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
+</script>
 </head>
 <body>
 <button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌏 EN</button>
@@ -422,7 +446,6 @@
     <div class="share-card">
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
-        <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
         <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
@@ -1307,6 +1330,9 @@ function showResult() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const topType = resolveType(scores);
+  history.replaceState({}, '', '?result=' + topType);
+  const _ogMeta = document.querySelector('meta[property="og:image"]');
+  if (_ogMeta) _ogMeta.content = location.origin + location.pathname.replace(/[^/]*$/, '') + 'images/animal/result_' + topType + '.jpg';
   const d = data[curLang];
   const result = d.results[topType];
   const ui = d.ui;
@@ -1416,89 +1442,82 @@ function getMsg() {
 // 결과 저장 (다운로드)
 // ============================================================
 function downloadResult() {
-  const topType = resolveType(scores);
-  const r = data[curLang].results[topType];
-  const ty = TYPES[topType];
-
-  if (!r) {
-    showToast(curLang === 'ko' ? '먼저 테스트를 완료해주세요!' : 'Please complete the test first!');
-    return;
-  }
-  showToast(curLang === 'ko' ? '이미지 만드는 중...' : 'Creating image...');
-
-  const bgColor = ty ? ty.bg : '#FFF';
-  const accentColor = ty ? ty.color : '#B8860B';
-
-  const tagsHtml = (r.tags || []).map(function(t) {
-    return '<span style="display:inline-block;background:white;border:1.5px solid ' + accentColor + '44;color:' + accentColor + ';border-radius:99px;padding:4px 14px;font-size:13px;font-weight:700;margin:3px">' + t + '</span>';
-  }).join('');
-
-  const statsHtml = (r.stats || []).map(function(s) {
-    const pct = Math.round(s.val / 5 * 100);
-    return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
-      '<span style="font-size:13px;font-weight:800;color:#888;min-width:70px">' + s.label + '</span>' +
-      '<div style="flex:1;background:#eee;border-radius:20px;height:8px;overflow:hidden">' +
-      '<div style="width:' + pct + '%;background:' + accentColor + ';height:100%;border-radius:20px"></div>' +
-      '</div>' +
-      '<span style="font-size:12px;font-weight:700;color:' + accentColor + ';min-width:28px;text-align:right">' + pct + '%</span>' +
-      '</div>';
-  }).join('');
-
-  const rawDesc = (r.desc || '').replace(/<[^>]+>/g, ' ').replace(/\s{2,}/g, ' ').trim();
-  const shortDesc = rawDesc.length > 200 ? rawDesc.slice(0, 200) + '...' : rawDesc;
-
-  const card = document.createElement('div');
-  card.id = '__share_card__';
-  card.style.cssText = [
-    'position:fixed', 'top:-9999px', 'left:-9999px',
-    'width:420px', 'padding:0',
-    'background:' + bgColor,
-    'border-radius:24px', 'overflow:hidden',
-    'box-shadow:0 8px 40px rgba(0,0,0,.18)',
-  ].join(';');
-
-  card.innerHTML = '<div style="background:' + accentColor + ';padding:8px 0;text-align:center;font-size:14px;font-weight:800;color:white;letter-spacing:2px">🐾 TestWorld</div>' +
-    '<div style="padding:28px 24px 20px;text-align:center">' +
-    '<div style="font-size:76px;line-height:1;margin-bottom:10px">' + r.emoji + '</div>' +
-    '<div style="font-size:13px;color:#aaa;font-weight:800;margin-bottom:6px">당신의 패트로누스</div>' +
-    '<div style="font-size:30px;font-weight:700;color:' + accentColor + ';margin-bottom:4px">' + r.name + '</div>' +
-    '<div style="font-size:15px;color:#777;margin-bottom:18px">' + r.badge + '</div>' +
-    '<div style="background:white;border-radius:16px;padding:16px;margin-bottom:14px;text-align:left">' + statsHtml + '</div>' +
-    '<div style="margin-bottom:16px">' + tagsHtml + '</div>' +
-    '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;margin-bottom:12px">' +
-    '<div style="font-size:14px;font-weight:800;margin-bottom:8px;color:' + accentColor + '">💬 분석</div>' +
-    '<div style="font-size:14px;line-height:1.9;color:#444">' + shortDesc + '</div>' +
-    '</div>' +
-    '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:center">' +
-    '<div style="font-size:13px;color:#aaa;font-weight:700;margin-bottom:6px">🌟 들으면 기분 좋은 말</div>' +
-    '<div style="font-size:17px;font-weight:800;color:' + accentColor + '">' + (r.wantToHear || '') + '</div>' +
-    '</div>' +
-    '</div>' +
-    '<div style="background:' + accentColor + '22;padding:12px;text-align:center;font-size:13px;color:' + accentColor + ';font-weight:700">나도 해보기 → testworld.kr</div>';
-
-  document.body.appendChild(card);
-
-  html2canvas(card, {
-    scale: 2.5,
-    useCORS: true,
-    backgroundColor: bgColor,
-    logging: false,
-  }).then(function(canvas) {
-    const link = document.createElement('a');
-    link.download = 'testworld-result.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    showToast(curLang === 'ko' ? '✅ 저장 완료!' : '✅ Saved!');
-  }).catch(function(e) {
-    showToast(curLang === 'ko' ? '저장 실패. 다시 시도해주세요.' : 'Save failed.');
-  }).finally(function() {
-    if (document.body.contains(card)) document.body.removeChild(card);
-  });
+  var __dlType = resolveType(scores);
+  var __dlR    = data[curLang].results[__dlType];
+  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+  var __accent = (TYPES&&TYPES[__dlType]?TYPES[__dlType].color:"#B8860B");
+  var __bg     = (TYPES&&TYPES[__dlType]?TYPES[__dlType].bg:"#FFF");
+  var __imgSrc = "images/animal/result_"+__dlType+".jpg";
+  var __title  = (__dlR.name)||'';
+  var __sub    = (__dlR.badge||__dlR.tagline)||'';
+  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
+  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
+  var __tmp    = new Image();
+  __tmp.crossOrigin = 'anonymous';
+  __tmp.onload = function() {
+    var __tc = document.createElement('canvas');
+    __tc.width=__tmp.naturalWidth; __tc.height=__tmp.naturalHeight;
+    __tc.getContext('2d').drawImage(__tmp,0,0);
+    var __du = __tc.toDataURL('image/jpeg',0.95);
+    var card = document.createElement('div');
+    card.id = '__share_card__';
+    card.style.cssText = ['position:fixed','top:-9999px','left:-9999px',
+      'width:420px','padding:0','background:'+__bg,
+      'border-radius:24px','overflow:hidden',
+      "font-family:'Gaegu',cursive",
+      'box-shadow:0 8px 40px rgba(0,0,0,.18)'].join(';');
+    card.innerHTML =
+      '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
+      '<img src="'+__du+'" style="width:100%;display:block;border:none">'+
+      '<div style="padding:20px 22px;text-align:center">'+
+        '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
+        '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
+        '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
+      '</div>'+
+      '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
+    document.body.appendChild(card);
+    html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:__bg,logging:false})
+      .then(function(canvas){
+        var link=document.createElement('a');
+        link.download='testworld-result.png';
+        link.href=canvas.toDataURL('image/png');
+        link.click();
+        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+      })
+      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
+      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
+  };
+  __tmp.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');};
+  __tmp.src = __imgSrc;
 }
 
-function shareKakao(){showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK!');}
 function copyLink(){const txt=getMsg()+'\n'+location.href;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>showToast(data[curLang].ui.copyOk));}else{const el=document.createElement('textarea');el.value=txt;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(data[curLang].ui.copyOk);}}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
+
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
 </script>
 </body>
 </html>

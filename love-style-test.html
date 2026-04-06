@@ -7,7 +7,7 @@
 <meta name="description" content="내 짝사랑이 이뤄질 확률은 얼마나 될까? 18가지 상황극 질문으로 짝사랑 성사율을 계산해보세요! Crush probability test!">
 <meta property="og:title" content="내 짝사랑이 이뤄질 확률은? 💘">
 <meta property="og:description" content="나만의 연애 스타일 테스트! 결과가 너무 공감돼서 공유 안 할 수가 없어요 💘">
-<meta property="og:image" content="https://via.placeholder.com/1200x630/FFB6C1/333333?text=나의+연애+스타일은%3F+💕">
+<meta property="og:image" content="images/love/start.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -274,7 +274,6 @@
     cursor: pointer; transition: all .18s; text-decoration: none;
   }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.13); }
-  .btn-kakao    { background: #FEE500; color: #3C1E1E; }
   .btn-copy     { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
   .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
   .restart-btn {
@@ -565,7 +564,6 @@
     <div class="share-card">
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
-        <button class="share-btn btn-kakao"    onclick="shareKakao()">💬 카카오톡</button>
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
         <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
@@ -1443,6 +1441,9 @@ function showResult() {
   window.scrollTo({top:0,behavior:'smooth'});
 
   const topType = resolveType(totalScore);
+  history.replaceState({}, '', '?result=' + topType);
+  const _ogMeta = document.querySelector('meta[property="og:image"]');
+  if (_ogMeta) _ogMeta.content = location.origin + location.pathname.replace(/[^/]*$/, '') + 'images/love/result_' + topType + '.jpg';
   const r       = data[curLang].results[topType];
   const t       = TYPES[topType];
 
@@ -1535,87 +1536,56 @@ function getShareMsg() {
 }
 
 function downloadResult() {
-  const topType = resolveType(totalScore);
-  const r  = data[curLang].results[topType];
-  const ty = TYPES[topType];
-
-  if (!r) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  var __dlType = resolveType(totalScore);
+  var __dlR    = data[curLang].results[__dlType];
+  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
   showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
-
-  const card = document.createElement('div');
-  card.id = '__share_card__';
-  card.style.cssText = [
-    'position:fixed','top:-9999px','left:-9999px',
-    'width:420px','padding:0','background:'+ty.bg,
-    'border-radius:24px','overflow:hidden',
-    "font-family:'Gaegu',cursive",
-    'box-shadow:0 8px 40px rgba(0,0,0,.18)',
-  ].join(';');
-
-  const tagsHtml = (r.tags||[]).map(t =>
-    `<span style="display:inline-block;background:white;border:1.5px solid ${ty.borderColor};color:${ty.color};border-radius:99px;padding:4px 14px;font-size:16px;font-weight:700;margin:3px">${t}</span>`
-  ).join('');
-
-  const traitsHtml = (r.traits||r.stats||[]).map(tr =>
-    `<div style="margin-bottom:10px">
-      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;margin-bottom:4px">
-        <span>${tr.label}</span><span style="color:${ty.color}">${tr.val}%</span>
-      </div>
-      <div style="background:rgba(0,0,0,.08);border-radius:99px;height:9px;overflow:hidden">
-        <div style="width:${tr.val}%;height:100%;background:linear-gradient(90deg,${ty.color},${ty.color}88);border-radius:99px"></div>
-      </div>
-    </div>`
-  ).join('');
-
-  const rawDesc = (r.desc||'').replace(/<[^>]+>/g,' ').replace(/\s{2,}/g,' ').trim();
-  const shortDesc = rawDesc.length > 220 ? rawDesc.slice(0,220)+'...' : rawDesc;
-
-  card.innerHTML = `
-    <div style="background:${ty.color};padding:8px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">
-      ✨ TestWorld
-    </div>
-    <div style="padding:28px 24px 20px;text-align:center">
-      <div style="font-size:76px;line-height:1;margin-bottom:12px">${r.emoji}</div>
-      <div style="display:inline-block;background:${ty.color};color:white;border-radius:99px;padding:5px 20px;font-size:16px;font-weight:800;margin-bottom:12px">${r.badge}</div>
-      <div style="font-size:38px;font-weight:700;color:${ty.color};margin-bottom:4px">${r.name||r.title||''}</div>
-      <div style="font-size:18px;color:#777;margin-bottom:20px">${r.tagline||r.subtitle||''}</div>
-      <div style="background:white;border-radius:16px;padding:18px;margin-bottom:16px">${traitsHtml}</div>
-      <div style="margin-bottom:18px">${tagsHtml}</div>
-      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:left;margin-bottom:14px">
-        <div style="font-size:17px;font-weight:800;margin-bottom:10px;color:${ty.color}">💬 분석</div>
-        <div style="font-size:17px;line-height:2;color:#444">${shortDesc}</div>
-      </div>
-      <div style="background:white;border-radius:16px;padding:16px 18px;text-align:center">
-        <div style="font-size:16px;color:#aaa;font-weight:700;margin-bottom:8px">💕 들으면 좋은 말</div>
-        <div style="font-size:20px;font-weight:800;color:${ty.color}">${r.wantToHear||''}</div>
-      </div>
-    </div>
-    <div style="background:${ty.color}33;padding:12px;text-align:center;font-size:15px;color:${ty.color};font-weight:700">
-      나도 해보기 → testworld.kr
-    </div>
-  `;
-
-  document.body.appendChild(card);
-
-  html2canvas(card, {
-    scale: 2.5,
-    useCORS: true,
-    backgroundColor: ty.bg,
-    logging: false,
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'testworld-result.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-  }).catch(e => {
-    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');
-  }).finally(() => {
-    if (document.body.contains(card)) document.body.removeChild(card);
-  });
+  var __accent = (TYPES[__dlType]?TYPES[__dlType].color:"#8B5CF6");
+  var __bg     = (TYPES[__dlType]?TYPES[__dlType].bg:"#F9F7FF");
+  var __imgSrc = "images/love/result_"+__dlType+".jpg";
+  var __title  = (__dlR.name)||'';
+  var __sub    = (__dlR.tagline||__dlR.badge)||'';
+  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
+  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
+  var __tmp    = new Image();
+  __tmp.crossOrigin = 'anonymous';
+  __tmp.onload = function() {
+    var __tc = document.createElement('canvas');
+    __tc.width=__tmp.naturalWidth; __tc.height=__tmp.naturalHeight;
+    __tc.getContext('2d').drawImage(__tmp,0,0);
+    var __du = __tc.toDataURL('image/jpeg',0.95);
+    var card = document.createElement('div');
+    card.id = '__share_card__';
+    card.style.cssText = ['position:fixed','top:-9999px','left:-9999px',
+      'width:420px','padding:0','background:'+__bg,
+      'border-radius:24px','overflow:hidden',
+      "font-family:'Gaegu',cursive",
+      'box-shadow:0 8px 40px rgba(0,0,0,.18)'].join(';');
+    card.innerHTML =
+      '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
+      '<img src="'+__du+'" style="width:100%;display:block;border:none">'+
+      '<div style="padding:20px 22px;text-align:center">'+
+        '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
+        '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
+        '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
+      '</div>'+
+      '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
+    document.body.appendChild(card);
+    html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:__bg,logging:false})
+      .then(function(canvas){
+        var link=document.createElement('a');
+        link.download='testworld-result.png';
+        link.href=canvas.toDataURL('image/png');
+        link.click();
+        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+      })
+      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
+      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
+  };
+  __tmp.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');};
+  __tmp.src = __imgSrc;
 }
 
-function shareKakao()   { showToast(curLang==='ko'?'카카오 SDK 연동 후 사용 가능해요!':'Requires Kakao SDK integration!'); }
 function copyLink() {
   const txt = getShareMsg()+'\n'+location.href;
   if (navigator.clipboard) {
@@ -1646,6 +1616,15 @@ function showToast(msg) {
   t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);
 }
+
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  const _loveScores = { L1: 0, L2: 14, L3: 22, L4: 30, L5: 38, L6: 46 };
+  if (_p && _loveScores[_p] !== undefined) {
+    totalScore = _loveScores[_p];
+    showResult();
+  }
+});
 </script>
 </body>
 </html>

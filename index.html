@@ -270,7 +270,6 @@
     cursor: pointer; transition: all .2s;
   }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 16px rgba(0,0,0,.13); }
-  .s-kakao   { background: #FEE500; color: #3C1E1E; }
   .s-twitter { background: #1DA1F2; color: white; }
   .s-copy    { background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; }
 
@@ -560,7 +559,6 @@
     <h3 id="shareH3">친구에게 공유하기 🎉</h3>
     <p id="shareP">재미있는 테스트를 친구들과 함께해요!</p>
     <div class="share-row">
-      <button class="share-btn s-kakao"   onclick="shareKakao()">💬 카카오톡</button>
       <button class="share-btn s-twitter" onclick="shareTwitter()">🐦 Twitter</button>
       <button class="share-btn s-copy"    onclick="copyLink()">🔗 링크 복사</button>
     </div>
@@ -702,9 +700,6 @@ function applyLang() {
   });
 }
 
-function shareKakao() {
-  showToast(curLang === 'ko' ? '카카오 SDK 연동 후 사용 가능해요!' : 'Requires Kakao SDK!');
-}
 function shareTwitter() {
   const msg = encodeURIComponent(ui[curLang].shareMsg + '\n' + location.href);
   window.open('https://twitter.com/intent/tweet?text=' + msg, '_blank');
@@ -723,4 +718,11 @@ function copyLink() {
 }
 
 function showToast(msg) {
-  const t = document.getElem
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

@@ -239,8 +239,6 @@
     padding: 13px 20px; border-radius: 99px; font-size: var(--fs-sm);
     font-weight: 700; cursor: pointer; border: none; font-family: inherit; transition: all .2s;
   }
-  .share-kakao { background: #FEE500; color: #3C1E1E; }
-  .share-kakao:hover { background: #f0d700; }
   .share-copy  { background: #f1f5f9; color: #334155; border: 2px solid #e2e8f0; }
   .share-copy:hover  { background: #e2e8f0; }
   .share-dl    { background: var(--primary); color: white; }
@@ -325,7 +323,6 @@
       <!-- 공유 -->
       <div class="section-title" id="rShareTitle">🎉 친구들에게 결과 공유하기!</div>
       <div class="share-btns">
-        <button class="share-btn share-kakao" onclick="shareKakao()">💬 카카오톡 공유</button>
         <button class="share-btn share-copy" onclick="copyLink()" id="copyBtn">🔗 링크 복사하기</button>
         <button class="share-btn share-dl" onclick="downloadResult()">📥 결과 이미지 저장</button>
       </div>
@@ -384,6 +381,7 @@
 
 <div class="footer">© 2026 아이돌 유형 테스트 · <a href="index.html" style="color:#ddd">🏠 홈</a> · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 // ──────────────────────────────────────────
 // 결과 유형 정의 (A~I)
@@ -1012,6 +1010,9 @@ function pick(type, btn) {
 // ──────────────────────────────────────────
 function showResult() {
   const type = resolveType(scores);
+  history.replaceState({}, '', '?result=' + type);
+  const _ogMeta = document.querySelector('meta[property="og:image"]');
+  if (_ogMeta) _ogMeta.content = location.origin + location.pathname.replace(/[^/]*$/, '') + 'images/idol/result_' + type + '.jpg';
   document.getElementById('quizScreen').classList.add('hidden');
   var rs = document.getElementById('resultScreen');
   rs.style.display = 'block';
@@ -1106,28 +1107,7 @@ function restartTest() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ──────────────────────────────────────────
-// 공유 기능
-// ──────────────────────────────────────────
-function shareKakao() {
-  if (typeof Kakao === 'undefined') {
-    copyLink();
-    return;
-  }
-  Kakao.Share.sendDefault({
-    objectType: 'feed',
-    content: {
-      title: curLang === 'ko' ? '내가 만약 아이돌이라면? 🎤' : 'What K-pop idol would I be? 🎤',
-      description: curLang === 'ko' ? '12가지 상황극으로 알아보는 나의 아이돌 유형!' : 'Discover your idol type!',
-      imageUrl: window.location.origin + '/images/idol/landing.jpg',
-      link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
-    },
-    buttons: [{
-      title: curLang === 'ko' ? '나도 테스트하기' : 'Take the test',
-      link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
-    }]
-  });
-}
+
 
 function copyLink() {
   var btn = document.getElementById('copyBtn');
@@ -1149,14 +1129,54 @@ function copyLink() {
 }
 
 function downloadResult() {
-  var type = resolveType(scores);
-  var imgSrc = IDOL_RESULT_IMGS[type];
-  var a = document.createElement('a');
-  a.href = imgSrc;
-  a.download = 'idol-result-' + type + '.png';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+  var __dlType = resolveType(scores);
+  var __dlR    = data[curLang].results[__dlType];
+  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
+  var __accent = (TYPES[__dlType]?TYPES[__dlType].color:"#FF6B9D");
+  var __bg     = (TYPES[__dlType]?TYPES[__dlType].bg:"#FFF0F8");
+  var __imgSrc = IDOL_RESULT_IMGS[__dlType]||("images/idol/result_"+__dlType+".jpg");
+  var __title  = (__dlR.title||__dlR.name)||'';
+  var __sub    = (__dlR.subtitle||__dlR.badge)||'';
+  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
+  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
+  var __tmp    = new Image();
+  __tmp.crossOrigin = 'anonymous';
+  __tmp.onload = function() {
+    var __tc = document.createElement('canvas');
+    __tc.width=__tmp.naturalWidth; __tc.height=__tmp.naturalHeight;
+    __tc.getContext('2d').drawImage(__tmp,0,0);
+    var __du = __tc.toDataURL('image/jpeg',0.95);
+    var card = document.createElement('div');
+    card.id = '__share_card__';
+    card.style.cssText = ['position:fixed','top:-9999px','left:-9999px',
+      'width:420px','padding:0','background:'+__bg,
+      'border-radius:24px','overflow:hidden',
+      "font-family:'Gaegu',cursive",
+      'box-shadow:0 8px 40px rgba(0,0,0,.18)'].join(';');
+    card.innerHTML =
+      '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
+      '<img src="'+__du+'" style="width:100%;display:block;border:none">'+
+      '<div style="padding:20px 22px;text-align:center">'+
+        '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
+        '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
+        '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
+      '</div>'+
+      '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
+    document.body.appendChild(card);
+    html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:__bg,logging:false})
+      .then(function(canvas){
+        var link=document.createElement('a');
+        link.download='testworld-result.png';
+        link.href=canvas.toDataURL('image/png');
+        link.click();
+        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+      })
+      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
+      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
+  };
+  __tmp.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');};
+  __tmp.src = __imgSrc;
 }
 
 function getMsg() {
@@ -1164,6 +1184,18 @@ function getMsg() {
   var result = data[curLang].results[type];
   return result ? result.title : '';
 }
+
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
 </script>
 </body>
 </html>
