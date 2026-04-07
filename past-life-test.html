@@ -172,7 +172,8 @@
     padding: clamp(11px,2.8vw,14px) clamp(14px,3.5vw,18px);
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
     font-size: clamp(14px,3.5vw,16px); font-weight: 600;
-    color: var(--dark); cursor: pointer; text-align: left;
+    color: var(--dark); cursor: pointer;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; text-align: left;
     transition: all .18s ease; display: flex; align-items: flex-start;
     gap: 10px; line-height: 1.5; word-break: keep-all;
   }
@@ -401,14 +402,22 @@
     75%  { opacity:0.5; transform:translateY(-50px) scale(0.8); }
     100% { opacity:0; transform:translateY(-70px) scale(0.2); }
   }
-  body.gold-sparkle-bg {
+  /* Gold bg layer: fixed div instead of body (mobile-safe) */
+  #goldBgLayer {
+    display: none;
+    position: fixed; inset: 0;
+    z-index: -2;
     background: linear-gradient(135deg,
       #FFF9C4 0%, #FFE082 20%, #FFD54F 40%,
       #FFC107 55%, #FFD54F 70%, #FFE082 85%, #FFF9C4 100%
-    ) !important;
-    background-size: 400% 400% !important;
-    animation: goldBgShimmer 7s ease-in-out infinite !important;
-    transition: background 0.6s ease;
+    );
+    background-size: 400% 400%;
+    -webkit-animation: goldBgShimmer 7s ease-in-out infinite;
+    animation: goldBgShimmer 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+  body.gold-sparkle-bg {
+    background: transparent !important;
   }
   #sparkleLayer {
     position: fixed; inset: 0;
@@ -430,6 +439,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
+<div id="goldBgLayer"></div>
 <div id="sparkleLayer"></div>
 
 <!-- 언어 전환 버튼 -->
@@ -2772,6 +2782,8 @@ function startTest() {
 // 질문 렌더링
 // ========================================
 function renderQuestion() {
+  // Clear lingering selected state (iOS mobile fix)
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.style.transition='none';b.classList.remove('selected');});
   const q = questions[currentLang][currentQuestion];
   const total = questions[currentLang].length;
 
@@ -2815,7 +2827,8 @@ function renderQuestion() {
 
   const container = document.getElementById('choicesContainer');
   container.innerHTML = '';
-  q.choices.forEach((choice) => {
+  void container.offsetHeight; // iOS reflow fix
+    q.choices.forEach((choice) => {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
     btn.innerHTML = `<span class="choice-emoji">${choice.emoji}</span><span>${choice.text}</span>`;
@@ -2851,6 +2864,7 @@ function selectChoice(type, btn) {
 // 결과 표시
 // ========================================
 function showResult() {
+  document.getElementById('startSection').style.display = 'none';
   document.getElementById('quizSection').style.display = 'none';
   document.getElementById('resultSection').style.display = 'block';
   showGoldBg();
@@ -3104,11 +3118,15 @@ function initGoldSparkles() {
 }
 function showGoldBg() {
   document.body.classList.add('gold-sparkle-bg');
+  const bg = document.getElementById('goldBgLayer');
+  if (bg) bg.style.display = 'block';
   const layer = document.getElementById('sparkleLayer');
   if (layer) { initGoldSparkles(); layer.style.display = 'block'; }
 }
 function hideGoldBg() {
   document.body.classList.remove('gold-sparkle-bg');
+  const bg = document.getElementById('goldBgLayer');
+  if (bg) bg.style.display = 'none';
   const layer = document.getElementById('sparkleLayer');
   if (layer) layer.style.display = 'none';
 }

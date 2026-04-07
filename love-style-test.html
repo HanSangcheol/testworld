@@ -163,7 +163,8 @@
     padding: clamp(11px,2.8vw,14px) clamp(14px,3.5vw,18px);
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
     font-size: clamp(14px,3.5vw,16px); font-weight: 600;
-    color: var(--dark); cursor: pointer; text-align: left;
+    color: var(--dark); cursor: pointer;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; text-align: left;
     transition: all .18s ease; display: flex; align-items: flex-start;
     gap: 10px; line-height: 1.5; word-break: keep-all;
   }
@@ -1376,6 +1377,8 @@ function startTest() {
 // Render question
 // ─────────────────────────────────
 function renderQuestion() {
+  // Clear lingering selected state (iOS mobile fix)
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.style.transition='none';b.classList.remove('selected');});
   const qs    = data[curLang].questions;
   const total = qs.length;
   const q     = qs[curQ];
@@ -1398,7 +1401,8 @@ function renderQuestion() {
 
   const box = document.getElementById('choicesContainer');
   box.innerHTML = '';
-  q.choices.forEach(c => {
+  void box.offsetHeight; // iOS reflow fix
+    q.choices.forEach(c => {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
     btn.innerHTML = `<span class="choice-emoji">${c.emoji}</span><span>${c.text}</span><span class="choice-check">✓</span>`;
@@ -1434,6 +1438,7 @@ function pick(pts, btn) {
 // ─────────────────────────────────
 
 function showResult() {
+  document.getElementById('startSection').style.display  = 'none';
   document.getElementById('quizSection').style.display   = 'none';
   document.getElementById('headerSection').style.display = 'none';
   const rs = document.getElementById('resultSection');
@@ -1531,7 +1536,7 @@ function getShareMsg() {
   const topType = resolveType(totalScore);
   const name    = data[curLang].results[topType].name;
   return curLang === 'ko'
-    ? `나의 연애 스타일은 "${name}"이래! 💕 너는 어떤 스타일이야?`
+    ? `내 짝사랑은 "${name}"! 💕 너의 짝사랑이 이루어질 확률은 어때?`
     : `My love style is "${name}"! 💕 What's yours?`;
 }
 

@@ -161,7 +161,8 @@
     padding: clamp(11px,2.8vw,14px) clamp(14px,3.5vw,18px);
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
     font-size: clamp(14px,3.5vw,16px); font-weight: 600;
-    color: var(--dark); cursor: pointer; text-align: left;
+    color: var(--dark); cursor: pointer;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; text-align: left;
     transition: all .18s ease; display: flex; align-items: flex-start;
     gap: 10px; line-height: 1.5; word-break: keep-all;
   }
@@ -565,6 +566,8 @@ function startTest() {
 // Render question
 // ─────────────────────────────────
 function renderQuestion() {
+  // Clear lingering selected state (iOS mobile fix)
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.style.transition='none';b.classList.remove('selected');});
   const qs    = data[curLang].questions;
   const total = qs.length;
   const q     = qs[curQ];
@@ -588,6 +591,7 @@ function renderQuestion() {
 
   const box = document.getElementById('choicesContainer');
   box.innerHTML = '';
+  void box.offsetHeight;
   q.choices.forEach(c => {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
@@ -642,7 +646,7 @@ const FINANCE_TYPE_SVGS = {
   H: `<img src="images/talent/result_H.jpg" style="width:100%;display:block;" alt="재테크유형 H">`,
 };
 function showResult(){
-  document.getElementById('quizSection').style.display='none';
+  document.getElementById('startSection').style.display='none';document.getElementById('quizSection').style.display='none';
   document.getElementById('headerSection').style.display='none';
   document.getElementById('resultSection').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
   const t=resolveType(scores);
@@ -763,9 +767,6 @@ function showToast(msg){
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);
 }
-</script>
-</body>
-</html>
 window.addEventListener('load', function() {
   const _p = new URLSearchParams(location.search).get('result');
   if (_p) {
@@ -774,3 +775,6 @@ window.addEventListener('load', function() {
     if (validT.includes(_t)) { scores = {A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0}; scores[_t]=99; showResult(); }
   }
 });
+</script>
+</body>
+</html>

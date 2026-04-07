@@ -54,12 +54,17 @@ window.addEventListener('load', function() {
     --space-xl:  clamp(20px, 5vw, 32px);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); }
   body {
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
-    background: var(--bg); color: var(--dark);
+    background: transparent; color: var(--dark);
     min-height: 100vh; overflow-x: hidden;
     font-size: var(--fs-base);
     -webkit-text-size-adjust: 100%;
+  }
+  #animalBgLayer {
+    position: fixed; inset: 0; z-index: -3;
+    background: var(--bg);
   }
   body::before {
     content: ''; position: fixed; inset: 0;
@@ -173,7 +178,8 @@ window.addEventListener('load', function() {
     padding: clamp(11px,2.8vw,14px) clamp(14px,3.5vw,18px);
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
     font-size: clamp(14px,3.5vw,16px); font-weight: 600;
-    color: var(--dark); cursor: pointer; text-align: left;
+    color: var(--dark); cursor: pointer;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; text-align: left;
     transition: all .18s ease; display: flex; align-items: flex-start;
     gap: 10px; line-height: 1.5; word-break: keep-all;
   }
@@ -365,6 +371,7 @@ window.addEventListener('load', function() {
 </script>
 </head>
 <body>
+<div id="animalBgLayer"></div>
 <button class="lang-toggle" onclick="toggleLang()" id="langBtn">🌏 EN</button>
 <div class="toast" id="toast"></div>
 
@@ -1284,6 +1291,8 @@ function startTest() {
 // 질문 렌더링
 // ============================================================
 function renderQuestion() {
+  // Clear lingering selected state (iOS mobile fix)
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.style.transition='none';b.classList.remove('selected');});
   const q = data[curLang].questions[curQ];
   const total = data[curLang].questions.length;
   document.getElementById('progressLabel').textContent = (curQ + 1) + ' / ' + total;
@@ -1293,7 +1302,8 @@ function renderQuestion() {
   document.getElementById('questionSub').textContent = q.sub || '';
   const container = document.getElementById('choicesContainer');
   container.innerHTML = '';
-  q.choices.forEach(function(c) {
+  void container.offsetHeight; // iOS reflow fix
+    q.choices.forEach(function(c) {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
     btn.innerHTML = '<span class="choice-emoji">' + c.emoji + '</span><span>' + c.text + '</span>';
@@ -1324,6 +1334,7 @@ function pick(type, btn) {
 // 결과 표시
 // ============================================================
 function showResult() {
+  document.getElementById('startSection').style.display = 'none';
   document.getElementById('quizSection').style.display = 'none';
   document.getElementById('resultSection').style.display = 'block';
   document.getElementById('headerSection').style.display = 'none';
