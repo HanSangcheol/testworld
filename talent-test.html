@@ -632,14 +632,14 @@ function resolveType(scores) {
 }
 
 const FINANCE_TYPE_SVGS = {
-  A: `<img src="images/talent/result_A.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 A">`,
-  B: `<img src="images/talent/result_B.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 B">`,
-  C: `<img src="images/talent/result_C.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 C">`,
-  D: `<img src="images/talent/result_D.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 D">`,
-  E: `<img src="images/talent/result_E.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 E">`,
-  F: `<img src="images/talent/result_F.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 F">`,
-  G: `<img src="images/talent/result_G.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 G">`,
-  H: `<img src="images/talent/result_H.jpg" style="width:80%;max-width:320px;display:block;border-radius:12px;margin:0 auto;" alt="재테크유형 H">`,
+  A: `<img src="images/talent/result_A.jpg" style="width:100%;display:block;" alt="재테크유형 A">`,
+  B: `<img src="images/talent/result_B.jpg" style="width:100%;display:block;" alt="재테크유형 B">`,
+  C: `<img src="images/talent/result_C.jpg" style="width:100%;display:block;" alt="재테크유형 C">`,
+  D: `<img src="images/talent/result_D.jpg" style="width:100%;display:block;" alt="재테크유형 D">`,
+  E: `<img src="images/talent/result_E.jpg" style="width:100%;display:block;" alt="재테크유형 E">`,
+  F: `<img src="images/talent/result_F.jpg" style="width:100%;display:block;" alt="재테크유형 F">`,
+  G: `<img src="images/talent/result_G.jpg" style="width:100%;display:block;" alt="재테크유형 G">`,
+  H: `<img src="images/talent/result_H.jpg" style="width:100%;display:block;" alt="재테크유형 H">`,
 };
 function showResult(){
   document.getElementById('quizSection').style.display='none';
@@ -701,7 +701,7 @@ function showResult(){
   r.careers.forEach(c=>{const div=document.createElement('div');div.className='career-item';div.textContent=c;cl.appendChild(div);});
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };curQ=0;window.scrollTo({top:0,behavior:'smooth'});}
+function restartTest(){document.getElementById('resultSection').style.display='none';document.getElementById('headerSection').style.display='block';document.getElementById('startSection').style.display='block';scores={ A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };curQ=0;history.replaceState({},'',location.pathname);window.scrollTo({top:0,behavior:'smooth'});}
 function getMsg(){const t=resolveType(scores);const n=data[curLang].results[t].name;return curLang==='ko'?`나의 재테크 유형은 "${n}"이래! 💰 너는 뭐야?`:`My money type is "${n}"! 💰 What's yours?`;}
 
 function downloadResult() {

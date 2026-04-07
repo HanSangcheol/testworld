@@ -1437,6 +1437,7 @@ function copyLink() {
 }
 
 function restartTest() {
+  history.replaceState({}, '', location.pathname);
   document.getElementById('resultScreen').style.display = 'none';
   document.getElementById('startScreen').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
