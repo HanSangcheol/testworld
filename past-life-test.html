@@ -47,7 +47,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
-    background: var(--bg); color: var(--dark);
+    background: transparent; color: var(--dark);
     min-height: 100vh; overflow-x: hidden;
     font-size: var(--fs-base);
     -webkit-text-size-adjust: 100%;
@@ -404,7 +404,7 @@
   }
   /* Gold bg layer: fixed div instead of body (mobile-safe) */
   #goldBgLayer {
-    display: none;
+    display: block;
     position: fixed; inset: 0;
     z-index: -2;
     background: linear-gradient(135deg,
@@ -419,6 +419,8 @@
   body.gold-sparkle-bg {
     background: transparent !important;
   }
+  /* 초기 로드 시 gold 배경 즉시 적용 (JS 전) */
+  html { background: #FFC107; }
   #sparkleLayer {
     position: fixed; inset: 0;
     pointer-events: none; z-index: 0;
@@ -436,6 +438,8 @@
     filter: drop-shadow(0 0 4px gold);
   }
 </style>
+<script>if(new URLSearchParams(location.search).get('result')){document.documentElement.classList.add('has-result');}</script>
+<style>html.has-result #startSection,html.has-result #headerSection{display:none!important}</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
