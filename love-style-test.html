@@ -251,13 +251,28 @@
     font-size: var(--fs-lg); font-weight: 800;
     margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 5px;
   }
-  .compat-row { display: flex; gap: 8px; }
-  .compat-item { flex: 1; border-radius: var(--radius-sm); padding: clamp(11px,3vw,14px) 10px; text-align: center; }
-  .compat-good { background: #FFF0F5; border: 2px solid #FFB6C1; }
-  .compat-bad  { background: #F5F5FF; border: 2px solid #C9C9FF; }
-  .ci-emoji { font-size: clamp(26px,7vw,32px); display: block; margin-bottom: 5px; }
-  .ci-label { font-size: var(--fs-xs); color: #aaa; font-weight: 800; margin-bottom: 3px; }
-  .ci-name  { font-family: 'Gaegu', cursive; font-size: var(--fs-md); font-weight: 800; }
+  .compat-row { display: flex; flex-direction: column; gap: 10px; }
+  .compat-item {
+    flex: 1; border-radius: var(--radius-sm);
+    padding: clamp(14px,3.5vw,18px) clamp(14px,3.5vw,18px);
+    display: flex; align-items: flex-start; gap: 14px; text-align: left;
+  }
+  .compat-good { background: #F0FDF4; border: 2px solid #86EFAC; }
+  .compat-bad  { background: #FFF7ED; border: 2px solid #FCD34D; }
+  .ci-emoji { font-size: clamp(28px,7vw,34px); flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .ci-body  { flex: 1; }
+  .ci-label {
+    font-size: var(--fs-xs); font-weight: 800; margin-bottom: 4px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .compat-good .ci-label { color: #16A34A; }
+  .compat-bad  .ci-label { color: #D97706; }
+  .ci-name  {
+    font-family: 'Gaegu', cursive; font-size: var(--fs-lg);
+    font-weight: 800; line-height: 1.3; margin-bottom: 5px;
+  }
+  .compat-good .ci-name { color: #15803D; }
+  .compat-bad  .ci-name { color: #B45309; }
   .share-card {
     background: var(--card); border-radius: var(--radius);
     padding: clamp(18px,4.5vw,24px); box-shadow: var(--shadow);
@@ -320,7 +335,6 @@
   @media (max-width: 360px) {
     .traits { grid-template-columns: 1fr; }
     .share-buttons { flex-direction: column; align-items: center; }
-    .compat-row { flex-direction: column; }
   }
   @media (min-width: 600px) {
     .container { padding-top: 32px; padding-bottom: 80px; }
@@ -328,11 +342,10 @@
   }
 
   .ci-desc {
-    font-size: clamp(10px, 2.6vw, 12px);
-    color: #999;
+    font-size: clamp(12px, 3.2vw, 14px);
+    color: #555;
     font-weight: 500;
-    margin-top: 3px;
-    line-height: 1.4;
+    line-height: 1.5;
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
     word-break: keep-all;
   }
@@ -530,11 +543,11 @@
 
     <!-- 듣고싶은/듣기싫은 말 -->
     <div class="result-desc-card" style="animation-delay:.15s">
-      <h3>💌 연애할 때 듣고 싶은 말</h3>
+      <h3>💌 긍정의 충고</h3>
       <p id="resultWantToHear" style="font-size:21px;font-weight:800;color:#FF6B9D;text-align:center;padding:10px 0;"></p>
     </div>
     <div class="result-desc-card" style="animation-delay:.2s;border-color:#DDD6FF;">
-      <h3 style="color:#7C67EE">🙅 절대 듣기 싫은 말</h3>
+      <h3 style="color:#7C67EE">🙅 짝사랑 주의사항</h3>
       <p id="resultDontWantToHear" style="font-size:21px;font-weight:800;color:#7C67EE;text-align:center;padding:10px 0;"></p>
     </div>
 
@@ -543,16 +556,20 @@
       <h3 id="compatTitle">✅ 해야할 것과 말아야 할 것</h3>
       <div class="compat-row">
         <div class="compat-item compat-good">
-          <span class="ci-emoji" id="compatGoodEmoji">✨</span>
-          <div class="ci-label" id="compatGoodLabel">찰떡 궁합</div>
-          <div class="ci-name"  id="compatGoodName">—</div>
-          <div class="ci-desc"  id="compatGoodDesc">—</div>
+          <span class="ci-emoji" id="compatGoodEmoji">✅</span>
+          <div class="ci-body">
+            <div class="ci-label" id="compatGoodLabel">이렇게 해보세요</div>
+            <div class="ci-name"  id="compatGoodName">—</div>
+            <div class="ci-desc"  id="compatGoodDesc">—</div>
+          </div>
         </div>
         <div class="compat-item compat-bad">
-          <span class="ci-emoji" id="compatBadEmoji">⚡</span>
-          <div class="ci-label" id="compatBadLabel">조심하세요</div>
-          <div class="ci-name"  id="compatBadName">—</div>
-          <div class="ci-desc"  id="compatBadDesc">—</div>
+          <span class="ci-emoji" id="compatBadEmoji">⚠️</span>
+          <div class="ci-body">
+            <div class="ci-label" id="compatBadLabel">이것만은 피하세요</div>
+            <div class="ci-name"  id="compatBadName">—</div>
+            <div class="ci-desc"  id="compatBadDesc">—</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1608,6 +1625,7 @@ function copyLink() {
 // Restart
 // ─────────────────────────────────
 function restartTest() {
+  document.documentElement.classList.remove('has-result');
   history.replaceState({}, '', location.pathname);
   document.getElementById('resultSection').style.display  = 'none';
   document.getElementById('headerSection').style.display  = 'block';

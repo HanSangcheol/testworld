@@ -1504,6 +1504,7 @@ function showResult() {
 // 다시하기
 // ============================================================
 function restartTest() {
+  document.documentElement.classList.remove('has-result');
   history.replaceState({}, '', location.pathname);
   curQ = 0;
   scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };

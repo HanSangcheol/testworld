@@ -1272,6 +1272,7 @@ function renderResult(type) {
 // 다시하기
 // ──────────────────────────────────────────
 function restartTest() {
+  document.documentElement.classList.remove('has-result');
   history.replaceState({}, '', location.pathname);
   curQ = 0;
   scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0 };
@@ -1355,103 +1356,112 @@ function downloadResult() {
     showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!');
     return;
   }
+
+  // 결과 화면에 이미 로드된 이미지 재사용 (비동기 없이 즉시 캔버스에 그림)
+  var domImg = document.getElementById('rImg');
+  if (!domImg || !domImg.complete || !domImg.naturalWidth) {
+    showToast(curLang==='ko'?'이미지 로딩 중입니다. 잠시 후 다시 시도해주세요.':'Image is loading. Please try again.');
+    return;
+  }
+
   showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
 
-  var accent  = (TYPES[__dlType] ? TYPES[__dlType].color : '#FF6B9D');
-  var bg      = (TYPES[__dlType] ? TYPES[__dlType].bg    : '#FFF0F8');
-  var imgSrc  = IDOL_RESULT_IMGS[__dlType] || ('images/idol/result_'+__dlType+'.jpg');
-  var title   = ((__dlR.title||__dlR.name)||'');
-  var sub     = ((__dlR.subtitle||__dlR.badge)||'');
-  var rawDesc = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  var desc    = rawDesc.length > 150 ? rawDesc.slice(0,150)+'…' : rawDesc;
+  try {
+    var accent  = (TYPES[__dlType] ? TYPES[__dlType].color : '#FF6B9D');
+    var bg      = (TYPES[__dlType] ? TYPES[__dlType].bg    : '#FFF0F8');
+    var title   = ((__dlR.title||__dlR.name)||'');
+    var sub     = ((__dlR.subtitle||__dlR.badge)||'');
+    var rawDesc = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+    var desc    = rawDesc.length > 150 ? rawDesc.slice(0,150)+'…' : rawDesc;
 
-  var img = new Image();
-  img.onload = function() {
-    try {
-      var W        = 840;        // canvas width (px, ~2× for retina)
-      var headerH  = 64;
-      var footerH  = 52;
-      var imgH     = Math.round(img.naturalHeight * W / img.naturalWidth);
-      var padH     = 48;        // horizontal padding
-      var padV     = 36;        // vertical padding between sections
-      var innerW   = W - padH * 2;
+    var W        = 840;
+    var headerH  = 64;
+    var footerH  = 52;
+    var imgH     = Math.round(domImg.naturalHeight * W / domImg.naturalWidth);
+    var padH     = 48;
+    var padV     = 36;
+    var innerW   = W - padH * 2;
 
-      // Measure desc lines
-      var tmpC = document.createElement('canvas');
-      tmpC.width = W; tmpC.height = 10;
-      var tmpX = tmpC.getContext('2d');
-      tmpX.font = '26px "Nanum Myeongjo", sans-serif';
-      var descLines = _dlWrapText(tmpX, desc, innerW - 40);
-      var descBoxH  = descLines.length * 36 + 40;
+    // 줄바꿈 측정
+    var tmpC = document.createElement('canvas');
+    tmpC.width = W; tmpC.height = 10;
+    var tmpX = tmpC.getContext('2d');
+    tmpX.font = '26px "Nanum Myeongjo", sans-serif';
+    var descLines = _dlWrapText(tmpX, desc, innerW - 40);
+    var descBoxH  = descLines.length * 36 + 40;
 
-      var titleAreaH = 68;   // title
-      var subAreaH   = 40;   // subtitle
-      var H = headerH + imgH + padV + titleAreaH + subAreaH + 16 + descBoxH + padV + footerH;
+    var titleAreaH = 68;
+    var subAreaH   = 40;
+    var H = headerH + imgH + padV + titleAreaH + subAreaH + 16 + descBoxH + padV + footerH;
 
-      var canvas = document.createElement('canvas');
-      canvas.width  = W;
-      canvas.height = H;
-      var ctx = canvas.getContext('2d');
+    var canvas = document.createElement('canvas');
+    canvas.width  = W;
+    canvas.height = H;
+    var ctx = canvas.getContext('2d');
 
-      // ── Background ──
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, W, H);
+    // 배경
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
 
-      // ── Header bar ──
-      ctx.fillStyle = accent;
-      ctx.fillRect(0, 0, W, headerH);
-      ctx.fillStyle = 'white';
-      ctx.font = 'bold 30px "Nanum Myeongjo", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('✨  TestWorld', W/2, headerH/2);
+    // 헤더
+    ctx.fillStyle = accent;
+    ctx.fillRect(0, 0, W, headerH);
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 30px "Nanum Myeongjo", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('✨  TestWorld', W/2, headerH/2);
 
-      // ── Result image ──
-      ctx.drawImage(img, 0, headerH, W, imgH);
+    // 결과 이미지 (DOM에서 직접)
+    ctx.drawImage(domImg, 0, headerH, W, imgH);
 
-      var y = headerH + imgH + padV;
+    var y = headerH + imgH + padV;
 
-      // ── Title ──
-      ctx.fillStyle = accent;
-      ctx.font = 'bold 52px "Nanum Myeongjo", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'alphabetic';
-      ctx.fillText(title, W/2, y + 54);
-      y += titleAreaH;
+    // 타이틀
+    ctx.fillStyle = accent;
+    ctx.font = 'bold 52px "Nanum Myeongjo", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText(title, W/2, y + 54);
+    y += titleAreaH;
 
-      // ── Subtitle ──
-      ctx.fillStyle = '#888';
-      ctx.font = '28px "Nanum Myeongjo", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(sub, W/2, y + 28);
-      y += subAreaH + 16;
+    // 서브타이틀
+    ctx.fillStyle = '#888';
+    ctx.font = '28px "Nanum Myeongjo", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(sub, W/2, y + 28);
+    y += subAreaH + 16;
 
-      // ── Desc box ──
-      ctx.fillStyle = 'white';
-      _dlRoundRect(ctx, padH, y, innerW, descBoxH, 20);
-      ctx.fill();
+    // 설명 박스
+    ctx.fillStyle = 'white';
+    _dlRoundRect(ctx, padH, y, innerW, descBoxH, 20);
+    ctx.fill();
+    ctx.fillStyle = '#444';
+    ctx.font = '26px "Nanum Myeongjo", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    for (var i = 0; i < descLines.length; i++) {
+      ctx.fillText(descLines[i], padH + 20, y + 34 + i * 36);
+    }
+    y += descBoxH + padV;
 
-      ctx.fillStyle = '#444';
-      ctx.font = '26px "Nanum Myeongjo", sans-serif';
-      ctx.textAlign = 'left';
-      ctx.textBaseline = 'alphabetic';
-      for (var i = 0; i < descLines.length; i++) {
-        ctx.fillText(descLines[i], padH + 20, y + 34 + i * 36);
-      }
-      y += descBoxH + padV;
+    // 푸터
+    ctx.fillStyle = _hexAlpha(accent, 0.15);
+    ctx.fillRect(0, y, W, footerH);
+    ctx.fillStyle = accent;
+    ctx.font = 'bold 26px "Nanum Myeongjo", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('나도 해보기 → testworld.kr', W/2, y + footerH/2);
 
-      // ── Footer ──
-      var accentAlpha = _hexAlpha(accent, 0.15);
-      ctx.fillStyle = accentAlpha;
-      ctx.fillRect(0, y, W, footerH);
-      ctx.fillStyle = accent;
-      ctx.font = 'bold 26px "Nanum Myeongjo", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('나도 해보기 → testworld.kr', W/2, y + footerH/2);
-
-      // ── Download (toBlob: PC/모바일 모두 안정적) ──
+    // 다운로드: toBlob → toDataURL 순으로 시도
+    if (canvas.toBlob) {
       canvas.toBlob(function(blob) {
+        if (!blob) {
+          // blob 생성 실패시 toDataURL 폴백
+          _dlViaDataURL(canvas);
+          return;
+        }
         var url = URL.createObjectURL(blob);
         var link = document.createElement('a');
         link.download = 'testworld-idol-result.png';
@@ -1459,18 +1469,32 @@ function downloadResult() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+        setTimeout(function() { URL.revokeObjectURL(url); }, 2000);
         showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
       }, 'image/png');
-    } catch(e) {
-      console.error('Canvas download error:', e);
-      showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed. Please try again.');
+    } else {
+      _dlViaDataURL(canvas);
     }
-  };
-  img.onerror = function() {
-    showToast(curLang==='ko'?'이미지 로드 실패. 다시 시도해주세요.':'Image load failed. Please try again.');
-  };
-  img.src = imgSrc;
+  } catch(e) {
+    console.error('Canvas download error:', e);
+    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed. Please try again.');
+  }
+}
+
+function _dlViaDataURL(canvas) {
+  try {
+    var dataURL = canvas.toDataURL('image/png');
+    var link = document.createElement('a');
+    link.download = 'testworld-idol-result.png';
+    link.href = dataURL;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
+  } catch(e2) {
+    console.error('DataURL download error:', e2);
+    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed. Please try again.');
+  }
 }
 
 function getMsg() {

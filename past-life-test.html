@@ -3085,6 +3085,7 @@ function copyLink() {
 // 다시하기
 // ========================================
 function restartTest() {
+  document.documentElement.classList.remove('has-result');
   history.replaceState({}, '', location.pathname);
   document.getElementById('resultSection').style.display = 'none';
   document.getElementById('headerSection').style.display = 'block';

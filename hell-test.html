@@ -1438,6 +1438,7 @@ function copyLink() {
 }
 
 function restartTest() {
+  document.documentElement.classList.remove('has-result');
   history.replaceState({}, '', location.pathname);
   document.getElementById('resultScreen').style.display = 'none';
   document.getElementById('startScreen').style.display = 'block';
