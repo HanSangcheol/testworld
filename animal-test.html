@@ -1520,7 +1520,10 @@ function restartTest() {
 function getMsg() {
   const topType = resolveType(scores);
   const result = data[curLang].results[topType];
-  return result ? (result.name + ' — ' + result.badge) : '';
+  if (!result) return '';
+  return curLang === 'ko'
+    ? '내 패트로누스는 "' + result.name + '"! 🪄 너의 패트로누스는 뭐야?'
+    : 'My Patronus is "' + result.name + '"! 🪄 What\'s yours?';
 }
 
 // ============================================================

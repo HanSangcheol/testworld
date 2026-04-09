@@ -3147,6 +3147,19 @@ function showToast(msg) {
 
 // 페이지 로드 시 바로 금색 배경 표시
 document.addEventListener('DOMContentLoaded', function() { showGoldBg(); });
+
+// 결과 링크로 접속했을 때 바로 결과 표시
+window.addEventListener('load', function() {
+  const _p = new URLSearchParams(location.search).get('result');
+  if (_p) {
+    const _t = _p.toUpperCase();
+    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
+      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
+      scores[_t] = 99;
+      showResult();
+    }
+  }
+});
 </script>
 
 </body>

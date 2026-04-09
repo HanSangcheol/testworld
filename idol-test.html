@@ -44,19 +44,30 @@
     --space-xl:  clamp(20px, 5vw, 32px);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #FF1493; }
   body {
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
-    background: var(--bg); color: var(--dark);
+    background: transparent; color: var(--dark);
     min-height: 100vh; overflow-x: hidden;
     font-size: var(--fs-base);
     -webkit-text-size-adjust: 100%;
   }
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 20%, rgba(192,38,211,0.07) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255,107,157,0.07) 0%, transparent 50%);
-    pointer-events: none; z-index: 0;
+  /* 핫핑크 배경 레이어 */
+  #idolBgLayer {
+    position: fixed; inset: 0; z-index: -3;
+    background: linear-gradient(135deg, #FF1493 0%, #FF69B4 40%, #C71585 70%, #FF1493 100%);
+    background-size: 300% 300%;
+    animation: idolBgShift 8s ease infinite;
+  }
+  @keyframes idolBgShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  /* 반짝이 캔버스 */
+  #glitterCanvas {
+    position: fixed; inset: 0; z-index: -2;
+    pointer-events: none;
   }
   .container {
     max-width: 680px; margin: 0 auto;
@@ -98,12 +109,13 @@
     font-family: 'Gaegu', cursive;
     font-size: var(--fs-3xl); font-weight: 800;
     line-height: 1.25; margin-bottom: var(--space-sm);
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    color: #FFFFFF;
+    -webkit-text-fill-color: #FFFFFF;
+    text-shadow: 0 2px 12px rgba(150,0,80,0.45), 0 1px 3px rgba(0,0,0,0.25);
   }
-  .header h1 span { display: block; font-size: var(--fs-xl); opacity:.85; }
+  .header h1 span { display: block; font-size: var(--fs-xl); opacity:.9; }
   .header p {
-    font-size: var(--fs-sm); color: #888; line-height: 1.6;
+    font-size: var(--fs-sm); color: rgba(255,255,255,0.85); line-height: 1.6;
   }
   .landing-img {
     width: 100%; border-radius: var(--radius);
@@ -125,7 +137,7 @@
   }
   .start-desc {
     font-size: var(--fs-base); line-height: 1.75;
-    color: #555; margin-bottom: var(--space-lg); text-align: center;
+    color: #C71585; margin-bottom: var(--space-lg); text-align: center;
   }
   .btn {
     display: block; width: 100%; padding: 15px 20px;
@@ -148,7 +160,7 @@
     display: flex; align-items: center; gap: 10px;
   }
   .progress-bar {
-    flex: 1; height: 8px; background: var(--border);
+    flex: 1; height: 8px; background: rgba(255,255,255,0.3);
     border-radius: 99px; overflow: hidden;
   }
   .progress-fill {
@@ -156,7 +168,7 @@
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     border-radius: 99px; transition: width .4s ease;
   }
-  .progress-txt { font-size: var(--fs-xs); color: #aaa; white-space: nowrap; }
+  .progress-txt { font-size: var(--fs-xs); color: rgba(255,255,255,0.85); white-space: nowrap; font-weight: 700; }
   .q-num {
     font-size: var(--fs-xs); font-weight: 700; color: var(--primary);
     letter-spacing: 1px; text-transform: uppercase; margin-bottom: var(--space-xs);
@@ -261,11 +273,47 @@
     padding: 20px; font-size: var(--fs-xs); margin-top: 40px;
   }
   .hidden { display: none !important; }
+
+  /* ── 추가 결과 섹션 ── */
+  .result-section {
+    margin-top: var(--space-md);
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: clamp(14px,3.5vw,20px);
+    border: 1.5px solid var(--border);
+  }
+  .result-section-title {
+    font-size: var(--fs-sm); font-weight: 800;
+    margin-bottom: 10px; letter-spacing: .3px;
+  }
+  .result-quote {
+    font-size: clamp(14px,3.5vw,16px);
+    font-style: italic; color: #555;
+    line-height: 1.75; text-align: center;
+    padding: 4px 0;
+  }
+  .result-fan-desc {
+    font-size: var(--fs-sm); color: #555; line-height: 1.8;
+  }
+  .want-row {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .want-item {
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: var(--fs-sm); font-weight: 700;
+    text-align: center; line-height: 1.5;
+  }
+  .want-good { background: #f0fff4; color: #22863a; border: 1.5px solid #a8dfc0; }
+  .want-bad  { background: #fff5f5; color: #e53e3e; border: 1.5px solid #FCA5A5; }
 </style>
 <script>if(new URLSearchParams(location.search).get('result')){document.documentElement.classList.add('has-result');}</script>
 <style>html.has-result #startScreen{display:none!important}</style>
 </head>
 <body>
+
+<div id="idolBgLayer"></div>
+<canvas id="glitterCanvas"></canvas>
 
 <button class="lang-toggle" id="langBtn" onclick="toggleLang()">🌏 EN</button>
 
@@ -284,9 +332,10 @@
     <div class="card">
       <img src="images/idol/start.jpg" class="start-img" alt="아이돌 테스트 시작">
       <p class="start-desc" id="startDesc">
-        연습생 생활을 마치고 드디어 데뷔!<br>
-        과연 나는 그룹에서 어떤 포지션을 차지하게 될까?<br>
-        <span style="opacity:.7">소요시간: 약 2분</span>
+        하늘 아래 같은 아이돌 없다!<br>
+        내가 만약 6세대 아이돌로 데뷔하게 된다면,<br>
+        나는 어떤 포지션을 차지하게 될까?<br>
+        <span style="opacity:.7">소요시간 2분</span>
       </p>
       <button class="btn btn-primary" onclick="startTest()" id="startBtn">🎤 데뷔 시작하기</button>
     </div>
@@ -315,6 +364,27 @@
       <div class="result-desc" id="rDesc"></div>
       <div class="tags" id="rTags"></div>
       <div class="stat-bar-wrap" id="rStats"></div>
+
+      <!-- 명언 -->
+      <div class="result-section" id="rQuoteSection">
+        <div class="result-section-title" id="rQuoteLabel">💬 이런 말 할 것 같아</div>
+        <div class="result-quote" id="rQuote"></div>
+      </div>
+
+      <!-- 팬덤 특징 -->
+      <div class="result-section" id="rFanSection">
+        <div class="result-section-title" id="rFanLabel">🎀 내 팬덤 특징</div>
+        <div class="result-fan-desc" id="rFanDesc"></div>
+      </div>
+
+      <!-- 듣고 싶은 말 / 듣기 싫은 말 -->
+      <div class="result-section" id="rWantSection">
+        <div class="result-section-title" id="rWantLabel">💌 팬들에게 듣고 싶은 말 vs 절대 듣기 싫은 말</div>
+        <div class="want-row">
+          <div class="want-item want-good" id="rWantToHear"></div>
+          <div class="want-item want-bad"  id="rDontWantToHear"></div>
+        </div>
+      </div>
 
       <!-- 궁합 섹션 -->
       <div class="section-title" id="rCompatTitle">🎭 나와 잘 맞는 & 안 맞는 멤버 유형</div>
@@ -384,7 +454,7 @@
 
 <div class="footer">© 2026 아이돌 유형 테스트 · <a href="index.html" style="color:#ddd">🏠 홈</a> · <a href="privacy.html" style="color:#ddd">개인정보처리방침</a></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<!-- html2canvas removed: using pure Canvas API for reliable image download -->
 <script>
 // ──────────────────────────────────────────
 // 결과 유형 정의 (A~I)
@@ -434,7 +504,7 @@ const data = {
       mainTitle:   '내가 만약 아이돌이라면?',
       mainSubtitle:'나는 어떤 아이돌이 될까? 🎤',
       mainDesc:    '12가지 상황극으로 알아보는 나의 아이돌 유형!',
-      startDesc:   '연습생 생활을 마치고 드디어 데뷔!<br>과연 나는 그룹에서 어떤 포지션을 차지하게 될까?<br><span style="opacity:.7">소요시간: 약 2분</span>',
+      startDesc:   '하늘 아래 같은 아이돌 없다!<br>내가 만약 6세대 아이돌로 데뷔하게 된다면,<br>나는 어떤 포지션을 차지하게 될까?<br><span style="opacity:.7">소요시간 2분</span>',
       startBtn:    '🎤 데뷔 시작하기',
       compatTitle: '🎭 나와 잘 맞는 & 안 맞는 멤버 유형',
       shareTitle:  '🎉 친구들에게 결과 공유하기!',
@@ -572,100 +642,136 @@ const data = {
         badge: 'TYPE A',
         title: '이쁘기만한 센터 👑',
         subtitle: '얼굴만 이뻐요. 노래를 시작하면 모두 경악!',
-        desc: '무대 위에서 가장 빛나는 얼굴! 조명이 당신만을 비추는 것 같지만... 노래 실력은 비밀로 하는 게 좋을 것 같아요. 외모 하나만으로도 팬들의 마음을 사로잡는 비주얼 폭격기! 댄스 실력은 평균이지만 그냥 서 있어도 화보 그 자체예요. 아이돌 세계에서 외모 경쟁력은 절반 이상이니까 절대 작은 게 아니에요.',
+        desc: '무대 위에서 가장 빛나는 얼굴! 조명이 당신만을 비추는 것 같지만... 노래 실력은 비밀로 하는 게 좋을 것 같아요. 직캠 영상은 항상 그룹 내 조회수 1위, 그냥 서 있어도 화보 그 자체예요. 화면에 얼굴을 비추기만 하면 터져나오는 함성! TV에 나오면 바로 검색어 1순위에 등극!하는 당신은 얼굴도 실력이고 실력도 얼굴인 아이돌이에요',
         tags: ['#비주얼담당', '#센터포지션', '#외모천재', '#노래는글쎄', '#화보그자체'],
         stats: { '비주얼': 99, '보컬': 25, '댄스': 50, '예능감': 60, '인성': 70 },
         goodType: 'E', badType: 'I',
         goodDesc: '올라운더 리더가 내 부족한 부분을 채워줌',
         badDesc: '탈퇴형과는 팀워크 제로',
+        quote: '"나 아니면 센터에 누가 서? 😇"',
+        fanDesc: '비주얼 덕후 팬덤. 영상보다 직캠 조회수가 3배 높음. "노래 연습 좀 해!"라고 매일 외치면서도 콘서트 티켓은 당일 매진. 포토카드 수집 난이도 최상급.',
+        wantToHear: '오늘도 너무 예뻐, 그냥 서 있기만 해도 돼 ✨',
+        dontWantToHear: '이게 가수냐',
       },
       B: {
         badge: 'TYPE B',
         title: '연애형 아이돌 💕',
         subtitle: '매일같이 남자아이돌과 열애설!',
-        desc: '데뷔하자마자 열애설이 터져나오는 로맨티스트! 팬들은 멘붕이지만 당신은 이미 다음 남자를 보고 있어요. 연습실보다 데이트 코스가 더 잘 어울리는 아이돌계의 로맨스 주인공. 팬들이 울고 있을 때 당신은 이미 남자친구와 공항 패션을 찍고 있습니다. 연애도 하나의 재능 아닐까요?',
+        desc: '데뷔하자마자 열애설이 터져나오는 아이돌계의 로맨스 주인공! 팬들은 멘붕이지만 당신은 이미 다음 사람을 보고 있어요. 매니저의 전화를 제일 많이 무시하는 멤버이기도 하지만, 사랑스러운 매력 덕분에 팬들은 결국 용서해줘요.',
         tags: ['#열애설맛집', '#로맨티스트', '#공개연애', '#팬들은멘붕', '#사랑이직업'],
         stats: { '비주얼': 80, '보컬': 60, '댄스': 60, '예능감': 70, '연애력': 99 },
         goodType: 'F', badType: 'G',
         goodDesc: '예능형과 함께면 미디어 노출 극대화',
         badDesc: '소심한 타입과는 에너지가 맞지 않음',
+        quote: '"사랑도 결국 연습이 필요한 것 같아요. 저는 아주 열심히 연습 중이고요 💕"',
+        fanDesc: '탈덕-복덕을 반복하는 롤러코스터 팬덤. 열애설 터질 때마다 팬카페에 "탈덕 선언" 글이 도배되지만 다음 날이면 다시 "역시 못 떠나"로 돌아옴.',
+        wantToHear: '연예인도 사람이야, OO이만 행복하면 그게 제일이야 ❤️',
+        dontWantToHear: '팬들 배신하고 연애해? 진짜 실망이야',
       },
       C: {
         badge: 'TYPE C',
         title: '댄스형 아이돌 💃',
         subtitle: '춤 하나로 여기까지 올라왔어요 (인기는 글쎄요)',
-        desc: '무대 위에서 춤을 추는 순간만큼은 세계 최강! 그러나 무대 밖에서는 존재감이 살짝 흐릿해요. 댄스 실력은 그룹 내 넘버원이지만 캐릭터가 약해 팬들이 이름 기억하는 데 시간이 걸립니다. 그래도 퍼포먼스 영상에서 당신을 발견한 팬들은 "댄서분 누구세요?" 하고 찾아오게 되어 있어요!',
+        desc: '무대 위에서 춤을 추는 순간만큼은 세계 최강! 안무 영상에서 당신의 움직임은 언제나 한 템포 더 정확하고 날카로워요. 퍼포먼스 중독자들 사이에서 입소문이 퍼지면서 "댄서분 누구세요?" 하고 찾아오는 팬이 점점 늘어나고 있어요. 팀 내 안무 틱톡 영상은 모두 도맡아 올리는 댄스 장인이고 팀 내에서 춤선 비교 시 항상 1위에요',
         tags: ['#댄스머신', '#퍼포먼스특화', '#캐릭터개발중', '#존재감업', '#숨은고수'],
         stats: { '비주얼': 70, '보컬': 55, '댄스': 97, '예능감': 45, '인성': 75 },
         goodType: 'A', badType: 'H',
         goodDesc: '비주얼 센터와 시너지로 완벽한 무대를 만듦',
         badDesc: '연습 게으른 타입 때문에 화가 남',
+        quote: '"엄마 뱃속에서 부터 음악이 들리면 움직였어요 💃"',
+        fanDesc: '퍼포먼스 직캠 전문 수집 팬덤. 그룹 뮤직비디오보다 무대 직캠 조회수가 더 높음. 팬들이 자발적으로 퍼포먼스 모음 영상 편집. 늦게 입덕하는 팬이 많은 유형.',
+        wantToHear: '퍼포먼스 볼 때마다 소름 돋아, 역시 댄서야 🔥',
+        dontWantToHear: '댄스 브레이크 걔? 이름은 뭐지?',
       },
       D: {
         badge: 'TYPE D',
         title: '끼쟁이 아이돌 🎬',
         subtitle: '연기부터 광고까지! 최고의 끼쟁이, 하지만 멤버들의 질투를 한몸에',
-        desc: '드라마, CF, 뮤지컬까지 섭외가 끊이지 않는 만능 엔터테이너! 하지만 그룹 스케줄은 자주 빠지게 되고... 멤버들의 눈빛이 점점 날카로워지고 있어요. 솔로 활동이 본업이 되어버린 그룹 멤버. 팬들은 "요즘 그룹보다 개인 활동이 더 많은 것 같은데?"라고 말하지만 당신은 오늘도 드라마 현장에 있어요.',
+        desc: '드라마, CF, 뮤지컬까지 섭외가 끊이지 않는 만능 엔터테이너! 그룹 스케줄을 자주 빠지게 되면서 멤버들의 눈빛이 점점 날카로워지고 있어요. 당신이 나온 드라마 시청률은 항상 올라가고, CF 브랜드 매출도 함께 올라가요. 어쩐지 점점 개인 스케줄이 많아지고 혼자 나오는 CF가 많아지는 당신!',
         tags: ['#멀티엔터테이너', '#연기도잘해', '#CF퀸', '#멤버질투주의', '#솔로행보'],
         stats: { '비주얼': 85, '보컬': 75, '댄스': 65, '연기력': 95, '예능감': 80 },
         goodType: 'B', badType: 'G',
         goodDesc: '연애형과 함께면 화제성 최고',
         badDesc: '소심한 타입과는 에너지 충돌',
+        quote: '"저는 그냥... 끼가 넘쳐서 어쩔 수가 없어요 🎬"',
+        fanDesc: '연기팬 + 아이돌팬이 혼재하는 크로스오버 팬덤. 드라마 방영 때마다 새 팬이 유입됨. "그룹 컴백은 언제예요?" "앨범은 언제 나와요?" 민원 1위.',
+        wantToHear: '드라마 보고 연기력에 완전히 반했어, 전업 배우 해도 되겠다 🎬',
+        dontWantToHear: '앨범은 언제 나와요? 개인 활동만 하시나요?',
       },
       E: {
         badge: 'TYPE E',
         title: '올라운더 리더 🌟',
         subtitle: '이것저것 다 잘하는 그룹의 든든한 중심!',
-        desc: '노래, 댄스, 예능, 비주얼까지 뭐 하나 빠지는 게 없는 그룹의 에이스이자 리더! 멤버들이 싸울 때 중재하고, 팬 사인회에서 모두에게 따뜻하게 대해주는 믿음직한 캡틴. 방송에서도, 무대에서도, 사생활에서도 모범 그 자체. 가끔 "나 혼자 다 하는 것 같아"라는 생각이 들지만 그게 리더의 운명이에요.',
+        desc: '노래, 댄스, 예능, 비주얼까지 뭐 하나 빠지는 게 없는 그룹의 에이스이자 리더! 신인상부터 대상까지 트로피 받을 때마다 대표로 소감을 말해야하는 건 항상 당신의 몫이에요! 멤버들이 안무 틀릴 때마다 따끔하게 지적하고, 멤버들이 싸우면 화해시켜주는 만능 리더라 팬과 멤버 모두가 의지하는 아이돌이에요. 가끔 "나 혼자 다 하는 것 같아"라는 생각이 들지만, 사실 그걸 즐기고 있다는 걸 알아요.',
         tags: ['#올라운더', '#리더십갑', '#그룹의버팀목', '#멀티플레이어', '#믿고보는'],
         stats: { '비주얼': 85, '보컬': 85, '댄스': 85, '예능감': 85, '리더십': 99 },
         goodType: 'C', badType: 'I',
         goodDesc: '댄스형과 함께면 퍼포먼스 완성',
         badDesc: '탈퇴형과는 비전이 맞지 않음',
+        quote: '"리더는 가장 먼저 웃고, 가장 나중에 우는 사람이에요 🌟"',
+        fanDesc: '충성도 최상위 팬덤. 탈덕률이 거의 0에 수렴. 리더가 힘들어 보이는 날이면 팬카페에서 자발적으로 응원 프로젝트가 열림.',
+        wantToHear: '리더 없으면 우리 팀은 안 굴러가, 정말 고마워 🌟',
+        dontWantToHear: '요즘 왜 이렇게 지쳐 보여요? 예전만 못한 것 같은데',
       },
       F: {
         badge: 'TYPE F',
         title: '예능형 아이돌 😂',
         subtitle: '무대위에서는 그닥이지만 예능 프로에 자주 나가요!',
-        desc: '노래도 댄스도 평균이지만 카메라만 들이대면 빛나는 타고난 예능인! 어떤 예능에 나가도 분위기를 살려주고, 진행자들이 제일 좋아하는 게스트예요. 팬들은 "무대보다 예능이 더 볼 만해"라고 말하지만 그게 뭐 어때요? 대중들에게 웃음을 주는 것도 훌륭한 재능이에요!',
+        desc: '노래도 댄스도 평균이지만 카메라만 들이대면 빛나는 타고난 예능인! 밈 제조기로도 이름을 날리고 있어서 팬이 아닌 사람들도 당신 이름은 알아요. 아이돌 예능 역사에 한 획을 긋는 레전드 짤을 무한 생성하는 당신은 예능형 아이돌이에요.',
         tags: ['#예능맛집', '#리액션천재', '#진행자픽', '#웃음제조기', '#방송친화적'],
         stats: { '비주얼': 70, '보컬': 60, '댄스': 55, '예능감': 99, '인기': 80 },
         goodType: 'D', badType: 'H',
         goodDesc: '끼쟁이와 함께면 콘텐츠 폭발',
         badDesc: '게으른 타입과는 열정 차이가 큼',
+        quote: '"웃음도 아트에요. 그리고 저는 아티스트고요 😂"',
+        fanDesc: '예능 클립 바이럴 팬덤. 팬이 아닌 사람도 예능에서 보고 팬이 됨. "이 사람 재밌어서 팬 됐어요"가 입덕 경로 1위.',
+        wantToHear: '오늘 예능 진짜 웃겼어, 역시 넌 예능 천재야 😂',
+        dontWantToHear: '너 아이돌이야. 정신차려.',
       },
       G: {
         badge: 'TYPE G',
         title: '아이돌 부적응자 😰',
         subtitle: '아이돌은 적성에 안맞아! 악플에 시달리고 사람이 무서운 아이돌',
-        desc: '사실 아이돌이 꿈이었는데... 막상 데뷔하고 보니 사람들의 시선이 너무 무서워요. 악플 하나에 며칠씩 잠을 못 자고, 팬 사인회에서 손 떨리고, 방송 카메라 앞에서 얼어버리는 내향형 아이돌. 그러나 진정한 팬들은 이런 모습에서 오히려 더 큰 애정을 느끼기도 해요. 꾸준히 치유받고 성장하는 모습을 응원해줄 팬덤이 있을 거예요.',
+        desc: '사실 아이돌이 꿈이었는데... 막상 데뷔하고 보니 사람들의 시선이 너무 무서워요. 무대 위에서 살짝 긴장한 표정, 팬 사인회에서 수줍게 웃는 모습이 오히려 "지켜주고 싶다"는 감정을 불러일으켜요. 팬들에게서 "하고 싶은거 다해! 꽃길만 걷자!" 라는 말을 제일 많이 들어요',
         tags: ['#내향형아이돌', '#사람무서움', '#악플내성없음', '#성장형캐릭터', '#응원해줘'],
         stats: { '비주얼': 65, '보컬': 65, '댄스': 60, '예능감': 30, '멘탈': 20 },
         goodType: 'E', badType: 'B',
         goodDesc: '든든한 리더가 옆에 있으면 버틸 수 있음',
         badDesc: '연애형의 무모함이 너무 부담스러움',
+        quote: '"... 저 잘 하고 있는 거 맞죠? (소심하게) 😰"',
+        fanDesc: '보호본능 자극하는 팬덤. "내가 지켜줘야 해" 모드 상시 가동. 악플 발견하면 팬들이 먼저 나서서 방어전 펼침.',
+        wantToHear: '떨려도 괜찮아, 우리는 항상 여기 있을게 🤍',
+        dontWantToHear: '그렇게 소심해서 무대는 어떻게 해요?',
       },
       H: {
         badge: 'TYPE H',
         title: '연습 게으른 멤버 😴',
         subtitle: '춤 연습이 항상 게으른 멤버, 열심히 좀 해!',
-        desc: '연습 스케줄이 있는 날엔 항상 지각, 안무를 못 외워서 옆 멤버한테 의지하는 팀의 골칫덩이. 근데 왜인지 미워할 수가 없는 독특한 매력이 있어요. "이번 안무는 좀 어렵지 않아?" 라며 합리화하는 모습도 어딘가 귀엽습니다. 팬들은 "열심히 하는 모습 보여줘!" 하고 말하지만 당신은 오늘도 연습실 소파에서 낮잠 중이에요.',
+        desc: '연습 스케줄이 있는 날엔 항상 지각, 안무를 못 외워서 옆 멤버한테 의지하는 팀의 골칫덩이. 무대에서 혼자 박자를 놓치지만 그럴 때마다 어색하게 웃는 표정이 팬들 심장을 때려요. 연습 할 때 보면 당신이 소파에서 잠든 시간이 연습한 시간보다 훨씬 길어요.',
         tags: ['#연습지각왕', '#안무까먹음', '#소파가본업', '#열심히도전중?', '#귀여운민폐'],
         stats: { '비주얼': 75, '보컬': 65, '댄스': 45, '예능감': 65, '성실도': 15 },
         goodType: 'C', badType: 'E',
         goodDesc: '댄스형 멤버가 옆에서 가르쳐줌',
         badDesc: '올라운더 리더의 잔소리가 매일 들려옴',
+        quote: '"음... 다음 연습 때 더 열심히 할게요. 진짜로요. (아마도) 😴"',
+        fanDesc: '잔소리 팬덤. "제발 연습 좀 해"를 매일 외치면서도 응원은 1등. 팬들이 직접 "연습 좀 하세요" 현수막을 들고 옴. 미워하면서도 결국 제일 오래 남아있는 팬들.',
+        wantToHear: '귀여우면 다 용서돼 😊',
+        dontWantToHear: '가운데서 맨날 박자 틀리는 애 누구냐',
       },
       I: {
         badge: 'TYPE I',
         title: '조기 탈퇴 멤버 🚪',
         subtitle: '팀에서 제일 먼저 탈퇴하는 멤버',
-        desc: '데뷔 첫 날부터 "나 여기서 오래 할 수 있을까?"라는 생각이 들었어요. 그룹 스케줄이 맞지 않고, 비전이 흐릿하고, 이 생활이 내 적성이 아닌 것 같아서 결국 팀을 떠나게 되는 멤버. 하지만 솔로 전향 후 오히려 더 빛나는 케이스가 많아요! 그룹이 아닌 나만의 길을 가는 것이 정답일 수도 있어요.',
+        desc: '데뷔 첫 날부터 "나 여기서 오래 할 수 있을까?"라는 생각이 들었어요. 그룹 스케줄이 맞지 않고, 비전이 흐릿하고, 이 생활이 내 적성이 아닌 것 같아서 결국 팀을 떠나게 되는 멤버. 소속사와의 갈등, 멤버와의 불화, 건강 문제 등 여러 이유가 겹치면서 탈퇴 발표가 나올 때 팬들은 충격에 빠지지만, 사실 당신은 이미 한참 전부터 마음의 준비를 해왔어요. 하지만 솔로 전향 후 오히려 더 빛나는 케이스가 많아요! 그룹이 아닌 나만의 길을 가는 것이 정답일 수도 있어요.',
         tags: ['#탈퇴예정자', '#솔로전향후성공', '#그룹부적응', '#내길을간다', '#새출발'],
         stats: { '비주얼': 80, '보컬': 70, '댄스': 60, '예능감': 55, '팀워크': 10 },
         goodType: 'D', badType: 'E',
         goodDesc: '끼쟁이와 함께면 솔로 활동 시너지',
         badDesc: '올라운더 리더와는 비전 충돌',
+        quote: '"내 길을 간다는 게 배신은 아니잖아요 🚪"',
+        fanDesc: '탈퇴 후 오히려 팬이 늘어나는 신기한 현상. 솔로 활동 이후 팬카페 회원수 증가. 그룹 팬과 솔로 팬 사이 미묘한 신경전이 계속되지만, 진짜 팬들은 어디서든 응원함.',
+        wantToHear: '솔로로도 잘 될 거야, 어디서든 응원할게 🚪',
+        dontWantToHear: '그룹 배신자, 멤버들한테 미안하지도 않아요?',
       },
     },
   },
@@ -812,100 +918,136 @@ const data = {
         badge: 'TYPE A',
         title: 'The Pretty Center 👑',
         subtitle: 'All looks, no vocals — jaws drop when you actually sing!',
-        desc: 'On stage, you shine brightest of all — the spotlight seems made just for you. But your singing? Best kept a secret. A visual bomb who wins hearts by simply standing there. Dance skills are average, but you\'re basically a walking photo shoot. In the idol world, visual appeal counts for more than half the battle!',
+        desc: 'On stage, you shine brightest of all — the spotlight seems made just for you. But your singing? Best kept a secret. A visual bomb who wins hearts by simply standing there. Your fancam views always outperform the group\'s MV, and your name tops every comment section. Dance skills are average, but standing still? Literal magazine cover.',
         tags: ['#VisualAce', '#CenterPosition', '#BeautyGenius', '#VocalsWho', '#LivingPhotoshoot'],
         stats: { 'Visual': 99, 'Vocal': 25, 'Dance': 50, 'Variety': 60, 'Character': 70 },
         goodType: 'E', badType: 'I',
         goodDesc: 'The all-rounder leader covers your weak spots',
         badDesc: 'Zero teamwork with the quitter type',
+        quote: '"I mean... my vocals aren\'t great, but my face more than makes up for it? 😇"',
+        fanDesc: 'Visual-obsessed fandom. Fancam views are 3x the MV. "Please practice more!" is the #1 comment — yet concert tickets still sell out in seconds. Your photocard is the most expensive on the resale market.',
+        wantToHear: 'You\'re so gorgeous today, just standing there is enough ✨',
+        dontWantToHear: 'When are the vocals improving? Riding purely on looks?',
       },
       B: {
         badge: 'TYPE B',
         title: 'The Romance Idol 💕',
-        subtitle: 'Dating rumors with male idols... daily!',
-        desc: 'Barely debuted and dating scandals are already breaking! Fans are in shock, but you\'re already eyeing the next guy. You belong on a date, not in a practice room. While fans are crying, you\'re already snapping airport fashion photos with your boyfriend. Is romance itself a talent? For you, absolutely.',
+        subtitle: 'Dating rumors with other idols... daily!',
+        desc: 'Barely debuted and dating scandals are already breaking! Fans are in shock, but you\'re already eyeing the next person. You belong on a date, not in a practice room. While fans are crying, you\'re already snapping airport fashion photos. Your manager\'s calls go unanswered most often — but your irresistible charm means fans eventually forgive everything.',
         tags: ['#DatingRumorMagnet', '#Romantic', '#PublicRelationship', '#FansMeltdown', '#LoveIsMyJob'],
         stats: { 'Visual': 80, 'Vocal': 60, 'Dance': 60, 'Variety': 70, 'Romance': 99 },
         goodType: 'F', badType: 'G',
         goodDesc: 'With the variety idol, media exposure skyrockets',
         badDesc: 'Energy clash with the shy, anxious type',
+        quote: '"I think love, like everything else, takes practice. And I practice a lot. 💕"',
+        fanDesc: 'Constant un-stan / re-stan cycle fandom. Every dating rumor floods the fan cafe with "I\'m leaving!" posts — only to be flooded with "I came back" posts the next day. Pure chaos.',
+        wantToHear: 'It\'s okay to date, I just want you to be happy ❤️',
+        dontWantToHear: 'You betrayed your fans by dating. Unforgivable.',
       },
       C: {
         badge: 'TYPE C',
         title: 'The Dance Idol 💃',
         subtitle: 'Made it purely on dance skills (popularity... we\'ll see)',
-        desc: 'The moment you hit the stage, you\'re the world\'s best dancer! Off stage though, your presence fades a little. Your dance skills are #1 in the group, but weak character means fans take a while to learn your name. Still, viewers watching performance cuts will be searching "who\'s that dancer??" and finding you!',
+        desc: 'The moment you hit the stage, you\'re the world\'s best dancer! Off stage though, your presence fades a little. Your dance skills are #1 in the group, but a quieter personality means fans take time to learn your name. Performance junkies eventually find you in the cuts — and once they do, they never leave.',
         tags: ['#DanceMachine', '#PerformanceSpecialist', '#BuildingCharacter', '#HiddenAce', '#RiseSlowly'],
         stats: { 'Visual': 70, 'Vocal': 55, 'Dance': 97, 'Variety': 45, 'Character': 75 },
         goodType: 'A', badType: 'H',
         goodDesc: 'Synergy with the visual center makes a perfect stage',
         badDesc: 'Gets furious at the lazy practice member',
+        quote: '"My body just reacts. The moment the music starts, I move automatically 💃"',
+        fanDesc: 'Performance fancam collector fandom. Your fancam beats the group\'s MV in views. Fans self-edit "best performance compilation" videos that keep pulling in new fans. Late-bloomers make up most of your fanbase.',
+        wantToHear: 'Goosebumps every single time — the dancer in this group 🔥',
+        dontWantToHear: 'Sorry, what\'s your name again? The dancer one?',
       },
       D: {
         badge: 'TYPE D',
         title: 'The Multi-Talented Scene-Stealer 🎬',
         subtitle: 'Acting, CFs, everything! Most talented, but jealousy magnet',
-        desc: 'Drama, CFs, musicals — offers never stop for this all-around entertainer! But group schedules get missed more often, and your fellow members\' eyes are getting sharper by the day. Solo activities have become the main gig. Fans say "you do more solo stuff than group stuff lately," but you\'re already on set.',
+        desc: 'Drama, CFs, musicals — offers never stop for this all-around entertainer! Group schedules get missed more often, and your fellow members\' stares are getting sharper by the day. Solo activities have become the main gig. Your dramas boost ratings, your CF brands sell out — fans ask "do you still do group stuff?" but you\'re already on set, loving every second.',
         tags: ['#MultiEntertainer', '#ActingKing', '#CFStar', '#MemberJealousy', '#SoloCareer'],
         stats: { 'Visual': 85, 'Vocal': 75, 'Dance': 65, 'Acting': 95, 'Variety': 80 },
         goodType: 'B', badType: 'G',
         goodDesc: 'With the romance idol, buzz is off the charts',
         badDesc: 'Energy clash with the anxious type',
+        quote: '"I just... have too much talent, I can\'t help it 🎬"',
+        fanDesc: 'Acting fans + idol fans crossover fandom. New fans flow in with every drama. Fan signing competition is fiercer than fan meets. "When\'s the group comeback?" is the #1 complaint.',
+        wantToHear: 'Saw your drama and fell completely — you\'re basically an actor 🎬',
+        dontWantToHear: 'Do you even do group schedules anymore?',
       },
       E: {
         badge: 'TYPE E',
         title: 'The All-Rounder Leader 🌟',
         subtitle: 'Excels at everything — the group\'s dependable pillar!',
-        desc: 'Vocals, dance, variety, visuals — nothing\'s missing in this group ace and leader! You mediate when members fight, treat every fan warmly at signings, and are the model member on screen, on stage, and in private. Sometimes you think "am I the only one pulling weight here?" — but that\'s just the leader\'s destiny.',
+        desc: 'Vocals, dance, variety, visuals — nothing\'s missing in this group ace and leader! You mediate fights, keep every fan warm at signings, and are the model member on screen, stage, and in private life. Trophies stack from rookie awards to grand prizes. Sometimes you think "am I the only one holding this together?" — deep down, you kind of like it.',
         tags: ['#AllRounder', '#LeadershipPro', '#GroupBackbone', '#MultiPlayer', '#Trustworthy'],
         stats: { 'Visual': 85, 'Vocal': 85, 'Dance': 85, 'Variety': 85, 'Leadership': 99 },
         goodType: 'C', badType: 'I',
         goodDesc: 'With the dance idol, performances become flawless',
         badDesc: 'Visions clash with the quitter type',
+        quote: '"A leader smiles first and cries last. That\'s just the job 🌟"',
+        fanDesc: 'Top-tier loyalty fandom. Almost zero churn rate. When you look tired, the fan cafe spontaneously organizes support projects. "It\'s okay to rest" is the message fans send most.',
+        wantToHear: 'The group only works because of you — genuinely, thank you 🌟',
+        dontWantToHear: 'You\'ve looked so drained lately, not as good as before',
       },
       F: {
         badge: 'TYPE F',
         title: 'The Variety Idol 😂',
         subtitle: 'Not great on stage, but a variety show regular!',
-        desc: 'Average singer and dancer, but put a camera in front of you and you GLOW — a born entertainer! You liven up any variety show and hosts always want you back. Fans say "your variety shows are more worth watching than your concerts," but who cares? Making people laugh is a genuine, irreplaceable talent.',
+        desc: 'Average singer and dancer, but put a camera in front of you and you GLOW — a born entertainer! You liven up any variety show and hosts always want you back. You\'re basically a meme factory at this point, and people who aren\'t even fans know your name. "Your variety is more fun than your concerts" — honestly, fair enough.',
         tags: ['#VarietyGold', '#ReactionKing', '#HostFavorite', '#LaughMachine', '#CameraReady'],
         stats: { 'Visual': 70, 'Vocal': 60, 'Dance': 55, 'Variety': 99, 'Popularity': 80 },
         goodType: 'D', badType: 'H',
         goodDesc: 'With the scene-stealer, content goes viral',
         badDesc: 'Big passion gap with the lazy member',
+        quote: '"Making people laugh is my job. And I love my job 😂"',
+        fanDesc: 'Variety clip viral fandom. Non-fans become fans through your show cuts. More YouTube subscribers than fan cafe members. "I became a fan because you were so funny" is the #1 debut story.',
+        wantToHear: 'You were so funny today — born for variety, honestly 😂',
+        dontWantToHear: 'When do we get to see a serious side? Always goofing around',
       },
       G: {
         badge: 'TYPE G',
         title: 'The Idol Who Doesn\'t Fit 😰',
         subtitle: 'Not cut out for idol life — hate comments and social anxiety',
-        desc: 'Being an idol was the dream... but now that you\'ve debuted, all those eyes are terrifying. A single hate comment keeps you up for days, your hands shake at fan signings, and you freeze on camera. Still, true fans fall harder for this vulnerability. There\'s definitely a fandom out there rooting for your slow, steady healing and growth.',
+        desc: 'Being an idol was the dream... but now that you\'ve debuted, all those eyes are terrifying. One hate comment keeps you up for days, hands shake at fan signings, and cameras make you freeze. But true fans actually fall harder for this honest vulnerability. Your nervous smiles and shy moments trigger a fierce "I have to protect this person" instinct.',
         tags: ['#IntrovertIdol', '#ScaredOfPeople', '#HateSensitive', '#GrowthArc', '#WeRootForYou'],
         stats: { 'Visual': 65, 'Vocal': 65, 'Dance': 60, 'Variety': 30, 'MentalStrength': 20 },
         goodType: 'E', badType: 'B',
         goodDesc: 'A steady leader nearby makes it bearable',
         badDesc: 'The romance idol\'s boldness is overwhelming',
+        quote: '"...I\'m doing okay, right? (quietly) 😰"',
+        fanDesc: 'Full protective mode fandom. "I need to protect them" activated 24/7. When hate comments appear, fans mobilize first. "Are you okay after today?" posts flood the fan cafe daily.',
+        wantToHear: 'It\'s okay to be nervous — we\'re always right here 🤍',
+        dontWantToHear: 'Why so awkward? Are you sure you\'re even an idol?',
       },
       H: {
         badge: 'TYPE H',
         title: 'The Lazy Practice Member 😴',
         subtitle: 'Always late to dance practice. Come on, try harder!',
-        desc: 'Late to every practice session, always leaning on the member next to you because you didn\'t memorize the choreography — the group\'s lovable problem child. Yet somehow, nobody can really hate you. "Isn\'t this choreography kinda hard?" you rationalize, and even that sounds weirdly endearing. While fans beg you to try harder, you\'re already napping on the practice room sofa.',
+        desc: 'Late to every session, always leaning on the member next to you because the choreography didn\'t quite stick — the group\'s lovable problem child. Somehow, nobody can really hate you. "Isn\'t this choreo kinda hard?" you rationalize, and even that sounds weirdly cute. Practice room CCTV shows you napping longer than you practiced.',
         tags: ['#LateKing', '#ForgotChoreo', '#SofaIsMyCalling', '#TryingHard?', '#CutelyUseless'],
         stats: { 'Visual': 75, 'Vocal': 65, 'Dance': 45, 'Variety': 65, 'Diligence': 15 },
         goodType: 'C', badType: 'E',
         goodDesc: 'The dance idol teaches you step by step',
         badDesc: 'The all-rounder leader never stops nagging you',
+        quote: '"I\'ll try harder at next practice. For real this time. (probably) 😴"',
+        fanDesc: 'Nagging fandom. "Please practice more" is shouted daily — but they\'re also always #1 in the cheering section. Fans literally show up with "please practice" banners. They scold, but they never leave.',
+        wantToHear: 'You\'re too cute to stay mad at — keep it up in your own way 😊',
+        dontWantToHear: 'Did you actually practice before getting on that stage?',
       },
       I: {
         badge: 'TYPE I',
         title: 'The Early Quitter 🚪',
         subtitle: 'First member to leave the group',
-        desc: 'From day one you wondered, "can I really do this long-term?" Group schedules clash, the vision feels blurry, and this lifestyle just doesn\'t feel like yours — so eventually, you leave. But many early quitters go on to shine even brighter as soloists! Maybe your path was never meant to be with a group after all.',
-        tags: ['#DepatureAnnounced', '#SoloSuccessStory', '#GroupMismatch', '#MyOwnPath', '#FreshStart'],
+        desc: 'From day one you wondered, "can I really do this long-term?" Group schedules clash, the vision feels blurry, and this lifestyle just doesn\'t feel like yours. Label conflicts, member tension, health — reasons pile up, and eventually the announcement comes. Fans are shocked. But you\'ve been ready for a while. And solo? Many early departures end up shining even brighter.',
+        tags: ['#DepartureAnnounced', '#SoloSuccessStory', '#GroupMismatch', '#MyOwnPath', '#FreshStart'],
         stats: { 'Visual': 80, 'Vocal': 70, 'Dance': 60, 'Variety': 55, 'Teamwork': 10 },
         goodType: 'D', badType: 'E',
         goodDesc: 'With the scene-stealer, solo activities sync perfectly',
         badDesc: 'Vision clashes with the all-rounder leader',
+        quote: '"Choosing my own path isn\'t the same as betrayal 🚪"',
+        fanDesc: 'Strangely, fan numbers grow after departure. Solo career brings in new fans. Subtle tension between group fans and solo fans continues — but the real ones cheer regardless.',
+        wantToHear: 'You\'ll kill it as a solo — cheering for you wherever you go 🚪',
+        dontWantToHear: 'How could you leave the group? Don\'t you feel bad for the members?',
       },
     },
   },
@@ -1095,6 +1237,30 @@ function renderResult(type) {
       '<div style="font-size:0.78em;color:#888;margin-top:4px">' + result.badDesc + '</div>' +
     '</div>';
 
+  // 명언
+  document.getElementById('rQuote').textContent = result.quote || '';
+  document.getElementById('rQuoteLabel').textContent = curLang === 'ko' ? '💬 이런 말 할 것 같아' : '💬 Something You\'d Say';
+  // 팬덤 특징
+  document.getElementById('rFanDesc').textContent = result.fanDesc || '';
+  document.getElementById('rFanLabel').textContent = curLang === 'ko' ? '🎀 내 팬덤 특징' : '🎀 Your Fandom Vibe';
+  // 듣고 싶은 말 / 듣기 싫은 말
+  document.getElementById('rWantToHear').textContent = '😊 듣고 싶은 말: ' + (result.wantToHear || '');
+  document.getElementById('rDontWantToHear').textContent = '😤 절대 듣기 싫은 말: ' + (result.dontWantToHear || '');
+  document.getElementById('rWantLabel').textContent = curLang === 'ko' ? '💌 팬들에게 듣고 싶은 말 vs 절대 듣기 싫은 말' : '💌 Best & Worst Comment';
+
+  // 섹션 색상
+  var rQuoteSection = document.getElementById('rQuoteSection');
+  var rFanSection = document.getElementById('rFanSection');
+  var rWantSection = document.getElementById('rWantSection');
+  if (T) {
+    [rQuoteSection, rFanSection, rWantSection].forEach(function(el) {
+      if (el) { el.style.borderColor = T.borderColor; }
+    });
+    document.getElementById('rQuoteLabel').style.color = T.color;
+    document.getElementById('rFanLabel').style.color = T.color;
+    document.getElementById('rWantLabel').style.color = T.color;
+  }
+
   // 공유/다시하기 버튼 레이블
   document.getElementById('rShareTitle').textContent = ui.shareTitle;
   document.getElementById('restartBtn').textContent = ui.restartBtn;
@@ -1117,15 +1283,25 @@ function restartTest() {
 
 
 
+function getShareMsg() {
+  var type = resolveType(scores);
+  var result = data[curLang].results[type];
+  var name = result ? (result.title || result.name) : '';
+  return curLang === 'ko'
+    ? '내가 아이돌이라면 "' + name + '"이래! 너는 어떤 아이돌 유형일 것 같아? 💫'
+    : 'My idol type is "' + name + '"! What idol type are you? 💫';
+}
+
 function copyLink() {
   var btn = document.getElementById('copyBtn');
-  navigator.clipboard.writeText(window.location.href).then(function() {
+  var txt = getShareMsg() + '\n' + window.location.href;
+  navigator.clipboard.writeText(txt).then(function() {
     var orig = btn.textContent;
     btn.textContent = data[curLang].ui.copyOk;
     setTimeout(function() { btn.textContent = orig; }, 2000);
   }).catch(function() {
     var ta = document.createElement('textarea');
-    ta.value = window.location.href;
+    ta.value = txt;
     document.body.appendChild(ta);
     ta.select();
     document.execCommand('copy');
@@ -1136,54 +1312,165 @@ function copyLink() {
   });
 }
 
+/* ── Pure Canvas download helpers ── */
+function _dlWrapText(ctx, text, maxWidth) {
+  var words = text.split('');
+  var lines = [], cur = '';
+  // character-by-character wrapping (works for Korean & English)
+  for (var i = 0; i < words.length; i++) {
+    var test = cur + words[i];
+    if (ctx.measureText(test).width > maxWidth && cur.length > 0) {
+      lines.push(cur);
+      cur = words[i];
+    } else {
+      cur = test;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+function _dlRoundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y);
+  ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r);
+  ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+  ctx.lineTo(x+r, y+h);
+  ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+  ctx.lineTo(x, y+r);
+  ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath();
+}
+function _hexAlpha(hex, a) {
+  // returns rgba string from hex + 0-1 alpha
+  var r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return 'rgba('+r+','+g+','+b+','+a+')';
+}
+
 function downloadResult() {
   var __dlType = resolveType(scores);
   var __dlR    = data[curLang].results[__dlType];
-  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
+  if (!__dlR) {
+    showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!');
+    return;
+  }
   showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
-  var __accent = (TYPES[__dlType]?TYPES[__dlType].color:"#FF6B9D");
-  var __bg     = (TYPES[__dlType]?TYPES[__dlType].bg:"#FFF0F8");
-  var __imgSrc = IDOL_RESULT_IMGS[__dlType]||("images/idol/result_"+__dlType+".jpg");
-  var __title  = (__dlR.title||__dlR.name)||'';
-  var __sub    = (__dlR.subtitle||__dlR.badge)||'';
-  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
-  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
 
-  var card = document.createElement('div');
-  card.id = '__share_card__';
-  card.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:420px;padding:0;background:'+__bg+';border-radius:24px;overflow:hidden;font-family:sans-serif;box-shadow:0 8px 40px rgba(0,0,0,.18)';
-  card.innerHTML =
-    '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
-    '<img src="'+__imgSrc+'" style="width:100%;display:block;border:none">'+
-    '<div style="padding:20px 22px;text-align:center">'+
-      '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
-      '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
-      '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
-    '</div>'+
-    '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
-  document.body.appendChild(card);
+  var accent  = (TYPES[__dlType] ? TYPES[__dlType].color : '#FF6B9D');
+  var bg      = (TYPES[__dlType] ? TYPES[__dlType].bg    : '#FFF0F8');
+  var imgSrc  = IDOL_RESULT_IMGS[__dlType] || ('images/idol/result_'+__dlType+'.jpg');
+  var title   = ((__dlR.title||__dlR.name)||'');
+  var sub     = ((__dlR.subtitle||__dlR.badge)||'');
+  var rawDesc = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+  var desc    = rawDesc.length > 150 ? rawDesc.slice(0,150)+'…' : rawDesc;
 
-  var imgEl = card.querySelector('img');
-  var doCapture = function() {
-    html2canvas(card,{scale:2.5,useCORS:true,allowTaint:true,backgroundColor:__bg,logging:false})
-      .then(function(canvas){
-        var link=document.createElement('a');
-        link.download='testworld-result.png';
-        link.href=canvas.toDataURL('image/png');
+  var img = new Image();
+  img.onload = function() {
+    try {
+      var W        = 840;        // canvas width (px, ~2× for retina)
+      var headerH  = 64;
+      var footerH  = 52;
+      var imgH     = Math.round(img.naturalHeight * W / img.naturalWidth);
+      var padH     = 48;        // horizontal padding
+      var padV     = 36;        // vertical padding between sections
+      var innerW   = W - padH * 2;
+
+      // Measure desc lines
+      var tmpC = document.createElement('canvas');
+      tmpC.width = W; tmpC.height = 10;
+      var tmpX = tmpC.getContext('2d');
+      tmpX.font = '26px "Nanum Myeongjo", sans-serif';
+      var descLines = _dlWrapText(tmpX, desc, innerW - 40);
+      var descBoxH  = descLines.length * 36 + 40;
+
+      var titleAreaH = 68;   // title
+      var subAreaH   = 40;   // subtitle
+      var H = headerH + imgH + padV + titleAreaH + subAreaH + 16 + descBoxH + padV + footerH;
+
+      var canvas = document.createElement('canvas');
+      canvas.width  = W;
+      canvas.height = H;
+      var ctx = canvas.getContext('2d');
+
+      // ── Background ──
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // ── Header bar ──
+      ctx.fillStyle = accent;
+      ctx.fillRect(0, 0, W, headerH);
+      ctx.fillStyle = 'white';
+      ctx.font = 'bold 30px "Nanum Myeongjo", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('✨  TestWorld', W/2, headerH/2);
+
+      // ── Result image ──
+      ctx.drawImage(img, 0, headerH, W, imgH);
+
+      var y = headerH + imgH + padV;
+
+      // ── Title ──
+      ctx.fillStyle = accent;
+      ctx.font = 'bold 52px "Nanum Myeongjo", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText(title, W/2, y + 54);
+      y += titleAreaH;
+
+      // ── Subtitle ──
+      ctx.fillStyle = '#888';
+      ctx.font = '28px "Nanum Myeongjo", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(sub, W/2, y + 28);
+      y += subAreaH + 16;
+
+      // ── Desc box ──
+      ctx.fillStyle = 'white';
+      _dlRoundRect(ctx, padH, y, innerW, descBoxH, 20);
+      ctx.fill();
+
+      ctx.fillStyle = '#444';
+      ctx.font = '26px "Nanum Myeongjo", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+      for (var i = 0; i < descLines.length; i++) {
+        ctx.fillText(descLines[i], padH + 20, y + 34 + i * 36);
+      }
+      y += descBoxH + padV;
+
+      // ── Footer ──
+      var accentAlpha = _hexAlpha(accent, 0.15);
+      ctx.fillStyle = accentAlpha;
+      ctx.fillRect(0, y, W, footerH);
+      ctx.fillStyle = accent;
+      ctx.font = 'bold 26px "Nanum Myeongjo", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('나도 해보기 → testworld.kr', W/2, y + footerH/2);
+
+      // ── Download (toBlob: PC/모바일 모두 안정적) ──
+      canvas.toBlob(function(blob) {
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.download = 'testworld-idol-result.png';
+        link.href = url;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
         showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-      })
-      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
-      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
+      }, 'image/png');
+    } catch(e) {
+      console.error('Canvas download error:', e);
+      showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed. Please try again.');
+    }
   };
-  if (imgEl.complete && imgEl.naturalWidth > 0) {
-    doCapture();
-  } else {
-    imgEl.onload  = doCapture;
-    imgEl.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');if(document.body.contains(card))document.body.removeChild(card);};
-  }
+  img.onerror = function() {
+    showToast(curLang==='ko'?'이미지 로드 실패. 다시 시도해주세요.':'Image load failed. Please try again.');
+  };
+  img.src = imgSrc;
 }
 
 function getMsg() {
@@ -1191,6 +1478,105 @@ function getMsg() {
   var result = data[curLang].results[type];
   return result ? result.title : '';
 }
+
+// ── 핫핑크 반짝이 배경 애니메이션 ──
+(function() {
+  var canvas, ctx, W, H, particles;
+  var COLORS = ['#FFFFFF','#FFD700','#FFB6C1','#FFFACD','#FF69B4','#FFF0F5'];
+
+  function initGlitter() {
+    canvas = document.getElementById('glitterCanvas');
+    if (!canvas) return;
+    ctx = canvas.getContext('2d');
+    resize();
+    particles = [];
+    for (var i = 0; i < 180; i++) particles.push(makeParticle(true));
+    animate();
+    window.addEventListener('resize', resize);
+  }
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function makeParticle(randomY) {
+    var size = Math.random() * 3.5 + 0.8;
+    return {
+      x: Math.random() * W,
+      y: randomY ? Math.random() * H : -10,
+      size: size,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: Math.random() * 0.7 + 0.3,
+      alphaDir: Math.random() > 0.5 ? 1 : -1,
+      alphaSpeed: Math.random() * 0.025 + 0.008,
+      vy: Math.random() * 0.4 + 0.1,
+      vx: (Math.random() - 0.5) * 0.4,
+      rot: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.06,
+      shape: Math.random() > 0.35 ? 'star' : (Math.random() > 0.5 ? 'circle' : 'heart'),
+    };
+  }
+
+  function drawStar(x, y, r, alpha, color) {
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = color;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = r * 3;
+    ctx.beginPath();
+    for (var i = 0; i < 5; i++) {
+      var a  = (i * 4 * Math.PI / 5) - Math.PI / 2;
+      var ai = a + 2 * Math.PI / 5;
+      if (i === 0) ctx.moveTo(x + r*Math.cos(a), y + r*Math.sin(a));
+      else         ctx.lineTo(x + r*Math.cos(a), y + r*Math.sin(a));
+      ctx.lineTo(x + r*0.42*Math.cos(ai), y + r*0.42*Math.sin(ai));
+    }
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+
+  function drawCircle(x, y, r, alpha, color) {
+    ctx.save();
+    ctx.globalAlpha = alpha; ctx.fillStyle = color;
+    ctx.shadowColor = color; ctx.shadowBlur = r * 4;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2); ctx.fill();
+    ctx.restore();
+  }
+
+  function drawHeart(x, y, r, alpha, color) {
+    ctx.save();
+    ctx.globalAlpha = alpha * 0.85; ctx.fillStyle = color;
+    ctx.shadowColor = color; ctx.shadowBlur = r * 3;
+    ctx.beginPath();
+    ctx.moveTo(x, y + r*0.3);
+    ctx.bezierCurveTo(x, y-r*0.4, x-r, y-r*0.4, x-r, y+r*0.1);
+    ctx.bezierCurveTo(x-r, y+r*0.7, x, y+r*1.1, x, y+r*1.1);
+    ctx.bezierCurveTo(x, y+r*1.1, x+r, y+r*0.7, x+r, y+r*0.1);
+    ctx.bezierCurveTo(x+r, y-r*0.4, x, y-r*0.4, x, y+r*0.3);
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.alpha += p.alphaSpeed * p.alphaDir;
+      if (p.alpha >= 1)   { p.alpha = 1;   p.alphaDir = -1; }
+      if (p.alpha <= 0.1) { p.alpha = 0.1; p.alphaDir =  1; }
+      p.y += p.vy; p.x += p.vx; p.rot += p.rotSpeed;
+      if (p.y > H + 10) particles[i] = makeParticle(false);
+      ctx.save();
+      ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.translate(-p.x, -p.y);
+      if      (p.shape === 'star')  drawStar  (p.x, p.y, p.size*1.4, p.alpha, p.color);
+      else if (p.shape === 'heart') drawHeart (p.x, p.y, p.size*0.9, p.alpha, p.color);
+      else                          drawCircle(p.x, p.y, p.size,     p.alpha, p.color);
+      ctx.restore();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initGlitter);
+})();
 
 window.addEventListener('load', function() {
   const _p = new URLSearchParams(location.search).get('result');
