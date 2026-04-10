@@ -1281,6 +1281,7 @@ function restartTest() {
   scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0 };
   document.getElementById('resultScreen').style.display = 'none';
   document.getElementById('quizScreen').classList.add('hidden');
+  document.getElementById('startScreen').style.display = '';
   document.getElementById('startScreen').classList.remove('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -1364,19 +1365,45 @@ function _buildResultDataURL(type, domImg) {
   var title  = (r.title || r.name || '');
   var sub    = (r.subtitle || r.badge || '');
   var raw    = (r.desc || '').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  var desc   = raw.length > 150 ? raw.slice(0,150)+'…' : raw;
+  var desc   = raw.length > 200 ? raw.slice(0,200)+'…' : raw;
 
   var W = 840, headerH = 64, footerH = 52;
   var imgH  = Math.round(domImg.naturalHeight * W / domImg.naturalWidth);
   var padH  = 48, padV = 36, innerW = W - padH * 2;
 
+  // 임시 캔버스로 텍스트 측정
   var tmpC = document.createElement('canvas');
   tmpC.width = W; tmpC.height = 10;
   var tmpX = tmpC.getContext('2d');
-  tmpX.font = '26px "Nanum Myeongjo", sans-serif';
-  var lines    = _dlWrapText(tmpX, desc, innerW - 40);
-  var descBoxH = lines.length * 36 + 40;
-  var H = headerH + imgH + padV + 68 + 40 + 16 + descBoxH + padV + footerH;
+
+  // 타이틀 폰트 크기 자동 조절 (52px → 최소 30px)
+  var titleFontSize = 52;
+  tmpX.font = 'bold ' + titleFontSize + 'px "Nanum Myeongjo", sans-serif';
+  while (tmpX.measureText(title).width > innerW - 20 && titleFontSize > 30) {
+    titleFontSize -= 2;
+    tmpX.font = 'bold ' + titleFontSize + 'px "Nanum Myeongjo", sans-serif';
+  }
+  // 타이틀이 여전히 너무 길면 줄바꿈
+  var titleLines = _dlWrapText(tmpX, title, innerW - 20);
+  var titleLineH = titleFontSize + 14;
+  var titleBlockH = titleLines.length * titleLineH + 16;
+
+  // 서브타이틀 폰트 크기 자동 조절 (28px → 최소 18px)
+  var subFontSize = 28;
+  tmpX.font = subFontSize + 'px "Nanum Myeongjo", sans-serif';
+  while (tmpX.measureText(sub).width > innerW - 20 && subFontSize > 18) {
+    subFontSize -= 2;
+    tmpX.font = subFontSize + 'px "Nanum Myeongjo", sans-serif';
+  }
+  var subBlockH = subFontSize + 28;
+
+  // 설명 줄바꿈
+  var descFontSize = 26, descLineH = 38;
+  tmpX.font = descFontSize + 'px "Nanum Myeongjo", sans-serif';
+  var lines    = _dlWrapText(tmpX, desc, innerW - 48);
+  var descBoxH = lines.length * descLineH + 48;
+
+  var H = headerH + imgH + padV + titleBlockH + 16 + subBlockH + 16 + descBoxH + padV + footerH;
 
   var canvas = document.createElement('canvas');
   canvas.width = W; canvas.height = H;
@@ -1384,34 +1411,43 @@ function _buildResultDataURL(type, domImg) {
 
   // 배경
   ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+
   // 헤더
   ctx.fillStyle = accent; ctx.fillRect(0,0,W,headerH);
   ctx.fillStyle = 'white';
   ctx.font = 'bold 30px "Nanum Myeongjo", sans-serif';
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.fillText('✨  TestWorld', W/2, headerH/2);
+
   // 이미지
   ctx.drawImage(domImg, 0, headerH, W, imgH);
   var y = headerH + imgH + padV;
-  // 타이틀
+
+  // 타이틀 (여러 줄 지원)
   ctx.fillStyle = accent;
-  ctx.font = 'bold 52px "Nanum Myeongjo", sans-serif';
+  ctx.font = 'bold ' + titleFontSize + 'px "Nanum Myeongjo", sans-serif';
   ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-  ctx.fillText(title, W/2, y+54); y += 68;
+  for (var ti = 0; ti < titleLines.length; ti++) {
+    ctx.fillText(titleLines[ti], W/2, y + titleFontSize + ti * titleLineH);
+  }
+  y += titleBlockH + 16;
+
   // 서브타이틀
   ctx.fillStyle = '#888';
-  ctx.font = '28px "Nanum Myeongjo", sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText(sub, W/2, y+28); y += 40+16;
+  ctx.font = subFontSize + 'px "Nanum Myeongjo", sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.fillText(sub, W/2, y + subFontSize); y += subBlockH + 16;
+
   // 설명 박스
   ctx.fillStyle = 'white';
   _dlRoundRect(ctx, padH, y, innerW, descBoxH, 20); ctx.fill();
   ctx.fillStyle = '#444';
-  ctx.font = '26px "Nanum Myeongjo", sans-serif';
+  ctx.font = descFontSize + 'px "Nanum Myeongjo", sans-serif';
   ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   for (var i = 0; i < lines.length; i++)
-    ctx.fillText(lines[i], padH+20, y+34+i*36);
+    ctx.fillText(lines[i], padH + 24, y + 36 + i * descLineH);
   y += descBoxH + padV;
+
   // 푸터
   ctx.fillStyle = _hexAlpha(accent, 0.15); ctx.fillRect(0,y,W,footerH);
   ctx.fillStyle = accent;
