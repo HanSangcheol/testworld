@@ -75,10 +75,10 @@
     position: relative; z-index: 1;
   }
   .ad-slot {
-    background: #f8f0ff; border: 2px dashed #d8b4fe;
+     
     border-radius: var(--radius-sm);
     display: flex; align-items: center; justify-content: center;
-    color: #bbb; font-size: var(--fs-sm); overflow: hidden;
+     font-size: var(--fs-sm); overflow: hidden;
   }
   .ad-top    { height: 80px; margin-bottom: var(--space-lg); }
   .ad-mid    { height: 250px; margin: var(--space-lg) 0; display: none; }
@@ -320,7 +320,7 @@
 <div class="container">
 
   <!-- 상단 광고 -->
-  <div class="ad-slot ad-top">📢 광고 영역 (상단 배너)</div>
+  <div class="ad-slot ad-top"></div>
 
   <!-- ① 랜딩/시작 화면 -->
   <div id="startScreen">
@@ -340,7 +340,7 @@
       <button class="btn btn-primary" onclick="startTest()" id="startBtn">🎤 데뷔 시작하기</button>
     </div>
 
-    <div class="ad-slot ad-mid" id="adMid">📢 중간 광고 영역</div>
+    <div class="ad-slot ad-mid" id="adMid"></div>
   </div>
 
   <!-- ② 질문 화면 -->
@@ -391,7 +391,7 @@
       <div class="compat-box" id="rCompat"></div>
 
       <!-- 광고 -->
-      <div class="ad-slot ad-result">📢 광고 영역 (결과 중간)</div>
+      <div class="ad-slot ad-result"></div>
 
       <!-- 공유 -->
       <div class="section-title" id="rShareTitle">🎉 친구들에게 결과 공유하기!</div>
@@ -447,7 +447,7 @@
     </div>
 
     <!-- 하단 광고 -->
-    <div class="ad-slot ad-bottom">📢 광고 영역 (하단 배너)</div>
+    <div class="ad-slot ad-bottom"></div>
   </div>
 
 </div>
@@ -1266,6 +1266,9 @@ function renderResult(type) {
   document.getElementById('restartBtn').textContent = ui.restartBtn;
   document.getElementById('copyBtn').textContent = '🔗 ' + (curLang === 'ko' ? '링크 복사하기' : 'Copy Link');
   document.getElementById('rMoreTitle').textContent = ui.moreTitle;
+
+  // 백그라운드에서 다운로드용 이미지 미리 준비
+  _prepareDownload(type);
 }
 
 // ──────────────────────────────────────────
@@ -1349,152 +1352,131 @@ function _hexAlpha(hex, a) {
   return 'rgba('+r+','+g+','+b+','+a+')';
 }
 
+// 미리 준비된 다운로드 URL (결과 로드 시 백그라운드에서 생성)
+var _readyDataURL = null;
+var _readyType    = null;
+
+// 결과 이미지를 캔버스로 그려서 dataURL 반환 (동기)
+function _buildResultDataURL(type, domImg) {
+  var r      = data[curLang].results[type];
+  var accent = (TYPES[type] ? TYPES[type].color : '#FF6B9D');
+  var bg     = (TYPES[type] ? TYPES[type].bg    : '#FFF0F8');
+  var title  = (r.title || r.name || '');
+  var sub    = (r.subtitle || r.badge || '');
+  var raw    = (r.desc || '').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+  var desc   = raw.length > 150 ? raw.slice(0,150)+'…' : raw;
+
+  var W = 840, headerH = 64, footerH = 52;
+  var imgH  = Math.round(domImg.naturalHeight * W / domImg.naturalWidth);
+  var padH  = 48, padV = 36, innerW = W - padH * 2;
+
+  var tmpC = document.createElement('canvas');
+  tmpC.width = W; tmpC.height = 10;
+  var tmpX = tmpC.getContext('2d');
+  tmpX.font = '26px "Nanum Myeongjo", sans-serif';
+  var lines    = _dlWrapText(tmpX, desc, innerW - 40);
+  var descBoxH = lines.length * 36 + 40;
+  var H = headerH + imgH + padV + 68 + 40 + 16 + descBoxH + padV + footerH;
+
+  var canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  var ctx = canvas.getContext('2d');
+
+  // 배경
+  ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+  // 헤더
+  ctx.fillStyle = accent; ctx.fillRect(0,0,W,headerH);
+  ctx.fillStyle = 'white';
+  ctx.font = 'bold 30px "Nanum Myeongjo", sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('✨  TestWorld', W/2, headerH/2);
+  // 이미지
+  ctx.drawImage(domImg, 0, headerH, W, imgH);
+  var y = headerH + imgH + padV;
+  // 타이틀
+  ctx.fillStyle = accent;
+  ctx.font = 'bold 52px "Nanum Myeongjo", sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.fillText(title, W/2, y+54); y += 68;
+  // 서브타이틀
+  ctx.fillStyle = '#888';
+  ctx.font = '28px "Nanum Myeongjo", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(sub, W/2, y+28); y += 40+16;
+  // 설명 박스
+  ctx.fillStyle = 'white';
+  _dlRoundRect(ctx, padH, y, innerW, descBoxH, 20); ctx.fill();
+  ctx.fillStyle = '#444';
+  ctx.font = '26px "Nanum Myeongjo", sans-serif';
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  for (var i = 0; i < lines.length; i++)
+    ctx.fillText(lines[i], padH+20, y+34+i*36);
+  y += descBoxH + padV;
+  // 푸터
+  ctx.fillStyle = _hexAlpha(accent, 0.15); ctx.fillRect(0,y,W,footerH);
+  ctx.fillStyle = accent;
+  ctx.font = 'bold 26px "Nanum Myeongjo", sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('나도 해보기 → testworld.kr', W/2, y+footerH/2);
+
+  return canvas.toDataURL('image/png');
+}
+
+// 결과 표시 직후 백그라운드에서 dataURL 준비 (renderResult에서 호출)
+function _prepareDownload(type) {
+  _readyDataURL = null;
+  _readyType    = type;
+  var domImg = document.getElementById('rImg');
+  var doPrep = function() {
+    try {
+      _readyDataURL = _buildResultDataURL(type, domImg);
+    } catch(e) { console.warn('precompute failed:', e); }
+  };
+  if (domImg.complete && domImg.naturalWidth) {
+    doPrep();
+  } else {
+    domImg.addEventListener('load', doPrep, { once: true });
+  }
+}
+
+// 버튼 클릭 시 호출 — 이미 준비된 dataURL 즉시 사용
 function downloadResult() {
-  var __dlType = resolveType(scores);
-  var __dlR    = data[curLang].results[__dlType];
-  if (!__dlR) {
+  var type = resolveType(scores);
+  if (!data[curLang].results[type]) {
     showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!');
     return;
   }
 
-  // 결과 화면에 이미 로드된 이미지 재사용 (비동기 없이 즉시 캔버스에 그림)
-  var domImg = document.getElementById('rImg');
-  if (!domImg || !domImg.complete || !domImg.naturalWidth) {
-    showToast(curLang==='ko'?'이미지 로딩 중입니다. 잠시 후 다시 시도해주세요.':'Image is loading. Please try again.');
+  // 준비된 dataURL이 있으면 즉시 다운로드 (동기, PC 차단 없음)
+  if (_readyDataURL && _readyType === type) {
+    _triggerDownload(_readyDataURL);
     return;
   }
 
+  // 아직 준비 안 됐으면 즉석 생성 후 다운로드
+  var domImg = document.getElementById('rImg');
+  if (!domImg || !domImg.complete || !domImg.naturalWidth) {
+    showToast(curLang==='ko'?'이미지 로딩 중, 잠시 후 다시 눌러주세요.':'Loading image, please try again.');
+    return;
+  }
   showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
-
   try {
-    var accent  = (TYPES[__dlType] ? TYPES[__dlType].color : '#FF6B9D');
-    var bg      = (TYPES[__dlType] ? TYPES[__dlType].bg    : '#FFF0F8');
-    var title   = ((__dlR.title||__dlR.name)||'');
-    var sub     = ((__dlR.subtitle||__dlR.badge)||'');
-    var rawDesc = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-    var desc    = rawDesc.length > 150 ? rawDesc.slice(0,150)+'…' : rawDesc;
-
-    var W        = 840;
-    var headerH  = 64;
-    var footerH  = 52;
-    var imgH     = Math.round(domImg.naturalHeight * W / domImg.naturalWidth);
-    var padH     = 48;
-    var padV     = 36;
-    var innerW   = W - padH * 2;
-
-    // 줄바꿈 측정
-    var tmpC = document.createElement('canvas');
-    tmpC.width = W; tmpC.height = 10;
-    var tmpX = tmpC.getContext('2d');
-    tmpX.font = '26px "Nanum Myeongjo", sans-serif';
-    var descLines = _dlWrapText(tmpX, desc, innerW - 40);
-    var descBoxH  = descLines.length * 36 + 40;
-
-    var titleAreaH = 68;
-    var subAreaH   = 40;
-    var H = headerH + imgH + padV + titleAreaH + subAreaH + 16 + descBoxH + padV + footerH;
-
-    var canvas = document.createElement('canvas');
-    canvas.width  = W;
-    canvas.height = H;
-    var ctx = canvas.getContext('2d');
-
-    // 배경
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, W, H);
-
-    // 헤더
-    ctx.fillStyle = accent;
-    ctx.fillRect(0, 0, W, headerH);
-    ctx.fillStyle = 'white';
-    ctx.font = 'bold 30px "Nanum Myeongjo", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('✨  TestWorld', W/2, headerH/2);
-
-    // 결과 이미지 (DOM에서 직접)
-    ctx.drawImage(domImg, 0, headerH, W, imgH);
-
-    var y = headerH + imgH + padV;
-
-    // 타이틀
-    ctx.fillStyle = accent;
-    ctx.font = 'bold 52px "Nanum Myeongjo", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'alphabetic';
-    ctx.fillText(title, W/2, y + 54);
-    y += titleAreaH;
-
-    // 서브타이틀
-    ctx.fillStyle = '#888';
-    ctx.font = '28px "Nanum Myeongjo", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(sub, W/2, y + 28);
-    y += subAreaH + 16;
-
-    // 설명 박스
-    ctx.fillStyle = 'white';
-    _dlRoundRect(ctx, padH, y, innerW, descBoxH, 20);
-    ctx.fill();
-    ctx.fillStyle = '#444';
-    ctx.font = '26px "Nanum Myeongjo", sans-serif';
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'alphabetic';
-    for (var i = 0; i < descLines.length; i++) {
-      ctx.fillText(descLines[i], padH + 20, y + 34 + i * 36);
-    }
-    y += descBoxH + padV;
-
-    // 푸터
-    ctx.fillStyle = _hexAlpha(accent, 0.15);
-    ctx.fillRect(0, y, W, footerH);
-    ctx.fillStyle = accent;
-    ctx.font = 'bold 26px "Nanum Myeongjo", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('나도 해보기 → testworld.kr', W/2, y + footerH/2);
-
-    // 다운로드: toBlob → toDataURL 순으로 시도
-    if (canvas.toBlob) {
-      canvas.toBlob(function(blob) {
-        if (!blob) {
-          // blob 생성 실패시 toDataURL 폴백
-          _dlViaDataURL(canvas);
-          return;
-        }
-        var url = URL.createObjectURL(blob);
-        var link = document.createElement('a');
-        link.download = 'testworld-idol-result.png';
-        link.href = url;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(function() { URL.revokeObjectURL(url); }, 2000);
-        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-      }, 'image/png');
-    } else {
-      _dlViaDataURL(canvas);
-    }
+    var url = _buildResultDataURL(type, domImg);
+    _triggerDownload(url);
   } catch(e) {
-    console.error('Canvas download error:', e);
+    console.error('download error:', e);
     showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed. Please try again.');
   }
 }
 
-function _dlViaDataURL(canvas) {
-  try {
-    var dataURL = canvas.toDataURL('image/png');
-    var link = document.createElement('a');
-    link.download = 'testworld-idol-result.png';
-    link.href = dataURL;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-  } catch(e2) {
-    console.error('DataURL download error:', e2);
-    showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed. Please try again.');
-  }
+function _triggerDownload(dataURL) {
+  var link = document.createElement('a');
+  link.download = 'testworld-idol-result.png';
+  link.href = dataURL;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
 }
 
 function getMsg() {

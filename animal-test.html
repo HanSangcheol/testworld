@@ -89,10 +89,10 @@ window.addEventListener('load', function() {
     position: relative; z-index: 1;
   }
   .ad-slot {
-    background: #eef8f2; border: 2px dashed #b0d8c0;
+    
     border-radius: var(--radius-sm);
     display: flex; align-items: center; justify-content: center;
-    color: #bbb; font-size: var(--fs-sm); overflow: hidden;
+     font-size: var(--fs-sm); overflow: hidden;
   }
   .ad-top    { height: 80px; margin-bottom: var(--space-lg); }
   .ad-mid    { height: 250px; margin: var(--space-lg) 0; display: none; }
@@ -180,7 +180,7 @@ window.addEventListener('load', function() {
     font-size: clamp(16px,4vw,19px); font-weight: 700;
     line-height: 1.55; margin-bottom: 4px; word-break: keep-all;
   }
-  .question-sub { font-size: var(--fs-sm); color: #bbb; margin-bottom: clamp(16px,4vw,22px); }
+  .question-sub { font-size: var(--fs-sm);  margin-bottom: clamp(16px,4vw,22px); }
   .choices { display: flex; flex-direction: column; gap: 8px; }
   .choice-btn {
     background: var(--bg); border: 2px solid var(--border);
@@ -387,7 +387,7 @@ window.addEventListener('load', function() {
 <div class="toast" id="toast"></div>
 
 <div class="container">
-  <div class="ad-slot ad-top">📢 광고 영역 (상단 728×90)</div>
+  <div class="ad-slot ad-top"></div>
 
   <div class="header" id="headerSection">
     <span class="emoji-big">🐾</span>
@@ -413,7 +413,7 @@ window.addEventListener('load', function() {
       <div class="question-sub"  id="questionSub"></div>
       <div class="choices"       id="choicesContainer"></div>
     </div>
-    <div class="ad-slot ad-mid" id="adMid">📢 광고 영역 (중간 300×250)</div>
+    <div class="ad-slot ad-mid" id="adMid"></div>
   </div>
 
   <div class="result-screen" id="resultSection">
@@ -459,7 +459,7 @@ window.addEventListener('load', function() {
       </div>
     </div>
 
-    <div class="ad-slot ad-result">📢 광고 영역 (결과 직후 300×250 — 최고 CTR)</div>
+    <div class="ad-slot ad-result"></div>
 
     <div class="share-card">
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
@@ -495,7 +495,7 @@ window.addEventListener('load', function() {
       </a>
     </div>
 
-    <div class="ad-slot ad-bottom">📢 광고 영역 (하단)</div>
+    <div class="ad-slot ad-bottom"></div>
   </div>
 
   <div class="footer">© 2026 테스트월드 · <a href="index.html" style="color:#ddd">홈으로</a></div>
