@@ -274,9 +274,9 @@
     animation: fadeUp .5s ease .3s both;
   }
   .share-card h3 { font-family: 'Gaegu', cursive; font-size: var(--fs-lg); font-weight: 800; margin-bottom: var(--space-md); }
-  .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: nowrap; }
+  .share-buttons { display: flex; flex-direction: column; gap: 10px; }
   .share-btn {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px;
     padding: clamp(13px,3vw,16px) clamp(12px,3vw,20px);
     border-radius: var(--radius-sm); border: none;
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
@@ -286,7 +286,7 @@
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.13); }
   .btn-copy { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
   .restart-btn {
-    flex: 1; padding: clamp(13px,3vw,16px) clamp(12px,3vw,20px);
+    width: 100%; padding: clamp(13px,3vw,16px) clamp(12px,3vw,20px);
     background: white; color: var(--primary);
     border: 2px solid var(--primary); border-radius: var(--radius-sm);
     font-family: 'Times New Roman', 'Nanum Myeongjo', serif;
@@ -326,8 +326,7 @@
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 360px) {
     .traits { grid-template-columns: 1fr; }
-    .share-buttons { flex-direction: column; align-items: center; }
-    .compat-row { flex-direction: column; }
+.compat-row { flex-direction: column; }
   }
   @media (min-width: 600px) {
     .container { padding-top: 32px; padding-bottom: 80px; }
@@ -344,6 +343,9 @@
     display: flex; flex-wrap: wrap; gap: 8px;
     justify-content: center; margin: var(--space-md) 0 var(--space-sm);
   }
+
+  /* ── 공유 섹션 ── */
+  .share-section { margin-bottom: var(--space-lg); }
 
   /* ── 다른 테스트 섹션 ── */
   .more-tests {
@@ -1830,7 +1832,7 @@ const results = {
   "A": {
     "emoji": "👑",
     "title": "금발의 야망 공주",
-    "subtitle": "언니를 제치고 제국의 황제가 되기를 꿈꾸는 야망캐",
+    "subtitle": "모든 라이벌을 제치고 제국의 황제가 되기를 꿈꾸는 야망캐",
     "tags": [
       "#야망캐",
       "#권력욕",
