@@ -188,7 +188,7 @@
     box-shadow: 0 3px 14px color-mix(in srgb, var(--primary) 25%, transparent);
   }
   .choice-emoji { font-size: clamp(20px,5vw,24px); flex-shrink: 0; padding-top: 1px; }
-  .result-screen { display: none; }
+  .result-screen { display: none; word-break: keep-all; overflow-wrap: break-word; }
   .result-hero {
     background: var(--card); border-radius: var(--radius);
     padding: clamp(24px,6vw,36px) clamp(18px,5vw,28px) clamp(20px,5vw,28px);
@@ -1832,7 +1832,7 @@ const results = {
   "A": {
     "emoji": "👑",
     "title": "금발의 야망 공주",
-    "subtitle": "모든 라이벌을 제치고 제국의 황제가 되기를 꿈꾸는 야망캐",
+    "subtitle": "모든 라이벌을 제치고 제국의 황제가 되기를<br>꿈꾸는 야망캐",
     "tags": [
       "#야망캐",
       "#권력욕",
@@ -1877,7 +1877,7 @@ const results = {
   "B": {
     "emoji": "🗡️",
     "title": "역모를 꿈꾸는 재상의 아들",
-    "subtitle": "약혼녀를 죽이고 황권을 손에 넣으려는 치밀한 야심가",
+    "subtitle": "약혼녀를 죽이고 황권을 손에 넣으려는<br>치밀한 야심가",
     "tags": [
       "#역모캐",
       "#빌런인줄알았는데",
@@ -2930,8 +2930,8 @@ function showResult() {
   // 듣고싶은말
   const we=['💕','🥰','✨','💫','🌸','💗','🎀','🌟','💝'][Math.floor(Math.random()*9)];
   const de=['😤','🙅','💢','😬','🫠','😑','🚫','😶','🫤'][Math.floor(Math.random()*9)];
-  if (result.wantToHear) document.getElementById('resultWantToHear').innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+we+'</span>'+result.wantToHear;
-  if (result.dontWantToHear) document.getElementById('resultDontWantToHear').innerHTML='<span style="font-size:30px;display:block;margin-bottom:8px">'+de+'</span>'+result.dontWantToHear;
+  if (result.wantToHear) document.getElementById('resultWantToHear').innerHTML='<span style="font-size:30px;margin-right:6px">'+we+'</span>'+result.wantToHear;
+  if (result.dontWantToHear) document.getElementById('resultDontWantToHear').innerHTML='<span style="font-size:30px;margin-right:6px">'+de+'</span>'+result.dontWantToHear;
 
   const tagsContainer = document.getElementById('resultTags');
   tagsContainer.innerHTML = '';
