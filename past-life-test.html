@@ -2887,7 +2887,7 @@ function showResult() {
   document.getElementById('resultTitle').textContent = result.title;
   const titleEl = document.getElementById('resultTitle');
   if (titleEl && ty) titleEl.style.color = ty.color;
-  document.getElementById('resultSubtitle').textContent = result.subtitle;
+  document.getElementById('resultSubtitle').innerHTML = result.subtitle;
   document.getElementById('resultDesc').innerHTML = result.desc;
   const plImg = document.getElementById('pastLifeResultImg');
   if (plImg) plImg.innerHTML = PAST_LIFE_SVGS[topType] || '';
