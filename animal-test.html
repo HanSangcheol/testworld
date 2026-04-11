@@ -12,7 +12,8 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<script>
 window.addEventListener('load', function() {
   const _p = new URLSearchParams(location.search).get('result');
   if (_p) {
@@ -79,7 +80,7 @@ window.addEventListener('load', function() {
   /* 밤하늘 모드 텍스트 조정 */
   body.night-sky .progress-label { color: rgba(255,255,255,0.75); }
   body.night-sky .progress-wrap { background: rgba(255,255,255,0.15); }
-  body.night-sky .ad-slot { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: rgba(200,180,255,0.3); }
+  body.night-sky .ad-slot { background: transparent; border-color: transparent; }
 </style>
 <script>if(new URLSearchParams(location.search).get('result')){document.documentElement.classList.add('has-result');}</script>
 <style>html.has-result #startSection,html.has-result #headerSection{display:none!important}
@@ -125,6 +126,8 @@ window.addEventListener('load', function() {
     font-family: 'Gaegu', cursive;
     font-size: var(--fs-2xl); font-weight: 700;
     line-height: 1.25; margin-bottom: var(--space-sm);
+    color: #FFFFFF;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
   }
   .header h1 span {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -301,7 +304,6 @@ window.addEventListener('load', function() {
   }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.13); }
   .btn-copy     { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
-  .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
   .restart-btn {
     width: 100%; padding: clamp(14px,3.5vw,17px);
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -366,19 +368,6 @@ window.addEventListener('load', function() {
   #animalResultImg svg { display:block; width:100%; }
 
 </style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
-window.addEventListener('load', function() {
-  const _p = new URLSearchParams(location.search).get('result');
-  if (_p) {
-    const _t = _p.toUpperCase();
-    if (['A','B','C','D','E','F','G','H','I','J'].includes(_t)) {
-      scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0 };
-      scores[_t] = 99;
-      showResult();
-    }
-  }
-});
-</script>
 </head>
 <body>
 <div id="animalBgLayer"></div>
@@ -465,7 +454,6 @@ window.addEventListener('load', function() {
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
-        <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
     </div>
 
@@ -1528,58 +1516,6 @@ function getMsg() {
 }
 
 // ============================================================
-// 결과 저장 (다운로드)
-// ============================================================
-function downloadResult() {
-  var __dlType = resolveType(scores);
-  var __dlR    = data[curLang].results[__dlType];
-  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
-  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
-  var __accent = (TYPES&&TYPES[__dlType]?TYPES[__dlType].color:"#B8860B");
-  var __bg     = (TYPES&&TYPES[__dlType]?TYPES[__dlType].bg:"#FFF");
-  var __imgSrc = "images/animal/result_"+__dlType+".jpg";
-  var __title  = (__dlR.name)||'';
-  var __sub    = (__dlR.badge||__dlR.tagline)||'';
-  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
-  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
-  var __tmp    = new Image();
-  __tmp.crossOrigin = 'anonymous';
-  __tmp.onload = function() {
-    var __tc = document.createElement('canvas');
-    __tc.width=__tmp.naturalWidth; __tc.height=__tmp.naturalHeight;
-    __tc.getContext('2d').drawImage(__tmp,0,0);
-    var __du = __tc.toDataURL('image/jpeg',0.95);
-    var card = document.createElement('div');
-    card.id = '__share_card__';
-    card.style.cssText = ['position:fixed','top:-9999px','left:-9999px',
-      'width:420px','padding:0','background:'+__bg,
-      'border-radius:24px','overflow:hidden',
-      "font-family:'Gaegu',cursive",
-      'box-shadow:0 8px 40px rgba(0,0,0,.18)'].join(';');
-    card.innerHTML =
-      '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
-      '<img src="'+__du+'" style="width:100%;display:block;border:none">'+
-      '<div style="padding:20px 22px;text-align:center">'+
-        '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
-        '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
-        '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
-      '</div>'+
-      '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
-    document.body.appendChild(card);
-    html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:__bg,logging:false})
-      .then(function(canvas){
-        var link=document.createElement('a');
-        link.download='testworld-result.png';
-        link.href=canvas.toDataURL('image/png');
-        link.click();
-        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-      })
-      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
-      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
-  };
-  __tmp.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');};
-  __tmp.src = __imgSrc;
-}
 
 function copyLink(){const txt=getMsg()+'\n'+location.href;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>showToast(data[curLang].ui.copyOk));}else{const el=document.createElement('textarea');el.value=txt;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(data[curLang].ui.copyOk);}}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}

@@ -291,7 +291,6 @@
   }
   .share-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.13); }
   .btn-copy     { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
-  .btn-download { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
   .restart-btn {
     width: 100%; padding: clamp(14px,3.5vw,17px);
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -450,7 +449,6 @@
 </style>
 <script>if(new URLSearchParams(location.search).get('result')){document.documentElement.classList.add('has-result');}</script>
 <style>html.has-result #startSection,html.has-result #headerSection{display:none!important}</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -585,7 +583,6 @@
       <h3 id="shareTitle">🎉 친구들에게 결과 공유하기!</h3>
       <div class="share-buttons">
         <button class="share-btn btn-copy"     onclick="copyLink()">🔗 링크복사</button>
-        <button class="share-btn btn-download" onclick="downloadResult()">📥 결과 저장</button>
       </div>
     </div>
 
@@ -1559,56 +1556,6 @@ function getShareMsg() {
     : `My love style is "${name}"! 💕 What's yours?`;
 }
 
-function downloadResult() {
-  var __dlType = resolveType(totalScore);
-  var __dlR    = data[curLang].results[__dlType];
-  if (!__dlR) { showToast(curLang==='ko'?'먼저 테스트를 완료해주세요!':'Please complete the test first!'); return; }
-  showToast(curLang==='ko'?'이미지 만드는 중...':'Creating image...');
-  var __accent = (TYPES[__dlType]?TYPES[__dlType].color:"#8B5CF6");
-  var __bg     = (TYPES[__dlType]?TYPES[__dlType].bg:"#F9F7FF");
-  var __imgSrc = "images/love/result_"+__dlType+".jpg";
-  var __title  = (__dlR.name)||'';
-  var __sub    = (__dlR.tagline||__dlR.badge)||'';
-  var __raw    = (__dlR.desc||'').replace(/<[^>]+>/g,' ').replace(/  +/g,' ').trim();
-  var __desc   = __raw.length>130?__raw.slice(0,130)+'...':__raw;
-  var __tmp    = new Image();
-  __tmp.crossOrigin = 'anonymous';
-  __tmp.onload = function() {
-    var __tc = document.createElement('canvas');
-    __tc.width=__tmp.naturalWidth; __tc.height=__tmp.naturalHeight;
-    __tc.getContext('2d').drawImage(__tmp,0,0);
-    var __du = __tc.toDataURL('image/jpeg',0.95);
-    var card = document.createElement('div');
-    card.id = '__share_card__';
-    card.style.cssText = ['position:fixed','top:-9999px','left:-9999px',
-      'width:420px','padding:0','background:'+__bg,
-      'border-radius:24px','overflow:hidden',
-      "font-family:'Gaegu',cursive",
-      'box-shadow:0 8px 40px rgba(0,0,0,.18)'].join(';');
-    card.innerHTML =
-      '<div style="background:'+__accent+';padding:10px 0;text-align:center;font-size:16px;font-weight:800;color:white;letter-spacing:2px">✨ TestWorld</div>'+
-      '<img src="'+__du+'" style="width:100%;display:block;border:none">'+
-      '<div style="padding:20px 22px;text-align:center">'+
-        '<div style="font-size:28px;font-weight:800;color:'+__accent+';margin-bottom:6px">'+__title+'</div>'+
-        '<div style="font-size:15px;color:#777;margin-bottom:14px">'+__sub+'</div>'+
-        '<div style="background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:14px;line-height:1.8;color:#444">'+__desc+'</div>'+
-      '</div>'+
-      '<div style="background:'+__accent+'22;padding:12px;text-align:center;font-size:14px;color:'+__accent+';font-weight:700">나도 해보기 → testworld.kr</div>';
-    document.body.appendChild(card);
-    html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:__bg,logging:false})
-      .then(function(canvas){
-        var link=document.createElement('a');
-        link.download='testworld-result.png';
-        link.href=canvas.toDataURL('image/png');
-        link.click();
-        showToast(curLang==='ko'?'✅ 저장 완료!':'✅ Saved!');
-      })
-      .catch(function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');})
-      .finally(function(){if(document.body.contains(card))document.body.removeChild(card);});
-  };
-  __tmp.onerror = function(){showToast(curLang==='ko'?'저장 실패. 다시 시도해주세요.':'Save failed.');};
-  __tmp.src = __imgSrc;
-}
 
 function copyLink() {
   const txt = getShareMsg()+'\n'+location.href;
