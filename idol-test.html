@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- Google AdSense (실제 사용시 교체) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9026857738724369" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
 
 <style>
   :root {
@@ -80,10 +80,10 @@
     display: flex; align-items: center; justify-content: center;
      font-size: var(--fs-sm); overflow: hidden;
   }
-  .ad-top    { height: 80px; margin-bottom: var(--space-lg); }
-  .ad-mid    { height: 250px; margin: var(--space-lg) 0; display: none; }
-  .ad-result { height: 250px; margin: var(--space-md) 0; }
-  .ad-bottom { height: 80px; margin: var(--space-sm) 0; }
+  .ad-top    { height: 100px; margin-bottom: var(--space-lg); }
+  .ad-mid    { height: 100px; margin: var(--space-lg) 0; display: none; }
+  .ad-result { height: 100px; margin: var(--space-md) 0; }
+  .ad-bottom { height: 100px; margin: var(--space-sm) 0; }
   .lang-toggle {
     position: fixed; top: 14px; right: 14px;
     background: var(--card); border: 2px solid var(--primary);
@@ -318,7 +318,9 @@
 <div class="container">
 
   <!-- 상단 광고 -->
-  <div class="ad-slot ad-top"></div>
+  <div class="ad-slot ad-top">
+      <ins class="kakao_ad_area" style="display:none;width:100%;" data-ad-unit="test" data-ad-width="320" data-ad-height="100"></ins>
+    </div>
 
   <!-- ① 랜딩/시작 화면 -->
   <div id="startScreen">
@@ -338,7 +340,9 @@
       <button class="btn btn-primary" onclick="startTest()" id="startBtn">🎤 데뷔 시작하기</button>
     </div>
 
-    <div class="ad-slot ad-mid" id="adMid"></div>
+    <div class="ad-slot ad-mid" id="adMid">
+      <ins class="kakao_ad_area" style="display:none;width:100%;" data-ad-unit="test" data-ad-width="320" data-ad-height="100"></ins>
+    </div>
   </div>
 
   <!-- ② 질문 화면 -->
@@ -389,7 +393,9 @@
       <div class="compat-box" id="rCompat"></div>
 
       <!-- 광고 -->
-      <div class="ad-slot ad-result"></div>
+      <div class="ad-slot ad-result">
+      <ins class="kakao_ad_area" style="display:none;width:100%;" data-ad-unit="test" data-ad-width="320" data-ad-height="100"></ins>
+    </div>
 
       <!-- 공유 -->
       <div class="section-title" id="rShareTitle">🎉 친구들에게 결과 공유하기!</div>
@@ -444,7 +450,9 @@
     </div>
 
     <!-- 하단 광고 -->
-    <div class="ad-slot ad-bottom"></div>
+    <div class="ad-slot ad-bottom">
+      <ins class="kakao_ad_area" style="display:none;width:100%;" data-ad-unit="test" data-ad-width="320" data-ad-height="100"></ins>
+    </div>
   </div>
 
 </div>
