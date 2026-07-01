@@ -11,7 +11,8 @@
 <meta property="og:image" content="images/talent/start.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gaegu:wght@400;700&display=swap"></noscript>
 <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
 
 <style>
@@ -66,9 +67,9 @@
     display: flex; align-items: center; justify-content: center;
      font-size: var(--fs-sm); overflow: hidden;
   }
-  .ad-top    { height: 100px; margin-bottom: var(--space-lg); }
+  .ad-top    { height: 100px; margin: 56px 0 var(--space-lg); }
   .ad-mid    { height: 100px; margin: var(--space-lg) 0; display: none; }
-  .ad-result { height: 100px; margin: var(--space-md) 0; }
+  .ad-result { height: 100px; margin: var(--space-lg) 0 32px; }
   .ad-bottom { height: 100px; margin: var(--space-lg) 0; }
   .lang-toggle, .lang-btn {
     position: fixed; top: 14px; right: 14px;
@@ -364,7 +365,7 @@
 
 <div class="container">
   <div class="ad-slot ad-top">
-      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-LQZkp8sTmkK1Abka" data-ad-width="320" data-ad-height="100"></ins>
+      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="test@@" data-ad-width="320" data-ad-height="100"></ins>
     </div>
 
   <div class="header" id="headerSection">
@@ -392,7 +393,7 @@
       <div class="choices"       id="choicesContainer"></div>
     </div>
     <div class="ad-slot ad-mid" id="adMid">
-      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-LQZkp8sTmkK1Abka" data-ad-width="320" data-ad-height="100"></ins>
+      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="test@@" data-ad-width="320" data-ad-height="100"></ins>
     </div>
   </div>
 
@@ -427,7 +428,7 @@
     </div>
 
     <div class="ad-slot ad-result">
-      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-LQZkp8sTmkK1Abka" data-ad-width="320" data-ad-height="100"></ins>
+      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="test@@" data-ad-width="320" data-ad-height="100"></ins>
     </div>
 
     <div class="share-card">
@@ -464,7 +465,7 @@
     </div>
 
     <div class="ad-slot ad-bottom">
-      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-LQZkp8sTmkK1Abka" data-ad-width="320" data-ad-height="100"></ins>
+      <ins class="kakao_ad_area" style="display:none;" data-ad-unit="test@@" data-ad-width="320" data-ad-height="100"></ins>
     </div>
   </div>
 
